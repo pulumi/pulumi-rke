@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package rke
 
 import (
 	"unicode"
@@ -22,13 +22,14 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
+	"github.com/rancher/terraform-provider-rke/rke"
+	//"github.com/terraform-providers/terraform-provider-rke/rke"
 )
 
 // all of the token components used below.
 const (
 	// packages:
-	mainPkg = "xyz"
+	mainPkg = "rke"
 	// modules:
 	mainMod = "index" // the y module
 )
@@ -46,10 +47,12 @@ func makeType(mod string, typ string) tokens.Type {
 // makeDataSource manufactures a standard resource token given a module and resource name.  It
 // automatically uses the main package and names the file by simply lower casing the data source's
 // first character.
+/*
 func makeDataSource(mod string, res string) tokens.ModuleMember {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return makeMember(mod+"/"+fn, res)
 }
+*/
 
 // makeResource manufactures a standard resource token given a module and resource name.  It
 // automatically uses the main package and names the file by simply lower casing the resource's
@@ -60,11 +63,14 @@ func makeResource(mod string, res string) tokens.Type {
 }
 
 // boolRef returns a reference to the bool argument.
+/*
 func boolRef(b bool) *bool {
 	return &b
 }
+*/
 
 // stringValue gets a string value from a property map if present, else ""
+/*
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
@@ -72,6 +78,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 	}
 	return ""
 }
+*/
 
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
 // It should validate that the provider can be configured, and provide actionable errors in the case
@@ -82,52 +89,67 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
-var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
+// var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := xyz.Provider().(*schema.Provider)
+	p := rke.Provider().(*schema.Provider)
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "xyz",
-		Description: "A Pulumi package for creating and managing xyz cloud resources.",
-		Keywords:    []string{"pulumi", "xyz"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-xyz",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
-		},
+		P:                    p,
+		Name:                 "rke",
+		Description:          "A Pulumi package for creating and managing rke cloud resources.",
+		Keywords:             []string{"pulumi", "rke"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		Repository:           "https://github.com/jaxxstorm/pulumi-rke",
+		GitHubOrg:            "rancher",
+		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"rke_cluster": {
+				Tok:  makeResource(mainMod, "Cluster"),
+				Docs: &tfbridge.DocInfo{Source: "cluster.html.markdown"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"nodes": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"roles": {
+									Name: "RoleList",
+								},
+							},
+						},
+					},
+					"services_etcd": {
+						Name:       "Services_Etcd",
+						CSharpName: "Services_Etcd",
+					},
+					"services_kube_api": {
+						Name:       "Services_KubeApi",
+						CSharpName: "Services_KubeApi",
+					},
+					"services_kube_controller": {
+						Name:       "Services_KubeController",
+						CSharpName: "Services_KubeController",
+					},
+					"services_kubelet": {
+						Name:       "Services_Kubelet",
+						CSharpName: "Services_Kubelet",
+					},
+					"services_kubeproxy": {
+						Name:       "Services_KubeProxy",
+						CSharpName: "Services_KubeProxy",
+					},
+					"services_scheduler": {
+						Name:       "Services_KubeScheduler",
+						CSharpName: "Services_KubeScheduler",
+					},
+				},
+			},
 		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
-		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
