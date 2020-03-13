@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/rke",
-    "version": "0.0.1",
+    "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing rke cloud resources.",
     "keywords": [
         "pulumi",

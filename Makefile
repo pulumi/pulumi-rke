@@ -3,8 +3,9 @@ include build/common.mk
 
 PACK             := rke
 PACKDIR          := sdk
-PROJECT          := github.com/jaxxstorm/pulumi-${PACK}
-NODE_MODULE_NAME := @pulumi/${PACK}
+ORG              := pulumi
+PROJECT          := github.com/${ORG}/pulumi-${PACK}
+NODE_MODULE_NAME := @${ORG}/${PACK}
 TF_NAME          := ${PACK}
 
 TFGEN           := pulumi-tfgen-${PACK}
@@ -56,7 +57,7 @@ build:: tfgen provider
 		yarn install && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\@pulumi\/rke/@jaxxstorm\/pulumi-rke/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
 		cp ../../README.md . && \
 		$(PYTHON) setup.py clean --all 2>/dev/null && \
