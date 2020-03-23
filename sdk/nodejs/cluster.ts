@@ -593,26 +593,38 @@ export interface ClusterState {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     * 
+     * @deprecated Use services.etcd instead
      */
     readonly Services_Etcd?: pulumi.Input<inputs.ClusterServices_Etcd>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_api instead
      */
     readonly Services_KubeApi?: pulumi.Input<inputs.ClusterServices_KubeApi>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_controller instead
      */
     readonly Services_KubeController?: pulumi.Input<inputs.ClusterServices_KubeController>;
     /**
      * Use services.kubelet instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubelet instead
      */
     readonly Services_Kubelet?: pulumi.Input<inputs.ClusterServices_Kubelet>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubeproxy instead
      */
     readonly Services_KubeProxy?: pulumi.Input<inputs.ClusterServices_KubeProxy>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     * 
+     * @deprecated Use services.scheduler instead
      */
     readonly Services_KubeScheduler?: pulumi.Input<inputs.ClusterServices_KubeScheduler>;
     /**
@@ -759,26 +771,38 @@ export interface ClusterArgs {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     * 
+     * @deprecated Use services.etcd instead
      */
     readonly Services_Etcd?: pulumi.Input<inputs.ClusterServices_Etcd>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_api instead
      */
     readonly Services_KubeApi?: pulumi.Input<inputs.ClusterServices_KubeApi>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_controller instead
      */
     readonly Services_KubeController?: pulumi.Input<inputs.ClusterServices_KubeController>;
     /**
      * Use services.kubelet instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubelet instead
      */
     readonly Services_Kubelet?: pulumi.Input<inputs.ClusterServices_Kubelet>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubeproxy instead
      */
     readonly Services_KubeProxy?: pulumi.Input<inputs.ClusterServices_KubeProxy>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     * 
+     * @deprecated Use services.scheduler instead
      */
     readonly Services_KubeScheduler?: pulumi.Input<inputs.ClusterServices_KubeScheduler>;
     /**

@@ -1,4 +1,4 @@
-module github.com/jaxxstorm/pulumi-rke
+module github.com/jaxxstorm/pulumi-rke/provider
 
 go 1.13
 
@@ -39,8 +39,8 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.4.1
 	github.com/hashicorp/vault/api v1.0.5-0.20190909201928-35325e2c3262 // indirect
 	github.com/pierrec/lz4 v2.2.6+incompatible // indirect
-	github.com/pulumi/pulumi v1.8.0
-	github.com/pulumi/pulumi-terraform-bridge v1.5.2
+	github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9
+	github.com/pulumi/pulumi-terraform-bridge v1.8.2
 	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200227234548-91b6d14d676a
 	github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832
 	github.com/urfave/cli v1.20.0 // indirect
