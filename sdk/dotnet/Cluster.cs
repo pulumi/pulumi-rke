@@ -11,7 +11,7 @@ namespace Pulumi.Rke
 {
     /// <summary>
     /// Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
-    /// 
+    ///
     /// &gt; This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
@@ -289,38 +289,38 @@ namespace Pulumi.Rke
         /// <summary>
         /// Use services.etcd instead (list maxitems:1)
         /// </summary>
-        [Output("Services_Etcd")]
-        public Output<Outputs.ClusterServices_Etcd?> Services_Etcd { get; private set; } = null!;
+        [Output("servicesEtcdDeprecated")]
+        public Output<Outputs.ClusterServicesEtcdDeprecated?> ServicesEtcdDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Use services.kube_api instead (list maxitems:1)
         /// </summary>
-        [Output("Services_KubeApi")]
-        public Output<Outputs.ClusterServices_KubeApi?> Services_KubeApi { get; private set; } = null!;
+        [Output("servicesKubeApiDeprecated")]
+        public Output<Outputs.ClusterServicesKubeApiDeprecated?> ServicesKubeApiDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Use services.kube_controller instead (list maxitems:1)
         /// </summary>
-        [Output("Services_KubeController")]
-        public Output<Outputs.ClusterServices_KubeController?> Services_KubeController { get; private set; } = null!;
+        [Output("servicesKubeControllerDeprecated")]
+        public Output<Outputs.ClusterServicesKubeControllerDeprecated?> ServicesKubeControllerDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Use services.kubelet instead (list maxitems:1)
         /// </summary>
-        [Output("Services_Kubelet")]
-        public Output<Outputs.ClusterServices_Kubelet?> Services_Kubelet { get; private set; } = null!;
+        [Output("servicesKubeletDeprecated")]
+        public Output<Outputs.ClusterServicesKubeletDeprecated?> ServicesKubeletDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
-        [Output("Services_KubeProxy")]
-        public Output<Outputs.ClusterServices_KubeProxy?> Services_KubeProxy { get; private set; } = null!;
+        [Output("servicesKubeProxyDeprecated")]
+        public Output<Outputs.ClusterServicesKubeProxyDeprecated?> ServicesKubeProxyDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Use services.scheduler instead (list maxitems:1)
         /// </summary>
-        [Output("Services_KubeScheduler")]
-        public Output<Outputs.ClusterServices_KubeScheduler?> Services_KubeScheduler { get; private set; } = null!;
+        [Output("servicesKubeSchedulerDeprecated")]
+        public Output<Outputs.ClusterServicesKubeSchedulerDeprecated?> ServicesKubeSchedulerDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// SSH Agent Auth enable (bool)
@@ -599,38 +599,38 @@ namespace Pulumi.Rke
         /// <summary>
         /// Use services.etcd instead (list maxitems:1)
         /// </summary>
-        [Input("Services_Etcd")]
-        public Input<Inputs.ClusterServices_EtcdArgs>? Services_Etcd { get; set; }
+        [Input("servicesEtcdDeprecated")]
+        public Input<Inputs.ClusterServicesEtcdDeprecatedArgs>? ServicesEtcdDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kube_api instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeApi")]
-        public Input<Inputs.ClusterServices_KubeApiArgs>? Services_KubeApi { get; set; }
+        [Input("servicesKubeApiDeprecated")]
+        public Input<Inputs.ClusterServicesKubeApiDeprecatedArgs>? ServicesKubeApiDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kube_controller instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeController")]
-        public Input<Inputs.ClusterServices_KubeControllerArgs>? Services_KubeController { get; set; }
+        [Input("servicesKubeControllerDeprecated")]
+        public Input<Inputs.ClusterServicesKubeControllerDeprecatedArgs>? ServicesKubeControllerDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kubelet instead (list maxitems:1)
         /// </summary>
-        [Input("Services_Kubelet")]
-        public Input<Inputs.ClusterServices_KubeletArgs>? Services_Kubelet { get; set; }
+        [Input("servicesKubeletDeprecated")]
+        public Input<Inputs.ClusterServicesKubeletDeprecatedArgs>? ServicesKubeletDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeProxy")]
-        public Input<Inputs.ClusterServices_KubeProxyArgs>? Services_KubeProxy { get; set; }
+        [Input("servicesKubeProxyDeprecated")]
+        public Input<Inputs.ClusterServicesKubeProxyDeprecatedArgs>? ServicesKubeProxyDeprecated { get; set; }
 
         /// <summary>
         /// Use services.scheduler instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeScheduler")]
-        public Input<Inputs.ClusterServices_KubeSchedulerArgs>? Services_KubeScheduler { get; set; }
+        [Input("servicesKubeSchedulerDeprecated")]
+        public Input<Inputs.ClusterServicesKubeSchedulerDeprecatedArgs>? ServicesKubeSchedulerDeprecated { get; set; }
 
         /// <summary>
         /// SSH Agent Auth enable (bool)
@@ -990,38 +990,38 @@ namespace Pulumi.Rke
         /// <summary>
         /// Use services.etcd instead (list maxitems:1)
         /// </summary>
-        [Input("Services_Etcd")]
-        public Input<Inputs.ClusterServices_EtcdGetArgs>? Services_Etcd { get; set; }
+        [Input("servicesEtcdDeprecated")]
+        public Input<Inputs.ClusterServicesEtcdDeprecatedGetArgs>? ServicesEtcdDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kube_api instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeApi")]
-        public Input<Inputs.ClusterServices_KubeApiGetArgs>? Services_KubeApi { get; set; }
+        [Input("servicesKubeApiDeprecated")]
+        public Input<Inputs.ClusterServicesKubeApiDeprecatedGetArgs>? ServicesKubeApiDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kube_controller instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeController")]
-        public Input<Inputs.ClusterServices_KubeControllerGetArgs>? Services_KubeController { get; set; }
+        [Input("servicesKubeControllerDeprecated")]
+        public Input<Inputs.ClusterServicesKubeControllerDeprecatedGetArgs>? ServicesKubeControllerDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kubelet instead (list maxitems:1)
         /// </summary>
-        [Input("Services_Kubelet")]
-        public Input<Inputs.ClusterServices_KubeletGetArgs>? Services_Kubelet { get; set; }
+        [Input("servicesKubeletDeprecated")]
+        public Input<Inputs.ClusterServicesKubeletDeprecatedGetArgs>? ServicesKubeletDeprecated { get; set; }
 
         /// <summary>
         /// Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeProxy")]
-        public Input<Inputs.ClusterServices_KubeProxyGetArgs>? Services_KubeProxy { get; set; }
+        [Input("servicesKubeProxyDeprecated")]
+        public Input<Inputs.ClusterServicesKubeProxyDeprecatedGetArgs>? ServicesKubeProxyDeprecated { get; set; }
 
         /// <summary>
         /// Use services.scheduler instead (list maxitems:1)
         /// </summary>
-        [Input("Services_KubeScheduler")]
-        public Input<Inputs.ClusterServices_KubeSchedulerGetArgs>? Services_KubeScheduler { get; set; }
+        [Input("servicesKubeSchedulerDeprecated")]
+        public Input<Inputs.ClusterServicesKubeSchedulerDeprecatedGetArgs>? ServicesKubeSchedulerDeprecated { get; set; }
 
         /// <summary>
         /// SSH Agent Auth enable (bool)
@@ -5276,8 +5276,8 @@ namespace Pulumi.Rke
             set => _roles = value;
         }
 
-        [Input("RoleList")]
-        public Input<string>? RoleList { get; set; }
+        [Input("rolesDeprecated")]
+        public Input<string>? RolesDeprecated { get; set; }
 
         /// <summary>
         /// SSH Agent Auth enable (bool)
@@ -5394,8 +5394,8 @@ namespace Pulumi.Rke
             set => _roles = value;
         }
 
-        [Input("RoleList")]
-        public Input<string>? RoleList { get; set; }
+        [Input("rolesDeprecated")]
+        public Input<string>? RolesDeprecated { get; set; }
 
         /// <summary>
         /// SSH Agent Auth enable (bool)
@@ -6179,6 +6179,420 @@ namespace Pulumi.Rke
         }
     }
 
+    public sealed class ClusterServicesEtcdDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        /// </summary>
+        [Input("backupConfig")]
+        public Input<ClusterServicesEtcdDeprecatedBackupConfigArgs>? BackupConfig { get; set; }
+
+        /// <summary>
+        /// TLS CA certificate for etcd service (string)
+        /// </summary>
+        [Input("caCert")]
+        public Input<string>? CaCert { get; set; }
+
+        /// <summary>
+        /// TLS certificate for etcd service (string)
+        /// </summary>
+        [Input("cert")]
+        public Input<string>? Cert { get; set; }
+
+        /// <summary>
+        /// Creation option for etcd service (string)
+        /// </summary>
+        [Input("creation")]
+        public Input<string>? Creation { get; set; }
+
+        [Input("externalUrls")]
+        private InputList<string>? _externalUrls;
+
+        /// <summary>
+        /// External urls for etcd service (list)
+        /// </summary>
+        public InputList<string> ExternalUrls
+        {
+            get => _externalUrls ?? (_externalUrls = new InputList<string>());
+            set => _externalUrls = value;
+        }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        [Input("gid")]
+        public Input<int>? Gid { get; set; }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        [Input("retention")]
+        public Input<string>? Retention { get; set; }
+
+        /// <summary>
+        /// Snapshot option for etcd service. Default `true` (bool)
+        /// </summary>
+        [Input("snapshot")]
+        public Input<bool>? Snapshot { get; set; }
+
+        /// <summary>
+        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        [Input("uid")]
+        public Input<int>? Uid { get; set; }
+
+        public ClusterServicesEtcdDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Interval hours for etcd backup. Default `12` (int)
+        /// </summary>
+        [Input("intervalHours")]
+        public Input<int>? IntervalHours { get; set; }
+
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        [Input("retention")]
+        public Input<int>? Retention { get; set; }
+
+        /// <summary>
+        /// S3 config options for etcd backup (list maxitems:1)
+        /// </summary>
+        [Input("s3BackupConfig")]
+        public Input<ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs>? S3BackupConfig { get; set; }
+
+        /// <summary>
+        /// Safe timestamp for etcd backup. Default: `false` (bool)
+        /// </summary>
+        [Input("safeTimestamp")]
+        public Input<bool>? SafeTimestamp { get; set; }
+
+        public ClusterServicesEtcdDeprecatedBackupConfigArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Interval hours for etcd backup. Default `12` (int)
+        /// </summary>
+        [Input("intervalHours")]
+        public Input<int>? IntervalHours { get; set; }
+
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        [Input("retention")]
+        public Input<int>? Retention { get; set; }
+
+        /// <summary>
+        /// S3 config options for etcd backup (list maxitems:1)
+        /// </summary>
+        [Input("s3BackupConfig")]
+        public Input<ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigGetArgs>? S3BackupConfig { get; set; }
+
+        /// <summary>
+        /// Safe timestamp for etcd backup. Default: `false` (bool)
+        /// </summary>
+        [Input("safeTimestamp")]
+        public Input<bool>? SafeTimestamp { get; set; }
+
+        public ClusterServicesEtcdDeprecatedBackupConfigGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Access key for S3 service (string)
+        /// </summary>
+        [Input("accessKey")]
+        public Input<string>? AccessKey { get; set; }
+
+        /// <summary>
+        /// Bucket name for S3 service (string)
+        /// </summary>
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
+
+        /// <summary>
+        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
+        /// </summary>
+        [Input("customCa")]
+        public Input<string>? CustomCa { get; set; }
+
+        /// <summary>
+        /// Endpoint for S3 service (string)
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
+        /// </summary>
+        [Input("folder")]
+        public Input<string>? Folder { get; set; }
+
+        /// <summary>
+        /// Region for S3 service (string)
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Secret key for S3 service (string)
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        public ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Access key for S3 service (string)
+        /// </summary>
+        [Input("accessKey")]
+        public Input<string>? AccessKey { get; set; }
+
+        /// <summary>
+        /// Bucket name for S3 service (string)
+        /// </summary>
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
+
+        /// <summary>
+        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
+        /// </summary>
+        [Input("customCa")]
+        public Input<string>? CustomCa { get; set; }
+
+        /// <summary>
+        /// Endpoint for S3 service (string)
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
+        /// </summary>
+        [Input("folder")]
+        public Input<string>? Folder { get; set; }
+
+        /// <summary>
+        /// Region for S3 service (string)
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Secret key for S3 service (string)
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        public ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesEtcdDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        /// </summary>
+        [Input("backupConfig")]
+        public Input<ClusterServicesEtcdDeprecatedBackupConfigGetArgs>? BackupConfig { get; set; }
+
+        /// <summary>
+        /// TLS CA certificate for etcd service (string)
+        /// </summary>
+        [Input("caCert")]
+        public Input<string>? CaCert { get; set; }
+
+        /// <summary>
+        /// TLS certificate for etcd service (string)
+        /// </summary>
+        [Input("cert")]
+        public Input<string>? Cert { get; set; }
+
+        /// <summary>
+        /// Creation option for etcd service (string)
+        /// </summary>
+        [Input("creation")]
+        public Input<string>? Creation { get; set; }
+
+        [Input("externalUrls")]
+        private InputList<string>? _externalUrls;
+
+        /// <summary>
+        /// External urls for etcd service (list)
+        /// </summary>
+        public InputList<string> ExternalUrls
+        {
+            get => _externalUrls ?? (_externalUrls = new InputList<string>());
+            set => _externalUrls = value;
+        }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        [Input("gid")]
+        public Input<int>? Gid { get; set; }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        [Input("retention")]
+        public Input<string>? Retention { get; set; }
+
+        /// <summary>
+        /// Snapshot option for etcd service. Default `true` (bool)
+        /// </summary>
+        [Input("snapshot")]
+        public Input<bool>? Snapshot { get; set; }
+
+        /// <summary>
+        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        [Input("uid")]
+        public Input<int>? Uid { get; set; }
+
+        public ClusterServicesEtcdDeprecatedGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterServicesEtcdGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -6558,6 +6972,364 @@ namespace Pulumi.Rke
         }
     }
 
+    public sealed class ClusterServicesKubeApiDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+        /// </summary>
+        [Input("alwaysPullImages")]
+        public Input<bool>? AlwaysPullImages { get; set; }
+
+        /// <summary>
+        /// K8s audit log configuration. (list maxitem: 1)
+        /// </summary>
+        [Input("auditLog")]
+        public Input<ClusterServicesKubeApiDeprecatedAuditLogArgs>? AuditLog { get; set; }
+
+        /// <summary>
+        /// K8s event rate limit configuration. (list maxitem: 1)
+        /// </summary>
+        [Input("eventRateLimit")]
+        public Input<ClusterServicesKubeApiDeprecatedEventRateLimitArgs>? EventRateLimit { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Pod Security Policy option for kube API service. Default `false` (bool)
+        /// </summary>
+        [Input("podSecurityPolicy")]
+        public Input<bool>? PodSecurityPolicy { get; set; }
+
+        /// <summary>
+        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+        /// </summary>
+        [Input("secretsEncryptionConfig")]
+        public Input<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs>? SecretsEncryptionConfig { get; set; }
+
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        [Input("serviceClusterIpRange")]
+        public Input<string>? ServiceClusterIpRange { get; set; }
+
+        /// <summary>
+        /// Service Node Port Range option for kube API service (string)
+        /// </summary>
+        [Input("serviceNodePortRange")]
+        public Input<string>? ServiceNodePortRange { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Audit log configuration. (list maxtiem: 1)
+        /// </summary>
+        [Input("configuration")]
+        public Input<ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedAuditLogArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Audit log format. Default: `json` (string)
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// Audit log max age. Default: `30` (int)
+        /// </summary>
+        [Input("maxAge")]
+        public Input<int>? MaxAge { get; set; }
+
+        /// <summary>
+        /// Audit log max backup. Default: `10` (int)
+        /// </summary>
+        [Input("maxBackup")]
+        public Input<int>? MaxBackup { get; set; }
+
+        /// <summary>
+        /// Audit log max size. Default: `100` (int)
+        /// </summary>
+        [Input("maxSize")]
+        public Input<int>? MaxSize { get; set; }
+
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Audit log format. Default: `json` (string)
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// Audit log max age. Default: `30` (int)
+        /// </summary>
+        [Input("maxAge")]
+        public Input<int>? MaxAge { get; set; }
+
+        /// <summary>
+        /// Audit log max backup. Default: `10` (int)
+        /// </summary>
+        [Input("maxBackup")]
+        public Input<int>? MaxBackup { get; set; }
+
+        /// <summary>
+        /// Audit log max size. Default: `100` (int)
+        /// </summary>
+        [Input("maxSize")]
+        public Input<int>? MaxSize { get; set; }
+
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Audit log configuration. (list maxtiem: 1)
+        /// </summary>
+        [Input("configuration")]
+        public Input<ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedAuditLogGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedEventRateLimitArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedEventRateLimitArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedEventRateLimitGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedEventRateLimitGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+        /// </summary>
+        [Input("alwaysPullImages")]
+        public Input<bool>? AlwaysPullImages { get; set; }
+
+        /// <summary>
+        /// K8s audit log configuration. (list maxitem: 1)
+        /// </summary>
+        [Input("auditLog")]
+        public Input<ClusterServicesKubeApiDeprecatedAuditLogGetArgs>? AuditLog { get; set; }
+
+        /// <summary>
+        /// K8s event rate limit configuration. (list maxitem: 1)
+        /// </summary>
+        [Input("eventRateLimit")]
+        public Input<ClusterServicesKubeApiDeprecatedEventRateLimitGetArgs>? EventRateLimit { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Pod Security Policy option for kube API service. Default `false` (bool)
+        /// </summary>
+        [Input("podSecurityPolicy")]
+        public Input<bool>? PodSecurityPolicy { get; set; }
+
+        /// <summary>
+        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+        /// </summary>
+        [Input("secretsEncryptionConfig")]
+        public Input<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigGetArgs>? SecretsEncryptionConfig { get; set; }
+
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        [Input("serviceClusterIpRange")]
+        public Input<string>? ServiceClusterIpRange { get; set; }
+
+        /// <summary>
+        /// Service Node Port Range option for kube API service (string)
+        /// </summary>
+        [Input("serviceNodePortRange")]
+        public Input<string>? ServiceNodePortRange { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterServicesKubeApiEventRateLimitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -6762,6 +7534,128 @@ namespace Pulumi.Rke
         }
     }
 
+    public sealed class ClusterServicesKubeControllerDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Cluster CIDR option for kube controller service (string)
+        /// </summary>
+        [Input("clusterCidr")]
+        public Input<string>? ClusterCidr { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        [Input("serviceClusterIpRange")]
+        public Input<string>? ServiceClusterIpRange { get; set; }
+
+        public ClusterServicesKubeControllerDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeControllerDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Cluster CIDR option for kube controller service (string)
+        /// </summary>
+        [Input("clusterCidr")]
+        public Input<string>? ClusterCidr { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        [Input("serviceClusterIpRange")]
+        public Input<string>? ServiceClusterIpRange { get; set; }
+
+        public ClusterServicesKubeControllerDeprecatedGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterServicesKubeControllerGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -6819,6 +7713,202 @@ namespace Pulumi.Rke
         public Input<string>? ServiceClusterIpRange { get; set; }
 
         public ClusterServicesKubeControllerGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeProxyDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        public ClusterServicesKubeProxyDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeProxyDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        public ClusterServicesKubeProxyDeprecatedGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeSchedulerDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        public ClusterServicesKubeSchedulerDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeSchedulerDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        public ClusterServicesKubeSchedulerDeprecatedGetArgs()
         {
         }
     }
@@ -6896,6 +7986,160 @@ namespace Pulumi.Rke
         public Input<string>? InfraContainerImage { get; set; }
 
         public ClusterServicesKubeletArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeletDeprecatedArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Cluster DNS Server option for kubelet service (string)
+        /// </summary>
+        [Input("clusterDnsServer")]
+        public Input<string>? ClusterDnsServer { get; set; }
+
+        /// <summary>
+        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// </summary>
+        [Input("clusterDomain")]
+        public Input<string>? ClusterDomain { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Enable or disable failing when swap on is not supported (bool)
+        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+        /// </summary>
+        [Input("failSwapOn")]
+        public Input<bool>? FailSwapOn { get; set; }
+
+        [Input("generateServingCertificate")]
+        public Input<bool>? GenerateServingCertificate { get; set; }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Infra container image for kubelet service (string)
+        /// </summary>
+        [Input("infraContainerImage")]
+        public Input<string>? InfraContainerImage { get; set; }
+
+        public ClusterServicesKubeletDeprecatedArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterServicesKubeletDeprecatedGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Cluster DNS Server option for kubelet service (string)
+        /// </summary>
+        [Input("clusterDnsServer")]
+        public Input<string>? ClusterDnsServer { get; set; }
+
+        /// <summary>
+        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// </summary>
+        [Input("clusterDomain")]
+        public Input<string>? ClusterDomain { get; set; }
+
+        [Input("extraArgs")]
+        private InputMap<object>? _extraArgs;
+
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public InputMap<object> ExtraArgs
+        {
+            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            set => _extraArgs = value;
+        }
+
+        [Input("extraBinds")]
+        private InputList<string>? _extraBinds;
+
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraBinds
+        {
+            get => _extraBinds ?? (_extraBinds = new InputList<string>());
+            set => _extraBinds = value;
+        }
+
+        [Input("extraEnvs")]
+        private InputList<string>? _extraEnvs;
+
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public InputList<string> ExtraEnvs
+        {
+            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
+            set => _extraEnvs = value;
+        }
+
+        /// <summary>
+        /// Enable or disable failing when swap on is not supported (bool)
+        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+        /// </summary>
+        [Input("failSwapOn")]
+        public Input<bool>? FailSwapOn { get; set; }
+
+        [Input("generateServingCertificate")]
+        public Input<bool>? GenerateServingCertificate { get; set; }
+
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Infra container image for kubelet service (string)
+        /// </summary>
+        [Input("infraContainerImage")]
+        public Input<string>? InfraContainerImage { get; set; }
+
+        public ClusterServicesKubeletDeprecatedGetArgs()
         {
         }
     }
@@ -7169,1250 +8413,6 @@ namespace Pulumi.Rke
         public Input<string>? Image { get; set; }
 
         public ClusterServicesSchedulerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-        /// </summary>
-        [Input("backupConfig")]
-        public Input<ClusterServices_EtcdBackupConfigArgs>? BackupConfig { get; set; }
-
-        /// <summary>
-        /// TLS CA certificate for etcd service (string)
-        /// </summary>
-        [Input("caCert")]
-        public Input<string>? CaCert { get; set; }
-
-        /// <summary>
-        /// TLS certificate for etcd service (string)
-        /// </summary>
-        [Input("cert")]
-        public Input<string>? Cert { get; set; }
-
-        /// <summary>
-        /// Creation option for etcd service (string)
-        /// </summary>
-        [Input("creation")]
-        public Input<string>? Creation { get; set; }
-
-        [Input("externalUrls")]
-        private InputList<string>? _externalUrls;
-
-        /// <summary>
-        /// External urls for etcd service (list)
-        /// </summary>
-        public InputList<string> ExternalUrls
-        {
-            get => _externalUrls ?? (_externalUrls = new InputList<string>());
-            set => _externalUrls = value;
-        }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        [Input("gid")]
-        public Input<int>? Gid { get; set; }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// TLS key for etcd service (string)
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        [Input("retention")]
-        public Input<string>? Retention { get; set; }
-
-        /// <summary>
-        /// Snapshot option for etcd service. Default `true` (bool)
-        /// </summary>
-        [Input("snapshot")]
-        public Input<bool>? Snapshot { get; set; }
-
-        /// <summary>
-        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        [Input("uid")]
-        public Input<int>? Uid { get; set; }
-
-        public ClusterServices_EtcdArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdBackupConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Interval hours for etcd backup. Default `12` (int)
-        /// </summary>
-        [Input("intervalHours")]
-        public Input<int>? IntervalHours { get; set; }
-
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        [Input("retention")]
-        public Input<int>? Retention { get; set; }
-
-        /// <summary>
-        /// S3 config options for etcd backup (list maxitems:1)
-        /// </summary>
-        [Input("s3BackupConfig")]
-        public Input<ClusterServices_EtcdBackupConfigS3BackupConfigArgs>? S3BackupConfig { get; set; }
-
-        /// <summary>
-        /// Safe timestamp for etcd backup. Default: `false` (bool)
-        /// </summary>
-        [Input("safeTimestamp")]
-        public Input<bool>? SafeTimestamp { get; set; }
-
-        public ClusterServices_EtcdBackupConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdBackupConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Interval hours for etcd backup. Default `12` (int)
-        /// </summary>
-        [Input("intervalHours")]
-        public Input<int>? IntervalHours { get; set; }
-
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        [Input("retention")]
-        public Input<int>? Retention { get; set; }
-
-        /// <summary>
-        /// S3 config options for etcd backup (list maxitems:1)
-        /// </summary>
-        [Input("s3BackupConfig")]
-        public Input<ClusterServices_EtcdBackupConfigS3BackupConfigGetArgs>? S3BackupConfig { get; set; }
-
-        /// <summary>
-        /// Safe timestamp for etcd backup. Default: `false` (bool)
-        /// </summary>
-        [Input("safeTimestamp")]
-        public Input<bool>? SafeTimestamp { get; set; }
-
-        public ClusterServices_EtcdBackupConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdBackupConfigS3BackupConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Access key for S3 service (string)
-        /// </summary>
-        [Input("accessKey")]
-        public Input<string>? AccessKey { get; set; }
-
-        /// <summary>
-        /// Bucket name for S3 service (string)
-        /// </summary>
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        /// <summary>
-        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
-        /// </summary>
-        [Input("customCa")]
-        public Input<string>? CustomCa { get; set; }
-
-        /// <summary>
-        /// Endpoint for S3 service (string)
-        /// </summary>
-        [Input("endpoint")]
-        public Input<string>? Endpoint { get; set; }
-
-        /// <summary>
-        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
-        /// </summary>
-        [Input("folder")]
-        public Input<string>? Folder { get; set; }
-
-        /// <summary>
-        /// Region for S3 service (string)
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// Secret key for S3 service (string)
-        /// </summary>
-        [Input("secretKey")]
-        public Input<string>? SecretKey { get; set; }
-
-        public ClusterServices_EtcdBackupConfigS3BackupConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdBackupConfigS3BackupConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Access key for S3 service (string)
-        /// </summary>
-        [Input("accessKey")]
-        public Input<string>? AccessKey { get; set; }
-
-        /// <summary>
-        /// Bucket name for S3 service (string)
-        /// </summary>
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        /// <summary>
-        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
-        /// </summary>
-        [Input("customCa")]
-        public Input<string>? CustomCa { get; set; }
-
-        /// <summary>
-        /// Endpoint for S3 service (string)
-        /// </summary>
-        [Input("endpoint")]
-        public Input<string>? Endpoint { get; set; }
-
-        /// <summary>
-        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
-        /// </summary>
-        [Input("folder")]
-        public Input<string>? Folder { get; set; }
-
-        /// <summary>
-        /// Region for S3 service (string)
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// Secret key for S3 service (string)
-        /// </summary>
-        [Input("secretKey")]
-        public Input<string>? SecretKey { get; set; }
-
-        public ClusterServices_EtcdBackupConfigS3BackupConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_EtcdGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-        /// </summary>
-        [Input("backupConfig")]
-        public Input<ClusterServices_EtcdBackupConfigGetArgs>? BackupConfig { get; set; }
-
-        /// <summary>
-        /// TLS CA certificate for etcd service (string)
-        /// </summary>
-        [Input("caCert")]
-        public Input<string>? CaCert { get; set; }
-
-        /// <summary>
-        /// TLS certificate for etcd service (string)
-        /// </summary>
-        [Input("cert")]
-        public Input<string>? Cert { get; set; }
-
-        /// <summary>
-        /// Creation option for etcd service (string)
-        /// </summary>
-        [Input("creation")]
-        public Input<string>? Creation { get; set; }
-
-        [Input("externalUrls")]
-        private InputList<string>? _externalUrls;
-
-        /// <summary>
-        /// External urls for etcd service (list)
-        /// </summary>
-        public InputList<string> ExternalUrls
-        {
-            get => _externalUrls ?? (_externalUrls = new InputList<string>());
-            set => _externalUrls = value;
-        }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        [Input("gid")]
-        public Input<int>? Gid { get; set; }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// TLS key for etcd service (string)
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        [Input("retention")]
-        public Input<string>? Retention { get; set; }
-
-        /// <summary>
-        /// Snapshot option for etcd service. Default `true` (bool)
-        /// </summary>
-        [Input("snapshot")]
-        public Input<bool>? Snapshot { get; set; }
-
-        /// <summary>
-        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        [Input("uid")]
-        public Input<int>? Uid { get; set; }
-
-        public ClusterServices_EtcdGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-        /// </summary>
-        [Input("alwaysPullImages")]
-        public Input<bool>? AlwaysPullImages { get; set; }
-
-        /// <summary>
-        /// K8s audit log configuration. (list maxitem: 1)
-        /// </summary>
-        [Input("auditLog")]
-        public Input<ClusterServices_KubeApiAuditLogArgs>? AuditLog { get; set; }
-
-        /// <summary>
-        /// K8s event rate limit configuration. (list maxitem: 1)
-        /// </summary>
-        [Input("eventRateLimit")]
-        public Input<ClusterServices_KubeApiEventRateLimitArgs>? EventRateLimit { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Pod Security Policy option for kube API service. Default `false` (bool)
-        /// </summary>
-        [Input("podSecurityPolicy")]
-        public Input<bool>? PodSecurityPolicy { get; set; }
-
-        /// <summary>
-        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-        /// </summary>
-        [Input("secretsEncryptionConfig")]
-        public Input<ClusterServices_KubeApiSecretsEncryptionConfigArgs>? SecretsEncryptionConfig { get; set; }
-
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        [Input("serviceClusterIpRange")]
-        public Input<string>? ServiceClusterIpRange { get; set; }
-
-        /// <summary>
-        /// Service Node Port Range option for kube API service (string)
-        /// </summary>
-        [Input("serviceNodePortRange")]
-        public Input<string>? ServiceNodePortRange { get; set; }
-
-        public ClusterServices_KubeApiArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiAuditLogArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Audit log configuration. (list maxtiem: 1)
-        /// </summary>
-        [Input("configuration")]
-        public Input<ClusterServices_KubeApiAuditLogConfigurationArgs>? Configuration { get; set; }
-
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiAuditLogArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiAuditLogConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Audit log format. Default: `json` (string)
-        /// </summary>
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// Audit log max age. Default: `30` (int)
-        /// </summary>
-        [Input("maxAge")]
-        public Input<int>? MaxAge { get; set; }
-
-        /// <summary>
-        /// Audit log max backup. Default: `10` (int)
-        /// </summary>
-        [Input("maxBackup")]
-        public Input<int>? MaxBackup { get; set; }
-
-        /// <summary>
-        /// Audit log max size. Default: `100` (int)
-        /// </summary>
-        [Input("maxSize")]
-        public Input<int>? MaxSize { get; set; }
-
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-        /// </summary>
-        [Input("policy")]
-        public Input<string>? Policy { get; set; }
-
-        public ClusterServices_KubeApiAuditLogConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiAuditLogConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Audit log format. Default: `json` (string)
-        /// </summary>
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// Audit log max age. Default: `30` (int)
-        /// </summary>
-        [Input("maxAge")]
-        public Input<int>? MaxAge { get; set; }
-
-        /// <summary>
-        /// Audit log max backup. Default: `10` (int)
-        /// </summary>
-        [Input("maxBackup")]
-        public Input<int>? MaxBackup { get; set; }
-
-        /// <summary>
-        /// Audit log max size. Default: `100` (int)
-        /// </summary>
-        [Input("maxSize")]
-        public Input<int>? MaxSize { get; set; }
-
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-        /// </summary>
-        [Input("policy")]
-        public Input<string>? Policy { get; set; }
-
-        public ClusterServices_KubeApiAuditLogConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiAuditLogGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Audit log configuration. (list maxtiem: 1)
-        /// </summary>
-        [Input("configuration")]
-        public Input<ClusterServices_KubeApiAuditLogConfigurationGetArgs>? Configuration { get; set; }
-
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiAuditLogGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiEventRateLimitArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiEventRateLimitArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiEventRateLimitGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiEventRateLimitGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-        /// </summary>
-        [Input("alwaysPullImages")]
-        public Input<bool>? AlwaysPullImages { get; set; }
-
-        /// <summary>
-        /// K8s audit log configuration. (list maxitem: 1)
-        /// </summary>
-        [Input("auditLog")]
-        public Input<ClusterServices_KubeApiAuditLogGetArgs>? AuditLog { get; set; }
-
-        /// <summary>
-        /// K8s event rate limit configuration. (list maxitem: 1)
-        /// </summary>
-        [Input("eventRateLimit")]
-        public Input<ClusterServices_KubeApiEventRateLimitGetArgs>? EventRateLimit { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Pod Security Policy option for kube API service. Default `false` (bool)
-        /// </summary>
-        [Input("podSecurityPolicy")]
-        public Input<bool>? PodSecurityPolicy { get; set; }
-
-        /// <summary>
-        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-        /// </summary>
-        [Input("secretsEncryptionConfig")]
-        public Input<ClusterServices_KubeApiSecretsEncryptionConfigGetArgs>? SecretsEncryptionConfig { get; set; }
-
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        [Input("serviceClusterIpRange")]
-        public Input<string>? ServiceClusterIpRange { get; set; }
-
-        /// <summary>
-        /// Service Node Port Range option for kube API service (string)
-        /// </summary>
-        [Input("serviceNodePortRange")]
-        public Input<string>? ServiceNodePortRange { get; set; }
-
-        public ClusterServices_KubeApiGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiSecretsEncryptionConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiSecretsEncryptionConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeApiSecretsEncryptionConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServices_KubeApiSecretsEncryptionConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeControllerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
-        /// </summary>
-        [Input("clusterCidr")]
-        public Input<string>? ClusterCidr { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        [Input("serviceClusterIpRange")]
-        public Input<string>? ServiceClusterIpRange { get; set; }
-
-        public ClusterServices_KubeControllerArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeControllerGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
-        /// </summary>
-        [Input("clusterCidr")]
-        public Input<string>? ClusterCidr { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        [Input("serviceClusterIpRange")]
-        public Input<string>? ServiceClusterIpRange { get; set; }
-
-        public ClusterServices_KubeControllerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeProxyArgs : Pulumi.ResourceArgs
-    {
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        public ClusterServices_KubeProxyArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeProxyGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        public ClusterServices_KubeProxyGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeSchedulerArgs : Pulumi.ResourceArgs
-    {
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        public ClusterServices_KubeSchedulerArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeSchedulerGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        public ClusterServices_KubeSchedulerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeletArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
-        /// </summary>
-        [Input("clusterDnsServer")]
-        public Input<string>? ClusterDnsServer { get; set; }
-
-        /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-        /// </summary>
-        [Input("clusterDomain")]
-        public Input<string>? ClusterDomain { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Enable or disable failing when swap on is not supported (bool)
-        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        /// </summary>
-        [Input("failSwapOn")]
-        public Input<bool>? FailSwapOn { get; set; }
-
-        [Input("generateServingCertificate")]
-        public Input<bool>? GenerateServingCertificate { get; set; }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Infra container image for kubelet service (string)
-        /// </summary>
-        [Input("infraContainerImage")]
-        public Input<string>? InfraContainerImage { get; set; }
-
-        public ClusterServices_KubeletArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServices_KubeletGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
-        /// </summary>
-        [Input("clusterDnsServer")]
-        public Input<string>? ClusterDnsServer { get; set; }
-
-        /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-        /// </summary>
-        [Input("clusterDomain")]
-        public Input<string>? ClusterDomain { get; set; }
-
-        [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
-
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public InputMap<object> ExtraArgs
-        {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
-            set => _extraArgs = value;
-        }
-
-        [Input("extraBinds")]
-        private InputList<string>? _extraBinds;
-
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraBinds
-        {
-            get => _extraBinds ?? (_extraBinds = new InputList<string>());
-            set => _extraBinds = value;
-        }
-
-        [Input("extraEnvs")]
-        private InputList<string>? _extraEnvs;
-
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public InputList<string> ExtraEnvs
-        {
-            get => _extraEnvs ?? (_extraEnvs = new InputList<string>());
-            set => _extraEnvs = value;
-        }
-
-        /// <summary>
-        /// Enable or disable failing when swap on is not supported (bool)
-        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        /// </summary>
-        [Input("failSwapOn")]
-        public Input<bool>? FailSwapOn { get; set; }
-
-        [Input("generateServingCertificate")]
-        public Input<bool>? GenerateServingCertificate { get; set; }
-
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        [Input("image")]
-        public Input<string>? Image { get; set; }
-
-        /// <summary>
-        /// Infra container image for kubelet service (string)
-        /// </summary>
-        [Input("infraContainerImage")]
-        public Input<string>? InfraContainerImage { get; set; }
-
-        public ClusterServices_KubeletGetArgs()
         {
         }
     }
@@ -11036,7 +11036,7 @@ namespace Pulumi.Rke
         /// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
         /// </summary>
         public readonly ImmutableArray<string> Roles;
-        public readonly string? RoleList;
+        public readonly string? RolesDeprecated;
         /// <summary>
         /// SSH Agent Auth enable (bool)
         /// </summary>
@@ -11076,7 +11076,7 @@ namespace Pulumi.Rke
             string? nodeName,
             string? port,
             ImmutableArray<string> roles,
-            string? RoleList,
+            string? rolesDeprecated,
             bool sshAgentAuth,
             string? sshCert,
             string? sshCertPath,
@@ -11093,7 +11093,7 @@ namespace Pulumi.Rke
             NodeName = nodeName;
             Port = port;
             Roles = roles;
-            RoleList = RoleList;
+            RolesDeprecated = rolesDeprecated;
             SshAgentAuth = sshAgentAuth;
             SshCert = sshCert;
             SshCertPath = sshCertPath;
@@ -11645,6 +11645,198 @@ namespace Pulumi.Rke
     }
 
     [OutputType]
+    public sealed class ClusterServicesEtcdDeprecated
+    {
+        /// <summary>
+        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        /// </summary>
+        public readonly ClusterServicesEtcdDeprecatedBackupConfig BackupConfig;
+        /// <summary>
+        /// TLS CA certificate for etcd service (string)
+        /// </summary>
+        public readonly string CaCert;
+        /// <summary>
+        /// TLS certificate for etcd service (string)
+        /// </summary>
+        public readonly string Cert;
+        /// <summary>
+        /// Creation option for etcd service (string)
+        /// </summary>
+        public readonly string Creation;
+        /// <summary>
+        /// External urls for etcd service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExternalUrls;
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        public readonly int? Gid;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
+        public readonly string Key;
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        public readonly string Path;
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        public readonly string Retention;
+        /// <summary>
+        /// Snapshot option for etcd service. Default `true` (bool)
+        /// </summary>
+        public readonly bool? Snapshot;
+        /// <summary>
+        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        /// </summary>
+        public readonly int? Uid;
+
+        [OutputConstructor]
+        private ClusterServicesEtcdDeprecated(
+            ClusterServicesEtcdDeprecatedBackupConfig backupConfig,
+            string caCert,
+            string cert,
+            string creation,
+            ImmutableArray<string> externalUrls,
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            int? gid,
+            string image,
+            string key,
+            string path,
+            string retention,
+            bool? snapshot,
+            int? uid)
+        {
+            BackupConfig = backupConfig;
+            CaCert = caCert;
+            Cert = cert;
+            Creation = creation;
+            ExternalUrls = externalUrls;
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            Gid = gid;
+            Image = image;
+            Key = key;
+            Path = path;
+            Retention = retention;
+            Snapshot = snapshot;
+            Uid = uid;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfig
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
+        /// Interval hours for etcd backup. Default `12` (int)
+        /// </summary>
+        public readonly int? IntervalHours;
+        /// <summary>
+        /// Retention for etcd backup. Default `6` (int)
+        /// </summary>
+        public readonly int? Retention;
+        /// <summary>
+        /// S3 config options for etcd backup (list maxitems:1)
+        /// </summary>
+        public readonly ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig? S3BackupConfig;
+        /// <summary>
+        /// Safe timestamp for etcd backup. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? SafeTimestamp;
+
+        [OutputConstructor]
+        private ClusterServicesEtcdDeprecatedBackupConfig(
+            bool? enabled,
+            int? intervalHours,
+            int? retention,
+            ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig? s3BackupConfig,
+            bool? safeTimestamp)
+        {
+            Enabled = enabled;
+            IntervalHours = intervalHours;
+            Retention = retention;
+            S3BackupConfig = s3BackupConfig;
+            SafeTimestamp = safeTimestamp;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig
+    {
+        /// <summary>
+        /// Access key for S3 service (string)
+        /// </summary>
+        public readonly string? AccessKey;
+        /// <summary>
+        /// Bucket name for S3 service (string)
+        /// </summary>
+        public readonly string? BucketName;
+        /// <summary>
+        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
+        /// </summary>
+        public readonly string? CustomCa;
+        /// <summary>
+        /// Endpoint for S3 service (string)
+        /// </summary>
+        public readonly string? Endpoint;
+        /// <summary>
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
+        /// </summary>
+        public readonly string? Folder;
+        /// <summary>
+        /// Region for S3 service (string)
+        /// </summary>
+        public readonly string? Region;
+        /// <summary>
+        /// Secret key for S3 service (string)
+        /// </summary>
+        public readonly string? SecretKey;
+
+        [OutputConstructor]
+        private ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig(
+            string? accessKey,
+            string? bucketName,
+            string? customCa,
+            string? endpoint,
+            string? folder,
+            string? region,
+            string? secretKey)
+        {
+            AccessKey = accessKey;
+            BucketName = bucketName;
+            CustomCa = customCa;
+            Endpoint = endpoint;
+            Folder = folder;
+            Region = region;
+            SecretKey = secretKey;
+        }
+    }
+
+    [OutputType]
     public sealed class ClusterServicesKubeApi
     {
         /// <summary>
@@ -11789,6 +11981,180 @@ namespace Pulumi.Rke
     }
 
     [OutputType]
+    public sealed class ClusterServicesKubeApiDeprecated
+    {
+        /// <summary>
+        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+        /// </summary>
+        public readonly bool? AlwaysPullImages;
+        /// <summary>
+        /// K8s audit log configuration. (list maxitem: 1)
+        /// </summary>
+        public readonly ClusterServicesKubeApiDeprecatedAuditLog? AuditLog;
+        /// <summary>
+        /// K8s event rate limit configuration. (list maxitem: 1)
+        /// </summary>
+        public readonly ClusterServicesKubeApiDeprecatedEventRateLimit? EventRateLimit;
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+        /// <summary>
+        /// Pod Security Policy option for kube API service. Default `false` (bool)
+        /// </summary>
+        public readonly bool? PodSecurityPolicy;
+        /// <summary>
+        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+        /// </summary>
+        public readonly ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig? SecretsEncryptionConfig;
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        public readonly string ServiceClusterIpRange;
+        /// <summary>
+        /// Service Node Port Range option for kube API service (string)
+        /// </summary>
+        public readonly string ServiceNodePortRange;
+
+        [OutputConstructor]
+        private ClusterServicesKubeApiDeprecated(
+            bool? alwaysPullImages,
+            ClusterServicesKubeApiDeprecatedAuditLog? auditLog,
+            ClusterServicesKubeApiDeprecatedEventRateLimit? eventRateLimit,
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            string image,
+            bool? podSecurityPolicy,
+            ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig? secretsEncryptionConfig,
+            string serviceClusterIpRange,
+            string serviceNodePortRange)
+        {
+            AlwaysPullImages = alwaysPullImages;
+            AuditLog = auditLog;
+            EventRateLimit = eventRateLimit;
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            Image = image;
+            PodSecurityPolicy = podSecurityPolicy;
+            SecretsEncryptionConfig = secretsEncryptionConfig;
+            ServiceClusterIpRange = serviceClusterIpRange;
+            ServiceNodePortRange = serviceNodePortRange;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLog
+    {
+        /// <summary>
+        /// Audit log configuration. (list maxtiem: 1)
+        /// </summary>
+        public readonly ClusterServicesKubeApiDeprecatedAuditLogConfiguration Configuration;
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Enabled;
+
+        [OutputConstructor]
+        private ClusterServicesKubeApiDeprecatedAuditLog(
+            ClusterServicesKubeApiDeprecatedAuditLogConfiguration configuration,
+            bool? enabled)
+        {
+            Configuration = configuration;
+            Enabled = enabled;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfiguration
+    {
+        /// <summary>
+        /// Audit log format. Default: `json` (string)
+        /// </summary>
+        public readonly string? Format;
+        /// <summary>
+        /// Audit log max age. Default: `30` (int)
+        /// </summary>
+        public readonly int? MaxAge;
+        /// <summary>
+        /// Audit log max backup. Default: `10` (int)
+        /// </summary>
+        public readonly int? MaxBackup;
+        /// <summary>
+        /// Audit log max size. Default: `100` (int)
+        /// </summary>
+        public readonly int? MaxSize;
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
+        public readonly string? Path;
+        /// <summary>
+        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+        /// </summary>
+        public readonly string Policy;
+
+        [OutputConstructor]
+        private ClusterServicesKubeApiDeprecatedAuditLogConfiguration(
+            string? format,
+            int? maxAge,
+            int? maxBackup,
+            int? maxSize,
+            string? path,
+            string policy)
+        {
+            Format = format;
+            MaxAge = maxAge;
+            MaxBackup = maxBackup;
+            MaxSize = maxSize;
+            Path = path;
+            Policy = policy;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeApiDeprecatedEventRateLimit
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Enabled;
+
+        [OutputConstructor]
+        private ClusterServicesKubeApiDeprecatedEventRateLimit(bool? enabled)
+        {
+            Enabled = enabled;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig
+    {
+        /// <summary>
+        /// Enable secrets encryption. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Enabled;
+
+        [OutputConstructor]
+        private ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig(bool? enabled)
+        {
+            Enabled = enabled;
+        }
+    }
+
+    [OutputType]
     public sealed class ClusterServicesKubeApiEventRateLimit
     {
         /// <summary>
@@ -11865,6 +12231,120 @@ namespace Pulumi.Rke
     }
 
     [OutputType]
+    public sealed class ClusterServicesKubeControllerDeprecated
+    {
+        /// <summary>
+        /// Cluster CIDR option for kube controller service (string)
+        /// </summary>
+        public readonly string ClusterCidr;
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+        /// <summary>
+        /// Service Cluster ip Range option for kube controller service (string)
+        /// </summary>
+        public readonly string ServiceClusterIpRange;
+
+        [OutputConstructor]
+        private ClusterServicesKubeControllerDeprecated(
+            string clusterCidr,
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            string image,
+            string serviceClusterIpRange)
+        {
+            ClusterCidr = clusterCidr;
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            Image = image;
+            ServiceClusterIpRange = serviceClusterIpRange;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeProxyDeprecated
+    {
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+
+        [OutputConstructor]
+        private ClusterServicesKubeProxyDeprecated(
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            string image)
+        {
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            Image = image;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeSchedulerDeprecated
+    {
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+
+        [OutputConstructor]
+        private ClusterServicesKubeSchedulerDeprecated(
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            string image)
+        {
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            Image = image;
+        }
+    }
+
+    [OutputType]
     public sealed class ClusterServicesKubelet
     {
         /// <summary>
@@ -11904,6 +12384,68 @@ namespace Pulumi.Rke
 
         [OutputConstructor]
         private ClusterServicesKubelet(
+            string clusterDnsServer,
+            string? clusterDomain,
+            ImmutableDictionary<string, object> extraArgs,
+            ImmutableArray<string> extraBinds,
+            ImmutableArray<string> extraEnvs,
+            bool failSwapOn,
+            bool? generateServingCertificate,
+            string image,
+            string infraContainerImage)
+        {
+            ClusterDnsServer = clusterDnsServer;
+            ClusterDomain = clusterDomain;
+            ExtraArgs = extraArgs;
+            ExtraBinds = extraBinds;
+            ExtraEnvs = extraEnvs;
+            FailSwapOn = failSwapOn;
+            GenerateServingCertificate = generateServingCertificate;
+            Image = image;
+            InfraContainerImage = infraContainerImage;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterServicesKubeletDeprecated
+    {
+        /// <summary>
+        /// Cluster DNS Server option for kubelet service (string)
+        /// </summary>
+        public readonly string ClusterDnsServer;
+        /// <summary>
+        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// </summary>
+        public readonly string? ClusterDomain;
+        /// <summary>
+        /// Extra arguments for scheduler service (map)
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ExtraArgs;
+        /// <summary>
+        /// Extra binds for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraBinds;
+        /// <summary>
+        /// Extra environment for scheduler service (list)
+        /// </summary>
+        public readonly ImmutableArray<string> ExtraEnvs;
+        /// <summary>
+        /// Enable or disable failing when swap on is not supported (bool)
+        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+        /// </summary>
+        public readonly bool FailSwapOn;
+        public readonly bool? GenerateServingCertificate;
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
+        public readonly string Image;
+        /// <summary>
+        /// Infra container image for kubelet service (string)
+        /// </summary>
+        public readonly string InfraContainerImage;
+
+        [OutputConstructor]
+        private ClusterServicesKubeletDeprecated(
             string clusterDnsServer,
             string? clusterDomain,
             ImmutableDictionary<string, object> extraArgs,
@@ -11991,548 +12533,6 @@ namespace Pulumi.Rke
             ExtraBinds = extraBinds;
             ExtraEnvs = extraEnvs;
             Image = image;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_Etcd
-    {
-        /// <summary>
-        /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-        /// </summary>
-        public readonly ClusterServices_EtcdBackupConfig BackupConfig;
-        /// <summary>
-        /// TLS CA certificate for etcd service (string)
-        /// </summary>
-        public readonly string CaCert;
-        /// <summary>
-        /// TLS certificate for etcd service (string)
-        /// </summary>
-        public readonly string Cert;
-        /// <summary>
-        /// Creation option for etcd service (string)
-        /// </summary>
-        public readonly string Creation;
-        /// <summary>
-        /// External urls for etcd service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExternalUrls;
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        public readonly int? Gid;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// TLS key for etcd service (string)
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        public readonly string Path;
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        public readonly string Retention;
-        /// <summary>
-        /// Snapshot option for etcd service. Default `true` (bool)
-        /// </summary>
-        public readonly bool? Snapshot;
-        /// <summary>
-        /// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-        /// </summary>
-        public readonly int? Uid;
-
-        [OutputConstructor]
-        private ClusterServices_Etcd(
-            ClusterServices_EtcdBackupConfig backupConfig,
-            string caCert,
-            string cert,
-            string creation,
-            ImmutableArray<string> externalUrls,
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            int? gid,
-            string image,
-            string key,
-            string path,
-            string retention,
-            bool? snapshot,
-            int? uid)
-        {
-            BackupConfig = backupConfig;
-            CaCert = caCert;
-            Cert = cert;
-            Creation = creation;
-            ExternalUrls = externalUrls;
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            Gid = gid;
-            Image = image;
-            Key = key;
-            Path = path;
-            Retention = retention;
-            Snapshot = snapshot;
-            Uid = uid;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_EtcdBackupConfig
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Interval hours for etcd backup. Default `12` (int)
-        /// </summary>
-        public readonly int? IntervalHours;
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
-        public readonly int? Retention;
-        /// <summary>
-        /// S3 config options for etcd backup (list maxitems:1)
-        /// </summary>
-        public readonly ClusterServices_EtcdBackupConfigS3BackupConfig? S3BackupConfig;
-        /// <summary>
-        /// Safe timestamp for etcd backup. Default: `false` (bool)
-        /// </summary>
-        public readonly bool? SafeTimestamp;
-
-        [OutputConstructor]
-        private ClusterServices_EtcdBackupConfig(
-            bool? enabled,
-            int? intervalHours,
-            int? retention,
-            ClusterServices_EtcdBackupConfigS3BackupConfig? s3BackupConfig,
-            bool? safeTimestamp)
-        {
-            Enabled = enabled;
-            IntervalHours = intervalHours;
-            Retention = retention;
-            S3BackupConfig = s3BackupConfig;
-            SafeTimestamp = safeTimestamp;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_EtcdBackupConfigS3BackupConfig
-    {
-        /// <summary>
-        /// Access key for S3 service (string)
-        /// </summary>
-        public readonly string? AccessKey;
-        /// <summary>
-        /// Bucket name for S3 service (string)
-        /// </summary>
-        public readonly string? BucketName;
-        /// <summary>
-        /// Base64 encoded custom CA for S3 service. Use filebase64(&lt;FILE&gt;) for encoding file. Available from Rancher v2.2.5 (string)
-        /// </summary>
-        public readonly string? CustomCa;
-        /// <summary>
-        /// Endpoint for S3 service (string)
-        /// </summary>
-        public readonly string? Endpoint;
-        /// <summary>
-        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
-        /// </summary>
-        public readonly string? Folder;
-        /// <summary>
-        /// Region for S3 service (string)
-        /// </summary>
-        public readonly string? Region;
-        /// <summary>
-        /// Secret key for S3 service (string)
-        /// </summary>
-        public readonly string? SecretKey;
-
-        [OutputConstructor]
-        private ClusterServices_EtcdBackupConfigS3BackupConfig(
-            string? accessKey,
-            string? bucketName,
-            string? customCa,
-            string? endpoint,
-            string? folder,
-            string? region,
-            string? secretKey)
-        {
-            AccessKey = accessKey;
-            BucketName = bucketName;
-            CustomCa = customCa;
-            Endpoint = endpoint;
-            Folder = folder;
-            Region = region;
-            SecretKey = secretKey;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeApi
-    {
-        /// <summary>
-        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-        /// </summary>
-        public readonly bool? AlwaysPullImages;
-        /// <summary>
-        /// K8s audit log configuration. (list maxitem: 1)
-        /// </summary>
-        public readonly ClusterServices_KubeApiAuditLog? AuditLog;
-        /// <summary>
-        /// K8s event rate limit configuration. (list maxitem: 1)
-        /// </summary>
-        public readonly ClusterServices_KubeApiEventRateLimit? EventRateLimit;
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// Pod Security Policy option for kube API service. Default `false` (bool)
-        /// </summary>
-        public readonly bool? PodSecurityPolicy;
-        /// <summary>
-        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-        /// </summary>
-        public readonly ClusterServices_KubeApiSecretsEncryptionConfig? SecretsEncryptionConfig;
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        public readonly string ServiceClusterIpRange;
-        /// <summary>
-        /// Service Node Port Range option for kube API service (string)
-        /// </summary>
-        public readonly string ServiceNodePortRange;
-
-        [OutputConstructor]
-        private ClusterServices_KubeApi(
-            bool? alwaysPullImages,
-            ClusterServices_KubeApiAuditLog? auditLog,
-            ClusterServices_KubeApiEventRateLimit? eventRateLimit,
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            string image,
-            bool? podSecurityPolicy,
-            ClusterServices_KubeApiSecretsEncryptionConfig? secretsEncryptionConfig,
-            string serviceClusterIpRange,
-            string serviceNodePortRange)
-        {
-            AlwaysPullImages = alwaysPullImages;
-            AuditLog = auditLog;
-            EventRateLimit = eventRateLimit;
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            Image = image;
-            PodSecurityPolicy = podSecurityPolicy;
-            SecretsEncryptionConfig = secretsEncryptionConfig;
-            ServiceClusterIpRange = serviceClusterIpRange;
-            ServiceNodePortRange = serviceNodePortRange;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeApiAuditLog
-    {
-        /// <summary>
-        /// Audit log configuration. (list maxtiem: 1)
-        /// </summary>
-        public readonly ClusterServices_KubeApiAuditLogConfiguration Configuration;
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private ClusterServices_KubeApiAuditLog(
-            ClusterServices_KubeApiAuditLogConfiguration configuration,
-            bool? enabled)
-        {
-            Configuration = configuration;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeApiAuditLogConfiguration
-    {
-        /// <summary>
-        /// Audit log format. Default: `json` (string)
-        /// </summary>
-        public readonly string? Format;
-        /// <summary>
-        /// Audit log max age. Default: `30` (int)
-        /// </summary>
-        public readonly int? MaxAge;
-        /// <summary>
-        /// Audit log max backup. Default: `10` (int)
-        /// </summary>
-        public readonly int? MaxBackup;
-        /// <summary>
-        /// Audit log max size. Default: `100` (int)
-        /// </summary>
-        public readonly int? MaxSize;
-        /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-        /// </summary>
-        public readonly string? Path;
-        /// <summary>
-        /// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-        /// </summary>
-        public readonly string Policy;
-
-        [OutputConstructor]
-        private ClusterServices_KubeApiAuditLogConfiguration(
-            string? format,
-            int? maxAge,
-            int? maxBackup,
-            int? maxSize,
-            string? path,
-            string policy)
-        {
-            Format = format;
-            MaxAge = maxAge;
-            MaxBackup = maxBackup;
-            MaxSize = maxSize;
-            Path = path;
-            Policy = policy;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeApiEventRateLimit
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private ClusterServices_KubeApiEventRateLimit(bool? enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeApiSecretsEncryptionConfig
-    {
-        /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private ClusterServices_KubeApiSecretsEncryptionConfig(bool? enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeController
-    {
-        /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
-        /// </summary>
-        public readonly string ClusterCidr;
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
-        /// </summary>
-        public readonly string ServiceClusterIpRange;
-
-        [OutputConstructor]
-        private ClusterServices_KubeController(
-            string clusterCidr,
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            string image,
-            string serviceClusterIpRange)
-        {
-            ClusterCidr = clusterCidr;
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            Image = image;
-            ServiceClusterIpRange = serviceClusterIpRange;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeProxy
-    {
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-
-        [OutputConstructor]
-        private ClusterServices_KubeProxy(
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            string image)
-        {
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            Image = image;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_KubeScheduler
-    {
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-
-        [OutputConstructor]
-        private ClusterServices_KubeScheduler(
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            string image)
-        {
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            Image = image;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServices_Kubelet
-    {
-        /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
-        /// </summary>
-        public readonly string ClusterDnsServer;
-        /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-        /// </summary>
-        public readonly string? ClusterDomain;
-        /// <summary>
-        /// Extra arguments for scheduler service (map)
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraArgs;
-        /// <summary>
-        /// Extra binds for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraBinds;
-        /// <summary>
-        /// Extra environment for scheduler service (list)
-        /// </summary>
-        public readonly ImmutableArray<string> ExtraEnvs;
-        /// <summary>
-        /// Enable or disable failing when swap on is not supported (bool)
-        /// * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        /// </summary>
-        public readonly bool FailSwapOn;
-        public readonly bool? GenerateServingCertificate;
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// Infra container image for kubelet service (string)
-        /// </summary>
-        public readonly string InfraContainerImage;
-
-        [OutputConstructor]
-        private ClusterServices_Kubelet(
-            string clusterDnsServer,
-            string? clusterDomain,
-            ImmutableDictionary<string, object> extraArgs,
-            ImmutableArray<string> extraBinds,
-            ImmutableArray<string> extraEnvs,
-            bool failSwapOn,
-            bool? generateServingCertificate,
-            string image,
-            string infraContainerImage)
-        {
-            ClusterDnsServer = clusterDnsServer;
-            ClusterDomain = clusterDomain;
-            ExtraArgs = extraArgs;
-            ExtraBinds = extraBinds;
-            ExtraEnvs = extraEnvs;
-            FailSwapOn = failSwapOn;
-            GenerateServingCertificate = generateServingCertificate;
-            Image = image;
-            InfraContainerImage = infraContainerImage;
         }
     }
 

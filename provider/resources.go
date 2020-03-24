@@ -96,34 +96,29 @@ func Provider() tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"roles": {
-									Name: "RoleList",
+									Name:       "rolesDeprecated",
+									CSharpName: "RolesDeprecated",
 								},
 							},
 						},
 					},
 					"services_etcd": {
-						Name:       "Services_Etcd",
-						CSharpName: "Services_Etcd",
+						Name: "servicesEtcdDeprecated",
 					},
 					"services_kube_api": {
-						Name:       "Services_KubeApi",
-						CSharpName: "Services_KubeApi",
+						Name: "servicesKubeApiDeprecated",
 					},
 					"services_kube_controller": {
-						Name:       "Services_KubeController",
-						CSharpName: "Services_KubeController",
+						Name: "servicesKubeControllerDeprecated",
 					},
 					"services_kubelet": {
-						Name:       "Services_Kubelet",
-						CSharpName: "Services_Kubelet",
+						Name: "servicesKubeletDeprecated",
 					},
 					"services_kubeproxy": {
-						Name:       "Services_KubeProxy",
-						CSharpName: "Services_KubeProxy",
+						Name: "servicesKubeProxyDeprecated",
 					},
 					"services_scheduler": {
-						Name:       "Services_KubeScheduler",
-						CSharpName: "Services_KubeScheduler",
+						Name: "servicesKubeSchedulerDeprecated",
 					},
 				},
 			},

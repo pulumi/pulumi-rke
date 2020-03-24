@@ -8046,7 +8046,6 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Password() pulumi.StringOut
 }
 
 type ClusterNode struct {
-	RoleList *string `pulumi:"RoleList"`
 	// Address ip for node (string)
 	Address string `pulumi:"address"`
 	// Docker socket on the node that will be used in tunneling (string)
@@ -8063,6 +8062,7 @@ type ClusterNode struct {
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles []string `pulumi:"roles"`
+	RolesDeprecated *string `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -8087,7 +8087,6 @@ type ClusterNodeInput interface {
 }
 
 type ClusterNodeArgs struct {
-	RoleList pulumi.StringPtrInput `pulumi:"RoleList"`
 	// Address ip for node (string)
 	Address pulumi.StringInput `pulumi:"address"`
 	// Docker socket on the node that will be used in tunneling (string)
@@ -8104,6 +8103,7 @@ type ClusterNodeArgs struct {
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	RolesDeprecated pulumi.StringPtrInput `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -8167,10 +8167,6 @@ func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o ClusterNodeOutput) RoleList() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.RoleList }).(pulumi.StringPtrOutput)
-}
-
 // Address ip for node (string)
 func (o ClusterNodeOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func (v ClusterNode) string { return v.Address }).(pulumi.StringOutput)
@@ -8209,6 +8205,10 @@ func (o ClusterNodeOutput) Port() pulumi.StringPtrOutput {
 // Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 func (o ClusterNodeOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v ClusterNode) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterNodeOutput) RolesDeprecated() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterNode) *string { return v.RolesDeprecated }).(pulumi.StringPtrOutput)
 }
 
 // SSH Agent Auth enable (bool)
@@ -10127,6 +10127,678 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) SecretKey() pulu
 	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
+type ClusterServicesEtcdDeprecated struct {
+	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	BackupConfig *ClusterServicesEtcdDeprecatedBackupConfig `pulumi:"backupConfig"`
+	// TLS CA certificate for etcd service (string)
+	CaCert *string `pulumi:"caCert"`
+	// TLS certificate for etcd service (string)
+	Cert *string `pulumi:"cert"`
+	// Creation option for etcd service (string)
+	Creation *string `pulumi:"creation"`
+	// External urls for etcd service (list)
+	ExternalUrls []string `pulumi:"externalUrls"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	Gid *int `pulumi:"gid"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+	// TLS key for etcd service (string)
+	Key *string `pulumi:"key"`
+	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	Path *string `pulumi:"path"`
+	// Retention for etcd backup. Default `6` (int)
+	Retention *string `pulumi:"retention"`
+	// Snapshot option for etcd service. Default `true` (bool)
+	Snapshot *bool `pulumi:"snapshot"`
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	Uid *int `pulumi:"uid"`
+}
+
+type ClusterServicesEtcdDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedOutput() ClusterServicesEtcdDeprecatedOutput
+	ToClusterServicesEtcdDeprecatedOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedOutput
+}
+
+type ClusterServicesEtcdDeprecatedArgs struct {
+	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	BackupConfig ClusterServicesEtcdDeprecatedBackupConfigPtrInput `pulumi:"backupConfig"`
+	// TLS CA certificate for etcd service (string)
+	CaCert pulumi.StringPtrInput `pulumi:"caCert"`
+	// TLS certificate for etcd service (string)
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// Creation option for etcd service (string)
+	Creation pulumi.StringPtrInput `pulumi:"creation"`
+	// External urls for etcd service (list)
+	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	Gid pulumi.IntPtrInput `pulumi:"gid"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// TLS key for etcd service (string)
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Retention for etcd backup. Default `6` (int)
+	Retention pulumi.StringPtrInput `pulumi:"retention"`
+	// Snapshot option for etcd service. Default `true` (bool)
+	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	Uid pulumi.IntPtrInput `pulumi:"uid"`
+}
+
+func (ClusterServicesEtcdDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedOutput() ClusterServicesEtcdDeprecatedOutput {
+	return i.ToClusterServicesEtcdDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedOutput)
+}
+
+func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedOutput).ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesEtcdDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput
+	ToClusterServicesEtcdDeprecatedPtrOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedPtrOutput
+}
+
+type clusterServicesEtcdDeprecatedPtrType ClusterServicesEtcdDeprecatedArgs
+
+func ClusterServicesEtcdDeprecatedPtr(v *ClusterServicesEtcdDeprecatedArgs) ClusterServicesEtcdDeprecatedPtrInput {	return (*clusterServicesEtcdDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesEtcdDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesEtcdDeprecatedPtrType) ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesEtcdDeprecatedPtrType) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesEtcdDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedOutput() ClusterServicesEtcdDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput {
+	return o.ToClusterServicesEtcdDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecated {
+		return &v
+	}).(ClusterServicesEtcdDeprecatedPtrOutput)
+}
+// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+func (o ClusterServicesEtcdDeprecatedOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+}
+
+// TLS CA certificate for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedOutput) CaCert() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+}
+
+// TLS certificate for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+// Creation option for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedOutput) Creation() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
+}
+
+// External urls for etcd service (list)
+func (o ClusterServicesEtcdDeprecatedOutput) ExternalUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesEtcdDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesEtcdDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesEtcdDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+func (o ClusterServicesEtcdDeprecatedOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesEtcdDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// TLS key for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+func (o ClusterServicesEtcdDeprecatedOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Retention for etcd backup. Default `6` (int)
+func (o ClusterServicesEtcdDeprecatedOutput) Retention() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
+}
+
+// Snapshot option for etcd service. Default `true` (bool)
+func (o ClusterServicesEtcdDeprecatedOutput) Snapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+}
+
+// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+func (o ClusterServicesEtcdDeprecatedOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesEtcdDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Elem() ClusterServicesEtcdDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesEtcdDeprecated) ClusterServicesEtcdDeprecated { return *v }).(ClusterServicesEtcdDeprecatedOutput)
+}
+
+// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+}
+
+// TLS CA certificate for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) CaCert() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+}
+
+// TLS certificate for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+// Creation option for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Creation() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
+}
+
+// External urls for etcd service (list)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// TLS key for etcd service (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Retention for etcd backup. Default `6` (int)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Retention() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
+}
+
+// Snapshot option for etcd service. Default `true` (bool)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Snapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+}
+
+// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+func (o ClusterServicesEtcdDeprecatedPtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfig struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled *bool `pulumi:"enabled"`
+	// Interval hours for etcd backup. Default `12` (int)
+	IntervalHours *int `pulumi:"intervalHours"`
+	// Retention for etcd backup. Default `6` (int)
+	Retention *int `pulumi:"retention"`
+	// S3 config options for etcd backup (list maxitems:1)
+	S3BackupConfig *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
+	// Safe timestamp for etcd backup. Default: `false` (bool)
+	SafeTimestamp *bool `pulumi:"safeTimestamp"`
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedBackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigOutput
+	ToClusterServicesEtcdDeprecatedBackupConfigOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedBackupConfigOutput
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigArgs struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Interval hours for etcd backup. Default `12` (int)
+	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
+	// Retention for etcd backup. Default `6` (int)
+	Retention pulumi.IntPtrInput `pulumi:"retention"`
+	// S3 config options for etcd backup (list maxitems:1)
+	S3BackupConfig ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
+	// Safe timestamp for etcd backup. Default: `false` (bool)
+	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
+}
+
+func (ClusterServicesEtcdDeprecatedBackupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigOutput).ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput
+	ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput
+}
+
+type clusterServicesEtcdDeprecatedBackupConfigPtrType ClusterServicesEtcdDeprecatedBackupConfigArgs
+
+func ClusterServicesEtcdDeprecatedBackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigPtrInput {	return (*clusterServicesEtcdDeprecatedBackupConfigPtrType)(v)
+}
+
+func (*clusterServicesEtcdDeprecatedBackupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
+}
+
+func (i *clusterServicesEtcdDeprecatedBackupConfigPtrType) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesEtcdDeprecatedBackupConfigPtrType) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesEtcdDeprecatedBackupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o.ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfig {
+		return &v
+	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+}
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Interval hours for etcd backup. Default `12` (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) IntervalHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+}
+
+// Retention for etcd backup. Default `6` (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+}
+
+// S3 config options for etcd backup (list maxitems:1)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) S3BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+}
+
+// Safe timestamp for etcd backup. Default: `false` (bool)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigOutput {
+	return o.ApplyT(func (v *ClusterServicesEtcdDeprecatedBackupConfig) ClusterServicesEtcdDeprecatedBackupConfig { return *v }).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
+}
+
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Interval hours for etcd backup. Default `12` (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) IntervalHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+}
+
+// Retention for etcd backup. Default `6` (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+}
+
+// S3 config options for etcd backup (list maxitems:1)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) S3BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+}
+
+// Safe timestamp for etcd backup. Default: `false` (bool)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig struct {
+	// Access key for S3 service (string)
+	AccessKey *string `pulumi:"accessKey"`
+	// Bucket name for S3 service (string)
+	BucketName *string `pulumi:"bucketName"`
+	// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+	CustomCa *string `pulumi:"customCa"`
+	// Endpoint for S3 service (string)
+	Endpoint *string `pulumi:"endpoint"`
+	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	Folder *string `pulumi:"folder"`
+	// Region for S3 service (string)
+	Region *string `pulumi:"region"`
+	// Secret key for S3 service (string)
+	SecretKey *string `pulumi:"secretKey"`
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput
+	ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs struct {
+	// Access key for S3 service (string)
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Bucket name for S3 service (string)
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+	CustomCa pulumi.StringPtrInput `pulumi:"customCa"`
+	// Endpoint for S3 service (string)
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	Folder pulumi.StringPtrInput `pulumi:"folder"`
+	// Region for S3 service (string)
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Secret key for S3 service (string)
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+}
+
+func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput).ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput
+	ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput
+}
+
+type clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs
+
+func ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput {	return (*clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType)(v)
+}
+
+func (*clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
+}
+
+func (i *clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+		return &v
+	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+}
+// Access key for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Bucket name for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) CustomCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Folder for S3 service. Available from Rancher v2.2.7 (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+}
+
+// Region for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Secret key for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
+	return o.ApplyT(func (v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return *v }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
+}
+
+// Access key for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Bucket name for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) CustomCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Folder for S3 service. Available from Rancher v2.2.7 (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+}
+
+// Region for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Secret key for S3 service (string)
+func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
 type ClusterServicesKubeApi struct {
 	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
 	AlwaysPullImages *bool `pulumi:"alwaysPullImages"`
@@ -10687,6 +11359,790 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Policy() pulumi.St
 	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
+type ClusterServicesKubeApiDeprecated struct {
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	AlwaysPullImages *bool `pulumi:"alwaysPullImages"`
+	// K8s audit log configuration. (list maxitem: 1)
+	AuditLog *ClusterServicesKubeApiDeprecatedAuditLog `pulumi:"auditLog"`
+	// K8s event rate limit configuration. (list maxitem: 1)
+	EventRateLimit *ClusterServicesKubeApiDeprecatedEventRateLimit `pulumi:"eventRateLimit"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+	// Pod Security Policy option for kube API service. Default `false` (bool)
+	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
+	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+	SecretsEncryptionConfig *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
+	// Service Cluster ip Range option for kube controller service (string)
+	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
+	// Service Node Port Range option for kube API service (string)
+	ServiceNodePortRange *string `pulumi:"serviceNodePortRange"`
+}
+
+type ClusterServicesKubeApiDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedOutput() ClusterServicesKubeApiDeprecatedOutput
+	ToClusterServicesKubeApiDeprecatedOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedOutput
+}
+
+type ClusterServicesKubeApiDeprecatedArgs struct {
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	AlwaysPullImages pulumi.BoolPtrInput `pulumi:"alwaysPullImages"`
+	// K8s audit log configuration. (list maxitem: 1)
+	AuditLog ClusterServicesKubeApiDeprecatedAuditLogPtrInput `pulumi:"auditLog"`
+	// K8s event rate limit configuration. (list maxitem: 1)
+	EventRateLimit ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput `pulumi:"eventRateLimit"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Pod Security Policy option for kube API service. Default `false` (bool)
+	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
+	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+	SecretsEncryptionConfig ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
+	// Service Cluster ip Range option for kube controller service (string)
+	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
+	// Service Node Port Range option for kube API service (string)
+	ServiceNodePortRange pulumi.StringPtrInput `pulumi:"serviceNodePortRange"`
+}
+
+func (ClusterServicesKubeApiDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecatedOutput() ClusterServicesKubeApiDeprecatedOutput {
+	return i.ToClusterServicesKubeApiDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedOutput)
+}
+
+func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedOutput).ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeApiDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput
+	ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedPtrOutput
+}
+
+type clusterServicesKubeApiDeprecatedPtrType ClusterServicesKubeApiDeprecatedArgs
+
+func ClusterServicesKubeApiDeprecatedPtr(v *ClusterServicesKubeApiDeprecatedArgs) ClusterServicesKubeApiDeprecatedPtrInput {	return (*clusterServicesKubeApiDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesKubeApiDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeApiDeprecatedPtrType) ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeApiDeprecatedPtrType) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeApiDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecatedOutput() ClusterServicesKubeApiDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput {
+	return o.ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecated {
+		return &v
+	}).(ClusterServicesKubeApiDeprecatedPtrOutput)
+}
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+}
+
+// K8s audit log configuration. (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedOutput) AuditLog() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+}
+
+// K8s event rate limit configuration. (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedOutput) EventRateLimit() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeApiDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeApiDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeApiDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeApiDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Pod Security Policy option for kube API service. Default `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedOutput) SecretsEncryptionConfig() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+}
+
+// Service Cluster ip Range option for kube controller service (string)
+func (o ClusterServicesKubeApiDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+}
+
+// Service Node Port Range option for kube API service (string)
+func (o ClusterServicesKubeApiDeprecatedOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeApiDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) Elem() ClusterServicesKubeApiDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated { return *v }).(ClusterServicesKubeApiDeprecatedOutput)
+}
+
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+}
+
+// K8s audit log configuration. (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) AuditLog() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+}
+
+// K8s event rate limit configuration. (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) EventRateLimit() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Pod Security Policy option for kube API service. Default `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) SecretsEncryptionConfig() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+}
+
+// Service Cluster ip Range option for kube controller service (string)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+}
+
+// Service Node Port Range option for kube API service (string)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLog struct {
+	// Audit log configuration. (list maxtiem: 1)
+	Configuration *ClusterServicesKubeApiDeprecatedAuditLogConfiguration `pulumi:"configuration"`
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled *bool `pulumi:"enabled"`
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedAuditLogOutput() ClusterServicesKubeApiDeprecatedAuditLogOutput
+	ToClusterServicesKubeApiDeprecatedAuditLogOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedAuditLogOutput
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogArgs struct {
+	// Audit log configuration. (list maxtiem: 1)
+	Configuration ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput `pulumi:"configuration"`
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterServicesKubeApiDeprecatedAuditLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDeprecatedAuditLogOutput() ClusterServicesKubeApiDeprecatedAuditLogOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDeprecatedAuditLogOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogOutput).ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput
+	ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput
+}
+
+type clusterServicesKubeApiDeprecatedAuditLogPtrType ClusterServicesKubeApiDeprecatedAuditLogArgs
+
+func ClusterServicesKubeApiDeprecatedAuditLogPtr(v *ClusterServicesKubeApiDeprecatedAuditLogArgs) ClusterServicesKubeApiDeprecatedAuditLogPtrInput {	return (*clusterServicesKubeApiDeprecatedAuditLogPtrType)(v)
+}
+
+func (*clusterServicesKubeApiDeprecatedAuditLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeApiDeprecatedAuditLogPtrType) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeApiDeprecatedAuditLogPtrType) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeApiDeprecatedAuditLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApiDeprecatedAuditLogOutput() ClusterServicesKubeApiDeprecatedAuditLogOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApiDeprecatedAuditLogOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o.ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLog {
+		return &v
+	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+}
+// Audit log configuration. (list maxtiem: 1)
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+}
+
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
+}
+
+// Audit log configuration. (list maxtiem: 1)
+func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+}
+
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfiguration struct {
+	// Audit log format. Default: `json` (string)
+	Format *string `pulumi:"format"`
+	// Audit log max age. Default: `30` (int)
+	MaxAge *int `pulumi:"maxAge"`
+	// Audit log max backup. Default: `10` (int)
+	MaxBackup *int `pulumi:"maxBackup"`
+	// Audit log max size. Default: `100` (int)
+	MaxSize *int `pulumi:"maxSize"`
+	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	Path *string `pulumi:"path"`
+	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+	Policy *string `pulumi:"policy"`
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput
+	ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs struct {
+	// Audit log format. Default: `json` (string)
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Audit log max age. Default: `30` (int)
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+	// Audit log max backup. Default: `10` (int)
+	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
+	// Audit log max size. Default: `100` (int)
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+}
+
+func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput).ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput
+	ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput
+}
+
+type clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs
+
+func ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtr(v *ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput {	return (*clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType)(v)
+}
+
+func (*clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+		return &v
+	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+}
+// Audit log format. Default: `json` (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Audit log max age. Default: `30` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// Audit log max backup. Default: `10` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxBackup() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+}
+
+// Audit log max size. Default: `100` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
+}
+
+// Audit log format. Default: `json` (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Audit log max age. Default: `30` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// Audit log max backup. Default: `10` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxBackup() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+}
+
+// Audit log max size. Default: `100` (int)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimit struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled *bool `pulumi:"enabled"`
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimitInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedEventRateLimitOutput() ClusterServicesKubeApiDeprecatedEventRateLimitOutput
+	ToClusterServicesKubeApiDeprecatedEventRateLimitOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitOutput
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimitArgs struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKubeApiDeprecatedEventRateLimitOutput() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
+	return i.ToClusterServicesKubeApiDeprecatedEventRateLimitOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKubeApiDeprecatedEventRateLimitOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
+}
+
+func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput).ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput
+	ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput
+}
+
+type clusterServicesKubeApiDeprecatedEventRateLimitPtrType ClusterServicesKubeApiDeprecatedEventRateLimitArgs
+
+func ClusterServicesKubeApiDeprecatedEventRateLimitPtr(v *ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput {	return (*clusterServicesKubeApiDeprecatedEventRateLimitPtrType)(v)
+}
+
+func (*clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimitOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitOutput() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o.ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *ClusterServicesKubeApiDeprecatedEventRateLimit {
+		return &v
+	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+}
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedEventRateLimit) ClusterServicesKubeApiDeprecatedEventRateLimit { return *v }).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
+}
+
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled *bool `pulumi:"enabled"`
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput
+	ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs struct {
+	// Enable secrets encryption. Default: `false` (bool)
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
+	return i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
+}
+
+func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput).ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput
+	ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput
+}
+
+type clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs
+
+func ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtr(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput {	return (*clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType)(v)
+}
+
+func (*clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+		return &v
+	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+}
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return *v }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
+}
+
+// Enable secrets encryption. Default: `false` (bool)
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 type ClusterServicesKubeApiEventRateLimit struct {
 	// Enable secrets encryption. Default: `false` (bool)
 	Enabled *bool `pulumi:"enabled"`
@@ -11093,6 +12549,496 @@ func (o ClusterServicesKubeControllerPtrOutput) ServiceClusterIpRange() pulumi.S
 	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
+type ClusterServicesKubeControllerDeprecated struct {
+	// Cluster CIDR option for kube controller service (string)
+	ClusterCidr *string `pulumi:"clusterCidr"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+	// Service Cluster ip Range option for kube controller service (string)
+	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
+}
+
+type ClusterServicesKubeControllerDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeControllerDeprecatedOutput() ClusterServicesKubeControllerDeprecatedOutput
+	ToClusterServicesKubeControllerDeprecatedOutputWithContext(context.Context) ClusterServicesKubeControllerDeprecatedOutput
+}
+
+type ClusterServicesKubeControllerDeprecatedArgs struct {
+	// Cluster CIDR option for kube controller service (string)
+	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Service Cluster ip Range option for kube controller service (string)
+	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
+}
+
+func (ClusterServicesKubeControllerDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeControllerDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeControllerDeprecatedOutput() ClusterServicesKubeControllerDeprecatedOutput {
+	return i.ToClusterServicesKubeControllerDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeControllerDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedOutput)
+}
+
+func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedOutput).ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeControllerDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput
+	ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput
+}
+
+type clusterServicesKubeControllerDeprecatedPtrType ClusterServicesKubeControllerDeprecatedArgs
+
+func ClusterServicesKubeControllerDeprecatedPtr(v *ClusterServicesKubeControllerDeprecatedArgs) ClusterServicesKubeControllerDeprecatedPtrInput {	return (*clusterServicesKubeControllerDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesKubeControllerDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeControllerDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeControllerDeprecatedPtrType) ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeControllerDeprecatedPtrType) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedPtrOutput)
+}
+
+type ClusterServicesKubeControllerDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeControllerDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeControllerDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeControllerDeprecatedOutput() ClusterServicesKubeControllerDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeControllerDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return o.ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *ClusterServicesKubeControllerDeprecated {
+		return &v
+	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
+}
+// Cluster CIDR option for kube controller service (string)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ClusterCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeControllerDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Service Cluster ip Range option for kube controller service (string)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeControllerDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeControllerDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeControllerDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Elem() ClusterServicesKubeControllerDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeControllerDeprecated) ClusterServicesKubeControllerDeprecated { return *v }).(ClusterServicesKubeControllerDeprecatedOutput)
+}
+
+// Cluster CIDR option for kube controller service (string)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ClusterCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Service Cluster ip Range option for kube controller service (string)
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeProxyDeprecated struct {
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+}
+
+type ClusterServicesKubeProxyDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeProxyDeprecatedOutput() ClusterServicesKubeProxyDeprecatedOutput
+	ToClusterServicesKubeProxyDeprecatedOutputWithContext(context.Context) ClusterServicesKubeProxyDeprecatedOutput
+}
+
+type ClusterServicesKubeProxyDeprecatedArgs struct {
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+}
+
+func (ClusterServicesKubeProxyDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeProxyDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprecatedOutput() ClusterServicesKubeProxyDeprecatedOutput {
+	return i.ToClusterServicesKubeProxyDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedOutput)
+}
+
+func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedOutput).ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeProxyDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput
+	ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput
+}
+
+type clusterServicesKubeProxyDeprecatedPtrType ClusterServicesKubeProxyDeprecatedArgs
+
+func ClusterServicesKubeProxyDeprecatedPtr(v *ClusterServicesKubeProxyDeprecatedArgs) ClusterServicesKubeProxyDeprecatedPtrInput {	return (*clusterServicesKubeProxyDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesKubeProxyDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeProxyDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeProxyDeprecatedPtrType) ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeProxyDeprecatedPtrType) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedPtrOutput)
+}
+
+type ClusterServicesKubeProxyDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeProxyDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeProxyDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDeprecatedOutput() ClusterServicesKubeProxyDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return o.ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) *ClusterServicesKubeProxyDeprecated {
+		return &v
+	}).(ClusterServicesKubeProxyDeprecatedPtrOutput)
+}
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeProxyDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeProxyDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeProxyDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeProxyDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeProxyDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeProxyDeprecated) ClusterServicesKubeProxyDeprecated { return *v }).(ClusterServicesKubeProxyDeprecatedOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeSchedulerDeprecated struct {
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+}
+
+type ClusterServicesKubeSchedulerDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeSchedulerDeprecatedOutput() ClusterServicesKubeSchedulerDeprecatedOutput
+	ToClusterServicesKubeSchedulerDeprecatedOutputWithContext(context.Context) ClusterServicesKubeSchedulerDeprecatedOutput
+}
+
+type ClusterServicesKubeSchedulerDeprecatedArgs struct {
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+}
+
+func (ClusterServicesKubeSchedulerDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedulerDeprecatedOutput() ClusterServicesKubeSchedulerDeprecatedOutput {
+	return i.ToClusterServicesKubeSchedulerDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedulerDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedOutput)
+}
+
+func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedOutput).ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeSchedulerDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput
+	ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput
+}
+
+type clusterServicesKubeSchedulerDeprecatedPtrType ClusterServicesKubeSchedulerDeprecatedArgs
+
+func ClusterServicesKubeSchedulerDeprecatedPtr(v *ClusterServicesKubeSchedulerDeprecatedArgs) ClusterServicesKubeSchedulerDeprecatedPtrInput {	return (*clusterServicesKubeSchedulerDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesKubeSchedulerDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeSchedulerDeprecatedPtrType) ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeSchedulerDeprecatedPtrType) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
+}
+
+type ClusterServicesKubeSchedulerDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeSchedulerDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSchedulerDeprecatedOutput() ClusterServicesKubeSchedulerDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSchedulerDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return o.ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) *ClusterServicesKubeSchedulerDeprecated {
+		return &v
+	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
+}
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeSchedulerDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeSchedulerDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesKubeSchedulerDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeSchedulerDeprecated) ClusterServicesKubeSchedulerDeprecated { return *v }).(ClusterServicesKubeSchedulerDeprecatedOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
 type ClusterServicesKubelet struct {
 	// Cluster DNS Server option for kubelet service (string)
 	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
@@ -11315,6 +13261,230 @@ func (o ClusterServicesKubeletPtrOutput) Image() pulumi.StringPtrOutput {
 // Infra container image for kubelet service (string)
 func (o ClusterServicesKubeletPtrOutput) InfraContainerImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeletDeprecated struct {
+	// Cluster DNS Server option for kubelet service (string)
+	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
+	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+	ClusterDomain *string `pulumi:"clusterDomain"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds []string `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs []string `pulumi:"extraEnvs"`
+	// Enable or disable failing when swap on is not supported (bool)
+	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+	FailSwapOn *bool `pulumi:"failSwapOn"`
+	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
+	// Docker image for scheduler service (string)
+	Image *string `pulumi:"image"`
+	// Infra container image for kubelet service (string)
+	InfraContainerImage *string `pulumi:"infraContainerImage"`
+}
+
+type ClusterServicesKubeletDeprecatedInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeletDeprecatedOutput() ClusterServicesKubeletDeprecatedOutput
+	ToClusterServicesKubeletDeprecatedOutputWithContext(context.Context) ClusterServicesKubeletDeprecatedOutput
+}
+
+type ClusterServicesKubeletDeprecatedArgs struct {
+	// Cluster DNS Server option for kubelet service (string)
+	ClusterDnsServer pulumi.StringPtrInput `pulumi:"clusterDnsServer"`
+	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
+	// Extra arguments for scheduler service (map)
+	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Extra binds for scheduler service (list)
+	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
+	// Extra environment for scheduler service (list)
+	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
+	// Enable or disable failing when swap on is not supported (bool)
+	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
+	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
+	// Docker image for scheduler service (string)
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Infra container image for kubelet service (string)
+	InfraContainerImage pulumi.StringPtrInput `pulumi:"infraContainerImage"`
+}
+
+func (ClusterServicesKubeletDeprecatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeletDeprecated)(nil)).Elem()
+}
+
+func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecatedOutput() ClusterServicesKubeletDeprecatedOutput {
+	return i.ToClusterServicesKubeletDeprecatedOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedOutput)
+}
+
+func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeletDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedOutput).ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx)
+}
+
+type ClusterServicesKubeletDeprecatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput
+	ToClusterServicesKubeletDeprecatedPtrOutputWithContext(context.Context) ClusterServicesKubeletDeprecatedPtrOutput
+}
+
+type clusterServicesKubeletDeprecatedPtrType ClusterServicesKubeletDeprecatedArgs
+
+func ClusterServicesKubeletDeprecatedPtr(v *ClusterServicesKubeletDeprecatedArgs) ClusterServicesKubeletDeprecatedPtrInput {	return (*clusterServicesKubeletDeprecatedPtrType)(v)
+}
+
+func (*clusterServicesKubeletDeprecatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeletDeprecated)(nil)).Elem()
+}
+
+func (i *clusterServicesKubeletDeprecatedPtrType) ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput {
+	return i.ToClusterServicesKubeletDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServicesKubeletDeprecatedPtrType) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedPtrOutput)
+}
+
+type ClusterServicesKubeletDeprecatedOutput struct { *pulumi.OutputState }
+
+func (ClusterServicesKubeletDeprecatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServicesKubeletDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecatedOutput() ClusterServicesKubeletDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecatedOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedOutput {
+	return o
+}
+
+func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput {
+	return o.ToClusterServicesKubeletDeprecatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *ClusterServicesKubeletDeprecated {
+		return &v
+	}).(ClusterServicesKubeletDeprecatedPtrOutput)
+}
+// Cluster DNS Server option for kubelet service (string)
+func (o ClusterServicesKubeletDeprecatedOutput) ClusterDnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+}
+
+// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+func (o ClusterServicesKubeletDeprecatedOutput) ClusterDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeletDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeletDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeletDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Enable or disable failing when swap on is not supported (bool)
+// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+func (o ClusterServicesKubeletDeprecatedOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterServicesKubeletDeprecatedOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeletDeprecatedOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Infra container image for kubelet service (string)
+func (o ClusterServicesKubeletDeprecatedOutput) InfraContainerImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServicesKubeletDeprecatedPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterServicesKubeletDeprecatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServicesKubeletDeprecated)(nil)).Elem()
+}
+
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
+	return o
+}
+
+func (o ClusterServicesKubeletDeprecatedPtrOutput) Elem() ClusterServicesKubeletDeprecatedOutput {
+	return o.ApplyT(func (v *ClusterServicesKubeletDeprecated) ClusterServicesKubeletDeprecated { return *v }).(ClusterServicesKubeletDeprecatedOutput)
+}
+
+// Cluster DNS Server option for kubelet service (string)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+}
+
+// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+}
+
+// Extra arguments for scheduler service (map)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+}
+
+// Extra binds for scheduler service (list)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+}
+
+// Extra environment for scheduler service (list)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+}
+
+// Enable or disable failing when swap on is not supported (bool)
+// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterServicesKubeletDeprecatedPtrOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// Docker image for scheduler service (string)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Infra container image for kubelet service (string)
+func (o ClusterServicesKubeletDeprecatedPtrOutput) InfraContainerImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeproxy struct {
@@ -11623,2176 +13793,6 @@ func (o ClusterServicesSchedulerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput 
 // Docker image for scheduler service (string)
 func (o ClusterServicesSchedulerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_Etcd struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-	BackupConfig *ClusterServices_EtcdBackupConfig `pulumi:"backupConfig"`
-	// TLS CA certificate for etcd service (string)
-	CaCert *string `pulumi:"caCert"`
-	// TLS certificate for etcd service (string)
-	Cert *string `pulumi:"cert"`
-	// Creation option for etcd service (string)
-	Creation *string `pulumi:"creation"`
-	// External urls for etcd service (list)
-	ExternalUrls []string `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-	Gid *int `pulumi:"gid"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-	// TLS key for etcd service (string)
-	Key *string `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-	Path *string `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
-	Retention *string `pulumi:"retention"`
-	// Snapshot option for etcd service. Default `true` (bool)
-	Snapshot *bool `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-	Uid *int `pulumi:"uid"`
-}
-
-type ClusterServices_EtcdInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdOutput() ClusterServices_EtcdOutput
-	ToClusterServices_EtcdOutputWithContext(context.Context) ClusterServices_EtcdOutput
-}
-
-type ClusterServices_EtcdArgs struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-	BackupConfig ClusterServices_EtcdBackupConfigPtrInput `pulumi:"backupConfig"`
-	// TLS CA certificate for etcd service (string)
-	CaCert pulumi.StringPtrInput `pulumi:"caCert"`
-	// TLS certificate for etcd service (string)
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// Creation option for etcd service (string)
-	Creation pulumi.StringPtrInput `pulumi:"creation"`
-	// External urls for etcd service (list)
-	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-	Gid pulumi.IntPtrInput `pulumi:"gid"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// TLS key for etcd service (string)
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
-	Retention pulumi.StringPtrInput `pulumi:"retention"`
-	// Snapshot option for etcd service. Default `true` (bool)
-	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-	Uid pulumi.IntPtrInput `pulumi:"uid"`
-}
-
-func (ClusterServices_EtcdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_Etcd)(nil)).Elem()
-}
-
-func (i ClusterServices_EtcdArgs) ToClusterServices_EtcdOutput() ClusterServices_EtcdOutput {
-	return i.ToClusterServices_EtcdOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdArgs) ToClusterServices_EtcdOutputWithContext(ctx context.Context) ClusterServices_EtcdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdOutput)
-}
-
-func (i ClusterServices_EtcdArgs) ToClusterServices_EtcdPtrOutput() ClusterServices_EtcdPtrOutput {
-	return i.ToClusterServices_EtcdPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdArgs) ToClusterServices_EtcdPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdOutput).ToClusterServices_EtcdPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_EtcdPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdPtrOutput() ClusterServices_EtcdPtrOutput
-	ToClusterServices_EtcdPtrOutputWithContext(context.Context) ClusterServices_EtcdPtrOutput
-}
-
-type clusterServices_EtcdPtrType ClusterServices_EtcdArgs
-
-func ClusterServices_EtcdPtr(v *ClusterServices_EtcdArgs) ClusterServices_EtcdPtrInput {	return (*clusterServices_EtcdPtrType)(v)
-}
-
-func (*clusterServices_EtcdPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_Etcd)(nil)).Elem()
-}
-
-func (i *clusterServices_EtcdPtrType) ToClusterServices_EtcdPtrOutput() ClusterServices_EtcdPtrOutput {
-	return i.ToClusterServices_EtcdPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_EtcdPtrType) ToClusterServices_EtcdPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdPtrOutput)
-}
-
-type ClusterServices_EtcdOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_EtcdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_Etcd)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdOutput) ToClusterServices_EtcdOutput() ClusterServices_EtcdOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdOutput) ToClusterServices_EtcdOutputWithContext(ctx context.Context) ClusterServices_EtcdOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdOutput) ToClusterServices_EtcdPtrOutput() ClusterServices_EtcdPtrOutput {
-	return o.ToClusterServices_EtcdPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_EtcdOutput) ToClusterServices_EtcdPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdPtrOutput {
-	return o.ApplyT(func(v ClusterServices_Etcd) *ClusterServices_Etcd {
-		return &v
-	}).(ClusterServices_EtcdPtrOutput)
-}
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-func (o ClusterServices_EtcdOutput) BackupConfig() ClusterServices_EtcdBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *ClusterServices_EtcdBackupConfig { return v.BackupConfig }).(ClusterServices_EtcdBackupConfigPtrOutput)
-}
-
-// TLS CA certificate for etcd service (string)
-func (o ClusterServices_EtcdOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
-}
-
-// TLS certificate for etcd service (string)
-func (o ClusterServices_EtcdOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
-}
-
-// Creation option for etcd service (string)
-func (o ClusterServices_EtcdOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
-}
-
-// External urls for etcd service (list)
-func (o ClusterServices_EtcdOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_EtcdOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_EtcdOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_EtcdOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-func (o ClusterServices_EtcdOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_EtcdOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// TLS key for etcd service (string)
-func (o ClusterServices_EtcdOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-func (o ClusterServices_EtcdOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Retention for etcd backup. Default `6` (int)
-func (o ClusterServices_EtcdOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
-}
-
-// Snapshot option for etcd service. Default `true` (bool)
-func (o ClusterServices_EtcdOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
-}
-
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-func (o ClusterServices_EtcdOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
-}
-
-type ClusterServices_EtcdPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_EtcdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_Etcd)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdPtrOutput) ToClusterServices_EtcdPtrOutput() ClusterServices_EtcdPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdPtrOutput) ToClusterServices_EtcdPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdPtrOutput) Elem() ClusterServices_EtcdOutput {
-	return o.ApplyT(func (v *ClusterServices_Etcd) ClusterServices_Etcd { return *v }).(ClusterServices_EtcdOutput)
-}
-
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-func (o ClusterServices_EtcdPtrOutput) BackupConfig() ClusterServices_EtcdBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *ClusterServices_EtcdBackupConfig { return v.BackupConfig }).(ClusterServices_EtcdBackupConfigPtrOutput)
-}
-
-// TLS CA certificate for etcd service (string)
-func (o ClusterServices_EtcdPtrOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
-}
-
-// TLS certificate for etcd service (string)
-func (o ClusterServices_EtcdPtrOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
-}
-
-// Creation option for etcd service (string)
-func (o ClusterServices_EtcdPtrOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
-}
-
-// External urls for etcd service (list)
-func (o ClusterServices_EtcdPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_EtcdPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_EtcdPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_EtcdPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-func (o ClusterServices_EtcdPtrOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_EtcdPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// TLS key for etcd service (string)
-func (o ClusterServices_EtcdPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-func (o ClusterServices_EtcdPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Retention for etcd backup. Default `6` (int)
-func (o ClusterServices_EtcdPtrOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
-}
-
-// Snapshot option for etcd service. Default `true` (bool)
-func (o ClusterServices_EtcdPtrOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
-}
-
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-func (o ClusterServices_EtcdPtrOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Etcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled *bool `pulumi:"enabled"`
-	// Interval hours for etcd backup. Default `12` (int)
-	IntervalHours *int `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
-	Retention *int `pulumi:"retention"`
-	// S3 config options for etcd backup (list maxitems:1)
-	S3BackupConfig *ClusterServices_EtcdBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
-	// Safe timestamp for etcd backup. Default: `false` (bool)
-	SafeTimestamp *bool `pulumi:"safeTimestamp"`
-}
-
-type ClusterServices_EtcdBackupConfigInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdBackupConfigOutput() ClusterServices_EtcdBackupConfigOutput
-	ToClusterServices_EtcdBackupConfigOutputWithContext(context.Context) ClusterServices_EtcdBackupConfigOutput
-}
-
-type ClusterServices_EtcdBackupConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Interval hours for etcd backup. Default `12` (int)
-	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
-	Retention pulumi.IntPtrInput `pulumi:"retention"`
-	// S3 config options for etcd backup (list maxitems:1)
-	S3BackupConfig ClusterServices_EtcdBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
-	// Safe timestamp for etcd backup. Default: `false` (bool)
-	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
-}
-
-func (ClusterServices_EtcdBackupConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_EtcdBackupConfig)(nil)).Elem()
-}
-
-func (i ClusterServices_EtcdBackupConfigArgs) ToClusterServices_EtcdBackupConfigOutput() ClusterServices_EtcdBackupConfigOutput {
-	return i.ToClusterServices_EtcdBackupConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdBackupConfigArgs) ToClusterServices_EtcdBackupConfigOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigOutput)
-}
-
-func (i ClusterServices_EtcdBackupConfigArgs) ToClusterServices_EtcdBackupConfigPtrOutput() ClusterServices_EtcdBackupConfigPtrOutput {
-	return i.ToClusterServices_EtcdBackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdBackupConfigArgs) ToClusterServices_EtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigOutput).ToClusterServices_EtcdBackupConfigPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_EtcdBackupConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdBackupConfigPtrOutput() ClusterServices_EtcdBackupConfigPtrOutput
-	ToClusterServices_EtcdBackupConfigPtrOutputWithContext(context.Context) ClusterServices_EtcdBackupConfigPtrOutput
-}
-
-type clusterServices_EtcdBackupConfigPtrType ClusterServices_EtcdBackupConfigArgs
-
-func ClusterServices_EtcdBackupConfigPtr(v *ClusterServices_EtcdBackupConfigArgs) ClusterServices_EtcdBackupConfigPtrInput {	return (*clusterServices_EtcdBackupConfigPtrType)(v)
-}
-
-func (*clusterServices_EtcdBackupConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_EtcdBackupConfig)(nil)).Elem()
-}
-
-func (i *clusterServices_EtcdBackupConfigPtrType) ToClusterServices_EtcdBackupConfigPtrOutput() ClusterServices_EtcdBackupConfigPtrOutput {
-	return i.ToClusterServices_EtcdBackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_EtcdBackupConfigPtrType) ToClusterServices_EtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfigOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_EtcdBackupConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_EtcdBackupConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdBackupConfigOutput) ToClusterServices_EtcdBackupConfigOutput() ClusterServices_EtcdBackupConfigOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigOutput) ToClusterServices_EtcdBackupConfigOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigOutput) ToClusterServices_EtcdBackupConfigPtrOutput() ClusterServices_EtcdBackupConfigPtrOutput {
-	return o.ToClusterServices_EtcdBackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_EtcdBackupConfigOutput) ToClusterServices_EtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServices_EtcdBackupConfig) *ClusterServices_EtcdBackupConfig {
-		return &v
-	}).(ClusterServices_EtcdBackupConfigPtrOutput)
-}
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_EtcdBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Interval hours for etcd backup. Default `12` (int)
-func (o ClusterServices_EtcdBackupConfigOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
-}
-
-// Retention for etcd backup. Default `6` (int)
-func (o ClusterServices_EtcdBackupConfigOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
-}
-
-// S3 config options for etcd backup (list maxitems:1)
-func (o ClusterServices_EtcdBackupConfigOutput) S3BackupConfig() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *ClusterServices_EtcdBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput)
-}
-
-// Safe timestamp for etcd backup. Default: `false` (bool)
-func (o ClusterServices_EtcdBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfigPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_EtcdBackupConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_EtcdBackupConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdBackupConfigPtrOutput) ToClusterServices_EtcdBackupConfigPtrOutput() ClusterServices_EtcdBackupConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigPtrOutput) ToClusterServices_EtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigPtrOutput) Elem() ClusterServices_EtcdBackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServices_EtcdBackupConfig) ClusterServices_EtcdBackupConfig { return *v }).(ClusterServices_EtcdBackupConfigOutput)
-}
-
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_EtcdBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Interval hours for etcd backup. Default `12` (int)
-func (o ClusterServices_EtcdBackupConfigPtrOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
-}
-
-// Retention for etcd backup. Default `6` (int)
-func (o ClusterServices_EtcdBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
-}
-
-// S3 config options for etcd backup (list maxitems:1)
-func (o ClusterServices_EtcdBackupConfigPtrOutput) S3BackupConfig() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *ClusterServices_EtcdBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput)
-}
-
-// Safe timestamp for etcd backup. Default: `false` (bool)
-func (o ClusterServices_EtcdBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfig struct {
-	// Access key for S3 service (string)
-	AccessKey *string `pulumi:"accessKey"`
-	// Bucket name for S3 service (string)
-	BucketName *string `pulumi:"bucketName"`
-	// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-	CustomCa *string `pulumi:"customCa"`
-	// Endpoint for S3 service (string)
-	Endpoint *string `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
-	Folder *string `pulumi:"folder"`
-	// Region for S3 service (string)
-	Region *string `pulumi:"region"`
-	// Secret key for S3 service (string)
-	SecretKey *string `pulumi:"secretKey"`
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfigInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdBackupConfigS3BackupConfigOutput() ClusterServices_EtcdBackupConfigS3BackupConfigOutput
-	ToClusterServices_EtcdBackupConfigS3BackupConfigOutputWithContext(context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigOutput
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfigArgs struct {
-	// Access key for S3 service (string)
-	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
-	// Bucket name for S3 service (string)
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-	CustomCa pulumi.StringPtrInput `pulumi:"customCa"`
-	// Endpoint for S3 service (string)
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
-	Folder pulumi.StringPtrInput `pulumi:"folder"`
-	// Region for S3 service (string)
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Secret key for S3 service (string)
-	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
-}
-
-func (ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_EtcdBackupConfigS3BackupConfig)(nil)).Elem()
-}
-
-func (i ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ToClusterServices_EtcdBackupConfigS3BackupConfigOutput() ClusterServices_EtcdBackupConfigS3BackupConfigOutput {
-	return i.ToClusterServices_EtcdBackupConfigS3BackupConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ToClusterServices_EtcdBackupConfigS3BackupConfigOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigS3BackupConfigOutput)
-}
-
-func (i ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return i.ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigS3BackupConfigOutput).ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput
-	ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput
-}
-
-type clusterServices_EtcdBackupConfigS3BackupConfigPtrType ClusterServices_EtcdBackupConfigS3BackupConfigArgs
-
-func ClusterServices_EtcdBackupConfigS3BackupConfigPtr(v *ClusterServices_EtcdBackupConfigS3BackupConfigArgs) ClusterServices_EtcdBackupConfigS3BackupConfigPtrInput {	return (*clusterServices_EtcdBackupConfigS3BackupConfigPtrType)(v)
-}
-
-func (*clusterServices_EtcdBackupConfigS3BackupConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_EtcdBackupConfigS3BackupConfig)(nil)).Elem()
-}
-
-func (i *clusterServices_EtcdBackupConfigS3BackupConfigPtrType) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return i.ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_EtcdBackupConfigS3BackupConfigPtrType) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfigOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_EtcdBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_EtcdBackupConfigS3BackupConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigOutput() ClusterServices_EtcdBackupConfigS3BackupConfigOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServices_EtcdBackupConfigS3BackupConfig) *ClusterServices_EtcdBackupConfigS3BackupConfig {
-		return &v
-	}).(ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput)
-}
-// Access key for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
-}
-
-// Bucket name for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
-}
-
-// Endpoint for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
-}
-
-// Region for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-// Secret key for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_EtcdBackupConfigS3BackupConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput() ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) ToClusterServices_EtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServices_EtcdBackupConfigS3BackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServices_EtcdBackupConfigS3BackupConfig) ClusterServices_EtcdBackupConfigS3BackupConfig { return *v }).(ClusterServices_EtcdBackupConfigS3BackupConfigOutput)
-}
-
-// Access key for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
-}
-
-// Bucket name for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
-}
-
-// Endpoint for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
-}
-
-// Region for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-// Secret key for S3 service (string)
-func (o ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_EtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeApi struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-	AlwaysPullImages *bool `pulumi:"alwaysPullImages"`
-	// K8s audit log configuration. (list maxitem: 1)
-	AuditLog *ClusterServices_KubeApiAuditLog `pulumi:"auditLog"`
-	// K8s event rate limit configuration. (list maxitem: 1)
-	EventRateLimit *ClusterServices_KubeApiEventRateLimit `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
-	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
-	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-	SecretsEncryptionConfig *ClusterServices_KubeApiSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
-	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
-	// Service Node Port Range option for kube API service (string)
-	ServiceNodePortRange *string `pulumi:"serviceNodePortRange"`
-}
-
-type ClusterServices_KubeApiInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiOutput() ClusterServices_KubeApiOutput
-	ToClusterServices_KubeApiOutputWithContext(context.Context) ClusterServices_KubeApiOutput
-}
-
-type ClusterServices_KubeApiArgs struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-	AlwaysPullImages pulumi.BoolPtrInput `pulumi:"alwaysPullImages"`
-	// K8s audit log configuration. (list maxitem: 1)
-	AuditLog ClusterServices_KubeApiAuditLogPtrInput `pulumi:"auditLog"`
-	// K8s event rate limit configuration. (list maxitem: 1)
-	EventRateLimit ClusterServices_KubeApiEventRateLimitPtrInput `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
-	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
-	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-	SecretsEncryptionConfig ClusterServices_KubeApiSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
-	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
-	// Service Node Port Range option for kube API service (string)
-	ServiceNodePortRange pulumi.StringPtrInput `pulumi:"serviceNodePortRange"`
-}
-
-func (ClusterServices_KubeApiArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApi)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeApiArgs) ToClusterServices_KubeApiOutput() ClusterServices_KubeApiOutput {
-	return i.ToClusterServices_KubeApiOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiArgs) ToClusterServices_KubeApiOutputWithContext(ctx context.Context) ClusterServices_KubeApiOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiOutput)
-}
-
-func (i ClusterServices_KubeApiArgs) ToClusterServices_KubeApiPtrOutput() ClusterServices_KubeApiPtrOutput {
-	return i.ToClusterServices_KubeApiPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiArgs) ToClusterServices_KubeApiPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiOutput).ToClusterServices_KubeApiPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeApiPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiPtrOutput() ClusterServices_KubeApiPtrOutput
-	ToClusterServices_KubeApiPtrOutputWithContext(context.Context) ClusterServices_KubeApiPtrOutput
-}
-
-type clusterServices_KubeApiPtrType ClusterServices_KubeApiArgs
-
-func ClusterServices_KubeApiPtr(v *ClusterServices_KubeApiArgs) ClusterServices_KubeApiPtrInput {	return (*clusterServices_KubeApiPtrType)(v)
-}
-
-func (*clusterServices_KubeApiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApi)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeApiPtrType) ToClusterServices_KubeApiPtrOutput() ClusterServices_KubeApiPtrOutput {
-	return i.ToClusterServices_KubeApiPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeApiPtrType) ToClusterServices_KubeApiPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiPtrOutput)
-}
-
-type ClusterServices_KubeApiOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApi)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiOutput) ToClusterServices_KubeApiOutput() ClusterServices_KubeApiOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiOutput) ToClusterServices_KubeApiOutputWithContext(ctx context.Context) ClusterServices_KubeApiOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiOutput) ToClusterServices_KubeApiPtrOutput() ClusterServices_KubeApiPtrOutput {
-	return o.ToClusterServices_KubeApiPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeApiOutput) ToClusterServices_KubeApiPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeApi) *ClusterServices_KubeApi {
-		return &v
-	}).(ClusterServices_KubeApiPtrOutput)
-}
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-func (o ClusterServices_KubeApiOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
-}
-
-// K8s audit log configuration. (list maxitem: 1)
-func (o ClusterServices_KubeApiOutput) AuditLog() ClusterServices_KubeApiAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiAuditLog { return v.AuditLog }).(ClusterServices_KubeApiAuditLogPtrOutput)
-}
-
-// K8s event rate limit configuration. (list maxitem: 1)
-func (o ClusterServices_KubeApiOutput) EventRateLimit() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServices_KubeApiEventRateLimitPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeApiOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeApiOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeApiOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeApiOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Pod Security Policy option for kube API service. Default `false` (bool)
-func (o ClusterServices_KubeApiOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
-}
-
-// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-func (o ClusterServices_KubeApiOutput) SecretsEncryptionConfig() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput)
-}
-
-// Service Cluster ip Range option for kube controller service (string)
-func (o ClusterServices_KubeApiOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
-}
-
-// Service Node Port Range option for kube API service (string)
-func (o ClusterServices_KubeApiOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeApiPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeApiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApi)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiPtrOutput) ToClusterServices_KubeApiPtrOutput() ClusterServices_KubeApiPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiPtrOutput) ToClusterServices_KubeApiPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiPtrOutput) Elem() ClusterServices_KubeApiOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeApi) ClusterServices_KubeApi { return *v }).(ClusterServices_KubeApiOutput)
-}
-
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-func (o ClusterServices_KubeApiPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
-}
-
-// K8s audit log configuration. (list maxitem: 1)
-func (o ClusterServices_KubeApiPtrOutput) AuditLog() ClusterServices_KubeApiAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiAuditLog { return v.AuditLog }).(ClusterServices_KubeApiAuditLogPtrOutput)
-}
-
-// K8s event rate limit configuration. (list maxitem: 1)
-func (o ClusterServices_KubeApiPtrOutput) EventRateLimit() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServices_KubeApiEventRateLimitPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeApiPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeApiPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeApiPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeApiPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Pod Security Policy option for kube API service. Default `false` (bool)
-func (o ClusterServices_KubeApiPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
-}
-
-// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-func (o ClusterServices_KubeApiPtrOutput) SecretsEncryptionConfig() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *ClusterServices_KubeApiSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput)
-}
-
-// Service Cluster ip Range option for kube controller service (string)
-func (o ClusterServices_KubeApiPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
-}
-
-// Service Node Port Range option for kube API service (string)
-func (o ClusterServices_KubeApiPtrOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLog struct {
-	// Audit log configuration. (list maxtiem: 1)
-	Configuration *ClusterServices_KubeApiAuditLogConfiguration `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled *bool `pulumi:"enabled"`
-}
-
-type ClusterServices_KubeApiAuditLogInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiAuditLogOutput() ClusterServices_KubeApiAuditLogOutput
-	ToClusterServices_KubeApiAuditLogOutputWithContext(context.Context) ClusterServices_KubeApiAuditLogOutput
-}
-
-type ClusterServices_KubeApiAuditLogArgs struct {
-	// Audit log configuration. (list maxtiem: 1)
-	Configuration ClusterServices_KubeApiAuditLogConfigurationPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (ClusterServices_KubeApiAuditLogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiAuditLog)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeApiAuditLogArgs) ToClusterServices_KubeApiAuditLogOutput() ClusterServices_KubeApiAuditLogOutput {
-	return i.ToClusterServices_KubeApiAuditLogOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiAuditLogArgs) ToClusterServices_KubeApiAuditLogOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogOutput)
-}
-
-func (i ClusterServices_KubeApiAuditLogArgs) ToClusterServices_KubeApiAuditLogPtrOutput() ClusterServices_KubeApiAuditLogPtrOutput {
-	return i.ToClusterServices_KubeApiAuditLogPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiAuditLogArgs) ToClusterServices_KubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogOutput).ToClusterServices_KubeApiAuditLogPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeApiAuditLogPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiAuditLogPtrOutput() ClusterServices_KubeApiAuditLogPtrOutput
-	ToClusterServices_KubeApiAuditLogPtrOutputWithContext(context.Context) ClusterServices_KubeApiAuditLogPtrOutput
-}
-
-type clusterServices_KubeApiAuditLogPtrType ClusterServices_KubeApiAuditLogArgs
-
-func ClusterServices_KubeApiAuditLogPtr(v *ClusterServices_KubeApiAuditLogArgs) ClusterServices_KubeApiAuditLogPtrInput {	return (*clusterServices_KubeApiAuditLogPtrType)(v)
-}
-
-func (*clusterServices_KubeApiAuditLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiAuditLog)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeApiAuditLogPtrType) ToClusterServices_KubeApiAuditLogPtrOutput() ClusterServices_KubeApiAuditLogPtrOutput {
-	return i.ToClusterServices_KubeApiAuditLogPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeApiAuditLogPtrType) ToClusterServices_KubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLogOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeApiAuditLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiAuditLog)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiAuditLogOutput) ToClusterServices_KubeApiAuditLogOutput() ClusterServices_KubeApiAuditLogOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogOutput) ToClusterServices_KubeApiAuditLogOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogOutput) ToClusterServices_KubeApiAuditLogPtrOutput() ClusterServices_KubeApiAuditLogPtrOutput {
-	return o.ToClusterServices_KubeApiAuditLogPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeApiAuditLogOutput) ToClusterServices_KubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeApiAuditLog) *ClusterServices_KubeApiAuditLog {
-		return &v
-	}).(ClusterServices_KubeApiAuditLogPtrOutput)
-}
-// Audit log configuration. (list maxtiem: 1)
-func (o ClusterServices_KubeApiAuditLogOutput) Configuration() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLog) *ClusterServices_KubeApiAuditLogConfiguration { return v.Configuration }).(ClusterServices_KubeApiAuditLogConfigurationPtrOutput)
-}
-
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLogPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeApiAuditLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiAuditLog)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiAuditLogPtrOutput) ToClusterServices_KubeApiAuditLogPtrOutput() ClusterServices_KubeApiAuditLogPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogPtrOutput) ToClusterServices_KubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogPtrOutput) Elem() ClusterServices_KubeApiAuditLogOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeApiAuditLog) ClusterServices_KubeApiAuditLog { return *v }).(ClusterServices_KubeApiAuditLogOutput)
-}
-
-// Audit log configuration. (list maxtiem: 1)
-func (o ClusterServices_KubeApiAuditLogPtrOutput) Configuration() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLog) *ClusterServices_KubeApiAuditLogConfiguration { return v.Configuration }).(ClusterServices_KubeApiAuditLogConfigurationPtrOutput)
-}
-
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLogConfiguration struct {
-	// Audit log format. Default: `json` (string)
-	Format *string `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
-	MaxAge *int `pulumi:"maxAge"`
-	// Audit log max backup. Default: `10` (int)
-	MaxBackup *int `pulumi:"maxBackup"`
-	// Audit log max size. Default: `100` (int)
-	MaxSize *int `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-	Path *string `pulumi:"path"`
-	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-	Policy *string `pulumi:"policy"`
-}
-
-type ClusterServices_KubeApiAuditLogConfigurationInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiAuditLogConfigurationOutput() ClusterServices_KubeApiAuditLogConfigurationOutput
-	ToClusterServices_KubeApiAuditLogConfigurationOutputWithContext(context.Context) ClusterServices_KubeApiAuditLogConfigurationOutput
-}
-
-type ClusterServices_KubeApiAuditLogConfigurationArgs struct {
-	// Audit log format. Default: `json` (string)
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
-	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
-	// Audit log max backup. Default: `10` (int)
-	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
-	// Audit log max size. Default: `100` (int)
-	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-	Policy pulumi.StringPtrInput `pulumi:"policy"`
-}
-
-func (ClusterServices_KubeApiAuditLogConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiAuditLogConfiguration)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeApiAuditLogConfigurationArgs) ToClusterServices_KubeApiAuditLogConfigurationOutput() ClusterServices_KubeApiAuditLogConfigurationOutput {
-	return i.ToClusterServices_KubeApiAuditLogConfigurationOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiAuditLogConfigurationArgs) ToClusterServices_KubeApiAuditLogConfigurationOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogConfigurationOutput)
-}
-
-func (i ClusterServices_KubeApiAuditLogConfigurationArgs) ToClusterServices_KubeApiAuditLogConfigurationPtrOutput() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return i.ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiAuditLogConfigurationArgs) ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogConfigurationOutput).ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeApiAuditLogConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiAuditLogConfigurationPtrOutput() ClusterServices_KubeApiAuditLogConfigurationPtrOutput
-	ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(context.Context) ClusterServices_KubeApiAuditLogConfigurationPtrOutput
-}
-
-type clusterServices_KubeApiAuditLogConfigurationPtrType ClusterServices_KubeApiAuditLogConfigurationArgs
-
-func ClusterServices_KubeApiAuditLogConfigurationPtr(v *ClusterServices_KubeApiAuditLogConfigurationArgs) ClusterServices_KubeApiAuditLogConfigurationPtrInput {	return (*clusterServices_KubeApiAuditLogConfigurationPtrType)(v)
-}
-
-func (*clusterServices_KubeApiAuditLogConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiAuditLogConfiguration)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeApiAuditLogConfigurationPtrType) ToClusterServices_KubeApiAuditLogConfigurationPtrOutput() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return i.ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeApiAuditLogConfigurationPtrType) ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiAuditLogConfigurationPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLogConfigurationOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeApiAuditLogConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiAuditLogConfiguration)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) ToClusterServices_KubeApiAuditLogConfigurationOutput() ClusterServices_KubeApiAuditLogConfigurationOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) ToClusterServices_KubeApiAuditLogConfigurationOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) ToClusterServices_KubeApiAuditLogConfigurationPtrOutput() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o.ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeApiAuditLogConfiguration) *ClusterServices_KubeApiAuditLogConfiguration {
-		return &v
-	}).(ClusterServices_KubeApiAuditLogConfigurationPtrOutput)
-}
-// Audit log format. Default: `json` (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
-}
-
-// Audit log max age. Default: `30` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
-}
-
-// Audit log max backup. Default: `10` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
-}
-
-// Audit log max size. Default: `100` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
-}
-
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeApiAuditLogConfigurationPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeApiAuditLogConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiAuditLogConfiguration)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) ToClusterServices_KubeApiAuditLogConfigurationPtrOutput() ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) ToClusterServices_KubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiAuditLogConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) Elem() ClusterServices_KubeApiAuditLogConfigurationOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeApiAuditLogConfiguration) ClusterServices_KubeApiAuditLogConfiguration { return *v }).(ClusterServices_KubeApiAuditLogConfigurationOutput)
-}
-
-// Audit log format. Default: `json` (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
-}
-
-// Audit log max age. Default: `30` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
-}
-
-// Audit log max backup. Default: `10` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
-}
-
-// Audit log max size. Default: `100` (int)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
-}
-
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-func (o ClusterServices_KubeApiAuditLogConfigurationPtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeApiEventRateLimit struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled *bool `pulumi:"enabled"`
-}
-
-type ClusterServices_KubeApiEventRateLimitInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiEventRateLimitOutput() ClusterServices_KubeApiEventRateLimitOutput
-	ToClusterServices_KubeApiEventRateLimitOutputWithContext(context.Context) ClusterServices_KubeApiEventRateLimitOutput
-}
-
-type ClusterServices_KubeApiEventRateLimitArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (ClusterServices_KubeApiEventRateLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiEventRateLimit)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeApiEventRateLimitArgs) ToClusterServices_KubeApiEventRateLimitOutput() ClusterServices_KubeApiEventRateLimitOutput {
-	return i.ToClusterServices_KubeApiEventRateLimitOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiEventRateLimitArgs) ToClusterServices_KubeApiEventRateLimitOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiEventRateLimitOutput)
-}
-
-func (i ClusterServices_KubeApiEventRateLimitArgs) ToClusterServices_KubeApiEventRateLimitPtrOutput() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return i.ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiEventRateLimitArgs) ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiEventRateLimitOutput).ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeApiEventRateLimitPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiEventRateLimitPtrOutput() ClusterServices_KubeApiEventRateLimitPtrOutput
-	ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(context.Context) ClusterServices_KubeApiEventRateLimitPtrOutput
-}
-
-type clusterServices_KubeApiEventRateLimitPtrType ClusterServices_KubeApiEventRateLimitArgs
-
-func ClusterServices_KubeApiEventRateLimitPtr(v *ClusterServices_KubeApiEventRateLimitArgs) ClusterServices_KubeApiEventRateLimitPtrInput {	return (*clusterServices_KubeApiEventRateLimitPtrType)(v)
-}
-
-func (*clusterServices_KubeApiEventRateLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiEventRateLimit)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeApiEventRateLimitPtrType) ToClusterServices_KubeApiEventRateLimitPtrOutput() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return i.ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeApiEventRateLimitPtrType) ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiEventRateLimitPtrOutput)
-}
-
-type ClusterServices_KubeApiEventRateLimitOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeApiEventRateLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiEventRateLimit)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiEventRateLimitOutput) ToClusterServices_KubeApiEventRateLimitOutput() ClusterServices_KubeApiEventRateLimitOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiEventRateLimitOutput) ToClusterServices_KubeApiEventRateLimitOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiEventRateLimitOutput) ToClusterServices_KubeApiEventRateLimitPtrOutput() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o.ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeApiEventRateLimitOutput) ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeApiEventRateLimit) *ClusterServices_KubeApiEventRateLimit {
-		return &v
-	}).(ClusterServices_KubeApiEventRateLimitPtrOutput)
-}
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeApiEventRateLimitPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeApiEventRateLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiEventRateLimit)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiEventRateLimitPtrOutput) ToClusterServices_KubeApiEventRateLimitPtrOutput() ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiEventRateLimitPtrOutput) ToClusterServices_KubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiEventRateLimitPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiEventRateLimitPtrOutput) Elem() ClusterServices_KubeApiEventRateLimitOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeApiEventRateLimit) ClusterServices_KubeApiEventRateLimit { return *v }).(ClusterServices_KubeApiEventRateLimitOutput)
-}
-
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled *bool `pulumi:"enabled"`
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfigInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiSecretsEncryptionConfigOutput() ClusterServices_KubeApiSecretsEncryptionConfigOutput
-	ToClusterServices_KubeApiSecretsEncryptionConfigOutputWithContext(context.Context) ClusterServices_KubeApiSecretsEncryptionConfigOutput
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (ClusterServices_KubeApiSecretsEncryptionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiSecretsEncryptionConfig)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeApiSecretsEncryptionConfigArgs) ToClusterServices_KubeApiSecretsEncryptionConfigOutput() ClusterServices_KubeApiSecretsEncryptionConfigOutput {
-	return i.ToClusterServices_KubeApiSecretsEncryptionConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiSecretsEncryptionConfigArgs) ToClusterServices_KubeApiSecretsEncryptionConfigOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiSecretsEncryptionConfigOutput)
-}
-
-func (i ClusterServices_KubeApiSecretsEncryptionConfigArgs) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutput() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return i.ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeApiSecretsEncryptionConfigArgs) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiSecretsEncryptionConfigOutput).ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutput() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput
-	ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(context.Context) ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput
-}
-
-type clusterServices_KubeApiSecretsEncryptionConfigPtrType ClusterServices_KubeApiSecretsEncryptionConfigArgs
-
-func ClusterServices_KubeApiSecretsEncryptionConfigPtr(v *ClusterServices_KubeApiSecretsEncryptionConfigArgs) ClusterServices_KubeApiSecretsEncryptionConfigPtrInput {	return (*clusterServices_KubeApiSecretsEncryptionConfigPtrType)(v)
-}
-
-func (*clusterServices_KubeApiSecretsEncryptionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiSecretsEncryptionConfig)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeApiSecretsEncryptionConfigPtrType) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutput() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return i.ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeApiSecretsEncryptionConfigPtrType) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput)
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfigOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeApiSecretsEncryptionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeApiSecretsEncryptionConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigOutput) ToClusterServices_KubeApiSecretsEncryptionConfigOutput() ClusterServices_KubeApiSecretsEncryptionConfigOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigOutput) ToClusterServices_KubeApiSecretsEncryptionConfigOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigOutput) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutput() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigOutput) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeApiSecretsEncryptionConfig) *ClusterServices_KubeApiSecretsEncryptionConfig {
-		return &v
-	}).(ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput)
-}
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeApiSecretsEncryptionConfig)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutput() ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput) ToClusterServices_KubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput) Elem() ClusterServices_KubeApiSecretsEncryptionConfigOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeApiSecretsEncryptionConfig) ClusterServices_KubeApiSecretsEncryptionConfig { return *v }).(ClusterServices_KubeApiSecretsEncryptionConfigOutput)
-}
-
-// Enable secrets encryption. Default: `false` (bool)
-func (o ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterServices_KubeController struct {
-	// Cluster CIDR option for kube controller service (string)
-	ClusterCidr *string `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
-	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
-}
-
-type ClusterServices_KubeControllerInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeControllerOutput() ClusterServices_KubeControllerOutput
-	ToClusterServices_KubeControllerOutputWithContext(context.Context) ClusterServices_KubeControllerOutput
-}
-
-type ClusterServices_KubeControllerArgs struct {
-	// Cluster CIDR option for kube controller service (string)
-	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
-	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
-}
-
-func (ClusterServices_KubeControllerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeController)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeControllerArgs) ToClusterServices_KubeControllerOutput() ClusterServices_KubeControllerOutput {
-	return i.ToClusterServices_KubeControllerOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeControllerArgs) ToClusterServices_KubeControllerOutputWithContext(ctx context.Context) ClusterServices_KubeControllerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeControllerOutput)
-}
-
-func (i ClusterServices_KubeControllerArgs) ToClusterServices_KubeControllerPtrOutput() ClusterServices_KubeControllerPtrOutput {
-	return i.ToClusterServices_KubeControllerPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeControllerArgs) ToClusterServices_KubeControllerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeControllerOutput).ToClusterServices_KubeControllerPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeControllerPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeControllerPtrOutput() ClusterServices_KubeControllerPtrOutput
-	ToClusterServices_KubeControllerPtrOutputWithContext(context.Context) ClusterServices_KubeControllerPtrOutput
-}
-
-type clusterServices_KubeControllerPtrType ClusterServices_KubeControllerArgs
-
-func ClusterServices_KubeControllerPtr(v *ClusterServices_KubeControllerArgs) ClusterServices_KubeControllerPtrInput {	return (*clusterServices_KubeControllerPtrType)(v)
-}
-
-func (*clusterServices_KubeControllerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeController)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeControllerPtrType) ToClusterServices_KubeControllerPtrOutput() ClusterServices_KubeControllerPtrOutput {
-	return i.ToClusterServices_KubeControllerPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeControllerPtrType) ToClusterServices_KubeControllerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeControllerPtrOutput)
-}
-
-type ClusterServices_KubeControllerOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeController)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeControllerOutput) ToClusterServices_KubeControllerOutput() ClusterServices_KubeControllerOutput {
-	return o
-}
-
-func (o ClusterServices_KubeControllerOutput) ToClusterServices_KubeControllerOutputWithContext(ctx context.Context) ClusterServices_KubeControllerOutput {
-	return o
-}
-
-func (o ClusterServices_KubeControllerOutput) ToClusterServices_KubeControllerPtrOutput() ClusterServices_KubeControllerPtrOutput {
-	return o.ToClusterServices_KubeControllerPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeControllerOutput) ToClusterServices_KubeControllerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeControllerPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeController) *ClusterServices_KubeController {
-		return &v
-	}).(ClusterServices_KubeControllerPtrOutput)
-}
-// Cluster CIDR option for kube controller service (string)
-func (o ClusterServices_KubeControllerOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeControllerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeControllerOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeControllerOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeControllerOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Service Cluster ip Range option for kube controller service (string)
-func (o ClusterServices_KubeControllerOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeControllerPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeControllerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeController)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeControllerPtrOutput) ToClusterServices_KubeControllerPtrOutput() ClusterServices_KubeControllerPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeControllerPtrOutput) ToClusterServices_KubeControllerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeControllerPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeControllerPtrOutput) Elem() ClusterServices_KubeControllerOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeController) ClusterServices_KubeController { return *v }).(ClusterServices_KubeControllerOutput)
-}
-
-// Cluster CIDR option for kube controller service (string)
-func (o ClusterServices_KubeControllerPtrOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeControllerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeControllerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeControllerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeControllerPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Service Cluster ip Range option for kube controller service (string)
-func (o ClusterServices_KubeControllerPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeProxy struct {
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-}
-
-type ClusterServices_KubeProxyInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeProxyOutput() ClusterServices_KubeProxyOutput
-	ToClusterServices_KubeProxyOutputWithContext(context.Context) ClusterServices_KubeProxyOutput
-}
-
-type ClusterServices_KubeProxyArgs struct {
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-}
-
-func (ClusterServices_KubeProxyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeProxy)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeProxyArgs) ToClusterServices_KubeProxyOutput() ClusterServices_KubeProxyOutput {
-	return i.ToClusterServices_KubeProxyOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeProxyArgs) ToClusterServices_KubeProxyOutputWithContext(ctx context.Context) ClusterServices_KubeProxyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeProxyOutput)
-}
-
-func (i ClusterServices_KubeProxyArgs) ToClusterServices_KubeProxyPtrOutput() ClusterServices_KubeProxyPtrOutput {
-	return i.ToClusterServices_KubeProxyPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeProxyArgs) ToClusterServices_KubeProxyPtrOutputWithContext(ctx context.Context) ClusterServices_KubeProxyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeProxyOutput).ToClusterServices_KubeProxyPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeProxyPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeProxyPtrOutput() ClusterServices_KubeProxyPtrOutput
-	ToClusterServices_KubeProxyPtrOutputWithContext(context.Context) ClusterServices_KubeProxyPtrOutput
-}
-
-type clusterServices_KubeProxyPtrType ClusterServices_KubeProxyArgs
-
-func ClusterServices_KubeProxyPtr(v *ClusterServices_KubeProxyArgs) ClusterServices_KubeProxyPtrInput {	return (*clusterServices_KubeProxyPtrType)(v)
-}
-
-func (*clusterServices_KubeProxyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeProxy)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeProxyPtrType) ToClusterServices_KubeProxyPtrOutput() ClusterServices_KubeProxyPtrOutput {
-	return i.ToClusterServices_KubeProxyPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeProxyPtrType) ToClusterServices_KubeProxyPtrOutputWithContext(ctx context.Context) ClusterServices_KubeProxyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeProxyPtrOutput)
-}
-
-type ClusterServices_KubeProxyOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeProxy)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeProxyOutput) ToClusterServices_KubeProxyOutput() ClusterServices_KubeProxyOutput {
-	return o
-}
-
-func (o ClusterServices_KubeProxyOutput) ToClusterServices_KubeProxyOutputWithContext(ctx context.Context) ClusterServices_KubeProxyOutput {
-	return o
-}
-
-func (o ClusterServices_KubeProxyOutput) ToClusterServices_KubeProxyPtrOutput() ClusterServices_KubeProxyPtrOutput {
-	return o.ToClusterServices_KubeProxyPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeProxyOutput) ToClusterServices_KubeProxyPtrOutputWithContext(ctx context.Context) ClusterServices_KubeProxyPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeProxy) *ClusterServices_KubeProxy {
-		return &v
-	}).(ClusterServices_KubeProxyPtrOutput)
-}
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeProxyOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeProxyOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeProxyOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeProxyOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeProxyPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeProxyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeProxy)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeProxyPtrOutput) ToClusterServices_KubeProxyPtrOutput() ClusterServices_KubeProxyPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeProxyPtrOutput) ToClusterServices_KubeProxyPtrOutputWithContext(ctx context.Context) ClusterServices_KubeProxyPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeProxyPtrOutput) Elem() ClusterServices_KubeProxyOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeProxy) ClusterServices_KubeProxy { return *v }).(ClusterServices_KubeProxyOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeProxyPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeProxyPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeProxyPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeProxyPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeProxy) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeScheduler struct {
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-}
-
-type ClusterServices_KubeSchedulerInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeSchedulerOutput() ClusterServices_KubeSchedulerOutput
-	ToClusterServices_KubeSchedulerOutputWithContext(context.Context) ClusterServices_KubeSchedulerOutput
-}
-
-type ClusterServices_KubeSchedulerArgs struct {
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-}
-
-func (ClusterServices_KubeSchedulerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeScheduler)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeSchedulerArgs) ToClusterServices_KubeSchedulerOutput() ClusterServices_KubeSchedulerOutput {
-	return i.ToClusterServices_KubeSchedulerOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeSchedulerArgs) ToClusterServices_KubeSchedulerOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeSchedulerOutput)
-}
-
-func (i ClusterServices_KubeSchedulerArgs) ToClusterServices_KubeSchedulerPtrOutput() ClusterServices_KubeSchedulerPtrOutput {
-	return i.ToClusterServices_KubeSchedulerPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeSchedulerArgs) ToClusterServices_KubeSchedulerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeSchedulerOutput).ToClusterServices_KubeSchedulerPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeSchedulerPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeSchedulerPtrOutput() ClusterServices_KubeSchedulerPtrOutput
-	ToClusterServices_KubeSchedulerPtrOutputWithContext(context.Context) ClusterServices_KubeSchedulerPtrOutput
-}
-
-type clusterServices_KubeSchedulerPtrType ClusterServices_KubeSchedulerArgs
-
-func ClusterServices_KubeSchedulerPtr(v *ClusterServices_KubeSchedulerArgs) ClusterServices_KubeSchedulerPtrInput {	return (*clusterServices_KubeSchedulerPtrType)(v)
-}
-
-func (*clusterServices_KubeSchedulerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeScheduler)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeSchedulerPtrType) ToClusterServices_KubeSchedulerPtrOutput() ClusterServices_KubeSchedulerPtrOutput {
-	return i.ToClusterServices_KubeSchedulerPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeSchedulerPtrType) ToClusterServices_KubeSchedulerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeSchedulerPtrOutput)
-}
-
-type ClusterServices_KubeSchedulerOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeSchedulerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_KubeScheduler)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeSchedulerOutput) ToClusterServices_KubeSchedulerOutput() ClusterServices_KubeSchedulerOutput {
-	return o
-}
-
-func (o ClusterServices_KubeSchedulerOutput) ToClusterServices_KubeSchedulerOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerOutput {
-	return o
-}
-
-func (o ClusterServices_KubeSchedulerOutput) ToClusterServices_KubeSchedulerPtrOutput() ClusterServices_KubeSchedulerPtrOutput {
-	return o.ToClusterServices_KubeSchedulerPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeSchedulerOutput) ToClusterServices_KubeSchedulerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerPtrOutput {
-	return o.ApplyT(func(v ClusterServices_KubeScheduler) *ClusterServices_KubeScheduler {
-		return &v
-	}).(ClusterServices_KubeSchedulerPtrOutput)
-}
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeSchedulerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeSchedulerOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeSchedulerOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeSchedulerOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeSchedulerPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeSchedulerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_KubeScheduler)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeSchedulerPtrOutput) ToClusterServices_KubeSchedulerPtrOutput() ClusterServices_KubeSchedulerPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeSchedulerPtrOutput) ToClusterServices_KubeSchedulerPtrOutputWithContext(ctx context.Context) ClusterServices_KubeSchedulerPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeSchedulerPtrOutput) Elem() ClusterServices_KubeSchedulerOutput {
-	return o.ApplyT(func (v *ClusterServices_KubeScheduler) ClusterServices_KubeScheduler { return *v }).(ClusterServices_KubeSchedulerOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeSchedulerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeSchedulerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeSchedulerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeSchedulerPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_KubeScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_Kubelet struct {
-	// Cluster DNS Server option for kubelet service (string)
-	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
-	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-	ClusterDomain *string `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Enable or disable failing when swap on is not supported (bool)
-	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn *bool `pulumi:"failSwapOn"`
-	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
-	Image *string `pulumi:"image"`
-	// Infra container image for kubelet service (string)
-	InfraContainerImage *string `pulumi:"infraContainerImage"`
-}
-
-type ClusterServices_KubeletInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeletOutput() ClusterServices_KubeletOutput
-	ToClusterServices_KubeletOutputWithContext(context.Context) ClusterServices_KubeletOutput
-}
-
-type ClusterServices_KubeletArgs struct {
-	// Cluster DNS Server option for kubelet service (string)
-	ClusterDnsServer pulumi.StringPtrInput `pulumi:"clusterDnsServer"`
-	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
-	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
-	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Enable or disable failing when swap on is not supported (bool)
-	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
-	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Infra container image for kubelet service (string)
-	InfraContainerImage pulumi.StringPtrInput `pulumi:"infraContainerImage"`
-}
-
-func (ClusterServices_KubeletArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_Kubelet)(nil)).Elem()
-}
-
-func (i ClusterServices_KubeletArgs) ToClusterServices_KubeletOutput() ClusterServices_KubeletOutput {
-	return i.ToClusterServices_KubeletOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeletArgs) ToClusterServices_KubeletOutputWithContext(ctx context.Context) ClusterServices_KubeletOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeletOutput)
-}
-
-func (i ClusterServices_KubeletArgs) ToClusterServices_KubeletPtrOutput() ClusterServices_KubeletPtrOutput {
-	return i.ToClusterServices_KubeletPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterServices_KubeletArgs) ToClusterServices_KubeletPtrOutputWithContext(ctx context.Context) ClusterServices_KubeletPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeletOutput).ToClusterServices_KubeletPtrOutputWithContext(ctx)
-}
-
-type ClusterServices_KubeletPtrInput interface {
-	pulumi.Input
-
-	ToClusterServices_KubeletPtrOutput() ClusterServices_KubeletPtrOutput
-	ToClusterServices_KubeletPtrOutputWithContext(context.Context) ClusterServices_KubeletPtrOutput
-}
-
-type clusterServices_KubeletPtrType ClusterServices_KubeletArgs
-
-func ClusterServices_KubeletPtr(v *ClusterServices_KubeletArgs) ClusterServices_KubeletPtrInput {	return (*clusterServices_KubeletPtrType)(v)
-}
-
-func (*clusterServices_KubeletPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_Kubelet)(nil)).Elem()
-}
-
-func (i *clusterServices_KubeletPtrType) ToClusterServices_KubeletPtrOutput() ClusterServices_KubeletPtrOutput {
-	return i.ToClusterServices_KubeletPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterServices_KubeletPtrType) ToClusterServices_KubeletPtrOutputWithContext(ctx context.Context) ClusterServices_KubeletPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterServices_KubeletPtrOutput)
-}
-
-type ClusterServices_KubeletOutput struct { *pulumi.OutputState }
-
-func (ClusterServices_KubeletOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterServices_Kubelet)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeletOutput) ToClusterServices_KubeletOutput() ClusterServices_KubeletOutput {
-	return o
-}
-
-func (o ClusterServices_KubeletOutput) ToClusterServices_KubeletOutputWithContext(ctx context.Context) ClusterServices_KubeletOutput {
-	return o
-}
-
-func (o ClusterServices_KubeletOutput) ToClusterServices_KubeletPtrOutput() ClusterServices_KubeletPtrOutput {
-	return o.ToClusterServices_KubeletPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterServices_KubeletOutput) ToClusterServices_KubeletPtrOutputWithContext(ctx context.Context) ClusterServices_KubeletPtrOutput {
-	return o.ApplyT(func(v ClusterServices_Kubelet) *ClusterServices_Kubelet {
-		return &v
-	}).(ClusterServices_KubeletPtrOutput)
-}
-// Cluster DNS Server option for kubelet service (string)
-func (o ClusterServices_KubeletOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
-}
-
-// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-func (o ClusterServices_KubeletOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeletOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeletOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeletOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Enable or disable failing when swap on is not supported (bool)
-// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-func (o ClusterServices_KubeletOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
-}
-
-func (o ClusterServices_KubeletOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeletOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Infra container image for kubelet service (string)
-func (o ClusterServices_KubeletOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
-}
-
-type ClusterServices_KubeletPtrOutput struct { *pulumi.OutputState}
-
-func (ClusterServices_KubeletPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterServices_Kubelet)(nil)).Elem()
-}
-
-func (o ClusterServices_KubeletPtrOutput) ToClusterServices_KubeletPtrOutput() ClusterServices_KubeletPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeletPtrOutput) ToClusterServices_KubeletPtrOutputWithContext(ctx context.Context) ClusterServices_KubeletPtrOutput {
-	return o
-}
-
-func (o ClusterServices_KubeletPtrOutput) Elem() ClusterServices_KubeletOutput {
-	return o.ApplyT(func (v *ClusterServices_Kubelet) ClusterServices_Kubelet { return *v }).(ClusterServices_KubeletOutput)
-}
-
-// Cluster DNS Server option for kubelet service (string)
-func (o ClusterServices_KubeletPtrOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
-}
-
-// Cluster Domain option for kubelet service. Default `cluster.local` (string)
-func (o ClusterServices_KubeletPtrOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
-}
-
-// Extra arguments for scheduler service (map)
-func (o ClusterServices_KubeletPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
-}
-
-// Extra binds for scheduler service (list)
-func (o ClusterServices_KubeletPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
-}
-
-// Extra environment for scheduler service (list)
-func (o ClusterServices_KubeletPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
-}
-
-// Enable or disable failing when swap on is not supported (bool)
-// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-func (o ClusterServices_KubeletPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
-}
-
-func (o ClusterServices_KubeletPtrOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
-}
-
-// Docker image for scheduler service (string)
-func (o ClusterServices_KubeletPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// Infra container image for kubelet service (string)
-func (o ClusterServices_KubeletPtrOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServices_Kubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
 type ClusterSystemImages struct {
@@ -14540,48 +14540,48 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServicesEtcdBackupConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesEtcdBackupConfigS3BackupConfigOutput{})
 	pulumi.RegisterOutputType(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedBackupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiAuditLogOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiAuditLogPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiAuditLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedAuditLogOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedEventRateLimitOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiEventRateLimitOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiEventRateLimitPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiSecretsEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeControllerOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeControllerPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeControllerDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeControllerDeprecatedPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeProxyDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeProxyDeprecatedPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeSchedulerDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeSchedulerDeprecatedPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeletOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeletPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeletDeprecatedOutput{})
+	pulumi.RegisterOutputType(ClusterServicesKubeletDeprecatedPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeproxyOutput{})
 	pulumi.RegisterOutputType(ClusterServicesKubeproxyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesSchedulerOutput{})
 	pulumi.RegisterOutputType(ClusterServicesSchedulerPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdBackupConfigOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdBackupConfigPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdBackupConfigS3BackupConfigOutput{})
-	pulumi.RegisterOutputType(ClusterServices_EtcdBackupConfigS3BackupConfigPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiAuditLogOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiAuditLogPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiAuditLogConfigurationOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiAuditLogConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiEventRateLimitOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiEventRateLimitPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiSecretsEncryptionConfigOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeApiSecretsEncryptionConfigPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeControllerOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeControllerPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeProxyOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeProxyPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeSchedulerOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeSchedulerPtrOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeletOutput{})
-	pulumi.RegisterOutputType(ClusterServices_KubeletPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSystemImagesOutput{})
 	pulumi.RegisterOutputType(ClusterSystemImagesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterWorkerHostOutput{})

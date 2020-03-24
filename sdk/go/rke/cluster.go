@@ -16,18 +16,6 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// Use services.etcd instead (list maxitems:1)
-	Services_Etcd ClusterServices_EtcdPtrOutput `pulumi:"Services_Etcd"`
-	// Use services.kube_api instead (list maxitems:1)
-	Services_KubeApi ClusterServices_KubeApiPtrOutput `pulumi:"Services_KubeApi"`
-	// Use services.kube_controller instead (list maxitems:1)
-	Services_KubeController ClusterServices_KubeControllerPtrOutput `pulumi:"Services_KubeController"`
-	// Use services.kubeproxy instead (list maxitems:1)
-	Services_KubeProxy ClusterServices_KubeProxyPtrOutput `pulumi:"Services_KubeProxy"`
-	// Use services.scheduler instead (list maxitems:1)
-	Services_KubeScheduler ClusterServices_KubeSchedulerPtrOutput `pulumi:"Services_KubeScheduler"`
-	// Use services.kubelet instead (list maxitems:1)
-	Services_Kubelet ClusterServices_KubeletPtrOutput `pulumi:"Services_Kubelet"`
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
 	AddonJobTimeout pulumi.IntOutput `pulumi:"addonJobTimeout"`
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -118,6 +106,18 @@ type Cluster struct {
 	RunningSystemImages ClusterRunningSystemImagesOutput `pulumi:"runningSystemImages"`
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesOutput `pulumi:"services"`
+	// Use services.etcd instead (list maxitems:1)
+	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrOutput `pulumi:"servicesEtcdDeprecated"`
+	// Use services.kube_api instead (list maxitems:1)
+	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrOutput `pulumi:"servicesKubeApiDeprecated"`
+	// Use services.kube_controller instead (list maxitems:1)
+	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrOutput `pulumi:"servicesKubeControllerDeprecated"`
+	// Use services.kubeproxy instead (list maxitems:1)
+	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrOutput `pulumi:"servicesKubeProxyDeprecated"`
+	// Use services.scheduler instead (list maxitems:1)
+	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrOutput `pulumi:"servicesKubeSchedulerDeprecated"`
+	// Use services.kubelet instead (list maxitems:1)
+	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrOutput `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrOutput `pulumi:"sshAgentAuth"`
 	// SSH Certificate path (string)
@@ -160,18 +160,6 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// Use services.etcd instead (list maxitems:1)
-	Services_Etcd *ClusterServices_Etcd `pulumi:"Services_Etcd"`
-	// Use services.kube_api instead (list maxitems:1)
-	Services_KubeApi *ClusterServices_KubeApi `pulumi:"Services_KubeApi"`
-	// Use services.kube_controller instead (list maxitems:1)
-	Services_KubeController *ClusterServices_KubeController `pulumi:"Services_KubeController"`
-	// Use services.kubeproxy instead (list maxitems:1)
-	Services_KubeProxy *ClusterServices_KubeProxy `pulumi:"Services_KubeProxy"`
-	// Use services.scheduler instead (list maxitems:1)
-	Services_KubeScheduler *ClusterServices_KubeScheduler `pulumi:"Services_KubeScheduler"`
-	// Use services.kubelet instead (list maxitems:1)
-	Services_Kubelet *ClusterServices_Kubelet `pulumi:"Services_Kubelet"`
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
 	AddonJobTimeout *int `pulumi:"addonJobTimeout"`
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -262,6 +250,18 @@ type clusterState struct {
 	RunningSystemImages *ClusterRunningSystemImages `pulumi:"runningSystemImages"`
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services *ClusterServices `pulumi:"services"`
+	// Use services.etcd instead (list maxitems:1)
+	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
+	// Use services.kube_api instead (list maxitems:1)
+	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
+	// Use services.kube_controller instead (list maxitems:1)
+	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
+	// Use services.kubeproxy instead (list maxitems:1)
+	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
+	// Use services.scheduler instead (list maxitems:1)
+	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
+	// Use services.kubelet instead (list maxitems:1)
+	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
 	// SSH Certificate path (string)
@@ -277,18 +277,6 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// Use services.etcd instead (list maxitems:1)
-	Services_Etcd ClusterServices_EtcdPtrInput
-	// Use services.kube_api instead (list maxitems:1)
-	Services_KubeApi ClusterServices_KubeApiPtrInput
-	// Use services.kube_controller instead (list maxitems:1)
-	Services_KubeController ClusterServices_KubeControllerPtrInput
-	// Use services.kubeproxy instead (list maxitems:1)
-	Services_KubeProxy ClusterServices_KubeProxyPtrInput
-	// Use services.scheduler instead (list maxitems:1)
-	Services_KubeScheduler ClusterServices_KubeSchedulerPtrInput
-	// Use services.kubelet instead (list maxitems:1)
-	Services_Kubelet ClusterServices_KubeletPtrInput
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
 	AddonJobTimeout pulumi.IntPtrInput
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -379,6 +367,18 @@ type ClusterState struct {
 	RunningSystemImages ClusterRunningSystemImagesPtrInput
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesPtrInput
+	// Use services.etcd instead (list maxitems:1)
+	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
+	// Use services.kube_api instead (list maxitems:1)
+	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
+	// Use services.kube_controller instead (list maxitems:1)
+	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
+	// Use services.kubeproxy instead (list maxitems:1)
+	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
+	// Use services.scheduler instead (list maxitems:1)
+	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
+	// Use services.kubelet instead (list maxitems:1)
+	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput
 	// SSH Certificate path (string)
@@ -398,18 +398,6 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Use services.etcd instead (list maxitems:1)
-	Services_Etcd *ClusterServices_Etcd `pulumi:"Services_Etcd"`
-	// Use services.kube_api instead (list maxitems:1)
-	Services_KubeApi *ClusterServices_KubeApi `pulumi:"Services_KubeApi"`
-	// Use services.kube_controller instead (list maxitems:1)
-	Services_KubeController *ClusterServices_KubeController `pulumi:"Services_KubeController"`
-	// Use services.kubeproxy instead (list maxitems:1)
-	Services_KubeProxy *ClusterServices_KubeProxy `pulumi:"Services_KubeProxy"`
-	// Use services.scheduler instead (list maxitems:1)
-	Services_KubeScheduler *ClusterServices_KubeScheduler `pulumi:"Services_KubeScheduler"`
-	// Use services.kubelet instead (list maxitems:1)
-	Services_Kubelet *ClusterServices_Kubelet `pulumi:"Services_Kubelet"`
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
 	AddonJobTimeout *int `pulumi:"addonJobTimeout"`
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -466,6 +454,18 @@ type clusterArgs struct {
 	RotateCertificates *ClusterRotateCertificates `pulumi:"rotateCertificates"`
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services *ClusterServices `pulumi:"services"`
+	// Use services.etcd instead (list maxitems:1)
+	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
+	// Use services.kube_api instead (list maxitems:1)
+	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
+	// Use services.kube_controller instead (list maxitems:1)
+	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
+	// Use services.kubeproxy instead (list maxitems:1)
+	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
+	// Use services.scheduler instead (list maxitems:1)
+	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
+	// Use services.kubelet instead (list maxitems:1)
+	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
 	// SSH Certificate path (string)
@@ -480,18 +480,6 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Use services.etcd instead (list maxitems:1)
-	Services_Etcd ClusterServices_EtcdPtrInput
-	// Use services.kube_api instead (list maxitems:1)
-	Services_KubeApi ClusterServices_KubeApiPtrInput
-	// Use services.kube_controller instead (list maxitems:1)
-	Services_KubeController ClusterServices_KubeControllerPtrInput
-	// Use services.kubeproxy instead (list maxitems:1)
-	Services_KubeProxy ClusterServices_KubeProxyPtrInput
-	// Use services.scheduler instead (list maxitems:1)
-	Services_KubeScheduler ClusterServices_KubeSchedulerPtrInput
-	// Use services.kubelet instead (list maxitems:1)
-	Services_Kubelet ClusterServices_KubeletPtrInput
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
 	AddonJobTimeout pulumi.IntPtrInput
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -548,6 +536,18 @@ type ClusterArgs struct {
 	RotateCertificates ClusterRotateCertificatesPtrInput
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesPtrInput
+	// Use services.etcd instead (list maxitems:1)
+	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
+	// Use services.kube_api instead (list maxitems:1)
+	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
+	// Use services.kube_controller instead (list maxitems:1)
+	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
+	// Use services.kubeproxy instead (list maxitems:1)
+	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
+	// Use services.scheduler instead (list maxitems:1)
+	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
+	// Use services.kubelet instead (list maxitems:1)
+	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput
 	// SSH Certificate path (string)

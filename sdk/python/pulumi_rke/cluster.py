@@ -10,114 +10,6 @@ from typing import Union
 from . import utilities, tables
 
 class Cluster(pulumi.CustomResource):
-    services__etcd: pulumi.Output[dict]
-    """
-    Use services.etcd instead (list maxitems:1)
-
-      * `backupConfig` (`dict`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
-        * `intervalHours` (`float`) - Interval hours for etcd backup. Default `12` (int)
-        * `retention` (`float`) - Retention for etcd backup. Default `6` (int)
-        * `s3BackupConfig` (`dict`) - S3 config options for etcd backup (list maxitems:1)
-          * `accessKey` (`str`) - Access key for S3 service (string)
-          * `bucketName` (`str`) - Bucket name for S3 service (string)
-          * `customCa` (`str`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-          * `endpoint` (`str`) - Endpoint for S3 service (string)
-          * `folder` (`str`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
-          * `region` (`str`) - Region for S3 service (string)
-          * `secretKey` (`str`) - Secret key for S3 service (string)
-
-        * `safeTimestamp` (`bool`) - Safe timestamp for etcd backup. Default: `false` (bool)
-
-      * `caCert` (`str`) - TLS CA certificate for etcd service (string)
-      * `cert` (`str`) - TLS certificate for etcd service (string)
-      * `creation` (`str`) - Creation option for etcd service (string)
-      * `externalUrls` (`list`) - External urls for etcd service (list)
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `gid` (`float`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-      * `image` (`str`) - Docker image for scheduler service (string)
-      * `key` (`str`) - TLS key for etcd service (string)
-      * `path` (`str`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-      * `retention` (`str`) - Retention for etcd backup. Default `6` (int)
-      * `snapshot` (`bool`) - Snapshot option for etcd service. Default `true` (bool)
-      * `uid` (`float`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-    """
-    services__kube_api: pulumi.Output[dict]
-    """
-    Use services.kube_api instead (list maxitems:1)
-
-      * `alwaysPullImages` (`bool`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-      * `auditLog` (`dict`) - K8s audit log configuration. (list maxitem: 1)
-        * `configuration` (`dict`) - Audit log configuration. (list maxtiem: 1)
-          * `format` (`str`) - Audit log format. Default: `json` (string)
-          * `maxAge` (`float`) - Audit log max age. Default: `30` (int)
-          * `maxBackup` (`float`) - Audit log max backup. Default: `10` (int)
-          * `maxSize` (`float`) - Audit log max size. Default: `100` (int)
-          * `path` (`str`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-          * `policy` (`str`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-
-        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
-
-      * `eventRateLimit` (`dict`) - K8s event rate limit configuration. (list maxitem: 1)
-        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
-
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `image` (`str`) - Docker image for scheduler service (string)
-      * `podSecurityPolicy` (`bool`) - Pod Security Policy option for kube API service. Default `false` (bool)
-      * `secretsEncryptionConfig` (`dict`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
-
-      * `serviceClusterIpRange` (`str`) - Service Cluster ip Range option for kube controller service (string)
-      * `serviceNodePortRange` (`str`) - Service Node Port Range option for kube API service (string)
-    """
-    services__kube_controller: pulumi.Output[dict]
-    """
-    Use services.kube_controller instead (list maxitems:1)
-
-      * `cluster_cidr` (`str`) - Cluster CIDR option for kube controller service (string)
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `image` (`str`) - Docker image for scheduler service (string)
-      * `serviceClusterIpRange` (`str`) - Service Cluster ip Range option for kube controller service (string)
-    """
-    services__kube_proxy: pulumi.Output[dict]
-    """
-    Use services.kubeproxy instead (list maxitems:1)
-
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `image` (`str`) - Docker image for scheduler service (string)
-    """
-    services__kube_scheduler: pulumi.Output[dict]
-    """
-    Use services.scheduler instead (list maxitems:1)
-
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `image` (`str`) - Docker image for scheduler service (string)
-    """
-    services__kubelet: pulumi.Output[dict]
-    """
-    Use services.kubelet instead (list maxitems:1)
-
-      * `cluster_dns_server` (`str`) - Cluster DNS Server option for kubelet service (string)
-      * `cluster_domain` (`str`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
-      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
-      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
-      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
-      * `failSwapOn` (`bool`) - Enable or disable failing when swap on is not supported (bool)
-        * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-      * `generateServingCertificate` (`bool`)
-      * `image` (`str`) - Docker image for scheduler service (string)
-      * `infraContainerImage` (`str`) - Infra container image for kubelet service (string)
-    """
     addon_job_timeout: pulumi.Output[float]
     """
     RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -590,7 +482,6 @@ class Cluster(pulumi.CustomResource):
     """
     RKE k8s cluster nodes (list)
 
-      * `RoleList` (`str`)
       * `address` (`str`) - Address ip for node (string)
       * `dockerSocket` (`str`) - Docker socket on the node that will be used in tunneling (string)
       * `hostnameOverride` (`str`) - Hostname override for node (string)
@@ -599,6 +490,7 @@ class Cluster(pulumi.CustomResource):
       * `nodeName` (`str`) - Name of the host provisioned via docker machine (string)
       * `port` (`str`) - Port used for SSH communication. Default `22` (string)
       * `roles` (`list`) - Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+      * `rolesDeprecated` (`str`)
       * `ssh_agent_auth` (`bool`) - SSH Agent Auth enable (bool)
       * `sshCert` (`str`) - SSH Certificate (string)
       * `ssh_cert_path` (`str`) - SSH Certificate path (string)
@@ -780,6 +672,114 @@ class Cluster(pulumi.CustomResource):
         * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
         * `image` (`str`) - Docker image for scheduler service (string)
     """
+    services_etcd_deprecated: pulumi.Output[dict]
+    """
+    Use services.etcd instead (list maxitems:1)
+
+      * `backupConfig` (`dict`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
+        * `intervalHours` (`float`) - Interval hours for etcd backup. Default `12` (int)
+        * `retention` (`float`) - Retention for etcd backup. Default `6` (int)
+        * `s3BackupConfig` (`dict`) - S3 config options for etcd backup (list maxitems:1)
+          * `accessKey` (`str`) - Access key for S3 service (string)
+          * `bucketName` (`str`) - Bucket name for S3 service (string)
+          * `customCa` (`str`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+          * `endpoint` (`str`) - Endpoint for S3 service (string)
+          * `folder` (`str`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
+          * `region` (`str`) - Region for S3 service (string)
+          * `secretKey` (`str`) - Secret key for S3 service (string)
+
+        * `safeTimestamp` (`bool`) - Safe timestamp for etcd backup. Default: `false` (bool)
+
+      * `caCert` (`str`) - TLS CA certificate for etcd service (string)
+      * `cert` (`str`) - TLS certificate for etcd service (string)
+      * `creation` (`str`) - Creation option for etcd service (string)
+      * `externalUrls` (`list`) - External urls for etcd service (list)
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `gid` (`float`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+      * `image` (`str`) - Docker image for scheduler service (string)
+      * `key` (`str`) - TLS key for etcd service (string)
+      * `path` (`str`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+      * `retention` (`str`) - Retention for etcd backup. Default `6` (int)
+      * `snapshot` (`bool`) - Snapshot option for etcd service. Default `true` (bool)
+      * `uid` (`float`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+    """
+    services_kube_api_deprecated: pulumi.Output[dict]
+    """
+    Use services.kube_api instead (list maxitems:1)
+
+      * `alwaysPullImages` (`bool`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+      * `auditLog` (`dict`) - K8s audit log configuration. (list maxitem: 1)
+        * `configuration` (`dict`) - Audit log configuration. (list maxtiem: 1)
+          * `format` (`str`) - Audit log format. Default: `json` (string)
+          * `maxAge` (`float`) - Audit log max age. Default: `30` (int)
+          * `maxBackup` (`float`) - Audit log max backup. Default: `10` (int)
+          * `maxSize` (`float`) - Audit log max size. Default: `100` (int)
+          * `path` (`str`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+          * `policy` (`str`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+
+        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
+
+      * `eventRateLimit` (`dict`) - K8s event rate limit configuration. (list maxitem: 1)
+        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
+
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `image` (`str`) - Docker image for scheduler service (string)
+      * `podSecurityPolicy` (`bool`) - Pod Security Policy option for kube API service. Default `false` (bool)
+      * `secretsEncryptionConfig` (`dict`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+        * `enabled` (`bool`) - Enable secrets encryption. Default: `false` (bool)
+
+      * `serviceClusterIpRange` (`str`) - Service Cluster ip Range option for kube controller service (string)
+      * `serviceNodePortRange` (`str`) - Service Node Port Range option for kube API service (string)
+    """
+    services_kube_controller_deprecated: pulumi.Output[dict]
+    """
+    Use services.kube_controller instead (list maxitems:1)
+
+      * `cluster_cidr` (`str`) - Cluster CIDR option for kube controller service (string)
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `image` (`str`) - Docker image for scheduler service (string)
+      * `serviceClusterIpRange` (`str`) - Service Cluster ip Range option for kube controller service (string)
+    """
+    services_kube_proxy_deprecated: pulumi.Output[dict]
+    """
+    Use services.kubeproxy instead (list maxitems:1)
+
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `image` (`str`) - Docker image for scheduler service (string)
+    """
+    services_kube_scheduler_deprecated: pulumi.Output[dict]
+    """
+    Use services.scheduler instead (list maxitems:1)
+
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `image` (`str`) - Docker image for scheduler service (string)
+    """
+    services_kubelet_deprecated: pulumi.Output[dict]
+    """
+    Use services.kubelet instead (list maxitems:1)
+
+      * `cluster_dns_server` (`str`) - Cluster DNS Server option for kubelet service (string)
+      * `cluster_domain` (`str`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
+      * `extraArgs` (`dict`) - Extra arguments for scheduler service (map)
+      * `extraBinds` (`list`) - Extra binds for scheduler service (list)
+      * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
+      * `failSwapOn` (`bool`) - Enable or disable failing when swap on is not supported (bool)
+        * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+      * `generateServingCertificate` (`bool`)
+      * `image` (`str`) - Docker image for scheduler service (string)
+      * `infraContainerImage` (`str`) - Infra container image for kubelet service (string)
+    """
     ssh_agent_auth: pulumi.Output[bool]
     """
     SSH Agent Auth enable (bool)
@@ -839,7 +839,7 @@ class Cluster(pulumi.CustomResource):
       * `address` (`str`) - Address ip for node (string)
       * `nodeName` (`str`) - Name of the host provisioned via docker machine (string)
     """
-    def __init__(__self__, resource_name, opts=None, services__etcd=None, services__kube_api=None, services__kube_controller=None, services__kube_proxy=None, services__kube_scheduler=None, services__kubelet=None, addon_job_timeout=None, addons=None, addons_includes=None, authentication=None, authorization=None, bastion_host=None, cert_dir=None, cloud_provider=None, cluster_name=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, ignore_docker_version=None, ingress=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rotate_certificates=None, services=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, authentication=None, authorization=None, bastion_host=None, cert_dir=None, cloud_provider=None, cluster_name=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, ignore_docker_version=None, ingress=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rotate_certificates=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
 
@@ -847,12 +847,6 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] services__etcd: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_api: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_controller: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_proxy: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_scheduler: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kubelet: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[float] addon_job_timeout: RKE k8s cluster addon deployment timeout in seconds for status check (int)
         :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
         :param pulumi.Input[list] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
@@ -881,107 +875,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] restore: Restore cluster. Default `false` (bool)
         :param pulumi.Input[dict] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input[dict] services: Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        :param pulumi.Input[dict] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
         :param pulumi.Input[dict] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
-
-        The **services__etcd** object supports the following:
-
-          * `backupConfig` (`pulumi.Input[dict]`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-            * `intervalHours` (`pulumi.Input[float]`) - Interval hours for etcd backup. Default `12` (int)
-            * `retention` (`pulumi.Input[float]`) - Retention for etcd backup. Default `6` (int)
-            * `s3BackupConfig` (`pulumi.Input[dict]`) - S3 config options for etcd backup (list maxitems:1)
-              * `accessKey` (`pulumi.Input[str]`) - Access key for S3 service (string)
-              * `bucketName` (`pulumi.Input[str]`) - Bucket name for S3 service (string)
-              * `customCa` (`pulumi.Input[str]`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-              * `endpoint` (`pulumi.Input[str]`) - Endpoint for S3 service (string)
-              * `folder` (`pulumi.Input[str]`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
-              * `region` (`pulumi.Input[str]`) - Region for S3 service (string)
-              * `secretKey` (`pulumi.Input[str]`) - Secret key for S3 service (string)
-
-            * `safeTimestamp` (`pulumi.Input[bool]`) - Safe timestamp for etcd backup. Default: `false` (bool)
-
-          * `caCert` (`pulumi.Input[str]`) - TLS CA certificate for etcd service (string)
-          * `cert` (`pulumi.Input[str]`) - TLS certificate for etcd service (string)
-          * `creation` (`pulumi.Input[str]`) - Creation option for etcd service (string)
-          * `externalUrls` (`pulumi.Input[list]`) - External urls for etcd service (list)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `gid` (`pulumi.Input[float]`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `key` (`pulumi.Input[str]`) - TLS key for etcd service (string)
-          * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-          * `retention` (`pulumi.Input[str]`) - Retention for etcd backup. Default `6` (int)
-          * `snapshot` (`pulumi.Input[bool]`) - Snapshot option for etcd service. Default `true` (bool)
-          * `uid` (`pulumi.Input[float]`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-
-        The **services__kube_api** object supports the following:
-
-          * `alwaysPullImages` (`pulumi.Input[bool]`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-          * `auditLog` (`pulumi.Input[dict]`) - K8s audit log configuration. (list maxitem: 1)
-            * `configuration` (`pulumi.Input[dict]`) - Audit log configuration. (list maxtiem: 1)
-              * `format` (`pulumi.Input[str]`) - Audit log format. Default: `json` (string)
-              * `maxAge` (`pulumi.Input[float]`) - Audit log max age. Default: `30` (int)
-              * `maxBackup` (`pulumi.Input[float]`) - Audit log max backup. Default: `10` (int)
-              * `maxSize` (`pulumi.Input[float]`) - Audit log max size. Default: `100` (int)
-              * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-              * `policy` (`pulumi.Input[str]`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `eventRateLimit` (`pulumi.Input[dict]`) - K8s event rate limit configuration. (list maxitem: 1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `podSecurityPolicy` (`pulumi.Input[bool]`) - Pod Security Policy option for kube API service. Default `false` (bool)
-          * `secretsEncryptionConfig` (`pulumi.Input[dict]`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
-          * `serviceNodePortRange` (`pulumi.Input[str]`) - Service Node Port Range option for kube API service (string)
-
-        The **services__kube_controller** object supports the following:
-
-          * `cluster_cidr` (`pulumi.Input[str]`) - Cluster CIDR option for kube controller service (string)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
-
-        The **services__kube_proxy** object supports the following:
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-
-        The **services__kube_scheduler** object supports the following:
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-
-        The **services__kubelet** object supports the following:
-
-          * `cluster_dns_server` (`pulumi.Input[str]`) - Cluster DNS Server option for kubelet service (string)
-          * `cluster_domain` (`pulumi.Input[str]`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-          * `generateServingCertificate` (`pulumi.Input[bool]`)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 
         The **authentication** object supports the following:
 
@@ -1306,7 +1210,6 @@ class Cluster(pulumi.CustomResource):
 
         The **nodes** object supports the following:
 
-          * `RoleList` (`pulumi.Input[str]`)
           * `address` (`pulumi.Input[str]`) - Address ip for node (string)
           * `dockerSocket` (`pulumi.Input[str]`) - Docker socket on the node that will be used in tunneling (string)
           * `hostnameOverride` (`pulumi.Input[str]`) - Hostname override for node (string)
@@ -1315,6 +1218,7 @@ class Cluster(pulumi.CustomResource):
           * `nodeName` (`pulumi.Input[str]`) - Name of the host provisioned via docker machine (string)
           * `port` (`pulumi.Input[str]`) - Port used for SSH communication. Default `22` (string)
           * `roles` (`pulumi.Input[list]`) - Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+          * `rolesDeprecated` (`pulumi.Input[str]`)
           * `ssh_agent_auth` (`pulumi.Input[bool]`) - SSH Agent Auth enable (bool)
           * `sshCert` (`pulumi.Input[str]`) - SSH Certificate (string)
           * `ssh_cert_path` (`pulumi.Input[str]`) - SSH Certificate path (string)
@@ -1436,6 +1340,102 @@ class Cluster(pulumi.CustomResource):
             * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
             * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
 
+        The **services_etcd_deprecated** object supports the following:
+
+          * `backupConfig` (`pulumi.Input[dict]`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+            * `intervalHours` (`pulumi.Input[float]`) - Interval hours for etcd backup. Default `12` (int)
+            * `retention` (`pulumi.Input[float]`) - Retention for etcd backup. Default `6` (int)
+            * `s3BackupConfig` (`pulumi.Input[dict]`) - S3 config options for etcd backup (list maxitems:1)
+              * `accessKey` (`pulumi.Input[str]`) - Access key for S3 service (string)
+              * `bucketName` (`pulumi.Input[str]`) - Bucket name for S3 service (string)
+              * `customCa` (`pulumi.Input[str]`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+              * `endpoint` (`pulumi.Input[str]`) - Endpoint for S3 service (string)
+              * `folder` (`pulumi.Input[str]`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
+              * `region` (`pulumi.Input[str]`) - Region for S3 service (string)
+              * `secretKey` (`pulumi.Input[str]`) - Secret key for S3 service (string)
+
+            * `safeTimestamp` (`pulumi.Input[bool]`) - Safe timestamp for etcd backup. Default: `false` (bool)
+
+          * `caCert` (`pulumi.Input[str]`) - TLS CA certificate for etcd service (string)
+          * `cert` (`pulumi.Input[str]`) - TLS certificate for etcd service (string)
+          * `creation` (`pulumi.Input[str]`) - Creation option for etcd service (string)
+          * `externalUrls` (`pulumi.Input[list]`) - External urls for etcd service (list)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `gid` (`pulumi.Input[float]`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `key` (`pulumi.Input[str]`) - TLS key for etcd service (string)
+          * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+          * `retention` (`pulumi.Input[str]`) - Retention for etcd backup. Default `6` (int)
+          * `snapshot` (`pulumi.Input[bool]`) - Snapshot option for etcd service. Default `true` (bool)
+          * `uid` (`pulumi.Input[float]`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+
+        The **services_kube_api_deprecated** object supports the following:
+
+          * `alwaysPullImages` (`pulumi.Input[bool]`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+          * `auditLog` (`pulumi.Input[dict]`) - K8s audit log configuration. (list maxitem: 1)
+            * `configuration` (`pulumi.Input[dict]`) - Audit log configuration. (list maxtiem: 1)
+              * `format` (`pulumi.Input[str]`) - Audit log format. Default: `json` (string)
+              * `maxAge` (`pulumi.Input[float]`) - Audit log max age. Default: `30` (int)
+              * `maxBackup` (`pulumi.Input[float]`) - Audit log max backup. Default: `10` (int)
+              * `maxSize` (`pulumi.Input[float]`) - Audit log max size. Default: `100` (int)
+              * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+              * `policy` (`pulumi.Input[str]`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `eventRateLimit` (`pulumi.Input[dict]`) - K8s event rate limit configuration. (list maxitem: 1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `podSecurityPolicy` (`pulumi.Input[bool]`) - Pod Security Policy option for kube API service. Default `false` (bool)
+          * `secretsEncryptionConfig` (`pulumi.Input[dict]`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
+          * `serviceNodePortRange` (`pulumi.Input[str]`) - Service Node Port Range option for kube API service (string)
+
+        The **services_kube_controller_deprecated** object supports the following:
+
+          * `cluster_cidr` (`pulumi.Input[str]`) - Cluster CIDR option for kube controller service (string)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
+
+        The **services_kube_proxy_deprecated** object supports the following:
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+
+        The **services_kube_scheduler_deprecated** object supports the following:
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+
+        The **services_kubelet_deprecated** object supports the following:
+
+          * `cluster_dns_server` (`pulumi.Input[str]`) - Cluster DNS Server option for kubelet service (string)
+          * `cluster_domain` (`pulumi.Input[str]`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
+            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+          * `generateServingCertificate` (`pulumi.Input[bool]`)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
+
         The **system_images** object supports the following:
 
           * `alpine` (`pulumi.Input[str]`) - Docker image for alpine (string)
@@ -1487,12 +1487,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['services__etcd'] = services__etcd
-            __props__['services__kube_api'] = services__kube_api
-            __props__['services__kube_controller'] = services__kube_controller
-            __props__['services__kube_proxy'] = services__kube_proxy
-            __props__['services__kube_scheduler'] = services__kube_scheduler
-            __props__['services__kubelet'] = services__kubelet
             __props__['addon_job_timeout'] = addon_job_timeout
             __props__['addons'] = addons
             __props__['addons_includes'] = addons_includes
@@ -1521,6 +1515,12 @@ class Cluster(pulumi.CustomResource):
             __props__['restore'] = restore
             __props__['rotate_certificates'] = rotate_certificates
             __props__['services'] = services
+            __props__['services_etcd_deprecated'] = services_etcd_deprecated
+            __props__['services_kube_api_deprecated'] = services_kube_api_deprecated
+            __props__['services_kube_controller_deprecated'] = services_kube_controller_deprecated
+            __props__['services_kube_proxy_deprecated'] = services_kube_proxy_deprecated
+            __props__['services_kube_scheduler_deprecated'] = services_kube_scheduler_deprecated
+            __props__['services_kubelet_deprecated'] = services_kubelet_deprecated
             __props__['ssh_agent_auth'] = ssh_agent_auth
             __props__['ssh_cert_path'] = ssh_cert_path
             __props__['ssh_key_path'] = ssh_key_path
@@ -1551,7 +1551,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, services__etcd=None, services__kube_api=None, services__kube_controller=None, services__kube_proxy=None, services__kube_scheduler=None, services__kubelet=None, addon_job_timeout=None, addons=None, addons_includes=None, api_server_url=None, authentication=None, authorization=None, bastion_host=None, ca_crt=None, cert_dir=None, certificates=None, client_cert=None, client_key=None, cloud_provider=None, cluster_cidr=None, cluster_dns_server=None, cluster_domain=None, cluster_name=None, control_plane_hosts=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, etcd_hosts=None, ignore_docker_version=None, inactive_hosts=None, ingress=None, internal_kube_config_yaml=None, kube_admin_user=None, kube_config_yaml=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rke_cluster_yaml=None, rke_state=None, rotate_certificates=None, running_system_images=None, services=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, worker_hosts=None):
+    def get(resource_name, id, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, api_server_url=None, authentication=None, authorization=None, bastion_host=None, ca_crt=None, cert_dir=None, certificates=None, client_cert=None, client_key=None, cloud_provider=None, cluster_cidr=None, cluster_dns_server=None, cluster_domain=None, cluster_name=None, control_plane_hosts=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, etcd_hosts=None, ignore_docker_version=None, inactive_hosts=None, ingress=None, internal_kube_config_yaml=None, kube_admin_user=None, kube_config_yaml=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rke_cluster_yaml=None, rke_state=None, rotate_certificates=None, running_system_images=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, worker_hosts=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1559,12 +1559,6 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] services__etcd: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_api: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_controller: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_proxy: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kube_scheduler: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[dict] services__kubelet: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[float] addon_job_timeout: RKE k8s cluster addon deployment timeout in seconds for status check (int)
         :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
         :param pulumi.Input[list] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
@@ -1610,108 +1604,18 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input[dict] running_system_images: (Computed) RKE k8s cluster running system images list (list)
         :param pulumi.Input[dict] services: Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        :param pulumi.Input[dict] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[dict] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
         :param pulumi.Input[dict] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
         :param pulumi.Input[list] worker_hosts: (Computed) RKE k8s cluster worker nodes (list)
-
-        The **services__etcd** object supports the following:
-
-          * `backupConfig` (`pulumi.Input[dict]`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-            * `intervalHours` (`pulumi.Input[float]`) - Interval hours for etcd backup. Default `12` (int)
-            * `retention` (`pulumi.Input[float]`) - Retention for etcd backup. Default `6` (int)
-            * `s3BackupConfig` (`pulumi.Input[dict]`) - S3 config options for etcd backup (list maxitems:1)
-              * `accessKey` (`pulumi.Input[str]`) - Access key for S3 service (string)
-              * `bucketName` (`pulumi.Input[str]`) - Bucket name for S3 service (string)
-              * `customCa` (`pulumi.Input[str]`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-              * `endpoint` (`pulumi.Input[str]`) - Endpoint for S3 service (string)
-              * `folder` (`pulumi.Input[str]`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
-              * `region` (`pulumi.Input[str]`) - Region for S3 service (string)
-              * `secretKey` (`pulumi.Input[str]`) - Secret key for S3 service (string)
-
-            * `safeTimestamp` (`pulumi.Input[bool]`) - Safe timestamp for etcd backup. Default: `false` (bool)
-
-          * `caCert` (`pulumi.Input[str]`) - TLS CA certificate for etcd service (string)
-          * `cert` (`pulumi.Input[str]`) - TLS certificate for etcd service (string)
-          * `creation` (`pulumi.Input[str]`) - Creation option for etcd service (string)
-          * `externalUrls` (`pulumi.Input[list]`) - External urls for etcd service (list)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `gid` (`pulumi.Input[float]`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `key` (`pulumi.Input[str]`) - TLS key for etcd service (string)
-          * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-          * `retention` (`pulumi.Input[str]`) - Retention for etcd backup. Default `6` (int)
-          * `snapshot` (`pulumi.Input[bool]`) - Snapshot option for etcd service. Default `true` (bool)
-          * `uid` (`pulumi.Input[float]`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-
-        The **services__kube_api** object supports the following:
-
-          * `alwaysPullImages` (`pulumi.Input[bool]`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-          * `auditLog` (`pulumi.Input[dict]`) - K8s audit log configuration. (list maxitem: 1)
-            * `configuration` (`pulumi.Input[dict]`) - Audit log configuration. (list maxtiem: 1)
-              * `format` (`pulumi.Input[str]`) - Audit log format. Default: `json` (string)
-              * `maxAge` (`pulumi.Input[float]`) - Audit log max age. Default: `30` (int)
-              * `maxBackup` (`pulumi.Input[float]`) - Audit log max backup. Default: `10` (int)
-              * `maxSize` (`pulumi.Input[float]`) - Audit log max size. Default: `100` (int)
-              * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-              * `policy` (`pulumi.Input[str]`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `eventRateLimit` (`pulumi.Input[dict]`) - K8s event rate limit configuration. (list maxitem: 1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `podSecurityPolicy` (`pulumi.Input[bool]`) - Pod Security Policy option for kube API service. Default `false` (bool)
-          * `secretsEncryptionConfig` (`pulumi.Input[dict]`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
-
-          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
-          * `serviceNodePortRange` (`pulumi.Input[str]`) - Service Node Port Range option for kube API service (string)
-
-        The **services__kube_controller** object supports the following:
-
-          * `cluster_cidr` (`pulumi.Input[str]`) - Cluster CIDR option for kube controller service (string)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
-
-        The **services__kube_proxy** object supports the following:
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-
-        The **services__kube_scheduler** object supports the following:
-
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-
-        The **services__kubelet** object supports the following:
-
-          * `cluster_dns_server` (`pulumi.Input[str]`) - Cluster DNS Server option for kubelet service (string)
-          * `cluster_domain` (`pulumi.Input[str]`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
-          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
-          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
-          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
-          * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-          * `generateServingCertificate` (`pulumi.Input[bool]`)
-          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
-          * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 
         The **authentication** object supports the following:
 
@@ -2067,7 +1971,6 @@ class Cluster(pulumi.CustomResource):
 
         The **nodes** object supports the following:
 
-          * `RoleList` (`pulumi.Input[str]`)
           * `address` (`pulumi.Input[str]`) - Address ip for node (string)
           * `dockerSocket` (`pulumi.Input[str]`) - Docker socket on the node that will be used in tunneling (string)
           * `hostnameOverride` (`pulumi.Input[str]`) - Hostname override for node (string)
@@ -2076,6 +1979,7 @@ class Cluster(pulumi.CustomResource):
           * `nodeName` (`pulumi.Input[str]`) - Name of the host provisioned via docker machine (string)
           * `port` (`pulumi.Input[str]`) - Port used for SSH communication. Default `22` (string)
           * `roles` (`pulumi.Input[list]`) - Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+          * `rolesDeprecated` (`pulumi.Input[str]`)
           * `ssh_agent_auth` (`pulumi.Input[bool]`) - SSH Agent Auth enable (bool)
           * `sshCert` (`pulumi.Input[str]`) - SSH Certificate (string)
           * `ssh_cert_path` (`pulumi.Input[str]`) - SSH Certificate path (string)
@@ -2231,6 +2135,102 @@ class Cluster(pulumi.CustomResource):
             * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
             * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
 
+        The **services_etcd_deprecated** object supports the following:
+
+          * `backupConfig` (`pulumi.Input[dict]`) - Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+            * `intervalHours` (`pulumi.Input[float]`) - Interval hours for etcd backup. Default `12` (int)
+            * `retention` (`pulumi.Input[float]`) - Retention for etcd backup. Default `6` (int)
+            * `s3BackupConfig` (`pulumi.Input[dict]`) - S3 config options for etcd backup (list maxitems:1)
+              * `accessKey` (`pulumi.Input[str]`) - Access key for S3 service (string)
+              * `bucketName` (`pulumi.Input[str]`) - Bucket name for S3 service (string)
+              * `customCa` (`pulumi.Input[str]`) - Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+              * `endpoint` (`pulumi.Input[str]`) - Endpoint for S3 service (string)
+              * `folder` (`pulumi.Input[str]`) - Folder for S3 service. Available from Rancher v2.2.7 (string)
+              * `region` (`pulumi.Input[str]`) - Region for S3 service (string)
+              * `secretKey` (`pulumi.Input[str]`) - Secret key for S3 service (string)
+
+            * `safeTimestamp` (`pulumi.Input[bool]`) - Safe timestamp for etcd backup. Default: `false` (bool)
+
+          * `caCert` (`pulumi.Input[str]`) - TLS CA certificate for etcd service (string)
+          * `cert` (`pulumi.Input[str]`) - TLS certificate for etcd service (string)
+          * `creation` (`pulumi.Input[str]`) - Creation option for etcd service (string)
+          * `externalUrls` (`pulumi.Input[list]`) - External urls for etcd service (list)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `gid` (`pulumi.Input[float]`) - Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `key` (`pulumi.Input[str]`) - TLS key for etcd service (string)
+          * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+          * `retention` (`pulumi.Input[str]`) - Retention for etcd backup. Default `6` (int)
+          * `snapshot` (`pulumi.Input[bool]`) - Snapshot option for etcd service. Default `true` (bool)
+          * `uid` (`pulumi.Input[float]`) - Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+
+        The **services_kube_api_deprecated** object supports the following:
+
+          * `alwaysPullImages` (`pulumi.Input[bool]`) - Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+          * `auditLog` (`pulumi.Input[dict]`) - K8s audit log configuration. (list maxitem: 1)
+            * `configuration` (`pulumi.Input[dict]`) - Audit log configuration. (list maxtiem: 1)
+              * `format` (`pulumi.Input[str]`) - Audit log format. Default: `json` (string)
+              * `maxAge` (`pulumi.Input[float]`) - Audit log max age. Default: `30` (int)
+              * `maxBackup` (`pulumi.Input[float]`) - Audit log max backup. Default: `10` (int)
+              * `maxSize` (`pulumi.Input[float]`) - Audit log max size. Default: `100` (int)
+              * `path` (`pulumi.Input[str]`) - Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+              * `policy` (`pulumi.Input[str]`) - Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `eventRateLimit` (`pulumi.Input[dict]`) - K8s event rate limit configuration. (list maxitem: 1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `podSecurityPolicy` (`pulumi.Input[bool]`) - Pod Security Policy option for kube API service. Default `false` (bool)
+          * `secretsEncryptionConfig` (`pulumi.Input[dict]`) - [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+            * `enabled` (`pulumi.Input[bool]`) - Enable secrets encryption. Default: `false` (bool)
+
+          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
+          * `serviceNodePortRange` (`pulumi.Input[str]`) - Service Node Port Range option for kube API service (string)
+
+        The **services_kube_controller_deprecated** object supports the following:
+
+          * `cluster_cidr` (`pulumi.Input[str]`) - Cluster CIDR option for kube controller service (string)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `serviceClusterIpRange` (`pulumi.Input[str]`) - Service Cluster ip Range option for kube controller service (string)
+
+        The **services_kube_proxy_deprecated** object supports the following:
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+
+        The **services_kube_scheduler_deprecated** object supports the following:
+
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+
+        The **services_kubelet_deprecated** object supports the following:
+
+          * `cluster_dns_server` (`pulumi.Input[str]`) - Cluster DNS Server option for kubelet service (string)
+          * `cluster_domain` (`pulumi.Input[str]`) - Cluster Domain option for kubelet service. Default `cluster.local` (string)
+          * `extraArgs` (`pulumi.Input[dict]`) - Extra arguments for scheduler service (map)
+          * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
+          * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
+          * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
+            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+          * `generateServingCertificate` (`pulumi.Input[bool]`)
+          * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
+          * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
+
         The **system_images** object supports the following:
 
           * `alpine` (`pulumi.Input[str]`) - Docker image for alpine (string)
@@ -2274,12 +2274,6 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["services__etcd"] = services__etcd
-        __props__["services__kube_api"] = services__kube_api
-        __props__["services__kube_controller"] = services__kube_controller
-        __props__["services__kube_proxy"] = services__kube_proxy
-        __props__["services__kube_scheduler"] = services__kube_scheduler
-        __props__["services__kubelet"] = services__kubelet
         __props__["addon_job_timeout"] = addon_job_timeout
         __props__["addons"] = addons
         __props__["addons_includes"] = addons_includes
@@ -2325,6 +2319,12 @@ class Cluster(pulumi.CustomResource):
         __props__["rotate_certificates"] = rotate_certificates
         __props__["running_system_images"] = running_system_images
         __props__["services"] = services
+        __props__["services_etcd_deprecated"] = services_etcd_deprecated
+        __props__["services_kube_api_deprecated"] = services_kube_api_deprecated
+        __props__["services_kube_controller_deprecated"] = services_kube_controller_deprecated
+        __props__["services_kube_proxy_deprecated"] = services_kube_proxy_deprecated
+        __props__["services_kube_scheduler_deprecated"] = services_kube_scheduler_deprecated
+        __props__["services_kubelet_deprecated"] = services_kubelet_deprecated
         __props__["ssh_agent_auth"] = ssh_agent_auth
         __props__["ssh_cert_path"] = ssh_cert_path
         __props__["ssh_key_path"] = ssh_key_path

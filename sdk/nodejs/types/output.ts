@@ -1303,7 +1303,7 @@ export interface ClusterNode {
      * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
      */
     roles: string[];
-    RoleList?: string;
+    rolesDeprecated?: string;
     /**
      * SSH Agent Auth enable (bool)
      */
@@ -1661,6 +1661,123 @@ export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
     secretKey?: string;
 }
 
+export interface ClusterServicesEtcdDeprecated {
+    /**
+     * Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+     */
+    backupConfig: outputs.ClusterServicesEtcdDeprecatedBackupConfig;
+    /**
+     * TLS CA certificate for etcd service (string)
+     */
+    caCert: string;
+    /**
+     * TLS certificate for etcd service (string)
+     */
+    cert: string;
+    /**
+     * Creation option for etcd service (string)
+     */
+    creation: string;
+    /**
+     * External urls for etcd service (list)
+     */
+    externalUrls: string[];
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+     */
+    gid?: number;
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+    /**
+     * TLS key for etcd service (string)
+     */
+    key: string;
+    /**
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     */
+    path: string;
+    /**
+     * Retention for etcd backup. Default `6` (int)
+     */
+    retention: string;
+    /**
+     * Snapshot option for etcd service. Default `true` (bool)
+     */
+    snapshot?: boolean;
+    /**
+     * Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+     */
+    uid?: number;
+}
+
+export interface ClusterServicesEtcdDeprecatedBackupConfig {
+    /**
+     * Enable secrets encryption. Default: `false` (bool)
+     */
+    enabled?: boolean;
+    /**
+     * Interval hours for etcd backup. Default `12` (int)
+     */
+    intervalHours?: number;
+    /**
+     * Retention for etcd backup. Default `6` (int)
+     */
+    retention?: number;
+    /**
+     * S3 config options for etcd backup (list maxitems:1)
+     */
+    s3BackupConfig?: outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig;
+    /**
+     * Safe timestamp for etcd backup. Default: `false` (bool)
+     */
+    safeTimestamp?: boolean;
+}
+
+export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+    /**
+     * Access key for S3 service (string)
+     */
+    accessKey?: string;
+    /**
+     * Bucket name for S3 service (string)
+     */
+    bucketName?: string;
+    /**
+     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
+     */
+    customCa?: string;
+    /**
+     * Endpoint for S3 service (string)
+     */
+    endpoint?: string;
+    /**
+     * Folder for S3 service. Available from Rancher v2.2.7 (string)
+     */
+    folder?: string;
+    /**
+     * Region for S3 service (string)
+     */
+    region?: string;
+    /**
+     * Secret key for S3 service (string)
+     */
+    secretKey?: string;
+}
+
 export interface ClusterServicesKubeApi {
     /**
      * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
@@ -1746,6 +1863,105 @@ export interface ClusterServicesKubeApiAuditLogConfiguration {
     policy: string;
 }
 
+export interface ClusterServicesKubeApiDeprecated {
+    /**
+     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+     */
+    alwaysPullImages?: boolean;
+    /**
+     * K8s audit log configuration. (list maxitem: 1)
+     */
+    auditLog?: outputs.ClusterServicesKubeApiDeprecatedAuditLog;
+    /**
+     * K8s event rate limit configuration. (list maxitem: 1)
+     */
+    eventRateLimit?: outputs.ClusterServicesKubeApiDeprecatedEventRateLimit;
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+    /**
+     * Pod Security Policy option for kube API service. Default `false` (bool)
+     */
+    podSecurityPolicy?: boolean;
+    /**
+     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+     */
+    secretsEncryptionConfig?: outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig;
+    /**
+     * Service Cluster ip Range option for kube controller service (string)
+     */
+    serviceClusterIpRange: string;
+    /**
+     * Service Node Port Range option for kube API service (string)
+     */
+    serviceNodePortRange: string;
+}
+
+export interface ClusterServicesKubeApiDeprecatedAuditLog {
+    /**
+     * Audit log configuration. (list maxtiem: 1)
+     */
+    configuration: outputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration;
+    /**
+     * Enable secrets encryption. Default: `false` (bool)
+     */
+    enabled?: boolean;
+}
+
+export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+    /**
+     * Audit log format. Default: `json` (string)
+     */
+    format?: string;
+    /**
+     * Audit log max age. Default: `30` (int)
+     */
+    maxAge?: number;
+    /**
+     * Audit log max backup. Default: `10` (int)
+     */
+    maxBackup?: number;
+    /**
+     * Audit log max size. Default: `100` (int)
+     */
+    maxSize?: number;
+    /**
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     */
+    path?: string;
+    /**
+     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+     */
+    policy: string;
+}
+
+export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
+    /**
+     * Enable secrets encryption. Default: `false` (bool)
+     */
+    enabled?: boolean;
+}
+
+export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+    /**
+     * Enable secrets encryption. Default: `false` (bool)
+     */
+    enabled?: boolean;
+}
+
 export interface ClusterServicesKubeApiEventRateLimit {
     /**
      * Enable secrets encryption. Default: `false` (bool)
@@ -1787,7 +2003,109 @@ export interface ClusterServicesKubeController {
     serviceClusterIpRange: string;
 }
 
+export interface ClusterServicesKubeControllerDeprecated {
+    /**
+     * Cluster CIDR option for kube controller service (string)
+     */
+    clusterCidr: string;
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+    /**
+     * Service Cluster ip Range option for kube controller service (string)
+     */
+    serviceClusterIpRange: string;
+}
+
+export interface ClusterServicesKubeProxyDeprecated {
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+}
+
+export interface ClusterServicesKubeSchedulerDeprecated {
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+}
+
 export interface ClusterServicesKubelet {
+    /**
+     * Cluster DNS Server option for kubelet service (string)
+     */
+    clusterDnsServer: string;
+    /**
+     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     */
+    clusterDomain?: string;
+    /**
+     * Extra arguments for scheduler service (map)
+     */
+    extraArgs: {[key: string]: any};
+    /**
+     * Extra binds for scheduler service (list)
+     */
+    extraBinds: string[];
+    /**
+     * Extra environment for scheduler service (list)
+     */
+    extraEnvs: string[];
+    /**
+     * Enable or disable failing when swap on is not supported (bool)
+     * * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     */
+    failSwapOn: boolean;
+    generateServingCertificate?: boolean;
+    /**
+     * Docker image for scheduler service (string)
+     */
+    image: string;
+    /**
+     * Infra container image for kubelet service (string)
+     */
+    infraContainerImage: string;
+}
+
+export interface ClusterServicesKubeletDeprecated {
     /**
      * Cluster DNS Server option for kubelet service (string)
      */
@@ -1860,324 +2178,6 @@ export interface ClusterServicesScheduler {
      * Docker image for scheduler service (string)
      */
     image: string;
-}
-
-export interface ClusterServices_Etcd {
-    /**
-     * Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
-     */
-    backupConfig: outputs.ClusterServices_EtcdBackupConfig;
-    /**
-     * TLS CA certificate for etcd service (string)
-     */
-    caCert: string;
-    /**
-     * TLS certificate for etcd service (string)
-     */
-    cert: string;
-    /**
-     * Creation option for etcd service (string)
-     */
-    creation: string;
-    /**
-     * External urls for etcd service (list)
-     */
-    externalUrls: string[];
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
-     */
-    gid?: number;
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-    /**
-     * TLS key for etcd service (string)
-     */
-    key: string;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
-    path: string;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
-    retention: string;
-    /**
-     * Snapshot option for etcd service. Default `true` (bool)
-     */
-    snapshot?: boolean;
-    /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
-     */
-    uid?: number;
-}
-
-export interface ClusterServices_EtcdBackupConfig {
-    /**
-     * Enable secrets encryption. Default: `false` (bool)
-     */
-    enabled?: boolean;
-    /**
-     * Interval hours for etcd backup. Default `12` (int)
-     */
-    intervalHours?: number;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
-    retention?: number;
-    /**
-     * S3 config options for etcd backup (list maxitems:1)
-     */
-    s3BackupConfig?: outputs.ClusterServices_EtcdBackupConfigS3BackupConfig;
-    /**
-     * Safe timestamp for etcd backup. Default: `false` (bool)
-     */
-    safeTimestamp?: boolean;
-}
-
-export interface ClusterServices_EtcdBackupConfigS3BackupConfig {
-    /**
-     * Access key for S3 service (string)
-     */
-    accessKey?: string;
-    /**
-     * Bucket name for S3 service (string)
-     */
-    bucketName?: string;
-    /**
-     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-     */
-    customCa?: string;
-    /**
-     * Endpoint for S3 service (string)
-     */
-    endpoint?: string;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
-    folder?: string;
-    /**
-     * Region for S3 service (string)
-     */
-    region?: string;
-    /**
-     * Secret key for S3 service (string)
-     */
-    secretKey?: string;
-}
-
-export interface ClusterServices_KubeApi {
-    /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
-     */
-    alwaysPullImages?: boolean;
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     */
-    auditLog?: outputs.ClusterServices_KubeApiAuditLog;
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     */
-    eventRateLimit?: outputs.ClusterServices_KubeApiEventRateLimit;
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-    /**
-     * Pod Security Policy option for kube API service. Default `false` (bool)
-     */
-    podSecurityPolicy?: boolean;
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     */
-    secretsEncryptionConfig?: outputs.ClusterServices_KubeApiSecretsEncryptionConfig;
-    /**
-     * Service Cluster ip Range option for kube controller service (string)
-     */
-    serviceClusterIpRange: string;
-    /**
-     * Service Node Port Range option for kube API service (string)
-     */
-    serviceNodePortRange: string;
-}
-
-export interface ClusterServices_KubeApiAuditLog {
-    /**
-     * Audit log configuration. (list maxtiem: 1)
-     */
-    configuration: outputs.ClusterServices_KubeApiAuditLogConfiguration;
-    /**
-     * Enable secrets encryption. Default: `false` (bool)
-     */
-    enabled?: boolean;
-}
-
-export interface ClusterServices_KubeApiAuditLogConfiguration {
-    /**
-     * Audit log format. Default: `json` (string)
-     */
-    format?: string;
-    /**
-     * Audit log max age. Default: `30` (int)
-     */
-    maxAge?: number;
-    /**
-     * Audit log max backup. Default: `10` (int)
-     */
-    maxBackup?: number;
-    /**
-     * Audit log max size. Default: `100` (int)
-     */
-    maxSize?: number;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
-    path?: string;
-    /**
-     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-     */
-    policy: string;
-}
-
-export interface ClusterServices_KubeApiEventRateLimit {
-    /**
-     * Enable secrets encryption. Default: `false` (bool)
-     */
-    enabled?: boolean;
-}
-
-export interface ClusterServices_KubeApiSecretsEncryptionConfig {
-    /**
-     * Enable secrets encryption. Default: `false` (bool)
-     */
-    enabled?: boolean;
-}
-
-export interface ClusterServices_KubeController {
-    /**
-     * Cluster CIDR option for kube controller service (string)
-     */
-    clusterCidr: string;
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-    /**
-     * Service Cluster ip Range option for kube controller service (string)
-     */
-    serviceClusterIpRange: string;
-}
-
-export interface ClusterServices_KubeProxy {
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-}
-
-export interface ClusterServices_KubeScheduler {
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-}
-
-export interface ClusterServices_Kubelet {
-    /**
-     * Cluster DNS Server option for kubelet service (string)
-     */
-    clusterDnsServer: string;
-    /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
-     */
-    clusterDomain?: string;
-    /**
-     * Extra arguments for scheduler service (map)
-     */
-    extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
-    extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
-    extraEnvs: string[];
-    /**
-     * Enable or disable failing when swap on is not supported (bool)
-     * * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     */
-    failSwapOn: boolean;
-    generateServingCertificate?: boolean;
-    /**
-     * Docker image for scheduler service (string)
-     */
-    image: string;
-    /**
-     * Infra container image for kubelet service (string)
-     */
-    infraContainerImage: string;
 }
 
 export interface ClusterSystemImages {
