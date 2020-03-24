@@ -778,6 +778,8 @@ github.com/pulumi/pulumi-terraform-bridge v1.5.2 h1:vKzPPTsDYk3qIq9v4Ez4BTEQUKkz
 github.com/pulumi/pulumi-terraform-bridge v1.5.2/go.mod h1:dSbi1sxIj9D4VYdX+HEWCUkPEsh4hAj6pKhXC4Z9FzE=
 github.com/pulumi/pulumi-terraform-bridge v1.8.2 h1:FBmpvqq068nTmh41YqBufqHk3sxRJojaQfRGXWFz27k=
 github.com/pulumi/pulumi-terraform-bridge v1.8.2/go.mod h1:tiLPf2G1xYqheyTXRsBU2CnaBtvuZzw8nRJzGpi5uMo=
+github.com/pulumi/pulumi-terraform-bridge v1.8.3 h1:aS1RTpPlHfpxL1CdbysCScmtmDtuMcv5P3/E4gz+HS8=
+github.com/pulumi/pulumi-terraform-bridge v1.8.3/go.mod h1:tiLPf2G1xYqheyTXRsBU2CnaBtvuZzw8nRJzGpi5uMo=
 github.com/quobyte/api v0.1.2/go.mod h1:jL7lIHrmqQ7yh05OJ+eEEdHr0u/kmT1Ff9iHd+4H6VI=
 github.com/rancher/client-go v1.16.0-rancher.3 h1:bOA0zwtJi8wUeldqfrCGyDRuN6oW+zJ092i/OhWP2nU=
 github.com/rancher/client-go v1.16.0-rancher.3/go.mod h1:J69/JveO6XESwVgG53q3Uz5OSfgsv4uxpScmmyYOOlk=
