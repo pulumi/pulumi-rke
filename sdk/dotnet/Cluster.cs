@@ -11,7 +11,7 @@ namespace Pulumi.Rke
 {
     /// <summary>
     /// Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
-    ///
+    /// 
     /// &gt; This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
