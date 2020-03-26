@@ -17,8 +17,8 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfgen"
 
-	rke "github.com/jaxxstorm/pulumi-rke"
-	"github.com/jaxxstorm/pulumi-rke/pkg/version"
+	rke "github.com/jaxxstorm/pulumi-rke/provider"
+	"github.com/jaxxstorm/pulumi-rke/provider/pkg/version"
 )
 
 func main() {

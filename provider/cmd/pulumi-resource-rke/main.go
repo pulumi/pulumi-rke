@@ -12,16 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:generate go run ./generate.go
+
 package main
 
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 
-	rke "github.com/jaxxstorm/pulumi-rke"
-	"github.com/jaxxstorm/pulumi-rke/pkg/version"
+	rke "github.com/jaxxstorm/pulumi-rke/provider"
+	"github.com/jaxxstorm/pulumi-rke/provider/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfbridge.Main("rke", version.Version, rke.Provider())
+	tfbridge.Main("rke", version.Version, rke.Provider(), pulumiSchema)
 }

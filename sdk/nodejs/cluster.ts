@@ -221,27 +221,27 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Use services.etcd instead (list maxitems:1)
      */
-    public readonly Services_Etcd!: pulumi.Output<outputs.ClusterServices_Etcd | undefined>;
+    public readonly servicesEtcdDeprecated!: pulumi.Output<outputs.ClusterServicesEtcdDeprecated | undefined>;
     /**
      * Use services.kube_api instead (list maxitems:1)
      */
-    public readonly Services_KubeApi!: pulumi.Output<outputs.ClusterServices_KubeApi | undefined>;
+    public readonly servicesKubeApiDeprecated!: pulumi.Output<outputs.ClusterServicesKubeApiDeprecated | undefined>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
      */
-    public readonly Services_KubeController!: pulumi.Output<outputs.ClusterServices_KubeController | undefined>;
+    public readonly servicesKubeControllerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeControllerDeprecated | undefined>;
     /**
      * Use services.kubelet instead (list maxitems:1)
      */
-    public readonly Services_Kubelet!: pulumi.Output<outputs.ClusterServices_Kubelet | undefined>;
+    public readonly servicesKubeletDeprecated!: pulumi.Output<outputs.ClusterServicesKubeletDeprecated | undefined>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
      */
-    public readonly Services_KubeProxy!: pulumi.Output<outputs.ClusterServices_KubeProxy | undefined>;
+    public readonly servicesKubeProxyDeprecated!: pulumi.Output<outputs.ClusterServicesKubeProxyDeprecated | undefined>;
     /**
      * Use services.scheduler instead (list maxitems:1)
      */
-    public readonly Services_KubeScheduler!: pulumi.Output<outputs.ClusterServices_KubeScheduler | undefined>;
+    public readonly servicesKubeSchedulerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeSchedulerDeprecated | undefined>;
     /**
      * SSH Agent Auth enable (bool)
      */
@@ -324,12 +324,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["rotateCertificates"] = state ? state.rotateCertificates : undefined;
             inputs["runningSystemImages"] = state ? state.runningSystemImages : undefined;
             inputs["services"] = state ? state.services : undefined;
-            inputs["Services_Etcd"] = state ? state.Services_Etcd : undefined;
-            inputs["Services_KubeApi"] = state ? state.Services_KubeApi : undefined;
-            inputs["Services_KubeController"] = state ? state.Services_KubeController : undefined;
-            inputs["Services_Kubelet"] = state ? state.Services_Kubelet : undefined;
-            inputs["Services_KubeProxy"] = state ? state.Services_KubeProxy : undefined;
-            inputs["Services_KubeScheduler"] = state ? state.Services_KubeScheduler : undefined;
+            inputs["servicesEtcdDeprecated"] = state ? state.servicesEtcdDeprecated : undefined;
+            inputs["servicesKubeApiDeprecated"] = state ? state.servicesKubeApiDeprecated : undefined;
+            inputs["servicesKubeControllerDeprecated"] = state ? state.servicesKubeControllerDeprecated : undefined;
+            inputs["servicesKubeletDeprecated"] = state ? state.servicesKubeletDeprecated : undefined;
+            inputs["servicesKubeProxyDeprecated"] = state ? state.servicesKubeProxyDeprecated : undefined;
+            inputs["servicesKubeSchedulerDeprecated"] = state ? state.servicesKubeSchedulerDeprecated : undefined;
             inputs["sshAgentAuth"] = state ? state.sshAgentAuth : undefined;
             inputs["sshCertPath"] = state ? state.sshCertPath : undefined;
             inputs["sshKeyPath"] = state ? state.sshKeyPath : undefined;
@@ -366,12 +366,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["restore"] = args ? args.restore : undefined;
             inputs["rotateCertificates"] = args ? args.rotateCertificates : undefined;
             inputs["services"] = args ? args.services : undefined;
-            inputs["Services_Etcd"] = args ? args.Services_Etcd : undefined;
-            inputs["Services_KubeApi"] = args ? args.Services_KubeApi : undefined;
-            inputs["Services_KubeController"] = args ? args.Services_KubeController : undefined;
-            inputs["Services_Kubelet"] = args ? args.Services_Kubelet : undefined;
-            inputs["Services_KubeProxy"] = args ? args.Services_KubeProxy : undefined;
-            inputs["Services_KubeScheduler"] = args ? args.Services_KubeScheduler : undefined;
+            inputs["servicesEtcdDeprecated"] = args ? args.servicesEtcdDeprecated : undefined;
+            inputs["servicesKubeApiDeprecated"] = args ? args.servicesKubeApiDeprecated : undefined;
+            inputs["servicesKubeControllerDeprecated"] = args ? args.servicesKubeControllerDeprecated : undefined;
+            inputs["servicesKubeletDeprecated"] = args ? args.servicesKubeletDeprecated : undefined;
+            inputs["servicesKubeProxyDeprecated"] = args ? args.servicesKubeProxyDeprecated : undefined;
+            inputs["servicesKubeSchedulerDeprecated"] = args ? args.servicesKubeSchedulerDeprecated : undefined;
             inputs["sshAgentAuth"] = args ? args.sshAgentAuth : undefined;
             inputs["sshCertPath"] = args ? args.sshCertPath : undefined;
             inputs["sshKeyPath"] = args ? args.sshKeyPath : undefined;
@@ -593,28 +593,40 @@ export interface ClusterState {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     * 
+     * @deprecated Use services.etcd instead
      */
-    readonly Services_Etcd?: pulumi.Input<inputs.ClusterServices_Etcd>;
+    readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_api instead
      */
-    readonly Services_KubeApi?: pulumi.Input<inputs.ClusterServices_KubeApi>;
+    readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_controller instead
      */
-    readonly Services_KubeController?: pulumi.Input<inputs.ClusterServices_KubeController>;
+    readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubelet instead
      */
-    readonly Services_Kubelet?: pulumi.Input<inputs.ClusterServices_Kubelet>;
+    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubeproxy instead
      */
-    readonly Services_KubeProxy?: pulumi.Input<inputs.ClusterServices_KubeProxy>;
+    readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     * 
+     * @deprecated Use services.scheduler instead
      */
-    readonly Services_KubeScheduler?: pulumi.Input<inputs.ClusterServices_KubeScheduler>;
+    readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */
@@ -759,28 +771,40 @@ export interface ClusterArgs {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     * 
+     * @deprecated Use services.etcd instead
      */
-    readonly Services_Etcd?: pulumi.Input<inputs.ClusterServices_Etcd>;
+    readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_api instead
      */
-    readonly Services_KubeApi?: pulumi.Input<inputs.ClusterServices_KubeApi>;
+    readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kube_controller instead
      */
-    readonly Services_KubeController?: pulumi.Input<inputs.ClusterServices_KubeController>;
+    readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubelet instead
      */
-    readonly Services_Kubelet?: pulumi.Input<inputs.ClusterServices_Kubelet>;
+    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
+     * 
+     * @deprecated Use services.kubeproxy instead
      */
-    readonly Services_KubeProxy?: pulumi.Input<inputs.ClusterServices_KubeProxy>;
+    readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     * 
+     * @deprecated Use services.scheduler instead
      */
-    readonly Services_KubeScheduler?: pulumi.Input<inputs.ClusterServices_KubeScheduler>;
+    readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */
