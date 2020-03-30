@@ -29,7 +29,7 @@ TESTPARALLELISM := 4
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
 build:: tfgen provider
 	cd provider && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
-		./$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ../${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
+		./bin/$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ../${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
@@ -48,10 +48,10 @@ build:: tfgen provider
   		dotnet build /p:Version=${DOTNET_VERSION}
 
 tfgen::
-	cd provider && go build -o ./${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
+	cd provider && go build -o ./bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
 generate_schema:: tfgen
-	./provider/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
+	./provider/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
 	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
