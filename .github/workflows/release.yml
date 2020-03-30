@@ -1,10 +1,12 @@
-name: build
+name: release
 on:
   push:
     branches:
       - "snapshot/*"
     tags: [ "v*" ]
 
+env:
+  ORG: jaxxstorm
 
 jobs:
   goreleaser:
@@ -18,6 +20,10 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Build SDKs and Generate
+        run: make ORG=${{env.ORG}}
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
