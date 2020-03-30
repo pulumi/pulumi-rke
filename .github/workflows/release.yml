@@ -7,31 +7,17 @@ env:
   ORG: jaxxstorm
 
 jobs:
-  goreleaser:
+  provider:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Unshallow
         run: git fetch --prune --unshallow
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
-      - name: Set up Go
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.13.x
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.x' 
       - name: Ensure dependencies
         run: make ensure
-      - name: Build SDKs and Generate
-        run: make ORG=${{env.ORG}}
-      - name: Show changes
-        run: git diff
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
