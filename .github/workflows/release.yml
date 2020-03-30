@@ -30,6 +30,8 @@ jobs:
         run: make ensure
       - name: Build SDKs and Generate
         run: make ORG=${{env.ORG}}
+      - name: Show changes
+        run: git diff
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
