@@ -4,8 +4,8 @@ env:
   - GO111MODULE=on
 before:
   hooks:
-    - make ensure
-    - "make ORG=jaxxstorm"
+    #- make ensure
+    #- "make ORG=jaxxstorm"
 builds:
 - env:
   - CGO_ENABLED=0

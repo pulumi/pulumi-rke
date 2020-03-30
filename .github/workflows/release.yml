@@ -1,0 +1,35 @@
+name: release
+on:
+  push:
+    tags: [ "v*" ]
+
+env:
+  ORG: jaxxstorm
+
+jobs:
+  provider:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - uses: actions/cache@v1
+        with:
+          path: provider
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v1
+        with:
+          version: v0.129.0
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
