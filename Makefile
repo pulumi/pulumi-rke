@@ -35,7 +35,7 @@ build:: tfgen provider
 		yarn install && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\@pulumi\/rke/@$${ORG}\/pulumi-rke/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
 		cp ../../README.md . && \
 		$(PYTHON) setup.py clean --all 2>/dev/null && \
@@ -53,7 +53,7 @@ tfgen::
 generate_schema:: tfgen
 	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
 
-provider::
+provider:: generate_schema
 	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
 	cd provider && go install -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
 
