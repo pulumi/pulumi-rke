@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x' 
       - name: Ensure dependencies
         run: make ensure
       - name: Build SDKs and Generate
