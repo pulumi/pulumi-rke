@@ -77,11 +77,6 @@ install:: tfgen provider
 test_all::
 	cd examples && PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} .
 
-.PHONY: publish_tgz
-publish_tgz:
-	$(call STEP_MESSAGE)
-	./scripts/publish_tgz.sh
-
 .PHONY: publish_packages
 publish_packages:
 	$(call STEP_MESSAGE)
