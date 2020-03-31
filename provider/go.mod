@@ -2,8 +2,15 @@ module github.com/jaxxstorm/pulumi-rke/provider
 
 go 1.13
 
+require (
+	github.com/hashicorp/terraform-plugin-sdk v1.0.0
+	github.com/pulumi/pulumi-terraform-bridge v1.8.4
+	github.com/pulumi/pulumi/sdk v1.13.1
+	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200313203759-b1d9cca2920d
+)
+
 replace (
-	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
+	github.com/prometheus/prometheus => github.com/prometheus/prometheus v1.8.2-0.20190424153033-d3245f150225
 	k8s.io/api => k8s.io/api v0.0.0-20190918155943-95b840bb6a1f
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.0.0-20190918161926-8f644eb6e783
 	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20190913080033-27d36303b655
@@ -27,23 +34,4 @@ replace (
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.0.0-20190918161442-d4c9c65c82af
 	labix.org/v2/mgo => github.com/go-mgo/mgo v0.0.0-20190816093944-a6b53ec6cb22
 	launchpad.net/gocheck => github.com/go-check/check v0.0.0-20190902080502-41f04d3bba15
-)
-
-require (
-	github.com/coreos/go-systemd v0.0.0-20181012123002-c6f51f82210d // indirect
-	github.com/docker/go-connections v0.4.0 // indirect
-	github.com/docker/go-units v0.4.0 // indirect
-	github.com/frankban/quicktest v1.4.1 // indirect
-	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32 // indirect
-	github.com/hashicorp/golang-lru v0.5.3 // indirect
-	github.com/hashicorp/terraform-plugin-sdk v1.4.1
-	github.com/hashicorp/vault/api v1.0.5-0.20190909201928-35325e2c3262 // indirect
-	github.com/pierrec/lz4 v2.2.6+incompatible // indirect
-	github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9
-	github.com/pulumi/pulumi-terraform-bridge v1.8.3
-	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200227234548-91b6d14d676a
-	github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832
-	github.com/urfave/cli v1.20.0 // indirect
-	github.com/xanzy/ssh-agent v0.2.1 // indirect
-	golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a // indirect
 )

@@ -1,0 +1,117 @@
+name: release
+on:
+  push:
+    tags: [ "v*" ]
+
+env:
+  ORG: jaxxstorm
+
+jobs:
+  nodejs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - uses: actions/cache@v1
+        with:
+          path: provider
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Build SDK
+        run: make build_node ORG=jaxxstorm
+      - name: Publish to NPM
+        run: yarn --cwd sdk/nodejs/bin publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - uses: actions/cache@v1
+        with:
+          path: provider
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - name: Build SDK
+        run: make build_python ORG=jaxxstorm
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          packages_dir: sdk/python/bin/dist/
+  dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - uses: actions/cache@v1
+        with:
+          path: provider
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
+      - name: Set up Dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.201'
+      - name: Build SDK
+        run: make build_dotnet ORG=jaxxstorm
+      - name: Publish nuget
+        run: find "sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' -exec dotnet nuget push -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json {} ';'
+  provider:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - uses: actions/cache@v1
+        with:
+          path: provider
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Ensure dependencies
+        run: make ensure
+      - name: Generate provider deps
+        run: make provider ORG=jaxxstorm
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v1
+        with:
+          version: v0.129.0
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+

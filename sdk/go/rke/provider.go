@@ -18,7 +18,6 @@ import (
 // > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/index.html.markdown.
 type Provider struct {
 	pulumi.ProviderResourceState
-
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -36,17 +35,16 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	Debug *bool `pulumi:"debug"`
+	Debug   *bool   `pulumi:"debug"`
 	LogFile *string `pulumi:"logFile"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Debug pulumi.BoolPtrInput
+	Debug   pulumi.BoolPtrInput
 	LogFile pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
 }
-

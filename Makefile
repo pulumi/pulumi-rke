@@ -27,33 +27,43 @@ TESTPARALLELISM := 4
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
-build:: tfgen provider
-	cd provider && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
-		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ../${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
-	done
+build:: tfgen provider build_node build_python build_go build_dotnet
+
+build_node:: tfgen provider
+	cd provider && ./bin/$(TFGEN) nodejs --overlays overlays/nodejs --out ../${PACKDIR}/nodejs/
 	cd ${PACKDIR}/nodejs/ && \
-		yarn install && \
-		yarn run tsc && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+        yarn install && \
+        yarn run tsc && \
+        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\@pulumi\/rke/@$${ORG}\/pulumi-rke/g" ./bin/package.json
+
+build_python:: tfgen provider
+	cd provider && ./bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
 	cd ${PACKDIR}/python/ && \
-		cp ../../README.md . && \
-		$(PYTHON) setup.py clean --all 2>/dev/null && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
-		rm ./bin/setup.py.bak && \
-		cd ./bin && $(PYTHON) setup.py build sdist
+        cp ../../README.md . && \
+        $(PYTHON) setup.py clean --all 2>/dev/null && \
+        rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+        sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+        rm ./bin/setup.py.bak && \
+        cd ./bin && $(PYTHON) setup.py build sdist
+
+build_go:: tfgen provider
+	cd provider && ./bin/$(TFGEN) go --overlays overlays/go --out ../${PACKDIR}/go/
+
+build_dotnet:: tfgen provider
+	cd provider && ./bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ../${PACKDIR}/dotnet/
 	cd ${PACKDIR}/dotnet/ && \
-		echo "${VERSION:v%=%}" >version.txt && \
-  		dotnet build /p:Version=${DOTNET_VERSION}
+        echo "${VERSION:v%=%}" >version.txt && \
+        dotnet build /p:Version=${DOTNET_VERSION}
+
 
 tfgen::
-	cd provider && go install -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
+	cd provider && go build -o ./bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
 generate_schema:: tfgen
-	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
+	./provider/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
-provider::
+provider:: generate_schema
 	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
 	cd provider && go install -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
 
@@ -77,11 +87,6 @@ install:: tfgen provider
 test_all::
 	cd examples && PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} .
 
-.PHONY: publish_tgz
-publish_tgz:
-	$(call STEP_MESSAGE)
-	./scripts/publish_tgz.sh
-
 .PHONY: publish_packages
 publish_packages:
 	$(call STEP_MESSAGE)
@@ -91,10 +96,3 @@ publish_packages:
 .PHONY: check_clean_worktree
 check_clean_worktree:
 	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/check-worktree-is-clean.sh
-
-# The travis_* targets are entrypoints for CI.
-.PHONY: travis_cron travis_push travis_pull_request travis_api
-travis_cron: all
-travis_push: only_build check_clean_worktree publish_tgz only_test publish_packages
-travis_pull_request: all check_clean_worktree
-travis_api: all

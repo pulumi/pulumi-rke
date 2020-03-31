@@ -65,7 +65,8 @@ type ClusterAuthenticationPtrInput interface {
 
 type clusterAuthenticationPtrType ClusterAuthenticationArgs
 
-func ClusterAuthenticationPtr(v *ClusterAuthenticationArgs) ClusterAuthenticationPtrInput {	return (*clusterAuthenticationPtrType)(v)
+func ClusterAuthenticationPtr(v *ClusterAuthenticationArgs) ClusterAuthenticationPtrInput {
+	return (*clusterAuthenticationPtrType)(v)
 }
 
 func (*clusterAuthenticationPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *clusterAuthenticationPtrType) ToClusterAuthenticationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationPtrOutput)
 }
 
-type ClusterAuthenticationOutput struct { *pulumi.OutputState }
+type ClusterAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterAuthentication)(nil)).Elem()
@@ -103,22 +104,23 @@ func (o ClusterAuthenticationOutput) ToClusterAuthenticationPtrOutputWithContext
 		return &v
 	}).(ClusterAuthenticationPtrOutput)
 }
+
 // List of additional hostnames and IPs to include in the api server PKI cert (list)
 func (o ClusterAuthenticationOutput) Sans() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterAuthentication) []string { return v.Sans }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterAuthentication) []string { return v.Sans }).(pulumi.StringArrayOutput)
 }
 
 // Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
 func (o ClusterAuthenticationOutput) Strategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthentication) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthentication) *string { return v.Strategy }).(pulumi.StringPtrOutput)
 }
 
 // Webhook configuration options (list maxitem: 1)
 func (o ClusterAuthenticationOutput) Webhook() ClusterAuthenticationWebhookPtrOutput {
-	return o.ApplyT(func (v ClusterAuthentication) *ClusterAuthenticationWebhook { return v.Webhook }).(ClusterAuthenticationWebhookPtrOutput)
+	return o.ApplyT(func(v ClusterAuthentication) *ClusterAuthenticationWebhook { return v.Webhook }).(ClusterAuthenticationWebhookPtrOutput)
 }
 
-type ClusterAuthenticationPtrOutput struct { *pulumi.OutputState}
+type ClusterAuthenticationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterAuthentication)(nil)).Elem()
@@ -133,22 +135,22 @@ func (o ClusterAuthenticationPtrOutput) ToClusterAuthenticationPtrOutputWithCont
 }
 
 func (o ClusterAuthenticationPtrOutput) Elem() ClusterAuthenticationOutput {
-	return o.ApplyT(func (v *ClusterAuthentication) ClusterAuthentication { return *v }).(ClusterAuthenticationOutput)
+	return o.ApplyT(func(v *ClusterAuthentication) ClusterAuthentication { return *v }).(ClusterAuthenticationOutput)
 }
 
 // List of additional hostnames and IPs to include in the api server PKI cert (list)
 func (o ClusterAuthenticationPtrOutput) Sans() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterAuthentication) []string { return v.Sans }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterAuthentication) []string { return v.Sans }).(pulumi.StringArrayOutput)
 }
 
 // Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
 func (o ClusterAuthenticationPtrOutput) Strategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthentication) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthentication) *string { return v.Strategy }).(pulumi.StringPtrOutput)
 }
 
 // Webhook configuration options (list maxitem: 1)
 func (o ClusterAuthenticationPtrOutput) Webhook() ClusterAuthenticationWebhookPtrOutput {
-	return o.ApplyT(func (v ClusterAuthentication) *ClusterAuthenticationWebhook { return v.Webhook }).(ClusterAuthenticationWebhookPtrOutput)
+	return o.ApplyT(func(v ClusterAuthentication) *ClusterAuthenticationWebhook { return v.Webhook }).(ClusterAuthenticationWebhookPtrOutput)
 }
 
 type ClusterAuthenticationWebhook struct {
@@ -201,7 +203,8 @@ type ClusterAuthenticationWebhookPtrInput interface {
 
 type clusterAuthenticationWebhookPtrType ClusterAuthenticationWebhookArgs
 
-func ClusterAuthenticationWebhookPtr(v *ClusterAuthenticationWebhookArgs) ClusterAuthenticationWebhookPtrInput {	return (*clusterAuthenticationWebhookPtrType)(v)
+func ClusterAuthenticationWebhookPtr(v *ClusterAuthenticationWebhookArgs) ClusterAuthenticationWebhookPtrInput {
+	return (*clusterAuthenticationWebhookPtrType)(v)
 }
 
 func (*clusterAuthenticationWebhookPtrType) ElementType() reflect.Type {
@@ -216,7 +219,7 @@ func (i *clusterAuthenticationWebhookPtrType) ToClusterAuthenticationWebhookPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationWebhookPtrOutput)
 }
 
-type ClusterAuthenticationWebhookOutput struct { *pulumi.OutputState }
+type ClusterAuthenticationWebhookOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationWebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterAuthenticationWebhook)(nil)).Elem()
@@ -239,17 +242,18 @@ func (o ClusterAuthenticationWebhookOutput) ToClusterAuthenticationWebhookPtrOut
 		return &v
 	}).(ClusterAuthenticationWebhookPtrOutput)
 }
+
 // Controls how long to cache authentication decisions (string)
 func (o ClusterAuthenticationWebhookOutput) CacheTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthenticationWebhook) *string { return v.CacheTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthenticationWebhook) *string { return v.CacheTimeout }).(pulumi.StringPtrOutput)
 }
 
 // Multiline string that represent a custom webhook config file (string)
 func (o ClusterAuthenticationWebhookOutput) ConfigFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthenticationWebhook) *string { return v.ConfigFile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthenticationWebhook) *string { return v.ConfigFile }).(pulumi.StringPtrOutput)
 }
 
-type ClusterAuthenticationWebhookPtrOutput struct { *pulumi.OutputState}
+type ClusterAuthenticationWebhookPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationWebhookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterAuthenticationWebhook)(nil)).Elem()
@@ -264,17 +268,17 @@ func (o ClusterAuthenticationWebhookPtrOutput) ToClusterAuthenticationWebhookPtr
 }
 
 func (o ClusterAuthenticationWebhookPtrOutput) Elem() ClusterAuthenticationWebhookOutput {
-	return o.ApplyT(func (v *ClusterAuthenticationWebhook) ClusterAuthenticationWebhook { return *v }).(ClusterAuthenticationWebhookOutput)
+	return o.ApplyT(func(v *ClusterAuthenticationWebhook) ClusterAuthenticationWebhook { return *v }).(ClusterAuthenticationWebhookOutput)
 }
 
 // Controls how long to cache authentication decisions (string)
 func (o ClusterAuthenticationWebhookPtrOutput) CacheTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthenticationWebhook) *string { return v.CacheTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthenticationWebhook) *string { return v.CacheTimeout }).(pulumi.StringPtrOutput)
 }
 
 // Multiline string that represent a custom webhook config file (string)
 func (o ClusterAuthenticationWebhookPtrOutput) ConfigFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthenticationWebhook) *string { return v.ConfigFile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthenticationWebhook) *string { return v.ConfigFile }).(pulumi.StringPtrOutput)
 }
 
 type ClusterAuthorization struct {
@@ -327,7 +331,8 @@ type ClusterAuthorizationPtrInput interface {
 
 type clusterAuthorizationPtrType ClusterAuthorizationArgs
 
-func ClusterAuthorizationPtr(v *ClusterAuthorizationArgs) ClusterAuthorizationPtrInput {	return (*clusterAuthorizationPtrType)(v)
+func ClusterAuthorizationPtr(v *ClusterAuthorizationArgs) ClusterAuthorizationPtrInput {
+	return (*clusterAuthorizationPtrType)(v)
 }
 
 func (*clusterAuthorizationPtrType) ElementType() reflect.Type {
@@ -342,7 +347,7 @@ func (i *clusterAuthorizationPtrType) ToClusterAuthorizationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizationPtrOutput)
 }
 
-type ClusterAuthorizationOutput struct { *pulumi.OutputState }
+type ClusterAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterAuthorization)(nil)).Elem()
@@ -365,17 +370,18 @@ func (o ClusterAuthorizationOutput) ToClusterAuthorizationPtrOutputWithContext(c
 		return &v
 	}).(ClusterAuthorizationPtrOutput)
 }
+
 // RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 func (o ClusterAuthorizationOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // Network provider options (map)
 func (o ClusterAuthorizationOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
-type ClusterAuthorizationPtrOutput struct { *pulumi.OutputState}
+type ClusterAuthorizationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthorizationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterAuthorization)(nil)).Elem()
@@ -390,17 +396,17 @@ func (o ClusterAuthorizationPtrOutput) ToClusterAuthorizationPtrOutputWithContex
 }
 
 func (o ClusterAuthorizationPtrOutput) Elem() ClusterAuthorizationOutput {
-	return o.ApplyT(func (v *ClusterAuthorization) ClusterAuthorization { return *v }).(ClusterAuthorizationOutput)
+	return o.ApplyT(func(v *ClusterAuthorization) ClusterAuthorization { return *v }).(ClusterAuthorizationOutput)
 }
 
 // RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 func (o ClusterAuthorizationPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // Network provider options (map)
 func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 type ClusterBastionHost struct {
@@ -477,7 +483,8 @@ type ClusterBastionHostPtrInput interface {
 
 type clusterBastionHostPtrType ClusterBastionHostArgs
 
-func ClusterBastionHostPtr(v *ClusterBastionHostArgs) ClusterBastionHostPtrInput {	return (*clusterBastionHostPtrType)(v)
+func ClusterBastionHostPtr(v *ClusterBastionHostArgs) ClusterBastionHostPtrInput {
+	return (*clusterBastionHostPtrType)(v)
 }
 
 func (*clusterBastionHostPtrType) ElementType() reflect.Type {
@@ -492,7 +499,7 @@ func (i *clusterBastionHostPtrType) ToClusterBastionHostPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBastionHostPtrOutput)
 }
 
-type ClusterBastionHostOutput struct { *pulumi.OutputState }
+type ClusterBastionHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterBastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterBastionHost)(nil)).Elem()
@@ -515,47 +522,48 @@ func (o ClusterBastionHostOutput) ToClusterBastionHostPtrOutputWithContext(ctx c
 		return &v
 	}).(ClusterBastionHostPtrOutput)
 }
+
 // Address ip for node (string)
 func (o ClusterBastionHostOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterBastionHostOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // SSH Agent Auth enable (bool)
 func (o ClusterBastionHostOutput) SshAgentAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
 }
 
 // SSH Certificate (string)
 func (o ClusterBastionHostOutput) SshCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCert }).(pulumi.StringPtrOutput)
 }
 
 // SSH Certificate path (string)
 func (o ClusterBastionHostOutput) SshCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key (string)
 func (o ClusterBastionHostOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key path (string)
 func (o ClusterBastionHostOutput) SshKeyPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterBastionHostOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBastionHost) string { return v.User }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBastionHost) string { return v.User }).(pulumi.StringOutput)
 }
 
-type ClusterBastionHostPtrOutput struct { *pulumi.OutputState}
+type ClusterBastionHostPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterBastionHostPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterBastionHost)(nil)).Elem()
@@ -570,64 +578,64 @@ func (o ClusterBastionHostPtrOutput) ToClusterBastionHostPtrOutputWithContext(ct
 }
 
 func (o ClusterBastionHostPtrOutput) Elem() ClusterBastionHostOutput {
-	return o.ApplyT(func (v *ClusterBastionHost) ClusterBastionHost { return *v }).(ClusterBastionHostOutput)
+	return o.ApplyT(func(v *ClusterBastionHost) ClusterBastionHost { return *v }).(ClusterBastionHostOutput)
 }
 
 // Address ip for node (string)
 func (o ClusterBastionHostPtrOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterBastionHostPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // SSH Agent Auth enable (bool)
 func (o ClusterBastionHostPtrOutput) SshAgentAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
 }
 
 // SSH Certificate (string)
 func (o ClusterBastionHostPtrOutput) SshCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCert }).(pulumi.StringPtrOutput)
 }
 
 // SSH Certificate path (string)
 func (o ClusterBastionHostPtrOutput) SshCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key (string)
 func (o ClusterBastionHostPtrOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key path (string)
 func (o ClusterBastionHostPtrOutput) SshKeyPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBastionHost) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterBastionHostPtrOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBastionHost) string { return v.User }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBastionHost) string { return v.User }).(pulumi.StringOutput)
 }
 
 type ClusterCertificate struct {
-	Certificate *string `pulumi:"certificate"`
-	CommonName *string `pulumi:"commonName"`
-	Config *string `pulumi:"config"`
+	Certificate   *string `pulumi:"certificate"`
+	CommonName    *string `pulumi:"commonName"`
+	Config        *string `pulumi:"config"`
 	ConfigEnvName *string `pulumi:"configEnvName"`
-	ConfigPath *string `pulumi:"configPath"`
-	EnvName *string `pulumi:"envName"`
+	ConfigPath    *string `pulumi:"configPath"`
+	EnvName       *string `pulumi:"envName"`
 	// (Computed) The ID of the resource (string)
 	Id *string `pulumi:"id"`
 	// TLS key for etcd service (string)
-	Key *string `pulumi:"key"`
+	Key        *string `pulumi:"key"`
 	KeyEnvName *string `pulumi:"keyEnvName"`
-	KeyPath *string `pulumi:"keyPath"`
+	KeyPath    *string `pulumi:"keyPath"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	OuName *string `pulumi:"ouName"`
 	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 	Path *string `pulumi:"path"`
@@ -641,20 +649,20 @@ type ClusterCertificateInput interface {
 }
 
 type ClusterCertificateArgs struct {
-	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	Config pulumi.StringPtrInput `pulumi:"config"`
+	Certificate   pulumi.StringPtrInput `pulumi:"certificate"`
+	CommonName    pulumi.StringPtrInput `pulumi:"commonName"`
+	Config        pulumi.StringPtrInput `pulumi:"config"`
 	ConfigEnvName pulumi.StringPtrInput `pulumi:"configEnvName"`
-	ConfigPath pulumi.StringPtrInput `pulumi:"configPath"`
-	EnvName pulumi.StringPtrInput `pulumi:"envName"`
+	ConfigPath    pulumi.StringPtrInput `pulumi:"configPath"`
+	EnvName       pulumi.StringPtrInput `pulumi:"envName"`
 	// (Computed) The ID of the resource (string)
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// TLS key for etcd service (string)
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Key        pulumi.StringPtrInput `pulumi:"key"`
 	KeyEnvName pulumi.StringPtrInput `pulumi:"keyEnvName"`
-	KeyPath pulumi.StringPtrInput `pulumi:"keyPath"`
+	KeyPath    pulumi.StringPtrInput `pulumi:"keyPath"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	OuName pulumi.StringPtrInput `pulumi:"ouName"`
 	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -693,7 +701,7 @@ func (i ClusterCertificateArray) ToClusterCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateArrayOutput)
 }
 
-type ClusterCertificateOutput struct { *pulumi.OutputState }
+type ClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCertificate)(nil)).Elem()
@@ -708,62 +716,62 @@ func (o ClusterCertificateOutput) ToClusterCertificateOutputWithContext(ctx cont
 }
 
 func (o ClusterCertificateOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) CommonName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) Config() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Config }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Config }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) ConfigEnvName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.ConfigEnvName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.ConfigEnvName }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) ConfigPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.ConfigPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.ConfigPath }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) EnvName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.EnvName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.EnvName }).(pulumi.StringPtrOutput)
 }
 
 // (Computed) The ID of the resource (string)
 func (o ClusterCertificateOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterCertificateOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) KeyEnvName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.KeyEnvName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.KeyEnvName }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) KeyPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
 }
 
 // Name of virtualcenter config for Vsphere Cloud Provider config (string)
 func (o ClusterCertificateOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) OuName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.OuName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.OuName }).(pulumi.StringPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterCertificateOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCertificateArrayOutput struct { *pulumi.OutputState}
+type ClusterCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCertificate)(nil)).Elem()
@@ -778,7 +786,7 @@ func (o ClusterCertificateArrayOutput) ToClusterCertificateArrayOutputWithContex
 }
 
 func (o ClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCertificate {
 		return vs[0].([]ClusterCertificate)[vs[1].(int)]
 	}).(ClusterCertificateOutput)
 }
@@ -869,7 +877,8 @@ type ClusterCloudProviderPtrInput interface {
 
 type clusterCloudProviderPtrType ClusterCloudProviderArgs
 
-func ClusterCloudProviderPtr(v *ClusterCloudProviderArgs) ClusterCloudProviderPtrInput {	return (*clusterCloudProviderPtrType)(v)
+func ClusterCloudProviderPtr(v *ClusterCloudProviderArgs) ClusterCloudProviderPtrInput {
+	return (*clusterCloudProviderPtrType)(v)
 }
 
 func (*clusterCloudProviderPtrType) ElementType() reflect.Type {
@@ -884,7 +893,7 @@ func (i *clusterCloudProviderPtrType) ToClusterCloudProviderPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProvider)(nil)).Elem()
@@ -907,62 +916,65 @@ func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutputWithContext(c
 		return &v
 	}).(ClusterCloudProviderPtrOutput)
 }
+
 // Use awsCloudProvider instead
 func (o ClusterCloudProviderOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig { return v.AwsCloudConfig }).(ClusterCloudProviderAwsCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig { return v.AwsCloudConfig }).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
 
 // AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 func (o ClusterCloudProviderOutput) AwsCloudProvider() ClusterCloudProviderAwsCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAwsCloudProvider { return v.AwsCloudProvider }).(ClusterCloudProviderAwsCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudProvider { return v.AwsCloudProvider }).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
 // Use azureCloudProvider instead
 func (o ClusterCloudProviderOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig { return v.AzureCloudConfig }).(ClusterCloudProviderAzureCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig { return v.AzureCloudConfig }).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
 
 // Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 func (o ClusterCloudProviderOutput) AzureCloudProvider() ClusterCloudProviderAzureCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAzureCloudProvider { return v.AzureCloudProvider }).(ClusterCloudProviderAzureCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudProvider { return v.AzureCloudProvider }).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
 // Use customCloudProvider instead
 func (o ClusterCloudProviderOutput) CustomCloudConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *string { return v.CustomCloudConfig }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudConfig }).(pulumi.StringPtrOutput)
 }
 
 // Custom Cloud Provider config (string)
 func (o ClusterCloudProviderOutput) CustomCloudProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *string { return v.CustomCloudProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudProvider }).(pulumi.StringPtrOutput)
 }
 
 // Name of virtualcenter config for Vsphere Cloud Provider config (string)
 func (o ClusterCloudProviderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Use openstackCloudProvider instead
 func (o ClusterCloudProviderOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig { return v.OpenstackCloudConfig }).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig { return v.OpenstackCloudConfig }).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
 
 // Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 func (o ClusterCloudProviderOutput) OpenstackCloudProvider() ClusterCloudProviderOpenstackCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudProvider { return v.OpenstackCloudProvider }).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudProvider {
+		return v.OpenstackCloudProvider
+	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
 // Use vsphereCloudProvider instead
 func (o ClusterCloudProviderOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig { return v.VsphereCloudConfig }).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig { return v.VsphereCloudConfig }).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
 
 // Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
 func (o ClusterCloudProviderOutput) VsphereCloudProvider() ClusterCloudProviderVsphereCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudProvider { return v.VsphereCloudProvider }).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudProvider { return v.VsphereCloudProvider }).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProvider)(nil)).Elem()
@@ -977,62 +989,64 @@ func (o ClusterCloudProviderPtrOutput) ToClusterCloudProviderPtrOutputWithContex
 }
 
 func (o ClusterCloudProviderPtrOutput) Elem() ClusterCloudProviderOutput {
-	return o.ApplyT(func (v *ClusterCloudProvider) ClusterCloudProvider { return *v }).(ClusterCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProvider) ClusterCloudProvider { return *v }).(ClusterCloudProviderOutput)
 }
 
 // Use awsCloudProvider instead
 func (o ClusterCloudProviderPtrOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig { return v.AwsCloudConfig }).(ClusterCloudProviderAwsCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig { return v.AwsCloudConfig }).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
 
 // AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 func (o ClusterCloudProviderPtrOutput) AwsCloudProvider() ClusterCloudProviderAwsCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAwsCloudProvider { return v.AwsCloudProvider }).(ClusterCloudProviderAwsCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudProvider { return v.AwsCloudProvider }).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
 // Use azureCloudProvider instead
 func (o ClusterCloudProviderPtrOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig { return v.AzureCloudConfig }).(ClusterCloudProviderAzureCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig { return v.AzureCloudConfig }).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
 
 // Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 func (o ClusterCloudProviderPtrOutput) AzureCloudProvider() ClusterCloudProviderAzureCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderAzureCloudProvider { return v.AzureCloudProvider }).(ClusterCloudProviderAzureCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudProvider { return v.AzureCloudProvider }).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
 // Use customCloudProvider instead
 func (o ClusterCloudProviderPtrOutput) CustomCloudConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *string { return v.CustomCloudConfig }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudConfig }).(pulumi.StringPtrOutput)
 }
 
 // Custom Cloud Provider config (string)
 func (o ClusterCloudProviderPtrOutput) CustomCloudProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *string { return v.CustomCloudProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudProvider }).(pulumi.StringPtrOutput)
 }
 
 // Name of virtualcenter config for Vsphere Cloud Provider config (string)
 func (o ClusterCloudProviderPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Use openstackCloudProvider instead
 func (o ClusterCloudProviderPtrOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig { return v.OpenstackCloudConfig }).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig { return v.OpenstackCloudConfig }).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
 
 // Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 func (o ClusterCloudProviderPtrOutput) OpenstackCloudProvider() ClusterCloudProviderOpenstackCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudProvider { return v.OpenstackCloudProvider }).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudProvider {
+		return v.OpenstackCloudProvider
+	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
 // Use vsphereCloudProvider instead
 func (o ClusterCloudProviderPtrOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig { return v.VsphereCloudConfig }).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig { return v.VsphereCloudConfig }).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
 
 // Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
 func (o ClusterCloudProviderPtrOutput) VsphereCloudProvider() ClusterCloudProviderVsphereCloudProviderPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudProvider { return v.VsphereCloudProvider }).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudProvider { return v.VsphereCloudProvider }).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
 
 type ClusterCloudProviderAwsCloudConfig struct {
@@ -1085,7 +1099,8 @@ type ClusterCloudProviderAwsCloudConfigPtrInput interface {
 
 type clusterCloudProviderAwsCloudConfigPtrType ClusterCloudProviderAwsCloudConfigArgs
 
-func ClusterCloudProviderAwsCloudConfigPtr(v *ClusterCloudProviderAwsCloudConfigArgs) ClusterCloudProviderAwsCloudConfigPtrInput {	return (*clusterCloudProviderAwsCloudConfigPtrType)(v)
+func ClusterCloudProviderAwsCloudConfigPtr(v *ClusterCloudProviderAwsCloudConfigArgs) ClusterCloudProviderAwsCloudConfigPtrInput {
+	return (*clusterCloudProviderAwsCloudConfigPtrType)(v)
 }
 
 func (*clusterCloudProviderAwsCloudConfigPtrType) ElementType() reflect.Type {
@@ -1100,7 +1115,7 @@ func (i *clusterCloudProviderAwsCloudConfigPtrType) ToClusterCloudProviderAwsClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudConfig)(nil)).Elem()
@@ -1123,17 +1138,20 @@ func (o ClusterCloudProviderAwsCloudConfigOutput) ToClusterCloudProviderAwsCloud
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderAwsCloudConfigOutput) Global() ClusterCloudProviderAwsCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfigGlobal { return v.Global }).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfigGlobal { return v.Global }).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
 
 // (list)
 func (o ClusterCloudProviderAwsCloudConfigOutput) ServiceOverrides() ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfig) []ClusterCloudProviderAwsCloudConfigServiceOverride { return v.ServiceOverrides }).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfig) []ClusterCloudProviderAwsCloudConfigServiceOverride {
+		return v.ServiceOverrides
+	}).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAwsCloudConfig)(nil)).Elem()
@@ -1148,17 +1166,19 @@ func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ToClusterCloudProviderAwsCl
 }
 
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAwsCloudConfig) ClusterCloudProviderAwsCloudConfig { return *v }).(ClusterCloudProviderAwsCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfig) ClusterCloudProviderAwsCloudConfig { return *v }).(ClusterCloudProviderAwsCloudConfigOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) Global() ClusterCloudProviderAwsCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfigGlobal { return v.Global }).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfigGlobal { return v.Global }).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
 
 // (list)
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ServiceOverrides() ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfig) []ClusterCloudProviderAwsCloudConfigServiceOverride { return v.ServiceOverrides }).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfig) []ClusterCloudProviderAwsCloudConfigServiceOverride {
+		return v.ServiceOverrides
+	}).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
 }
 
 type ClusterCloudProviderAwsCloudConfigGlobal struct {
@@ -1243,7 +1263,8 @@ type ClusterCloudProviderAwsCloudConfigGlobalPtrInput interface {
 
 type clusterCloudProviderAwsCloudConfigGlobalPtrType ClusterCloudProviderAwsCloudConfigGlobalArgs
 
-func ClusterCloudProviderAwsCloudConfigGlobalPtr(v *ClusterCloudProviderAwsCloudConfigGlobalArgs) ClusterCloudProviderAwsCloudConfigGlobalPtrInput {	return (*clusterCloudProviderAwsCloudConfigGlobalPtrType)(v)
+func ClusterCloudProviderAwsCloudConfigGlobalPtr(v *ClusterCloudProviderAwsCloudConfigGlobalArgs) ClusterCloudProviderAwsCloudConfigGlobalPtrInput {
+	return (*clusterCloudProviderAwsCloudConfigGlobalPtrType)(v)
 }
 
 func (*clusterCloudProviderAwsCloudConfigGlobalPtrType) ElementType() reflect.Type {
@@ -1258,7 +1279,7 @@ func (i *clusterCloudProviderAwsCloudConfigGlobalPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigGlobal)(nil)).Elem()
@@ -1281,57 +1302,58 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ToClusterCloudProviderAw
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
+
 // Disables the automatic ingress creation. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) DisableSecurityGroupIngress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
 }
 
 // Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) DisableStrictZoneCheck() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
 }
 
 // Use these ELB security groups instead create new (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ElbSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 // The cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) KubernetesClusterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Legacy cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) KubernetesClusterTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
 }
 
 // IAM role to assume when interaction with AWS APIs (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Enables using a specific RouteTable (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) RouteTableId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) Vpc() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
 }
 
 // The AWS zone (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigGlobalPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudConfigGlobalPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAwsCloudConfigGlobal)(nil)).Elem()
@@ -1346,57 +1368,57 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigGlobalOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAwsCloudConfigGlobal) ClusterCloudProviderAwsCloudConfigGlobal { return *v }).(ClusterCloudProviderAwsCloudConfigGlobalOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfigGlobal) ClusterCloudProviderAwsCloudConfigGlobal { return *v }).(ClusterCloudProviderAwsCloudConfigGlobalOutput)
 }
 
 // Disables the automatic ingress creation. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) DisableSecurityGroupIngress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
 }
 
 // Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) DisableStrictZoneCheck() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
 }
 
 // Use these ELB security groups instead create new (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ElbSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 // The cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) KubernetesClusterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Legacy cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) KubernetesClusterTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
 }
 
 // IAM role to assume when interaction with AWS APIs (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Enables using a specific RouteTable (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) RouteTableId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Vpc() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
 }
 
 // The AWS zone (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderAwsCloudConfigServiceOverride struct {
@@ -1473,7 +1495,7 @@ func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArray) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigServiceOverrideOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudConfigServiceOverrideOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigServiceOverride)(nil)).Elem()
@@ -1489,40 +1511,40 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToClusterCloudP
 
 // TLS key for etcd service (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) string { return v.Service }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) string { return v.Service }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) SigningMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) SigningName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) SigningRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
 // Registry URL (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCloudProviderAwsCloudConfigServiceOverride)(nil)).Elem()
@@ -1537,7 +1559,7 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) ToClusterC
 }
 
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderAwsCloudConfigServiceOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCloudProviderAwsCloudConfigServiceOverride {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCloudProviderAwsCloudConfigServiceOverride {
 		return vs[0].([]ClusterCloudProviderAwsCloudConfigServiceOverride)[vs[1].(int)]
 	}).(ClusterCloudProviderAwsCloudConfigServiceOverrideOutput)
 }
@@ -1592,7 +1614,8 @@ type ClusterCloudProviderAwsCloudProviderPtrInput interface {
 
 type clusterCloudProviderAwsCloudProviderPtrType ClusterCloudProviderAwsCloudProviderArgs
 
-func ClusterCloudProviderAwsCloudProviderPtr(v *ClusterCloudProviderAwsCloudProviderArgs) ClusterCloudProviderAwsCloudProviderPtrInput {	return (*clusterCloudProviderAwsCloudProviderPtrType)(v)
+func ClusterCloudProviderAwsCloudProviderPtr(v *ClusterCloudProviderAwsCloudProviderArgs) ClusterCloudProviderAwsCloudProviderPtrInput {
+	return (*clusterCloudProviderAwsCloudProviderPtrType)(v)
 }
 
 func (*clusterCloudProviderAwsCloudProviderPtrType) ElementType() reflect.Type {
@@ -1607,7 +1630,7 @@ func (i *clusterCloudProviderAwsCloudProviderPtrType) ToClusterCloudProviderAwsC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudProvider)(nil)).Elem()
@@ -1630,17 +1653,22 @@ func (o ClusterCloudProviderAwsCloudProviderOutput) ToClusterCloudProviderAwsClo
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderAwsCloudProviderOutput) Global() ClusterCloudProviderAwsCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProviderGlobal { return v.Global }).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
 
 // (list)
 func (o ClusterCloudProviderAwsCloudProviderOutput) ServiceOverrides() ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProvider) []ClusterCloudProviderAwsCloudProviderServiceOverride { return v.ServiceOverrides }).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProvider) []ClusterCloudProviderAwsCloudProviderServiceOverride {
+		return v.ServiceOverrides
+	}).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAwsCloudProvider)(nil)).Elem()
@@ -1655,17 +1683,21 @@ func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ToClusterCloudProviderAws
 }
 
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAwsCloudProvider) ClusterCloudProviderAwsCloudProvider { return *v }).(ClusterCloudProviderAwsCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProvider) ClusterCloudProviderAwsCloudProvider { return *v }).(ClusterCloudProviderAwsCloudProviderOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) Global() ClusterCloudProviderAwsCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProviderGlobal { return v.Global }).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
 
 // (list)
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ServiceOverrides() ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProvider) []ClusterCloudProviderAwsCloudProviderServiceOverride { return v.ServiceOverrides }).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProvider) []ClusterCloudProviderAwsCloudProviderServiceOverride {
+		return v.ServiceOverrides
+	}).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
 }
 
 type ClusterCloudProviderAwsCloudProviderGlobal struct {
@@ -1750,7 +1782,8 @@ type ClusterCloudProviderAwsCloudProviderGlobalPtrInput interface {
 
 type clusterCloudProviderAwsCloudProviderGlobalPtrType ClusterCloudProviderAwsCloudProviderGlobalArgs
 
-func ClusterCloudProviderAwsCloudProviderGlobalPtr(v *ClusterCloudProviderAwsCloudProviderGlobalArgs) ClusterCloudProviderAwsCloudProviderGlobalPtrInput {	return (*clusterCloudProviderAwsCloudProviderGlobalPtrType)(v)
+func ClusterCloudProviderAwsCloudProviderGlobalPtr(v *ClusterCloudProviderAwsCloudProviderGlobalArgs) ClusterCloudProviderAwsCloudProviderGlobalPtrInput {
+	return (*clusterCloudProviderAwsCloudProviderGlobalPtrType)(v)
 }
 
 func (*clusterCloudProviderAwsCloudProviderGlobalPtrType) ElementType() reflect.Type {
@@ -1765,7 +1798,7 @@ func (i *clusterCloudProviderAwsCloudProviderGlobalPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderGlobal)(nil)).Elem()
@@ -1788,57 +1821,58 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ToClusterCloudProvider
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
+
 // Disables the automatic ingress creation. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) DisableSecurityGroupIngress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
 }
 
 // Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) DisableStrictZoneCheck() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
 }
 
 // Use these ELB security groups instead create new (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ElbSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 // The cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) KubernetesClusterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Legacy cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) KubernetesClusterTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
 }
 
 // IAM role to assume when interaction with AWS APIs (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Enables using a specific RouteTable (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) RouteTableId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) Vpc() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
 }
 
 // The AWS zone (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderGlobalPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudProviderGlobalPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAwsCloudProviderGlobal)(nil)).Elem()
@@ -1853,57 +1887,59 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ToClusterCloudProvi
 }
 
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderGlobalOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAwsCloudProviderGlobal) ClusterCloudProviderAwsCloudProviderGlobal { return *v }).(ClusterCloudProviderAwsCloudProviderGlobalOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProviderGlobal) ClusterCloudProviderAwsCloudProviderGlobal {
+		return *v
+	}).(ClusterCloudProviderAwsCloudProviderGlobalOutput)
 }
 
 // Disables the automatic ingress creation. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) DisableSecurityGroupIngress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableSecurityGroupIngress }).(pulumi.BoolPtrOutput)
 }
 
 // Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) DisableStrictZoneCheck() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *bool { return v.DisableStrictZoneCheck }).(pulumi.BoolPtrOutput)
 }
 
 // Use these ELB security groups instead create new (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ElbSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.ElbSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 // The cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) KubernetesClusterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Legacy cluster id we'll use to identify our cluster resources (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) KubernetesClusterTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.KubernetesClusterTag }).(pulumi.StringPtrOutput)
 }
 
 // IAM role to assume when interaction with AWS APIs (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Enables using a specific RouteTable (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) RouteTableId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Vpc() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Vpc }).(pulumi.StringPtrOutput)
 }
 
 // The AWS zone (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderAwsCloudProviderServiceOverride struct {
@@ -1980,7 +2016,7 @@ func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArray) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderServiceOverrideOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAwsCloudProviderServiceOverrideOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderServiceOverride)(nil)).Elem()
@@ -1996,40 +2032,40 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToClusterClou
 
 // TLS key for etcd service (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) string { return v.Service }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) string { return v.Service }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) SigningMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) SigningName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) SigningRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
 // Registry URL (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCloudProviderAwsCloudProviderServiceOverride)(nil)).Elem()
@@ -2044,7 +2080,7 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) ToCluste
 }
 
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderAwsCloudProviderServiceOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCloudProviderAwsCloudProviderServiceOverride {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCloudProviderAwsCloudProviderServiceOverride {
 		return vs[0].([]ClusterCloudProviderAwsCloudProviderServiceOverride)[vs[1].(int)]
 	}).(ClusterCloudProviderAwsCloudProviderServiceOverrideOutput)
 }
@@ -2075,8 +2111,8 @@ type ClusterCloudProviderAzureCloudConfig struct {
 	// (int)
 	CloudProviderRateLimitBucket *int `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps *int `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps *int    `pulumi:"cloudProviderRateLimitQps"`
+	LoadBalancerSku           *string `pulumi:"loadBalancerSku"`
 	// (string)
 	Location *string `pulumi:"location"`
 	// (int)
@@ -2142,8 +2178,8 @@ type ClusterCloudProviderAzureCloudConfigArgs struct {
 	// (int)
 	CloudProviderRateLimitBucket pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps pulumi.IntPtrInput    `pulumi:"cloudProviderRateLimitQps"`
+	LoadBalancerSku           pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// (string)
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// (int)
@@ -2205,7 +2241,8 @@ type ClusterCloudProviderAzureCloudConfigPtrInput interface {
 
 type clusterCloudProviderAzureCloudConfigPtrType ClusterCloudProviderAzureCloudConfigArgs
 
-func ClusterCloudProviderAzureCloudConfigPtr(v *ClusterCloudProviderAzureCloudConfigArgs) ClusterCloudProviderAzureCloudConfigPtrInput {	return (*clusterCloudProviderAzureCloudConfigPtrType)(v)
+func ClusterCloudProviderAzureCloudConfigPtr(v *ClusterCloudProviderAzureCloudConfigArgs) ClusterCloudProviderAzureCloudConfigPtrInput {
+	return (*clusterCloudProviderAzureCloudConfigPtrType)(v)
 }
 
 func (*clusterCloudProviderAzureCloudConfigPtrType) ElementType() reflect.Type {
@@ -2220,7 +2257,7 @@ func (i *clusterCloudProviderAzureCloudConfigPtrType) ToClusterCloudProviderAzur
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
 
-type ClusterCloudProviderAzureCloudConfigOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAzureCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAzureCloudConfig)(nil)).Elem()
@@ -2243,151 +2280,152 @@ func (o ClusterCloudProviderAzureCloudConfigOutput) ToClusterCloudProviderAzureC
 		return &v
 	}).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) AadClientCertPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) AadClientCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) AadClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientId }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) AadClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientSecret }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.Cloud }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderBackoff() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderBackoffExponent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderBackoffJitter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderBackoffRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderRateLimit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderRateLimitBucket() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderRateLimitQps() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterCloudProviderAzureCloudConfigOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigOutput) MaximumLoadBalancerRuleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) PrimaryAvailabilitySetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) PrimaryScaleSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) RouteTableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.SubscriptionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigOutput) UseInstanceMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigOutput) UseManagedIdentityExtension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) VmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VmType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VmType }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) VnetResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAzureCloudConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAzureCloudConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAzureCloudConfig)(nil)).Elem()
@@ -2402,151 +2440,151 @@ func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ToClusterCloudProviderAzu
 }
 
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) Elem() ClusterCloudProviderAzureCloudConfigOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAzureCloudConfig) ClusterCloudProviderAzureCloudConfig { return *v }).(ClusterCloudProviderAzureCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudConfig) ClusterCloudProviderAzureCloudConfig { return *v }).(ClusterCloudProviderAzureCloudConfigOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) AadClientCertPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) AadClientCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) AadClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientId }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) AadClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.AadClientSecret }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.Cloud }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderBackoff() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderBackoffExponent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderBackoffJitter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderBackoffRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderRateLimit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderRateLimitBucket() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderRateLimitQps() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) MaximumLoadBalancerRuleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) PrimaryAvailabilitySetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) PrimaryScaleSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) RouteTableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.SubscriptionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) UseInstanceMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) UseManagedIdentityExtension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) VmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VmType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VmType }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) VnetResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderAzureCloudProvider struct {
@@ -2575,8 +2613,8 @@ type ClusterCloudProviderAzureCloudProvider struct {
 	// (int)
 	CloudProviderRateLimitBucket *int `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps *int `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps *int    `pulumi:"cloudProviderRateLimitQps"`
+	LoadBalancerSku           *string `pulumi:"loadBalancerSku"`
 	// (string)
 	Location *string `pulumi:"location"`
 	// (int)
@@ -2642,8 +2680,8 @@ type ClusterCloudProviderAzureCloudProviderArgs struct {
 	// (int)
 	CloudProviderRateLimitBucket pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps pulumi.IntPtrInput    `pulumi:"cloudProviderRateLimitQps"`
+	LoadBalancerSku           pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// (string)
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// (int)
@@ -2705,7 +2743,8 @@ type ClusterCloudProviderAzureCloudProviderPtrInput interface {
 
 type clusterCloudProviderAzureCloudProviderPtrType ClusterCloudProviderAzureCloudProviderArgs
 
-func ClusterCloudProviderAzureCloudProviderPtr(v *ClusterCloudProviderAzureCloudProviderArgs) ClusterCloudProviderAzureCloudProviderPtrInput {	return (*clusterCloudProviderAzureCloudProviderPtrType)(v)
+func ClusterCloudProviderAzureCloudProviderPtr(v *ClusterCloudProviderAzureCloudProviderArgs) ClusterCloudProviderAzureCloudProviderPtrInput {
+	return (*clusterCloudProviderAzureCloudProviderPtrType)(v)
 }
 
 func (*clusterCloudProviderAzureCloudProviderPtrType) ElementType() reflect.Type {
@@ -2720,7 +2759,7 @@ func (i *clusterCloudProviderAzureCloudProviderPtrType) ToClusterCloudProviderAz
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderAzureCloudProviderOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderAzureCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderAzureCloudProvider)(nil)).Elem()
@@ -2743,151 +2782,152 @@ func (o ClusterCloudProviderAzureCloudProviderOutput) ToClusterCloudProviderAzur
 		return &v
 	}).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) AadClientCertPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) AadClientCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) AadClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientId }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) AadClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientSecret }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.Cloud }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderBackoff() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderBackoffExponent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderBackoffJitter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderBackoffRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderRateLimit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderRateLimitBucket() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderRateLimitQps() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterCloudProviderAzureCloudProviderOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderOutput) MaximumLoadBalancerRuleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) PrimaryAvailabilitySetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) PrimaryScaleSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) RouteTableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.SubscriptionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderOutput) UseInstanceMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderOutput) UseManagedIdentityExtension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) VmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VmType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VmType }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) VnetResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderAzureCloudProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderAzureCloudProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderAzureCloudProvider)(nil)).Elem()
@@ -2902,151 +2942,151 @@ func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ToClusterCloudProviderA
 }
 
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) Elem() ClusterCloudProviderAzureCloudProviderOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderAzureCloudProvider) ClusterCloudProviderAzureCloudProvider { return *v }).(ClusterCloudProviderAzureCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudProvider) ClusterCloudProviderAzureCloudProvider { return *v }).(ClusterCloudProviderAzureCloudProviderOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) AadClientCertPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPassword }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) AadClientCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.AadClientCertPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) AadClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientId }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) AadClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.AadClientSecret }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.Cloud }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderBackoff() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderBackoff }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffDuration }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderBackoffExponent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffExponent }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderBackoffJitter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffJitter }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderBackoffRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderBackoffRetries }).(pulumi.IntPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderRateLimit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.CloudProviderRateLimit }).(pulumi.BoolPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderRateLimitBucket() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitBucket }).(pulumi.IntPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderRateLimitQps() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) MaximumLoadBalancerRuleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.MaximumLoadBalancerRuleCount }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) PrimaryAvailabilitySetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryAvailabilitySetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) PrimaryScaleSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.PrimaryScaleSetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) RouteTableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.RouteTableName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.SubscriptionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) UseInstanceMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseInstanceMetadata }).(pulumi.BoolPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) UseManagedIdentityExtension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *bool { return v.UseManagedIdentityExtension }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) VmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VmType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VmType }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) VnetResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.VnetResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfig struct {
@@ -3111,7 +3151,8 @@ type ClusterCloudProviderOpenstackCloudConfigPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudConfigPtrType ClusterCloudProviderOpenstackCloudConfigArgs
 
-func ClusterCloudProviderOpenstackCloudConfigPtr(v *ClusterCloudProviderOpenstackCloudConfigArgs) ClusterCloudProviderOpenstackCloudConfigPtrInput {	return (*clusterCloudProviderOpenstackCloudConfigPtrType)(v)
+func ClusterCloudProviderOpenstackCloudConfigPtr(v *ClusterCloudProviderOpenstackCloudConfigArgs) ClusterCloudProviderOpenstackCloudConfigPtrInput {
+	return (*clusterCloudProviderOpenstackCloudConfigPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudConfigPtrType) ElementType() reflect.Type {
@@ -3126,7 +3167,7 @@ func (i *clusterCloudProviderOpenstackCloudConfigPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfig)(nil)).Elem()
@@ -3149,32 +3190,43 @@ func (o ClusterCloudProviderOpenstackCloudConfigOutput) ToClusterCloudProviderOp
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) BlockStorage() ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigBlockStorage { return v.BlockStorage }).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigBlockStorage {
+		return v.BlockStorage
+	}).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) Global() ClusterCloudProviderOpenstackCloudConfigGlobalOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfigGlobal { return v.Global }).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfigGlobal {
+		return v.Global
+	}).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) LoadBalancer() ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer { return v.LoadBalancer }).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
+		return v.LoadBalancer
+	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) Metadata() ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigMetadata { return v.Metadata }).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigMetadata {
+		return v.Metadata
+	}).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) Route() ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigRoute { return v.Route }).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigRoute {
+		return v.Route
+	}).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudConfig)(nil)).Elem()
@@ -3189,32 +3241,42 @@ func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfig { return *v }).(ClusterCloudProviderOpenstackCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfig { return *v }).(ClusterCloudProviderOpenstackCloudConfigOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) BlockStorage() ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigBlockStorage { return v.BlockStorage }).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigBlockStorage {
+		return v.BlockStorage
+	}).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Global() ClusterCloudProviderOpenstackCloudConfigGlobalOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfigGlobal { return v.Global }).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfigGlobal {
+		return v.Global
+	}).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) LoadBalancer() ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer { return v.LoadBalancer }).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
+		return v.LoadBalancer
+	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Metadata() ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigMetadata { return v.Metadata }).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigMetadata {
+		return v.Metadata
+	}).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Route() ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigRoute { return v.Route }).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfigRoute {
+		return v.Route
+	}).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfigBlockStorage struct {
@@ -3271,7 +3333,8 @@ type ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput interface {
 
 type clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs
 
-func ClusterCloudProviderOpenstackCloudConfigBlockStoragePtr(v *ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput {	return (*clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType)(v)
+func ClusterCloudProviderOpenstackCloudConfigBlockStoragePtr(v *ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput {
+	return (*clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType) ElementType() reflect.Type {
@@ -3286,7 +3349,7 @@ func (i *clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType) ToClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigBlockStorage)(nil)).Elem()
@@ -3309,22 +3372,23 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ToClusterClo
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) BsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) IgnoreVolumeAz() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) TrustDevicePath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudConfigBlockStorage)(nil)).Elem()
@@ -3339,22 +3403,24 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ToCluster
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudConfigBlockStorage) ClusterCloudProviderOpenstackCloudConfigBlockStorage { return *v }).(ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigBlockStorage) ClusterCloudProviderOpenstackCloudConfigBlockStorage {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) BsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) IgnoreVolumeAz() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) TrustDevicePath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfigGlobal struct {
@@ -3426,7 +3492,7 @@ func (i ClusterCloudProviderOpenstackCloudConfigGlobalArgs) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigGlobal)(nil)).Elem()
@@ -3442,57 +3508,57 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ToClusterCloudProv
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) AuthUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) string { return v.AuthUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) string { return v.AuthUrl }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.CaFile }).(pulumi.StringPtrOutput)
 }
 
 // Required if `domainName` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `domainId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `tenantId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) TenantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TenantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TenantName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) TrustId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TrustId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TrustId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `username` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `userId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfigLoadBalancer struct {
@@ -3581,7 +3647,8 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs
 
-func ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtr(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput {	return (*clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType)(v)
+func ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtr(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput {
+	return (*clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType) ElementType() reflect.Type {
@@ -3596,7 +3663,7 @@ func (i *clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType) ToClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigLoadBalancer)(nil)).Elem()
@@ -3619,62 +3686,63 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ToClusterClo
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
+
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) CreateMonitor() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) FloatingNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) LbMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) LbProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) LbVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ManageSecurityGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
 // Default `60s` (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorDelay() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
 // Default 5 (int)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
 // Default `30s` (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) UseOctavia() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudConfigLoadBalancer)(nil)).Elem()
@@ -3689,62 +3757,64 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ToCluster
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) ClusterCloudProviderOpenstackCloudConfigLoadBalancer { return *v }).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) CreateMonitor() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) FloatingNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) LbMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) LbProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) LbVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ManageSecurityGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
 // Default `60s` (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorDelay() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
 // Default 5 (int)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
 // Default `30s` (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) UseOctavia() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfigMetadata struct {
@@ -3797,7 +3867,8 @@ type ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudConfigMetadataPtrType ClusterCloudProviderOpenstackCloudConfigMetadataArgs
 
-func ClusterCloudProviderOpenstackCloudConfigMetadataPtr(v *ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput {	return (*clusterCloudProviderOpenstackCloudConfigMetadataPtrType)(v)
+func ClusterCloudProviderOpenstackCloudConfigMetadataPtr(v *ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput {
+	return (*clusterCloudProviderOpenstackCloudConfigMetadataPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudConfigMetadataPtrType) ElementType() reflect.Type {
@@ -3812,7 +3883,7 @@ func (i *clusterCloudProviderOpenstackCloudConfigMetadataPtrType) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigMetadataOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigMetadataOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigMetadata)(nil)).Elem()
@@ -3835,17 +3906,18 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ToClusterCloudPr
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
+
 // (int)
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) RequestTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) SearchOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudConfigMetadata)(nil)).Elem()
@@ -3860,17 +3932,19 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ToClusterClou
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigMetadataOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudConfigMetadata) ClusterCloudProviderOpenstackCloudConfigMetadata { return *v }).(ClusterCloudProviderOpenstackCloudConfigMetadataOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigMetadata) ClusterCloudProviderOpenstackCloudConfigMetadata {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudConfigMetadataOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) RequestTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) SearchOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudConfigRoute struct {
@@ -3919,7 +3993,8 @@ type ClusterCloudProviderOpenstackCloudConfigRoutePtrInput interface {
 
 type clusterCloudProviderOpenstackCloudConfigRoutePtrType ClusterCloudProviderOpenstackCloudConfigRouteArgs
 
-func ClusterCloudProviderOpenstackCloudConfigRoutePtr(v *ClusterCloudProviderOpenstackCloudConfigRouteArgs) ClusterCloudProviderOpenstackCloudConfigRoutePtrInput {	return (*clusterCloudProviderOpenstackCloudConfigRoutePtrType)(v)
+func ClusterCloudProviderOpenstackCloudConfigRoutePtr(v *ClusterCloudProviderOpenstackCloudConfigRouteArgs) ClusterCloudProviderOpenstackCloudConfigRoutePtrInput {
+	return (*clusterCloudProviderOpenstackCloudConfigRoutePtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudConfigRoutePtrType) ElementType() reflect.Type {
@@ -3934,7 +4009,7 @@ func (i *clusterCloudProviderOpenstackCloudConfigRoutePtrType) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigRouteOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudConfigRouteOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigRoute)(nil)).Elem()
@@ -3957,12 +4032,13 @@ func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) ToClusterCloudProvi
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) RouterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudConfigRoute)(nil)).Elem()
@@ -3977,12 +4053,14 @@ func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ToClusterCloudPr
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigRouteOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudConfigRoute) ClusterCloudProviderOpenstackCloudConfigRoute { return *v }).(ClusterCloudProviderOpenstackCloudConfigRouteOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigRoute) ClusterCloudProviderOpenstackCloudConfigRoute {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudConfigRouteOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) RouterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudConfigRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProvider struct {
@@ -4047,7 +4125,8 @@ type ClusterCloudProviderOpenstackCloudProviderPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudProviderPtrType ClusterCloudProviderOpenstackCloudProviderArgs
 
-func ClusterCloudProviderOpenstackCloudProviderPtr(v *ClusterCloudProviderOpenstackCloudProviderArgs) ClusterCloudProviderOpenstackCloudProviderPtrInput {	return (*clusterCloudProviderOpenstackCloudProviderPtrType)(v)
+func ClusterCloudProviderOpenstackCloudProviderPtr(v *ClusterCloudProviderOpenstackCloudProviderArgs) ClusterCloudProviderOpenstackCloudProviderPtrInput {
+	return (*clusterCloudProviderOpenstackCloudProviderPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudProviderPtrType) ElementType() reflect.Type {
@@ -4062,7 +4141,7 @@ func (i *clusterCloudProviderOpenstackCloudProviderPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProvider)(nil)).Elem()
@@ -4085,32 +4164,43 @@ func (o ClusterCloudProviderOpenstackCloudProviderOutput) ToClusterCloudProvider
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) BlockStorage() ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderBlockStorage { return v.BlockStorage }).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderBlockStorage {
+		return v.BlockStorage
+	}).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) Global() ClusterCloudProviderOpenstackCloudProviderGlobalOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProviderGlobal { return v.Global }).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) LoadBalancer() ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer { return v.LoadBalancer }).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
+		return v.LoadBalancer
+	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) Metadata() ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderMetadata { return v.Metadata }).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderMetadata {
+		return v.Metadata
+	}).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) Route() ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderRoute { return v.Route }).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderRoute {
+		return v.Route
+	}).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudProvider)(nil)).Elem()
@@ -4125,32 +4215,44 @@ func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) ToClusterCloudProvi
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProvider { return *v }).(ClusterCloudProviderOpenstackCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProvider {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudProviderOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) BlockStorage() ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderBlockStorage { return v.BlockStorage }).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderBlockStorage {
+		return v.BlockStorage
+	}).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Global() ClusterCloudProviderOpenstackCloudProviderGlobalOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProviderGlobal { return v.Global }).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) LoadBalancer() ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer { return v.LoadBalancer }).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
+		return v.LoadBalancer
+	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Metadata() ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderMetadata { return v.Metadata }).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderMetadata {
+		return v.Metadata
+	}).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Route() ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderRoute { return v.Route }).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProviderRoute {
+		return v.Route
+	}).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProviderBlockStorage struct {
@@ -4207,7 +4309,8 @@ type ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput interface {
 
 type clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs
 
-func ClusterCloudProviderOpenstackCloudProviderBlockStoragePtr(v *ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput {	return (*clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType)(v)
+func ClusterCloudProviderOpenstackCloudProviderBlockStoragePtr(v *ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput {
+	return (*clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType) ElementType() reflect.Type {
@@ -4222,7 +4325,7 @@ func (i *clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderBlockStorage)(nil)).Elem()
@@ -4245,22 +4348,23 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ToClusterC
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) BsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) IgnoreVolumeAz() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) TrustDevicePath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudProviderBlockStorage)(nil)).Elem()
@@ -4275,22 +4379,24 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ToClust
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudProviderBlockStorage) ClusterCloudProviderOpenstackCloudProviderBlockStorage { return *v }).(ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderBlockStorage) ClusterCloudProviderOpenstackCloudProviderBlockStorage {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) BsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *string { return v.BsVersion }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) IgnoreVolumeAz() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.IgnoreVolumeAz }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) TrustDevicePath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *bool { return v.TrustDevicePath }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProviderGlobal struct {
@@ -4362,7 +4468,7 @@ func (i ClusterCloudProviderOpenstackCloudProviderGlobalArgs) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderGlobal)(nil)).Elem()
@@ -4378,57 +4484,57 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ToClusterCloudPr
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) AuthUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) string { return v.AuthUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) string { return v.AuthUrl }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.CaFile }).(pulumi.StringPtrOutput)
 }
 
 // Required if `domainName` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `domainId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Required if `tenantName` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `tenantId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) TenantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TenantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TenantName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) TrustId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TrustId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TrustId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `username` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 // Required if `userId` not provided. (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProviderLoadBalancer struct {
@@ -4517,7 +4623,8 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs
 
-func ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtr(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput {	return (*clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType)(v)
+func ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtr(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput {
+	return (*clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType) ElementType() reflect.Type {
@@ -4532,7 +4639,7 @@ func (i *clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderLoadBalancer)(nil)).Elem()
@@ -4555,62 +4662,63 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ToClusterC
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
+
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) CreateMonitor() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) FloatingNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) LbMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) LbProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) LbVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ManageSecurityGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
 // Default `60s` (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorDelay() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
 // Default 5 (int)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
 // Default `30s` (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) UseOctavia() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudProviderLoadBalancer)(nil)).Elem()
@@ -4625,62 +4733,64 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ToClust
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) ClusterCloudProviderOpenstackCloudProviderLoadBalancer { return *v }).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) CreateMonitor() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.CreateMonitor }).(pulumi.BoolPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) FloatingNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.FloatingNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) LbMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbMethod }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) LbProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbProvider }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) LbVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.LbVersion }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ManageSecurityGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
 // Default `60s` (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorDelay() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
 // Default 5 (int)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
 // Default `30s` (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) UseOctavia() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.UseOctavia }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProviderMetadata struct {
@@ -4733,7 +4843,8 @@ type ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput interface {
 
 type clusterCloudProviderOpenstackCloudProviderMetadataPtrType ClusterCloudProviderOpenstackCloudProviderMetadataArgs
 
-func ClusterCloudProviderOpenstackCloudProviderMetadataPtr(v *ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput {	return (*clusterCloudProviderOpenstackCloudProviderMetadataPtrType)(v)
+func ClusterCloudProviderOpenstackCloudProviderMetadataPtr(v *ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput {
+	return (*clusterCloudProviderOpenstackCloudProviderMetadataPtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudProviderMetadataPtrType) ElementType() reflect.Type {
@@ -4748,7 +4859,7 @@ func (i *clusterCloudProviderOpenstackCloudProviderMetadataPtrType) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderMetadataOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderMetadataOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderMetadata)(nil)).Elem()
@@ -4771,17 +4882,18 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ToClusterCloud
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
+
 // (int)
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) RequestTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) SearchOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudProviderMetadata)(nil)).Elem()
@@ -4796,17 +4908,19 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ToClusterCl
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderMetadataOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudProviderMetadata) ClusterCloudProviderOpenstackCloudProviderMetadata { return *v }).(ClusterCloudProviderOpenstackCloudProviderMetadataOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderMetadata) ClusterCloudProviderOpenstackCloudProviderMetadata {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudProviderMetadataOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) RequestTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) SearchOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *string { return v.SearchOrder }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderOpenstackCloudProviderRoute struct {
@@ -4855,7 +4969,8 @@ type ClusterCloudProviderOpenstackCloudProviderRoutePtrInput interface {
 
 type clusterCloudProviderOpenstackCloudProviderRoutePtrType ClusterCloudProviderOpenstackCloudProviderRouteArgs
 
-func ClusterCloudProviderOpenstackCloudProviderRoutePtr(v *ClusterCloudProviderOpenstackCloudProviderRouteArgs) ClusterCloudProviderOpenstackCloudProviderRoutePtrInput {	return (*clusterCloudProviderOpenstackCloudProviderRoutePtrType)(v)
+func ClusterCloudProviderOpenstackCloudProviderRoutePtr(v *ClusterCloudProviderOpenstackCloudProviderRouteArgs) ClusterCloudProviderOpenstackCloudProviderRoutePtrInput {
+	return (*clusterCloudProviderOpenstackCloudProviderRoutePtrType)(v)
 }
 
 func (*clusterCloudProviderOpenstackCloudProviderRoutePtrType) ElementType() reflect.Type {
@@ -4870,7 +4985,7 @@ func (i *clusterCloudProviderOpenstackCloudProviderRoutePtrType) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderRouteOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderOpenstackCloudProviderRouteOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderRoute)(nil)).Elem()
@@ -4893,12 +5008,13 @@ func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) ToClusterCloudPro
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) RouterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderOpenstackCloudProviderRoute)(nil)).Elem()
@@ -4913,12 +5029,14 @@ func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ToClusterCloud
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderRouteOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderOpenstackCloudProviderRoute) ClusterCloudProviderOpenstackCloudProviderRoute { return *v }).(ClusterCloudProviderOpenstackCloudProviderRouteOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderRoute) ClusterCloudProviderOpenstackCloudProviderRoute {
+		return *v
+	}).(ClusterCloudProviderOpenstackCloudProviderRouteOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) RouterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderOpenstackCloudProviderRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudConfig struct {
@@ -4983,7 +5101,8 @@ type ClusterCloudProviderVsphereCloudConfigPtrInput interface {
 
 type clusterCloudProviderVsphereCloudConfigPtrType ClusterCloudProviderVsphereCloudConfigArgs
 
-func ClusterCloudProviderVsphereCloudConfigPtr(v *ClusterCloudProviderVsphereCloudConfigArgs) ClusterCloudProviderVsphereCloudConfigPtrInput {	return (*clusterCloudProviderVsphereCloudConfigPtrType)(v)
+func ClusterCloudProviderVsphereCloudConfigPtr(v *ClusterCloudProviderVsphereCloudConfigArgs) ClusterCloudProviderVsphereCloudConfigPtrInput {
+	return (*clusterCloudProviderVsphereCloudConfigPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudConfigPtrType) ElementType() reflect.Type {
@@ -4998,7 +5117,7 @@ func (i *clusterCloudProviderVsphereCloudConfigPtrType) ToClusterCloudProviderVs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfig)(nil)).Elem()
@@ -5021,32 +5140,43 @@ func (o ClusterCloudProviderVsphereCloudConfigOutput) ToClusterCloudProviderVsph
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) Disk() ClusterCloudProviderVsphereCloudConfigDiskPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigDisk { return v.Disk }).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigDisk {
+		return v.Disk
+	}).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) Global() ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigGlobal { return v.Global }).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigGlobal {
+		return v.Global
+	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) Network() ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork { return v.Network }).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork {
+		return v.Network
+	}).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
 
 // (List)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) VirtualCenters() ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) []ClusterCloudProviderVsphereCloudConfigVirtualCenter { return v.VirtualCenters }).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) []ClusterCloudProviderVsphereCloudConfigVirtualCenter {
+		return v.VirtualCenters
+	}).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) Workspace() ClusterCloudProviderVsphereCloudConfigWorkspaceOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfigWorkspace { return v.Workspace }).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfigWorkspace {
+		return v.Workspace
+	}).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudConfig)(nil)).Elem()
@@ -5061,32 +5191,42 @@ func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) ToClusterCloudProviderV
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfig { return *v }).(ClusterCloudProviderVsphereCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfig { return *v }).(ClusterCloudProviderVsphereCloudConfigOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Disk() ClusterCloudProviderVsphereCloudConfigDiskPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigDisk { return v.Disk }).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigDisk {
+		return v.Disk
+	}).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Global() ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigGlobal { return v.Global }).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigGlobal {
+		return v.Global
+	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Network() ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork { return v.Network }).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork {
+		return v.Network
+	}).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
 
 // (List)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) VirtualCenters() ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) []ClusterCloudProviderVsphereCloudConfigVirtualCenter { return v.VirtualCenters }).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) []ClusterCloudProviderVsphereCloudConfigVirtualCenter {
+		return v.VirtualCenters
+	}).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Workspace() ClusterCloudProviderVsphereCloudConfigWorkspaceOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfigWorkspace { return v.Workspace }).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfigWorkspace {
+		return v.Workspace
+	}).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
 }
 
 type ClusterCloudProviderVsphereCloudConfigDisk struct {
@@ -5135,7 +5275,8 @@ type ClusterCloudProviderVsphereCloudConfigDiskPtrInput interface {
 
 type clusterCloudProviderVsphereCloudConfigDiskPtrType ClusterCloudProviderVsphereCloudConfigDiskArgs
 
-func ClusterCloudProviderVsphereCloudConfigDiskPtr(v *ClusterCloudProviderVsphereCloudConfigDiskArgs) ClusterCloudProviderVsphereCloudConfigDiskPtrInput {	return (*clusterCloudProviderVsphereCloudConfigDiskPtrType)(v)
+func ClusterCloudProviderVsphereCloudConfigDiskPtr(v *ClusterCloudProviderVsphereCloudConfigDiskArgs) ClusterCloudProviderVsphereCloudConfigDiskPtrInput {
+	return (*clusterCloudProviderVsphereCloudConfigDiskPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudConfigDiskPtrType) ElementType() reflect.Type {
@@ -5150,7 +5291,7 @@ func (i *clusterCloudProviderVsphereCloudConfigDiskPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigDiskOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigDiskOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigDisk)(nil)).Elem()
@@ -5173,12 +5314,13 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ToClusterCloudProvider
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ScsiControllerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigDiskPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudConfigDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudConfigDisk)(nil)).Elem()
@@ -5193,12 +5335,14 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ToClusterCloudProvi
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigDiskOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudConfigDisk) ClusterCloudProviderVsphereCloudConfigDisk { return *v }).(ClusterCloudProviderVsphereCloudConfigDiskOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigDisk) ClusterCloudProviderVsphereCloudConfigDisk {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudConfigDiskOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ScsiControllerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudConfigGlobal struct {
@@ -5287,7 +5431,8 @@ type ClusterCloudProviderVsphereCloudConfigGlobalPtrInput interface {
 
 type clusterCloudProviderVsphereCloudConfigGlobalPtrType ClusterCloudProviderVsphereCloudConfigGlobalArgs
 
-func ClusterCloudProviderVsphereCloudConfigGlobalPtr(v *ClusterCloudProviderVsphereCloudConfigGlobalArgs) ClusterCloudProviderVsphereCloudConfigGlobalPtrInput {	return (*clusterCloudProviderVsphereCloudConfigGlobalPtrType)(v)
+func ClusterCloudProviderVsphereCloudConfigGlobalPtr(v *ClusterCloudProviderVsphereCloudConfigGlobalArgs) ClusterCloudProviderVsphereCloudConfigGlobalPtrInput {
+	return (*clusterCloudProviderVsphereCloudConfigGlobalPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudConfigGlobalPtrType) ElementType() reflect.Type {
@@ -5302,7 +5447,7 @@ func (i *clusterCloudProviderVsphereCloudConfigGlobalPtrType) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigGlobal)(nil)).Elem()
@@ -5325,62 +5470,63 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) ToClusterCloudProvid
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Datacenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Datacenters() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Datastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) InsecureFlag() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) VmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) VmUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) WorkingDir() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudConfigGlobal)(nil)).Elem()
@@ -5395,62 +5541,64 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ToClusterCloudPro
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigGlobalOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudConfigGlobal) ClusterCloudProviderVsphereCloudConfigGlobal { return *v }).(ClusterCloudProviderVsphereCloudConfigGlobalOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) ClusterCloudProviderVsphereCloudConfigGlobal {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudConfigGlobalOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Datacenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Datacenters() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Datastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) InsecureFlag() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) VmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) VmUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) WorkingDir() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudConfigNetwork struct {
@@ -5499,7 +5647,8 @@ type ClusterCloudProviderVsphereCloudConfigNetworkPtrInput interface {
 
 type clusterCloudProviderVsphereCloudConfigNetworkPtrType ClusterCloudProviderVsphereCloudConfigNetworkArgs
 
-func ClusterCloudProviderVsphereCloudConfigNetworkPtr(v *ClusterCloudProviderVsphereCloudConfigNetworkArgs) ClusterCloudProviderVsphereCloudConfigNetworkPtrInput {	return (*clusterCloudProviderVsphereCloudConfigNetworkPtrType)(v)
+func ClusterCloudProviderVsphereCloudConfigNetworkPtr(v *ClusterCloudProviderVsphereCloudConfigNetworkArgs) ClusterCloudProviderVsphereCloudConfigNetworkPtrInput {
+	return (*clusterCloudProviderVsphereCloudConfigNetworkPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudConfigNetworkPtrType) ElementType() reflect.Type {
@@ -5514,7 +5663,7 @@ func (i *clusterCloudProviderVsphereCloudConfigNetworkPtrType) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigNetworkOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigNetwork)(nil)).Elem()
@@ -5537,12 +5686,13 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) ToClusterCloudProvi
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) PublicNetwork() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudConfigNetwork)(nil)).Elem()
@@ -5557,12 +5707,14 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ToClusterCloudPr
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigNetworkOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudConfigNetwork) ClusterCloudProviderVsphereCloudConfigNetwork { return *v }).(ClusterCloudProviderVsphereCloudConfigNetworkOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigNetwork) ClusterCloudProviderVsphereCloudConfigNetwork {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudConfigNetworkOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) PublicNetwork() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudConfigVirtualCenter struct {
@@ -5635,7 +5787,7 @@ func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArray) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigVirtualCenter)(nil)).Elem()
@@ -5651,35 +5803,35 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ToClusterClou
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Datacenters() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
 }
 
 // Name of virtualcenter config for Vsphere Cloud Provider config (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.User }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.User }).(pulumi.StringOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCloudProviderVsphereCloudConfigVirtualCenter)(nil)).Elem()
@@ -5694,7 +5846,7 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) ToCluste
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCloudProviderVsphereCloudConfigVirtualCenter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCloudProviderVsphereCloudConfigVirtualCenter {
 		return vs[0].([]ClusterCloudProviderVsphereCloudConfigVirtualCenter)[vs[1].(int)]
 	}).(ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput)
 }
@@ -5744,7 +5896,7 @@ func (i ClusterCloudProviderVsphereCloudConfigWorkspaceArgs) ToClusterCloudProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
 }
 
-type ClusterCloudProviderVsphereCloudConfigWorkspaceOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudConfigWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigWorkspace)(nil)).Elem()
@@ -5760,27 +5912,27 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ToClusterCloudPro
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) Datacenter() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigWorkspace) string { return v.Datacenter }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) DefaultDatastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ResourcepoolPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.ResourcepoolPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.ResourcepoolPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) Server() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudConfigWorkspace) string { return v.Server }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) string { return v.Server }).(pulumi.StringOutput)
 }
 
 type ClusterCloudProviderVsphereCloudProvider struct {
@@ -5845,7 +5997,8 @@ type ClusterCloudProviderVsphereCloudProviderPtrInput interface {
 
 type clusterCloudProviderVsphereCloudProviderPtrType ClusterCloudProviderVsphereCloudProviderArgs
 
-func ClusterCloudProviderVsphereCloudProviderPtr(v *ClusterCloudProviderVsphereCloudProviderArgs) ClusterCloudProviderVsphereCloudProviderPtrInput {	return (*clusterCloudProviderVsphereCloudProviderPtrType)(v)
+func ClusterCloudProviderVsphereCloudProviderPtr(v *ClusterCloudProviderVsphereCloudProviderArgs) ClusterCloudProviderVsphereCloudProviderPtrInput {
+	return (*clusterCloudProviderVsphereCloudProviderPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudProviderPtrType) ElementType() reflect.Type {
@@ -5860,7 +6013,7 @@ func (i *clusterCloudProviderVsphereCloudProviderPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProvider)(nil)).Elem()
@@ -5883,32 +6036,43 @@ func (o ClusterCloudProviderVsphereCloudProviderOutput) ToClusterCloudProviderVs
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
+
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) Disk() ClusterCloudProviderVsphereCloudProviderDiskPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderDisk { return v.Disk }).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderDisk {
+		return v.Disk
+	}).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) Global() ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderGlobal { return v.Global }).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) Network() ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork { return v.Network }).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork {
+		return v.Network
+	}).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
 
 // (List)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) VirtualCenters() ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) []ClusterCloudProviderVsphereCloudProviderVirtualCenter { return v.VirtualCenters }).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) []ClusterCloudProviderVsphereCloudProviderVirtualCenter {
+		return v.VirtualCenters
+	}).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) Workspace() ClusterCloudProviderVsphereCloudProviderWorkspaceOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProviderWorkspace { return v.Workspace }).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProviderWorkspace {
+		return v.Workspace
+	}).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudProvider)(nil)).Elem()
@@ -5923,32 +6087,42 @@ func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProvider { return *v }).(ClusterCloudProviderVsphereCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProvider { return *v }).(ClusterCloudProviderVsphereCloudProviderOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Disk() ClusterCloudProviderVsphereCloudProviderDiskPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderDisk { return v.Disk }).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderDisk {
+		return v.Disk
+	}).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Global() ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderGlobal { return v.Global }).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderGlobal {
+		return v.Global
+	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Network() ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork { return v.Network }).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork {
+		return v.Network
+	}).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
 
 // (List)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) VirtualCenters() ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) []ClusterCloudProviderVsphereCloudProviderVirtualCenter { return v.VirtualCenters }).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) []ClusterCloudProviderVsphereCloudProviderVirtualCenter {
+		return v.VirtualCenters
+	}).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
 }
 
 // (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Workspace() ClusterCloudProviderVsphereCloudProviderWorkspaceOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProviderWorkspace { return v.Workspace }).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProviderWorkspace {
+		return v.Workspace
+	}).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
 }
 
 type ClusterCloudProviderVsphereCloudProviderDisk struct {
@@ -5997,7 +6171,8 @@ type ClusterCloudProviderVsphereCloudProviderDiskPtrInput interface {
 
 type clusterCloudProviderVsphereCloudProviderDiskPtrType ClusterCloudProviderVsphereCloudProviderDiskArgs
 
-func ClusterCloudProviderVsphereCloudProviderDiskPtr(v *ClusterCloudProviderVsphereCloudProviderDiskArgs) ClusterCloudProviderVsphereCloudProviderDiskPtrInput {	return (*clusterCloudProviderVsphereCloudProviderDiskPtrType)(v)
+func ClusterCloudProviderVsphereCloudProviderDiskPtr(v *ClusterCloudProviderVsphereCloudProviderDiskArgs) ClusterCloudProviderVsphereCloudProviderDiskPtrInput {
+	return (*clusterCloudProviderVsphereCloudProviderDiskPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudProviderDiskPtrType) ElementType() reflect.Type {
@@ -6012,7 +6187,7 @@ func (i *clusterCloudProviderVsphereCloudProviderDiskPtrType) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderDiskOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderDiskOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderDisk)(nil)).Elem()
@@ -6035,12 +6210,13 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ToClusterCloudProvid
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ScsiControllerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderDiskPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudProviderDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudProviderDisk)(nil)).Elem()
@@ -6055,12 +6231,14 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ToClusterCloudPro
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderDiskOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudProviderDisk) ClusterCloudProviderVsphereCloudProviderDisk { return *v }).(ClusterCloudProviderVsphereCloudProviderDiskOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderDisk) ClusterCloudProviderVsphereCloudProviderDisk {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudProviderDiskOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ScsiControllerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudProviderGlobal struct {
@@ -6149,7 +6327,8 @@ type ClusterCloudProviderVsphereCloudProviderGlobalPtrInput interface {
 
 type clusterCloudProviderVsphereCloudProviderGlobalPtrType ClusterCloudProviderVsphereCloudProviderGlobalArgs
 
-func ClusterCloudProviderVsphereCloudProviderGlobalPtr(v *ClusterCloudProviderVsphereCloudProviderGlobalArgs) ClusterCloudProviderVsphereCloudProviderGlobalPtrInput {	return (*clusterCloudProviderVsphereCloudProviderGlobalPtrType)(v)
+func ClusterCloudProviderVsphereCloudProviderGlobalPtr(v *ClusterCloudProviderVsphereCloudProviderGlobalArgs) ClusterCloudProviderVsphereCloudProviderGlobalPtrInput {
+	return (*clusterCloudProviderVsphereCloudProviderGlobalPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudProviderGlobalPtrType) ElementType() reflect.Type {
@@ -6164,7 +6343,7 @@ func (i *clusterCloudProviderVsphereCloudProviderGlobalPtrType) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderGlobalOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderGlobalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderGlobal)(nil)).Elem()
@@ -6187,62 +6366,63 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) ToClusterCloudProv
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Datacenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Datacenters() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Datastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) InsecureFlag() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) VmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) VmUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) WorkingDir() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudProviderGlobal)(nil)).Elem()
@@ -6257,62 +6437,64 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ToClusterCloudP
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderGlobalOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudProviderGlobal) ClusterCloudProviderVsphereCloudProviderGlobal { return *v }).(ClusterCloudProviderVsphereCloudProviderGlobalOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) ClusterCloudProviderVsphereCloudProviderGlobal {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudProviderGlobalOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Datacenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Datacenters() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datacenters }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Datastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Datastore }).(pulumi.StringPtrOutput)
 }
 
 // (bool)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) InsecureFlag() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) VmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) VmUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.VmUuid }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) WorkingDir() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.WorkingDir }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudProviderNetwork struct {
@@ -6361,7 +6543,8 @@ type ClusterCloudProviderVsphereCloudProviderNetworkPtrInput interface {
 
 type clusterCloudProviderVsphereCloudProviderNetworkPtrType ClusterCloudProviderVsphereCloudProviderNetworkArgs
 
-func ClusterCloudProviderVsphereCloudProviderNetworkPtr(v *ClusterCloudProviderVsphereCloudProviderNetworkArgs) ClusterCloudProviderVsphereCloudProviderNetworkPtrInput {	return (*clusterCloudProviderVsphereCloudProviderNetworkPtrType)(v)
+func ClusterCloudProviderVsphereCloudProviderNetworkPtr(v *ClusterCloudProviderVsphereCloudProviderNetworkArgs) ClusterCloudProviderVsphereCloudProviderNetworkPtrInput {
+	return (*clusterCloudProviderVsphereCloudProviderNetworkPtrType)(v)
 }
 
 func (*clusterCloudProviderVsphereCloudProviderNetworkPtrType) ElementType() reflect.Type {
@@ -6376,7 +6559,7 @@ func (i *clusterCloudProviderVsphereCloudProviderNetworkPtrType) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderNetworkOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderNetwork)(nil)).Elem()
@@ -6399,12 +6582,13 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) ToClusterCloudPro
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
+
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) PublicNetwork() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCloudProviderVsphereCloudProviderNetwork)(nil)).Elem()
@@ -6419,12 +6603,14 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ToClusterCloud
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderNetworkOutput {
-	return o.ApplyT(func (v *ClusterCloudProviderVsphereCloudProviderNetwork) ClusterCloudProviderVsphereCloudProviderNetwork { return *v }).(ClusterCloudProviderVsphereCloudProviderNetworkOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderNetwork) ClusterCloudProviderVsphereCloudProviderNetwork {
+		return *v
+	}).(ClusterCloudProviderVsphereCloudProviderNetworkOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) PublicNetwork() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCloudProviderVsphereCloudProviderVirtualCenter struct {
@@ -6497,7 +6683,7 @@ func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArray) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderVirtualCenter)(nil)).Elem()
@@ -6513,35 +6699,35 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ToClusterCl
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Datacenters() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
 }
 
 // Name of virtualcenter config for Vsphere Cloud Provider config (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Registry password (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // (int)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) SoapRoundtripCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
 // Registry user (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.User }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.User }).(pulumi.StringOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput struct { *pulumi.OutputState}
+type ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCloudProviderVsphereCloudProviderVirtualCenter)(nil)).Elem()
@@ -6556,7 +6742,7 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) ToClus
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCloudProviderVsphereCloudProviderVirtualCenter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCloudProviderVsphereCloudProviderVirtualCenter {
 		return vs[0].([]ClusterCloudProviderVsphereCloudProviderVirtualCenter)[vs[1].(int)]
 	}).(ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput)
 }
@@ -6606,7 +6792,7 @@ func (i ClusterCloudProviderVsphereCloudProviderWorkspaceArgs) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
 }
 
-type ClusterCloudProviderVsphereCloudProviderWorkspaceOutput struct { *pulumi.OutputState }
+type ClusterCloudProviderVsphereCloudProviderWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderWorkspace)(nil)).Elem()
@@ -6622,27 +6808,27 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ToClusterCloudP
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) Datacenter() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderWorkspace) string { return v.Datacenter }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) DefaultDatastore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ResourcepoolPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.ResourcepoolPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.ResourcepoolPath }).(pulumi.StringPtrOutput)
 }
 
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) Server() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCloudProviderVsphereCloudProviderWorkspace) string { return v.Server }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) string { return v.Server }).(pulumi.StringOutput)
 }
 
 type ClusterControlPlaneHost struct {
@@ -6699,7 +6885,7 @@ func (i ClusterControlPlaneHostArray) ToClusterControlPlaneHostArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneHostArrayOutput)
 }
 
-type ClusterControlPlaneHostOutput struct { *pulumi.OutputState }
+type ClusterControlPlaneHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterControlPlaneHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterControlPlaneHost)(nil)).Elem()
@@ -6715,15 +6901,15 @@ func (o ClusterControlPlaneHostOutput) ToClusterControlPlaneHostOutputWithContex
 
 // Address ip for node (string)
 func (o ClusterControlPlaneHostOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterControlPlaneHost) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterControlPlaneHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Name of the host provisioned via docker machine (string)
 func (o ClusterControlPlaneHostOutput) NodeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterControlPlaneHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterControlPlaneHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-type ClusterControlPlaneHostArrayOutput struct { *pulumi.OutputState}
+type ClusterControlPlaneHostArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterControlPlaneHostArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterControlPlaneHost)(nil)).Elem()
@@ -6738,7 +6924,7 @@ func (o ClusterControlPlaneHostArrayOutput) ToClusterControlPlaneHostArrayOutput
 }
 
 func (o ClusterControlPlaneHostArrayOutput) Index(i pulumi.IntInput) ClusterControlPlaneHostOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterControlPlaneHost {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterControlPlaneHost {
 		return vs[0].([]ClusterControlPlaneHost)[vs[1].(int)]
 	}).(ClusterControlPlaneHostOutput)
 }
@@ -6801,7 +6987,8 @@ type ClusterDnsPtrInput interface {
 
 type clusterDnsPtrType ClusterDnsArgs
 
-func ClusterDnsPtr(v *ClusterDnsArgs) ClusterDnsPtrInput {	return (*clusterDnsPtrType)(v)
+func ClusterDnsPtr(v *ClusterDnsArgs) ClusterDnsPtrInput {
+	return (*clusterDnsPtrType)(v)
 }
 
 func (*clusterDnsPtrType) ElementType() reflect.Type {
@@ -6816,7 +7003,7 @@ func (i *clusterDnsPtrType) ToClusterDnsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsPtrOutput)
 }
 
-type ClusterDnsOutput struct { *pulumi.OutputState }
+type ClusterDnsOutput struct{ *pulumi.OutputState }
 
 func (ClusterDnsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterDns)(nil)).Elem()
@@ -6839,27 +7026,28 @@ func (o ClusterDnsOutput) ToClusterDnsPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(ClusterDnsPtrOutput)
 }
+
 // Node selector key pair (map)
 func (o ClusterDnsOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterDnsOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
 // Reverse CIDRs  (list)
 func (o ClusterDnsOutput) ReverseCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterDns) []string { return v.ReverseCidrs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterDns) []string { return v.ReverseCidrs }).(pulumi.StringArrayOutput)
 }
 
 // Upstream nameservers  (list)
 func (o ClusterDnsOutput) UpstreamNameservers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterDns) []string { return v.UpstreamNameservers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterDns) []string { return v.UpstreamNameservers }).(pulumi.StringArrayOutput)
 }
 
-type ClusterDnsPtrOutput struct { *pulumi.OutputState}
+type ClusterDnsPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterDnsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterDns)(nil)).Elem()
@@ -6874,27 +7062,27 @@ func (o ClusterDnsPtrOutput) ToClusterDnsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterDnsPtrOutput) Elem() ClusterDnsOutput {
-	return o.ApplyT(func (v *ClusterDns) ClusterDns { return *v }).(ClusterDnsOutput)
+	return o.ApplyT(func(v *ClusterDns) ClusterDns { return *v }).(ClusterDnsOutput)
 }
 
 // Node selector key pair (map)
 func (o ClusterDnsPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterDnsPtrOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
 // Reverse CIDRs  (list)
 func (o ClusterDnsPtrOutput) ReverseCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterDns) []string { return v.ReverseCidrs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterDns) []string { return v.ReverseCidrs }).(pulumi.StringArrayOutput)
 }
 
 // Upstream nameservers  (list)
 func (o ClusterDnsPtrOutput) UpstreamNameservers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterDns) []string { return v.UpstreamNameservers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterDns) []string { return v.UpstreamNameservers }).(pulumi.StringArrayOutput)
 }
 
 type ClusterEtcdHost struct {
@@ -6951,7 +7139,7 @@ func (i ClusterEtcdHostArray) ToClusterEtcdHostArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdHostArrayOutput)
 }
 
-type ClusterEtcdHostOutput struct { *pulumi.OutputState }
+type ClusterEtcdHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterEtcdHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterEtcdHost)(nil)).Elem()
@@ -6967,15 +7155,15 @@ func (o ClusterEtcdHostOutput) ToClusterEtcdHostOutputWithContext(ctx context.Co
 
 // Address ip for node (string)
 func (o ClusterEtcdHostOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEtcdHost) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEtcdHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Name of the host provisioned via docker machine (string)
 func (o ClusterEtcdHostOutput) NodeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEtcdHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEtcdHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-type ClusterEtcdHostArrayOutput struct { *pulumi.OutputState}
+type ClusterEtcdHostArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterEtcdHostArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterEtcdHost)(nil)).Elem()
@@ -6990,7 +7178,7 @@ func (o ClusterEtcdHostArrayOutput) ToClusterEtcdHostArrayOutputWithContext(ctx 
 }
 
 func (o ClusterEtcdHostArrayOutput) Index(i pulumi.IntInput) ClusterEtcdHostOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterEtcdHost {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEtcdHost {
 		return vs[0].([]ClusterEtcdHost)[vs[1].(int)]
 	}).(ClusterEtcdHostOutput)
 }
@@ -7049,7 +7237,7 @@ func (i ClusterInactiveHostArray) ToClusterInactiveHostArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInactiveHostArrayOutput)
 }
 
-type ClusterInactiveHostOutput struct { *pulumi.OutputState }
+type ClusterInactiveHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterInactiveHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterInactiveHost)(nil)).Elem()
@@ -7065,15 +7253,15 @@ func (o ClusterInactiveHostOutput) ToClusterInactiveHostOutputWithContext(ctx co
 
 // Address ip for node (string)
 func (o ClusterInactiveHostOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterInactiveHost) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterInactiveHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Name of the host provisioned via docker machine (string)
 func (o ClusterInactiveHostOutput) NodeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterInactiveHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterInactiveHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-type ClusterInactiveHostArrayOutput struct { *pulumi.OutputState}
+type ClusterInactiveHostArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterInactiveHostArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterInactiveHost)(nil)).Elem()
@@ -7088,7 +7276,7 @@ func (o ClusterInactiveHostArrayOutput) ToClusterInactiveHostArrayOutputWithCont
 }
 
 func (o ClusterInactiveHostArrayOutput) Index(i pulumi.IntInput) ClusterInactiveHostOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterInactiveHost {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInactiveHost {
 		return vs[0].([]ClusterInactiveHost)[vs[1].(int)]
 	}).(ClusterInactiveHostOutput)
 }
@@ -7155,7 +7343,8 @@ type ClusterIngressPtrInput interface {
 
 type clusterIngressPtrType ClusterIngressArgs
 
-func ClusterIngressPtr(v *ClusterIngressArgs) ClusterIngressPtrInput {	return (*clusterIngressPtrType)(v)
+func ClusterIngressPtr(v *ClusterIngressArgs) ClusterIngressPtrInput {
+	return (*clusterIngressPtrType)(v)
 }
 
 func (*clusterIngressPtrType) ElementType() reflect.Type {
@@ -7170,7 +7359,7 @@ func (i *clusterIngressPtrType) ToClusterIngressPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIngressPtrOutput)
 }
 
-type ClusterIngressOutput struct { *pulumi.OutputState }
+type ClusterIngressOutput struct{ *pulumi.OutputState }
 
 func (ClusterIngressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterIngress)(nil)).Elem()
@@ -7193,32 +7382,33 @@ func (o ClusterIngressOutput) ToClusterIngressPtrOutputWithContext(ctx context.C
 		return &v
 	}).(ClusterIngressPtrOutput)
 }
+
 // Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 func (o ClusterIngressOutput) DnsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterIngressOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Node selector key pair (map)
 func (o ClusterIngressOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Network provider options (map)
 func (o ClusterIngressOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterIngressOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterIngress) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterIngress) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
-type ClusterIngressPtrOutput struct { *pulumi.OutputState}
+type ClusterIngressPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterIngressPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterIngress)(nil)).Elem()
@@ -7233,32 +7423,32 @@ func (o ClusterIngressPtrOutput) ToClusterIngressPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterIngressPtrOutput) Elem() ClusterIngressOutput {
-	return o.ApplyT(func (v *ClusterIngress) ClusterIngress { return *v }).(ClusterIngressOutput)
+	return o.ApplyT(func(v *ClusterIngress) ClusterIngress { return *v }).(ClusterIngressOutput)
 }
 
 // Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 func (o ClusterIngressPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterIngressPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Node selector key pair (map)
 func (o ClusterIngressPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Network provider options (map)
 func (o ClusterIngressPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterIngressPtrOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterIngress) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterIngress) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
 type ClusterMonitoring struct {
@@ -7315,7 +7505,8 @@ type ClusterMonitoringPtrInput interface {
 
 type clusterMonitoringPtrType ClusterMonitoringArgs
 
-func ClusterMonitoringPtr(v *ClusterMonitoringArgs) ClusterMonitoringPtrInput {	return (*clusterMonitoringPtrType)(v)
+func ClusterMonitoringPtr(v *ClusterMonitoringArgs) ClusterMonitoringPtrInput {
+	return (*clusterMonitoringPtrType)(v)
 }
 
 func (*clusterMonitoringPtrType) ElementType() reflect.Type {
@@ -7330,7 +7521,7 @@ func (i *clusterMonitoringPtrType) ToClusterMonitoringPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringPtrOutput)
 }
 
-type ClusterMonitoringOutput struct { *pulumi.OutputState }
+type ClusterMonitoringOutput struct{ *pulumi.OutputState }
 
 func (ClusterMonitoringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterMonitoring)(nil)).Elem()
@@ -7353,22 +7544,23 @@ func (o ClusterMonitoringOutput) ToClusterMonitoringPtrOutputWithContext(ctx con
 		return &v
 	}).(ClusterMonitoringPtrOutput)
 }
+
 // Node selector key pair (map)
 func (o ClusterMonitoringOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Network provider options (map)
 func (o ClusterMonitoringOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterMonitoringOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterMonitoring) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterMonitoring) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
-type ClusterMonitoringPtrOutput struct { *pulumi.OutputState}
+type ClusterMonitoringPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterMonitoringPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterMonitoring)(nil)).Elem()
@@ -7383,22 +7575,22 @@ func (o ClusterMonitoringPtrOutput) ToClusterMonitoringPtrOutputWithContext(ctx 
 }
 
 func (o ClusterMonitoringPtrOutput) Elem() ClusterMonitoringOutput {
-	return o.ApplyT(func (v *ClusterMonitoring) ClusterMonitoring { return *v }).(ClusterMonitoringOutput)
+	return o.ApplyT(func(v *ClusterMonitoring) ClusterMonitoring { return *v }).(ClusterMonitoringOutput)
 }
 
 // Node selector key pair (map)
 func (o ClusterMonitoringPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
 // Network provider options (map)
 func (o ClusterMonitoringPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Monitoring provider (string)
 func (o ClusterMonitoringPtrOutput) Provider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterMonitoring) *string { return v.Provider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterMonitoring) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
 type ClusterNetwork struct {
@@ -7471,7 +7663,8 @@ type ClusterNetworkPtrInput interface {
 
 type clusterNetworkPtrType ClusterNetworkArgs
 
-func ClusterNetworkPtr(v *ClusterNetworkArgs) ClusterNetworkPtrInput {	return (*clusterNetworkPtrType)(v)
+func ClusterNetworkPtr(v *ClusterNetworkArgs) ClusterNetworkPtrInput {
+	return (*clusterNetworkPtrType)(v)
 }
 
 func (*clusterNetworkPtrType) ElementType() reflect.Type {
@@ -7486,7 +7679,7 @@ func (i *clusterNetworkPtrType) ToClusterNetworkPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkPtrOutput)
 }
 
-type ClusterNetworkOutput struct { *pulumi.OutputState }
+type ClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNetwork)(nil)).Elem()
@@ -7509,42 +7702,43 @@ func (o ClusterNetworkOutput) ToClusterNetworkPtrOutputWithContext(ctx context.C
 		return &v
 	}).(ClusterNetworkPtrOutput)
 }
+
 // Calico network provider config (list maxitems:1)
 func (o ClusterNetworkOutput) CalicoNetworkProvider() ClusterNetworkCalicoNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkCalicoNetworkProvider { return v.CalicoNetworkProvider }).(ClusterNetworkCalicoNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkCalicoNetworkProvider { return v.CalicoNetworkProvider }).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
 // Canal network provider config (list maxitems:1)
 func (o ClusterNetworkOutput) CanalNetworkProvider() ClusterNetworkCanalNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkCanalNetworkProvider { return v.CanalNetworkProvider }).(ClusterNetworkCanalNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkCanalNetworkProvider { return v.CanalNetworkProvider }).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
 // Flannel network provider config (list maxitems:1)
 func (o ClusterNetworkOutput) FlannelNetworkProvider() ClusterNetworkFlannelNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkFlannelNetworkProvider { return v.FlannelNetworkProvider }).(ClusterNetworkFlannelNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkFlannelNetworkProvider { return v.FlannelNetworkProvider }).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
 // Network provider MTU. Default `0` (int)
 func (o ClusterNetworkOutput) Mtu() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
 // Network provider options (map)
 func (o ClusterNetworkOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
 func (o ClusterNetworkOutput) Plugin() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *string { return v.Plugin }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *string { return v.Plugin }).(pulumi.StringPtrOutput)
 }
 
 // Weave network provider config (list maxitems:1)
 func (o ClusterNetworkOutput) WeaveNetworkProvider() ClusterNetworkWeaveNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkWeaveNetworkProvider { return v.WeaveNetworkProvider }).(ClusterNetworkWeaveNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkWeaveNetworkProvider { return v.WeaveNetworkProvider }).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
-type ClusterNetworkPtrOutput struct { *pulumi.OutputState}
+type ClusterNetworkPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNetwork)(nil)).Elem()
@@ -7559,42 +7753,42 @@ func (o ClusterNetworkPtrOutput) ToClusterNetworkPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterNetworkPtrOutput) Elem() ClusterNetworkOutput {
-	return o.ApplyT(func (v *ClusterNetwork) ClusterNetwork { return *v }).(ClusterNetworkOutput)
+	return o.ApplyT(func(v *ClusterNetwork) ClusterNetwork { return *v }).(ClusterNetworkOutput)
 }
 
 // Calico network provider config (list maxitems:1)
 func (o ClusterNetworkPtrOutput) CalicoNetworkProvider() ClusterNetworkCalicoNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkCalicoNetworkProvider { return v.CalicoNetworkProvider }).(ClusterNetworkCalicoNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkCalicoNetworkProvider { return v.CalicoNetworkProvider }).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
 // Canal network provider config (list maxitems:1)
 func (o ClusterNetworkPtrOutput) CanalNetworkProvider() ClusterNetworkCanalNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkCanalNetworkProvider { return v.CanalNetworkProvider }).(ClusterNetworkCanalNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkCanalNetworkProvider { return v.CanalNetworkProvider }).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
 // Flannel network provider config (list maxitems:1)
 func (o ClusterNetworkPtrOutput) FlannelNetworkProvider() ClusterNetworkFlannelNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkFlannelNetworkProvider { return v.FlannelNetworkProvider }).(ClusterNetworkFlannelNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkFlannelNetworkProvider { return v.FlannelNetworkProvider }).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
 // Network provider MTU. Default `0` (int)
 func (o ClusterNetworkPtrOutput) Mtu() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
 // Network provider options (map)
 func (o ClusterNetworkPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
 // Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
 func (o ClusterNetworkPtrOutput) Plugin() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *string { return v.Plugin }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *string { return v.Plugin }).(pulumi.StringPtrOutput)
 }
 
 // Weave network provider config (list maxitems:1)
 func (o ClusterNetworkPtrOutput) WeaveNetworkProvider() ClusterNetworkWeaveNetworkProviderPtrOutput {
-	return o.ApplyT(func (v ClusterNetwork) *ClusterNetworkWeaveNetworkProvider { return v.WeaveNetworkProvider }).(ClusterNetworkWeaveNetworkProviderPtrOutput)
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkWeaveNetworkProvider { return v.WeaveNetworkProvider }).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
 type ClusterNetworkCalicoNetworkProvider struct {
@@ -7643,7 +7837,8 @@ type ClusterNetworkCalicoNetworkProviderPtrInput interface {
 
 type clusterNetworkCalicoNetworkProviderPtrType ClusterNetworkCalicoNetworkProviderArgs
 
-func ClusterNetworkCalicoNetworkProviderPtr(v *ClusterNetworkCalicoNetworkProviderArgs) ClusterNetworkCalicoNetworkProviderPtrInput {	return (*clusterNetworkCalicoNetworkProviderPtrType)(v)
+func ClusterNetworkCalicoNetworkProviderPtr(v *ClusterNetworkCalicoNetworkProviderArgs) ClusterNetworkCalicoNetworkProviderPtrInput {
+	return (*clusterNetworkCalicoNetworkProviderPtrType)(v)
 }
 
 func (*clusterNetworkCalicoNetworkProviderPtrType) ElementType() reflect.Type {
@@ -7658,7 +7853,7 @@ func (i *clusterNetworkCalicoNetworkProviderPtrType) ToClusterNetworkCalicoNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
-type ClusterNetworkCalicoNetworkProviderOutput struct { *pulumi.OutputState }
+type ClusterNetworkCalicoNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCalicoNetworkProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNetworkCalicoNetworkProvider)(nil)).Elem()
@@ -7681,12 +7876,13 @@ func (o ClusterNetworkCalicoNetworkProviderOutput) ToClusterNetworkCalicoNetwork
 		return &v
 	}).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
+
 // Calico cloud provider (string)
 func (o ClusterNetworkCalicoNetworkProviderOutput) CloudProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
 }
 
-type ClusterNetworkCalicoNetworkProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterNetworkCalicoNetworkProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCalicoNetworkProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNetworkCalicoNetworkProvider)(nil)).Elem()
@@ -7701,12 +7897,12 @@ func (o ClusterNetworkCalicoNetworkProviderPtrOutput) ToClusterNetworkCalicoNetw
 }
 
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) Elem() ClusterNetworkCalicoNetworkProviderOutput {
-	return o.ApplyT(func (v *ClusterNetworkCalicoNetworkProvider) ClusterNetworkCalicoNetworkProvider { return *v }).(ClusterNetworkCalicoNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkCalicoNetworkProvider) ClusterNetworkCalicoNetworkProvider { return *v }).(ClusterNetworkCalicoNetworkProviderOutput)
 }
 
 // Calico cloud provider (string)
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) CloudProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
 }
 
 type ClusterNetworkCanalNetworkProvider struct {
@@ -7755,7 +7951,8 @@ type ClusterNetworkCanalNetworkProviderPtrInput interface {
 
 type clusterNetworkCanalNetworkProviderPtrType ClusterNetworkCanalNetworkProviderArgs
 
-func ClusterNetworkCanalNetworkProviderPtr(v *ClusterNetworkCanalNetworkProviderArgs) ClusterNetworkCanalNetworkProviderPtrInput {	return (*clusterNetworkCanalNetworkProviderPtrType)(v)
+func ClusterNetworkCanalNetworkProviderPtr(v *ClusterNetworkCanalNetworkProviderArgs) ClusterNetworkCanalNetworkProviderPtrInput {
+	return (*clusterNetworkCanalNetworkProviderPtrType)(v)
 }
 
 func (*clusterNetworkCanalNetworkProviderPtrType) ElementType() reflect.Type {
@@ -7770,7 +7967,7 @@ func (i *clusterNetworkCanalNetworkProviderPtrType) ToClusterNetworkCanalNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
-type ClusterNetworkCanalNetworkProviderOutput struct { *pulumi.OutputState }
+type ClusterNetworkCanalNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCanalNetworkProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNetworkCanalNetworkProvider)(nil)).Elem()
@@ -7793,12 +7990,13 @@ func (o ClusterNetworkCanalNetworkProviderOutput) ToClusterNetworkCanalNetworkPr
 		return &v
 	}).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
+
 // Flannel network interface (string)
 func (o ClusterNetworkCanalNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
 
-type ClusterNetworkCanalNetworkProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterNetworkCanalNetworkProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCanalNetworkProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNetworkCanalNetworkProvider)(nil)).Elem()
@@ -7813,12 +8011,12 @@ func (o ClusterNetworkCanalNetworkProviderPtrOutput) ToClusterNetworkCanalNetwor
 }
 
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) Elem() ClusterNetworkCanalNetworkProviderOutput {
-	return o.ApplyT(func (v *ClusterNetworkCanalNetworkProvider) ClusterNetworkCanalNetworkProvider { return *v }).(ClusterNetworkCanalNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkCanalNetworkProvider) ClusterNetworkCanalNetworkProvider { return *v }).(ClusterNetworkCanalNetworkProviderOutput)
 }
 
 // Flannel network interface (string)
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) Iface() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
 
 type ClusterNetworkFlannelNetworkProvider struct {
@@ -7867,7 +8065,8 @@ type ClusterNetworkFlannelNetworkProviderPtrInput interface {
 
 type clusterNetworkFlannelNetworkProviderPtrType ClusterNetworkFlannelNetworkProviderArgs
 
-func ClusterNetworkFlannelNetworkProviderPtr(v *ClusterNetworkFlannelNetworkProviderArgs) ClusterNetworkFlannelNetworkProviderPtrInput {	return (*clusterNetworkFlannelNetworkProviderPtrType)(v)
+func ClusterNetworkFlannelNetworkProviderPtr(v *ClusterNetworkFlannelNetworkProviderArgs) ClusterNetworkFlannelNetworkProviderPtrInput {
+	return (*clusterNetworkFlannelNetworkProviderPtrType)(v)
 }
 
 func (*clusterNetworkFlannelNetworkProviderPtrType) ElementType() reflect.Type {
@@ -7882,7 +8081,7 @@ func (i *clusterNetworkFlannelNetworkProviderPtrType) ToClusterNetworkFlannelNet
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
-type ClusterNetworkFlannelNetworkProviderOutput struct { *pulumi.OutputState }
+type ClusterNetworkFlannelNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkFlannelNetworkProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNetworkFlannelNetworkProvider)(nil)).Elem()
@@ -7905,12 +8104,13 @@ func (o ClusterNetworkFlannelNetworkProviderOutput) ToClusterNetworkFlannelNetwo
 		return &v
 	}).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
+
 // Flannel network interface (string)
 func (o ClusterNetworkFlannelNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
 
-type ClusterNetworkFlannelNetworkProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterNetworkFlannelNetworkProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkFlannelNetworkProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNetworkFlannelNetworkProvider)(nil)).Elem()
@@ -7925,12 +8125,12 @@ func (o ClusterNetworkFlannelNetworkProviderPtrOutput) ToClusterNetworkFlannelNe
 }
 
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Elem() ClusterNetworkFlannelNetworkProviderOutput {
-	return o.ApplyT(func (v *ClusterNetworkFlannelNetworkProvider) ClusterNetworkFlannelNetworkProvider { return *v }).(ClusterNetworkFlannelNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkFlannelNetworkProvider) ClusterNetworkFlannelNetworkProvider { return *v }).(ClusterNetworkFlannelNetworkProviderOutput)
 }
 
 // Flannel network interface (string)
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Iface() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
 
 type ClusterNetworkWeaveNetworkProvider struct {
@@ -7979,7 +8179,8 @@ type ClusterNetworkWeaveNetworkProviderPtrInput interface {
 
 type clusterNetworkWeaveNetworkProviderPtrType ClusterNetworkWeaveNetworkProviderArgs
 
-func ClusterNetworkWeaveNetworkProviderPtr(v *ClusterNetworkWeaveNetworkProviderArgs) ClusterNetworkWeaveNetworkProviderPtrInput {	return (*clusterNetworkWeaveNetworkProviderPtrType)(v)
+func ClusterNetworkWeaveNetworkProviderPtr(v *ClusterNetworkWeaveNetworkProviderArgs) ClusterNetworkWeaveNetworkProviderPtrInput {
+	return (*clusterNetworkWeaveNetworkProviderPtrType)(v)
 }
 
 func (*clusterNetworkWeaveNetworkProviderPtrType) ElementType() reflect.Type {
@@ -7994,7 +8195,7 @@ func (i *clusterNetworkWeaveNetworkProviderPtrType) ToClusterNetworkWeaveNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
-type ClusterNetworkWeaveNetworkProviderOutput struct { *pulumi.OutputState }
+type ClusterNetworkWeaveNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkWeaveNetworkProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNetworkWeaveNetworkProvider)(nil)).Elem()
@@ -8017,12 +8218,13 @@ func (o ClusterNetworkWeaveNetworkProviderOutput) ToClusterNetworkWeaveNetworkPr
 		return &v
 	}).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
+
 // Registry password (string)
 func (o ClusterNetworkWeaveNetworkProviderOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
 }
 
-type ClusterNetworkWeaveNetworkProviderPtrOutput struct { *pulumi.OutputState}
+type ClusterNetworkWeaveNetworkProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkWeaveNetworkProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNetworkWeaveNetworkProvider)(nil)).Elem()
@@ -8037,12 +8239,12 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) ToClusterNetworkWeaveNetwor
 }
 
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Elem() ClusterNetworkWeaveNetworkProviderOutput {
-	return o.ApplyT(func (v *ClusterNetworkWeaveNetworkProvider) ClusterNetworkWeaveNetworkProvider { return *v }).(ClusterNetworkWeaveNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkWeaveNetworkProvider) ClusterNetworkWeaveNetworkProvider { return *v }).(ClusterNetworkWeaveNetworkProviderOutput)
 }
 
 // Registry password (string)
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
 }
 
 type ClusterNode struct {
@@ -8061,8 +8263,8 @@ type ClusterNode struct {
 	// Port used for SSH communication. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
-	Roles []string `pulumi:"roles"`
-	RolesDeprecated *string `pulumi:"rolesDeprecated"`
+	Roles           []string `pulumi:"roles"`
+	RolesDeprecated *string  `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -8102,8 +8304,8 @@ type ClusterNodeArgs struct {
 	// Port used for SSH communication. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
-	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	RolesDeprecated pulumi.StringPtrInput `pulumi:"rolesDeprecated"`
+	Roles           pulumi.StringArrayInput `pulumi:"roles"`
+	RolesDeprecated pulumi.StringPtrInput   `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -8153,7 +8355,7 @@ func (i ClusterNodeArray) ToClusterNodeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeArrayOutput)
 }
 
-type ClusterNodeOutput struct { *pulumi.OutputState }
+type ClusterNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNode)(nil)).Elem()
@@ -8169,84 +8371,84 @@ func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) C
 
 // Address ip for node (string)
 func (o ClusterNodeOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNode) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNode) string { return v.Address }).(pulumi.StringOutput)
 }
 
 // Docker socket on the node that will be used in tunneling (string)
 func (o ClusterNodeOutput) DockerSocket() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.DockerSocket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.DockerSocket }).(pulumi.StringPtrOutput)
 }
 
 // Hostname override for node (string)
 func (o ClusterNodeOutput) HostnameOverride() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.HostnameOverride }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.HostnameOverride }).(pulumi.StringPtrOutput)
 }
 
 // Internal address that will be used for components communication (string)
 func (o ClusterNodeOutput) InternalAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.InternalAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.InternalAddress }).(pulumi.StringPtrOutput)
 }
 
 // Node labels (map)
 func (o ClusterNodeOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterNode) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterNode) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
 }
 
 // Name of the host provisioned via docker machine (string)
 func (o ClusterNodeOutput) NodeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
 // Port used for SSH communication. Default `22` (string)
 func (o ClusterNodeOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.Port }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 func (o ClusterNodeOutput) Roles() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterNode) []string { return v.Roles }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterNode) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
 func (o ClusterNodeOutput) RolesDeprecated() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.RolesDeprecated }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.RolesDeprecated }).(pulumi.StringPtrOutput)
 }
 
 // SSH Agent Auth enable (bool)
 func (o ClusterNodeOutput) SshAgentAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
 }
 
 // SSH Certificate (string)
 func (o ClusterNodeOutput) SshCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.SshCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.SshCert }).(pulumi.StringPtrOutput)
 }
 
 // SSH Certificate path (string)
 func (o ClusterNodeOutput) SshCertPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key (string)
 func (o ClusterNodeOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
 // SSH Private Key path (string)
 func (o ClusterNodeOutput) SshKeyPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
 }
 
 // Node taints (list)
 func (o ClusterNodeOutput) Taints() ClusterNodeTaintArrayOutput {
-	return o.ApplyT(func (v ClusterNode) []ClusterNodeTaint { return v.Taints }).(ClusterNodeTaintArrayOutput)
+	return o.ApplyT(func(v ClusterNode) []ClusterNodeTaint { return v.Taints }).(ClusterNodeTaintArrayOutput)
 }
 
 // Registry user (string)
 func (o ClusterNodeOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNode) string { return v.User }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNode) string { return v.User }).(pulumi.StringOutput)
 }
 
-type ClusterNodeArrayOutput struct { *pulumi.OutputState}
+type ClusterNodeArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterNode)(nil)).Elem()
@@ -8261,7 +8463,7 @@ func (o ClusterNodeArrayOutput) ToClusterNodeArrayOutputWithContext(ctx context.
 }
 
 func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterNode {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNode {
 		return vs[0].([]ClusterNode)[vs[1].(int)]
 	}).(ClusterNodeOutput)
 }
@@ -8324,7 +8526,7 @@ func (i ClusterNodeTaintArray) ToClusterNodeTaintArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTaintArrayOutput)
 }
 
-type ClusterNodeTaintOutput struct { *pulumi.OutputState }
+type ClusterNodeTaintOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTaintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNodeTaint)(nil)).Elem()
@@ -8340,20 +8542,20 @@ func (o ClusterNodeTaintOutput) ToClusterNodeTaintOutputWithContext(ctx context.
 
 // Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
 func (o ClusterNodeTaintOutput) Effect() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNodeTaint) *string { return v.Effect }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNodeTaint) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterNodeTaintOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNodeTaint) string { return v.Key }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNodeTaint) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // Taint value (string)
 func (o ClusterNodeTaintOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNodeTaint) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNodeTaint) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ClusterNodeTaintArrayOutput struct { *pulumi.OutputState}
+type ClusterNodeTaintArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTaintArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterNodeTaint)(nil)).Elem()
@@ -8368,7 +8570,7 @@ func (o ClusterNodeTaintArrayOutput) ToClusterNodeTaintArrayOutputWithContext(ct
 }
 
 func (o ClusterNodeTaintArrayOutput) Index(i pulumi.IntInput) ClusterNodeTaintOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterNodeTaint {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNodeTaint {
 		return vs[0].([]ClusterNodeTaint)[vs[1].(int)]
 	}).(ClusterNodeTaintOutput)
 }
@@ -8435,7 +8637,7 @@ func (i ClusterPrivateRegistryArray) ToClusterPrivateRegistryArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrivateRegistryArrayOutput)
 }
 
-type ClusterPrivateRegistryOutput struct { *pulumi.OutputState }
+type ClusterPrivateRegistryOutput struct{ *pulumi.OutputState }
 
 func (ClusterPrivateRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterPrivateRegistry)(nil)).Elem()
@@ -8451,25 +8653,25 @@ func (o ClusterPrivateRegistryOutput) ToClusterPrivateRegistryOutputWithContext(
 
 // Set as default registry. Default `false` (bool)
 func (o ClusterPrivateRegistryOutput) IsDefault() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterPrivateRegistry) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterPrivateRegistry) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
 // Registry password (string)
 func (o ClusterPrivateRegistryOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterPrivateRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterPrivateRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Registry URL (string)
 func (o ClusterPrivateRegistryOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
 
 // Registry user (string)
 func (o ClusterPrivateRegistryOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterPrivateRegistry) *string { return v.User }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterPrivateRegistry) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
-type ClusterPrivateRegistryArrayOutput struct { *pulumi.OutputState}
+type ClusterPrivateRegistryArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterPrivateRegistryArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterPrivateRegistry)(nil)).Elem()
@@ -8484,7 +8686,7 @@ func (o ClusterPrivateRegistryArrayOutput) ToClusterPrivateRegistryArrayOutputWi
 }
 
 func (o ClusterPrivateRegistryArrayOutput) Index(i pulumi.IntInput) ClusterPrivateRegistryOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterPrivateRegistry {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPrivateRegistry {
 		return vs[0].([]ClusterPrivateRegistry)[vs[1].(int)]
 	}).(ClusterPrivateRegistryOutput)
 }
@@ -8539,7 +8741,8 @@ type ClusterRestorePtrInput interface {
 
 type clusterRestorePtrType ClusterRestoreArgs
 
-func ClusterRestorePtr(v *ClusterRestoreArgs) ClusterRestorePtrInput {	return (*clusterRestorePtrType)(v)
+func ClusterRestorePtr(v *ClusterRestoreArgs) ClusterRestorePtrInput {
+	return (*clusterRestorePtrType)(v)
 }
 
 func (*clusterRestorePtrType) ElementType() reflect.Type {
@@ -8554,7 +8757,7 @@ func (i *clusterRestorePtrType) ToClusterRestorePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestorePtrOutput)
 }
 
-type ClusterRestoreOutput struct { *pulumi.OutputState }
+type ClusterRestoreOutput struct{ *pulumi.OutputState }
 
 func (ClusterRestoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterRestore)(nil)).Elem()
@@ -8577,17 +8780,18 @@ func (o ClusterRestoreOutput) ToClusterRestorePtrOutputWithContext(ctx context.C
 		return &v
 	}).(ClusterRestorePtrOutput)
 }
+
 // Restore cluster. Default `false` (bool)
 func (o ClusterRestoreOutput) Restore() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
 }
 
 // Snapshot name (string)
 func (o ClusterRestoreOutput) SnapshotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRestore) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRestore) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
 }
 
-type ClusterRestorePtrOutput struct { *pulumi.OutputState}
+type ClusterRestorePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterRestorePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterRestore)(nil)).Elem()
@@ -8602,17 +8806,17 @@ func (o ClusterRestorePtrOutput) ToClusterRestorePtrOutputWithContext(ctx contex
 }
 
 func (o ClusterRestorePtrOutput) Elem() ClusterRestoreOutput {
-	return o.ApplyT(func (v *ClusterRestore) ClusterRestore { return *v }).(ClusterRestoreOutput)
+	return o.ApplyT(func(v *ClusterRestore) ClusterRestore { return *v }).(ClusterRestoreOutput)
 }
 
 // Restore cluster. Default `false` (bool)
 func (o ClusterRestorePtrOutput) Restore() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
 }
 
 // Snapshot name (string)
 func (o ClusterRestorePtrOutput) SnapshotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRestore) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRestore) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
 }
 
 type ClusterRotateCertificates struct {
@@ -8665,7 +8869,8 @@ type ClusterRotateCertificatesPtrInput interface {
 
 type clusterRotateCertificatesPtrType ClusterRotateCertificatesArgs
 
-func ClusterRotateCertificatesPtr(v *ClusterRotateCertificatesArgs) ClusterRotateCertificatesPtrInput {	return (*clusterRotateCertificatesPtrType)(v)
+func ClusterRotateCertificatesPtr(v *ClusterRotateCertificatesArgs) ClusterRotateCertificatesPtrInput {
+	return (*clusterRotateCertificatesPtrType)(v)
 }
 
 func (*clusterRotateCertificatesPtrType) ElementType() reflect.Type {
@@ -8680,7 +8885,7 @@ func (i *clusterRotateCertificatesPtrType) ToClusterRotateCertificatesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRotateCertificatesPtrOutput)
 }
 
-type ClusterRotateCertificatesOutput struct { *pulumi.OutputState }
+type ClusterRotateCertificatesOutput struct{ *pulumi.OutputState }
 
 func (ClusterRotateCertificatesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterRotateCertificates)(nil)).Elem()
@@ -8703,17 +8908,18 @@ func (o ClusterRotateCertificatesOutput) ToClusterRotateCertificatesPtrOutputWit
 		return &v
 	}).(ClusterRotateCertificatesPtrOutput)
 }
+
 // Rotate CA Certificates. Default `false` (bool)
 func (o ClusterRotateCertificatesOutput) CaCertificates() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
 }
 
 // Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 func (o ClusterRotateCertificatesOutput) Services() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterRotateCertificates) []string { return v.Services }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterRotateCertificates) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
 
-type ClusterRotateCertificatesPtrOutput struct { *pulumi.OutputState}
+type ClusterRotateCertificatesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterRotateCertificatesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterRotateCertificates)(nil)).Elem()
@@ -8728,17 +8934,17 @@ func (o ClusterRotateCertificatesPtrOutput) ToClusterRotateCertificatesPtrOutput
 }
 
 func (o ClusterRotateCertificatesPtrOutput) Elem() ClusterRotateCertificatesOutput {
-	return o.ApplyT(func (v *ClusterRotateCertificates) ClusterRotateCertificates { return *v }).(ClusterRotateCertificatesOutput)
+	return o.ApplyT(func(v *ClusterRotateCertificates) ClusterRotateCertificates { return *v }).(ClusterRotateCertificatesOutput)
 }
 
 // Rotate CA Certificates. Default `false` (bool)
 func (o ClusterRotateCertificatesPtrOutput) CaCertificates() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
 }
 
 // Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 func (o ClusterRotateCertificatesPtrOutput) Services() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterRotateCertificates) []string { return v.Services }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterRotateCertificates) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
 
 type ClusterRunningSystemImages struct {
@@ -8907,7 +9113,8 @@ type ClusterRunningSystemImagesPtrInput interface {
 
 type clusterRunningSystemImagesPtrType ClusterRunningSystemImagesArgs
 
-func ClusterRunningSystemImagesPtr(v *ClusterRunningSystemImagesArgs) ClusterRunningSystemImagesPtrInput {	return (*clusterRunningSystemImagesPtrType)(v)
+func ClusterRunningSystemImagesPtr(v *ClusterRunningSystemImagesArgs) ClusterRunningSystemImagesPtrInput {
+	return (*clusterRunningSystemImagesPtrType)(v)
 }
 
 func (*clusterRunningSystemImagesPtrType) ElementType() reflect.Type {
@@ -8922,7 +9129,7 @@ func (i *clusterRunningSystemImagesPtrType) ToClusterRunningSystemImagesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImagesPtrOutput)
 }
 
-type ClusterRunningSystemImagesOutput struct { *pulumi.OutputState }
+type ClusterRunningSystemImagesOutput struct{ *pulumi.OutputState }
 
 func (ClusterRunningSystemImagesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterRunningSystemImages)(nil)).Elem()
@@ -8945,162 +9152,163 @@ func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutputW
 		return &v
 	}).(ClusterRunningSystemImagesPtrOutput)
 }
+
 // Docker image for alpine (string)
 func (o ClusterRunningSystemImagesOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCni (string)
 func (o ClusterRunningSystemImagesOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoControllers (string)
 func (o ClusterRunningSystemImagesOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCtl (string)
 func (o ClusterRunningSystemImagesOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoFlexVol (string)
 func (o ClusterRunningSystemImagesOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoNode (string)
 func (o ClusterRunningSystemImagesOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalCni (string)
 func (o ClusterRunningSystemImagesOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlannel (string)
 func (o ClusterRunningSystemImagesOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlexVol (string)
 func (o ClusterRunningSystemImagesOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalNode (string)
 func (o ClusterRunningSystemImagesOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for certDownloader (string)
 func (o ClusterRunningSystemImagesOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for coredns (string)
 func (o ClusterRunningSystemImagesOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for corednsAutoscaler (string)
 func (o ClusterRunningSystemImagesOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for dnsmasq (string)
 func (o ClusterRunningSystemImagesOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for etcd (string)
 func (o ClusterRunningSystemImagesOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannel (string)
 func (o ClusterRunningSystemImagesOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannelCni (string)
 func (o ClusterRunningSystemImagesOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingress (string)
 func (o ClusterRunningSystemImagesOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingressBackend (string)
 func (o ClusterRunningSystemImagesOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDns (string)
 func (o ClusterRunningSystemImagesOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsAutoscaler (string)
 func (o ClusterRunningSystemImagesOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsSidecar (string)
 func (o ClusterRunningSystemImagesOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetes (string)
 func (o ClusterRunningSystemImagesOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetesServicesSidecar (string)
 func (o ClusterRunningSystemImagesOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for metricsServer (string)
 func (o ClusterRunningSystemImagesOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nginxProxy (string)
 func (o ClusterRunningSystemImagesOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nodelocal (string)
 func (o ClusterRunningSystemImagesOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for podInfraContainer (string)
 func (o ClusterRunningSystemImagesOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveCni (string)
 func (o ClusterRunningSystemImagesOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveNode (string)
 func (o ClusterRunningSystemImagesOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for windowsPodInfraContainer (string)
 func (o ClusterRunningSystemImagesOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
-type ClusterRunningSystemImagesPtrOutput struct { *pulumi.OutputState}
+type ClusterRunningSystemImagesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterRunningSystemImagesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterRunningSystemImages)(nil)).Elem()
@@ -9115,162 +9323,162 @@ func (o ClusterRunningSystemImagesPtrOutput) ToClusterRunningSystemImagesPtrOutp
 }
 
 func (o ClusterRunningSystemImagesPtrOutput) Elem() ClusterRunningSystemImagesOutput {
-	return o.ApplyT(func (v *ClusterRunningSystemImages) ClusterRunningSystemImages { return *v }).(ClusterRunningSystemImagesOutput)
+	return o.ApplyT(func(v *ClusterRunningSystemImages) ClusterRunningSystemImages { return *v }).(ClusterRunningSystemImagesOutput)
 }
 
 // Docker image for alpine (string)
 func (o ClusterRunningSystemImagesPtrOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCni (string)
 func (o ClusterRunningSystemImagesPtrOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoControllers (string)
 func (o ClusterRunningSystemImagesPtrOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCtl (string)
 func (o ClusterRunningSystemImagesPtrOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoFlexVol (string)
 func (o ClusterRunningSystemImagesPtrOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoNode (string)
 func (o ClusterRunningSystemImagesPtrOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalCni (string)
 func (o ClusterRunningSystemImagesPtrOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlannel (string)
 func (o ClusterRunningSystemImagesPtrOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlexVol (string)
 func (o ClusterRunningSystemImagesPtrOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalNode (string)
 func (o ClusterRunningSystemImagesPtrOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for certDownloader (string)
 func (o ClusterRunningSystemImagesPtrOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for coredns (string)
 func (o ClusterRunningSystemImagesPtrOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for corednsAutoscaler (string)
 func (o ClusterRunningSystemImagesPtrOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for dnsmasq (string)
 func (o ClusterRunningSystemImagesPtrOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for etcd (string)
 func (o ClusterRunningSystemImagesPtrOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannel (string)
 func (o ClusterRunningSystemImagesPtrOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannelCni (string)
 func (o ClusterRunningSystemImagesPtrOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingress (string)
 func (o ClusterRunningSystemImagesPtrOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingressBackend (string)
 func (o ClusterRunningSystemImagesPtrOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDns (string)
 func (o ClusterRunningSystemImagesPtrOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsAutoscaler (string)
 func (o ClusterRunningSystemImagesPtrOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsSidecar (string)
 func (o ClusterRunningSystemImagesPtrOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetes (string)
 func (o ClusterRunningSystemImagesPtrOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetesServicesSidecar (string)
 func (o ClusterRunningSystemImagesPtrOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for metricsServer (string)
 func (o ClusterRunningSystemImagesPtrOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nginxProxy (string)
 func (o ClusterRunningSystemImagesPtrOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nodelocal (string)
 func (o ClusterRunningSystemImagesPtrOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for podInfraContainer (string)
 func (o ClusterRunningSystemImagesPtrOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveCni (string)
 func (o ClusterRunningSystemImagesPtrOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveNode (string)
 func (o ClusterRunningSystemImagesPtrOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for windowsPodInfraContainer (string)
 func (o ClusterRunningSystemImagesPtrOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterRunningSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServices struct {
@@ -9339,7 +9547,8 @@ type ClusterServicesPtrInput interface {
 
 type clusterServicesPtrType ClusterServicesArgs
 
-func ClusterServicesPtr(v *ClusterServicesArgs) ClusterServicesPtrInput {	return (*clusterServicesPtrType)(v)
+func ClusterServicesPtr(v *ClusterServicesArgs) ClusterServicesPtrInput {
+	return (*clusterServicesPtrType)(v)
 }
 
 func (*clusterServicesPtrType) ElementType() reflect.Type {
@@ -9354,7 +9563,7 @@ func (i *clusterServicesPtrType) ToClusterServicesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesPtrOutput)
 }
 
-type ClusterServicesOutput struct { *pulumi.OutputState }
+type ClusterServicesOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServices)(nil)).Elem()
@@ -9377,37 +9586,38 @@ func (o ClusterServicesOutput) ToClusterServicesPtrOutputWithContext(ctx context
 		return &v
 	}).(ClusterServicesPtrOutput)
 }
+
 // Docker image for etcd (string)
 func (o ClusterServicesOutput) Etcd() ClusterServicesEtcdPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesEtcd { return v.Etcd }).(ClusterServicesEtcdPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesEtcd { return v.Etcd }).(ClusterServicesEtcdPtrOutput)
 }
 
 // Kube API options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) KubeApi() ClusterServicesKubeApiPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeApi { return v.KubeApi }).(ClusterServicesKubeApiPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeApi { return v.KubeApi }).(ClusterServicesKubeApiPtrOutput)
 }
 
 // Kube Controller options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) KubeController() ClusterServicesKubeControllerPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeController { return v.KubeController }).(ClusterServicesKubeControllerPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeController { return v.KubeController }).(ClusterServicesKubeControllerPtrOutput)
 }
 
 // Kubelet options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) Kubelet() ClusterServicesKubeletPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubelet { return v.Kubelet }).(ClusterServicesKubeletPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubelet { return v.Kubelet }).(ClusterServicesKubeletPtrOutput)
 }
 
 // Kubeproxy options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) Kubeproxy() ClusterServicesKubeproxyPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeproxy { return v.Kubeproxy }).(ClusterServicesKubeproxyPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeproxy { return v.Kubeproxy }).(ClusterServicesKubeproxyPtrOutput)
 }
 
 // Scheduler options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) Scheduler() ClusterServicesSchedulerPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesScheduler { return v.Scheduler }).(ClusterServicesSchedulerPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesScheduler { return v.Scheduler }).(ClusterServicesSchedulerPtrOutput)
 }
 
-type ClusterServicesPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServices)(nil)).Elem()
@@ -9422,37 +9632,37 @@ func (o ClusterServicesPtrOutput) ToClusterServicesPtrOutputWithContext(ctx cont
 }
 
 func (o ClusterServicesPtrOutput) Elem() ClusterServicesOutput {
-	return o.ApplyT(func (v *ClusterServices) ClusterServices { return *v }).(ClusterServicesOutput)
+	return o.ApplyT(func(v *ClusterServices) ClusterServices { return *v }).(ClusterServicesOutput)
 }
 
 // Docker image for etcd (string)
 func (o ClusterServicesPtrOutput) Etcd() ClusterServicesEtcdPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesEtcd { return v.Etcd }).(ClusterServicesEtcdPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesEtcd { return v.Etcd }).(ClusterServicesEtcdPtrOutput)
 }
 
 // Kube API options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) KubeApi() ClusterServicesKubeApiPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeApi { return v.KubeApi }).(ClusterServicesKubeApiPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeApi { return v.KubeApi }).(ClusterServicesKubeApiPtrOutput)
 }
 
 // Kube Controller options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) KubeController() ClusterServicesKubeControllerPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeController { return v.KubeController }).(ClusterServicesKubeControllerPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeController { return v.KubeController }).(ClusterServicesKubeControllerPtrOutput)
 }
 
 // Kubelet options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) Kubelet() ClusterServicesKubeletPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubelet { return v.Kubelet }).(ClusterServicesKubeletPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubelet { return v.Kubelet }).(ClusterServicesKubeletPtrOutput)
 }
 
 // Kubeproxy options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) Kubeproxy() ClusterServicesKubeproxyPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesKubeproxy { return v.Kubeproxy }).(ClusterServicesKubeproxyPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesKubeproxy { return v.Kubeproxy }).(ClusterServicesKubeproxyPtrOutput)
 }
 
 // Scheduler options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) Scheduler() ClusterServicesSchedulerPtrOutput {
-	return o.ApplyT(func (v ClusterServices) *ClusterServicesScheduler { return v.Scheduler }).(ClusterServicesSchedulerPtrOutput)
+	return o.ApplyT(func(v ClusterServices) *ClusterServicesScheduler { return v.Scheduler }).(ClusterServicesSchedulerPtrOutput)
 }
 
 type ClusterServicesEtcd struct {
@@ -9557,7 +9767,8 @@ type ClusterServicesEtcdPtrInput interface {
 
 type clusterServicesEtcdPtrType ClusterServicesEtcdArgs
 
-func ClusterServicesEtcdPtr(v *ClusterServicesEtcdArgs) ClusterServicesEtcdPtrInput {	return (*clusterServicesEtcdPtrType)(v)
+func ClusterServicesEtcdPtr(v *ClusterServicesEtcdArgs) ClusterServicesEtcdPtrInput {
+	return (*clusterServicesEtcdPtrType)(v)
 }
 
 func (*clusterServicesEtcdPtrType) ElementType() reflect.Type {
@@ -9572,7 +9783,7 @@ func (i *clusterServicesEtcdPtrType) ToClusterServicesEtcdPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdPtrOutput)
 }
 
-type ClusterServicesEtcdOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcd)(nil)).Elem()
@@ -9595,82 +9806,83 @@ func (o ClusterServicesEtcdOutput) ToClusterServicesEtcdPtrOutputWithContext(ctx
 		return &v
 	}).(ClusterServicesEtcdPtrOutput)
 }
+
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
 func (o ClusterServicesEtcdOutput) BackupConfig() ClusterServicesEtcdBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdBackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
 // TLS CA certificate for etcd service (string)
 func (o ClusterServicesEtcdOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
 }
 
 // TLS certificate for etcd service (string)
 func (o ClusterServicesEtcdOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Creation option for etcd service (string)
 func (o ClusterServicesEtcdOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
 }
 
 // External urls for etcd service (list)
 func (o ClusterServicesEtcdOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesEtcdOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesEtcdOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesEtcdOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesEtcdOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterServicesEtcdOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesEtcdOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot option for etcd service. Default `true` (bool)
 func (o ClusterServicesEtcdOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
 
-type ClusterServicesEtcdPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcd)(nil)).Elem()
@@ -9685,82 +9897,82 @@ func (o ClusterServicesEtcdPtrOutput) ToClusterServicesEtcdPtrOutputWithContext(
 }
 
 func (o ClusterServicesEtcdPtrOutput) Elem() ClusterServicesEtcdOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcd) ClusterServicesEtcd { return *v }).(ClusterServicesEtcdOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcd) ClusterServicesEtcd { return *v }).(ClusterServicesEtcdOutput)
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
 func (o ClusterServicesEtcdPtrOutput) BackupConfig() ClusterServicesEtcdBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdBackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
 // TLS CA certificate for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.CaCert }).(pulumi.StringPtrOutput)
 }
 
 // TLS certificate for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Creation option for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Creation }).(pulumi.StringPtrOutput)
 }
 
 // External urls for etcd service (list)
 func (o ClusterServicesEtcdPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesEtcdPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesEtcdPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesEtcdPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdPtrOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesEtcdPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesEtcdPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdPtrOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot option for etcd service. Default `true` (bool)
 func (o ClusterServicesEtcdPtrOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdPtrOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
 
 type ClusterServicesEtcdBackupConfig struct {
@@ -9825,7 +10037,8 @@ type ClusterServicesEtcdBackupConfigPtrInput interface {
 
 type clusterServicesEtcdBackupConfigPtrType ClusterServicesEtcdBackupConfigArgs
 
-func ClusterServicesEtcdBackupConfigPtr(v *ClusterServicesEtcdBackupConfigArgs) ClusterServicesEtcdBackupConfigPtrInput {	return (*clusterServicesEtcdBackupConfigPtrType)(v)
+func ClusterServicesEtcdBackupConfigPtr(v *ClusterServicesEtcdBackupConfigArgs) ClusterServicesEtcdBackupConfigPtrInput {
+	return (*clusterServicesEtcdBackupConfigPtrType)(v)
 }
 
 func (*clusterServicesEtcdBackupConfigPtrType) ElementType() reflect.Type {
@@ -9840,7 +10053,7 @@ func (i *clusterServicesEtcdBackupConfigPtrType) ToClusterServicesEtcdBackupConf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
-type ClusterServicesEtcdBackupConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdBackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcdBackupConfig)(nil)).Elem()
@@ -9863,32 +10076,35 @@ func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfig
 		return &v
 	}).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesEtcdBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Interval hours for etcd backup. Default `12` (int)
 func (o ClusterServicesEtcdBackupConfigOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdBackupConfigOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
 // S3 config options for etcd backup (list maxitems:1)
 func (o ClusterServicesEtcdBackupConfigOutput) S3BackupConfig() ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig {
+		return v.S3BackupConfig
+	}).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
 
 // Safe timestamp for etcd backup. Default: `false` (bool)
 func (o ClusterServicesEtcdBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesEtcdBackupConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdBackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcdBackupConfig)(nil)).Elem()
@@ -9903,32 +10119,34 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) ToClusterServicesEtcdBackupCon
 }
 
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcdBackupConfig) ClusterServicesEtcdBackupConfig { return *v }).(ClusterServicesEtcdBackupConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) ClusterServicesEtcdBackupConfig { return *v }).(ClusterServicesEtcdBackupConfigOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Interval hours for etcd backup. Default `12` (int)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
 // S3 config options for etcd backup (list maxitems:1)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) S3BackupConfig() ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig {
+		return v.S3BackupConfig
+	}).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
 
 // Safe timestamp for etcd backup. Default: `false` (bool)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesEtcdBackupConfigS3BackupConfig struct {
@@ -10001,7 +10219,8 @@ type ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput interface {
 
 type clusterServicesEtcdBackupConfigS3BackupConfigPtrType ClusterServicesEtcdBackupConfigS3BackupConfigArgs
 
-func ClusterServicesEtcdBackupConfigS3BackupConfigPtr(v *ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput {	return (*clusterServicesEtcdBackupConfigS3BackupConfigPtrType)(v)
+func ClusterServicesEtcdBackupConfigS3BackupConfigPtr(v *ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput {
+	return (*clusterServicesEtcdBackupConfigS3BackupConfigPtrType)(v)
 }
 
 func (*clusterServicesEtcdBackupConfigS3BackupConfigPtrType) ElementType() reflect.Type {
@@ -10016,7 +10235,7 @@ func (i *clusterServicesEtcdBackupConfigS3BackupConfigPtrType) ToClusterServices
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
 
-type ClusterServicesEtcdBackupConfigS3BackupConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdBackupConfigS3BackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcdBackupConfigS3BackupConfig)(nil)).Elem()
@@ -10039,42 +10258,43 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ToClusterServicesEt
 		return &v
 	}).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
+
 // Access key for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Bucket name for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Secret key for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcdBackupConfigS3BackupConfig)(nil)).Elem()
@@ -10089,42 +10309,44 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ToClusterService
 }
 
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigS3BackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcdBackupConfigS3BackupConfig) ClusterServicesEtcdBackupConfigS3BackupConfig { return *v }).(ClusterServicesEtcdBackupConfigS3BackupConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfigS3BackupConfig) ClusterServicesEtcdBackupConfigS3BackupConfig {
+		return *v
+	}).(ClusterServicesEtcdBackupConfigS3BackupConfigOutput)
 }
 
 // Access key for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Bucket name for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Secret key for S3 service (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesEtcdDeprecated struct {
@@ -10229,7 +10451,8 @@ type ClusterServicesEtcdDeprecatedPtrInput interface {
 
 type clusterServicesEtcdDeprecatedPtrType ClusterServicesEtcdDeprecatedArgs
 
-func ClusterServicesEtcdDeprecatedPtr(v *ClusterServicesEtcdDeprecatedArgs) ClusterServicesEtcdDeprecatedPtrInput {	return (*clusterServicesEtcdDeprecatedPtrType)(v)
+func ClusterServicesEtcdDeprecatedPtr(v *ClusterServicesEtcdDeprecatedArgs) ClusterServicesEtcdDeprecatedPtrInput {
+	return (*clusterServicesEtcdDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesEtcdDeprecatedPtrType) ElementType() reflect.Type {
@@ -10244,7 +10467,7 @@ func (i *clusterServicesEtcdDeprecatedPtrType) ToClusterServicesEtcdDeprecatedPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcdDeprecated)(nil)).Elem()
@@ -10267,82 +10490,85 @@ func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrO
 		return &v
 	}).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
+
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig {
+		return v.BackupConfig
+	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
 // TLS CA certificate for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
 }
 
 // TLS certificate for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Creation option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
 }
 
 // External urls for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdDeprecatedOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdDeprecatedOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot option for etcd service. Default `true` (bool)
 func (o ClusterServicesEtcdDeprecatedOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdDeprecatedOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcdDeprecated)(nil)).Elem()
@@ -10357,82 +10583,84 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedP
 }
 
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Elem() ClusterServicesEtcdDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcdDeprecated) ClusterServicesEtcdDeprecated { return *v }).(ClusterServicesEtcdDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) ClusterServicesEtcdDeprecated { return *v }).(ClusterServicesEtcdDeprecatedOutput)
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig {
+		return v.BackupConfig
+	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
 // TLS CA certificate for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) CaCert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.CaCert }).(pulumi.StringPtrOutput)
 }
 
 // TLS certificate for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Creation option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Creation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Creation }).(pulumi.StringPtrOutput)
 }
 
 // External urls for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Gid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // TLS key for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Retention() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot option for etcd service. Default `true` (bool)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Snapshot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Uid() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfig struct {
@@ -10497,7 +10725,8 @@ type ClusterServicesEtcdDeprecatedBackupConfigPtrInput interface {
 
 type clusterServicesEtcdDeprecatedBackupConfigPtrType ClusterServicesEtcdDeprecatedBackupConfigArgs
 
-func ClusterServicesEtcdDeprecatedBackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigPtrInput {	return (*clusterServicesEtcdDeprecatedBackupConfigPtrType)(v)
+func ClusterServicesEtcdDeprecatedBackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigPtrInput {
+	return (*clusterServicesEtcdDeprecatedBackupConfigPtrType)(v)
 }
 
 func (*clusterServicesEtcdDeprecatedBackupConfigPtrType) ElementType() reflect.Type {
@@ -10512,7 +10741,7 @@ func (i *clusterServicesEtcdDeprecatedBackupConfigPtrType) ToClusterServicesEtcd
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedBackupConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdDeprecatedBackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
@@ -10535,32 +10764,35 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDe
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Interval hours for etcd backup. Default `12` (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
 // S3 config options for etcd backup (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) S3BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+		return v.S3BackupConfig
+	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
 
 // Safe timestamp for etcd backup. Default: `false` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedBackupConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdDeprecatedBackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfig)(nil)).Elem()
@@ -10575,32 +10807,36 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtc
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcdDeprecatedBackupConfig) ClusterServicesEtcdDeprecatedBackupConfig { return *v }).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) ClusterServicesEtcdDeprecatedBackupConfig {
+		return *v
+	}).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Interval hours for etcd backup. Default `12` (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) IntervalHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
 // Retention for etcd backup. Default `6` (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
 // S3 config options for etcd backup (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) S3BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return v.S3BackupConfig }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+		return v.S3BackupConfig
+	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
 
 // Safe timestamp for etcd backup. Default: `false` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig struct {
@@ -10673,7 +10909,8 @@ type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput interface {
 
 type clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs
 
-func ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput {	return (*clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType)(v)
+func ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtr(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput {
+	return (*clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType)(v)
 }
 
 func (*clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ElementType() reflect.Type {
@@ -10688,7 +10925,7 @@ func (i *clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ToClust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
@@ -10711,42 +10948,43 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToCluster
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
+
 // Access key for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Bucket name for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Secret key for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig)(nil)).Elem()
@@ -10761,42 +10999,44 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClus
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig { return *v }).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+		return *v
+	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
 }
 
 // Access key for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) AccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Bucket name for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) CustomCa() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.CustomCa }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Folder for S3 service. Available from Rancher v2.2.7 (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
 // Region for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Secret key for S3 service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeApi struct {
@@ -10885,7 +11125,8 @@ type ClusterServicesKubeApiPtrInput interface {
 
 type clusterServicesKubeApiPtrType ClusterServicesKubeApiArgs
 
-func ClusterServicesKubeApiPtr(v *ClusterServicesKubeApiArgs) ClusterServicesKubeApiPtrInput {	return (*clusterServicesKubeApiPtrType)(v)
+func ClusterServicesKubeApiPtr(v *ClusterServicesKubeApiArgs) ClusterServicesKubeApiPtrInput {
+	return (*clusterServicesKubeApiPtrType)(v)
 }
 
 func (*clusterServicesKubeApiPtrType) ElementType() reflect.Type {
@@ -10900,7 +11141,7 @@ func (i *clusterServicesKubeApiPtrType) ToClusterServicesKubeApiPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiPtrOutput)
 }
 
-type ClusterServicesKubeApiOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApi)(nil)).Elem()
@@ -10923,62 +11164,65 @@ func (o ClusterServicesKubeApiOutput) ToClusterServicesKubeApiPtrOutputWithConte
 		return &v
 	}).(ClusterServicesKubeApiPtrOutput)
 }
+
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
 func (o ClusterServicesKubeApiOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
 
 // K8s audit log configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiOutput) AuditLog() ClusterServicesKubeApiAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiAuditLog { return v.AuditLog }).(ClusterServicesKubeApiAuditLogPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiAuditLog { return v.AuditLog }).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
 // K8s event rate limit configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiOutput) EventRateLimit() ClusterServicesKubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiEventRateLimitPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeApiOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeApiOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeApiOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeApiOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Pod Security Policy option for kube API service. Default `false` (bool)
 func (o ClusterServicesKubeApiOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 func (o ClusterServicesKubeApiOutput) SecretsEncryptionConfig() ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiSecretsEncryptionConfig {
+		return v.SecretsEncryptionConfig
+	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeApiOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 // Service Node Port Range option for kube API service (string)
 func (o ClusterServicesKubeApiOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeApiPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApi)(nil)).Elem()
@@ -10993,62 +11237,64 @@ func (o ClusterServicesKubeApiPtrOutput) ToClusterServicesKubeApiPtrOutputWithCo
 }
 
 func (o ClusterServicesKubeApiPtrOutput) Elem() ClusterServicesKubeApiOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApi) ClusterServicesKubeApi { return *v }).(ClusterServicesKubeApiOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApi) ClusterServicesKubeApi { return *v }).(ClusterServicesKubeApiOutput)
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
 func (o ClusterServicesKubeApiPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
 
 // K8s audit log configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiPtrOutput) AuditLog() ClusterServicesKubeApiAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiAuditLog { return v.AuditLog }).(ClusterServicesKubeApiAuditLogPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiAuditLog { return v.AuditLog }).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
 // K8s event rate limit configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiPtrOutput) EventRateLimit() ClusterServicesKubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiEventRateLimitPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeApiPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeApiPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeApiPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeApiPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Pod Security Policy option for kube API service. Default `false` (bool)
 func (o ClusterServicesKubeApiPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 func (o ClusterServicesKubeApiPtrOutput) SecretsEncryptionConfig() ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *ClusterServicesKubeApiSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiSecretsEncryptionConfig {
+		return v.SecretsEncryptionConfig
+	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeApiPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 // Service Node Port Range option for kube API service (string)
 func (o ClusterServicesKubeApiPtrOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeApiAuditLog struct {
@@ -11101,7 +11347,8 @@ type ClusterServicesKubeApiAuditLogPtrInput interface {
 
 type clusterServicesKubeApiAuditLogPtrType ClusterServicesKubeApiAuditLogArgs
 
-func ClusterServicesKubeApiAuditLogPtr(v *ClusterServicesKubeApiAuditLogArgs) ClusterServicesKubeApiAuditLogPtrInput {	return (*clusterServicesKubeApiAuditLogPtrType)(v)
+func ClusterServicesKubeApiAuditLogPtr(v *ClusterServicesKubeApiAuditLogArgs) ClusterServicesKubeApiAuditLogPtrInput {
+	return (*clusterServicesKubeApiAuditLogPtrType)(v)
 }
 
 func (*clusterServicesKubeApiAuditLogPtrType) ElementType() reflect.Type {
@@ -11116,7 +11363,7 @@ func (i *clusterServicesKubeApiAuditLogPtrType) ToClusterServicesKubeApiAuditLog
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
-type ClusterServicesKubeApiAuditLogOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiAuditLogOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiAuditLog)(nil)).Elem()
@@ -11139,17 +11386,20 @@ func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPt
 		return &v
 	}).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
+
 // Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiAuditLogOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
+		return v.Configuration
+	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiAuditLogPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiAuditLogPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiAuditLog)(nil)).Elem()
@@ -11164,17 +11414,19 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) ToClusterServicesKubeApiAuditLo
 }
 
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Elem() ClusterServicesKubeApiAuditLogOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiAuditLog) ClusterServicesKubeApiAuditLog { return *v }).(ClusterServicesKubeApiAuditLogOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) ClusterServicesKubeApiAuditLog { return *v }).(ClusterServicesKubeApiAuditLogOutput)
 }
 
 // Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
+		return v.Configuration
+	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeApiAuditLogConfiguration struct {
@@ -11243,7 +11495,8 @@ type ClusterServicesKubeApiAuditLogConfigurationPtrInput interface {
 
 type clusterServicesKubeApiAuditLogConfigurationPtrType ClusterServicesKubeApiAuditLogConfigurationArgs
 
-func ClusterServicesKubeApiAuditLogConfigurationPtr(v *ClusterServicesKubeApiAuditLogConfigurationArgs) ClusterServicesKubeApiAuditLogConfigurationPtrInput {	return (*clusterServicesKubeApiAuditLogConfigurationPtrType)(v)
+func ClusterServicesKubeApiAuditLogConfigurationPtr(v *ClusterServicesKubeApiAuditLogConfigurationArgs) ClusterServicesKubeApiAuditLogConfigurationPtrInput {
+	return (*clusterServicesKubeApiAuditLogConfigurationPtrType)(v)
 }
 
 func (*clusterServicesKubeApiAuditLogConfigurationPtrType) ElementType() reflect.Type {
@@ -11258,7 +11511,7 @@ func (i *clusterServicesKubeApiAuditLogConfigurationPtrType) ToClusterServicesKu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-type ClusterServicesKubeApiAuditLogConfigurationOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiAuditLogConfiguration)(nil)).Elem()
@@ -11281,37 +11534,38 @@ func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToClusterServicesKube
 		return &v
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
+
 // Audit log format. Default: `json` (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // Audit log max age. Default: `30` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max backup. Default: `10` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max size. Default: `100` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeApiAuditLogConfigurationPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiAuditLogConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiAuditLogConfiguration)(nil)).Elem()
@@ -11326,37 +11580,39 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ToClusterServicesK
 }
 
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiAuditLogConfigurationOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiAuditLogConfiguration) ClusterServicesKubeApiAuditLogConfiguration { return *v }).(ClusterServicesKubeApiAuditLogConfigurationOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLogConfiguration) ClusterServicesKubeApiAuditLogConfiguration {
+		return *v
+	}).(ClusterServicesKubeApiAuditLogConfigurationOutput)
 }
 
 // Audit log format. Default: `json` (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // Audit log max age. Default: `30` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max backup. Default: `10` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max size. Default: `100` (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeApiDeprecated struct {
@@ -11445,7 +11701,8 @@ type ClusterServicesKubeApiDeprecatedPtrInput interface {
 
 type clusterServicesKubeApiDeprecatedPtrType ClusterServicesKubeApiDeprecatedArgs
 
-func ClusterServicesKubeApiDeprecatedPtr(v *ClusterServicesKubeApiDeprecatedArgs) ClusterServicesKubeApiDeprecatedPtrInput {	return (*clusterServicesKubeApiDeprecatedPtrType)(v)
+func ClusterServicesKubeApiDeprecatedPtr(v *ClusterServicesKubeApiDeprecatedArgs) ClusterServicesKubeApiDeprecatedPtrInput {
+	return (*clusterServicesKubeApiDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesKubeApiDeprecatedPtrType) ElementType() reflect.Type {
@@ -11460,7 +11717,7 @@ func (i *clusterServicesKubeApiDeprecatedPtrType) ToClusterServicesKubeApiDeprec
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiDeprecated)(nil)).Elem()
@@ -11483,62 +11740,67 @@ func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecat
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
+
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
 
 // K8s audit log configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedOutput) AuditLog() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
 // K8s event rate limit configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedOutput) EventRateLimit() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit {
+		return v.EventRateLimit
+	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeApiDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Pod Security Policy option for kube API service. Default `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedOutput) SecretsEncryptionConfig() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+		return v.SecretsEncryptionConfig
+	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeApiDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 // Service Node Port Range option for kube API service (string)
 func (o ClusterServicesKubeApiDeprecatedOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiDeprecated)(nil)).Elem()
@@ -11553,62 +11815,66 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDepre
 }
 
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) Elem() ClusterServicesKubeApiDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated { return *v }).(ClusterServicesKubeApiDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated { return *v }).(ClusterServicesKubeApiDeprecatedOutput)
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
 
 // K8s audit log configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) AuditLog() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedAuditLog { return v.AuditLog }).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
 // K8s event rate limit configuration. (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) EventRateLimit() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedEventRateLimit {
+		return v.EventRateLimit
+	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Pod Security Policy option for kube API service. Default `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) SecretsEncryptionConfig() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return v.SecretsEncryptionConfig }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+		return v.SecretsEncryptionConfig
+	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 // Service Node Port Range option for kube API service (string)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceNodePortRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.ServiceNodePortRange }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLog struct {
@@ -11661,7 +11927,8 @@ type ClusterServicesKubeApiDeprecatedAuditLogPtrInput interface {
 
 type clusterServicesKubeApiDeprecatedAuditLogPtrType ClusterServicesKubeApiDeprecatedAuditLogArgs
 
-func ClusterServicesKubeApiDeprecatedAuditLogPtr(v *ClusterServicesKubeApiDeprecatedAuditLogArgs) ClusterServicesKubeApiDeprecatedAuditLogPtrInput {	return (*clusterServicesKubeApiDeprecatedAuditLogPtrType)(v)
+func ClusterServicesKubeApiDeprecatedAuditLogPtr(v *ClusterServicesKubeApiDeprecatedAuditLogArgs) ClusterServicesKubeApiDeprecatedAuditLogPtrInput {
+	return (*clusterServicesKubeApiDeprecatedAuditLogPtrType)(v)
 }
 
 func (*clusterServicesKubeApiDeprecatedAuditLogPtrType) ElementType() reflect.Type {
@@ -11676,7 +11943,7 @@ func (i *clusterServicesKubeApiDeprecatedAuditLogPtrType) ToClusterServicesKubeA
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedAuditLogOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiDeprecatedAuditLogOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
@@ -11699,17 +11966,20 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApi
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
+
 // Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+		return v.Configuration
+	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedAuditLogPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiDeprecatedAuditLogPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLog)(nil)).Elem()
@@ -11724,17 +11994,19 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKube
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
 }
 
 // Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return v.Configuration }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+		return v.Configuration
+	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLogConfiguration struct {
@@ -11803,7 +12075,8 @@ type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput interface {
 
 type clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs
 
-func ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtr(v *ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput {	return (*clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType)(v)
+func ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtr(v *ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput {
+	return (*clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType)(v)
 }
 
 func (*clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ElementType() reflect.Type {
@@ -11818,7 +12091,7 @@ func (i *clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ToCluster
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
@@ -11841,37 +12114,38 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterSe
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
+
 // Audit log format. Default: `json` (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // Audit log max age. Default: `30` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max backup. Default: `10` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max size. Default: `100` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedAuditLogConfiguration)(nil)).Elem()
@@ -11886,37 +12160,39 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToCluste
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) ClusterServicesKubeApiDeprecatedAuditLogConfiguration { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+		return *v
+	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
 }
 
 // Audit log format. Default: `json` (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // Audit log max age. Default: `30` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max backup. Default: `10` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxBackup() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxBackup }).(pulumi.IntPtrOutput)
 }
 
 // Audit log max size. Default: `100` (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
 // Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeApiDeprecatedEventRateLimit struct {
@@ -11965,7 +12241,8 @@ type ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput interface {
 
 type clusterServicesKubeApiDeprecatedEventRateLimitPtrType ClusterServicesKubeApiDeprecatedEventRateLimitArgs
 
-func ClusterServicesKubeApiDeprecatedEventRateLimitPtr(v *ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput {	return (*clusterServicesKubeApiDeprecatedEventRateLimitPtrType)(v)
+func ClusterServicesKubeApiDeprecatedEventRateLimitPtr(v *ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput {
+	return (*clusterServicesKubeApiDeprecatedEventRateLimitPtrType)(v)
 }
 
 func (*clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ElementType() reflect.Type {
@@ -11980,7 +12257,7 @@ func (i *clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ToClusterService
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedEventRateLimitOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiDeprecatedEventRateLimitOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
@@ -12003,12 +12280,13 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesK
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedEventRateLimit)(nil)).Elem()
@@ -12023,12 +12301,14 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServic
 }
 
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedEventRateLimit) ClusterServicesKubeApiDeprecatedEventRateLimit { return *v }).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) ClusterServicesKubeApiDeprecatedEventRateLimit {
+		return *v
+	}).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig struct {
@@ -12077,7 +12357,8 @@ type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput interface {
 
 type clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs
 
-func ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtr(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput {	return (*clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType)(v)
+func ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtr(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput {
+	return (*clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType)(v)
 }
 
 func (*clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ElementType() reflect.Type {
@@ -12092,7 +12373,7 @@ func (i *clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ToClust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
@@ -12115,12 +12396,13 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToCluster
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig)(nil)).Elem()
@@ -12135,12 +12417,14 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClus
 }
 
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig { return *v }).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+		return *v
+	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeApiEventRateLimit struct {
@@ -12189,7 +12473,8 @@ type ClusterServicesKubeApiEventRateLimitPtrInput interface {
 
 type clusterServicesKubeApiEventRateLimitPtrType ClusterServicesKubeApiEventRateLimitArgs
 
-func ClusterServicesKubeApiEventRateLimitPtr(v *ClusterServicesKubeApiEventRateLimitArgs) ClusterServicesKubeApiEventRateLimitPtrInput {	return (*clusterServicesKubeApiEventRateLimitPtrType)(v)
+func ClusterServicesKubeApiEventRateLimitPtr(v *ClusterServicesKubeApiEventRateLimitArgs) ClusterServicesKubeApiEventRateLimitPtrInput {
+	return (*clusterServicesKubeApiEventRateLimitPtrType)(v)
 }
 
 func (*clusterServicesKubeApiEventRateLimitPtrType) ElementType() reflect.Type {
@@ -12204,7 +12489,7 @@ func (i *clusterServicesKubeApiEventRateLimitPtrType) ToClusterServicesKubeApiEv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-type ClusterServicesKubeApiEventRateLimitOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiEventRateLimitOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiEventRateLimitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiEventRateLimit)(nil)).Elem()
@@ -12227,12 +12512,13 @@ func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEven
 		return &v
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiEventRateLimitPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiEventRateLimitPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiEventRateLimitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiEventRateLimit)(nil)).Elem()
@@ -12247,12 +12533,12 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) ToClusterServicesKubeApiE
 }
 
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiEventRateLimitOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiEventRateLimit) ClusterServicesKubeApiEventRateLimit { return *v }).(ClusterServicesKubeApiEventRateLimitOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) ClusterServicesKubeApiEventRateLimit { return *v }).(ClusterServicesKubeApiEventRateLimitOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeApiSecretsEncryptionConfig struct {
@@ -12301,7 +12587,8 @@ type ClusterServicesKubeApiSecretsEncryptionConfigPtrInput interface {
 
 type clusterServicesKubeApiSecretsEncryptionConfigPtrType ClusterServicesKubeApiSecretsEncryptionConfigArgs
 
-func ClusterServicesKubeApiSecretsEncryptionConfigPtr(v *ClusterServicesKubeApiSecretsEncryptionConfigArgs) ClusterServicesKubeApiSecretsEncryptionConfigPtrInput {	return (*clusterServicesKubeApiSecretsEncryptionConfigPtrType)(v)
+func ClusterServicesKubeApiSecretsEncryptionConfigPtr(v *ClusterServicesKubeApiSecretsEncryptionConfigArgs) ClusterServicesKubeApiSecretsEncryptionConfigPtrInput {
+	return (*clusterServicesKubeApiSecretsEncryptionConfigPtrType)(v)
 }
 
 func (*clusterServicesKubeApiSecretsEncryptionConfigPtrType) ElementType() reflect.Type {
@@ -12316,7 +12603,7 @@ func (i *clusterServicesKubeApiSecretsEncryptionConfigPtrType) ToClusterServices
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-type ClusterServicesKubeApiSecretsEncryptionConfigOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeApiSecretsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiSecretsEncryptionConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeApiSecretsEncryptionConfig)(nil)).Elem()
@@ -12339,12 +12626,13 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToClusterServicesKu
 		return &v
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
+
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeApiSecretsEncryptionConfig)(nil)).Elem()
@@ -12359,12 +12647,14 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ToClusterService
 }
 
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiSecretsEncryptionConfigOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeApiSecretsEncryptionConfig) ClusterServicesKubeApiSecretsEncryptionConfig { return *v }).(ClusterServicesKubeApiSecretsEncryptionConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiSecretsEncryptionConfig) ClusterServicesKubeApiSecretsEncryptionConfig {
+		return *v
+	}).(ClusterServicesKubeApiSecretsEncryptionConfigOutput)
 }
 
 // Enable secrets encryption. Default: `false` (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterServicesKubeController struct {
@@ -12433,7 +12723,8 @@ type ClusterServicesKubeControllerPtrInput interface {
 
 type clusterServicesKubeControllerPtrType ClusterServicesKubeControllerArgs
 
-func ClusterServicesKubeControllerPtr(v *ClusterServicesKubeControllerArgs) ClusterServicesKubeControllerPtrInput {	return (*clusterServicesKubeControllerPtrType)(v)
+func ClusterServicesKubeControllerPtr(v *ClusterServicesKubeControllerArgs) ClusterServicesKubeControllerPtrInput {
+	return (*clusterServicesKubeControllerPtrType)(v)
 }
 
 func (*clusterServicesKubeControllerPtrType) ElementType() reflect.Type {
@@ -12448,7 +12739,7 @@ func (i *clusterServicesKubeControllerPtrType) ToClusterServicesKubeControllerPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerPtrOutput)
 }
 
-type ClusterServicesKubeControllerOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeControllerOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeController)(nil)).Elem()
@@ -12471,37 +12762,38 @@ func (o ClusterServicesKubeControllerOutput) ToClusterServicesKubeControllerPtrO
 		return &v
 	}).(ClusterServicesKubeControllerPtrOutput)
 }
+
 // Cluster CIDR option for kube controller service (string)
 func (o ClusterServicesKubeControllerOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeControllerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeControllerOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeControllerOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeControllerOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeControllerOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeControllerPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeControllerPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeController)(nil)).Elem()
@@ -12516,37 +12808,37 @@ func (o ClusterServicesKubeControllerPtrOutput) ToClusterServicesKubeControllerP
 }
 
 func (o ClusterServicesKubeControllerPtrOutput) Elem() ClusterServicesKubeControllerOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeController) ClusterServicesKubeController { return *v }).(ClusterServicesKubeControllerOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeController) ClusterServicesKubeController { return *v }).(ClusterServicesKubeControllerOutput)
 }
 
 // Cluster CIDR option for kube controller service (string)
 func (o ClusterServicesKubeControllerPtrOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeControllerPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeControllerPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeControllerDeprecated struct {
@@ -12615,7 +12907,8 @@ type ClusterServicesKubeControllerDeprecatedPtrInput interface {
 
 type clusterServicesKubeControllerDeprecatedPtrType ClusterServicesKubeControllerDeprecatedArgs
 
-func ClusterServicesKubeControllerDeprecatedPtr(v *ClusterServicesKubeControllerDeprecatedArgs) ClusterServicesKubeControllerDeprecatedPtrInput {	return (*clusterServicesKubeControllerDeprecatedPtrType)(v)
+func ClusterServicesKubeControllerDeprecatedPtr(v *ClusterServicesKubeControllerDeprecatedArgs) ClusterServicesKubeControllerDeprecatedPtrInput {
+	return (*clusterServicesKubeControllerDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesKubeControllerDeprecatedPtrType) ElementType() reflect.Type {
@@ -12630,7 +12923,7 @@ func (i *clusterServicesKubeControllerDeprecatedPtrType) ToClusterServicesKubeCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedPtrOutput)
 }
 
-type ClusterServicesKubeControllerDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeControllerDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeControllerDeprecated)(nil)).Elem()
@@ -12653,37 +12946,38 @@ func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeCont
 		return &v
 	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
 }
+
 // Cluster CIDR option for kube controller service (string)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeControllerDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeControllerDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeControllerDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeControllerDeprecated)(nil)).Elem()
@@ -12698,37 +12992,37 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeC
 }
 
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Elem() ClusterServicesKubeControllerDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeControllerDeprecated) ClusterServicesKubeControllerDeprecated { return *v }).(ClusterServicesKubeControllerDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) ClusterServicesKubeControllerDeprecated { return *v }).(ClusterServicesKubeControllerDeprecatedOutput)
 }
 
 // Cluster CIDR option for kube controller service (string)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ClusterCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Service Cluster ip Range option for kube controller service (string)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeProxyDeprecated struct {
@@ -12789,7 +13083,8 @@ type ClusterServicesKubeProxyDeprecatedPtrInput interface {
 
 type clusterServicesKubeProxyDeprecatedPtrType ClusterServicesKubeProxyDeprecatedArgs
 
-func ClusterServicesKubeProxyDeprecatedPtr(v *ClusterServicesKubeProxyDeprecatedArgs) ClusterServicesKubeProxyDeprecatedPtrInput {	return (*clusterServicesKubeProxyDeprecatedPtrType)(v)
+func ClusterServicesKubeProxyDeprecatedPtr(v *ClusterServicesKubeProxyDeprecatedArgs) ClusterServicesKubeProxyDeprecatedPtrInput {
+	return (*clusterServicesKubeProxyDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesKubeProxyDeprecatedPtrType) ElementType() reflect.Type {
@@ -12804,7 +13099,7 @@ func (i *clusterServicesKubeProxyDeprecatedPtrType) ToClusterServicesKubeProxyDe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
 
-type ClusterServicesKubeProxyDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeProxyDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeProxyDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeProxyDeprecated)(nil)).Elem()
@@ -12827,27 +13122,28 @@ func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDepr
 		return &v
 	}).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
+
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeProxyDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeProxyDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeProxyDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeProxyDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeProxyDeprecated)(nil)).Elem()
@@ -12862,27 +13158,27 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyD
 }
 
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeProxyDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeProxyDeprecated) ClusterServicesKubeProxyDeprecated { return *v }).(ClusterServicesKubeProxyDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) ClusterServicesKubeProxyDeprecated { return *v }).(ClusterServicesKubeProxyDeprecatedOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeSchedulerDeprecated struct {
@@ -12943,7 +13239,8 @@ type ClusterServicesKubeSchedulerDeprecatedPtrInput interface {
 
 type clusterServicesKubeSchedulerDeprecatedPtrType ClusterServicesKubeSchedulerDeprecatedArgs
 
-func ClusterServicesKubeSchedulerDeprecatedPtr(v *ClusterServicesKubeSchedulerDeprecatedArgs) ClusterServicesKubeSchedulerDeprecatedPtrInput {	return (*clusterServicesKubeSchedulerDeprecatedPtrType)(v)
+func ClusterServicesKubeSchedulerDeprecatedPtr(v *ClusterServicesKubeSchedulerDeprecatedArgs) ClusterServicesKubeSchedulerDeprecatedPtrInput {
+	return (*clusterServicesKubeSchedulerDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesKubeSchedulerDeprecatedPtrType) ElementType() reflect.Type {
@@ -12958,7 +13255,7 @@ func (i *clusterServicesKubeSchedulerDeprecatedPtrType) ToClusterServicesKubeSch
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
 
-type ClusterServicesKubeSchedulerDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeSchedulerDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeSchedulerDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
@@ -12981,27 +13278,28 @@ func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSched
 		return &v
 	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
+
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeSchedulerDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeSchedulerDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeSchedulerDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeSchedulerDeprecated)(nil)).Elem()
@@ -13016,27 +13314,27 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSc
 }
 
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesKubeSchedulerDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeSchedulerDeprecated) ClusterServicesKubeSchedulerDeprecated { return *v }).(ClusterServicesKubeSchedulerDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) ClusterServicesKubeSchedulerDeprecated { return *v }).(ClusterServicesKubeSchedulerDeprecatedOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubelet struct {
@@ -13052,7 +13350,7 @@ type ClusterServicesKubelet struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn *bool `pulumi:"failSwapOn"`
+	FailSwapOn                 *bool `pulumi:"failSwapOn"`
 	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
@@ -13080,7 +13378,7 @@ type ClusterServicesKubeletArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
+	FailSwapOn                 pulumi.BoolPtrInput `pulumi:"failSwapOn"`
 	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -13117,7 +13415,8 @@ type ClusterServicesKubeletPtrInput interface {
 
 type clusterServicesKubeletPtrType ClusterServicesKubeletArgs
 
-func ClusterServicesKubeletPtr(v *ClusterServicesKubeletArgs) ClusterServicesKubeletPtrInput {	return (*clusterServicesKubeletPtrType)(v)
+func ClusterServicesKubeletPtr(v *ClusterServicesKubeletArgs) ClusterServicesKubeletPtrInput {
+	return (*clusterServicesKubeletPtrType)(v)
 }
 
 func (*clusterServicesKubeletPtrType) ElementType() reflect.Type {
@@ -13132,7 +13431,7 @@ func (i *clusterServicesKubeletPtrType) ToClusterServicesKubeletPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletPtrOutput)
 }
 
-type ClusterServicesKubeletOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeletOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubelet)(nil)).Elem()
@@ -13155,52 +13454,53 @@ func (o ClusterServicesKubeletOutput) ToClusterServicesKubeletPtrOutputWithConte
 		return &v
 	}).(ClusterServicesKubeletPtrOutput)
 }
+
 // Cluster DNS Server option for kubelet service (string)
 func (o ClusterServicesKubeletOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
 }
 
 // Cluster Domain option for kubelet service. Default `cluster.local` (string)
 func (o ClusterServicesKubeletOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeletOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeletOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeletOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Enable or disable failing when swap on is not supported (bool)
 // * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 func (o ClusterServicesKubeletOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClusterServicesKubeletOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeletOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Infra container image for kubelet service (string)
 func (o ClusterServicesKubeletOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeletPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeletPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubelet)(nil)).Elem()
@@ -13215,52 +13515,52 @@ func (o ClusterServicesKubeletPtrOutput) ToClusterServicesKubeletPtrOutputWithCo
 }
 
 func (o ClusterServicesKubeletPtrOutput) Elem() ClusterServicesKubeletOutput {
-	return o.ApplyT(func (v *ClusterServicesKubelet) ClusterServicesKubelet { return *v }).(ClusterServicesKubeletOutput)
+	return o.ApplyT(func(v *ClusterServicesKubelet) ClusterServicesKubelet { return *v }).(ClusterServicesKubeletOutput)
 }
 
 // Cluster DNS Server option for kubelet service (string)
 func (o ClusterServicesKubeletPtrOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
 }
 
 // Cluster Domain option for kubelet service. Default `cluster.local` (string)
 func (o ClusterServicesKubeletPtrOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeletPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeletPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeletPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Enable or disable failing when swap on is not supported (bool)
 // * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 func (o ClusterServicesKubeletPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClusterServicesKubeletPtrOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeletPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Infra container image for kubelet service (string)
 func (o ClusterServicesKubeletPtrOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeletDeprecated struct {
@@ -13276,7 +13576,7 @@ type ClusterServicesKubeletDeprecated struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn *bool `pulumi:"failSwapOn"`
+	FailSwapOn                 *bool `pulumi:"failSwapOn"`
 	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
@@ -13304,7 +13604,7 @@ type ClusterServicesKubeletDeprecatedArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	// * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
+	FailSwapOn                 pulumi.BoolPtrInput `pulumi:"failSwapOn"`
 	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -13341,7 +13641,8 @@ type ClusterServicesKubeletDeprecatedPtrInput interface {
 
 type clusterServicesKubeletDeprecatedPtrType ClusterServicesKubeletDeprecatedArgs
 
-func ClusterServicesKubeletDeprecatedPtr(v *ClusterServicesKubeletDeprecatedArgs) ClusterServicesKubeletDeprecatedPtrInput {	return (*clusterServicesKubeletDeprecatedPtrType)(v)
+func ClusterServicesKubeletDeprecatedPtr(v *ClusterServicesKubeletDeprecatedArgs) ClusterServicesKubeletDeprecatedPtrInput {
+	return (*clusterServicesKubeletDeprecatedPtrType)(v)
 }
 
 func (*clusterServicesKubeletDeprecatedPtrType) ElementType() reflect.Type {
@@ -13356,7 +13657,7 @@ func (i *clusterServicesKubeletDeprecatedPtrType) ToClusterServicesKubeletDeprec
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedPtrOutput)
 }
 
-type ClusterServicesKubeletDeprecatedOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeletDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletDeprecatedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeletDeprecated)(nil)).Elem()
@@ -13379,52 +13680,53 @@ func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecat
 		return &v
 	}).(ClusterServicesKubeletDeprecatedPtrOutput)
 }
+
 // Cluster DNS Server option for kubelet service (string)
 func (o ClusterServicesKubeletDeprecatedOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
 }
 
 // Cluster Domain option for kubelet service. Default `cluster.local` (string)
 func (o ClusterServicesKubeletDeprecatedOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Enable or disable failing when swap on is not supported (bool)
 // * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 func (o ClusterServicesKubeletDeprecatedOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClusterServicesKubeletDeprecatedOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeletDeprecatedOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Infra container image for kubelet service (string)
 func (o ClusterServicesKubeletDeprecatedOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeletDeprecatedPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeletDeprecatedPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletDeprecatedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeletDeprecated)(nil)).Elem()
@@ -13439,52 +13741,52 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDepre
 }
 
 func (o ClusterServicesKubeletDeprecatedPtrOutput) Elem() ClusterServicesKubeletDeprecatedOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeletDeprecated) ClusterServicesKubeletDeprecated { return *v }).(ClusterServicesKubeletDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) ClusterServicesKubeletDeprecated { return *v }).(ClusterServicesKubeletDeprecatedOutput)
 }
 
 // Cluster DNS Server option for kubelet service (string)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDnsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.ClusterDnsServer }).(pulumi.StringPtrOutput)
 }
 
 // Cluster Domain option for kubelet service. Default `cluster.local` (string)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Enable or disable failing when swap on is not supported (bool)
 // * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClusterServicesKubeletDeprecatedPtrOutput) GenerateServingCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Infra container image for kubelet service (string)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) InfraContainerImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.InfraContainerImage }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesKubeproxy struct {
@@ -13545,7 +13847,8 @@ type ClusterServicesKubeproxyPtrInput interface {
 
 type clusterServicesKubeproxyPtrType ClusterServicesKubeproxyArgs
 
-func ClusterServicesKubeproxyPtr(v *ClusterServicesKubeproxyArgs) ClusterServicesKubeproxyPtrInput {	return (*clusterServicesKubeproxyPtrType)(v)
+func ClusterServicesKubeproxyPtr(v *ClusterServicesKubeproxyArgs) ClusterServicesKubeproxyPtrInput {
+	return (*clusterServicesKubeproxyPtrType)(v)
 }
 
 func (*clusterServicesKubeproxyPtrType) ElementType() reflect.Type {
@@ -13560,7 +13863,7 @@ func (i *clusterServicesKubeproxyPtrType) ToClusterServicesKubeproxyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeproxyPtrOutput)
 }
 
-type ClusterServicesKubeproxyOutput struct { *pulumi.OutputState }
+type ClusterServicesKubeproxyOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeproxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesKubeproxy)(nil)).Elem()
@@ -13583,27 +13886,28 @@ func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutputWithC
 		return &v
 	}).(ClusterServicesKubeproxyPtrOutput)
 }
+
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeproxyOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeproxyOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeproxyOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeproxyOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesKubeproxyPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesKubeproxyPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeproxyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesKubeproxy)(nil)).Elem()
@@ -13618,27 +13922,27 @@ func (o ClusterServicesKubeproxyPtrOutput) ToClusterServicesKubeproxyPtrOutputWi
 }
 
 func (o ClusterServicesKubeproxyPtrOutput) Elem() ClusterServicesKubeproxyOutput {
-	return o.ApplyT(func (v *ClusterServicesKubeproxy) ClusterServicesKubeproxy { return *v }).(ClusterServicesKubeproxyOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeproxy) ClusterServicesKubeproxy { return *v }).(ClusterServicesKubeproxyOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesKubeproxyPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesKubeproxy) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesKubeproxy) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 type ClusterServicesScheduler struct {
@@ -13699,7 +14003,8 @@ type ClusterServicesSchedulerPtrInput interface {
 
 type clusterServicesSchedulerPtrType ClusterServicesSchedulerArgs
 
-func ClusterServicesSchedulerPtr(v *ClusterServicesSchedulerArgs) ClusterServicesSchedulerPtrInput {	return (*clusterServicesSchedulerPtrType)(v)
+func ClusterServicesSchedulerPtr(v *ClusterServicesSchedulerArgs) ClusterServicesSchedulerPtrInput {
+	return (*clusterServicesSchedulerPtrType)(v)
 }
 
 func (*clusterServicesSchedulerPtrType) ElementType() reflect.Type {
@@ -13714,7 +14019,7 @@ func (i *clusterServicesSchedulerPtrType) ToClusterServicesSchedulerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesSchedulerPtrOutput)
 }
 
-type ClusterServicesSchedulerOutput struct { *pulumi.OutputState }
+type ClusterServicesSchedulerOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesSchedulerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServicesScheduler)(nil)).Elem()
@@ -13737,27 +14042,28 @@ func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutputWithC
 		return &v
 	}).(ClusterServicesSchedulerPtrOutput)
 }
+
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesSchedulerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesSchedulerOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesSchedulerOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesSchedulerOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-type ClusterServicesSchedulerPtrOutput struct { *pulumi.OutputState}
+type ClusterServicesSchedulerPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesSchedulerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServicesScheduler)(nil)).Elem()
@@ -13772,27 +14078,27 @@ func (o ClusterServicesSchedulerPtrOutput) ToClusterServicesSchedulerPtrOutputWi
 }
 
 func (o ClusterServicesSchedulerPtrOutput) Elem() ClusterServicesSchedulerOutput {
-	return o.ApplyT(func (v *ClusterServicesScheduler) ClusterServicesScheduler { return *v }).(ClusterServicesSchedulerOutput)
+	return o.ApplyT(func(v *ClusterServicesScheduler) ClusterServicesScheduler { return *v }).(ClusterServicesSchedulerOutput)
 }
 
 // Extra arguments for scheduler service (map)
 func (o ClusterServicesSchedulerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
 // Extra binds for scheduler service (list)
 func (o ClusterServicesSchedulerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
 // Extra environment for scheduler service (list)
 func (o ClusterServicesSchedulerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
 // Docker image for scheduler service (string)
 func (o ClusterServicesSchedulerPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 type ClusterSystemImages struct {
@@ -13961,7 +14267,8 @@ type ClusterSystemImagesPtrInput interface {
 
 type clusterSystemImagesPtrType ClusterSystemImagesArgs
 
-func ClusterSystemImagesPtr(v *ClusterSystemImagesArgs) ClusterSystemImagesPtrInput {	return (*clusterSystemImagesPtrType)(v)
+func ClusterSystemImagesPtr(v *ClusterSystemImagesArgs) ClusterSystemImagesPtrInput {
+	return (*clusterSystemImagesPtrType)(v)
 }
 
 func (*clusterSystemImagesPtrType) ElementType() reflect.Type {
@@ -13976,7 +14283,7 @@ func (i *clusterSystemImagesPtrType) ToClusterSystemImagesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSystemImagesPtrOutput)
 }
 
-type ClusterSystemImagesOutput struct { *pulumi.OutputState }
+type ClusterSystemImagesOutput struct{ *pulumi.OutputState }
 
 func (ClusterSystemImagesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterSystemImages)(nil)).Elem()
@@ -13999,162 +14306,163 @@ func (o ClusterSystemImagesOutput) ToClusterSystemImagesPtrOutputWithContext(ctx
 		return &v
 	}).(ClusterSystemImagesPtrOutput)
 }
+
 // Docker image for alpine (string)
 func (o ClusterSystemImagesOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCni (string)
 func (o ClusterSystemImagesOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoControllers (string)
 func (o ClusterSystemImagesOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCtl (string)
 func (o ClusterSystemImagesOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoFlexVol (string)
 func (o ClusterSystemImagesOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoNode (string)
 func (o ClusterSystemImagesOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalCni (string)
 func (o ClusterSystemImagesOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlannel (string)
 func (o ClusterSystemImagesOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlexVol (string)
 func (o ClusterSystemImagesOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalNode (string)
 func (o ClusterSystemImagesOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for certDownloader (string)
 func (o ClusterSystemImagesOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for coredns (string)
 func (o ClusterSystemImagesOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for corednsAutoscaler (string)
 func (o ClusterSystemImagesOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for dnsmasq (string)
 func (o ClusterSystemImagesOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for etcd (string)
 func (o ClusterSystemImagesOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannel (string)
 func (o ClusterSystemImagesOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannelCni (string)
 func (o ClusterSystemImagesOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingress (string)
 func (o ClusterSystemImagesOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingressBackend (string)
 func (o ClusterSystemImagesOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDns (string)
 func (o ClusterSystemImagesOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsAutoscaler (string)
 func (o ClusterSystemImagesOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsSidecar (string)
 func (o ClusterSystemImagesOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetes (string)
 func (o ClusterSystemImagesOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetesServicesSidecar (string)
 func (o ClusterSystemImagesOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for metricsServer (string)
 func (o ClusterSystemImagesOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nginxProxy (string)
 func (o ClusterSystemImagesOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nodelocal (string)
 func (o ClusterSystemImagesOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for podInfraContainer (string)
 func (o ClusterSystemImagesOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveCni (string)
 func (o ClusterSystemImagesOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveNode (string)
 func (o ClusterSystemImagesOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for windowsPodInfraContainer (string)
 func (o ClusterSystemImagesOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
-type ClusterSystemImagesPtrOutput struct { *pulumi.OutputState}
+type ClusterSystemImagesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterSystemImagesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterSystemImages)(nil)).Elem()
@@ -14169,162 +14477,162 @@ func (o ClusterSystemImagesPtrOutput) ToClusterSystemImagesPtrOutputWithContext(
 }
 
 func (o ClusterSystemImagesPtrOutput) Elem() ClusterSystemImagesOutput {
-	return o.ApplyT(func (v *ClusterSystemImages) ClusterSystemImages { return *v }).(ClusterSystemImagesOutput)
+	return o.ApplyT(func(v *ClusterSystemImages) ClusterSystemImages { return *v }).(ClusterSystemImagesOutput)
 }
 
 // Docker image for alpine (string)
 func (o ClusterSystemImagesPtrOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCni (string)
 func (o ClusterSystemImagesPtrOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoControllers (string)
 func (o ClusterSystemImagesPtrOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCtl (string)
 func (o ClusterSystemImagesPtrOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoFlexVol (string)
 func (o ClusterSystemImagesPtrOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoNode (string)
 func (o ClusterSystemImagesPtrOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalCni (string)
 func (o ClusterSystemImagesPtrOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlannel (string)
 func (o ClusterSystemImagesPtrOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlexVol (string)
 func (o ClusterSystemImagesPtrOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalNode (string)
 func (o ClusterSystemImagesPtrOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for certDownloader (string)
 func (o ClusterSystemImagesPtrOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for coredns (string)
 func (o ClusterSystemImagesPtrOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for corednsAutoscaler (string)
 func (o ClusterSystemImagesPtrOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for dnsmasq (string)
 func (o ClusterSystemImagesPtrOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for etcd (string)
 func (o ClusterSystemImagesPtrOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannel (string)
 func (o ClusterSystemImagesPtrOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannelCni (string)
 func (o ClusterSystemImagesPtrOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingress (string)
 func (o ClusterSystemImagesPtrOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingressBackend (string)
 func (o ClusterSystemImagesPtrOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDns (string)
 func (o ClusterSystemImagesPtrOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsAutoscaler (string)
 func (o ClusterSystemImagesPtrOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsSidecar (string)
 func (o ClusterSystemImagesPtrOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetes (string)
 func (o ClusterSystemImagesPtrOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetesServicesSidecar (string)
 func (o ClusterSystemImagesPtrOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for metricsServer (string)
 func (o ClusterSystemImagesPtrOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nginxProxy (string)
 func (o ClusterSystemImagesPtrOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nodelocal (string)
 func (o ClusterSystemImagesPtrOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for podInfraContainer (string)
 func (o ClusterSystemImagesPtrOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveCni (string)
 func (o ClusterSystemImagesPtrOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveNode (string)
 func (o ClusterSystemImagesPtrOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for windowsPodInfraContainer (string)
 func (o ClusterSystemImagesPtrOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 type ClusterWorkerHost struct {
@@ -14381,7 +14689,7 @@ func (i ClusterWorkerHostArray) ToClusterWorkerHostArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterWorkerHostArrayOutput)
 }
 
-type ClusterWorkerHostOutput struct { *pulumi.OutputState }
+type ClusterWorkerHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterWorkerHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterWorkerHost)(nil)).Elem()
@@ -14397,15 +14705,15 @@ func (o ClusterWorkerHostOutput) ToClusterWorkerHostOutputWithContext(ctx contex
 
 // Address ip for node (string)
 func (o ClusterWorkerHostOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterWorkerHost) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterWorkerHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Name of the host provisioned via docker machine (string)
 func (o ClusterWorkerHostOutput) NodeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterWorkerHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterWorkerHost) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-type ClusterWorkerHostArrayOutput struct { *pulumi.OutputState}
+type ClusterWorkerHostArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterWorkerHostArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterWorkerHost)(nil)).Elem()
@@ -14420,7 +14728,7 @@ func (o ClusterWorkerHostArrayOutput) ToClusterWorkerHostArrayOutputWithContext(
 }
 
 func (o ClusterWorkerHostArrayOutput) Index(i pulumi.IntInput) ClusterWorkerHostOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterWorkerHost {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterWorkerHost {
 		return vs[0].([]ClusterWorkerHost)[vs[1].(int)]
 	}).(ClusterWorkerHostOutput)
 }
