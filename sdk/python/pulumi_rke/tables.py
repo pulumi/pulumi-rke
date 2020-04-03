@@ -16,6 +16,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "cluster_dns_server": "clusterDnsServer",
     "cluster_domain": "clusterDomain",
     "cluster_name": "clusterName",
+    "cluster_yaml": "clusterYaml",
     "control_plane_hosts": "controlPlaneHosts",
     "custom_certs": "customCerts",
     "delay_on_creation": "delayOnCreation",
@@ -48,6 +49,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "ssh_key_path": "sshKeyPath",
     "system_images": "systemImages",
     "update_only": "updateOnly",
+    "upgrade_strategy": "upgradeStrategy",
     "worker_hosts": "workerHosts",
 }
 
@@ -65,6 +67,7 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "clusterDnsServer": "cluster_dns_server",
     "clusterDomain": "cluster_domain",
     "clusterName": "cluster_name",
+    "clusterYaml": "cluster_yaml",
     "controlPlaneHosts": "control_plane_hosts",
     "customCerts": "custom_certs",
     "delayOnCreation": "delay_on_creation",
@@ -97,5 +100,6 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "sshKeyPath": "ssh_key_path",
     "systemImages": "system_images",
     "updateOnly": "update_only",
+    "upgradeStrategy": "upgrade_strategy",
     "workerHosts": "worker_hosts",
 }

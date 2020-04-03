@@ -14635,6 +14635,332 @@ func (o ClusterSystemImagesPtrOutput) WindowsPodInfraContainer() pulumi.StringPt
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
+type ClusterUpgradeStrategy struct {
+	// RKE drain nodes. Default: `false` (bool)
+	Drain *bool `pulumi:"drain"`
+	// RKE drain node input (list Maxitems: 1)
+	DrainInput *ClusterUpgradeStrategyDrainInput `pulumi:"drainInput"`
+	// RKE max unavailable controlplane nodes. Default: `1` (string)
+	MaxUnavailableControlplane *string `pulumi:"maxUnavailableControlplane"`
+	// RKE max unavailable worker nodes. Default: `10%` (string)
+	MaxUnavailableWorker *string `pulumi:"maxUnavailableWorker"`
+}
+
+type ClusterUpgradeStrategyInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeStrategyOutput() ClusterUpgradeStrategyOutput
+	ToClusterUpgradeStrategyOutputWithContext(context.Context) ClusterUpgradeStrategyOutput
+}
+
+type ClusterUpgradeStrategyArgs struct {
+	// RKE drain nodes. Default: `false` (bool)
+	Drain pulumi.BoolPtrInput `pulumi:"drain"`
+	// RKE drain node input (list Maxitems: 1)
+	DrainInput ClusterUpgradeStrategyDrainInputPtrInput `pulumi:"drainInput"`
+	// RKE max unavailable controlplane nodes. Default: `1` (string)
+	MaxUnavailableControlplane pulumi.StringPtrInput `pulumi:"maxUnavailableControlplane"`
+	// RKE max unavailable worker nodes. Default: `10%` (string)
+	MaxUnavailableWorker pulumi.StringPtrInput `pulumi:"maxUnavailableWorker"`
+}
+
+func (ClusterUpgradeStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeStrategy)(nil)).Elem()
+}
+
+func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyOutput() ClusterUpgradeStrategyOutput {
+	return i.ToClusterUpgradeStrategyOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyOutputWithContext(ctx context.Context) ClusterUpgradeStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyOutput)
+}
+
+func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput {
+	return i.ToClusterUpgradeStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyOutput).ToClusterUpgradeStrategyPtrOutputWithContext(ctx)
+}
+
+type ClusterUpgradeStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput
+	ToClusterUpgradeStrategyPtrOutputWithContext(context.Context) ClusterUpgradeStrategyPtrOutput
+}
+
+type clusterUpgradeStrategyPtrType ClusterUpgradeStrategyArgs
+
+func ClusterUpgradeStrategyPtr(v *ClusterUpgradeStrategyArgs) ClusterUpgradeStrategyPtrInput {
+	return (*clusterUpgradeStrategyPtrType)(v)
+}
+
+func (*clusterUpgradeStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeStrategy)(nil)).Elem()
+}
+
+func (i *clusterUpgradeStrategyPtrType) ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput {
+	return i.ToClusterUpgradeStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradeStrategyPtrType) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyPtrOutput)
+}
+
+type ClusterUpgradeStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeStrategy)(nil)).Elem()
+}
+
+func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyOutput() ClusterUpgradeStrategyOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyOutputWithContext(ctx context.Context) ClusterUpgradeStrategyOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput {
+	return o.ToClusterUpgradeStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *ClusterUpgradeStrategy {
+		return &v
+	}).(ClusterUpgradeStrategyPtrOutput)
+}
+
+// RKE drain nodes. Default: `false` (bool)
+func (o ClusterUpgradeStrategyOutput) Drain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *bool { return v.Drain }).(pulumi.BoolPtrOutput)
+}
+
+// RKE drain node input (list Maxitems: 1)
+func (o ClusterUpgradeStrategyOutput) DrainInput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *ClusterUpgradeStrategyDrainInput { return v.DrainInput }).(ClusterUpgradeStrategyDrainInputPtrOutput)
+}
+
+// RKE max unavailable controlplane nodes. Default: `1` (string)
+func (o ClusterUpgradeStrategyOutput) MaxUnavailableControlplane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableControlplane }).(pulumi.StringPtrOutput)
+}
+
+// RKE max unavailable worker nodes. Default: `10%` (string)
+func (o ClusterUpgradeStrategyOutput) MaxUnavailableWorker() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableWorker }).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradeStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeStrategy)(nil)).Elem()
+}
+
+func (o ClusterUpgradeStrategyPtrOutput) ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyPtrOutput) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyPtrOutput) Elem() ClusterUpgradeStrategyOutput {
+	return o.ApplyT(func(v *ClusterUpgradeStrategy) ClusterUpgradeStrategy { return *v }).(ClusterUpgradeStrategyOutput)
+}
+
+// RKE drain nodes. Default: `false` (bool)
+func (o ClusterUpgradeStrategyPtrOutput) Drain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *bool { return v.Drain }).(pulumi.BoolPtrOutput)
+}
+
+// RKE drain node input (list Maxitems: 1)
+func (o ClusterUpgradeStrategyPtrOutput) DrainInput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *ClusterUpgradeStrategyDrainInput { return v.DrainInput }).(ClusterUpgradeStrategyDrainInputPtrOutput)
+}
+
+// RKE max unavailable controlplane nodes. Default: `1` (string)
+func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableControlplane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableControlplane }).(pulumi.StringPtrOutput)
+}
+
+// RKE max unavailable worker nodes. Default: `10%` (string)
+func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableWorker() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableWorker }).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradeStrategyDrainInput struct {
+	// Delete RKE node local data. Default: `false` (bool)
+	DeleteLocalData *bool `pulumi:"deleteLocalData"`
+	// Force RKE node drain. Default: `false` (bool)
+	Force *bool `pulumi:"force"`
+	// RKE node drain grace period. Default: `-1` (int)
+	GracePeriod *int `pulumi:"gracePeriod"`
+	// Ignore RKE daemon sets. Default: `true` (bool)
+	IgnoreDaemonSets *bool `pulumi:"ignoreDaemonSets"`
+	// RKE node drain timeout. Default: `60` (int)
+	Timeout *int `pulumi:"timeout"`
+}
+
+type ClusterUpgradeStrategyDrainInputInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeStrategyDrainInputOutput() ClusterUpgradeStrategyDrainInputOutput
+	ToClusterUpgradeStrategyDrainInputOutputWithContext(context.Context) ClusterUpgradeStrategyDrainInputOutput
+}
+
+type ClusterUpgradeStrategyDrainInputArgs struct {
+	// Delete RKE node local data. Default: `false` (bool)
+	DeleteLocalData pulumi.BoolPtrInput `pulumi:"deleteLocalData"`
+	// Force RKE node drain. Default: `false` (bool)
+	Force pulumi.BoolPtrInput `pulumi:"force"`
+	// RKE node drain grace period. Default: `-1` (int)
+	GracePeriod pulumi.IntPtrInput `pulumi:"gracePeriod"`
+	// Ignore RKE daemon sets. Default: `true` (bool)
+	IgnoreDaemonSets pulumi.BoolPtrInput `pulumi:"ignoreDaemonSets"`
+	// RKE node drain timeout. Default: `60` (int)
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (ClusterUpgradeStrategyDrainInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeStrategyDrainInput)(nil)).Elem()
+}
+
+func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInputOutput() ClusterUpgradeStrategyDrainInputOutput {
+	return i.ToClusterUpgradeStrategyDrainInputOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInputOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyDrainInputOutput)
+}
+
+func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return i.ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyDrainInputOutput).ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx)
+}
+
+type ClusterUpgradeStrategyDrainInputPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput
+	ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(context.Context) ClusterUpgradeStrategyDrainInputPtrOutput
+}
+
+type clusterUpgradeStrategyDrainInputPtrType ClusterUpgradeStrategyDrainInputArgs
+
+func ClusterUpgradeStrategyDrainInputPtr(v *ClusterUpgradeStrategyDrainInputArgs) ClusterUpgradeStrategyDrainInputPtrInput {
+	return (*clusterUpgradeStrategyDrainInputPtrType)(v)
+}
+
+func (*clusterUpgradeStrategyDrainInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeStrategyDrainInput)(nil)).Elem()
+}
+
+func (i *clusterUpgradeStrategyDrainInputPtrType) ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return i.ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradeStrategyDrainInputPtrType) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyDrainInputPtrOutput)
+}
+
+type ClusterUpgradeStrategyDrainInputOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeStrategyDrainInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeStrategyDrainInput)(nil)).Elem()
+}
+
+func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInputOutput() ClusterUpgradeStrategyDrainInputOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInputOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o.ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *ClusterUpgradeStrategyDrainInput {
+		return &v
+	}).(ClusterUpgradeStrategyDrainInputPtrOutput)
+}
+
+// Delete RKE node local data. Default: `false` (bool)
+func (o ClusterUpgradeStrategyDrainInputOutput) DeleteLocalData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.DeleteLocalData }).(pulumi.BoolPtrOutput)
+}
+
+// Force RKE node drain. Default: `false` (bool)
+func (o ClusterUpgradeStrategyDrainInputOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain grace period. Default: `-1` (int)
+func (o ClusterUpgradeStrategyDrainInputOutput) GracePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.GracePeriod }).(pulumi.IntPtrOutput)
+}
+
+// Ignore RKE daemon sets. Default: `true` (bool)
+func (o ClusterUpgradeStrategyDrainInputOutput) IgnoreDaemonSets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.IgnoreDaemonSets }).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain timeout. Default: `60` (int)
+func (o ClusterUpgradeStrategyDrainInputOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type ClusterUpgradeStrategyDrainInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeStrategyDrainInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeStrategyDrainInput)(nil)).Elem()
+}
+
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) Elem() ClusterUpgradeStrategyDrainInputOutput {
+	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) ClusterUpgradeStrategyDrainInput { return *v }).(ClusterUpgradeStrategyDrainInputOutput)
+}
+
+// Delete RKE node local data. Default: `false` (bool)
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) DeleteLocalData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.DeleteLocalData }).(pulumi.BoolPtrOutput)
+}
+
+// Force RKE node drain. Default: `false` (bool)
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain grace period. Default: `-1` (int)
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) GracePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.GracePeriod }).(pulumi.IntPtrOutput)
+}
+
+// Ignore RKE daemon sets. Default: `true` (bool)
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) IgnoreDaemonSets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.IgnoreDaemonSets }).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain timeout. Default: `60` (int)
+func (o ClusterUpgradeStrategyDrainInputPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
 type ClusterWorkerHost struct {
 	// Address ip for node (string)
 	Address *string `pulumi:"address"`
@@ -14892,6 +15218,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServicesSchedulerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSystemImagesOutput{})
 	pulumi.RegisterOutputType(ClusterSystemImagesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeStrategyDrainInputOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeStrategyDrainInputPtrOutput{})
 	pulumi.RegisterOutputType(ClusterWorkerHostOutput{})
 	pulumi.RegisterOutputType(ClusterWorkerHostArrayOutput{})
 }
