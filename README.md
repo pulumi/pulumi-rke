@@ -21,7 +21,7 @@ or `yarn`:
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_rancher2
+    $ pip install pulumi_rke
 
 ### Go
 
