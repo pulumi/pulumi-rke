@@ -88,7 +88,7 @@ jobs:
       - name: Build SDK
         run: make build_dotnet ORG=jaxxstorm
       - name: Publish nuget
-        run: find "sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' -exec dotnet nuget push -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json {} ';'
+        run: find "sdk/dotnet/bin/Debug" -name 'Pulumi.*.nupkg' -exec dotnet nuget push -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json {} ';'
   provider:
     runs-on: ubuntu-latest
     steps:
