@@ -24,7 +24,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/go/common/tokens"
 	"github.com/rancher/terraform-provider-rke/rke"
-	//"github.com/terraform-providers/terraform-provider-rke/rke"
 )
 
 // all of the token components used below.

@@ -2307,6 +2307,48 @@ export interface ClusterSystemImages {
     windowsPodInfraContainer?: pulumi.Input<string>;
 }
 
+export interface ClusterUpgradeStrategy {
+    /**
+     * RKE drain nodes. Default: `false` (bool)
+     */
+    drain?: pulumi.Input<boolean>;
+    /**
+     * RKE drain node input (list Maxitems: 1)
+     */
+    drainInput?: pulumi.Input<inputs.ClusterUpgradeStrategyDrainInput>;
+    /**
+     * RKE max unavailable controlplane nodes. Default: `1` (string)
+     */
+    maxUnavailableControlplane?: pulumi.Input<string>;
+    /**
+     * RKE max unavailable worker nodes. Default: `10%` (string)
+     */
+    maxUnavailableWorker?: pulumi.Input<string>;
+}
+
+export interface ClusterUpgradeStrategyDrainInput {
+    /**
+     * Delete RKE node local data. Default: `false` (bool)
+     */
+    deleteLocalData?: pulumi.Input<boolean>;
+    /**
+     * Force RKE node drain. Default: `false` (bool)
+     */
+    force?: pulumi.Input<boolean>;
+    /**
+     * RKE node drain grace period. Default: `-1` (int)
+     */
+    gracePeriod?: pulumi.Input<number>;
+    /**
+     * Ignore RKE daemon sets. Default: `true` (bool)
+     */
+    ignoreDaemonSets?: pulumi.Input<boolean>;
+    /**
+     * RKE node drain timeout. Default: `60` (int)
+     */
+    timeout?: pulumi.Input<number>;
+}
+
 export interface ClusterWorkerHost {
     /**
      * Address ip for node (string)

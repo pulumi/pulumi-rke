@@ -3,10 +3,10 @@ module github.com/jaxxstorm/pulumi-rke/provider
 go 1.13
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.0.0
+	github.com/hashicorp/terraform-plugin-sdk v1.9.0
 	github.com/pulumi/pulumi-terraform-bridge v1.8.4
-	github.com/pulumi/pulumi/sdk v1.13.1
-	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200313203759-b1d9cca2920d
+	github.com/pulumi/pulumi/sdk v1.14.0
+	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200403174431-26b7d1fa727a
 )
 
 replace (

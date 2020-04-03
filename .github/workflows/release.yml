@@ -104,8 +104,6 @@ jobs:
             ${{ runner.os }}-go-
       - name: Ensure dependencies
         run: make ensure
-      - name: Generate provider deps
-        run: make provider ORG=jaxxstorm
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
