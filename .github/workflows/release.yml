@@ -20,6 +20,9 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+      - uses: actions/setup-go@v2-beta
+        with:
+          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -48,6 +51,9 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+      - uses: actions/setup-go@v2-beta
+        with:
+          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -77,6 +83,9 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+      - uses: actions/setup-go@v2-beta
+        with:
+          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
