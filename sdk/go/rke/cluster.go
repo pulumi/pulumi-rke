@@ -12,6 +12,11 @@ import (
 
 // Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
 //
+// RKE clusters can be defined in the provider:
+// - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
+// - Using the TF provider arguments to define the entire cluster.
+// - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
+//
 // > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -50,6 +55,8 @@ type Cluster struct {
 	ClusterDomain pulumi.StringOutput `pulumi:"clusterDomain"`
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+	ClusterYaml pulumi.StringPtrOutput `pulumi:"clusterYaml"`
 	// (Computed) RKE k8s cluster control plane nodes (list)
 	ControlPlaneHosts ClusterControlPlaneHostArrayOutput `pulumi:"controlPlaneHosts"`
 	// Use custom certificates from a cert dir (string)
@@ -69,7 +76,7 @@ type Cluster struct {
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayOutput `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
-	IgnoreDockerVersion pulumi.BoolPtrOutput `pulumi:"ignoreDockerVersion"`
+	IgnoreDockerVersion pulumi.BoolOutput `pulumi:"ignoreDockerVersion"`
 	// (Computed) RKE k8s cluster inactive nodes (list)
 	InactiveHosts ClusterInactiveHostArrayOutput `pulumi:"inactiveHosts"`
 	// Docker image for ingress (string)
@@ -80,15 +87,14 @@ type Cluster struct {
 	KubeAdminUser pulumi.StringOutput `pulumi:"kubeAdminUser"`
 	// (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
 	KubeConfigYaml pulumi.StringOutput `pulumi:"kubeConfigYaml"`
-	// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
-	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
+	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+	KubernetesVersion pulumi.StringPtrOutput `pulumi:"kubernetesVersion"`
 	// RKE k8s cluster monitoring Config (list maxitems:1)
 	Monitoring ClusterMonitoringOutput `pulumi:"monitoring"`
 	// (list maxitems:1)
 	Network ClusterNetworkOutput `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
-	// RKE k8s cluster nodes (YAML | JSON)
+	Nodes      ClusterNodeArrayOutput   `pulumi:"nodes"`
 	NodesConfs pulumi.StringArrayOutput `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringOutput `pulumi:"prefixPath"`
@@ -119,7 +125,7 @@ type Cluster struct {
 	// Use services.kubelet instead (list maxitems:1)
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrOutput `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
-	SshAgentAuth pulumi.BoolPtrOutput `pulumi:"sshAgentAuth"`
+	SshAgentAuth pulumi.BoolOutput `pulumi:"sshAgentAuth"`
 	// SSH Certificate path (string)
 	SshCertPath pulumi.StringOutput `pulumi:"sshCertPath"`
 	// SSH Private Key path (string)
@@ -128,6 +134,8 @@ type Cluster struct {
 	SystemImages ClusterSystemImagesPtrOutput `pulumi:"systemImages"`
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly pulumi.BoolPtrOutput `pulumi:"updateOnly"`
+	// RKE k8s cluster upgrade strategy (list maxitems:1)
+	UpgradeStrategy ClusterUpgradeStrategyPtrOutput `pulumi:"upgradeStrategy"`
 	// (Computed) RKE k8s cluster worker nodes (list)
 	WorkerHosts ClusterWorkerHostArrayOutput `pulumi:"workerHosts"`
 }
@@ -194,6 +202,8 @@ type clusterState struct {
 	ClusterDomain *string `pulumi:"clusterDomain"`
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName *string `pulumi:"clusterName"`
+	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+	ClusterYaml *string `pulumi:"clusterYaml"`
 	// (Computed) RKE k8s cluster control plane nodes (list)
 	ControlPlaneHosts []ClusterControlPlaneHost `pulumi:"controlPlaneHosts"`
 	// Use custom certificates from a cert dir (string)
@@ -224,16 +234,15 @@ type clusterState struct {
 	KubeAdminUser *string `pulumi:"kubeAdminUser"`
 	// (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
 	KubeConfigYaml *string `pulumi:"kubeConfigYaml"`
-	// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// RKE k8s cluster monitoring Config (list maxitems:1)
 	Monitoring *ClusterMonitoring `pulumi:"monitoring"`
 	// (list maxitems:1)
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes []ClusterNode `pulumi:"nodes"`
-	// RKE k8s cluster nodes (YAML | JSON)
-	NodesConfs []string `pulumi:"nodesConfs"`
+	Nodes      []ClusterNode `pulumi:"nodes"`
+	NodesConfs []string      `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
 	// RKE k8s cluster private docker registries (list)
@@ -272,6 +281,8 @@ type clusterState struct {
 	SystemImages *ClusterSystemImages `pulumi:"systemImages"`
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly *bool `pulumi:"updateOnly"`
+	// RKE k8s cluster upgrade strategy (list maxitems:1)
+	UpgradeStrategy *ClusterUpgradeStrategy `pulumi:"upgradeStrategy"`
 	// (Computed) RKE k8s cluster worker nodes (list)
 	WorkerHosts []ClusterWorkerHost `pulumi:"workerHosts"`
 }
@@ -311,6 +322,8 @@ type ClusterState struct {
 	ClusterDomain pulumi.StringPtrInput
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName pulumi.StringPtrInput
+	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+	ClusterYaml pulumi.StringPtrInput
 	// (Computed) RKE k8s cluster control plane nodes (list)
 	ControlPlaneHosts ClusterControlPlaneHostArrayInput
 	// Use custom certificates from a cert dir (string)
@@ -341,15 +354,14 @@ type ClusterState struct {
 	KubeAdminUser pulumi.StringPtrInput
 	// (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
 	KubeConfigYaml pulumi.StringPtrInput
-	// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
 	KubernetesVersion pulumi.StringPtrInput
 	// RKE k8s cluster monitoring Config (list maxitems:1)
 	Monitoring ClusterMonitoringPtrInput
 	// (list maxitems:1)
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
-	Nodes ClusterNodeArrayInput
-	// RKE k8s cluster nodes (YAML | JSON)
+	Nodes      ClusterNodeArrayInput
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -389,6 +401,8 @@ type ClusterState struct {
 	SystemImages ClusterSystemImagesPtrInput
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly pulumi.BoolPtrInput
+	// RKE k8s cluster upgrade strategy (list maxitems:1)
+	UpgradeStrategy ClusterUpgradeStrategyPtrInput
 	// (Computed) RKE k8s cluster worker nodes (list)
 	WorkerHosts ClusterWorkerHostArrayInput
 }
@@ -416,6 +430,8 @@ type clusterArgs struct {
 	CloudProvider *ClusterCloudProvider `pulumi:"cloudProvider"`
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName *string `pulumi:"clusterName"`
+	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+	ClusterYaml *string `pulumi:"clusterYaml"`
 	// Use custom certificates from a cert dir (string)
 	CustomCerts *bool `pulumi:"customCerts"`
 	// RKE k8s cluster delay on creation (int)
@@ -434,16 +450,15 @@ type clusterArgs struct {
 	IgnoreDockerVersion *bool `pulumi:"ignoreDockerVersion"`
 	// Docker image for ingress (string)
 	Ingress *ClusterIngress `pulumi:"ingress"`
-	// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// RKE k8s cluster monitoring Config (list maxitems:1)
 	Monitoring *ClusterMonitoring `pulumi:"monitoring"`
 	// (list maxitems:1)
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes []ClusterNode `pulumi:"nodes"`
-	// RKE k8s cluster nodes (YAML | JSON)
-	NodesConfs []string `pulumi:"nodesConfs"`
+	Nodes      []ClusterNode `pulumi:"nodes"`
+	NodesConfs []string      `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
 	// RKE k8s cluster private docker registries (list)
@@ -476,6 +491,8 @@ type clusterArgs struct {
 	SystemImages *ClusterSystemImages `pulumi:"systemImages"`
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly *bool `pulumi:"updateOnly"`
+	// RKE k8s cluster upgrade strategy (list maxitems:1)
+	UpgradeStrategy *ClusterUpgradeStrategy `pulumi:"upgradeStrategy"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -498,6 +515,8 @@ type ClusterArgs struct {
 	CloudProvider ClusterCloudProviderPtrInput
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName pulumi.StringPtrInput
+	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+	ClusterYaml pulumi.StringPtrInput
 	// Use custom certificates from a cert dir (string)
 	CustomCerts pulumi.BoolPtrInput
 	// RKE k8s cluster delay on creation (int)
@@ -516,15 +535,14 @@ type ClusterArgs struct {
 	IgnoreDockerVersion pulumi.BoolPtrInput
 	// Docker image for ingress (string)
 	Ingress ClusterIngressPtrInput
-	// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
 	KubernetesVersion pulumi.StringPtrInput
 	// RKE k8s cluster monitoring Config (list maxitems:1)
 	Monitoring ClusterMonitoringPtrInput
 	// (list maxitems:1)
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
-	Nodes ClusterNodeArrayInput
-	// RKE k8s cluster nodes (YAML | JSON)
+	Nodes      ClusterNodeArrayInput
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -558,6 +576,8 @@ type ClusterArgs struct {
 	SystemImages ClusterSystemImagesPtrInput
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly pulumi.BoolPtrInput
+	// RKE k8s cluster upgrade strategy (list maxitems:1)
+	UpgradeStrategy ClusterUpgradeStrategyPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

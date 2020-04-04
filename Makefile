@@ -2,7 +2,7 @@ PROJECT_NAME := rke Package
 include build/common.mk
 
 PACK             := rke
-ORG              := pulumi
+ORG              := jaxxstorm
 PACKDIR          := sdk
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @${ORG}/${PACK}

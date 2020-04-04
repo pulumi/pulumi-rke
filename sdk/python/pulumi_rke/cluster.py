@@ -367,6 +367,10 @@ class Cluster(pulumi.CustomResource):
     """
     RKE k8s cluster name used in the kube config (string)
     """
+    cluster_yaml: pulumi.Output[str]
+    """
+    RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+    """
     control_plane_hosts: pulumi.Output[list]
     """
     (Computed) RKE k8s cluster control plane nodes (list)
@@ -449,7 +453,7 @@ class Cluster(pulumi.CustomResource):
     """
     kubernetes_version: pulumi.Output[str]
     """
-    K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+    K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
     """
     monitoring: pulumi.Output[dict]
     """
@@ -504,9 +508,6 @@ class Cluster(pulumi.CustomResource):
       * `user` (`str`) - Registry user (string)
     """
     nodes_confs: pulumi.Output[list]
-    """
-    RKE k8s cluster nodes (YAML | JSON)
-    """
     prefix_path: pulumi.Output[str]
     """
     RKE k8s directory path (string)
@@ -832,6 +833,21 @@ class Cluster(pulumi.CustomResource):
     """
     Skip idempotent deployment of control and etcd plane. Default `false` (bool)
     """
+    upgrade_strategy: pulumi.Output[dict]
+    """
+    RKE k8s cluster upgrade strategy (list maxitems:1)
+
+      * `drain` (`bool`) - RKE drain nodes. Default: `false` (bool)
+      * `drainInput` (`dict`) - RKE drain node input (list Maxitems: 1)
+        * `deleteLocalData` (`bool`) - Delete RKE node local data. Default: `false` (bool)
+        * `force` (`bool`) - Force RKE node drain. Default: `false` (bool)
+        * `gracePeriod` (`float`) - RKE node drain grace period. Default: `-1` (int)
+        * `ignoreDaemonSets` (`bool`) - Ignore RKE daemon sets. Default: `true` (bool)
+        * `timeout` (`float`) - RKE node drain timeout. Default: `60` (int)
+
+      * `maxUnavailableControlplane` (`str`) - RKE max unavailable controlplane nodes. Default: `1` (string)
+      * `maxUnavailableWorker` (`str`) - RKE max unavailable worker nodes. Default: `10%` (string)
+    """
     worker_hosts: pulumi.Output[list]
     """
     (Computed) RKE k8s cluster worker nodes (list)
@@ -839,9 +855,14 @@ class Cluster(pulumi.CustomResource):
       * `address` (`str`) - Address ip for node (string)
       * `nodeName` (`str`) - Name of the host provisioned via docker machine (string)
     """
-    def __init__(__self__, resource_name, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, authentication=None, authorization=None, bastion_host=None, cert_dir=None, cloud_provider=None, cluster_name=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, ignore_docker_version=None, ingress=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rotate_certificates=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, authentication=None, authorization=None, bastion_host=None, cert_dir=None, cloud_provider=None, cluster_name=None, cluster_yaml=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, ignore_docker_version=None, ingress=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rotate_certificates=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, upgrade_strategy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
+
+        RKE clusters can be defined in the provider:
+        - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
+        - Using the TF provider arguments to define the entire cluster.
+        - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
 
         > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
 
@@ -856,6 +877,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cert_dir: Specify a certificate dir path (string)
         :param pulumi.Input[dict] cloud_provider: Calico cloud provider (string)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
+        :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
         :param pulumi.Input[float] delay_on_creation: RKE k8s cluster delay on creation (int)
         :param pulumi.Input[bool] dind: Deploy RKE cluster on a dind environment. Default: `false` (bool)
@@ -865,11 +887,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] dns: RKE k8s cluster DNS Config (list maxitems:1)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         :param pulumi.Input[dict] ingress: Docker image for ingress (string)
-        :param pulumi.Input[str] kubernetes_version: K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+        :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
         :param pulumi.Input[dict] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
         :param pulumi.Input[dict] network: (list maxitems:1)
         :param pulumi.Input[list] nodes: RKE k8s cluster nodes (list)
-        :param pulumi.Input[list] nodes_confs: RKE k8s cluster nodes (YAML | JSON)
         :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
         :param pulumi.Input[list] private_registries: RKE k8s cluster private docker registries (list)
         :param pulumi.Input[dict] restore: Restore cluster. Default `false` (bool)
@@ -886,6 +907,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
         :param pulumi.Input[dict] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        :param pulumi.Input[dict] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
 
         The **authentication** object supports the following:
 
@@ -1469,6 +1491,19 @@ class Cluster(pulumi.CustomResource):
           * `weaveCni` (`pulumi.Input[str]`) - Docker image for weave_cni (string)
           * `weaveNode` (`pulumi.Input[str]`) - Docker image for weave_node (string)
           * `windowsPodInfraContainer` (`pulumi.Input[str]`) - Docker image for windows_pod_infra_container (string)
+
+        The **upgrade_strategy** object supports the following:
+
+          * `drain` (`pulumi.Input[bool]`) - RKE drain nodes. Default: `false` (bool)
+          * `drainInput` (`pulumi.Input[dict]`) - RKE drain node input (list Maxitems: 1)
+            * `deleteLocalData` (`pulumi.Input[bool]`) - Delete RKE node local data. Default: `false` (bool)
+            * `force` (`pulumi.Input[bool]`) - Force RKE node drain. Default: `false` (bool)
+            * `gracePeriod` (`pulumi.Input[float]`) - RKE node drain grace period. Default: `-1` (int)
+            * `ignoreDaemonSets` (`pulumi.Input[bool]`) - Ignore RKE daemon sets. Default: `true` (bool)
+            * `timeout` (`pulumi.Input[float]`) - RKE node drain timeout. Default: `60` (int)
+
+          * `maxUnavailableControlplane` (`pulumi.Input[str]`) - RKE max unavailable controlplane nodes. Default: `1` (string)
+          * `maxUnavailableWorker` (`pulumi.Input[str]`) - RKE max unavailable worker nodes. Default: `10%` (string)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -1496,6 +1531,7 @@ class Cluster(pulumi.CustomResource):
             __props__['cert_dir'] = cert_dir
             __props__['cloud_provider'] = cloud_provider
             __props__['cluster_name'] = cluster_name
+            __props__['cluster_yaml'] = cluster_yaml
             __props__['custom_certs'] = custom_certs
             __props__['delay_on_creation'] = delay_on_creation
             __props__['dind'] = dind
@@ -1526,6 +1562,7 @@ class Cluster(pulumi.CustomResource):
             __props__['ssh_key_path'] = ssh_key_path
             __props__['system_images'] = system_images
             __props__['update_only'] = update_only
+            __props__['upgrade_strategy'] = upgrade_strategy
             __props__['api_server_url'] = None
             __props__['ca_crt'] = None
             __props__['certificates'] = None
@@ -1551,7 +1588,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, api_server_url=None, authentication=None, authorization=None, bastion_host=None, ca_crt=None, cert_dir=None, certificates=None, client_cert=None, client_key=None, cloud_provider=None, cluster_cidr=None, cluster_dns_server=None, cluster_domain=None, cluster_name=None, control_plane_hosts=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, etcd_hosts=None, ignore_docker_version=None, inactive_hosts=None, ingress=None, internal_kube_config_yaml=None, kube_admin_user=None, kube_config_yaml=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rke_cluster_yaml=None, rke_state=None, rotate_certificates=None, running_system_images=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, worker_hosts=None):
+    def get(resource_name, id, opts=None, addon_job_timeout=None, addons=None, addons_includes=None, api_server_url=None, authentication=None, authorization=None, bastion_host=None, ca_crt=None, cert_dir=None, certificates=None, client_cert=None, client_key=None, cloud_provider=None, cluster_cidr=None, cluster_dns_server=None, cluster_domain=None, cluster_name=None, cluster_yaml=None, control_plane_hosts=None, custom_certs=None, delay_on_creation=None, dind=None, dind_dns_server=None, dind_storage_driver=None, disable_port_check=None, dns=None, etcd_hosts=None, ignore_docker_version=None, inactive_hosts=None, ingress=None, internal_kube_config_yaml=None, kube_admin_user=None, kube_config_yaml=None, kubernetes_version=None, monitoring=None, network=None, nodes=None, nodes_confs=None, prefix_path=None, private_registries=None, restore=None, rke_cluster_yaml=None, rke_state=None, rotate_certificates=None, running_system_images=None, services=None, services_etcd_deprecated=None, services_kube_api_deprecated=None, services_kube_controller_deprecated=None, services_kube_proxy_deprecated=None, services_kube_scheduler_deprecated=None, services_kubelet_deprecated=None, ssh_agent_auth=None, ssh_cert_path=None, ssh_key_path=None, system_images=None, update_only=None, upgrade_strategy=None, worker_hosts=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1576,6 +1613,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_dns_server: Cluster DNS Server option for kubelet service (string)
         :param pulumi.Input[str] cluster_domain: Cluster Domain option for kubelet service. Default `cluster.local` (string)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
+        :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         :param pulumi.Input[list] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
         :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
         :param pulumi.Input[float] delay_on_creation: RKE k8s cluster delay on creation (int)
@@ -1591,11 +1629,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] internal_kube_config_yaml: (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
         :param pulumi.Input[str] kube_admin_user: (Computed) RKE k8s cluster admin user (string)
         :param pulumi.Input[str] kube_config_yaml: (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
-        :param pulumi.Input[str] kubernetes_version: K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+        :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
         :param pulumi.Input[dict] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
         :param pulumi.Input[dict] network: (list maxitems:1)
         :param pulumi.Input[list] nodes: RKE k8s cluster nodes (list)
-        :param pulumi.Input[list] nodes_confs: RKE k8s cluster nodes (YAML | JSON)
         :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
         :param pulumi.Input[list] private_registries: RKE k8s cluster private docker registries (list)
         :param pulumi.Input[dict] restore: Restore cluster. Default `false` (bool)
@@ -1615,6 +1652,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
         :param pulumi.Input[dict] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        :param pulumi.Input[dict] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
         :param pulumi.Input[list] worker_hosts: (Computed) RKE k8s cluster worker nodes (list)
 
         The **authentication** object supports the following:
@@ -2265,6 +2303,19 @@ class Cluster(pulumi.CustomResource):
           * `weaveNode` (`pulumi.Input[str]`) - Docker image for weave_node (string)
           * `windowsPodInfraContainer` (`pulumi.Input[str]`) - Docker image for windows_pod_infra_container (string)
 
+        The **upgrade_strategy** object supports the following:
+
+          * `drain` (`pulumi.Input[bool]`) - RKE drain nodes. Default: `false` (bool)
+          * `drainInput` (`pulumi.Input[dict]`) - RKE drain node input (list Maxitems: 1)
+            * `deleteLocalData` (`pulumi.Input[bool]`) - Delete RKE node local data. Default: `false` (bool)
+            * `force` (`pulumi.Input[bool]`) - Force RKE node drain. Default: `false` (bool)
+            * `gracePeriod` (`pulumi.Input[float]`) - RKE node drain grace period. Default: `-1` (int)
+            * `ignoreDaemonSets` (`pulumi.Input[bool]`) - Ignore RKE daemon sets. Default: `true` (bool)
+            * `timeout` (`pulumi.Input[float]`) - RKE node drain timeout. Default: `60` (int)
+
+          * `maxUnavailableControlplane` (`pulumi.Input[str]`) - RKE max unavailable controlplane nodes. Default: `1` (string)
+          * `maxUnavailableWorker` (`pulumi.Input[str]`) - RKE max unavailable worker nodes. Default: `10%` (string)
+
         The **worker_hosts** object supports the following:
 
           * `address` (`pulumi.Input[str]`) - Address ip for node (string)
@@ -2291,6 +2342,7 @@ class Cluster(pulumi.CustomResource):
         __props__["cluster_dns_server"] = cluster_dns_server
         __props__["cluster_domain"] = cluster_domain
         __props__["cluster_name"] = cluster_name
+        __props__["cluster_yaml"] = cluster_yaml
         __props__["control_plane_hosts"] = control_plane_hosts
         __props__["custom_certs"] = custom_certs
         __props__["delay_on_creation"] = delay_on_creation
@@ -2330,6 +2382,7 @@ class Cluster(pulumi.CustomResource):
         __props__["ssh_key_path"] = ssh_key_path
         __props__["system_images"] = system_images
         __props__["update_only"] = update_only
+        __props__["upgrade_strategy"] = upgrade_strategy
         __props__["worker_hosts"] = worker_hosts
         return Cluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

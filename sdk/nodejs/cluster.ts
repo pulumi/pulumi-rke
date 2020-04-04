@@ -8,6 +8,11 @@ import * as utilities from "./utilities";
 
 /**
  * Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
+ * 
+ * RKE clusters can be defined in the provider:
+ * - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
+ * - Using the TF provider arguments to define the entire cluster.
+ * - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
  *
  * > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
  */
@@ -107,6 +112,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+     */
+    public readonly clusterYaml!: pulumi.Output<string | undefined>;
+    /**
      * (Computed) RKE k8s cluster control plane nodes (list)
      */
     public /*out*/ readonly controlPlaneHosts!: pulumi.Output<outputs.ClusterControlPlaneHost[]>;
@@ -145,7 +154,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */
-    public readonly ignoreDockerVersion!: pulumi.Output<boolean | undefined>;
+    public readonly ignoreDockerVersion!: pulumi.Output<boolean>;
     /**
      * (Computed) RKE k8s cluster inactive nodes (list)
      */
@@ -167,9 +176,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeConfigYaml!: pulumi.Output<string>;
     /**
-     * K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+     * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      */
-    public readonly kubernetesVersion!: pulumi.Output<string>;
+    public readonly kubernetesVersion!: pulumi.Output<string | undefined>;
     /**
      * RKE k8s cluster monitoring Config (list maxitems:1)
      */
@@ -182,9 +191,6 @@ export class Cluster extends pulumi.CustomResource {
      * RKE k8s cluster nodes (list)
      */
     public readonly nodes!: pulumi.Output<outputs.ClusterNode[] | undefined>;
-    /**
-     * RKE k8s cluster nodes (YAML | JSON)
-     */
     public readonly nodesConfs!: pulumi.Output<string[] | undefined>;
     /**
      * RKE k8s directory path (string)
@@ -245,7 +251,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * SSH Agent Auth enable (bool)
      */
-    public readonly sshAgentAuth!: pulumi.Output<boolean | undefined>;
+    public readonly sshAgentAuth!: pulumi.Output<boolean>;
     /**
      * SSH Certificate path (string)
      */
@@ -262,6 +268,10 @@ export class Cluster extends pulumi.CustomResource {
      * Skip idempotent deployment of control and etcd plane. Default `false` (bool)
      */
     public readonly updateOnly!: pulumi.Output<boolean | undefined>;
+    /**
+     * RKE k8s cluster upgrade strategy (list maxitems:1)
+     */
+    public readonly upgradeStrategy!: pulumi.Output<outputs.ClusterUpgradeStrategy | undefined>;
     /**
      * (Computed) RKE k8s cluster worker nodes (list)
      */
@@ -296,6 +306,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterDnsServer"] = state ? state.clusterDnsServer : undefined;
             inputs["clusterDomain"] = state ? state.clusterDomain : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
+            inputs["clusterYaml"] = state ? state.clusterYaml : undefined;
             inputs["controlPlaneHosts"] = state ? state.controlPlaneHosts : undefined;
             inputs["customCerts"] = state ? state.customCerts : undefined;
             inputs["delayOnCreation"] = state ? state.delayOnCreation : undefined;
@@ -335,6 +346,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["sshKeyPath"] = state ? state.sshKeyPath : undefined;
             inputs["systemImages"] = state ? state.systemImages : undefined;
             inputs["updateOnly"] = state ? state.updateOnly : undefined;
+            inputs["upgradeStrategy"] = state ? state.upgradeStrategy : undefined;
             inputs["workerHosts"] = state ? state.workerHosts : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -347,6 +359,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["certDir"] = args ? args.certDir : undefined;
             inputs["cloudProvider"] = args ? args.cloudProvider : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["clusterYaml"] = args ? args.clusterYaml : undefined;
             inputs["customCerts"] = args ? args.customCerts : undefined;
             inputs["delayOnCreation"] = args ? args.delayOnCreation : undefined;
             inputs["dind"] = args ? args.dind : undefined;
@@ -377,6 +390,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["sshKeyPath"] = args ? args.sshKeyPath : undefined;
             inputs["systemImages"] = args ? args.systemImages : undefined;
             inputs["updateOnly"] = args ? args.updateOnly : undefined;
+            inputs["upgradeStrategy"] = args ? args.upgradeStrategy : undefined;
             inputs["apiServerUrl"] = undefined /*out*/;
             inputs["caCrt"] = undefined /*out*/;
             inputs["certificates"] = undefined /*out*/;
@@ -480,6 +494,10 @@ export interface ClusterState {
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
+     * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+     */
+    readonly clusterYaml?: pulumi.Input<string>;
+    /**
      * (Computed) RKE k8s cluster control plane nodes (list)
      */
     readonly controlPlaneHosts?: pulumi.Input<pulumi.Input<inputs.ClusterControlPlaneHost>[]>;
@@ -529,6 +547,8 @@ export interface ClusterState {
     readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+     * 
+     * @deprecated Use kube_config_yaml instead
      */
     readonly internalKubeConfigYaml?: pulumi.Input<string>;
     /**
@@ -540,7 +560,7 @@ export interface ClusterState {
      */
     readonly kubeConfigYaml?: pulumi.Input<string>;
     /**
-     * K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+     * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      */
     readonly kubernetesVersion?: pulumi.Input<string>;
     /**
@@ -555,9 +575,6 @@ export interface ClusterState {
      * RKE k8s cluster nodes (list)
      */
     readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
-    /**
-     * RKE k8s cluster nodes (YAML | JSON)
-     */
     readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
@@ -648,6 +665,10 @@ export interface ClusterState {
      */
     readonly updateOnly?: pulumi.Input<boolean>;
     /**
+     * RKE k8s cluster upgrade strategy (list maxitems:1)
+     */
+    readonly upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
+    /**
      * (Computed) RKE k8s cluster worker nodes (list)
      */
     readonly workerHosts?: pulumi.Input<pulumi.Input<inputs.ClusterWorkerHost>[]>;
@@ -694,6 +715,10 @@ export interface ClusterArgs {
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
+     * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+     */
+    readonly clusterYaml?: pulumi.Input<string>;
+    /**
      * Use custom certificates from a cert dir (string)
      */
     readonly customCerts?: pulumi.Input<boolean>;
@@ -730,7 +755,7 @@ export interface ClusterArgs {
      */
     readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
-     * K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+     * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      */
     readonly kubernetesVersion?: pulumi.Input<string>;
     /**
@@ -745,9 +770,6 @@ export interface ClusterArgs {
      * RKE k8s cluster nodes (list)
      */
     readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
-    /**
-     * RKE k8s cluster nodes (YAML | JSON)
-     */
     readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
@@ -825,4 +847,8 @@ export interface ClusterArgs {
      * Skip idempotent deployment of control and etcd plane. Default `false` (bool)
      */
     readonly updateOnly?: pulumi.Input<boolean>;
+    /**
+     * RKE k8s cluster upgrade strategy (list maxitems:1)
+     */
+    readonly upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
 }

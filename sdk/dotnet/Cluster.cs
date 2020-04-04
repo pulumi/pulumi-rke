@@ -12,6 +12,11 @@ namespace Pulumi.Rke
     /// <summary>
     /// Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
     /// 
+    /// RKE clusters can be defined in the provider:
+    /// - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
+    /// - Using the TF provider arguments to define the entire cluster.
+    /// - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
+    /// 
     /// &gt; This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
@@ -119,6 +124,12 @@ namespace Pulumi.Rke
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        /// </summary>
+        [Output("clusterYaml")]
+        public Output<string?> ClusterYaml { get; private set; } = null!;
+
+        /// <summary>
         /// (Computed) RKE k8s cluster control plane nodes (list)
         /// </summary>
         [Output("controlPlaneHosts")]
@@ -176,7 +187,7 @@ namespace Pulumi.Rke
         /// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         /// </summary>
         [Output("ignoreDockerVersion")]
-        public Output<bool?> IgnoreDockerVersion { get; private set; } = null!;
+        public Output<bool> IgnoreDockerVersion { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster inactive nodes (list)
@@ -209,10 +220,10 @@ namespace Pulumi.Rke
         public Output<string> KubeConfigYaml { get; private set; } = null!;
 
         /// <summary>
-        /// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+        /// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
         /// </summary>
         [Output("kubernetesVersion")]
-        public Output<string> KubernetesVersion { get; private set; } = null!;
+        public Output<string?> KubernetesVersion { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster monitoring Config (list maxitems:1)
@@ -232,9 +243,6 @@ namespace Pulumi.Rke
         [Output("nodes")]
         public Output<ImmutableArray<Outputs.ClusterNodes>> Nodes { get; private set; } = null!;
 
-        /// <summary>
-        /// RKE k8s cluster nodes (YAML | JSON)
-        /// </summary>
         [Output("nodesConfs")]
         public Output<ImmutableArray<string>> NodesConfs { get; private set; } = null!;
 
@@ -326,7 +334,7 @@ namespace Pulumi.Rke
         /// SSH Agent Auth enable (bool)
         /// </summary>
         [Output("sshAgentAuth")]
-        public Output<bool?> SshAgentAuth { get; private set; } = null!;
+        public Output<bool> SshAgentAuth { get; private set; } = null!;
 
         /// <summary>
         /// SSH Certificate path (string)
@@ -351,6 +359,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Output("updateOnly")]
         public Output<bool?> UpdateOnly { get; private set; } = null!;
+
+        /// <summary>
+        /// RKE k8s cluster upgrade strategy (list maxitems:1)
+        /// </summary>
+        [Output("upgradeStrategy")]
+        public Output<Outputs.ClusterUpgradeStrategy?> UpgradeStrategy { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster worker nodes (list)
@@ -465,6 +479,12 @@ namespace Pulumi.Rke
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
+        /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        /// </summary>
+        [Input("clusterYaml")]
+        public Input<string>? ClusterYaml { get; set; }
+
+        /// <summary>
         /// Use custom certificates from a cert dir (string)
         /// </summary>
         [Input("customCerts")]
@@ -519,7 +539,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterIngressArgs>? Ingress { get; set; }
 
         /// <summary>
-        /// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+        /// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
@@ -550,10 +570,7 @@ namespace Pulumi.Rke
 
         [Input("nodesConfs")]
         private InputList<string>? _nodesConfs;
-
-        /// <summary>
-        /// RKE k8s cluster nodes (YAML | JSON)
-        /// </summary>
+        [Obsolete(@"Use cluster_yaml instead")]
         public InputList<string> NodesConfs
         {
             get => _nodesConfs ?? (_nodesConfs = new InputList<string>());
@@ -661,6 +678,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Input("updateOnly")]
         public Input<bool>? UpdateOnly { get; set; }
+
+        /// <summary>
+        /// RKE k8s cluster upgrade strategy (list maxitems:1)
+        /// </summary>
+        [Input("upgradeStrategy")]
+        public Input<Inputs.ClusterUpgradeStrategyArgs>? UpgradeStrategy { get; set; }
 
         public ClusterArgs()
         {
@@ -783,6 +806,12 @@ namespace Pulumi.Rke
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        /// </summary>
+        [Input("clusterYaml")]
+        public Input<string>? ClusterYaml { get; set; }
+
         [Input("controlPlaneHosts")]
         private InputList<Inputs.ClusterControlPlaneHostsGetArgs>? _controlPlaneHosts;
 
@@ -892,7 +921,7 @@ namespace Pulumi.Rke
         public Input<string>? KubeConfigYaml { get; set; }
 
         /// <summary>
-        /// K8s version to deploy (if kubernetes image is specified, image version takes precedence) (string)
+        /// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
@@ -923,10 +952,7 @@ namespace Pulumi.Rke
 
         [Input("nodesConfs")]
         private InputList<string>? _nodesConfs;
-
-        /// <summary>
-        /// RKE k8s cluster nodes (YAML | JSON)
-        /// </summary>
+        [Obsolete(@"Use cluster_yaml instead")]
         public InputList<string> NodesConfs
         {
             get => _nodesConfs ?? (_nodesConfs = new InputList<string>());
@@ -1052,6 +1078,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Input("updateOnly")]
         public Input<bool>? UpdateOnly { get; set; }
+
+        /// <summary>
+        /// RKE k8s cluster upgrade strategy (list maxitems:1)
+        /// </summary>
+        [Input("upgradeStrategy")]
+        public Input<Inputs.ClusterUpgradeStrategyGetArgs>? UpgradeStrategy { get; set; }
 
         [Input("workerHosts")]
         private InputList<Inputs.ClusterWorkerHostsGetArgs>? _workerHosts;
@@ -8803,6 +8835,142 @@ namespace Pulumi.Rke
         }
     }
 
+    public sealed class ClusterUpgradeStrategyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// RKE drain nodes. Default: `false` (bool)
+        /// </summary>
+        [Input("drain")]
+        public Input<bool>? Drain { get; set; }
+
+        /// <summary>
+        /// RKE drain node input (list Maxitems: 1)
+        /// </summary>
+        [Input("drainInput")]
+        public Input<ClusterUpgradeStrategyDrainInputArgs>? DrainInput { get; set; }
+
+        /// <summary>
+        /// RKE max unavailable controlplane nodes. Default: `1` (string)
+        /// </summary>
+        [Input("maxUnavailableControlplane")]
+        public Input<string>? MaxUnavailableControlplane { get; set; }
+
+        /// <summary>
+        /// RKE max unavailable worker nodes. Default: `10%` (string)
+        /// </summary>
+        [Input("maxUnavailableWorker")]
+        public Input<string>? MaxUnavailableWorker { get; set; }
+
+        public ClusterUpgradeStrategyArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterUpgradeStrategyDrainInputArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Delete RKE node local data. Default: `false` (bool)
+        /// </summary>
+        [Input("deleteLocalData")]
+        public Input<bool>? DeleteLocalData { get; set; }
+
+        /// <summary>
+        /// Force RKE node drain. Default: `false` (bool)
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// RKE node drain grace period. Default: `-1` (int)
+        /// </summary>
+        [Input("gracePeriod")]
+        public Input<int>? GracePeriod { get; set; }
+
+        /// <summary>
+        /// Ignore RKE daemon sets. Default: `true` (bool)
+        /// </summary>
+        [Input("ignoreDaemonSets")]
+        public Input<bool>? IgnoreDaemonSets { get; set; }
+
+        /// <summary>
+        /// RKE node drain timeout. Default: `60` (int)
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        public ClusterUpgradeStrategyDrainInputArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterUpgradeStrategyDrainInputGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Delete RKE node local data. Default: `false` (bool)
+        /// </summary>
+        [Input("deleteLocalData")]
+        public Input<bool>? DeleteLocalData { get; set; }
+
+        /// <summary>
+        /// Force RKE node drain. Default: `false` (bool)
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// RKE node drain grace period. Default: `-1` (int)
+        /// </summary>
+        [Input("gracePeriod")]
+        public Input<int>? GracePeriod { get; set; }
+
+        /// <summary>
+        /// Ignore RKE daemon sets. Default: `true` (bool)
+        /// </summary>
+        [Input("ignoreDaemonSets")]
+        public Input<bool>? IgnoreDaemonSets { get; set; }
+
+        /// <summary>
+        /// RKE node drain timeout. Default: `60` (int)
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        public ClusterUpgradeStrategyDrainInputGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterUpgradeStrategyGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// RKE drain nodes. Default: `false` (bool)
+        /// </summary>
+        [Input("drain")]
+        public Input<bool>? Drain { get; set; }
+
+        /// <summary>
+        /// RKE drain node input (list Maxitems: 1)
+        /// </summary>
+        [Input("drainInput")]
+        public Input<ClusterUpgradeStrategyDrainInputGetArgs>? DrainInput { get; set; }
+
+        /// <summary>
+        /// RKE max unavailable controlplane nodes. Default: `1` (string)
+        /// </summary>
+        [Input("maxUnavailableControlplane")]
+        public Input<string>? MaxUnavailableControlplane { get; set; }
+
+        /// <summary>
+        /// RKE max unavailable worker nodes. Default: `10%` (string)
+        /// </summary>
+        [Input("maxUnavailableWorker")]
+        public Input<string>? MaxUnavailableWorker { get; set; }
+
+        public ClusterUpgradeStrategyGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterWorkerHostsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -10263,15 +10431,15 @@ namespace Pulumi.Rke
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudConfigDisk? Disk;
+        public readonly ClusterCloudProviderVsphereCloudConfigDisk Disk;
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudConfigGlobal? Global;
+        public readonly ClusterCloudProviderVsphereCloudConfigGlobal Global;
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudConfigNetwork? Network;
+        public readonly ClusterCloudProviderVsphereCloudConfigNetwork Network;
         /// <summary>
         /// (List)
         /// </summary>
@@ -10283,9 +10451,9 @@ namespace Pulumi.Rke
 
         [OutputConstructor]
         private ClusterCloudProviderVsphereCloudConfig(
-            ClusterCloudProviderVsphereCloudConfigDisk? disk,
-            ClusterCloudProviderVsphereCloudConfigGlobal? global,
-            ClusterCloudProviderVsphereCloudConfigNetwork? network,
+            ClusterCloudProviderVsphereCloudConfigDisk disk,
+            ClusterCloudProviderVsphereCloudConfigGlobal global,
+            ClusterCloudProviderVsphereCloudConfigNetwork network,
             ImmutableArray<ClusterCloudProviderVsphereCloudConfigVirtualCenters> virtualCenters,
             ClusterCloudProviderVsphereCloudConfigWorkspace workspace)
         {
@@ -10495,15 +10663,15 @@ namespace Pulumi.Rke
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudProviderDisk? Disk;
+        public readonly ClusterCloudProviderVsphereCloudProviderDisk Disk;
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudProviderGlobal? Global;
+        public readonly ClusterCloudProviderVsphereCloudProviderGlobal Global;
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
-        public readonly ClusterCloudProviderVsphereCloudProviderNetwork? Network;
+        public readonly ClusterCloudProviderVsphereCloudProviderNetwork Network;
         /// <summary>
         /// (List)
         /// </summary>
@@ -10515,9 +10683,9 @@ namespace Pulumi.Rke
 
         [OutputConstructor]
         private ClusterCloudProviderVsphereCloudProvider(
-            ClusterCloudProviderVsphereCloudProviderDisk? disk,
-            ClusterCloudProviderVsphereCloudProviderGlobal? global,
-            ClusterCloudProviderVsphereCloudProviderNetwork? network,
+            ClusterCloudProviderVsphereCloudProviderDisk disk,
+            ClusterCloudProviderVsphereCloudProviderGlobal global,
+            ClusterCloudProviderVsphereCloudProviderNetwork network,
             ImmutableArray<ClusterCloudProviderVsphereCloudProviderVirtualCenters> virtualCenters,
             ClusterCloudProviderVsphereCloudProviderWorkspace workspace)
         {
@@ -12729,6 +12897,80 @@ namespace Pulumi.Rke
             WeaveCni = weaveCni;
             WeaveNode = weaveNode;
             WindowsPodInfraContainer = windowsPodInfraContainer;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterUpgradeStrategy
+    {
+        /// <summary>
+        /// RKE drain nodes. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Drain;
+        /// <summary>
+        /// RKE drain node input (list Maxitems: 1)
+        /// </summary>
+        public readonly ClusterUpgradeStrategyDrainInput DrainInput;
+        /// <summary>
+        /// RKE max unavailable controlplane nodes. Default: `1` (string)
+        /// </summary>
+        public readonly string? MaxUnavailableControlplane;
+        /// <summary>
+        /// RKE max unavailable worker nodes. Default: `10%` (string)
+        /// </summary>
+        public readonly string? MaxUnavailableWorker;
+
+        [OutputConstructor]
+        private ClusterUpgradeStrategy(
+            bool? drain,
+            ClusterUpgradeStrategyDrainInput drainInput,
+            string? maxUnavailableControlplane,
+            string? maxUnavailableWorker)
+        {
+            Drain = drain;
+            DrainInput = drainInput;
+            MaxUnavailableControlplane = maxUnavailableControlplane;
+            MaxUnavailableWorker = maxUnavailableWorker;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterUpgradeStrategyDrainInput
+    {
+        /// <summary>
+        /// Delete RKE node local data. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? DeleteLocalData;
+        /// <summary>
+        /// Force RKE node drain. Default: `false` (bool)
+        /// </summary>
+        public readonly bool? Force;
+        /// <summary>
+        /// RKE node drain grace period. Default: `-1` (int)
+        /// </summary>
+        public readonly int? GracePeriod;
+        /// <summary>
+        /// Ignore RKE daemon sets. Default: `true` (bool)
+        /// </summary>
+        public readonly bool? IgnoreDaemonSets;
+        /// <summary>
+        /// RKE node drain timeout. Default: `60` (int)
+        /// </summary>
+        public readonly int? Timeout;
+
+        [OutputConstructor]
+        private ClusterUpgradeStrategyDrainInput(
+            bool? deleteLocalData,
+            bool? force,
+            int? gracePeriod,
+            bool? ignoreDaemonSets,
+            int? timeout)
+        {
+            DeleteLocalData = deleteLocalData;
+            Force = force;
+            GracePeriod = gracePeriod;
+            IgnoreDaemonSets = ignoreDaemonSets;
+            Timeout = timeout;
         }
     }
 
