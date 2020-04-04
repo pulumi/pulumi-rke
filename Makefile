@@ -66,4 +66,4 @@ generate_schema:: tfgen
 	$(TFGEN_BIN_DIR)/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
-	go generate ${PROJECT}/provider/cmd/${PROVIDER}
+	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
