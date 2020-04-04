@@ -12,6 +12,7 @@ TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
+TFGEN_BIN_DIR   := $(CURDIR)/bin
 
 DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
@@ -30,7 +31,7 @@ TESTPARALLELISM := 4
 build:: tfgen provider build_node build_python build_go build_dotnet
 
 build_node:: tfgen provider
-	${GOPATH}/bin/$(TFGEN) nodejs --overlays overlays/nodejs --out ${PACKDIR}/nodejs/
+	$(TFGEN_BIN_DIR)/$(TFGEN) nodejs --overlays overlays/nodejs --out ${PACKDIR}/nodejs/
 	cd ${PACKDIR}/nodejs/ && \
         yarn install && \
         yarn run tsc && \
@@ -38,7 +39,7 @@ build_node:: tfgen provider
         sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\@pulumi\/rke/@$${ORG}\/pulumi-rke/g" ./bin/package.json
 
 build_python:: tfgen provider
-	${GOPATH}/bin/$(TFGEN) python --overlays overlays/python --out ${PACKDIR}/python/
+	$(TFGEN_BIN_DIR)/$(TFGEN) python --overlays overlays/python --out ${PACKDIR}/python/
 	cd ${PACKDIR}/python/ && \
         cp ../../README.md . && \
         $(PYTHON) setup.py clean --all 2>/dev/null && \
@@ -48,22 +49,21 @@ build_python:: tfgen provider
         cd ./bin && $(PYTHON) setup.py build sdist
 
 build_go:: tfgen provider
-	${GOPATH}/bin/$(TFGEN) go --overlays overlays/go --out ${PACKDIR}/go/
+	$(TFGEN_BIN_DIR)/$(TFGEN) go --overlays overlays/go --out ${PACKDIR}/go/
 
 build_dotnet:: tfgen provider
-	${GOPATH}/bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ${PACKDIR}/dotnet/
+	$(TFGEN_BIN_DIR)/$(TFGEN) dotnet --overlays overlays/dotnet --out ${PACKDIR}/dotnet/
 	cd ${PACKDIR}/dotnet/ && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
 
-tfgen::
-	cd provider && go build -o ${GOPATH}/bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
+tfgen:: bin/pulumi-tfgen-rke
+
+bin/pulumi-tfgen-rke:
+	cd provider && go build -o $(TFGEN_BIN_DIR)/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
 generate_schema:: tfgen
-	${GOPATH}/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
+	$(TFGEN_BIN_DIR)/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
 	go generate ${PROJECT}/provider/cmd/${PROVIDER}
-
-lint::
-	golangci-lint run
