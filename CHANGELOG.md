@@ -4,6 +4,11 @@
 
 <a name="v0.2.1"></a>
 ## [v0.2.1] - 2020-04-03
+### Ci
+- Remove cache downloading from job
+- Remove echoing build version to file
+- Make sdk jobs depend on provider build
+
 ### Docs
 - Add a chglog generated with `git-chglog`
 
