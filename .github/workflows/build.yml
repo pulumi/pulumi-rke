@@ -6,7 +6,6 @@ on:
 
 env:
   ORG: jaxxstorm
-  GOPATH: $HOME/go
 
 jobs:
   nodejs:
