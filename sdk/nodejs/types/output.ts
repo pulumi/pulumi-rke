@@ -857,15 +857,15 @@ export interface ClusterCloudProviderVsphereCloudConfig {
     /**
      * (list maxitems:1)
      */
-    disk?: outputs.ClusterCloudProviderVsphereCloudConfigDisk;
+    disk: outputs.ClusterCloudProviderVsphereCloudConfigDisk;
     /**
      * (list maxitems:1)
      */
-    global?: outputs.ClusterCloudProviderVsphereCloudConfigGlobal;
+    global: outputs.ClusterCloudProviderVsphereCloudConfigGlobal;
     /**
      * (list maxitems:1)
      */
-    network?: outputs.ClusterCloudProviderVsphereCloudConfigNetwork;
+    network: outputs.ClusterCloudProviderVsphereCloudConfigNetwork;
     /**
      * (List)
      */
@@ -991,15 +991,15 @@ export interface ClusterCloudProviderVsphereCloudProvider {
     /**
      * (list maxitems:1)
      */
-    disk?: outputs.ClusterCloudProviderVsphereCloudProviderDisk;
+    disk: outputs.ClusterCloudProviderVsphereCloudProviderDisk;
     /**
      * (list maxitems:1)
      */
-    global?: outputs.ClusterCloudProviderVsphereCloudProviderGlobal;
+    global: outputs.ClusterCloudProviderVsphereCloudProviderGlobal;
     /**
      * (list maxitems:1)
      */
-    network?: outputs.ClusterCloudProviderVsphereCloudProviderNetwork;
+    network: outputs.ClusterCloudProviderVsphereCloudProviderNetwork;
     /**
      * (List)
      */
@@ -2305,6 +2305,48 @@ export interface ClusterSystemImages {
      * Docker image for windowsPodInfraContainer (string)
      */
     windowsPodInfraContainer?: string;
+}
+
+export interface ClusterUpgradeStrategy {
+    /**
+     * RKE drain nodes. Default: `false` (bool)
+     */
+    drain?: boolean;
+    /**
+     * RKE drain node input (list Maxitems: 1)
+     */
+    drainInput: outputs.ClusterUpgradeStrategyDrainInput;
+    /**
+     * RKE max unavailable controlplane nodes. Default: `1` (string)
+     */
+    maxUnavailableControlplane?: string;
+    /**
+     * RKE max unavailable worker nodes. Default: `10%` (string)
+     */
+    maxUnavailableWorker?: string;
+}
+
+export interface ClusterUpgradeStrategyDrainInput {
+    /**
+     * Delete RKE node local data. Default: `false` (bool)
+     */
+    deleteLocalData?: boolean;
+    /**
+     * Force RKE node drain. Default: `false` (bool)
+     */
+    force?: boolean;
+    /**
+     * RKE node drain grace period. Default: `-1` (int)
+     */
+    gracePeriod?: number;
+    /**
+     * Ignore RKE daemon sets. Default: `true` (bool)
+     */
+    ignoreDaemonSets?: boolean;
+    /**
+     * RKE node drain timeout. Default: `60` (int)
+     */
+    timeout?: number;
 }
 
 export interface ClusterWorkerHost {
