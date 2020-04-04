@@ -1,4 +1,4 @@
-name: release
+name: build
 on:
   pull_request:
     branches:
@@ -15,12 +15,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Unshallow
         run: git fetch --prune --unshallow
-      - uses: actions/cache@v1
-        with:
-          path: provider
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -39,12 +33,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Unshallow
         run: git fetch --prune --unshallow
-      - uses: actions/cache@v1
-        with:
-          path: provider
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -62,12 +50,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Unshallow
         run: git fetch --prune --unshallow
-      - uses: actions/cache@v1
-        with:
-          path: provider
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -85,12 +67,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Unshallow
         run: git fetch --prune --unshallow
-      - uses: actions/cache@v1
-        with:
-          path: provider
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
