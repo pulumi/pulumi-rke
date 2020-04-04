@@ -53,7 +53,6 @@ build_go:: tfgen provider
 build_dotnet:: tfgen provider
 	${GOPATH}/bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ${PACKDIR}/dotnet/
 	cd ${PACKDIR}/dotnet/ && \
-        echo "${VERSION:v%=%}" >version.txt && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
 
