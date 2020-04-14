@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1
 	github.com/pulumi/pulumi-terraform-bridge v1.8.4
-	github.com/pulumi/pulumi/sdk v1.14.0
+	github.com/pulumi/pulumi/sdk v1.14.1
 	github.com/rancher/terraform-provider-rke v1.0.0-beta.1.0.20200403174431-26b7d1fa727a
 )
 
