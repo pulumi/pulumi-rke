@@ -1,5 +1,8 @@
 name: release
 on:
+  pull_request:
+    branches:
+      - master
   push:
     tags: [ "v*" ]
 
@@ -13,11 +16,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Unshallow
+      - name: Unshallow clone
         run: git fetch --prune --unshallow
-      - uses: actions/setup-go@v2
+      - name: Install Go 1.13.10
+        uses: actions/setup-go@v2
         with:
-          go-version: '^1.13.1' 
+          go-version: '1.13.10'
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -39,11 +43,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Unshallow
+      - name: Unshallow clone
         run: git fetch --prune --unshallow
-      - uses: actions/setup-go@v2
+      - name: Install Go 1.13.10
+        uses: actions/setup-go@v2
         with:
-          go-version: '^1.13.1'
+          go-version: '1.13.10'
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -66,11 +71,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Unshallow
+      - name: Unshallow clone
         run: git fetch --prune --unshallow
-      - uses: actions/setup-go@v2
+      - name: Install Go 1.13.10
+        uses: actions/setup-go@v2
         with:
-          go-version: '^1.13.1'
+          go-version: '1.13.10'
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
@@ -82,22 +88,33 @@ jobs:
       - name: Build SDK
         run: make build_dotnet ORG=jaxxstorm
       - name: Publish nuget
-        run: find "sdk/dotnet/bin/Debug" -name 'Pulumi.*.nupkg' -exec dotnet nuget push -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json {} ';'
+        run: ./scripts/publish-nuget-package.sh .
+        env:
+          NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
   provider:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Unshallow
+      - name: Unshallow clone
         run: git fetch --prune --unshallow
-      - uses: actions/setup-go@v2
+      - name: Install Go 1.13.10
+        uses: actions/setup-go@v2
         with:
-          go-version: '^1.13.1'
+          go-version: '1.13.10'
       - name: Ensure dependencies
         run: make ensure
       - name: Generate provider deps
         run: make provider ORG=jaxxstorm
-      - name: Run GoReleaser
+      - if: github.event_name == 'pull_request'
+        name: Goreleaser snapshot
+        uses: goreleaser/goreleaser-action@v1
+        with:
+          version: v0.129.0
+          args: release --rm-dist --snapshot
+
+      - if: startsWith(github.event.push.tags, 'v')
+        name: Goreleaser publish
         uses: goreleaser/goreleaser-action@v1
         with:
           version: v0.129.0

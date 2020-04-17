@@ -10,16 +10,16 @@ TF_NAME          := ${PACK}
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
-VERSION         := $(shell scripts/get-version)
-PYPI_VERSION    := $(shell scripts/get-py-version)
+VERSION         := $(shell scripts/get-version) 
+PYPI_VERSION    := $(shell scripts/get-py-version || (echo "could not get version $$?"; exit 1))
 
 DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
 
 ifeq ($(strip ${DOTNET_SUFFIX}),)
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
 else
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview-$(strip ${DOTNET_SUFFIX})
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-$(strip ${DOTNET_SUFFIX})
 endif
 
 TESTPARALLELISM := 4
@@ -34,7 +34,8 @@ build_node:: tfgen provider
 	cd ${PACKDIR}/nodejs/ && \
         yarn install && \
         yarn run tsc && \
-        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
+        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python:: tfgen provider
 	cd provider && ./bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
