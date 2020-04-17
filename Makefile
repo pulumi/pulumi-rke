@@ -34,8 +34,7 @@ build_node:: tfgen provider
 	cd ${PACKDIR}/nodejs/ && \
         yarn install && \
         yarn run tsc && \
-        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\@pulumi\/rke/@$${ORG}\/pulumi-rke/g" ./bin/package.json
+        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
 
 build_python:: tfgen provider
 	cd provider && ./bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
