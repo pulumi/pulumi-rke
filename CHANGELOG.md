@@ -10,10 +10,12 @@
 - **deps:** bump github.com/hashicorp/terraform-plugin-sdk in /provider
 
 ### Chore
+- Add changelog
 - Updating changelog and release
 - tweak some settings in conform config
 - add pre-commit and confirm config
 - regen python sdk
+- **build:** add v to version
 
 ### Ci
 - fix build/release actions
@@ -30,6 +32,8 @@
 - Update pulumi deps to latest versions
 
 ### Fix
+- **build:** remove v from binary artefact
+- **build:** Refactor build to ensure success
 - **build:** use correct get-py-version script
 - **sdk:** regen sdk
 - **sdk:** add packagename to JavaScript sdk
