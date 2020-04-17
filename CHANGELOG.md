@@ -2,22 +2,29 @@
 ## [Unreleased]
 
 
-<a name="v0.2.1"></a>
-## [v0.2.1] - 2020-04-03
+<a name="v1.0.0"></a>
+## [v1.0.0] - 2020-04-16
+
+### Chore
+- tweak some settings in conform config
+- add pre-commit and confirm config
+- regen python sdk
+
 ### Ci
+- fix build/release actions
 - Remove cache downloading from job
 - Remove echoing build version to file
 - Make sdk jobs depend on provider build
 
 ### Docs
+- Update changelog
 - Add a chglog generated with `git-chglog`
 
 ### Feat
 - Update pulumi deps to latest versions
 
+### Refactor
+- add exam go.mod for examples
 
-<a name="v0.2.0"></a>
-## v0.2.0 - 2020-03-30
 
-[Unreleased]: https://github.com/jaxxstorm/pulumi-rke/compare/v0.2.1...HEAD
-[v0.2.1]: https://github.com/jaxxstorm/pulumi-rke/compare/v0.2.0...v0.2.1
+[Unreleased]: https://github.com/jaxxstorm/pulumi-rke/compare/v1.0.0...HEAD
