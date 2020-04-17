@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/rke",
+    "name": "@jaxxstorm/pulumi-rke",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing rke cloud resources.",
     "keywords": [
