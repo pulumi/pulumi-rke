@@ -20,6 +20,6 @@ builds:
 snapshot:
   name_template: "{{ .Tag }}-SNAPSHOT"
 archives:
-  - name_template: "{{ .Binary }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+  - name_template: "{{ .Binary }}-{{ .Version }}-{{ .Os }}-{{ .Arch }}"
     files: [] # Empty
 
