@@ -8,11 +8,11 @@ policies:
         invalidLastCharacters: .
       body:
         required: true
-      dco: true
-      gpg: false
+      dco: false
+      gpg: true
       spellcheck:
         locale: US
-      maximumOfOneCommit: true
+      maximumOfOneCommit: false
       conventional:
         types:
           - "chore"
