@@ -14,7 +14,7 @@ echo "Generating chglog"
 git-chglog --next-tag $TAG -o CHANGELOG.md
 git commit -am "release $TAG"
 echo "Creating tags"
-git tag -a m "Release ${TAG}" $TAG
+git tag -a -m "Release ${TAG}" $TAG
 
 
 
