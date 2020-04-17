@@ -18,11 +18,11 @@ policies:
           - "chore"
           - "docs"
           - "style"
-          - "build"
         scopes:
           - "provider"
           - "sdk"
           - "ci"
+          - "build"
         descriptionLength: 72
   - type: license
     spec:
