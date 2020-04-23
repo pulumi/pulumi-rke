@@ -6,5 +6,5 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("rke");
 
-export let debug: boolean | undefined = __config.getObject<boolean>("debug");
-export let logFile: string | undefined = __config.get("logFile");
+export let debug: boolean | undefined = __config.getObject<boolean>("debug") || (utilities.getEnvBoolean("RKE_DEBUG") || false);
+export let logFile: string | undefined = __config.get("logFile") || (utilities.getEnv("RKE_LOG_FILE") || "");
