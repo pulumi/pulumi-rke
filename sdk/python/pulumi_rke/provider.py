@@ -39,7 +39,11 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if debug is None:
+                debug = (utilities.get_env_bool('RKE_DEBUG') or False)
             __props__['debug'] = pulumi.Output.from_input(debug).apply(json.dumps) if debug is not None else None
+            if log_file is None:
+                log_file = (utilities.get_env('RKE_LOG_FILE') or '')
             __props__['log_file'] = log_file
         super(Provider, __self__).__init__(
             'rke',

@@ -11,7 +11,7 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('rke')
 
-debug = __config__.get('debug')
+debug = __config__.get('debug') or (utilities.get_env_bool('RKE_DEBUG') or False)
 
-log_file = __config__.get('logFile')
+log_file = __config__.get('logFile') or (utilities.get_env('RKE_LOG_FILE') or '')
 

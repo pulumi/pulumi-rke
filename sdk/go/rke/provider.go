@@ -26,6 +26,12 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+	if args.Debug == nil {
+		args.Debug = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "RKE_DEBUG").(bool))
+	}
+	if args.LogFile == nil {
+		args.LogFile = pulumi.StringPtr(getEnvOrDefault("", nil, "RKE_LOG_FILE").(string))
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:rke", name, args, &resource, opts...)
 	if err != nil {

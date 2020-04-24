@@ -24,7 +24,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/go/common/tokens"
 	"github.com/rancher/terraform-provider-rke/rke"
-	//"github.com/terraform-providers/terraform-provider-rke/rke"
 )
 
 // all of the token components used below.
@@ -85,7 +84,20 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:             "https://pulumi.io",
 		Repository:           "https://github.com/jaxxstorm/pulumi-rke",
 		GitHubOrg:            "rancher",
-		Config:               map[string]*tfbridge.SchemaInfo{},
+		Config:               map[string]*tfbridge.SchemaInfo{
+			"log_file": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"RKE_LOG_FILE"},
+					Value:   "",
+				},
+			},
+			"debug": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"RKE_DEBUG"},
+					Value:   false,
+				},
+			},
+		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"rke_cluster": {
