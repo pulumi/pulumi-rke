@@ -1,0 +1,11 @@
+{
+  "name": "${PROJECT}",
+  "devDependencies": {
+    "@types/node": "^8.0.0"
+  },
+  "dependencies": {
+    "@jaxxstorm/pulumi-rke": "^1.0.0",
+    "@pulumi/kubernetes": "^2.0.0",
+    "@pulumi/pulumi": "^2.0.0"
+  }
+}
