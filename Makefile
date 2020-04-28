@@ -16,6 +16,8 @@ PYPI_VERSION    := $(shell scripts/get-py-version || (echo "could not get versio
 DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
 
+WORKSPACE      := $(shell scripts/get-workspace)
+
 ifeq ($(strip ${DOTNET_SUFFIX}),)
 	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
 else
@@ -29,16 +31,16 @@ TESTPARALLELISM := 4
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
 build:: tfgen provider build_node build_python build_go build_dotnet
 
-build_node:: tfgen provider
-	cd provider && ./bin/$(TFGEN) nodejs --overlays overlays/nodejs --out ../${PACKDIR}/nodejs/
+build_node::
+	cd provider && $(WORKSPACE)/bin/$(TFGEN) nodejs --overlays overlays/nodejs --out ../${PACKDIR}/nodejs/
 	cd ${PACKDIR}/nodejs/ && \
         yarn install && \
         yarn run tsc && \
         cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-build_python:: tfgen provider
-	cd provider && ./bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
+build_python::
+	cd provider && $(WORKSPACE)/bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
 	cd ${PACKDIR}/python/ && \
         cp ../../README.md . && \
         $(PYTHON) setup.py clean --all 2>/dev/null && \
@@ -47,20 +49,20 @@ build_python:: tfgen provider
         rm ./bin/setup.py.bak && \
         cd ./bin && $(PYTHON) setup.py build sdist
 
-build_go:: tfgen provider
-	cd provider && ./bin/$(TFGEN) go --overlays overlays/go --out ../${PACKDIR}/go/
+build_go::
+	cd provider && $(WORKSPACE)/bin/$(TFGEN) go --overlays overlays/go --out ../${PACKDIR}/go/
 
-build_dotnet:: tfgen provider
-	cd provider && ./bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ../${PACKDIR}/dotnet/
+build_dotnet::
+	cd provider && $(WORKSPACE)/bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ../${PACKDIR}/dotnet/
 	cd ${PACKDIR}/dotnet/ && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
 
 tfgen::
-	cd provider && go build -o ./bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
+	cd provider && go build -o $(WORKSPACE)/bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
 generate_schema:: tfgen
-	./provider/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
+	$(WORKSPACE)/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
 	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
@@ -85,13 +87,3 @@ install:: tfgen provider
 
 test_all::
 	cd examples && PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} .
-
-.PHONY: publish_packages
-publish_packages:
-	$(call STEP_MESSAGE)
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-tfgen-package .
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh ${PACK}
-
-.PHONY: check_clean_worktree
-check_clean_worktree:
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/check-worktree-is-clean.sh
