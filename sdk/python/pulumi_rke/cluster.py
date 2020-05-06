@@ -656,8 +656,7 @@ class Cluster(pulumi.CustomResource):
         * `extraBinds` (`list`) - Extra binds for scheduler service (list)
         * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
         * `failSwapOn` (`bool`) - Enable or disable failing when swap on is not supported (bool)
-          * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        * `generateServingCertificate` (`bool`)
+        * `generateServingCertificate` (`bool`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
         * `image` (`str`) - Docker image for scheduler service (string)
         * `infraContainerImage` (`str`) - Infra container image for kubelet service (string)
 
@@ -776,8 +775,7 @@ class Cluster(pulumi.CustomResource):
       * `extraBinds` (`list`) - Extra binds for scheduler service (list)
       * `extraEnvs` (`list`) - Extra environment for scheduler service (list)
       * `failSwapOn` (`bool`) - Enable or disable failing when swap on is not supported (bool)
-        * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-      * `generateServingCertificate` (`bool`)
+      * `generateServingCertificate` (`bool`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
       * `image` (`str`) - Docker image for scheduler service (string)
       * `infraContainerImage` (`str`) - Infra container image for kubelet service (string)
     """
@@ -864,7 +862,50 @@ class Cluster(pulumi.CustomResource):
         - Using the TF provider arguments to define the entire cluster.
         - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
 
-        > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_rke as rke
+
+        # Create a new RKE cluster using config yaml
+        foo = rke.Cluster("foo", cluster_yaml=(lambda path: open(path).read())("cluster.yaml"))
+        # Create a new RKE cluster using arguments
+        foo2_cluster = rke.Cluster("foo2Cluster",
+            nodes=[{
+                "address": "1.2.3.4",
+                "user": "ubuntu",
+                "roles": [
+                    "controlplane",
+                    "worker",
+                    "etcd",
+                ],
+                "sshKey": (lambda path: open(path).read())("~/.ssh/id_rsa"),
+            }],
+            upgrade_strategy={
+                "drain": True,
+                "maxUnavailableWorker": "20%",
+            })
+        # Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+        foo2_index_cluster_cluster = rke.Cluster("foo2Index/clusterCluster",
+            cluster_yaml=(lambda path: open(path).read())("cluster.yaml"),
+            ssh_agent_auth=True,
+            ignore_docker_version=True,
+            kubernetes_version="<K8s_VERSION>",
+            upgrade_strategy={
+                "drain": True,
+                "maxUnavailableWorker": "20%",
+            })
+        # Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+        foo2_rke_index_cluster_cluster = rke.Cluster("foo2RkeIndex/clusterCluster",
+            cluster_yaml=(lambda path: open(path).read())("cluster.yaml"),
+            ssh_agent_auth=True,
+            ignore_docker_version=True,
+            kubernetes_version="<K8s_VERSION>")
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1345,8 +1386,7 @@ class Cluster(pulumi.CustomResource):
             * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
             * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
             * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-              * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-            * `generateServingCertificate` (`pulumi.Input[bool]`)
+            * `generateServingCertificate` (`pulumi.Input[bool]`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
             * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
             * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 
@@ -1453,8 +1493,7 @@ class Cluster(pulumi.CustomResource):
           * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
           * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
           * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-          * `generateServingCertificate` (`pulumi.Input[bool]`)
+          * `generateServingCertificate` (`pulumi.Input[bool]`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
           * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
           * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 
@@ -2156,8 +2195,7 @@ class Cluster(pulumi.CustomResource):
             * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
             * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
             * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-              * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-            * `generateServingCertificate` (`pulumi.Input[bool]`)
+            * `generateServingCertificate` (`pulumi.Input[bool]`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
             * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
             * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 
@@ -2264,8 +2302,7 @@ class Cluster(pulumi.CustomResource):
           * `extraBinds` (`pulumi.Input[list]`) - Extra binds for scheduler service (list)
           * `extraEnvs` (`pulumi.Input[list]`) - Extra environment for scheduler service (list)
           * `failSwapOn` (`pulumi.Input[bool]`) - Enable or disable failing when swap on is not supported (bool)
-            * `generate_serving_certificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-          * `generateServingCertificate` (`pulumi.Input[bool]`)
+          * `generateServingCertificate` (`pulumi.Input[bool]`) - [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
           * `image` (`pulumi.Input[str]`) - Docker image for scheduler service (string)
           * `infraContainerImage` (`pulumi.Input[str]`) - Infra container image for kubelet service (string)
 

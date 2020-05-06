@@ -2091,9 +2091,11 @@ export interface ClusterServicesKubelet {
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable or disable failing when swap on is not supported (bool)
-     * * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
      */
     failSwapOn?: pulumi.Input<boolean>;
+    /**
+     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     */
     generateServingCertificate?: pulumi.Input<boolean>;
     /**
      * Docker image for scheduler service (string)
@@ -2128,9 +2130,11 @@ export interface ClusterServicesKubeletDeprecated {
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable or disable failing when swap on is not supported (bool)
-     * * `generateServingCertificate` [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
      */
     failSwapOn?: pulumi.Input<boolean>;
+    /**
+     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     */
     generateServingCertificate?: pulumi.Input<boolean>;
     /**
      * Docker image for scheduler service (string)

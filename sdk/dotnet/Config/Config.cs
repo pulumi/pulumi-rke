@@ -8,13 +8,9 @@ namespace Pulumi.Rke
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("rke");
-
         public static bool? Debug { get; set; } = __config.GetBoolean("debug") ?? Utilities.GetEnvBoolean("RKE_DEBUG") ?? false;
 
         public static string? LogFile { get; set; } = __config.Get("logFile") ?? Utilities.GetEnv("RKE_LOG_FILE") ?? "";
 
-    }
-    namespace ConfigTypes
-    {
     }
 }

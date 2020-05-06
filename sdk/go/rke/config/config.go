@@ -4,14 +4,21 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 )
 
 func GetDebug(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "rke:debug")
+	v, err := config.TryBool(ctx, "rke:debug")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault(false, parseEnvBool, "RKE_DEBUG").(bool)
 }
-
 func GetLogFile(ctx *pulumi.Context) string {
-	return config.Get(ctx, "rke:logFile")
+	v, err := config.Try(ctx, "rke:logFile")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "RKE_LOG_FILE").(string)
 }
