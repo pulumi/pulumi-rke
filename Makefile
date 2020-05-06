@@ -65,7 +65,7 @@ generate_schema:: tfgen
 	$(WORKSPACE)/provider/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
-	cd provider && go generate ${PROJECT}/provider/cmd/${PROVIDER}
+	cd provider && go generate cmd/${PROVIDER}/main.go
 	cd provider && go install -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
 
 lint::
