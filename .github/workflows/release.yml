@@ -21,6 +21,10 @@ jobs:
           go-version: '1.13.x'
       - name: Ensure dependencies
         run: make ensure
+      - name: Install tf2pulumi
+        uses: pulumi/action-install-tf2pulumi@releases/v1
+        with:
+          tf2pulumi-version: 0.7.0
       - name: Build tfgen
         run: make tfgen
       - name: Upload tfgen artifact
@@ -40,6 +44,10 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.13.x'
+      - name: Install tf2pulumi
+        uses: pulumi/action-install-tf2pulumi@releases/v1
+        with:
+          tf2pulumi-version: 0.7.0
       - name: Ensure dependencies
         run: make ensure
       - uses: actions/download-artifact@v1
@@ -71,6 +79,10 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.13.x'
+      - name: Install tf2pulumi
+        uses: pulumi/action-install-tf2pulumi@releases/v1
+        with:
+          tf2pulumi-version: 0.7.0
       - name: Ensure dependencies
         run: make ensure
       - uses: actions/download-artifact@v1
@@ -103,6 +115,10 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.13.x'
+      - name: Install tf2pulumi
+        uses: pulumi/action-install-tf2pulumi@releases/v1
+        with:
+          tf2pulumi-version: 0.7.0
       - name: Ensure dependencies
         run: make ensure
       - uses: actions/download-artifact@v1
@@ -128,6 +144,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Unshallow clone
         run: git fetch --prune --unshallow
+      - name: Install tf2pulumi
+        uses: pulumi/action-install-tf2pulumi@releases/v1
+        with:
+          tf2pulumi-version: 0.7.0
       - name: Install Go 1.13
         uses: actions/setup-go@v2
         with:
