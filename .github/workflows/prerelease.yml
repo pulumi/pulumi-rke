@@ -2,7 +2,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GO111MODULE: "on"
   PROVIDER: rke
-name: pull-request
+name: prerelease
 "on":
   push:
     tags: [ "*.*.*-**" ]
