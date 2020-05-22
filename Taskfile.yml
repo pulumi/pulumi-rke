@@ -141,7 +141,7 @@ tasks:
     desc: "Install the latest provider plugin"
     vars:
       LATEST_PLUGIN_VER:
-        sh: curl --silent "https://api.github.com/repos/{{.ORG}}/pulumi-{{.PACK}}/tags" | jq '.[0].name | sub("^v"; "")' -r
+        sh: curl --silent "https://api.github.com/repos/{{.ORG}}/pulumi-{{.PACK}}/releases" | jq '.[0].name | sub("^v"; "")' -r
     cmds:
       - pulumi plugin install --server https://github.com/{{.ORG}}/pulumi-{{.PACK}}/releases/download/v{{.LATEST_PLUGIN_VER}} resource {{.PACK}} {{.LATEST_PLUGIN_VER}}
     generates:
