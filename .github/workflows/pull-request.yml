@@ -77,8 +77,12 @@ jobs:
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Build tfgen & provider binaries
       run: task provider
+    - name: Check if there are changes
+      id: changes
+      uses: UnicornGlobal/has-changes-action@v1.0.11
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
+      if: steps.changes.outputs.changed == 0
       with:
         name: pulumi-${{ env.PROVIDER }}
         path: ${{ github.workspace }}/bin
@@ -129,8 +133,12 @@ jobs:
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Build SDK
       run: task build_${{ matrix.language }}
+    - name: Check if there are changes
+      id: changes
+      uses: UnicornGlobal/has-changes-action@v1.0.11
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
+      if: steps.changes.outputs.changed == 0
       with:
         name: ${{ matrix.language  }}-sdk
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}
