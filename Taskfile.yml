@@ -1,0 +1,166 @@
+# https://taskfile.dev
+
+version: '2'
+
+output: prefixed
+
+vars:
+  PACK: "rke"
+  ORG: "jaxxstorm"
+  PROJECT: "github.com/{{ .ORG }}/pulumi-{{ .PACK }}"
+  PROVIDER: "pulumi-resource-{{ .PACK }}"
+  TFGEN: "pulumi-tfgen-{{ .PACK }}"
+  PROVIDER_PATH: "provider/v2"
+  VERSION_PATH: "{{ .PROVIDER_PATH }}/pkg/version.Version"
+  VERSION:
+    sh: pulumictl util get-version
+  WORKDIR:
+    sh: pwd
+
+tasks:
+  default:
+    desc: Build!
+    deps:
+      - task: provider
+      - task: build_sdk
+    cmds:
+      - task: clean
+
+  tfgen:
+    desc: Build the tfgen binary
+    dir: provider
+    cmds:
+      - go build -o {{ .WORKDIR }}/bin/{{ .TFGEN }} -ldflags "-X {{ .PROJECT }}/{{ .VERSION_PATH }}={{ .VERSION }}" {{ .PROJECT}}/{{ .PROVIDER_PATH }}/cmd/{{ .TFGEN }}
+    generates:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }}"
+    status:
+      - test -f {{ .WORKDIR }}/bin/{{ .TFGEN }}
+
+  schema:
+    desc: Generate the schema
+    deps: [tfgen]
+    cmds:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }} schema --out provider/cmd/{{ .PROVIDER }}"
+    generates:
+      - "provider/cmd/{{ .PROVIDER }}/schema.json"
+    sources:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }}"
+    method: checksum
+
+  generate:
+    desc: Run Go generate
+    deps: [schema, install_plugins]
+    dir: provider
+    env:
+      VERSION: pulumictl util get-version # set the version as an env var so generate uses it
+    cmds:
+      - go generate cmd/{{ .PROVIDER }}/main.go
+    generates:
+      - "provider/cmd/{{ .PROVIDER }}/schema.go"
+    sources:
+      - "provider/cmd/{{ .PROVIDER }}/schema.json"
+    method: checksum
+
+  provider:
+    desc: Build provider
+    deps: [generate]
+    dir: provider
+    cmds:
+      - go build -o {{ .WORKDIR }}/bin/{{ .PROVIDER }} -ldflags "-X {{.PROJECT}}/{{.VERSION_PATH}}={{.VERSION}}" {{.PROJECT}}/{{.PROVIDER_PATH}}/cmd/{{.PROVIDER}}
+    generates:
+      - "{{ .WORKDIR }}/bin/{{ .PROVIDER }}"
+    sources:
+      - provider/go.sum
+      - provider/go.mod
+      - "provider/cmd/{{ .PROVIDER }}/schema.json"
+      - "provider/cmd/{{ .PROVIDER }}/schema.go"
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }}"
+    method: checksum
+
+  generate_nodejs_overlays:
+    dir: provider
+    deps: [tfgen]
+    cmds:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }} nodejs --overlays overlays/nodejs --out ../sdk/nodejs"
+
+  build_nodejs:
+    desc: "Build NodeJS SDK"
+    dir: sdk/nodejs
+    cmds:
+      - task: generate_nodejs_overlays
+      - yarn install
+      - yarn run tsc
+      - cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
+      - sed -i.bak -e "s/\$${VERSION}/{{.VERSION}}/g" ./bin/package.json
+
+  generate_python_overlays:
+    dir: provider
+    deps: [tfgen]
+    cmds:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }} python --overlays overlays/python --out ../sdk/python"
+
+  build_python:
+    desc: "Build Python SDK"
+    dir: sdk/python
+    env:
+      PYPI_VERSION:
+        sh: pulumictl util get-version --language python
+    cmds:
+      - task: generate_python_overlays
+      - cp ../../README.md .
+      - python3 setup.py clean --all 2>/dev/null
+      - rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin
+      - sed -i.bak -e "s/\${VERSION}/${PYPI_VERSION}/g" -e "s/\${PLUGIN_VERSION}/${VERSION}/g" ./bin/setup.py
+      - cat ./bin/setup.py
+      - rm ./bin/setup.py.bak
+      - cd ./bin && pwd && python3 setup.py build sdist
+
+
+  generate_dotnet_overlays:
+    dir: provider
+    deps: [tfgen]
+    cmds:
+      - "{{ .WORKDIR }}/bin/{{ .TFGEN }} dotnet --overlays overlays/dotnet --out ../sdk/dotnet"
+
+  build_dotnet:
+    desc: "Build DotNet SDK"
+    dir: sdk/dotnet
+    env:
+      DOTNET_VERSION:
+        sh: pulumictl util get-version --language dotnet
+    cmds:
+      - task: generate_dotnet_overlays
+      - echo "${DOTNET_VERSION}" >version.txt
+      - dotnet build /p:Version=${DOTNET_VERSION}
+
+  build_sdk:
+    desc: "Build all SDKs"
+    deps: [build_python, build_dotnet, build_nodejs]
+
+  install_plugins:
+    desc: "Install the latest provider plugin"
+    vars:
+      LATEST_PLUGIN_VER:
+        sh: curl --silent "https://api.github.com/repos/{{.ORG}}/pulumi-{{.PACK}}/tags" | jq '.[0].name | sub("^v"; "")' -r
+    cmds:
+      - pulumi plugin install --server https://github.com/{{.ORG}}/pulumi-{{.PACK}}/releases/download/v{{.LATEST_PLUGIN_VER}} resource {{.PACK}} {{.LATEST_PLUGIN_VER}}
+    generates:
+      - $HOME/.pulumi/plugins/resource-{{.PACK}}-v{{.LATEST_PLUGIN_VER}}/pulumi-resource-{{.PACK}}
+    method: checksum
+
+  clean:
+    desc: "Clean up binaries"
+    cmds:
+      - rm -f {{ .WORKDIR }}/bin/{{ .TFGEN }}
+      - rm -f "provider/cmd/{{ .PROVIDER }}/schema.json"
+      - rm -f "{{ .WORKDIR }}/bin/{{ .PROVIDER }}"
+      - rm -f "provider/cmd/{{ .PROVIDER }}/schema.go"
+    
+
+
+
+
+
+
+
+

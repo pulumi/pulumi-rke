@@ -1,0 +1,140 @@
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GO111MODULE: "on"
+  PROVIDER: rke
+name: pull-request
+"on":
+  pull_request:
+    branches:
+    - master
+jobs:
+  tfgen:
+    name: tfgen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.13.x
+      - name: Install tf2pulumi
+        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        with:
+          repo: pulumi/tf2pulumi
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        with:
+          repo: pulumi/pulumictl
+      - name: Install go-task
+        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        with:
+          repo: go-task/task
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@releases/v1
+      - name: Build tfgen & provider binaries
+        run: task tfgen
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: pulumi-${{ env.PROVIDER }}
+          path: ${{ github.workspace }}/bin
+  provider:
+    name: provider
+    runs-on: ubuntu-latest
+    needs: tfgen
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.13.x
+    - name: Install tf2pulumi
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: pulumi/tf2pulumi
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: pulumi/pulumictl
+    - name: Install go-task
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: go-task/task
+    - name: Install Pulumi CLI
+      uses: pulumi/action-install-pulumi-cli@releases/v1
+    - name: Download provider + tfgen binaries
+      uses: actions/download-artifact@v2
+      with:
+        name: pulumi-${{ env.PROVIDER }}
+        path: ${{ github.workspace }}/bin
+    - name: Restore binary perms
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+    - name: Build tfgen & provider binaries
+      run: task provider
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: pulumi-${{ env.PROVIDER }}
+        path: ${{ github.workspace }}/bin
+  build_sdk:
+    name: build_sdk
+    runs-on: ubuntu-latest
+    needs: tfgen
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.13.x
+    - name: Install tf2pulumi
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: pulumi/tf2pulumi
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: pulumi/pulumictl
+    - name: Install go-task
+      uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+      with:
+        repo: go-task/task
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 13.x
+        registry-url: https://registry.npmjs.org
+    - name: Setup DotNet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.201
+    - name: Setup Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.x
+    - name: Download provider + tfgen binaries
+      uses: actions/download-artifact@v2
+      with:
+        name: pulumi-${{ env.PROVIDER }}
+        path: ${{ github.workspace }}/bin
+    - name: Restore binary perms
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+    - name: Build SDK
+      run: task build_${{ matrix.language }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.language  }}-sdk
+        path: ${{ github.workspace}}/sdk/${{ matrix.language }}
+    strategy:
+      fail-fast: true
+      matrix:
+        language: [ "python", "nodejs", "dotnet" ]

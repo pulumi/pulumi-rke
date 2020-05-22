@@ -407,6 +407,10 @@ class Cluster(pulumi.CustomResource):
     RKE k8s cluster DNS Config (list maxitems:1)
 
       * `nodeSelector` (`dict`) - Node selector key pair (map)
+      * `nodelocal` (`dict`) - Docker image for nodelocal (string)
+        * `ipAddress` (`str`) - Nodelocal dns ip address (string)
+        * `nodeSelector` (`dict`) - Node selector key pair (map)
+
       * `provider` (`str`) - Monitoring provider (string)
       * `reverseCidrs` (`list`) - Reverse CIDRs  (list)
       * `upstreamNameservers` (`list`) - Upstream nameservers  (list)
@@ -1236,6 +1240,10 @@ class Cluster(pulumi.CustomResource):
         The **dns** object supports the following:
 
           * `nodeSelector` (`pulumi.Input[dict]`) - Node selector key pair (map)
+          * `nodelocal` (`pulumi.Input[dict]`) - Docker image for nodelocal (string)
+            * `ipAddress` (`pulumi.Input[str]`) - Nodelocal dns ip address (string)
+            * `nodeSelector` (`pulumi.Input[dict]`) - Node selector key pair (map)
+
           * `provider` (`pulumi.Input[str]`) - Monitoring provider (string)
           * `reverseCidrs` (`pulumi.Input[list]`) - Reverse CIDRs  (list)
           * `upstreamNameservers` (`pulumi.Input[list]`) - Upstream nameservers  (list)
@@ -2001,6 +2009,10 @@ class Cluster(pulumi.CustomResource):
         The **dns** object supports the following:
 
           * `nodeSelector` (`pulumi.Input[dict]`) - Node selector key pair (map)
+          * `nodelocal` (`pulumi.Input[dict]`) - Docker image for nodelocal (string)
+            * `ipAddress` (`pulumi.Input[str]`) - Nodelocal dns ip address (string)
+            * `nodeSelector` (`pulumi.Input[dict]`) - Node selector key pair (map)
+
           * `provider` (`pulumi.Input[str]`) - Monitoring provider (string)
           * `reverseCidrs` (`pulumi.Input[list]`) - Reverse CIDRs  (list)
           * `upstreamNameservers` (`pulumi.Input[list]`) - Upstream nameservers  (list)

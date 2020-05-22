@@ -1138,6 +1138,10 @@ export interface ClusterDns {
      */
     nodeSelector?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Docker image for nodelocal (string)
+     */
+    nodelocal?: pulumi.Input<inputs.ClusterDnsNodelocal>;
+    /**
      * Monitoring provider (string)
      */
     provider?: pulumi.Input<string>;
@@ -1149,6 +1153,17 @@ export interface ClusterDns {
      * Upstream nameservers  (list)
      */
     upstreamNameservers?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ClusterDnsNodelocal {
+    /**
+     * Nodelocal dns ip address (string)
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * Node selector key pair (map)
+     */
+    nodeSelector?: pulumi.Input<{[key: string]: any}>;
 }
 
 export interface ClusterEtcdHost {

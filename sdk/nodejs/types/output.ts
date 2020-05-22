@@ -69,7 +69,7 @@ export interface ClusterBastionHost {
     /**
      * SSH Private Key path (string)
      */
-    sshKeyPath?: string;
+    sshKeyPath: string;
     /**
      * Registry user (string)
      */
@@ -1138,6 +1138,10 @@ export interface ClusterDns {
      */
     nodeSelector?: {[key: string]: any};
     /**
+     * Docker image for nodelocal (string)
+     */
+    nodelocal?: outputs.ClusterDnsNodelocal;
+    /**
      * Monitoring provider (string)
      */
     provider?: string;
@@ -1149,6 +1153,17 @@ export interface ClusterDns {
      * Upstream nameservers  (list)
      */
     upstreamNameservers?: string[];
+}
+
+export interface ClusterDnsNodelocal {
+    /**
+     * Nodelocal dns ip address (string)
+     */
+    ipAddress?: string;
+    /**
+     * Node selector key pair (map)
+     */
+    nodeSelector?: {[key: string]: any};
 }
 
 export interface ClusterEtcdHost {
@@ -1786,7 +1801,7 @@ export interface ClusterServicesKubeApi {
     /**
      * K8s audit log configuration. (list maxitem: 1)
      */
-    auditLog?: outputs.ClusterServicesKubeApiAuditLog;
+    auditLog: outputs.ClusterServicesKubeApiAuditLog;
     /**
      * K8s event rate limit configuration. (list maxitem: 1)
      */
@@ -1871,7 +1886,7 @@ export interface ClusterServicesKubeApiDeprecated {
     /**
      * K8s audit log configuration. (list maxitem: 1)
      */
-    auditLog?: outputs.ClusterServicesKubeApiDeprecatedAuditLog;
+    auditLog: outputs.ClusterServicesKubeApiDeprecatedAuditLog;
     /**
      * K8s event rate limit configuration. (list maxitem: 1)
      */

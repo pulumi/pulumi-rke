@@ -362,7 +362,7 @@ namespace Pulumi.Rke
         /// RKE k8s cluster upgrade strategy (list maxitems:1)
         /// </summary>
         [Output("upgradeStrategy")]
-        public Output<Outputs.ClusterUpgradeStrategy?> UpgradeStrategy { get; private set; } = null!;
+        public Output<Outputs.ClusterUpgradeStrategy> UpgradeStrategy { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster worker nodes (list)

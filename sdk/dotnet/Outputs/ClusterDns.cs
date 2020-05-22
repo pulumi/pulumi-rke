@@ -18,6 +18,10 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
+        /// Docker image for nodelocal (string)
+        /// </summary>
+        public readonly Outputs.ClusterDnsNodelocal? Nodelocal;
+        /// <summary>
         /// Monitoring provider (string)
         /// </summary>
         public readonly string? Provider;
@@ -34,6 +38,8 @@ namespace Pulumi.Rke.Outputs
         private ClusterDns(
             ImmutableDictionary<string, object>? nodeSelector,
 
+            Outputs.ClusterDnsNodelocal? nodelocal,
+
             string? provider,
 
             ImmutableArray<string> reverseCidrs,
@@ -41,6 +47,7 @@ namespace Pulumi.Rke.Outputs
             ImmutableArray<string> upstreamNameservers)
         {
             NodeSelector = nodeSelector;
+            Nodelocal = nodelocal;
             Provider = provider;
             ReverseCidrs = reverseCidrs;
             UpstreamNameservers = upstreamNameservers;

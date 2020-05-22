@@ -25,6 +25,12 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
+        /// Docker image for nodelocal (string)
+        /// </summary>
+        [Input("nodelocal")]
+        public Input<Inputs.ClusterDnsNodelocalGetArgs>? Nodelocal { get; set; }
+
+        /// <summary>
         /// Monitoring provider (string)
         /// </summary>
         [Input("provider")]

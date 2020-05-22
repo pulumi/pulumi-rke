@@ -8,21 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
- * 
+ *
  * RKE clusters can be defined in the provider:
  * - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
  * - Using the TF provider arguments to define the entire cluster.
  * - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as rke from "@pulumi/rke";
  * import * from "fs";
- * 
+ *
  * // Create a new RKE cluster using config yaml
  * const foo = new rke.Cluster("foo", {clusterYaml: fs.readFileSync("cluster.yaml")});
  * // Create a new RKE cluster using arguments
@@ -61,8 +61,6 @@ import * as utilities from "./utilities";
  *     kubernetesVersion: "<K8s_VERSION>",
  * });
  * ```
- *
- * > This content is derived from https://github.com/rancher/terraform-provider-rke/blob/master/website/docs/r/cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -319,7 +317,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster upgrade strategy (list maxitems:1)
      */
-    public readonly upgradeStrategy!: pulumi.Output<outputs.ClusterUpgradeStrategy | undefined>;
+    public readonly upgradeStrategy!: pulumi.Output<outputs.ClusterUpgradeStrategy>;
     /**
      * (Computed) RKE k8s cluster worker nodes (list)
      */
@@ -595,7 +593,6 @@ export interface ClusterState {
     readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
-     * 
      * @deprecated Use kube_config_yaml instead
      */
     readonly internalKubeConfigYaml?: pulumi.Input<string>;
@@ -658,37 +655,31 @@ export interface ClusterState {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
-     * 
      * @deprecated Use services.etcd instead
      */
     readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
-     * 
      * @deprecated Use services.kube_api instead
      */
     readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
-     * 
      * @deprecated Use services.kube_controller instead
      */
     readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
-     * 
      * @deprecated Use services.kubelet instead
      */
     readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
-     * 
      * @deprecated Use services.kubeproxy instead
      */
     readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
-     * 
      * @deprecated Use services.scheduler instead
      */
     readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
@@ -841,37 +832,31 @@ export interface ClusterArgs {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
-     * 
      * @deprecated Use services.etcd instead
      */
     readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
-     * 
      * @deprecated Use services.kube_api instead
      */
     readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
-     * 
      * @deprecated Use services.kube_controller instead
      */
     readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
-     * 
      * @deprecated Use services.kubelet instead
      */
     readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
-     * 
      * @deprecated Use services.kubeproxy instead
      */
     readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
-     * 
      * @deprecated Use services.scheduler instead
      */
     readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
