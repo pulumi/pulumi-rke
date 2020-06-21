@@ -1,89 +1,92 @@
-PROJECT_NAME := rke Package
-include build/common.mk
-
 PACK             := rke
 ORG              := jaxxstorm
-PACKDIR          := sdk
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
-NODE_MODULE_NAME := @${ORG}/${PACK}
+NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
+PROVIDER_PATH    := provider/v2
+VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
-VERSION         := $(shell scripts/get-version) 
-PYPI_VERSION    := $(shell scripts/get-py-version || (echo "could not get version $$?"; exit 1))
+VERSION         := $(shell pulumictl get version)
 
-DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
-DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
+WORKING_DIR     := $(shell pwd)
 
-WORKSPACE      := $(shell scripts/get-workspace)
+.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
-ifeq ($(strip ${DOTNET_SUFFIX}),)
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
-else
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-$(strip ${DOTNET_SUFFIX})
-endif
+development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
 
-TESTPARALLELISM := 4
+tfgen:: install_plugins
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/${TFGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${TFGEN})
+	$(WORKING_DIR)/bin/${TFGEN} schema --out provider/cmd/${PROVIDER}
+	(cd provider && VERSION=$(VERSION) go generate cmd/${PROVIDER}/main.go)
 
-# NOTE: Since the plugin is published using the nodejs style semver version
-# We set the PLUGIN_VERSION to be the same as the version we use when building
-# the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
-build:: tfgen provider build_node build_python build_go build_dotnet
+provider:: tfgen install_plugins # build the provider binary
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
 
-build_node::
-	cd provider && $(WORKSPACE)/bin/$(TFGEN) nodejs --overlays overlays/nodejs --out ../${PACKDIR}/nodejs/
-	cd ${PACKDIR}/nodejs/ && \
+build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet # build all the sdks
+
+build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs:: install_plugins tfgen # build the node sdk
+	$(WORKING_DIR)/bin/$(TFGEN) nodejs --overlays provider/overlays/nodejs --out sdk/nodejs/
+	cd sdk/nodejs/ && \
         yarn install && \
         yarn run tsc && \
         cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+    	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-build_python::
-	cd provider && $(WORKSPACE)/bin/$(TFGEN) python --overlays overlays/python --out ../${PACKDIR}/python/
-	cd ${PACKDIR}/python/ && \
+build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python:: install_plugins tfgen # build the python sdk
+	$(WORKING_DIR)/bin/$(TFGEN) python --overlays provider/overlays/python --out sdk/python/
+	cd sdk/python/ && \
         cp ../../README.md . && \
-        $(PYTHON) setup.py clean --all 2>/dev/null && \
+        python3 setup.py clean --all 2>/dev/null && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
         sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
         rm ./bin/setup.py.bak && \
-        cd ./bin && $(PYTHON) setup.py build sdist
+        cd ./bin && python3 setup.py build sdist
 
-build_go::
-	cd provider && $(WORKSPACE)/bin/$(TFGEN) go --overlays overlays/go --out ../${PACKDIR}/go/
+build_go:: install_plugins tfgen # build the go sdk
+	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
-build_dotnet::
-	cd provider && $(WORKSPACE)/bin/$(TFGEN) dotnet --overlays overlays/dotnet --out ../${PACKDIR}/dotnet/
-	cd ${PACKDIR}/dotnet/ && \
+build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet:: install_plugins tfgen # build the dotnet sdk
+	pulumictl get version --language dotnet
+	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
+	cd sdk/dotnet/ && \
+		echo "${DOTNET_VERSION}" >version.txt && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
+build_go:: install_plugins tfgen # build the go sdk
+	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
-tfgen::
-	cd provider && go build -o $(WORKSPACE)/bin/${TFGEN} -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${TFGEN}
+lint_provider:: provider # lint the provider code
+	cd provider && golangci-lint run -c ../.golangci.yml
 
-generate_schema:: tfgen
-	$(WORKSPACE)/provider/bin/${TFGEN} schema --out ./provider/cmd/${PROVIDER}
+cleanup:: # cleans up the temporary directory
+	rm -r $(WORKING_DIR)/bin
+	rm -f provider/cmd/${PROVIDER}/schema.go
 
-provider:: generate_schema
-	cd provider && go generate cmd/${PROVIDER}/main.go
-	cd provider && go install -ldflags "-X github.com/${ORG}/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
+help::
+	@grep '^[^.#]\+:\s\+.*#' Makefile | \
+ 	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
+ 	expand -t20
 
-lint::
-	#golangci-lint run
+clean::
+	rm -rf sdk/{dotnet,nodejs,go,python}
 
-install:: tfgen provider
-	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
-	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
-		yarn install --offline --production && \
-		(yarn unlink > /dev/null 2>&1 || true) && \
-		yarn link
-	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
-	echo "Copying NuGet packages to ${PULUMI_NUGET}"
-	[ ! -e "$(PULUMI_NUGET)" ] || rm -rf "$(PULUMI_NUGET)/*"
-	find . -name '*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
+install_plugins::
+	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
 
-test_all::
-	cd examples && PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} .
+install_dotnet_sdk::
+	mkdir -p $(WORKING_DIR)/nuget
+	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
+
+install_python_sdk::
+
+install_go_sdk::
+
+install_nodejs_sdk::
+	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
+
+install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk

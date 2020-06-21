@@ -50,10 +50,6 @@ func makeType(mod string, typ string) tokens.Type {
 	return tokens.Type(makeMember(mod, typ))
 }
 
-func makeDataSource(mod string, res string) tokens.ModuleMember {
-	return makeMember(mod, res)
-}
-
 func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }

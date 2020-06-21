@@ -11,6 +11,16 @@ sdk/nodejs/node_modules
 *.iml
 
 yarn.lock
-**/pulumiManifest.go
-dist
+
+**/schema.go
+**/version.txt
+
+**/ci-scripts
+**/nuget
+
+**/node_modules
+
+**/dist
 **/.task
+**/pulumiManifest.go
+

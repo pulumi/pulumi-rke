@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ClusterAuthentication {
@@ -107,6 +108,8 @@ export interface ClusterCertificate {
 export interface ClusterCloudProvider {
     /**
      * Use awsCloudProvider instead
+     *
+     * @deprecated Use aws_cloud_provider instead
      */
     awsCloudConfig?: outputs.ClusterCloudProviderAwsCloudConfig;
     /**
@@ -115,6 +118,8 @@ export interface ClusterCloudProvider {
     awsCloudProvider?: outputs.ClusterCloudProviderAwsCloudProvider;
     /**
      * Use azureCloudProvider instead
+     *
+     * @deprecated Use azure_cloud_provider instead
      */
     azureCloudConfig?: outputs.ClusterCloudProviderAzureCloudConfig;
     /**
@@ -123,6 +128,8 @@ export interface ClusterCloudProvider {
     azureCloudProvider?: outputs.ClusterCloudProviderAzureCloudProvider;
     /**
      * Use customCloudProvider instead
+     *
+     * @deprecated Use custom_cloud_provider instead
      */
     customCloudConfig?: string;
     /**
@@ -135,6 +142,8 @@ export interface ClusterCloudProvider {
     name: string;
     /**
      * Use openstackCloudProvider instead
+     *
+     * @deprecated Use openstack_cloud_provider instead
      */
     openstackCloudConfig?: outputs.ClusterCloudProviderOpenstackCloudConfig;
     /**
@@ -143,6 +152,8 @@ export interface ClusterCloudProvider {
     openstackCloudProvider?: outputs.ClusterCloudProviderOpenstackCloudProvider;
     /**
      * Use vsphereCloudProvider instead
+     *
+     * @deprecated Use vsphere_cloud_provider instead
      */
     vsphereCloudConfig?: outputs.ClusterCloudProviderVsphereCloudConfig;
     /**
@@ -208,6 +219,8 @@ export interface ClusterCloudProviderAwsCloudConfigGlobal {
 export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
      * TLS key for etcd service (string)
+     *
+     * @deprecated Use service instead
      */
     key?: string;
     /**
@@ -293,6 +306,8 @@ export interface ClusterCloudProviderAwsCloudProviderGlobal {
 export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
      * TLS key for etcd service (string)
+     *
+     * @deprecated Use service instead
      */
     key?: string;
     /**
@@ -1318,6 +1333,9 @@ export interface ClusterNode {
      * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
      */
     roles: string[];
+    /**
+     * @deprecated Use role instead
+     */
     rolesDeprecated?: string;
     /**
      * SSH Agent Auth enable (bool)

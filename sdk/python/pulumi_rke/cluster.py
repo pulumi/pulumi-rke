@@ -866,49 +866,6 @@ class Cluster(pulumi.CustomResource):
         - Using the TF provider arguments to define the entire cluster.
         - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
 
-        ## Example Usage
-
-
-
-        ```python
-        import pulumi
-        import pulumi_rke as rke
-
-        # Create a new RKE cluster using config yaml
-        foo = rke.Cluster("foo", cluster_yaml=(lambda path: open(path).read())("cluster.yaml"))
-        # Create a new RKE cluster using arguments
-        foo2_cluster = rke.Cluster("foo2Cluster",
-            nodes=[{
-                "address": "1.2.3.4",
-                "user": "ubuntu",
-                "roles": [
-                    "controlplane",
-                    "worker",
-                    "etcd",
-                ],
-                "sshKey": (lambda path: open(path).read())("~/.ssh/id_rsa"),
-            }],
-            upgrade_strategy={
-                "drain": True,
-                "maxUnavailableWorker": "20%",
-            })
-        # Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
-        foo2_index_cluster_cluster = rke.Cluster("foo2Index/clusterCluster",
-            cluster_yaml=(lambda path: open(path).read())("cluster.yaml"),
-            ssh_agent_auth=True,
-            ignore_docker_version=True,
-            kubernetes_version="<K8s_VERSION>",
-            upgrade_strategy={
-                "drain": True,
-                "maxUnavailableWorker": "20%",
-            })
-        # Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
-        foo2_rke_index_cluster_cluster = rke.Cluster("foo2RkeIndex/clusterCluster",
-            cluster_yaml=(lambda path: open(path).read())("cluster.yaml"),
-            ssh_agent_auth=True,
-            ignore_docker_version=True,
-            kubernetes_version="<K8s_VERSION>")
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -1592,17 +1549,38 @@ class Cluster(pulumi.CustomResource):
             __props__['monitoring'] = monitoring
             __props__['network'] = network
             __props__['nodes'] = nodes
+            if nodes_confs is not None:
+                warnings.warn("Use cluster_yaml instead", DeprecationWarning)
+                pulumi.log.warn("nodes_confs is deprecated: Use cluster_yaml instead")
             __props__['nodes_confs'] = nodes_confs
             __props__['prefix_path'] = prefix_path
             __props__['private_registries'] = private_registries
             __props__['restore'] = restore
             __props__['rotate_certificates'] = rotate_certificates
             __props__['services'] = services
+            if services_etcd_deprecated is not None:
+                warnings.warn("Use services.etcd instead", DeprecationWarning)
+                pulumi.log.warn("services_etcd_deprecated is deprecated: Use services.etcd instead")
             __props__['services_etcd_deprecated'] = services_etcd_deprecated
+            if services_kube_api_deprecated is not None:
+                warnings.warn("Use services.kube_api instead", DeprecationWarning)
+                pulumi.log.warn("services_kube_api_deprecated is deprecated: Use services.kube_api instead")
             __props__['services_kube_api_deprecated'] = services_kube_api_deprecated
+            if services_kube_controller_deprecated is not None:
+                warnings.warn("Use services.kube_controller instead", DeprecationWarning)
+                pulumi.log.warn("services_kube_controller_deprecated is deprecated: Use services.kube_controller instead")
             __props__['services_kube_controller_deprecated'] = services_kube_controller_deprecated
+            if services_kube_proxy_deprecated is not None:
+                warnings.warn("Use services.kubeproxy instead", DeprecationWarning)
+                pulumi.log.warn("services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead")
             __props__['services_kube_proxy_deprecated'] = services_kube_proxy_deprecated
+            if services_kube_scheduler_deprecated is not None:
+                warnings.warn("Use services.scheduler instead", DeprecationWarning)
+                pulumi.log.warn("services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead")
             __props__['services_kube_scheduler_deprecated'] = services_kube_scheduler_deprecated
+            if services_kubelet_deprecated is not None:
+                warnings.warn("Use services.kubelet instead", DeprecationWarning)
+                pulumi.log.warn("services_kubelet_deprecated is deprecated: Use services.kubelet instead")
             __props__['services_kubelet_deprecated'] = services_kubelet_deprecated
             __props__['ssh_agent_auth'] = ssh_agent_auth
             __props__['ssh_cert_path'] = ssh_cert_path

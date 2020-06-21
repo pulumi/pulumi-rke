@@ -933,24 +933,34 @@ func (o ClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCertifica
 
 type ClusterCloudProvider struct {
 	// Use awsCloudProvider instead
+	//
+	// Deprecated: Use aws_cloud_provider instead
 	AwsCloudConfig *ClusterCloudProviderAwsCloudConfig `pulumi:"awsCloudConfig"`
 	// AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 	AwsCloudProvider *ClusterCloudProviderAwsCloudProvider `pulumi:"awsCloudProvider"`
 	// Use azureCloudProvider instead
+	//
+	// Deprecated: Use azure_cloud_provider instead
 	AzureCloudConfig *ClusterCloudProviderAzureCloudConfig `pulumi:"azureCloudConfig"`
 	// Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 	AzureCloudProvider *ClusterCloudProviderAzureCloudProvider `pulumi:"azureCloudProvider"`
 	// Use customCloudProvider instead
+	//
+	// Deprecated: Use custom_cloud_provider instead
 	CustomCloudConfig *string `pulumi:"customCloudConfig"`
 	// Custom Cloud Provider config (string)
 	CustomCloudProvider *string `pulumi:"customCloudProvider"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
 	Name string `pulumi:"name"`
 	// Use openstackCloudProvider instead
+	//
+	// Deprecated: Use openstack_cloud_provider instead
 	OpenstackCloudConfig *ClusterCloudProviderOpenstackCloudConfig `pulumi:"openstackCloudConfig"`
 	// Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 	OpenstackCloudProvider *ClusterCloudProviderOpenstackCloudProvider `pulumi:"openstackCloudProvider"`
 	// Use vsphereCloudProvider instead
+	//
+	// Deprecated: Use vsphere_cloud_provider instead
 	VsphereCloudConfig *ClusterCloudProviderVsphereCloudConfig `pulumi:"vsphereCloudConfig"`
 	// Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
 	VsphereCloudProvider *ClusterCloudProviderVsphereCloudProvider `pulumi:"vsphereCloudProvider"`
@@ -970,24 +980,34 @@ type ClusterCloudProviderInput interface {
 
 type ClusterCloudProviderArgs struct {
 	// Use awsCloudProvider instead
+	//
+	// Deprecated: Use aws_cloud_provider instead
 	AwsCloudConfig ClusterCloudProviderAwsCloudConfigPtrInput `pulumi:"awsCloudConfig"`
 	// AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 	AwsCloudProvider ClusterCloudProviderAwsCloudProviderPtrInput `pulumi:"awsCloudProvider"`
 	// Use azureCloudProvider instead
+	//
+	// Deprecated: Use azure_cloud_provider instead
 	AzureCloudConfig ClusterCloudProviderAzureCloudConfigPtrInput `pulumi:"azureCloudConfig"`
 	// Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 	AzureCloudProvider ClusterCloudProviderAzureCloudProviderPtrInput `pulumi:"azureCloudProvider"`
 	// Use customCloudProvider instead
+	//
+	// Deprecated: Use custom_cloud_provider instead
 	CustomCloudConfig pulumi.StringPtrInput `pulumi:"customCloudConfig"`
 	// Custom Cloud Provider config (string)
 	CustomCloudProvider pulumi.StringPtrInput `pulumi:"customCloudProvider"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
 	Name pulumi.StringInput `pulumi:"name"`
 	// Use openstackCloudProvider instead
+	//
+	// Deprecated: Use openstack_cloud_provider instead
 	OpenstackCloudConfig ClusterCloudProviderOpenstackCloudConfigPtrInput `pulumi:"openstackCloudConfig"`
 	// Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 	OpenstackCloudProvider ClusterCloudProviderOpenstackCloudProviderPtrInput `pulumi:"openstackCloudProvider"`
 	// Use vsphereCloudProvider instead
+	//
+	// Deprecated: Use vsphere_cloud_provider instead
 	VsphereCloudConfig ClusterCloudProviderVsphereCloudConfigPtrInput `pulumi:"vsphereCloudConfig"`
 	// Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
 	VsphereCloudProvider ClusterCloudProviderVsphereCloudProviderPtrInput `pulumi:"vsphereCloudProvider"`
@@ -1072,6 +1092,8 @@ func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutputWithContext(c
 }
 
 // Use awsCloudProvider instead
+//
+// Deprecated: Use aws_cloud_provider instead
 func (o ClusterCloudProviderOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig { return v.AwsCloudConfig }).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
@@ -1082,6 +1104,8 @@ func (o ClusterCloudProviderOutput) AwsCloudProvider() ClusterCloudProviderAwsCl
 }
 
 // Use azureCloudProvider instead
+//
+// Deprecated: Use azure_cloud_provider instead
 func (o ClusterCloudProviderOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig { return v.AzureCloudConfig }).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
@@ -1092,6 +1116,8 @@ func (o ClusterCloudProviderOutput) AzureCloudProvider() ClusterCloudProviderAzu
 }
 
 // Use customCloudProvider instead
+//
+// Deprecated: Use custom_cloud_provider instead
 func (o ClusterCloudProviderOutput) CustomCloudConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudConfig }).(pulumi.StringPtrOutput)
 }
@@ -1107,6 +1133,8 @@ func (o ClusterCloudProviderOutput) Name() pulumi.StringOutput {
 }
 
 // Use openstackCloudProvider instead
+//
+// Deprecated: Use openstack_cloud_provider instead
 func (o ClusterCloudProviderOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig { return v.OpenstackCloudConfig }).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
@@ -1119,6 +1147,8 @@ func (o ClusterCloudProviderOutput) OpenstackCloudProvider() ClusterCloudProvide
 }
 
 // Use vsphereCloudProvider instead
+//
+// Deprecated: Use vsphere_cloud_provider instead
 func (o ClusterCloudProviderOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig { return v.VsphereCloudConfig }).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
@@ -1147,6 +1177,8 @@ func (o ClusterCloudProviderPtrOutput) Elem() ClusterCloudProviderOutput {
 }
 
 // Use awsCloudProvider instead
+//
+// Deprecated: Use aws_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *ClusterCloudProviderAwsCloudConfig {
 		if v == nil {
@@ -1167,6 +1199,8 @@ func (o ClusterCloudProviderPtrOutput) AwsCloudProvider() ClusterCloudProviderAw
 }
 
 // Use azureCloudProvider instead
+//
+// Deprecated: Use azure_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *ClusterCloudProviderAzureCloudConfig {
 		if v == nil {
@@ -1187,6 +1221,8 @@ func (o ClusterCloudProviderPtrOutput) AzureCloudProvider() ClusterCloudProvider
 }
 
 // Use customCloudProvider instead
+//
+// Deprecated: Use custom_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) CustomCloudConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *string {
 		if v == nil {
@@ -1217,6 +1253,8 @@ func (o ClusterCloudProviderPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Use openstackCloudProvider instead
+//
+// Deprecated: Use openstack_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *ClusterCloudProviderOpenstackCloudConfig {
 		if v == nil {
@@ -1237,6 +1275,8 @@ func (o ClusterCloudProviderPtrOutput) OpenstackCloudProvider() ClusterCloudProv
 }
 
 // Use vsphereCloudProvider instead
+//
+// Deprecated: Use vsphere_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *ClusterCloudProviderVsphereCloudConfig {
 		if v == nil {
@@ -1716,6 +1756,8 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Zone() pulumi.StringP
 
 type ClusterCloudProviderAwsCloudConfigServiceOverride struct {
 	// TLS key for etcd service (string)
+	//
+	// Deprecated: Use service instead
 	Key *string `pulumi:"key"`
 	// Region for S3 service (string)
 	Region *string `pulumi:"region"`
@@ -1745,6 +1787,8 @@ type ClusterCloudProviderAwsCloudConfigServiceOverrideInput interface {
 
 type ClusterCloudProviderAwsCloudConfigServiceOverrideArgs struct {
 	// TLS key for etcd service (string)
+	//
+	// Deprecated: Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Region for S3 service (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -1813,6 +1857,8 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToClusterCloudP
 }
 
 // TLS key for etcd service (string)
+//
+// Deprecated: Use service instead
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -2331,6 +2377,8 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Zone() pulumi.Strin
 
 type ClusterCloudProviderAwsCloudProviderServiceOverride struct {
 	// TLS key for etcd service (string)
+	//
+	// Deprecated: Use service instead
 	Key *string `pulumi:"key"`
 	// Region for S3 service (string)
 	Region *string `pulumi:"region"`
@@ -2360,6 +2408,8 @@ type ClusterCloudProviderAwsCloudProviderServiceOverrideInput interface {
 
 type ClusterCloudProviderAwsCloudProviderServiceOverrideArgs struct {
 	// TLS key for etcd service (string)
+	//
+	// Deprecated: Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Region for S3 service (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -2428,6 +2478,8 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToClusterClou
 }
 
 // TLS key for etcd service (string)
+//
+// Deprecated: Use service instead
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -8917,6 +8969,8 @@ func (o ClusterControlPlaneHostArrayOutput) Index(i pulumi.IntInput) ClusterCont
 type ClusterDns struct {
 	// Node selector key pair (map)
 	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+	// Docker image for nodelocal (string)
+	Nodelocal *ClusterDnsNodelocal `pulumi:"nodelocal"`
 	// Monitoring provider (string)
 	Provider *string `pulumi:"provider"`
 	// Reverse CIDRs  (list)
@@ -8940,6 +8994,8 @@ type ClusterDnsInput interface {
 type ClusterDnsArgs struct {
 	// Node selector key pair (map)
 	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+	// Docker image for nodelocal (string)
+	Nodelocal ClusterDnsNodelocalPtrInput `pulumi:"nodelocal"`
 	// Monitoring provider (string)
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 	// Reverse CIDRs  (list)
@@ -9031,6 +9087,11 @@ func (o ClusterDnsOutput) NodeSelector() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
+// Docker image for nodelocal (string)
+func (o ClusterDnsOutput) Nodelocal() ClusterDnsNodelocalPtrOutput {
+	return o.ApplyT(func(v ClusterDns) *ClusterDnsNodelocal { return v.Nodelocal }).(ClusterDnsNodelocalPtrOutput)
+}
+
 // Monitoring provider (string)
 func (o ClusterDnsOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
@@ -9074,6 +9135,16 @@ func (o ClusterDnsPtrOutput) NodeSelector() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
+// Docker image for nodelocal (string)
+func (o ClusterDnsPtrOutput) Nodelocal() ClusterDnsNodelocalPtrOutput {
+	return o.ApplyT(func(v *ClusterDns) *ClusterDnsNodelocal {
+		if v == nil {
+			return nil
+		}
+		return v.Nodelocal
+	}).(ClusterDnsNodelocalPtrOutput)
+}
+
 // Monitoring provider (string)
 func (o ClusterDnsPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterDns) *string {
@@ -9102,6 +9173,158 @@ func (o ClusterDnsPtrOutput) UpstreamNameservers() pulumi.StringArrayOutput {
 		}
 		return v.UpstreamNameservers
 	}).(pulumi.StringArrayOutput)
+}
+
+type ClusterDnsNodelocal struct {
+	// Nodelocal dns ip address (string)
+	IpAddress *string `pulumi:"ipAddress"`
+	// Node selector key pair (map)
+	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+}
+
+// ClusterDnsNodelocalInput is an input type that accepts ClusterDnsNodelocalArgs and ClusterDnsNodelocalOutput values.
+// You can construct a concrete instance of `ClusterDnsNodelocalInput` via:
+//
+// 		 ClusterDnsNodelocalArgs{...}
+//
+type ClusterDnsNodelocalInput interface {
+	pulumi.Input
+
+	ToClusterDnsNodelocalOutput() ClusterDnsNodelocalOutput
+	ToClusterDnsNodelocalOutputWithContext(context.Context) ClusterDnsNodelocalOutput
+}
+
+type ClusterDnsNodelocalArgs struct {
+	// Nodelocal dns ip address (string)
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Node selector key pair (map)
+	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+}
+
+func (ClusterDnsNodelocalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDnsNodelocal)(nil)).Elem()
+}
+
+func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalOutput() ClusterDnsNodelocalOutput {
+	return i.ToClusterDnsNodelocalOutputWithContext(context.Background())
+}
+
+func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalOutputWithContext(ctx context.Context) ClusterDnsNodelocalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsNodelocalOutput)
+}
+
+func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput {
+	return i.ToClusterDnsNodelocalPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsNodelocalOutput).ToClusterDnsNodelocalPtrOutputWithContext(ctx)
+}
+
+// ClusterDnsNodelocalPtrInput is an input type that accepts ClusterDnsNodelocalArgs, ClusterDnsNodelocalPtr and ClusterDnsNodelocalPtrOutput values.
+// You can construct a concrete instance of `ClusterDnsNodelocalPtrInput` via:
+//
+// 		 ClusterDnsNodelocalArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterDnsNodelocalPtrInput interface {
+	pulumi.Input
+
+	ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput
+	ToClusterDnsNodelocalPtrOutputWithContext(context.Context) ClusterDnsNodelocalPtrOutput
+}
+
+type clusterDnsNodelocalPtrType ClusterDnsNodelocalArgs
+
+func ClusterDnsNodelocalPtr(v *ClusterDnsNodelocalArgs) ClusterDnsNodelocalPtrInput {
+	return (*clusterDnsNodelocalPtrType)(v)
+}
+
+func (*clusterDnsNodelocalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDnsNodelocal)(nil)).Elem()
+}
+
+func (i *clusterDnsNodelocalPtrType) ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput {
+	return i.ToClusterDnsNodelocalPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterDnsNodelocalPtrType) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsNodelocalPtrOutput)
+}
+
+type ClusterDnsNodelocalOutput struct{ *pulumi.OutputState }
+
+func (ClusterDnsNodelocalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDnsNodelocal)(nil)).Elem()
+}
+
+func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalOutput() ClusterDnsNodelocalOutput {
+	return o
+}
+
+func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalOutputWithContext(ctx context.Context) ClusterDnsNodelocalOutput {
+	return o
+}
+
+func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput {
+	return o.ToClusterDnsNodelocalPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
+	return o.ApplyT(func(v ClusterDnsNodelocal) *ClusterDnsNodelocal {
+		return &v
+	}).(ClusterDnsNodelocalPtrOutput)
+}
+
+// Nodelocal dns ip address (string)
+func (o ClusterDnsNodelocalOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterDnsNodelocal) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Node selector key pair (map)
+func (o ClusterDnsNodelocalOutput) NodeSelector() pulumi.MapOutput {
+	return o.ApplyT(func(v ClusterDnsNodelocal) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+}
+
+type ClusterDnsNodelocalPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDnsNodelocalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDnsNodelocal)(nil)).Elem()
+}
+
+func (o ClusterDnsNodelocalPtrOutput) ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput {
+	return o
+}
+
+func (o ClusterDnsNodelocalPtrOutput) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
+	return o
+}
+
+func (o ClusterDnsNodelocalPtrOutput) Elem() ClusterDnsNodelocalOutput {
+	return o.ApplyT(func(v *ClusterDnsNodelocal) ClusterDnsNodelocal { return *v }).(ClusterDnsNodelocalOutput)
+}
+
+// Nodelocal dns ip address (string)
+func (o ClusterDnsNodelocalPtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDnsNodelocal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Node selector key pair (map)
+func (o ClusterDnsNodelocalPtrOutput) NodeSelector() pulumi.MapOutput {
+	return o.ApplyT(func(v *ClusterDnsNodelocal) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.NodeSelector
+	}).(pulumi.MapOutput)
 }
 
 type ClusterEtcdHost struct {
@@ -10495,8 +10718,9 @@ type ClusterNode struct {
 	// Port used for SSH communication. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
-	Roles           []string `pulumi:"roles"`
-	RolesDeprecated *string  `pulumi:"rolesDeprecated"`
+	Roles []string `pulumi:"roles"`
+	// Deprecated: Use role instead
+	RolesDeprecated *string `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -10541,8 +10765,9 @@ type ClusterNodeArgs struct {
 	// Port used for SSH communication. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
-	Roles           pulumi.StringArrayInput `pulumi:"roles"`
-	RolesDeprecated pulumi.StringPtrInput   `pulumi:"rolesDeprecated"`
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// Deprecated: Use role instead
+	RolesDeprecated pulumi.StringPtrInput `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
 	// SSH Certificate (string)
@@ -10651,6 +10876,7 @@ func (o ClusterNodeOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterNode) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use role instead
 func (o ClusterNodeOutput) RolesDeprecated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.RolesDeprecated }).(pulumi.StringPtrOutput)
 }
@@ -18945,6 +19171,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterControlPlaneHostArrayOutput{})
 	pulumi.RegisterOutputType(ClusterDnsOutput{})
 	pulumi.RegisterOutputType(ClusterDnsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterDnsNodelocalOutput{})
+	pulumi.RegisterOutputType(ClusterDnsNodelocalPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdHostOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdHostArrayOutput{})
 	pulumi.RegisterOutputType(ClusterInactiveHostOutput{})
