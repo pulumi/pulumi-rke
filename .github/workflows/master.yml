@@ -9,7 +9,6 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
 jobs:
   build_sdk:
@@ -58,7 +57,7 @@ jobs:
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Build SDK
-      run: make -f Makefile.github build_${{ matrix.language }}
+      run: make build_${{ matrix.language }}
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Upload artifacts
@@ -66,13 +65,6 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in building ${{ matrix.language }} sdk
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
     strategy:
       fail-fast: true
       matrix:
@@ -114,14 +106,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
-      run: make -f Makefile.github lint_provider
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting provider
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+      run: make lint_provider
   lint_sdk:
     container: golangci/golangci-lint:latest
     name: lint-sdk
@@ -149,13 +134,6 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
       run: cd sdk/go/rke && golangci-lint run -c ../../../.golangci.yml
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting go sdk
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -180,7 +158,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Build tfgen & provider binaries
-      run: make -f Makefile.github provider
+      run: make provider
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -309,17 +287,10 @@ jobs:
     - name: Install pipenv
       uses: dschep/install-pipenv-action@v1
     - name: Install dependencies
-      run: make -f Makefile.github install_${{ matrix.language}}_sdk
+      run: make install_${{ matrix.language}}_sdk
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in running ${{ matrix.language }} tests
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
     strategy:
       fail-fast: true
       matrix:
