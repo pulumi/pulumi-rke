@@ -17,3 +17,4 @@ dist
 **/ci-scripts
 **/nuget
 **/node_modules
+**/schema.go
