@@ -13,54 +13,6 @@ import * as utilities from "./utilities";
  * - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
  * - Using the TF provider arguments to define the entire cluster.
  * - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as rke from "@pulumi/rke";
- * import * from "fs";
- *
- * // Create a new RKE cluster using config yaml
- * const foo = new rke.Cluster("foo", {clusterYaml: fs.readFileSync("cluster.yaml")});
- * // Create a new RKE cluster using arguments
- * const foo2Cluster = new rke.Cluster("foo2Cluster", {
- *     nodes: [{
- *         address: "1.2.3.4",
- *         user: "ubuntu",
- *         roles: [
- *             "controlplane",
- *             "worker",
- *             "etcd",
- *         ],
- *         sshKey: fs.readFileSync("~/.ssh/id_rsa"),
- *     }],
- *     upgrade_strategy: {
- *         drain: true,
- *         maxUnavailableWorker: `20%`,
- *     },
- * });
- * // Create a new RKE cluster using both. In case of conflict, arguments override clusterYaml arguments
- * const foo2Index/clusterCluster = new rke.Cluster("foo2Index/clusterCluster", {
- *     clusterYaml: fs.readFileSync("cluster.yaml"),
- *     sshAgentAuth: true,
- *     ignoreDockerVersion: true,
- *     kubernetesVersion: "<K8s_VERSION>",
- *     upgrade_strategy: {
- *         drain: true,
- *         maxUnavailableWorker: `20%`,
- *     },
- * });
- * // Create a new RKE cluster using both. In case of conflict, arguments override clusterYaml arguments
- * const foo2RkeIndex/clusterCluster = new rke.Cluster("foo2RkeIndex/clusterCluster", {
- *     clusterYaml: fs.readFileSync("cluster.yaml"),
- *     sshAgentAuth: true,
- *     ignoreDockerVersion: true,
- *     kubernetesVersion: "<K8s_VERSION>",
- * });
- * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -70,6 +22,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -211,6 +164,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly ingress!: pulumi.Output<outputs.ClusterIngress>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+     *
+     * @deprecated Use kube_config_yaml instead
      */
     public /*out*/ readonly internalKubeConfigYaml!: pulumi.Output<string>;
     /**
@@ -237,6 +192,9 @@ export class Cluster extends pulumi.CustomResource {
      * RKE k8s cluster nodes (list)
      */
     public readonly nodes!: pulumi.Output<outputs.ClusterNode[] | undefined>;
+    /**
+     * @deprecated Use cluster_yaml instead
+     */
     public readonly nodesConfs!: pulumi.Output<string[] | undefined>;
     /**
      * RKE k8s directory path (string)
@@ -272,28 +230,40 @@ export class Cluster extends pulumi.CustomResource {
     public readonly services!: pulumi.Output<outputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     *
+     * @deprecated Use services.etcd instead
      */
     public readonly servicesEtcdDeprecated!: pulumi.Output<outputs.ClusterServicesEtcdDeprecated | undefined>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     *
+     * @deprecated Use services.kube_api instead
      */
     public readonly servicesKubeApiDeprecated!: pulumi.Output<outputs.ClusterServicesKubeApiDeprecated | undefined>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     *
+     * @deprecated Use services.kube_controller instead
      */
     public readonly servicesKubeControllerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeControllerDeprecated | undefined>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
-     */
-    public readonly servicesKubeletDeprecated!: pulumi.Output<outputs.ClusterServicesKubeletDeprecated | undefined>;
-    /**
      * Use services.kubeproxy instead (list maxitems:1)
+     *
+     * @deprecated Use services.kubeproxy instead
      */
     public readonly servicesKubeProxyDeprecated!: pulumi.Output<outputs.ClusterServicesKubeProxyDeprecated | undefined>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     *
+     * @deprecated Use services.scheduler instead
      */
     public readonly servicesKubeSchedulerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeSchedulerDeprecated | undefined>;
+    /**
+     * Use services.kubelet instead (list maxitems:1)
+     *
+     * @deprecated Use services.kubelet instead
+     */
+    public readonly servicesKubeletDeprecated!: pulumi.Output<outputs.ClusterServicesKubeletDeprecated | undefined>;
     /**
      * SSH Agent Auth enable (bool)
      */
@@ -384,9 +354,9 @@ export class Cluster extends pulumi.CustomResource {
             inputs["servicesEtcdDeprecated"] = state ? state.servicesEtcdDeprecated : undefined;
             inputs["servicesKubeApiDeprecated"] = state ? state.servicesKubeApiDeprecated : undefined;
             inputs["servicesKubeControllerDeprecated"] = state ? state.servicesKubeControllerDeprecated : undefined;
-            inputs["servicesKubeletDeprecated"] = state ? state.servicesKubeletDeprecated : undefined;
             inputs["servicesKubeProxyDeprecated"] = state ? state.servicesKubeProxyDeprecated : undefined;
             inputs["servicesKubeSchedulerDeprecated"] = state ? state.servicesKubeSchedulerDeprecated : undefined;
+            inputs["servicesKubeletDeprecated"] = state ? state.servicesKubeletDeprecated : undefined;
             inputs["sshAgentAuth"] = state ? state.sshAgentAuth : undefined;
             inputs["sshCertPath"] = state ? state.sshCertPath : undefined;
             inputs["sshKeyPath"] = state ? state.sshKeyPath : undefined;
@@ -428,9 +398,9 @@ export class Cluster extends pulumi.CustomResource {
             inputs["servicesEtcdDeprecated"] = args ? args.servicesEtcdDeprecated : undefined;
             inputs["servicesKubeApiDeprecated"] = args ? args.servicesKubeApiDeprecated : undefined;
             inputs["servicesKubeControllerDeprecated"] = args ? args.servicesKubeControllerDeprecated : undefined;
-            inputs["servicesKubeletDeprecated"] = args ? args.servicesKubeletDeprecated : undefined;
             inputs["servicesKubeProxyDeprecated"] = args ? args.servicesKubeProxyDeprecated : undefined;
             inputs["servicesKubeSchedulerDeprecated"] = args ? args.servicesKubeSchedulerDeprecated : undefined;
+            inputs["servicesKubeletDeprecated"] = args ? args.servicesKubeletDeprecated : undefined;
             inputs["sshAgentAuth"] = args ? args.sshAgentAuth : undefined;
             inputs["sshCertPath"] = args ? args.sshCertPath : undefined;
             inputs["sshKeyPath"] = args ? args.sshKeyPath : undefined;
@@ -593,6 +563,7 @@ export interface ClusterState {
     readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+     *
      * @deprecated Use kube_config_yaml instead
      */
     readonly internalKubeConfigYaml?: pulumi.Input<string>;
@@ -620,6 +591,9 @@ export interface ClusterState {
      * RKE k8s cluster nodes (list)
      */
     readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
+    /**
+     * @deprecated Use cluster_yaml instead
+     */
     readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
@@ -655,34 +629,40 @@ export interface ClusterState {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     *
      * @deprecated Use services.etcd instead
      */
     readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     *
      * @deprecated Use services.kube_api instead
      */
     readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     *
      * @deprecated Use services.kube_controller instead
      */
     readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
-     * @deprecated Use services.kubelet instead
-     */
-    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
-    /**
      * Use services.kubeproxy instead (list maxitems:1)
+     *
      * @deprecated Use services.kubeproxy instead
      */
     readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     *
      * @deprecated Use services.scheduler instead
      */
     readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
+    /**
+     * Use services.kubelet instead (list maxitems:1)
+     *
+     * @deprecated Use services.kubelet instead
+     */
+    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */
@@ -809,6 +789,9 @@ export interface ClusterArgs {
      * RKE k8s cluster nodes (list)
      */
     readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
+    /**
+     * @deprecated Use cluster_yaml instead
+     */
     readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
@@ -832,34 +815,40 @@ export interface ClusterArgs {
     readonly services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
+     *
      * @deprecated Use services.etcd instead
      */
     readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
+     *
      * @deprecated Use services.kube_api instead
      */
     readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
+     *
      * @deprecated Use services.kube_controller instead
      */
     readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
-     * @deprecated Use services.kubelet instead
-     */
-    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
-    /**
      * Use services.kubeproxy instead (list maxitems:1)
+     *
      * @deprecated Use services.kubeproxy instead
      */
     readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
+     *
      * @deprecated Use services.scheduler instead
      */
     readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
+    /**
+     * Use services.kubelet instead (list maxitems:1)
+     *
+     * @deprecated Use services.kubelet instead
+     */
+    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */

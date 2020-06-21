@@ -3,7 +3,6 @@
 **/bin/
 **/obj/
 Pulumi.*.yaml
-sdk/nodejs/node_modules
 
 **/command-output/
 
@@ -14,3 +13,7 @@ yarn.lock
 **/pulumiManifest.go
 dist
 **/.task
+
+**/ci-scripts
+**/nuget
+**/node_modules

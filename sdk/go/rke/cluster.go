@@ -79,6 +79,8 @@ type Cluster struct {
 	// Docker image for ingress (string)
 	Ingress ClusterIngressOutput `pulumi:"ingress"`
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+	//
+	// Deprecated: Use kube_config_yaml instead
 	InternalKubeConfigYaml pulumi.StringOutput `pulumi:"internalKubeConfigYaml"`
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser pulumi.StringOutput `pulumi:"kubeAdminUser"`
@@ -91,7 +93,8 @@ type Cluster struct {
 	// (list maxitems:1)
 	Network ClusterNetworkOutput `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes      ClusterNodeArrayOutput   `pulumi:"nodes"`
+	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
+	// Deprecated: Use cluster_yaml instead
 	NodesConfs pulumi.StringArrayOutput `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringOutput `pulumi:"prefixPath"`
@@ -110,16 +113,28 @@ type Cluster struct {
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesOutput `pulumi:"services"`
 	// Use services.etcd instead (list maxitems:1)
+	//
+	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrOutput `pulumi:"servicesEtcdDeprecated"`
 	// Use services.kube_api instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrOutput `pulumi:"servicesKubeApiDeprecated"`
 	// Use services.kube_controller instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrOutput `pulumi:"servicesKubeControllerDeprecated"`
 	// Use services.kubeproxy instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrOutput `pulumi:"servicesKubeProxyDeprecated"`
 	// Use services.scheduler instead (list maxitems:1)
+	//
+	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrOutput `pulumi:"servicesKubeSchedulerDeprecated"`
 	// Use services.kubelet instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrOutput `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolOutput `pulumi:"sshAgentAuth"`
@@ -132,7 +147,7 @@ type Cluster struct {
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly pulumi.BoolPtrOutput `pulumi:"updateOnly"`
 	// RKE k8s cluster upgrade strategy (list maxitems:1)
-	UpgradeStrategy ClusterUpgradeStrategyPtrOutput `pulumi:"upgradeStrategy"`
+	UpgradeStrategy ClusterUpgradeStrategyOutput `pulumi:"upgradeStrategy"`
 	// (Computed) RKE k8s cluster worker nodes (list)
 	WorkerHosts ClusterWorkerHostArrayOutput `pulumi:"workerHosts"`
 }
@@ -226,6 +241,8 @@ type clusterState struct {
 	// Docker image for ingress (string)
 	Ingress *ClusterIngress `pulumi:"ingress"`
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+	//
+	// Deprecated: Use kube_config_yaml instead
 	InternalKubeConfigYaml *string `pulumi:"internalKubeConfigYaml"`
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser *string `pulumi:"kubeAdminUser"`
@@ -238,8 +255,9 @@ type clusterState struct {
 	// (list maxitems:1)
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes      []ClusterNode `pulumi:"nodes"`
-	NodesConfs []string      `pulumi:"nodesConfs"`
+	Nodes []ClusterNode `pulumi:"nodes"`
+	// Deprecated: Use cluster_yaml instead
+	NodesConfs []string `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
 	// RKE k8s cluster private docker registries (list)
@@ -257,16 +275,28 @@ type clusterState struct {
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services *ClusterServices `pulumi:"services"`
 	// Use services.etcd instead (list maxitems:1)
+	//
+	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
 	// Use services.kube_api instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
 	// Use services.kube_controller instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
 	// Use services.kubeproxy instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
 	// Use services.scheduler instead (list maxitems:1)
+	//
+	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
 	// Use services.kubelet instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
@@ -346,6 +376,8 @@ type ClusterState struct {
 	// Docker image for ingress (string)
 	Ingress ClusterIngressPtrInput
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+	//
+	// Deprecated: Use kube_config_yaml instead
 	InternalKubeConfigYaml pulumi.StringPtrInput
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser pulumi.StringPtrInput
@@ -358,7 +390,8 @@ type ClusterState struct {
 	// (list maxitems:1)
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
-	Nodes      ClusterNodeArrayInput
+	Nodes ClusterNodeArrayInput
+	// Deprecated: Use cluster_yaml instead
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -377,16 +410,28 @@ type ClusterState struct {
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesPtrInput
 	// Use services.etcd instead (list maxitems:1)
+	//
+	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
 	// Use services.kube_api instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
 	// Use services.kube_controller instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
 	// Use services.kubeproxy instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
 	// Use services.scheduler instead (list maxitems:1)
+	//
+	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
 	// Use services.kubelet instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput
@@ -454,8 +499,9 @@ type clusterArgs struct {
 	// (list maxitems:1)
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
-	Nodes      []ClusterNode `pulumi:"nodes"`
-	NodesConfs []string      `pulumi:"nodesConfs"`
+	Nodes []ClusterNode `pulumi:"nodes"`
+	// Deprecated: Use cluster_yaml instead
+	NodesConfs []string `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
 	// RKE k8s cluster private docker registries (list)
@@ -467,16 +513,28 @@ type clusterArgs struct {
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services *ClusterServices `pulumi:"services"`
 	// Use services.etcd instead (list maxitems:1)
+	//
+	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
 	// Use services.kube_api instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
 	// Use services.kube_controller instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
 	// Use services.kubeproxy instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
 	// Use services.scheduler instead (list maxitems:1)
+	//
+	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
 	// Use services.kubelet instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
@@ -539,7 +597,8 @@ type ClusterArgs struct {
 	// (list maxitems:1)
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
-	Nodes      ClusterNodeArrayInput
+	Nodes ClusterNodeArrayInput
+	// Deprecated: Use cluster_yaml instead
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -552,16 +611,28 @@ type ClusterArgs struct {
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
 	Services ClusterServicesPtrInput
 	// Use services.etcd instead (list maxitems:1)
+	//
+	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
 	// Use services.kube_api instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
 	// Use services.kube_controller instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
 	// Use services.kubeproxy instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
 	// Use services.scheduler instead (list maxitems:1)
+	//
+	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
 	// Use services.kubelet instead (list maxitems:1)
+	//
+	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput

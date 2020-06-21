@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ClusterAuthentication {
     /**
@@ -107,6 +108,8 @@ export interface ClusterCertificate {
 export interface ClusterCloudProvider {
     /**
      * Use awsCloudProvider instead
+     *
+     * @deprecated Use aws_cloud_provider instead
      */
     awsCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudConfig>;
     /**
@@ -115,6 +118,8 @@ export interface ClusterCloudProvider {
     awsCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudProvider>;
     /**
      * Use azureCloudProvider instead
+     *
+     * @deprecated Use azure_cloud_provider instead
      */
     azureCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderAzureCloudConfig>;
     /**
@@ -123,6 +128,8 @@ export interface ClusterCloudProvider {
     azureCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderAzureCloudProvider>;
     /**
      * Use customCloudProvider instead
+     *
+     * @deprecated Use custom_cloud_provider instead
      */
     customCloudConfig?: pulumi.Input<string>;
     /**
@@ -135,6 +142,8 @@ export interface ClusterCloudProvider {
     name: pulumi.Input<string>;
     /**
      * Use openstackCloudProvider instead
+     *
+     * @deprecated Use openstack_cloud_provider instead
      */
     openstackCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfig>;
     /**
@@ -143,6 +152,8 @@ export interface ClusterCloudProvider {
     openstackCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProvider>;
     /**
      * Use vsphereCloudProvider instead
+     *
+     * @deprecated Use vsphere_cloud_provider instead
      */
     vsphereCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfig>;
     /**
@@ -208,6 +219,8 @@ export interface ClusterCloudProviderAwsCloudConfigGlobal {
 export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
      * TLS key for etcd service (string)
+     *
+     * @deprecated Use service instead
      */
     key?: pulumi.Input<string>;
     /**
@@ -293,6 +306,8 @@ export interface ClusterCloudProviderAwsCloudProviderGlobal {
 export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
      * TLS key for etcd service (string)
+     *
+     * @deprecated Use service instead
      */
     key?: pulumi.Input<string>;
     /**
@@ -1318,6 +1333,9 @@ export interface ClusterNode {
      * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
      */
     roles: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use role instead
+     */
     rolesDeprecated?: pulumi.Input<string>;
     /**
      * SSH Agent Auth enable (bool)
