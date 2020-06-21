@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
@@ -112,7 +112,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
@@ -139,7 +139,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
@@ -171,7 +171,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
@@ -202,7 +202,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -239,7 +239,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
@@ -300,7 +300,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: ci-scripts
-        repository: pulumi/scripts
+        repository: jaxxstorm/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow
     - name: Install Go
