@@ -23,8 +23,6 @@ snapshot:
 archives:
   - name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
     files: [] # Empty
-release:
-  disable: true
 changelog:
   # set it to true if you wish to skip the changelog generation
   skip: true
