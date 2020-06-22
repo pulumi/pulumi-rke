@@ -134,13 +134,6 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Run golangci
       run: cd sdk/go/rke && golangci-lint run -c ../../../.golangci.yml
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting go sdk
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
