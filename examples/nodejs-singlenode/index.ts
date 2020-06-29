@@ -6,7 +6,7 @@ const cluster = new rke.Cluster(`actions`, {
     clusterName: "nodejs-test-cluster",
     ignoreDockerVersion: true,
     dind: true, // run locally
-    dind_dns_server: "8.8.8.8",
+    dindDnsServer: "8.8.8.8",
     nodes: {
         user: "docker",
         role: [ "controlplane", "worker", "etcd" ],
