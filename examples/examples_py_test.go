@@ -3,6 +3,7 @@
 package examples
 
 import (
+	"path"
 	"path/filepath"
 	"testing"
 
