@@ -1,0 +1,3 @@
+name: nodejs-singlenode
+runtime: nodejs
+description: Create a single node cluster with NodeJS
