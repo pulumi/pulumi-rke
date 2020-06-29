@@ -1,17 +1,16 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as rke from "@jaxxstorm/pulumi-rke";
 
-
 const cluster = new rke.Cluster(`actions`, {
     clusterName: "nodejs-test-cluster",
     ignoreDockerVersion: true,
     dind: true, // run locally
     dindDnsServer: "8.8.8.8",
-    nodes: {
+    nodes: [{
         user: "docker",
-        role: [ "controlplane", "worker", "etcd" ],
-        node: "node1"
-    }
+        roles: [ "controlplane", "worker", "etcd" ],
+        address: "pulumi-gha-node1"
+    }]
 })
 
 export const kubeconfig = cluster.kubeConfigYaml
