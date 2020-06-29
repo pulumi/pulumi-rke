@@ -12,7 +12,7 @@ import (
 func TestAccConsumer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "consumer"),
+			Dir: path.Join(getCwd(t), "nodejs-singlenode"),
 		})
 
 	integration.ProgramTest(t, &test)
