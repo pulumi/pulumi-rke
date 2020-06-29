@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
+/*
 func TestAccPyDinD(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -18,6 +19,7 @@ func TestAccPyDinD(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
+*/
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions()
