@@ -11,8 +11,7 @@ import (
 )
 
 func TestAccPyDinD(t *testing.T) {
-	skipIfNoPulumiAccessToken(t)
-	test := getPythonBaseOptions().
+	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "dind", "python"),
 		})
