@@ -9,10 +9,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func TestAccTSSingleNode(t *testing.T) {
+func TestAccTSDinD(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "nodejs-dind"),
+			Dir: path.Join(getCwd(t), "dind", "nodejs"),
 		})
 
 	integration.ProgramTest(t, &test)
