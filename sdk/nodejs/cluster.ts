@@ -13,6 +13,54 @@ import * as utilities from "./utilities";
  * - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
  * - Using the TF provider arguments to define the entire cluster.
  * - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
+ *
+ * ## Example Usage
+ *
+ * Creating RKE cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as rke from "@pulumi/rke";
+ * import * from "fs";
+ *
+ * // Create a new RKE cluster using config yaml
+ * const foo = new rke.Cluster("foo", {clusterYaml: fs.readFileSync("cluster.yaml")});
+ * // Create a new RKE cluster using arguments
+ * const foo2Cluster = new rke.Cluster("foo2Cluster", {
+ *     nodes: [{
+ *         address: "1.2.3.4",
+ *         user: "ubuntu",
+ *         roles: [
+ *             "controlplane",
+ *             "worker",
+ *             "etcd",
+ *         ],
+ *         sshKey: fs.readFileSync("~/.ssh/id_rsa"),
+ *     }],
+ *     upgradeStrategy: {
+ *         drain: true,
+ *         maxUnavailableWorker: `20%`,
+ *     },
+ * });
+ * // Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+ * const foo2Index_clusterCluster = new rke.Cluster("foo2Index/clusterCluster", {
+ *     clusterYaml: fs.readFileSync("cluster.yaml"),
+ *     sshAgentAuth: true,
+ *     ignoreDockerVersion: true,
+ *     kubernetesVersion: "<K8s_VERSION>",
+ *     upgradeStrategy: {
+ *         drain: true,
+ *         maxUnavailableWorker: `20%`,
+ *     },
+ * });
+ * // Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+ * const foo2RkeIndex_clusterCluster = new rke.Cluster("foo2RkeIndex/clusterCluster", {
+ *     clusterYaml: fs.readFileSync("cluster.yaml"),
+ *     sshAgentAuth: true,
+ *     ignoreDockerVersion: true,
+ *     kubernetesVersion: "<K8s_VERSION>",
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

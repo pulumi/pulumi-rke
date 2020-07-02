@@ -7,7 +7,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class Provider(pulumi.ProviderResource):
     def __init__(__self__, resource_name, opts=None, debug=None, log_file=None, __props__=None, __name__=None, __opts__=None):
@@ -31,17 +32,17 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
             if debug is None:
-                debug = (utilities.get_env_bool('RKE_DEBUG') or False)
+                debug = (_utilities.get_env_bool('RKE_DEBUG') or False)
             __props__['debug'] = pulumi.Output.from_input(debug).apply(json.dumps) if debug is not None else None
             if log_file is None:
-                log_file = (utilities.get_env('RKE_LOG_FILE') or '')
+                log_file = (_utilities.get_env('RKE_LOG_FILE') or '')
             __props__['log_file'] = log_file
         super(Provider, __self__).__init__(
             'rke',
@@ -50,8 +51,7 @@ class Provider(pulumi.ProviderResource):
             opts)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

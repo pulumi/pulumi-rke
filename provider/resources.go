@@ -72,14 +72,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "rke",
-		Description: "A Pulumi package for creating and managing rke cloud resources.",
-		Keywords:    []string{"pulumi", "rke"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/jaxxstorm/pulumi-rke",
-		GitHubOrg:   "rancher",
+		P:                 p,
+		Name:              "rke",
+		Description:       "A Pulumi package for creating and managing rke cloud resources.",
+		Keywords:          []string{"pulumi", "rke"},
+		License:           "Apache-2.0",
+		Homepage:          "https://pulumi.io",
+		Repository:        "https://github.com/jaxxstorm/pulumi-rke",
+		GitHubOrg:         "rancher",
+		PluginDownloadURL: "https://github.com/jaxxstorm/pulumi-rke/releases/download/${PROVIDER_VERSION}",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"log_file": {
 				Default: &tfbridge.DefaultInfo{

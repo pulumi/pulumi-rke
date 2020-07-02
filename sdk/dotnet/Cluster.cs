@@ -16,6 +16,74 @@ namespace Pulumi.Rke
     /// - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
     /// - Using the TF provider arguments to define the entire cluster.
     /// - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// Creating RKE cluster
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Rke = Pulumi.Rke;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new RKE cluster using config yaml
+    ///         var foo = new Rke.Cluster("foo", new Rke.ClusterArgs
+    ///         {
+    ///             ClusterYaml = File.ReadAllText("cluster.yaml"),
+    ///         });
+    ///         // Create a new RKE cluster using arguments
+    ///         var foo2Cluster = new Rke.Cluster("foo2Cluster", new Rke.ClusterArgs
+    ///         {
+    ///             Nodes = 
+    ///             {
+    ///                 new Rke.Inputs.ClusterNodeArgs
+    ///                 {
+    ///                     Address = "1.2.3.4",
+    ///                     User = "ubuntu",
+    ///                     Roles = 
+    ///                     {
+    ///                         "controlplane",
+    ///                         "worker",
+    ///                         "etcd",
+    ///                     },
+    ///                     SshKey = File.ReadAllText("~/.ssh/id_rsa"),
+    ///                 },
+    ///             },
+    ///             UpgradeStrategy = new Rke.Inputs.ClusterUpgradeStrategyArgs
+    ///             {
+    ///                 Drain = true,
+    ///                 MaxUnavailableWorker = "20%",
+    ///             },
+    ///         });
+    ///         // Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+    ///         var foo2Index_clusterCluster = new Rke.Cluster("foo2Index/clusterCluster", new Rke.ClusterArgs
+    ///         {
+    ///             ClusterYaml = File.ReadAllText("cluster.yaml"),
+    ///             SshAgentAuth = true,
+    ///             IgnoreDockerVersion = true,
+    ///             KubernetesVersion = "&lt;K8s_VERSION&gt;",
+    ///             UpgradeStrategy = new Rke.Inputs.ClusterUpgradeStrategyArgs
+    ///             {
+    ///                 Drain = true,
+    ///                 MaxUnavailableWorker = "20%",
+    ///             },
+    ///         });
+    ///         // Create a new RKE cluster using both. In case of conflict, arguments override cluster_yaml arguments
+    ///         var foo2RkeIndex_clusterCluster = new Rke.Cluster("foo2RkeIndex/clusterCluster", new Rke.ClusterArgs
+    ///         {
+    ///             ClusterYaml = File.ReadAllText("cluster.yaml"),
+    ///             SshAgentAuth = true,
+    ///             IgnoreDockerVersion = true,
+    ///             KubernetesVersion = "&lt;K8s_VERSION&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

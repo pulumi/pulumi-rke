@@ -7,11 +7,12 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 from subprocess import check_call
 
+
 class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'rke', '${PLUGIN_VERSION}'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'rke', '${PLUGIN_VERSION}', '--server', 'https://github.com/jaxxstorm/pulumi-rke/releases/download/${PROVIDER_VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""
@@ -24,9 +25,11 @@ class InstallPluginCommand(install):
             else:
                 raise
 
+
 def readme():
     with open('README.md', encoding='utf-8') as f:
         return f.read()
+
 
 setup(name='pulumi_rke',
       version='${VERSION}',
