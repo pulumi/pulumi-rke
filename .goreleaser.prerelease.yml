@@ -4,6 +4,12 @@ archives:
 before:
   hooks:
   - make tfgen
+uploads:
+- name: bintray
+  target: https://api.bintray.com/content/jaxxstorm/pulumi/pulumi-rke/{{ .Tag }}
+  username: jaxxstorm
+  mode: archive
+  method: PUT
 builds:
 - binary: pulumi-resource-rke
   dir: provider
@@ -22,6 +28,6 @@ builds:
 changelog:
   skip: true
 release:
-  prerelease: true
+  disable: true
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT'

@@ -3,18 +3,24 @@ ORG              := jaxxstorm
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
-PROVIDER_PATH    := provider/v2
+PROVIDER_PATH    := provider
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell pulumictl get version)
 
+TESTPARALLELISM := 10
+
 WORKING_DIR     := $(shell pwd)
 
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
 development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
+
+# used by the downstream provider action
+build:: install_plugins provider build_sdks install_sdks
+only_build:: build
 
 tfgen:: install_plugins
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/${TFGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${TFGEN})
@@ -90,3 +96,6 @@ install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+
+test::
+	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h

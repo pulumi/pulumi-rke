@@ -20,7 +20,4 @@ yarn.lock
 
 **/node_modules
 
-**/dist
-**/.task
-**/pulumiManifest.go
-
+dist/**
