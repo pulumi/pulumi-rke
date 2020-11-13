@@ -6,7 +6,7 @@ env:
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_TOKEN }}
   PROVIDER: rke
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-  PULUMI_API: https://app.pulumi.com
+  PULUMI_API: https://api.pulumi.com
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   PYPI_USERNAME: __token__
