@@ -9,6 +9,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`rke` Terraform Provider](https://github.com/rancher/terraform-provider-rke).",
     "repository": "https://github.com/jaxxstorm/pulumi-rke",
+    "pluginDownloadURL": "https://bintray.com/jaxxstorm/pulumi/download_file?file_path=",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },

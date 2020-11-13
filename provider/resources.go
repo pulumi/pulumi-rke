@@ -88,6 +88,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:          "https://pulumi.io",
 		Repository:        "https://github.com/jaxxstorm/pulumi-rke",
 		GitHubOrg:         "rancher",
+		PluginDownloadURL: "https://bintray.com/jaxxstorm/pulumi/download_file?file_path=",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"log_file": {
 				Default: &tfbridge.DefaultInfo{
