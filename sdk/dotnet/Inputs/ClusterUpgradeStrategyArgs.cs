@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterUpgradeStrategyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// RKE drain nodes. Default: `false` (bool)
+        /// RKE drain nodes (bool)
         /// </summary>
         [Input("drain")]
         public Input<bool>? Drain { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Rke.Inputs
         public Input<Inputs.ClusterUpgradeStrategyDrainInputArgs>? DrainInput { get; set; }
 
         /// <summary>
-        /// RKE max unavailable controlplane nodes. Default: `1` (string)
+        /// RKE max unavailable controlplane nodes (string)
         /// </summary>
         [Input("maxUnavailableControlplane")]
         public Input<string>? MaxUnavailableControlplane { get; set; }
 
         /// <summary>
-        /// RKE max unavailable worker nodes. Default: `10%` (string)
+        /// RKE max unavailable worker nodes (string)
         /// </summary>
         [Input("maxUnavailableWorker")]
         public Input<string>? MaxUnavailableWorker { get; set; }

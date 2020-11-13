@@ -14,11 +14,11 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfiguration
     {
         /// <summary>
-        /// Audit log format. Default: `json` (string)
+        /// Audit log format (string)
         /// </summary>
         public readonly string? Format;
         /// <summary>
-        /// Audit log max age. Default: `30` (int)
+        /// Audit log max age (int)
         /// </summary>
         public readonly int? MaxAge;
         /// <summary>

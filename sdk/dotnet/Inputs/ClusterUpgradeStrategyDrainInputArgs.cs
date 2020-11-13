@@ -13,31 +13,31 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterUpgradeStrategyDrainInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Delete RKE node local data. Default: `false` (bool)
+        /// Delete RKE node local data (bool)
         /// </summary>
         [Input("deleteLocalData")]
         public Input<bool>? DeleteLocalData { get; set; }
 
         /// <summary>
-        /// Force RKE node drain. Default: `false` (bool)
+        /// Force RKE node drain (bool)
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
 
         /// <summary>
-        /// RKE node drain grace period. Default: `-1` (int)
+        /// RKE node drain grace period (int)
         /// </summary>
         [Input("gracePeriod")]
         public Input<int>? GracePeriod { get; set; }
 
         /// <summary>
-        /// Ignore RKE daemon sets. Default: `true` (bool)
+        /// Ignore RKE daemon sets (bool)
         /// </summary>
         [Input("ignoreDaemonSets")]
         public Input<bool>? IgnoreDaemonSets { get; set; }
 
         /// <summary>
-        /// RKE node drain timeout. Default: `60` (int)
+        /// RKE node drain timeout (int)
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

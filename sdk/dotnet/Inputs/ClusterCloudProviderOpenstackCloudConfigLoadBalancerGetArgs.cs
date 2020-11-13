@@ -49,19 +49,19 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? ManageSecurityGroups { get; set; }
 
         /// <summary>
-        /// Default `60s` (string)
+        /// (string)
         /// </summary>
         [Input("monitorDelay")]
         public Input<string>? MonitorDelay { get; set; }
 
         /// <summary>
-        /// Default 5 (int)
+        /// (int)
         /// </summary>
         [Input("monitorMaxRetries")]
         public Input<int>? MonitorMaxRetries { get; set; }
 
         /// <summary>
-        /// Default `30s` (string)
+        /// (string)
         /// </summary>
         [Input("monitorTimeout")]
         public Input<string>? MonitorTimeout { get; set; }

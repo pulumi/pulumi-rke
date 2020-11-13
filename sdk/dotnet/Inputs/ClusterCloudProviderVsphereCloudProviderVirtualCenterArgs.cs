@@ -31,7 +31,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// Port used for SSH communication. Default `22` (string)
+        /// Port used for SSH communication (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }

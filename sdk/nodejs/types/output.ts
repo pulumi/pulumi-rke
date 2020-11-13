@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 
 export interface ClusterAuthentication {
     /**
@@ -48,13 +47,13 @@ export interface ClusterBastionHost {
      */
     address: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
      * SSH Agent Auth enable (bool)
      */
-    sshAgentAuth?: boolean;
+    sshAgentAuth: boolean;
     /**
      * SSH Certificate (string)
      */
@@ -572,7 +571,7 @@ export interface ClusterCloudProviderOpenstackCloudConfig {
     /**
      * (list maxitems:1)
      */
-    blockStorage?: outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage;
+    blockStorage: outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage;
     /**
      * (list maxitems:1)
      */
@@ -580,15 +579,15 @@ export interface ClusterCloudProviderOpenstackCloudConfig {
     /**
      * (list maxitems:1)
      */
-    loadBalancer?: outputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer;
+    loadBalancer: outputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer;
     /**
      * (list maxitems:1)
      */
-    metadata?: outputs.ClusterCloudProviderOpenstackCloudConfigMetadata;
+    metadata: outputs.ClusterCloudProviderOpenstackCloudConfigMetadata;
     /**
      * (list maxitems:1)
      */
-    route?: outputs.ClusterCloudProviderOpenstackCloudConfigRoute;
+    route: outputs.ClusterCloudProviderOpenstackCloudConfigRoute;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigBlockStorage {
@@ -679,15 +678,15 @@ export interface ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
      */
     manageSecurityGroups?: boolean;
     /**
-     * Default `60s` (string)
+     * (string)
      */
     monitorDelay?: string;
     /**
-     * Default 5 (int)
+     * (int)
      */
     monitorMaxRetries?: number;
     /**
-     * Default `30s` (string)
+     * (string)
      */
     monitorTimeout?: string;
     /**
@@ -722,7 +721,7 @@ export interface ClusterCloudProviderOpenstackCloudProvider {
     /**
      * (list maxitems:1)
      */
-    blockStorage?: outputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage;
+    blockStorage: outputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage;
     /**
      * (list maxitems:1)
      */
@@ -730,15 +729,15 @@ export interface ClusterCloudProviderOpenstackCloudProvider {
     /**
      * (list maxitems:1)
      */
-    loadBalancer?: outputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancer;
+    loadBalancer: outputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancer;
     /**
      * (list maxitems:1)
      */
-    metadata?: outputs.ClusterCloudProviderOpenstackCloudProviderMetadata;
+    metadata: outputs.ClusterCloudProviderOpenstackCloudProviderMetadata;
     /**
      * (list maxitems:1)
      */
-    route?: outputs.ClusterCloudProviderOpenstackCloudProviderRoute;
+    route: outputs.ClusterCloudProviderOpenstackCloudProviderRoute;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderBlockStorage {
@@ -829,15 +828,15 @@ export interface ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
      */
     manageSecurityGroups?: boolean;
     /**
-     * Default `60s` (string)
+     * (string)
      */
     monitorDelay?: string;
     /**
-     * Default 5 (int)
+     * (int)
      */
     monitorMaxRetries?: number;
     /**
-     * Default `30s` (string)
+     * (string)
      */
     monitorTimeout?: string;
     /**
@@ -920,7 +919,7 @@ export interface ClusterCloudProviderVsphereCloudConfigGlobal {
      */
     password?: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -966,7 +965,7 @@ export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
      */
     password: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1054,7 +1053,7 @@ export interface ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     password?: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1100,7 +1099,7 @@ export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     password: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1308,15 +1307,15 @@ export interface ClusterNode {
     /**
      * Docker socket on the node that will be used in tunneling (string)
      */
-    dockerSocket: string;
+    dockerSocket?: string;
     /**
      * Hostname override for node (string)
      */
-    hostnameOverride: string;
+    hostnameOverride?: string;
     /**
      * Internal address that will be used for components communication (string)
      */
-    internalAddress: string;
+    internalAddress?: string;
     /**
      * Node labels (map)
      */
@@ -1326,7 +1325,7 @@ export interface ClusterNode {
      */
     nodeName?: string;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1352,11 +1351,11 @@ export interface ClusterNode {
     /**
      * SSH Private Key (string)
      */
-    sshKey: string;
+    sshKey?: string;
     /**
      * SSH Private Key path (string)
      */
-    sshKeyPath: string;
+    sshKeyPath?: string;
     /**
      * Node taints (list)
      */
@@ -1642,7 +1641,7 @@ export interface ClusterServicesEtcd {
 
 export interface ClusterServicesEtcdBackupConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: boolean;
     /**
@@ -1759,7 +1758,7 @@ export interface ClusterServicesEtcdDeprecated {
 
 export interface ClusterServicesEtcdDeprecatedBackupConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: boolean;
     /**
@@ -1813,9 +1812,9 @@ export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
 
 export interface ClusterServicesKubeApi {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
      */
-    alwaysPullImages?: boolean;
+    alwaysPullImages: boolean;
     /**
      * K8s audit log configuration. (list maxitem: 1)
      */
@@ -1841,9 +1840,9 @@ export interface ClusterServicesKubeApi {
      */
     image: string;
     /**
-     * Pod Security Policy option for kube API service. Default `false` (bool)
+     * Pod Security Policy option for kube API service (bool)
      */
-    podSecurityPolicy?: boolean;
+    podSecurityPolicy: boolean;
     /**
      * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
      */
@@ -1860,36 +1859,36 @@ export interface ClusterServicesKubeApi {
 
 export interface ClusterServicesKubeApiAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: outputs.ClusterServicesKubeApiAuditLogConfiguration;
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
-    enabled?: boolean;
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiAuditLogConfiguration {
     /**
-     * Audit log format. Default: `json` (string)
+     * Audit log format (string)
      */
-    format?: string;
+    format: string;
     /**
-     * Audit log max age. Default: `30` (int)
+     * Audit log max age (int)
      */
-    maxAge?: number;
+    maxAge: number;
     /**
      * Audit log max backup. Default: `10` (int)
      */
-    maxBackup?: number;
+    maxBackup: number;
     /**
      * Audit log max size. Default: `100` (int)
      */
-    maxSize?: number;
+    maxSize: number;
     /**
      * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
-    path?: string;
+    path: string;
     /**
      * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
      */
@@ -1898,9 +1897,9 @@ export interface ClusterServicesKubeApiAuditLogConfiguration {
 
 export interface ClusterServicesKubeApiDeprecated {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
      */
-    alwaysPullImages?: boolean;
+    alwaysPullImages: boolean;
     /**
      * K8s audit log configuration. (list maxitem: 1)
      */
@@ -1926,9 +1925,9 @@ export interface ClusterServicesKubeApiDeprecated {
      */
     image: string;
     /**
-     * Pod Security Policy option for kube API service. Default `false` (bool)
+     * Pod Security Policy option for kube API service (bool)
      */
-    podSecurityPolicy?: boolean;
+    podSecurityPolicy: boolean;
     /**
      * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
      */
@@ -1945,36 +1944,36 @@ export interface ClusterServicesKubeApiDeprecated {
 
 export interface ClusterServicesKubeApiDeprecatedAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: outputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration;
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
-    enabled?: boolean;
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
     /**
-     * Audit log format. Default: `json` (string)
+     * Audit log format (string)
      */
-    format?: string;
+    format: string;
     /**
-     * Audit log max age. Default: `30` (int)
+     * Audit log max age (int)
      */
-    maxAge?: number;
+    maxAge: number;
     /**
      * Audit log max backup. Default: `10` (int)
      */
-    maxBackup?: number;
+    maxBackup: number;
     /**
      * Audit log max size. Default: `100` (int)
      */
-    maxSize?: number;
+    maxSize: number;
     /**
      * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
-    path?: string;
+    path: string;
     /**
      * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
      */
@@ -1983,30 +1982,46 @@ export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 
 export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
-    enabled?: boolean;
+    configuration: string;
+    /**
+     * Enable secrets encryption (bool)
+     */
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
      */
-    enabled?: boolean;
+    customConfig: string;
+    /**
+     * Enable secrets encryption (bool)
+     */
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiEventRateLimit {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
-    enabled?: boolean;
+    configuration: string;
+    /**
+     * Enable secrets encryption (bool)
+     */
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiSecretsEncryptionConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
      */
-    enabled?: boolean;
+    customConfig: string;
+    /**
+     * Enable secrets encryption (bool)
+     */
+    enabled: boolean;
 }
 
 export interface ClusterServicesKubeController {
@@ -2346,44 +2361,44 @@ export interface ClusterSystemImages {
 
 export interface ClusterUpgradeStrategy {
     /**
-     * RKE drain nodes. Default: `false` (bool)
+     * RKE drain nodes (bool)
      */
-    drain?: boolean;
+    drain: boolean;
     /**
      * RKE drain node input (list Maxitems: 1)
      */
     drainInput: outputs.ClusterUpgradeStrategyDrainInput;
     /**
-     * RKE max unavailable controlplane nodes. Default: `1` (string)
+     * RKE max unavailable controlplane nodes (string)
      */
-    maxUnavailableControlplane?: string;
+    maxUnavailableControlplane: string;
     /**
-     * RKE max unavailable worker nodes. Default: `10%` (string)
+     * RKE max unavailable worker nodes (string)
      */
-    maxUnavailableWorker?: string;
+    maxUnavailableWorker: string;
 }
 
 export interface ClusterUpgradeStrategyDrainInput {
     /**
-     * Delete RKE node local data. Default: `false` (bool)
+     * Delete RKE node local data (bool)
      */
-    deleteLocalData?: boolean;
+    deleteLocalData: boolean;
     /**
-     * Force RKE node drain. Default: `false` (bool)
+     * Force RKE node drain (bool)
      */
-    force?: boolean;
+    force: boolean;
     /**
-     * RKE node drain grace period. Default: `-1` (int)
+     * RKE node drain grace period (int)
      */
-    gracePeriod?: number;
+    gracePeriod: number;
     /**
-     * Ignore RKE daemon sets. Default: `true` (bool)
+     * Ignore RKE daemon sets (bool)
      */
-    ignoreDaemonSets?: boolean;
+    ignoreDaemonSets: boolean;
     /**
-     * RKE node drain timeout. Default: `60` (int)
+     * RKE node drain timeout (int)
      */
-    timeout?: number;
+    timeout: number;
 }
 
 export interface ClusterWorkerHost {

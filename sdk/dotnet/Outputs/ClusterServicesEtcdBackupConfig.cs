@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesEtcdBackupConfig
     {
         /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
+        /// Enable secrets encryption (bool)
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

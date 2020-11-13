@@ -22,8 +22,7 @@ type ClusterAuthentication struct {
 // ClusterAuthenticationInput is an input type that accepts ClusterAuthenticationArgs and ClusterAuthenticationOutput values.
 // You can construct a concrete instance of `ClusterAuthenticationInput` via:
 //
-// 		 ClusterAuthenticationArgs{...}
-//
+//          ClusterAuthenticationArgs{...}
 type ClusterAuthenticationInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i ClusterAuthenticationArgs) ToClusterAuthenticationPtrOutputWithContext(c
 // ClusterAuthenticationPtrInput is an input type that accepts ClusterAuthenticationArgs, ClusterAuthenticationPtr and ClusterAuthenticationPtrOutput values.
 // You can construct a concrete instance of `ClusterAuthenticationPtrInput` via:
 //
-// 		 ClusterAuthenticationArgs{...}
+//          ClusterAuthenticationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -191,8 +189,7 @@ type ClusterAuthenticationWebhook struct {
 // ClusterAuthenticationWebhookInput is an input type that accepts ClusterAuthenticationWebhookArgs and ClusterAuthenticationWebhookOutput values.
 // You can construct a concrete instance of `ClusterAuthenticationWebhookInput` via:
 //
-// 		 ClusterAuthenticationWebhookArgs{...}
-//
+//          ClusterAuthenticationWebhookArgs{...}
 type ClusterAuthenticationWebhookInput interface {
 	pulumi.Input
 
@@ -230,12 +227,11 @@ func (i ClusterAuthenticationWebhookArgs) ToClusterAuthenticationWebhookPtrOutpu
 // ClusterAuthenticationWebhookPtrInput is an input type that accepts ClusterAuthenticationWebhookArgs, ClusterAuthenticationWebhookPtr and ClusterAuthenticationWebhookPtrOutput values.
 // You can construct a concrete instance of `ClusterAuthenticationWebhookPtrInput` via:
 //
-// 		 ClusterAuthenticationWebhookArgs{...}
+//          ClusterAuthenticationWebhookArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterAuthenticationWebhookPtrInput interface {
 	pulumi.Input
 
@@ -343,8 +339,7 @@ type ClusterAuthorization struct {
 // ClusterAuthorizationInput is an input type that accepts ClusterAuthorizationArgs and ClusterAuthorizationOutput values.
 // You can construct a concrete instance of `ClusterAuthorizationInput` via:
 //
-// 		 ClusterAuthorizationArgs{...}
-//
+//          ClusterAuthorizationArgs{...}
 type ClusterAuthorizationInput interface {
 	pulumi.Input
 
@@ -382,12 +377,11 @@ func (i ClusterAuthorizationArgs) ToClusterAuthorizationPtrOutputWithContext(ctx
 // ClusterAuthorizationPtrInput is an input type that accepts ClusterAuthorizationArgs, ClusterAuthorizationPtr and ClusterAuthorizationPtrOutput values.
 // You can construct a concrete instance of `ClusterAuthorizationPtrInput` via:
 //
-// 		 ClusterAuthorizationArgs{...}
+//          ClusterAuthorizationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterAuthorizationPtrInput interface {
 	pulumi.Input
 
@@ -488,7 +482,7 @@ func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
 type ClusterBastionHost struct {
 	// Address ip for node (string)
 	Address string `pulumi:"address"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
@@ -507,8 +501,7 @@ type ClusterBastionHost struct {
 // ClusterBastionHostInput is an input type that accepts ClusterBastionHostArgs and ClusterBastionHostOutput values.
 // You can construct a concrete instance of `ClusterBastionHostInput` via:
 //
-// 		 ClusterBastionHostArgs{...}
-//
+//          ClusterBastionHostArgs{...}
 type ClusterBastionHostInput interface {
 	pulumi.Input
 
@@ -519,7 +512,7 @@ type ClusterBastionHostInput interface {
 type ClusterBastionHostArgs struct {
 	// Address ip for node (string)
 	Address pulumi.StringInput `pulumi:"address"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
@@ -558,12 +551,11 @@ func (i ClusterBastionHostArgs) ToClusterBastionHostPtrOutputWithContext(ctx con
 // ClusterBastionHostPtrInput is an input type that accepts ClusterBastionHostArgs, ClusterBastionHostPtr and ClusterBastionHostPtrOutput values.
 // You can construct a concrete instance of `ClusterBastionHostPtrInput` via:
 //
-// 		 ClusterBastionHostArgs{...}
+//          ClusterBastionHostArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterBastionHostPtrInput interface {
 	pulumi.Input
 
@@ -618,7 +610,7 @@ func (o ClusterBastionHostOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterBastionHostOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -681,7 +673,7 @@ func (o ClusterBastionHostPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterBastionHostPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -774,8 +766,7 @@ type ClusterCertificate struct {
 // ClusterCertificateInput is an input type that accepts ClusterCertificateArgs and ClusterCertificateOutput values.
 // You can construct a concrete instance of `ClusterCertificateInput` via:
 //
-// 		 ClusterCertificateArgs{...}
-//
+//          ClusterCertificateArgs{...}
 type ClusterCertificateInput interface {
 	pulumi.Input
 
@@ -818,8 +809,7 @@ func (i ClusterCertificateArgs) ToClusterCertificateOutputWithContext(ctx contex
 // ClusterCertificateArrayInput is an input type that accepts ClusterCertificateArray and ClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `ClusterCertificateArrayInput` via:
 //
-// 		 ClusterCertificateArray{ ClusterCertificateArgs{...} }
-//
+//          ClusterCertificateArray{ ClusterCertificateArgs{...} }
 type ClusterCertificateArrayInput interface {
 	pulumi.Input
 
@@ -969,8 +959,7 @@ type ClusterCloudProvider struct {
 // ClusterCloudProviderInput is an input type that accepts ClusterCloudProviderArgs and ClusterCloudProviderOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderInput` via:
 //
-// 		 ClusterCloudProviderArgs{...}
-//
+//          ClusterCloudProviderArgs{...}
 type ClusterCloudProviderInput interface {
 	pulumi.Input
 
@@ -1036,12 +1025,11 @@ func (i ClusterCloudProviderArgs) ToClusterCloudProviderPtrOutputWithContext(ctx
 // ClusterCloudProviderPtrInput is an input type that accepts ClusterCloudProviderArgs, ClusterCloudProviderPtr and ClusterCloudProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderPtrInput` via:
 //
-// 		 ClusterCloudProviderArgs{...}
+//          ClusterCloudProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderPtrInput interface {
 	pulumi.Input
 
@@ -1306,8 +1294,7 @@ type ClusterCloudProviderAwsCloudConfig struct {
 // ClusterCloudProviderAwsCloudConfigInput is an input type that accepts ClusterCloudProviderAwsCloudConfigArgs and ClusterCloudProviderAwsCloudConfigOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigArgs{...}
-//
+//          ClusterCloudProviderAwsCloudConfigArgs{...}
 type ClusterCloudProviderAwsCloudConfigInput interface {
 	pulumi.Input
 
@@ -1345,12 +1332,11 @@ func (i ClusterCloudProviderAwsCloudConfigArgs) ToClusterCloudProviderAwsCloudCo
 // ClusterCloudProviderAwsCloudConfigPtrInput is an input type that accepts ClusterCloudProviderAwsCloudConfigArgs, ClusterCloudProviderAwsCloudConfigPtr and ClusterCloudProviderAwsCloudConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigPtrInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigArgs{...}
+//          ClusterCloudProviderAwsCloudConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAwsCloudConfigPtrInput interface {
 	pulumi.Input
 
@@ -1476,8 +1462,7 @@ type ClusterCloudProviderAwsCloudConfigGlobal struct {
 // ClusterCloudProviderAwsCloudConfigGlobalInput is an input type that accepts ClusterCloudProviderAwsCloudConfigGlobalArgs and ClusterCloudProviderAwsCloudConfigGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigGlobalInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigGlobalArgs{...}
-//
+//          ClusterCloudProviderAwsCloudConfigGlobalArgs{...}
 type ClusterCloudProviderAwsCloudConfigGlobalInput interface {
 	pulumi.Input
 
@@ -1531,12 +1516,11 @@ func (i ClusterCloudProviderAwsCloudConfigGlobalArgs) ToClusterCloudProviderAwsC
 // ClusterCloudProviderAwsCloudConfigGlobalPtrInput is an input type that accepts ClusterCloudProviderAwsCloudConfigGlobalArgs, ClusterCloudProviderAwsCloudConfigGlobalPtr and ClusterCloudProviderAwsCloudConfigGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigGlobalArgs{...}
+//          ClusterCloudProviderAwsCloudConfigGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAwsCloudConfigGlobalPtrInput interface {
 	pulumi.Input
 
@@ -1776,8 +1760,7 @@ type ClusterCloudProviderAwsCloudConfigServiceOverride struct {
 // ClusterCloudProviderAwsCloudConfigServiceOverrideInput is an input type that accepts ClusterCloudProviderAwsCloudConfigServiceOverrideArgs and ClusterCloudProviderAwsCloudConfigServiceOverrideOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigServiceOverrideInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigServiceOverrideArgs{...}
-//
+//          ClusterCloudProviderAwsCloudConfigServiceOverrideArgs{...}
 type ClusterCloudProviderAwsCloudConfigServiceOverrideInput interface {
 	pulumi.Input
 
@@ -1819,8 +1802,7 @@ func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArgs) ToClusterCloudPro
 // ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput is an input type that accepts ClusterCloudProviderAwsCloudConfigServiceOverrideArray and ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudConfigServiceOverrideArray{ ClusterCloudProviderAwsCloudConfigServiceOverrideArgs{...} }
-//
+//          ClusterCloudProviderAwsCloudConfigServiceOverrideArray{ ClusterCloudProviderAwsCloudConfigServiceOverrideArgs{...} }
 type ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput interface {
 	pulumi.Input
 
@@ -1923,8 +1905,7 @@ type ClusterCloudProviderAwsCloudProvider struct {
 // ClusterCloudProviderAwsCloudProviderInput is an input type that accepts ClusterCloudProviderAwsCloudProviderArgs and ClusterCloudProviderAwsCloudProviderOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderArgs{...}
-//
+//          ClusterCloudProviderAwsCloudProviderArgs{...}
 type ClusterCloudProviderAwsCloudProviderInput interface {
 	pulumi.Input
 
@@ -1962,12 +1943,11 @@ func (i ClusterCloudProviderAwsCloudProviderArgs) ToClusterCloudProviderAwsCloud
 // ClusterCloudProviderAwsCloudProviderPtrInput is an input type that accepts ClusterCloudProviderAwsCloudProviderArgs, ClusterCloudProviderAwsCloudProviderPtr and ClusterCloudProviderAwsCloudProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderPtrInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderArgs{...}
+//          ClusterCloudProviderAwsCloudProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAwsCloudProviderPtrInput interface {
 	pulumi.Input
 
@@ -2095,8 +2075,7 @@ type ClusterCloudProviderAwsCloudProviderGlobal struct {
 // ClusterCloudProviderAwsCloudProviderGlobalInput is an input type that accepts ClusterCloudProviderAwsCloudProviderGlobalArgs and ClusterCloudProviderAwsCloudProviderGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderGlobalInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderGlobalArgs{...}
-//
+//          ClusterCloudProviderAwsCloudProviderGlobalArgs{...}
 type ClusterCloudProviderAwsCloudProviderGlobalInput interface {
 	pulumi.Input
 
@@ -2150,12 +2129,11 @@ func (i ClusterCloudProviderAwsCloudProviderGlobalArgs) ToClusterCloudProviderAw
 // ClusterCloudProviderAwsCloudProviderGlobalPtrInput is an input type that accepts ClusterCloudProviderAwsCloudProviderGlobalArgs, ClusterCloudProviderAwsCloudProviderGlobalPtr and ClusterCloudProviderAwsCloudProviderGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderGlobalArgs{...}
+//          ClusterCloudProviderAwsCloudProviderGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAwsCloudProviderGlobalPtrInput interface {
 	pulumi.Input
 
@@ -2397,8 +2375,7 @@ type ClusterCloudProviderAwsCloudProviderServiceOverride struct {
 // ClusterCloudProviderAwsCloudProviderServiceOverrideInput is an input type that accepts ClusterCloudProviderAwsCloudProviderServiceOverrideArgs and ClusterCloudProviderAwsCloudProviderServiceOverrideOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderServiceOverrideInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderServiceOverrideArgs{...}
-//
+//          ClusterCloudProviderAwsCloudProviderServiceOverrideArgs{...}
 type ClusterCloudProviderAwsCloudProviderServiceOverrideInput interface {
 	pulumi.Input
 
@@ -2440,8 +2417,7 @@ func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArgs) ToClusterCloudP
 // ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput is an input type that accepts ClusterCloudProviderAwsCloudProviderServiceOverrideArray and ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput` via:
 //
-// 		 ClusterCloudProviderAwsCloudProviderServiceOverrideArray{ ClusterCloudProviderAwsCloudProviderServiceOverrideArgs{...} }
-//
+//          ClusterCloudProviderAwsCloudProviderServiceOverrideArray{ ClusterCloudProviderAwsCloudProviderServiceOverrideArgs{...} }
 type ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput interface {
 	pulumi.Input
 
@@ -2597,8 +2573,7 @@ type ClusterCloudProviderAzureCloudConfig struct {
 // ClusterCloudProviderAzureCloudConfigInput is an input type that accepts ClusterCloudProviderAzureCloudConfigArgs and ClusterCloudProviderAzureCloudConfigOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAzureCloudConfigInput` via:
 //
-// 		 ClusterCloudProviderAzureCloudConfigArgs{...}
-//
+//          ClusterCloudProviderAzureCloudConfigArgs{...}
 type ClusterCloudProviderAzureCloudConfigInput interface {
 	pulumi.Input
 
@@ -2689,12 +2664,11 @@ func (i ClusterCloudProviderAzureCloudConfigArgs) ToClusterCloudProviderAzureClo
 // ClusterCloudProviderAzureCloudConfigPtrInput is an input type that accepts ClusterCloudProviderAzureCloudConfigArgs, ClusterCloudProviderAzureCloudConfigPtr and ClusterCloudProviderAzureCloudConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAzureCloudConfigPtrInput` via:
 //
-// 		 ClusterCloudProviderAzureCloudConfigArgs{...}
+//          ClusterCloudProviderAzureCloudConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAzureCloudConfigPtrInput interface {
 	pulumi.Input
 
@@ -3258,8 +3232,7 @@ type ClusterCloudProviderAzureCloudProvider struct {
 // ClusterCloudProviderAzureCloudProviderInput is an input type that accepts ClusterCloudProviderAzureCloudProviderArgs and ClusterCloudProviderAzureCloudProviderOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAzureCloudProviderInput` via:
 //
-// 		 ClusterCloudProviderAzureCloudProviderArgs{...}
-//
+//          ClusterCloudProviderAzureCloudProviderArgs{...}
 type ClusterCloudProviderAzureCloudProviderInput interface {
 	pulumi.Input
 
@@ -3350,12 +3323,11 @@ func (i ClusterCloudProviderAzureCloudProviderArgs) ToClusterCloudProviderAzureC
 // ClusterCloudProviderAzureCloudProviderPtrInput is an input type that accepts ClusterCloudProviderAzureCloudProviderArgs, ClusterCloudProviderAzureCloudProviderPtr and ClusterCloudProviderAzureCloudProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAzureCloudProviderPtrInput` via:
 //
-// 		 ClusterCloudProviderAzureCloudProviderArgs{...}
+//          ClusterCloudProviderAzureCloudProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderAzureCloudProviderPtrInput interface {
 	pulumi.Input
 
@@ -3872,8 +3844,7 @@ type ClusterCloudProviderOpenstackCloudConfig struct {
 // ClusterCloudProviderOpenstackCloudConfigInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigArgs and ClusterCloudProviderOpenstackCloudConfigOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigInput interface {
 	pulumi.Input
 
@@ -3917,12 +3888,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigArgs) ToClusterCloudProviderOpen
 // ClusterCloudProviderOpenstackCloudConfigPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigArgs, ClusterCloudProviderOpenstackCloudConfigPtr and ClusterCloudProviderOpenstackCloudConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigPtrInput interface {
 	pulumi.Input
 
@@ -4087,8 +4057,7 @@ type ClusterCloudProviderOpenstackCloudConfigBlockStorage struct {
 // ClusterCloudProviderOpenstackCloudConfigBlockStorageInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs and ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigBlockStorageInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigBlockStorageInput interface {
 	pulumi.Input
 
@@ -4128,12 +4097,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ToClusterCloud
 // ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs, ClusterCloudProviderOpenstackCloudConfigBlockStoragePtr and ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput interface {
 	pulumi.Input
 
@@ -4276,8 +4244,7 @@ type ClusterCloudProviderOpenstackCloudConfigGlobal struct {
 // ClusterCloudProviderOpenstackCloudConfigGlobalInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigGlobalArgs and ClusterCloudProviderOpenstackCloudConfigGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigGlobalInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigGlobalArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigGlobalArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigGlobalInput interface {
 	pulumi.Input
 
@@ -4333,12 +4300,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigGlobalArgs) ToClusterCloudProvid
 // ClusterCloudProviderOpenstackCloudConfigGlobalPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigGlobalArgs, ClusterCloudProviderOpenstackCloudConfigGlobalPtr and ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigGlobalArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigGlobalPtrInput interface {
 	pulumi.Input
 
@@ -4586,11 +4552,11 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancer struct {
 	LbVersion *string `pulumi:"lbVersion"`
 	// (bool)
 	ManageSecurityGroups *bool `pulumi:"manageSecurityGroups"`
-	// Default `60s` (string)
+	// (string)
 	MonitorDelay *string `pulumi:"monitorDelay"`
-	// Default 5 (int)
+	// (int)
 	MonitorMaxRetries *int `pulumi:"monitorMaxRetries"`
-	// Default `30s` (string)
+	// (string)
 	MonitorTimeout *string `pulumi:"monitorTimeout"`
 	// (string)
 	SubnetId *string `pulumi:"subnetId"`
@@ -4601,8 +4567,7 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancer struct {
 // ClusterCloudProviderOpenstackCloudConfigLoadBalancerInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs and ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigLoadBalancerInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigLoadBalancerInput interface {
 	pulumi.Input
 
@@ -4623,11 +4588,11 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs struct {
 	LbVersion pulumi.StringPtrInput `pulumi:"lbVersion"`
 	// (bool)
 	ManageSecurityGroups pulumi.BoolPtrInput `pulumi:"manageSecurityGroups"`
-	// Default `60s` (string)
+	// (string)
 	MonitorDelay pulumi.StringPtrInput `pulumi:"monitorDelay"`
-	// Default 5 (int)
+	// (int)
 	MonitorMaxRetries pulumi.IntPtrInput `pulumi:"monitorMaxRetries"`
-	// Default `30s` (string)
+	// (string)
 	MonitorTimeout pulumi.StringPtrInput `pulumi:"monitorTimeout"`
 	// (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -4658,12 +4623,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ToClusterCloud
 // ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs, ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtr and ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput interface {
 	pulumi.Input
 
@@ -4743,17 +4707,17 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ManageSecuri
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
-// Default `60s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
-// Default 5 (int)
+// (int)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
-// Default `30s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
@@ -4848,7 +4812,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ManageSec
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Default `60s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string {
 		if v == nil {
@@ -4858,7 +4822,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorDe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Default 5 (int)
+// (int)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *int {
 		if v == nil {
@@ -4868,7 +4832,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorMa
 	}).(pulumi.IntPtrOutput)
 }
 
-// Default `30s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string {
 		if v == nil {
@@ -4908,8 +4872,7 @@ type ClusterCloudProviderOpenstackCloudConfigMetadata struct {
 // ClusterCloudProviderOpenstackCloudConfigMetadataInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigMetadataArgs and ClusterCloudProviderOpenstackCloudConfigMetadataOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigMetadataInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigMetadataArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigMetadataArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigMetadataInput interface {
 	pulumi.Input
 
@@ -4947,12 +4910,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ToClusterCloudProv
 // ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigMetadataArgs, ClusterCloudProviderOpenstackCloudConfigMetadataPtr and ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigMetadataArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigMetadataArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput interface {
 	pulumi.Input
 
@@ -5060,8 +5022,7 @@ type ClusterCloudProviderOpenstackCloudConfigRoute struct {
 // ClusterCloudProviderOpenstackCloudConfigRouteInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigRouteArgs and ClusterCloudProviderOpenstackCloudConfigRouteOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigRouteInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigRouteArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudConfigRouteArgs{...}
 type ClusterCloudProviderOpenstackCloudConfigRouteInput interface {
 	pulumi.Input
 
@@ -5097,12 +5058,11 @@ func (i ClusterCloudProviderOpenstackCloudConfigRouteArgs) ToClusterCloudProvide
 // ClusterCloudProviderOpenstackCloudConfigRoutePtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudConfigRouteArgs, ClusterCloudProviderOpenstackCloudConfigRoutePtr and ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudConfigRoutePtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudConfigRouteArgs{...}
+//          ClusterCloudProviderOpenstackCloudConfigRouteArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudConfigRoutePtrInput interface {
 	pulumi.Input
 
@@ -5203,8 +5163,7 @@ type ClusterCloudProviderOpenstackCloudProvider struct {
 // ClusterCloudProviderOpenstackCloudProviderInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderArgs and ClusterCloudProviderOpenstackCloudProviderOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderInput interface {
 	pulumi.Input
 
@@ -5248,12 +5207,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderArgs) ToClusterCloudProviderOp
 // ClusterCloudProviderOpenstackCloudProviderPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderArgs, ClusterCloudProviderOpenstackCloudProviderPtr and ClusterCloudProviderOpenstackCloudProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderPtrInput interface {
 	pulumi.Input
 
@@ -5420,8 +5378,7 @@ type ClusterCloudProviderOpenstackCloudProviderBlockStorage struct {
 // ClusterCloudProviderOpenstackCloudProviderBlockStorageInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs and ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderBlockStorageInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderBlockStorageInput interface {
 	pulumi.Input
 
@@ -5461,12 +5418,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ToClusterClo
 // ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs, ClusterCloudProviderOpenstackCloudProviderBlockStoragePtr and ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput interface {
 	pulumi.Input
 
@@ -5609,8 +5565,7 @@ type ClusterCloudProviderOpenstackCloudProviderGlobal struct {
 // ClusterCloudProviderOpenstackCloudProviderGlobalInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderGlobalArgs and ClusterCloudProviderOpenstackCloudProviderGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderGlobalInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderGlobalArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderGlobalArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderGlobalInput interface {
 	pulumi.Input
 
@@ -5666,12 +5621,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderGlobalArgs) ToClusterCloudProv
 // ClusterCloudProviderOpenstackCloudProviderGlobalPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderGlobalArgs, ClusterCloudProviderOpenstackCloudProviderGlobalPtr and ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderGlobalArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderGlobalPtrInput interface {
 	pulumi.Input
 
@@ -5919,11 +5873,11 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancer struct {
 	LbVersion *string `pulumi:"lbVersion"`
 	// (bool)
 	ManageSecurityGroups *bool `pulumi:"manageSecurityGroups"`
-	// Default `60s` (string)
+	// (string)
 	MonitorDelay *string `pulumi:"monitorDelay"`
-	// Default 5 (int)
+	// (int)
 	MonitorMaxRetries *int `pulumi:"monitorMaxRetries"`
-	// Default `30s` (string)
+	// (string)
 	MonitorTimeout *string `pulumi:"monitorTimeout"`
 	// (string)
 	SubnetId *string `pulumi:"subnetId"`
@@ -5934,8 +5888,7 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancer struct {
 // ClusterCloudProviderOpenstackCloudProviderLoadBalancerInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs and ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderLoadBalancerInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderLoadBalancerInput interface {
 	pulumi.Input
 
@@ -5956,11 +5909,11 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs struct {
 	LbVersion pulumi.StringPtrInput `pulumi:"lbVersion"`
 	// (bool)
 	ManageSecurityGroups pulumi.BoolPtrInput `pulumi:"manageSecurityGroups"`
-	// Default `60s` (string)
+	// (string)
 	MonitorDelay pulumi.StringPtrInput `pulumi:"monitorDelay"`
-	// Default 5 (int)
+	// (int)
 	MonitorMaxRetries pulumi.IntPtrInput `pulumi:"monitorMaxRetries"`
-	// Default `30s` (string)
+	// (string)
 	MonitorTimeout pulumi.StringPtrInput `pulumi:"monitorTimeout"`
 	// (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -5991,12 +5944,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ToClusterClo
 // ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs, ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtr and ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput interface {
 	pulumi.Input
 
@@ -6076,17 +6028,17 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ManageSecu
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *bool { return v.ManageSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
-// Default `60s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorDelay }).(pulumi.StringPtrOutput)
 }
 
-// Default 5 (int)
+// (int)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int { return v.MonitorMaxRetries }).(pulumi.IntPtrOutput)
 }
 
-// Default `30s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
@@ -6181,7 +6133,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ManageS
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Default `60s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string {
 		if v == nil {
@@ -6191,7 +6143,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Monitor
 	}).(pulumi.StringPtrOutput)
 }
 
-// Default 5 (int)
+// (int)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorMaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *int {
 		if v == nil {
@@ -6201,7 +6153,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Monitor
 	}).(pulumi.IntPtrOutput)
 }
 
-// Default `30s` (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) MonitorTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string {
 		if v == nil {
@@ -6241,8 +6193,7 @@ type ClusterCloudProviderOpenstackCloudProviderMetadata struct {
 // ClusterCloudProviderOpenstackCloudProviderMetadataInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderMetadataArgs and ClusterCloudProviderOpenstackCloudProviderMetadataOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderMetadataInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderMetadataArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderMetadataArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderMetadataInput interface {
 	pulumi.Input
 
@@ -6280,12 +6231,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ToClusterCloudPr
 // ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderMetadataArgs, ClusterCloudProviderOpenstackCloudProviderMetadataPtr and ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderMetadataArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderMetadataArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput interface {
 	pulumi.Input
 
@@ -6393,8 +6343,7 @@ type ClusterCloudProviderOpenstackCloudProviderRoute struct {
 // ClusterCloudProviderOpenstackCloudProviderRouteInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderRouteArgs and ClusterCloudProviderOpenstackCloudProviderRouteOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderRouteInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderRouteArgs{...}
-//
+//          ClusterCloudProviderOpenstackCloudProviderRouteArgs{...}
 type ClusterCloudProviderOpenstackCloudProviderRouteInput interface {
 	pulumi.Input
 
@@ -6430,12 +6379,11 @@ func (i ClusterCloudProviderOpenstackCloudProviderRouteArgs) ToClusterCloudProvi
 // ClusterCloudProviderOpenstackCloudProviderRoutePtrInput is an input type that accepts ClusterCloudProviderOpenstackCloudProviderRouteArgs, ClusterCloudProviderOpenstackCloudProviderRoutePtr and ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderOpenstackCloudProviderRoutePtrInput` via:
 //
-// 		 ClusterCloudProviderOpenstackCloudProviderRouteArgs{...}
+//          ClusterCloudProviderOpenstackCloudProviderRouteArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderOpenstackCloudProviderRoutePtrInput interface {
 	pulumi.Input
 
@@ -6536,8 +6484,7 @@ type ClusterCloudProviderVsphereCloudConfig struct {
 // ClusterCloudProviderVsphereCloudConfigInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigArgs and ClusterCloudProviderVsphereCloudConfigOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigArgs{...}
 type ClusterCloudProviderVsphereCloudConfigInput interface {
 	pulumi.Input
 
@@ -6581,12 +6528,11 @@ func (i ClusterCloudProviderVsphereCloudConfigArgs) ToClusterCloudProviderVspher
 // ClusterCloudProviderVsphereCloudConfigPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigArgs, ClusterCloudProviderVsphereCloudConfigPtr and ClusterCloudProviderVsphereCloudConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigArgs{...}
+//          ClusterCloudProviderVsphereCloudConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudConfigPtrInput interface {
 	pulumi.Input
 
@@ -6747,8 +6693,7 @@ type ClusterCloudProviderVsphereCloudConfigDisk struct {
 // ClusterCloudProviderVsphereCloudConfigDiskInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigDiskArgs and ClusterCloudProviderVsphereCloudConfigDiskOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigDiskInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigDiskArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigDiskArgs{...}
 type ClusterCloudProviderVsphereCloudConfigDiskInput interface {
 	pulumi.Input
 
@@ -6784,12 +6729,11 @@ func (i ClusterCloudProviderVsphereCloudConfigDiskArgs) ToClusterCloudProviderVs
 // ClusterCloudProviderVsphereCloudConfigDiskPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigDiskArgs, ClusterCloudProviderVsphereCloudConfigDiskPtr and ClusterCloudProviderVsphereCloudConfigDiskPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigDiskPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigDiskArgs{...}
+//          ClusterCloudProviderVsphereCloudConfigDiskArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudConfigDiskPtrInput interface {
 	pulumi.Input
 
@@ -6885,7 +6829,7 @@ type ClusterCloudProviderVsphereCloudConfigGlobal struct {
 	InsecureFlag *bool `pulumi:"insecureFlag"`
 	// Registry password (string)
 	Password *string `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
@@ -6902,8 +6846,7 @@ type ClusterCloudProviderVsphereCloudConfigGlobal struct {
 // ClusterCloudProviderVsphereCloudConfigGlobalInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigGlobalArgs and ClusterCloudProviderVsphereCloudConfigGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigGlobalInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigGlobalArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigGlobalArgs{...}
 type ClusterCloudProviderVsphereCloudConfigGlobalInput interface {
 	pulumi.Input
 
@@ -6922,7 +6865,7 @@ type ClusterCloudProviderVsphereCloudConfigGlobalArgs struct {
 	InsecureFlag pulumi.BoolPtrInput `pulumi:"insecureFlag"`
 	// Registry password (string)
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
@@ -6959,12 +6902,11 @@ func (i ClusterCloudProviderVsphereCloudConfigGlobalArgs) ToClusterCloudProvider
 // ClusterCloudProviderVsphereCloudConfigGlobalPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigGlobalArgs, ClusterCloudProviderVsphereCloudConfigGlobalPtr and ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigGlobalArgs{...}
+//          ClusterCloudProviderVsphereCloudConfigGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudConfigGlobalPtrInput interface {
 	pulumi.Input
 
@@ -7039,7 +6981,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Password() pulumi.St
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -7139,7 +7081,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Password() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) *string {
 		if v == nil {
@@ -7207,8 +7149,7 @@ type ClusterCloudProviderVsphereCloudConfigNetwork struct {
 // ClusterCloudProviderVsphereCloudConfigNetworkInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigNetworkArgs and ClusterCloudProviderVsphereCloudConfigNetworkOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigNetworkInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigNetworkArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigNetworkArgs{...}
 type ClusterCloudProviderVsphereCloudConfigNetworkInput interface {
 	pulumi.Input
 
@@ -7244,12 +7185,11 @@ func (i ClusterCloudProviderVsphereCloudConfigNetworkArgs) ToClusterCloudProvide
 // ClusterCloudProviderVsphereCloudConfigNetworkPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigNetworkArgs, ClusterCloudProviderVsphereCloudConfigNetworkPtr and ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigNetworkPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigNetworkArgs{...}
+//          ClusterCloudProviderVsphereCloudConfigNetworkArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudConfigNetworkPtrInput interface {
 	pulumi.Input
 
@@ -7341,7 +7281,7 @@ type ClusterCloudProviderVsphereCloudConfigVirtualCenter struct {
 	Name string `pulumi:"name"`
 	// Registry password (string)
 	Password string `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
@@ -7352,8 +7292,7 @@ type ClusterCloudProviderVsphereCloudConfigVirtualCenter struct {
 // ClusterCloudProviderVsphereCloudConfigVirtualCenterInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs and ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigVirtualCenterInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs{...}
 type ClusterCloudProviderVsphereCloudConfigVirtualCenterInput interface {
 	pulumi.Input
 
@@ -7368,7 +7307,7 @@ type ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Registry password (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
@@ -7391,8 +7330,7 @@ func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs) ToClusterCloudP
 // ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigVirtualCenterArray and ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigVirtualCenterArray{ ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs{...} }
-//
+//          ClusterCloudProviderVsphereCloudConfigVirtualCenterArray{ ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs{...} }
 type ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput interface {
 	pulumi.Input
 
@@ -7443,7 +7381,7 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Password() pu
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -7494,8 +7432,7 @@ type ClusterCloudProviderVsphereCloudConfigWorkspace struct {
 // ClusterCloudProviderVsphereCloudConfigWorkspaceInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigWorkspaceArgs and ClusterCloudProviderVsphereCloudConfigWorkspaceOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigWorkspaceInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{...}
 type ClusterCloudProviderVsphereCloudConfigWorkspaceInput interface {
 	pulumi.Input
 
@@ -7539,12 +7476,11 @@ func (i ClusterCloudProviderVsphereCloudConfigWorkspaceArgs) ToClusterCloudProvi
 // ClusterCloudProviderVsphereCloudConfigWorkspacePtrInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigWorkspaceArgs, ClusterCloudProviderVsphereCloudConfigWorkspacePtr and ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigWorkspacePtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{...}
+//          ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudConfigWorkspacePtrInput interface {
 	pulumi.Input
 
@@ -7705,8 +7641,7 @@ type ClusterCloudProviderVsphereCloudProvider struct {
 // ClusterCloudProviderVsphereCloudProviderInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderArgs and ClusterCloudProviderVsphereCloudProviderOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderArgs{...}
 type ClusterCloudProviderVsphereCloudProviderInput interface {
 	pulumi.Input
 
@@ -7750,12 +7685,11 @@ func (i ClusterCloudProviderVsphereCloudProviderArgs) ToClusterCloudProviderVsph
 // ClusterCloudProviderVsphereCloudProviderPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderArgs, ClusterCloudProviderVsphereCloudProviderPtr and ClusterCloudProviderVsphereCloudProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderArgs{...}
+//          ClusterCloudProviderVsphereCloudProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudProviderPtrInput interface {
 	pulumi.Input
 
@@ -7916,8 +7850,7 @@ type ClusterCloudProviderVsphereCloudProviderDisk struct {
 // ClusterCloudProviderVsphereCloudProviderDiskInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderDiskArgs and ClusterCloudProviderVsphereCloudProviderDiskOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderDiskInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderDiskArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderDiskArgs{...}
 type ClusterCloudProviderVsphereCloudProviderDiskInput interface {
 	pulumi.Input
 
@@ -7953,12 +7886,11 @@ func (i ClusterCloudProviderVsphereCloudProviderDiskArgs) ToClusterCloudProvider
 // ClusterCloudProviderVsphereCloudProviderDiskPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderDiskArgs, ClusterCloudProviderVsphereCloudProviderDiskPtr and ClusterCloudProviderVsphereCloudProviderDiskPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderDiskPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderDiskArgs{...}
+//          ClusterCloudProviderVsphereCloudProviderDiskArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudProviderDiskPtrInput interface {
 	pulumi.Input
 
@@ -8054,7 +7986,7 @@ type ClusterCloudProviderVsphereCloudProviderGlobal struct {
 	InsecureFlag *bool `pulumi:"insecureFlag"`
 	// Registry password (string)
 	Password *string `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
@@ -8071,8 +8003,7 @@ type ClusterCloudProviderVsphereCloudProviderGlobal struct {
 // ClusterCloudProviderVsphereCloudProviderGlobalInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderGlobalArgs and ClusterCloudProviderVsphereCloudProviderGlobalOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderGlobalInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderGlobalArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderGlobalArgs{...}
 type ClusterCloudProviderVsphereCloudProviderGlobalInput interface {
 	pulumi.Input
 
@@ -8091,7 +8022,7 @@ type ClusterCloudProviderVsphereCloudProviderGlobalArgs struct {
 	InsecureFlag pulumi.BoolPtrInput `pulumi:"insecureFlag"`
 	// Registry password (string)
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
@@ -8128,12 +8059,11 @@ func (i ClusterCloudProviderVsphereCloudProviderGlobalArgs) ToClusterCloudProvid
 // ClusterCloudProviderVsphereCloudProviderGlobalPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderGlobalArgs, ClusterCloudProviderVsphereCloudProviderGlobalPtr and ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderGlobalPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderGlobalArgs{...}
+//          ClusterCloudProviderVsphereCloudProviderGlobalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudProviderGlobalPtrInput interface {
 	pulumi.Input
 
@@ -8208,7 +8138,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Password() pulumi.
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -8308,7 +8238,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Password() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) *string {
 		if v == nil {
@@ -8376,8 +8306,7 @@ type ClusterCloudProviderVsphereCloudProviderNetwork struct {
 // ClusterCloudProviderVsphereCloudProviderNetworkInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderNetworkArgs and ClusterCloudProviderVsphereCloudProviderNetworkOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderNetworkInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderNetworkArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderNetworkArgs{...}
 type ClusterCloudProviderVsphereCloudProviderNetworkInput interface {
 	pulumi.Input
 
@@ -8413,12 +8342,11 @@ func (i ClusterCloudProviderVsphereCloudProviderNetworkArgs) ToClusterCloudProvi
 // ClusterCloudProviderVsphereCloudProviderNetworkPtrInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderNetworkArgs, ClusterCloudProviderVsphereCloudProviderNetworkPtr and ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderNetworkPtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderNetworkArgs{...}
+//          ClusterCloudProviderVsphereCloudProviderNetworkArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudProviderNetworkPtrInput interface {
 	pulumi.Input
 
@@ -8510,7 +8438,7 @@ type ClusterCloudProviderVsphereCloudProviderVirtualCenter struct {
 	Name string `pulumi:"name"`
 	// Registry password (string)
 	Password string `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
@@ -8521,8 +8449,7 @@ type ClusterCloudProviderVsphereCloudProviderVirtualCenter struct {
 // ClusterCloudProviderVsphereCloudProviderVirtualCenterInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs and ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderVirtualCenterInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs{...}
 type ClusterCloudProviderVsphereCloudProviderVirtualCenterInput interface {
 	pulumi.Input
 
@@ -8537,7 +8464,7 @@ type ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Registry password (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
@@ -8560,8 +8487,7 @@ func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs) ToClusterClou
 // ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderVirtualCenterArray and ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderVirtualCenterArray{ ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs{...} }
-//
+//          ClusterCloudProviderVsphereCloudProviderVirtualCenterArray{ ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs{...} }
 type ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput interface {
 	pulumi.Input
 
@@ -8612,7 +8538,7 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Password() 
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -8663,8 +8589,7 @@ type ClusterCloudProviderVsphereCloudProviderWorkspace struct {
 // ClusterCloudProviderVsphereCloudProviderWorkspaceInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderWorkspaceArgs and ClusterCloudProviderVsphereCloudProviderWorkspaceOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderWorkspaceInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{...}
-//
+//          ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{...}
 type ClusterCloudProviderVsphereCloudProviderWorkspaceInput interface {
 	pulumi.Input
 
@@ -8708,12 +8633,11 @@ func (i ClusterCloudProviderVsphereCloudProviderWorkspaceArgs) ToClusterCloudPro
 // ClusterCloudProviderVsphereCloudProviderWorkspacePtrInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderWorkspaceArgs, ClusterCloudProviderVsphereCloudProviderWorkspacePtr and ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderWorkspacePtrInput` via:
 //
-// 		 ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{...}
+//          ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCloudProviderVsphereCloudProviderWorkspacePtrInput interface {
 	pulumi.Input
 
@@ -8868,8 +8792,7 @@ type ClusterControlPlaneHost struct {
 // ClusterControlPlaneHostInput is an input type that accepts ClusterControlPlaneHostArgs and ClusterControlPlaneHostOutput values.
 // You can construct a concrete instance of `ClusterControlPlaneHostInput` via:
 //
-// 		 ClusterControlPlaneHostArgs{...}
-//
+//          ClusterControlPlaneHostArgs{...}
 type ClusterControlPlaneHostInput interface {
 	pulumi.Input
 
@@ -8899,8 +8822,7 @@ func (i ClusterControlPlaneHostArgs) ToClusterControlPlaneHostOutputWithContext(
 // ClusterControlPlaneHostArrayInput is an input type that accepts ClusterControlPlaneHostArray and ClusterControlPlaneHostArrayOutput values.
 // You can construct a concrete instance of `ClusterControlPlaneHostArrayInput` via:
 //
-// 		 ClusterControlPlaneHostArray{ ClusterControlPlaneHostArgs{...} }
-//
+//          ClusterControlPlaneHostArray{ ClusterControlPlaneHostArgs{...} }
 type ClusterControlPlaneHostArrayInput interface {
 	pulumi.Input
 
@@ -8982,8 +8904,7 @@ type ClusterDns struct {
 // ClusterDnsInput is an input type that accepts ClusterDnsArgs and ClusterDnsOutput values.
 // You can construct a concrete instance of `ClusterDnsInput` via:
 //
-// 		 ClusterDnsArgs{...}
-//
+//          ClusterDnsArgs{...}
 type ClusterDnsInput interface {
 	pulumi.Input
 
@@ -9027,12 +8948,11 @@ func (i ClusterDnsArgs) ToClusterDnsPtrOutputWithContext(ctx context.Context) Cl
 // ClusterDnsPtrInput is an input type that accepts ClusterDnsArgs, ClusterDnsPtr and ClusterDnsPtrOutput values.
 // You can construct a concrete instance of `ClusterDnsPtrInput` via:
 //
-// 		 ClusterDnsArgs{...}
+//          ClusterDnsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterDnsPtrInput interface {
 	pulumi.Input
 
@@ -9185,8 +9105,7 @@ type ClusterDnsNodelocal struct {
 // ClusterDnsNodelocalInput is an input type that accepts ClusterDnsNodelocalArgs and ClusterDnsNodelocalOutput values.
 // You can construct a concrete instance of `ClusterDnsNodelocalInput` via:
 //
-// 		 ClusterDnsNodelocalArgs{...}
-//
+//          ClusterDnsNodelocalArgs{...}
 type ClusterDnsNodelocalInput interface {
 	pulumi.Input
 
@@ -9224,12 +9143,11 @@ func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalPtrOutputWithContext(ctx c
 // ClusterDnsNodelocalPtrInput is an input type that accepts ClusterDnsNodelocalArgs, ClusterDnsNodelocalPtr and ClusterDnsNodelocalPtrOutput values.
 // You can construct a concrete instance of `ClusterDnsNodelocalPtrInput` via:
 //
-// 		 ClusterDnsNodelocalArgs{...}
+//          ClusterDnsNodelocalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterDnsNodelocalPtrInput interface {
 	pulumi.Input
 
@@ -9337,8 +9255,7 @@ type ClusterEtcdHost struct {
 // ClusterEtcdHostInput is an input type that accepts ClusterEtcdHostArgs and ClusterEtcdHostOutput values.
 // You can construct a concrete instance of `ClusterEtcdHostInput` via:
 //
-// 		 ClusterEtcdHostArgs{...}
-//
+//          ClusterEtcdHostArgs{...}
 type ClusterEtcdHostInput interface {
 	pulumi.Input
 
@@ -9368,8 +9285,7 @@ func (i ClusterEtcdHostArgs) ToClusterEtcdHostOutputWithContext(ctx context.Cont
 // ClusterEtcdHostArrayInput is an input type that accepts ClusterEtcdHostArray and ClusterEtcdHostArrayOutput values.
 // You can construct a concrete instance of `ClusterEtcdHostArrayInput` via:
 //
-// 		 ClusterEtcdHostArray{ ClusterEtcdHostArgs{...} }
-//
+//          ClusterEtcdHostArray{ ClusterEtcdHostArgs{...} }
 type ClusterEtcdHostArrayInput interface {
 	pulumi.Input
 
@@ -9445,8 +9361,7 @@ type ClusterInactiveHost struct {
 // ClusterInactiveHostInput is an input type that accepts ClusterInactiveHostArgs and ClusterInactiveHostOutput values.
 // You can construct a concrete instance of `ClusterInactiveHostInput` via:
 //
-// 		 ClusterInactiveHostArgs{...}
-//
+//          ClusterInactiveHostArgs{...}
 type ClusterInactiveHostInput interface {
 	pulumi.Input
 
@@ -9476,8 +9391,7 @@ func (i ClusterInactiveHostArgs) ToClusterInactiveHostOutputWithContext(ctx cont
 // ClusterInactiveHostArrayInput is an input type that accepts ClusterInactiveHostArray and ClusterInactiveHostArrayOutput values.
 // You can construct a concrete instance of `ClusterInactiveHostArrayInput` via:
 //
-// 		 ClusterInactiveHostArray{ ClusterInactiveHostArgs{...} }
-//
+//          ClusterInactiveHostArray{ ClusterInactiveHostArgs{...} }
 type ClusterInactiveHostArrayInput interface {
 	pulumi.Input
 
@@ -9559,8 +9473,7 @@ type ClusterIngress struct {
 // ClusterIngressInput is an input type that accepts ClusterIngressArgs and ClusterIngressOutput values.
 // You can construct a concrete instance of `ClusterIngressInput` via:
 //
-// 		 ClusterIngressArgs{...}
-//
+//          ClusterIngressArgs{...}
 type ClusterIngressInput interface {
 	pulumi.Input
 
@@ -9604,12 +9517,11 @@ func (i ClusterIngressArgs) ToClusterIngressPtrOutputWithContext(ctx context.Con
 // ClusterIngressPtrInput is an input type that accepts ClusterIngressArgs, ClusterIngressPtr and ClusterIngressPtrOutput values.
 // You can construct a concrete instance of `ClusterIngressPtrInput` via:
 //
-// 		 ClusterIngressArgs{...}
+//          ClusterIngressArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterIngressPtrInput interface {
 	pulumi.Input
 
@@ -9764,8 +9676,7 @@ type ClusterMonitoring struct {
 // ClusterMonitoringInput is an input type that accepts ClusterMonitoringArgs and ClusterMonitoringOutput values.
 // You can construct a concrete instance of `ClusterMonitoringInput` via:
 //
-// 		 ClusterMonitoringArgs{...}
-//
+//          ClusterMonitoringArgs{...}
 type ClusterMonitoringInput interface {
 	pulumi.Input
 
@@ -9805,12 +9716,11 @@ func (i ClusterMonitoringArgs) ToClusterMonitoringPtrOutputWithContext(ctx conte
 // ClusterMonitoringPtrInput is an input type that accepts ClusterMonitoringArgs, ClusterMonitoringPtr and ClusterMonitoringPtrOutput values.
 // You can construct a concrete instance of `ClusterMonitoringPtrInput` via:
 //
-// 		 ClusterMonitoringArgs{...}
+//          ClusterMonitoringArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterMonitoringPtrInput interface {
 	pulumi.Input
 
@@ -9943,8 +9853,7 @@ type ClusterNetwork struct {
 // ClusterNetworkInput is an input type that accepts ClusterNetworkArgs and ClusterNetworkOutput values.
 // You can construct a concrete instance of `ClusterNetworkInput` via:
 //
-// 		 ClusterNetworkArgs{...}
-//
+//          ClusterNetworkArgs{...}
 type ClusterNetworkInput interface {
 	pulumi.Input
 
@@ -9992,12 +9901,11 @@ func (i ClusterNetworkArgs) ToClusterNetworkPtrOutputWithContext(ctx context.Con
 // ClusterNetworkPtrInput is an input type that accepts ClusterNetworkArgs, ClusterNetworkPtr and ClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `ClusterNetworkPtrInput` via:
 //
-// 		 ClusterNetworkArgs{...}
+//          ClusterNetworkArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -10178,8 +10086,7 @@ type ClusterNetworkCalicoNetworkProvider struct {
 // ClusterNetworkCalicoNetworkProviderInput is an input type that accepts ClusterNetworkCalicoNetworkProviderArgs and ClusterNetworkCalicoNetworkProviderOutput values.
 // You can construct a concrete instance of `ClusterNetworkCalicoNetworkProviderInput` via:
 //
-// 		 ClusterNetworkCalicoNetworkProviderArgs{...}
-//
+//          ClusterNetworkCalicoNetworkProviderArgs{...}
 type ClusterNetworkCalicoNetworkProviderInput interface {
 	pulumi.Input
 
@@ -10215,12 +10122,11 @@ func (i ClusterNetworkCalicoNetworkProviderArgs) ToClusterNetworkCalicoNetworkPr
 // ClusterNetworkCalicoNetworkProviderPtrInput is an input type that accepts ClusterNetworkCalicoNetworkProviderArgs, ClusterNetworkCalicoNetworkProviderPtr and ClusterNetworkCalicoNetworkProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterNetworkCalicoNetworkProviderPtrInput` via:
 //
-// 		 ClusterNetworkCalicoNetworkProviderArgs{...}
+//          ClusterNetworkCalicoNetworkProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNetworkCalicoNetworkProviderPtrInput interface {
 	pulumi.Input
 
@@ -10311,8 +10217,7 @@ type ClusterNetworkCanalNetworkProvider struct {
 // ClusterNetworkCanalNetworkProviderInput is an input type that accepts ClusterNetworkCanalNetworkProviderArgs and ClusterNetworkCanalNetworkProviderOutput values.
 // You can construct a concrete instance of `ClusterNetworkCanalNetworkProviderInput` via:
 //
-// 		 ClusterNetworkCanalNetworkProviderArgs{...}
-//
+//          ClusterNetworkCanalNetworkProviderArgs{...}
 type ClusterNetworkCanalNetworkProviderInput interface {
 	pulumi.Input
 
@@ -10348,12 +10253,11 @@ func (i ClusterNetworkCanalNetworkProviderArgs) ToClusterNetworkCanalNetworkProv
 // ClusterNetworkCanalNetworkProviderPtrInput is an input type that accepts ClusterNetworkCanalNetworkProviderArgs, ClusterNetworkCanalNetworkProviderPtr and ClusterNetworkCanalNetworkProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterNetworkCanalNetworkProviderPtrInput` via:
 //
-// 		 ClusterNetworkCanalNetworkProviderArgs{...}
+//          ClusterNetworkCanalNetworkProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNetworkCanalNetworkProviderPtrInput interface {
 	pulumi.Input
 
@@ -10444,8 +10348,7 @@ type ClusterNetworkFlannelNetworkProvider struct {
 // ClusterNetworkFlannelNetworkProviderInput is an input type that accepts ClusterNetworkFlannelNetworkProviderArgs and ClusterNetworkFlannelNetworkProviderOutput values.
 // You can construct a concrete instance of `ClusterNetworkFlannelNetworkProviderInput` via:
 //
-// 		 ClusterNetworkFlannelNetworkProviderArgs{...}
-//
+//          ClusterNetworkFlannelNetworkProviderArgs{...}
 type ClusterNetworkFlannelNetworkProviderInput interface {
 	pulumi.Input
 
@@ -10481,12 +10384,11 @@ func (i ClusterNetworkFlannelNetworkProviderArgs) ToClusterNetworkFlannelNetwork
 // ClusterNetworkFlannelNetworkProviderPtrInput is an input type that accepts ClusterNetworkFlannelNetworkProviderArgs, ClusterNetworkFlannelNetworkProviderPtr and ClusterNetworkFlannelNetworkProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterNetworkFlannelNetworkProviderPtrInput` via:
 //
-// 		 ClusterNetworkFlannelNetworkProviderArgs{...}
+//          ClusterNetworkFlannelNetworkProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNetworkFlannelNetworkProviderPtrInput interface {
 	pulumi.Input
 
@@ -10577,8 +10479,7 @@ type ClusterNetworkWeaveNetworkProvider struct {
 // ClusterNetworkWeaveNetworkProviderInput is an input type that accepts ClusterNetworkWeaveNetworkProviderArgs and ClusterNetworkWeaveNetworkProviderOutput values.
 // You can construct a concrete instance of `ClusterNetworkWeaveNetworkProviderInput` via:
 //
-// 		 ClusterNetworkWeaveNetworkProviderArgs{...}
-//
+//          ClusterNetworkWeaveNetworkProviderArgs{...}
 type ClusterNetworkWeaveNetworkProviderInput interface {
 	pulumi.Input
 
@@ -10614,12 +10515,11 @@ func (i ClusterNetworkWeaveNetworkProviderArgs) ToClusterNetworkWeaveNetworkProv
 // ClusterNetworkWeaveNetworkProviderPtrInput is an input type that accepts ClusterNetworkWeaveNetworkProviderArgs, ClusterNetworkWeaveNetworkProviderPtr and ClusterNetworkWeaveNetworkProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterNetworkWeaveNetworkProviderPtrInput` via:
 //
-// 		 ClusterNetworkWeaveNetworkProviderArgs{...}
+//          ClusterNetworkWeaveNetworkProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNetworkWeaveNetworkProviderPtrInput interface {
 	pulumi.Input
 
@@ -10715,7 +10615,7 @@ type ClusterNode struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles []string `pulumi:"roles"`
@@ -10740,8 +10640,7 @@ type ClusterNode struct {
 // ClusterNodeInput is an input type that accepts ClusterNodeArgs and ClusterNodeOutput values.
 // You can construct a concrete instance of `ClusterNodeInput` via:
 //
-// 		 ClusterNodeArgs{...}
-//
+//          ClusterNodeArgs{...}
 type ClusterNodeInput interface {
 	pulumi.Input
 
@@ -10762,7 +10661,7 @@ type ClusterNodeArgs struct {
 	Labels pulumi.MapInput `pulumi:"labels"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
-	// Port used for SSH communication. Default `22` (string)
+	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
@@ -10799,8 +10698,7 @@ func (i ClusterNodeArgs) ToClusterNodeOutputWithContext(ctx context.Context) Clu
 // ClusterNodeArrayInput is an input type that accepts ClusterNodeArray and ClusterNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeArrayInput` via:
 //
-// 		 ClusterNodeArray{ ClusterNodeArgs{...} }
-//
+//          ClusterNodeArray{ ClusterNodeArgs{...} }
 type ClusterNodeArrayInput interface {
 	pulumi.Input
 
@@ -10866,7 +10764,7 @@ func (o ClusterNodeOutput) NodeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication. Default `22` (string)
+// Port used for SSH communication (string)
 func (o ClusterNodeOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -10948,8 +10846,7 @@ type ClusterNodeTaint struct {
 // ClusterNodeTaintInput is an input type that accepts ClusterNodeTaintArgs and ClusterNodeTaintOutput values.
 // You can construct a concrete instance of `ClusterNodeTaintInput` via:
 //
-// 		 ClusterNodeTaintArgs{...}
-//
+//          ClusterNodeTaintArgs{...}
 type ClusterNodeTaintInput interface {
 	pulumi.Input
 
@@ -10981,8 +10878,7 @@ func (i ClusterNodeTaintArgs) ToClusterNodeTaintOutputWithContext(ctx context.Co
 // ClusterNodeTaintArrayInput is an input type that accepts ClusterNodeTaintArray and ClusterNodeTaintArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeTaintArrayInput` via:
 //
-// 		 ClusterNodeTaintArray{ ClusterNodeTaintArgs{...} }
-//
+//          ClusterNodeTaintArray{ ClusterNodeTaintArgs{...} }
 type ClusterNodeTaintArrayInput interface {
 	pulumi.Input
 
@@ -11067,8 +10963,7 @@ type ClusterPrivateRegistry struct {
 // ClusterPrivateRegistryInput is an input type that accepts ClusterPrivateRegistryArgs and ClusterPrivateRegistryOutput values.
 // You can construct a concrete instance of `ClusterPrivateRegistryInput` via:
 //
-// 		 ClusterPrivateRegistryArgs{...}
-//
+//          ClusterPrivateRegistryArgs{...}
 type ClusterPrivateRegistryInput interface {
 	pulumi.Input
 
@@ -11102,8 +10997,7 @@ func (i ClusterPrivateRegistryArgs) ToClusterPrivateRegistryOutputWithContext(ct
 // ClusterPrivateRegistryArrayInput is an input type that accepts ClusterPrivateRegistryArray and ClusterPrivateRegistryArrayOutput values.
 // You can construct a concrete instance of `ClusterPrivateRegistryArrayInput` via:
 //
-// 		 ClusterPrivateRegistryArray{ ClusterPrivateRegistryArgs{...} }
-//
+//          ClusterPrivateRegistryArray{ ClusterPrivateRegistryArgs{...} }
 type ClusterPrivateRegistryArrayInput interface {
 	pulumi.Input
 
@@ -11189,8 +11083,7 @@ type ClusterRestore struct {
 // ClusterRestoreInput is an input type that accepts ClusterRestoreArgs and ClusterRestoreOutput values.
 // You can construct a concrete instance of `ClusterRestoreInput` via:
 //
-// 		 ClusterRestoreArgs{...}
-//
+//          ClusterRestoreArgs{...}
 type ClusterRestoreInput interface {
 	pulumi.Input
 
@@ -11228,12 +11121,11 @@ func (i ClusterRestoreArgs) ToClusterRestorePtrOutputWithContext(ctx context.Con
 // ClusterRestorePtrInput is an input type that accepts ClusterRestoreArgs, ClusterRestorePtr and ClusterRestorePtrOutput values.
 // You can construct a concrete instance of `ClusterRestorePtrInput` via:
 //
-// 		 ClusterRestoreArgs{...}
+//          ClusterRestoreArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterRestorePtrInput interface {
 	pulumi.Input
 
@@ -11341,8 +11233,7 @@ type ClusterRotateCertificates struct {
 // ClusterRotateCertificatesInput is an input type that accepts ClusterRotateCertificatesArgs and ClusterRotateCertificatesOutput values.
 // You can construct a concrete instance of `ClusterRotateCertificatesInput` via:
 //
-// 		 ClusterRotateCertificatesArgs{...}
-//
+//          ClusterRotateCertificatesArgs{...}
 type ClusterRotateCertificatesInput interface {
 	pulumi.Input
 
@@ -11380,12 +11271,11 @@ func (i ClusterRotateCertificatesArgs) ToClusterRotateCertificatesPtrOutputWithC
 // ClusterRotateCertificatesPtrInput is an input type that accepts ClusterRotateCertificatesArgs, ClusterRotateCertificatesPtr and ClusterRotateCertificatesPtrOutput values.
 // You can construct a concrete instance of `ClusterRotateCertificatesPtrInput` via:
 //
-// 		 ClusterRotateCertificatesArgs{...}
+//          ClusterRotateCertificatesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterRotateCertificatesPtrInput interface {
 	pulumi.Input
 
@@ -11551,8 +11441,7 @@ type ClusterRunningSystemImages struct {
 // ClusterRunningSystemImagesInput is an input type that accepts ClusterRunningSystemImagesArgs and ClusterRunningSystemImagesOutput values.
 // You can construct a concrete instance of `ClusterRunningSystemImagesInput` via:
 //
-// 		 ClusterRunningSystemImagesArgs{...}
-//
+//          ClusterRunningSystemImagesArgs{...}
 type ClusterRunningSystemImagesInput interface {
 	pulumi.Input
 
@@ -11648,12 +11537,11 @@ func (i ClusterRunningSystemImagesArgs) ToClusterRunningSystemImagesPtrOutputWit
 // ClusterRunningSystemImagesPtrInput is an input type that accepts ClusterRunningSystemImagesArgs, ClusterRunningSystemImagesPtr and ClusterRunningSystemImagesPtrOutput values.
 // You can construct a concrete instance of `ClusterRunningSystemImagesPtrInput` via:
 //
-// 		 ClusterRunningSystemImagesArgs{...}
+//          ClusterRunningSystemImagesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterRunningSystemImagesPtrInput interface {
 	pulumi.Input
 
@@ -12204,8 +12092,7 @@ type ClusterServices struct {
 // ClusterServicesInput is an input type that accepts ClusterServicesArgs and ClusterServicesOutput values.
 // You can construct a concrete instance of `ClusterServicesInput` via:
 //
-// 		 ClusterServicesArgs{...}
-//
+//          ClusterServicesArgs{...}
 type ClusterServicesInput interface {
 	pulumi.Input
 
@@ -12251,12 +12138,11 @@ func (i ClusterServicesArgs) ToClusterServicesPtrOutputWithContext(ctx context.C
 // ClusterServicesPtrInput is an input type that accepts ClusterServicesArgs, ClusterServicesPtr and ClusterServicesPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesPtrInput` via:
 //
-// 		 ClusterServicesArgs{...}
+//          ClusterServicesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesPtrInput interface {
 	pulumi.Input
 
@@ -12450,8 +12336,7 @@ type ClusterServicesEtcd struct {
 // ClusterServicesEtcdInput is an input type that accepts ClusterServicesEtcdArgs and ClusterServicesEtcdOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdInput` via:
 //
-// 		 ClusterServicesEtcdArgs{...}
-//
+//          ClusterServicesEtcdArgs{...}
 type ClusterServicesEtcdInput interface {
 	pulumi.Input
 
@@ -12515,12 +12400,11 @@ func (i ClusterServicesEtcdArgs) ToClusterServicesEtcdPtrOutputWithContext(ctx c
 // ClusterServicesEtcdPtrInput is an input type that accepts ClusterServicesEtcdArgs, ClusterServicesEtcdPtr and ClusterServicesEtcdPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdPtrInput` via:
 //
-// 		 ClusterServicesEtcdArgs{...}
+//          ClusterServicesEtcdArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdPtrInput interface {
 	pulumi.Input
 
@@ -12814,7 +12698,7 @@ func (o ClusterServicesEtcdPtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ClusterServicesEtcdBackupConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours *int `pulumi:"intervalHours"`
@@ -12829,8 +12713,7 @@ type ClusterServicesEtcdBackupConfig struct {
 // ClusterServicesEtcdBackupConfigInput is an input type that accepts ClusterServicesEtcdBackupConfigArgs and ClusterServicesEtcdBackupConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdBackupConfigInput` via:
 //
-// 		 ClusterServicesEtcdBackupConfigArgs{...}
-//
+//          ClusterServicesEtcdBackupConfigArgs{...}
 type ClusterServicesEtcdBackupConfigInput interface {
 	pulumi.Input
 
@@ -12839,7 +12722,7 @@ type ClusterServicesEtcdBackupConfigInput interface {
 }
 
 type ClusterServicesEtcdBackupConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
@@ -12874,12 +12757,11 @@ func (i ClusterServicesEtcdBackupConfigArgs) ToClusterServicesEtcdBackupConfigPt
 // ClusterServicesEtcdBackupConfigPtrInput is an input type that accepts ClusterServicesEtcdBackupConfigArgs, ClusterServicesEtcdBackupConfigPtr and ClusterServicesEtcdBackupConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdBackupConfigPtrInput` via:
 //
-// 		 ClusterServicesEtcdBackupConfigArgs{...}
+//          ClusterServicesEtcdBackupConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdBackupConfigPtrInput interface {
 	pulumi.Input
 
@@ -12929,7 +12811,7 @@ func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfig
 	}).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesEtcdBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -12974,7 +12856,7 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) Elem() ClusterServicesEtcdBack
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) ClusterServicesEtcdBackupConfig { return *v }).(ClusterServicesEtcdBackupConfigOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) *bool {
 		if v == nil {
@@ -13044,8 +12926,7 @@ type ClusterServicesEtcdBackupConfigS3BackupConfig struct {
 // ClusterServicesEtcdBackupConfigS3BackupConfigInput is an input type that accepts ClusterServicesEtcdBackupConfigS3BackupConfigArgs and ClusterServicesEtcdBackupConfigS3BackupConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdBackupConfigS3BackupConfigInput` via:
 //
-// 		 ClusterServicesEtcdBackupConfigS3BackupConfigArgs{...}
-//
+//          ClusterServicesEtcdBackupConfigS3BackupConfigArgs{...}
 type ClusterServicesEtcdBackupConfigS3BackupConfigInput interface {
 	pulumi.Input
 
@@ -13093,12 +12974,11 @@ func (i ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ToClusterServicesEtcd
 // ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput is an input type that accepts ClusterServicesEtcdBackupConfigS3BackupConfigArgs, ClusterServicesEtcdBackupConfigS3BackupConfigPtr and ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput` via:
 //
-// 		 ClusterServicesEtcdBackupConfigS3BackupConfigArgs{...}
+//          ClusterServicesEtcdBackupConfigS3BackupConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput interface {
 	pulumi.Input
 
@@ -13309,8 +13189,7 @@ type ClusterServicesEtcdDeprecated struct {
 // ClusterServicesEtcdDeprecatedInput is an input type that accepts ClusterServicesEtcdDeprecatedArgs and ClusterServicesEtcdDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedArgs{...}
-//
+//          ClusterServicesEtcdDeprecatedArgs{...}
 type ClusterServicesEtcdDeprecatedInput interface {
 	pulumi.Input
 
@@ -13374,12 +13253,11 @@ func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedPtrOut
 // ClusterServicesEtcdDeprecatedPtrInput is an input type that accepts ClusterServicesEtcdDeprecatedArgs, ClusterServicesEtcdDeprecatedPtr and ClusterServicesEtcdDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedArgs{...}
+//          ClusterServicesEtcdDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -13675,7 +13553,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours *int `pulumi:"intervalHours"`
@@ -13690,8 +13568,7 @@ type ClusterServicesEtcdDeprecatedBackupConfig struct {
 // ClusterServicesEtcdDeprecatedBackupConfigInput is an input type that accepts ClusterServicesEtcdDeprecatedBackupConfigArgs and ClusterServicesEtcdDeprecatedBackupConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedBackupConfigInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedBackupConfigArgs{...}
-//
+//          ClusterServicesEtcdDeprecatedBackupConfigArgs{...}
 type ClusterServicesEtcdDeprecatedBackupConfigInput interface {
 	pulumi.Input
 
@@ -13700,7 +13577,7 @@ type ClusterServicesEtcdDeprecatedBackupConfigInput interface {
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
@@ -13735,12 +13612,11 @@ func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDepr
 // ClusterServicesEtcdDeprecatedBackupConfigPtrInput is an input type that accepts ClusterServicesEtcdDeprecatedBackupConfigArgs, ClusterServicesEtcdDeprecatedBackupConfigPtr and ClusterServicesEtcdDeprecatedBackupConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedBackupConfigPtrInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedBackupConfigArgs{...}
+//          ClusterServicesEtcdDeprecatedBackupConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdDeprecatedBackupConfigPtrInput interface {
 	pulumi.Input
 
@@ -13790,7 +13666,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDe
 	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -13837,7 +13713,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServic
 	}).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) *bool {
 		if v == nil {
@@ -13907,8 +13783,7 @@ type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig struct {
 // ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigInput is an input type that accepts ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs and ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{...}
-//
+//          ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{...}
 type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigInput interface {
 	pulumi.Input
 
@@ -13956,12 +13831,11 @@ func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterSe
 // ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput is an input type that accepts ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs, ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtr and ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput` via:
 //
-// 		 ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{...}
+//          ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput interface {
 	pulumi.Input
 
@@ -14137,7 +14011,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Secret
 }
 
 type ClusterServicesKubeApi struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 	AlwaysPullImages *bool `pulumi:"alwaysPullImages"`
 	// K8s audit log configuration. (list maxitem: 1)
 	AuditLog *ClusterServicesKubeApiAuditLog `pulumi:"auditLog"`
@@ -14151,7 +14025,7 @@ type ClusterServicesKubeApi struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
+	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig *ClusterServicesKubeApiSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
@@ -14164,8 +14038,7 @@ type ClusterServicesKubeApi struct {
 // ClusterServicesKubeApiInput is an input type that accepts ClusterServicesKubeApiArgs and ClusterServicesKubeApiOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiInput` via:
 //
-// 		 ClusterServicesKubeApiArgs{...}
-//
+//          ClusterServicesKubeApiArgs{...}
 type ClusterServicesKubeApiInput interface {
 	pulumi.Input
 
@@ -14174,7 +14047,7 @@ type ClusterServicesKubeApiInput interface {
 }
 
 type ClusterServicesKubeApiArgs struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 	AlwaysPullImages pulumi.BoolPtrInput `pulumi:"alwaysPullImages"`
 	// K8s audit log configuration. (list maxitem: 1)
 	AuditLog ClusterServicesKubeApiAuditLogPtrInput `pulumi:"auditLog"`
@@ -14188,7 +14061,7 @@ type ClusterServicesKubeApiArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
+	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig ClusterServicesKubeApiSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
@@ -14221,12 +14094,11 @@ func (i ClusterServicesKubeApiArgs) ToClusterServicesKubeApiPtrOutputWithContext
 // ClusterServicesKubeApiPtrInput is an input type that accepts ClusterServicesKubeApiArgs, ClusterServicesKubeApiPtr and ClusterServicesKubeApiPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiPtrInput` via:
 //
-// 		 ClusterServicesKubeApiArgs{...}
+//          ClusterServicesKubeApiArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiPtrInput interface {
 	pulumi.Input
 
@@ -14276,7 +14148,7 @@ func (o ClusterServicesKubeApiOutput) ToClusterServicesKubeApiPtrOutputWithConte
 	}).(ClusterServicesKubeApiPtrOutput)
 }
 
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 func (o ClusterServicesKubeApiOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
@@ -14311,7 +14183,7 @@ func (o ClusterServicesKubeApiOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Pod Security Policy option for kube API service. Default `false` (bool)
+// Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
@@ -14351,7 +14223,7 @@ func (o ClusterServicesKubeApiPtrOutput) Elem() ClusterServicesKubeApiOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) ClusterServicesKubeApi { return *v }).(ClusterServicesKubeApiOutput)
 }
 
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 func (o ClusterServicesKubeApiPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) *bool {
 		if v == nil {
@@ -14421,7 +14293,7 @@ func (o ClusterServicesKubeApiPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pod Security Policy option for kube API service. Default `false` (bool)
+// Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) *bool {
 		if v == nil {
@@ -14462,17 +14334,16 @@ func (o ClusterServicesKubeApiPtrOutput) ServiceNodePortRange() pulumi.StringPtr
 }
 
 type ClusterServicesKubeApiAuditLog struct {
-	// Audit log configuration. (list maxtiem: 1)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 	Configuration *ClusterServicesKubeApiAuditLogConfiguration `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiAuditLogInput is an input type that accepts ClusterServicesKubeApiAuditLogArgs and ClusterServicesKubeApiAuditLogOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiAuditLogInput` via:
 //
-// 		 ClusterServicesKubeApiAuditLogArgs{...}
-//
+//          ClusterServicesKubeApiAuditLogArgs{...}
 type ClusterServicesKubeApiAuditLogInput interface {
 	pulumi.Input
 
@@ -14481,9 +14352,9 @@ type ClusterServicesKubeApiAuditLogInput interface {
 }
 
 type ClusterServicesKubeApiAuditLogArgs struct {
-	// Audit log configuration. (list maxtiem: 1)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 	Configuration ClusterServicesKubeApiAuditLogConfigurationPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -14510,12 +14381,11 @@ func (i ClusterServicesKubeApiAuditLogArgs) ToClusterServicesKubeApiAuditLogPtrO
 // ClusterServicesKubeApiAuditLogPtrInput is an input type that accepts ClusterServicesKubeApiAuditLogArgs, ClusterServicesKubeApiAuditLogPtr and ClusterServicesKubeApiAuditLogPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiAuditLogPtrInput` via:
 //
-// 		 ClusterServicesKubeApiAuditLogArgs{...}
+//          ClusterServicesKubeApiAuditLogArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiAuditLogPtrInput interface {
 	pulumi.Input
 
@@ -14565,14 +14435,14 @@ func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPt
 	}).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
-// Audit log configuration. (list maxtiem: 1)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiAuditLogOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
 		return v.Configuration
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -14595,7 +14465,7 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) Elem() ClusterServicesKubeApiAu
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) ClusterServicesKubeApiAuditLog { return *v }).(ClusterServicesKubeApiAuditLogOutput)
 }
 
-// Audit log configuration. (list maxtiem: 1)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
 		if v == nil {
@@ -14605,7 +14475,7 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) Configuration() ClusterServices
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) *bool {
 		if v == nil {
@@ -14616,9 +14486,9 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput 
 }
 
 type ClusterServicesKubeApiAuditLogConfiguration struct {
-	// Audit log format. Default: `json` (string)
+	// Audit log format (string)
 	Format *string `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
+	// Audit log max age (int)
 	MaxAge *int `pulumi:"maxAge"`
 	// Audit log max backup. Default: `10` (int)
 	MaxBackup *int `pulumi:"maxBackup"`
@@ -14633,8 +14503,7 @@ type ClusterServicesKubeApiAuditLogConfiguration struct {
 // ClusterServicesKubeApiAuditLogConfigurationInput is an input type that accepts ClusterServicesKubeApiAuditLogConfigurationArgs and ClusterServicesKubeApiAuditLogConfigurationOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiAuditLogConfigurationInput` via:
 //
-// 		 ClusterServicesKubeApiAuditLogConfigurationArgs{...}
-//
+//          ClusterServicesKubeApiAuditLogConfigurationArgs{...}
 type ClusterServicesKubeApiAuditLogConfigurationInput interface {
 	pulumi.Input
 
@@ -14643,9 +14512,9 @@ type ClusterServicesKubeApiAuditLogConfigurationInput interface {
 }
 
 type ClusterServicesKubeApiAuditLogConfigurationArgs struct {
-	// Audit log format. Default: `json` (string)
+	// Audit log format (string)
 	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
+	// Audit log max age (int)
 	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 	// Audit log max backup. Default: `10` (int)
 	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
@@ -14680,12 +14549,11 @@ func (i ClusterServicesKubeApiAuditLogConfigurationArgs) ToClusterServicesKubeAp
 // ClusterServicesKubeApiAuditLogConfigurationPtrInput is an input type that accepts ClusterServicesKubeApiAuditLogConfigurationArgs, ClusterServicesKubeApiAuditLogConfigurationPtr and ClusterServicesKubeApiAuditLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiAuditLogConfigurationPtrInput` via:
 //
-// 		 ClusterServicesKubeApiAuditLogConfigurationArgs{...}
+//          ClusterServicesKubeApiAuditLogConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiAuditLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -14735,12 +14603,12 @@ func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToClusterServicesKube
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-// Audit log format. Default: `json` (string)
+// Audit log format (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Audit log max age. Default: `30` (int)
+// Audit log max age (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
@@ -14785,7 +14653,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Elem() ClusterServ
 	}).(ClusterServicesKubeApiAuditLogConfigurationOutput)
 }
 
-// Audit log format. Default: `json` (string)
+// Audit log format (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLogConfiguration) *string {
 		if v == nil {
@@ -14795,7 +14663,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Format() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Audit log max age. Default: `30` (int)
+// Audit log max age (int)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLogConfiguration) *int {
 		if v == nil {
@@ -14846,7 +14714,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Policy() pulumi.St
 }
 
 type ClusterServicesKubeApiDeprecated struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 	AlwaysPullImages *bool `pulumi:"alwaysPullImages"`
 	// K8s audit log configuration. (list maxitem: 1)
 	AuditLog *ClusterServicesKubeApiDeprecatedAuditLog `pulumi:"auditLog"`
@@ -14860,7 +14728,7 @@ type ClusterServicesKubeApiDeprecated struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
+	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
@@ -14873,8 +14741,7 @@ type ClusterServicesKubeApiDeprecated struct {
 // ClusterServicesKubeApiDeprecatedInput is an input type that accepts ClusterServicesKubeApiDeprecatedArgs and ClusterServicesKubeApiDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedArgs{...}
-//
+//          ClusterServicesKubeApiDeprecatedArgs{...}
 type ClusterServicesKubeApiDeprecatedInput interface {
 	pulumi.Input
 
@@ -14883,7 +14750,7 @@ type ClusterServicesKubeApiDeprecatedInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedArgs struct {
-	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+	// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 	AlwaysPullImages pulumi.BoolPtrInput `pulumi:"alwaysPullImages"`
 	// K8s audit log configuration. (list maxitem: 1)
 	AuditLog ClusterServicesKubeApiDeprecatedAuditLogPtrInput `pulumi:"auditLog"`
@@ -14897,7 +14764,7 @@ type ClusterServicesKubeApiDeprecatedArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Pod Security Policy option for kube API service. Default `false` (bool)
+	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
@@ -14930,12 +14797,11 @@ func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecated
 // ClusterServicesKubeApiDeprecatedPtrInput is an input type that accepts ClusterServicesKubeApiDeprecatedArgs, ClusterServicesKubeApiDeprecatedPtr and ClusterServicesKubeApiDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedArgs{...}
+//          ClusterServicesKubeApiDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -14985,7 +14851,7 @@ func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecat
 	}).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
 
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 func (o ClusterServicesKubeApiDeprecatedOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.AlwaysPullImages }).(pulumi.BoolPtrOutput)
 }
@@ -15022,7 +14888,7 @@ func (o ClusterServicesKubeApiDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Pod Security Policy option for kube API service. Default `false` (bool)
+// Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiDeprecatedOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
@@ -15062,7 +14928,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) Elem() ClusterServicesKubeApi
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated { return *v }).(ClusterServicesKubeApiDeprecatedOutput)
 }
 
-// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) AlwaysPullImages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) *bool {
 		if v == nil {
@@ -15132,7 +14998,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) Image() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pod Security Policy option for kube API service. Default `false` (bool)
+// Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) *bool {
 		if v == nil {
@@ -15173,17 +15039,16 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceNodePortRange() pulumi
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLog struct {
-	// Audit log configuration. (list maxtiem: 1)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 	Configuration *ClusterServicesKubeApiDeprecatedAuditLogConfiguration `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiDeprecatedAuditLogInput is an input type that accepts ClusterServicesKubeApiDeprecatedAuditLogArgs and ClusterServicesKubeApiDeprecatedAuditLogOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedAuditLogInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedAuditLogArgs{...}
-//
+//          ClusterServicesKubeApiDeprecatedAuditLogArgs{...}
 type ClusterServicesKubeApiDeprecatedAuditLogInput interface {
 	pulumi.Input
 
@@ -15192,9 +15057,9 @@ type ClusterServicesKubeApiDeprecatedAuditLogInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLogArgs struct {
-	// Audit log configuration. (list maxtiem: 1)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 	Configuration ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption. Default: `false` (bool)
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -15221,12 +15086,11 @@ func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDe
 // ClusterServicesKubeApiDeprecatedAuditLogPtrInput is an input type that accepts ClusterServicesKubeApiDeprecatedAuditLogArgs, ClusterServicesKubeApiDeprecatedAuditLogPtr and ClusterServicesKubeApiDeprecatedAuditLogPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedAuditLogPtrInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedAuditLogArgs{...}
+//          ClusterServicesKubeApiDeprecatedAuditLogArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiDeprecatedAuditLogPtrInput interface {
 	pulumi.Input
 
@@ -15276,14 +15140,14 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApi
 	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
-// Audit log configuration. (list maxtiem: 1)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		return v.Configuration
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -15306,7 +15170,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterService
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
 }
 
-// Audit log configuration. (list maxtiem: 1)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		if v == nil {
@@ -15316,7 +15180,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() Clust
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) *bool {
 		if v == nil {
@@ -15327,9 +15191,9 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Enabled() pulumi.Bool
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLogConfiguration struct {
-	// Audit log format. Default: `json` (string)
+	// Audit log format (string)
 	Format *string `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
+	// Audit log max age (int)
 	MaxAge *int `pulumi:"maxAge"`
 	// Audit log max backup. Default: `10` (int)
 	MaxBackup *int `pulumi:"maxBackup"`
@@ -15344,8 +15208,7 @@ type ClusterServicesKubeApiDeprecatedAuditLogConfiguration struct {
 // ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput is an input type that accepts ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs and ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{...}
-//
+//          ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{...}
 type ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput interface {
 	pulumi.Input
 
@@ -15354,9 +15217,9 @@ type ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs struct {
-	// Audit log format. Default: `json` (string)
+	// Audit log format (string)
 	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Audit log max age. Default: `30` (int)
+	// Audit log max age (int)
 	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 	// Audit log max backup. Default: `10` (int)
 	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
@@ -15391,12 +15254,11 @@ func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServ
 // ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput is an input type that accepts ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs, ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtr and ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{...}
+//          ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -15446,12 +15308,12 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterSe
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-// Audit log format. Default: `json` (string)
+// Audit log format (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Audit log max age. Default: `30` (int)
+// Audit log max age (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
@@ -15496,7 +15358,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Elem() C
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
 }
 
-// Audit log format. Default: `json` (string)
+// Audit log format (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string {
 		if v == nil {
@@ -15506,7 +15368,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Format()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Audit log max age. Default: `30` (int)
+// Audit log max age (int)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int {
 		if v == nil {
@@ -15557,15 +15419,16 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Policy()
 }
 
 type ClusterServicesKubeApiDeprecatedEventRateLimit struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	Configuration *string `pulumi:"configuration"`
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiDeprecatedEventRateLimitInput is an input type that accepts ClusterServicesKubeApiDeprecatedEventRateLimitArgs and ClusterServicesKubeApiDeprecatedEventRateLimitOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedEventRateLimitInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedEventRateLimitArgs{...}
-//
+//          ClusterServicesKubeApiDeprecatedEventRateLimitArgs{...}
 type ClusterServicesKubeApiDeprecatedEventRateLimitInput interface {
 	pulumi.Input
 
@@ -15574,7 +15437,9 @@ type ClusterServicesKubeApiDeprecatedEventRateLimitInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedEventRateLimitArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -15601,12 +15466,11 @@ func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKub
 // ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput is an input type that accepts ClusterServicesKubeApiDeprecatedEventRateLimitArgs, ClusterServicesKubeApiDeprecatedEventRateLimitPtr and ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedEventRateLimitArgs{...}
+//          ClusterServicesKubeApiDeprecatedEventRateLimitArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput interface {
 	pulumi.Input
 
@@ -15656,7 +15520,12 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesK
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -15681,7 +15550,17 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterS
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) *bool {
 		if v == nil {
@@ -15692,15 +15571,16 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulum
 }
 
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+	CustomConfig *string `pulumi:"customConfig"`
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput is an input type that accepts ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs and ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{...}
-//
+//          ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{...}
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -15709,7 +15589,9 @@ type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+	CustomConfig pulumi.StringPtrInput `pulumi:"customConfig"`
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -15736,12 +15618,11 @@ func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterSe
 // ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput is an input type that accepts ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs, ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtr and ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput` via:
 //
-// 		 ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{...}
+//          ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -15791,7 +15672,12 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToCluster
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) CustomConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -15816,7 +15702,17 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Elem()
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) CustomConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool {
 		if v == nil {
@@ -15827,15 +15723,16 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enable
 }
 
 type ClusterServicesKubeApiEventRateLimit struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	Configuration *string `pulumi:"configuration"`
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiEventRateLimitInput is an input type that accepts ClusterServicesKubeApiEventRateLimitArgs and ClusterServicesKubeApiEventRateLimitOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiEventRateLimitInput` via:
 //
-// 		 ClusterServicesKubeApiEventRateLimitArgs{...}
-//
+//          ClusterServicesKubeApiEventRateLimitArgs{...}
 type ClusterServicesKubeApiEventRateLimitInput interface {
 	pulumi.Input
 
@@ -15844,7 +15741,9 @@ type ClusterServicesKubeApiEventRateLimitInput interface {
 }
 
 type ClusterServicesKubeApiEventRateLimitArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -15871,12 +15770,11 @@ func (i ClusterServicesKubeApiEventRateLimitArgs) ToClusterServicesKubeApiEventR
 // ClusterServicesKubeApiEventRateLimitPtrInput is an input type that accepts ClusterServicesKubeApiEventRateLimitArgs, ClusterServicesKubeApiEventRateLimitPtr and ClusterServicesKubeApiEventRateLimitPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiEventRateLimitPtrInput` via:
 //
-// 		 ClusterServicesKubeApiEventRateLimitArgs{...}
+//          ClusterServicesKubeApiEventRateLimitArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiEventRateLimitPtrInput interface {
 	pulumi.Input
 
@@ -15926,7 +15824,12 @@ func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEven
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+func (o ClusterServicesKubeApiEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -15949,7 +15852,17 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Elem() ClusterServicesKub
 	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) ClusterServicesKubeApiEventRateLimit { return *v }).(ClusterServicesKubeApiEventRateLimitOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) *bool {
 		if v == nil {
@@ -15960,15 +15873,16 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrO
 }
 
 type ClusterServicesKubeApiSecretsEncryptionConfig struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+	CustomConfig *string `pulumi:"customConfig"`
+	// Enable secrets encryption (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // ClusterServicesKubeApiSecretsEncryptionConfigInput is an input type that accepts ClusterServicesKubeApiSecretsEncryptionConfigArgs and ClusterServicesKubeApiSecretsEncryptionConfigOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiSecretsEncryptionConfigInput` via:
 //
-// 		 ClusterServicesKubeApiSecretsEncryptionConfigArgs{...}
-//
+//          ClusterServicesKubeApiSecretsEncryptionConfigArgs{...}
 type ClusterServicesKubeApiSecretsEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -15977,7 +15891,9 @@ type ClusterServicesKubeApiSecretsEncryptionConfigInput interface {
 }
 
 type ClusterServicesKubeApiSecretsEncryptionConfigArgs struct {
-	// Enable secrets encryption. Default: `false` (bool)
+	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+	CustomConfig pulumi.StringPtrInput `pulumi:"customConfig"`
+	// Enable secrets encryption (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -16004,12 +15920,11 @@ func (i ClusterServicesKubeApiSecretsEncryptionConfigArgs) ToClusterServicesKube
 // ClusterServicesKubeApiSecretsEncryptionConfigPtrInput is an input type that accepts ClusterServicesKubeApiSecretsEncryptionConfigArgs, ClusterServicesKubeApiSecretsEncryptionConfigPtr and ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeApiSecretsEncryptionConfigPtrInput` via:
 //
-// 		 ClusterServicesKubeApiSecretsEncryptionConfigArgs{...}
+//          ClusterServicesKubeApiSecretsEncryptionConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeApiSecretsEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -16059,7 +15974,12 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToClusterServicesKu
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) CustomConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16084,7 +16004,17 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Elem() ClusterSe
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigOutput)
 }
 
-// Enable secrets encryption. Default: `false` (bool)
+// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) CustomConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiSecretsEncryptionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable secrets encryption (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiSecretsEncryptionConfig) *bool {
 		if v == nil {
@@ -16112,8 +16042,7 @@ type ClusterServicesKubeController struct {
 // ClusterServicesKubeControllerInput is an input type that accepts ClusterServicesKubeControllerArgs and ClusterServicesKubeControllerOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeControllerInput` via:
 //
-// 		 ClusterServicesKubeControllerArgs{...}
-//
+//          ClusterServicesKubeControllerArgs{...}
 type ClusterServicesKubeControllerInput interface {
 	pulumi.Input
 
@@ -16159,12 +16088,11 @@ func (i ClusterServicesKubeControllerArgs) ToClusterServicesKubeControllerPtrOut
 // ClusterServicesKubeControllerPtrInput is an input type that accepts ClusterServicesKubeControllerArgs, ClusterServicesKubeControllerPtr and ClusterServicesKubeControllerPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeControllerPtrInput` via:
 //
-// 		 ClusterServicesKubeControllerArgs{...}
+//          ClusterServicesKubeControllerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeControllerPtrInput interface {
 	pulumi.Input
 
@@ -16340,8 +16268,7 @@ type ClusterServicesKubeControllerDeprecated struct {
 // ClusterServicesKubeControllerDeprecatedInput is an input type that accepts ClusterServicesKubeControllerDeprecatedArgs and ClusterServicesKubeControllerDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeControllerDeprecatedInput` via:
 //
-// 		 ClusterServicesKubeControllerDeprecatedArgs{...}
-//
+//          ClusterServicesKubeControllerDeprecatedArgs{...}
 type ClusterServicesKubeControllerDeprecatedInput interface {
 	pulumi.Input
 
@@ -16387,12 +16314,11 @@ func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeContro
 // ClusterServicesKubeControllerDeprecatedPtrInput is an input type that accepts ClusterServicesKubeControllerDeprecatedArgs, ClusterServicesKubeControllerDeprecatedPtr and ClusterServicesKubeControllerDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeControllerDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesKubeControllerDeprecatedArgs{...}
+//          ClusterServicesKubeControllerDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeControllerDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -16564,8 +16490,7 @@ type ClusterServicesKubeProxyDeprecated struct {
 // ClusterServicesKubeProxyDeprecatedInput is an input type that accepts ClusterServicesKubeProxyDeprecatedArgs and ClusterServicesKubeProxyDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeProxyDeprecatedInput` via:
 //
-// 		 ClusterServicesKubeProxyDeprecatedArgs{...}
-//
+//          ClusterServicesKubeProxyDeprecatedArgs{...}
 type ClusterServicesKubeProxyDeprecatedInput interface {
 	pulumi.Input
 
@@ -16607,12 +16532,11 @@ func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprec
 // ClusterServicesKubeProxyDeprecatedPtrInput is an input type that accepts ClusterServicesKubeProxyDeprecatedArgs, ClusterServicesKubeProxyDeprecatedPtr and ClusterServicesKubeProxyDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeProxyDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesKubeProxyDeprecatedArgs{...}
+//          ClusterServicesKubeProxyDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeProxyDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -16754,8 +16678,7 @@ type ClusterServicesKubeSchedulerDeprecated struct {
 // ClusterServicesKubeSchedulerDeprecatedInput is an input type that accepts ClusterServicesKubeSchedulerDeprecatedArgs and ClusterServicesKubeSchedulerDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeSchedulerDeprecatedInput` via:
 //
-// 		 ClusterServicesKubeSchedulerDeprecatedArgs{...}
-//
+//          ClusterServicesKubeSchedulerDeprecatedArgs{...}
 type ClusterServicesKubeSchedulerDeprecatedInput interface {
 	pulumi.Input
 
@@ -16797,12 +16720,11 @@ func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedul
 // ClusterServicesKubeSchedulerDeprecatedPtrInput is an input type that accepts ClusterServicesKubeSchedulerDeprecatedArgs, ClusterServicesKubeSchedulerDeprecatedPtr and ClusterServicesKubeSchedulerDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeSchedulerDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesKubeSchedulerDeprecatedArgs{...}
+//          ClusterServicesKubeSchedulerDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeSchedulerDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -16954,8 +16876,7 @@ type ClusterServicesKubelet struct {
 // ClusterServicesKubeletInput is an input type that accepts ClusterServicesKubeletArgs and ClusterServicesKubeletOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeletInput` via:
 //
-// 		 ClusterServicesKubeletArgs{...}
-//
+//          ClusterServicesKubeletArgs{...}
 type ClusterServicesKubeletInput interface {
 	pulumi.Input
 
@@ -17007,12 +16928,11 @@ func (i ClusterServicesKubeletArgs) ToClusterServicesKubeletPtrOutputWithContext
 // ClusterServicesKubeletPtrInput is an input type that accepts ClusterServicesKubeletArgs, ClusterServicesKubeletPtr and ClusterServicesKubeletPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeletPtrInput` via:
 //
-// 		 ClusterServicesKubeletArgs{...}
+//          ClusterServicesKubeletArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeletPtrInput interface {
 	pulumi.Input
 
@@ -17239,8 +17159,7 @@ type ClusterServicesKubeletDeprecated struct {
 // ClusterServicesKubeletDeprecatedInput is an input type that accepts ClusterServicesKubeletDeprecatedArgs and ClusterServicesKubeletDeprecatedOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeletDeprecatedInput` via:
 //
-// 		 ClusterServicesKubeletDeprecatedArgs{...}
-//
+//          ClusterServicesKubeletDeprecatedArgs{...}
 type ClusterServicesKubeletDeprecatedInput interface {
 	pulumi.Input
 
@@ -17292,12 +17211,11 @@ func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecated
 // ClusterServicesKubeletDeprecatedPtrInput is an input type that accepts ClusterServicesKubeletDeprecatedArgs, ClusterServicesKubeletDeprecatedPtr and ClusterServicesKubeletDeprecatedPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeletDeprecatedPtrInput` via:
 //
-// 		 ClusterServicesKubeletDeprecatedArgs{...}
+//          ClusterServicesKubeletDeprecatedArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeletDeprecatedPtrInput interface {
 	pulumi.Input
 
@@ -17514,8 +17432,7 @@ type ClusterServicesKubeproxy struct {
 // ClusterServicesKubeproxyInput is an input type that accepts ClusterServicesKubeproxyArgs and ClusterServicesKubeproxyOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeproxyInput` via:
 //
-// 		 ClusterServicesKubeproxyArgs{...}
-//
+//          ClusterServicesKubeproxyArgs{...}
 type ClusterServicesKubeproxyInput interface {
 	pulumi.Input
 
@@ -17557,12 +17474,11 @@ func (i ClusterServicesKubeproxyArgs) ToClusterServicesKubeproxyPtrOutputWithCon
 // ClusterServicesKubeproxyPtrInput is an input type that accepts ClusterServicesKubeproxyArgs, ClusterServicesKubeproxyPtr and ClusterServicesKubeproxyPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesKubeproxyPtrInput` via:
 //
-// 		 ClusterServicesKubeproxyArgs{...}
+//          ClusterServicesKubeproxyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesKubeproxyPtrInput interface {
 	pulumi.Input
 
@@ -17704,8 +17620,7 @@ type ClusterServicesScheduler struct {
 // ClusterServicesSchedulerInput is an input type that accepts ClusterServicesSchedulerArgs and ClusterServicesSchedulerOutput values.
 // You can construct a concrete instance of `ClusterServicesSchedulerInput` via:
 //
-// 		 ClusterServicesSchedulerArgs{...}
-//
+//          ClusterServicesSchedulerArgs{...}
 type ClusterServicesSchedulerInput interface {
 	pulumi.Input
 
@@ -17747,12 +17662,11 @@ func (i ClusterServicesSchedulerArgs) ToClusterServicesSchedulerPtrOutputWithCon
 // ClusterServicesSchedulerPtrInput is an input type that accepts ClusterServicesSchedulerArgs, ClusterServicesSchedulerPtr and ClusterServicesSchedulerPtrOutput values.
 // You can construct a concrete instance of `ClusterServicesSchedulerPtrInput` via:
 //
-// 		 ClusterServicesSchedulerArgs{...}
+//          ClusterServicesSchedulerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServicesSchedulerPtrInput interface {
 	pulumi.Input
 
@@ -17948,8 +17862,7 @@ type ClusterSystemImages struct {
 // ClusterSystemImagesInput is an input type that accepts ClusterSystemImagesArgs and ClusterSystemImagesOutput values.
 // You can construct a concrete instance of `ClusterSystemImagesInput` via:
 //
-// 		 ClusterSystemImagesArgs{...}
-//
+//          ClusterSystemImagesArgs{...}
 type ClusterSystemImagesInput interface {
 	pulumi.Input
 
@@ -18045,12 +17958,11 @@ func (i ClusterSystemImagesArgs) ToClusterSystemImagesPtrOutputWithContext(ctx c
 // ClusterSystemImagesPtrInput is an input type that accepts ClusterSystemImagesArgs, ClusterSystemImagesPtr and ClusterSystemImagesPtrOutput values.
 // You can construct a concrete instance of `ClusterSystemImagesPtrInput` via:
 //
-// 		 ClusterSystemImagesArgs{...}
+//          ClusterSystemImagesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterSystemImagesPtrInput interface {
 	pulumi.Input
 
@@ -18584,21 +18496,20 @@ func (o ClusterSystemImagesPtrOutput) WindowsPodInfraContainer() pulumi.StringPt
 }
 
 type ClusterUpgradeStrategy struct {
-	// RKE drain nodes. Default: `false` (bool)
+	// RKE drain nodes (bool)
 	Drain *bool `pulumi:"drain"`
 	// RKE drain node input (list Maxitems: 1)
 	DrainInput *ClusterUpgradeStrategyDrainInput `pulumi:"drainInput"`
-	// RKE max unavailable controlplane nodes. Default: `1` (string)
+	// RKE max unavailable controlplane nodes (string)
 	MaxUnavailableControlplane *string `pulumi:"maxUnavailableControlplane"`
-	// RKE max unavailable worker nodes. Default: `10%` (string)
+	// RKE max unavailable worker nodes (string)
 	MaxUnavailableWorker *string `pulumi:"maxUnavailableWorker"`
 }
 
 // ClusterUpgradeStrategyInput is an input type that accepts ClusterUpgradeStrategyArgs and ClusterUpgradeStrategyOutput values.
 // You can construct a concrete instance of `ClusterUpgradeStrategyInput` via:
 //
-// 		 ClusterUpgradeStrategyArgs{...}
-//
+//          ClusterUpgradeStrategyArgs{...}
 type ClusterUpgradeStrategyInput interface {
 	pulumi.Input
 
@@ -18607,13 +18518,13 @@ type ClusterUpgradeStrategyInput interface {
 }
 
 type ClusterUpgradeStrategyArgs struct {
-	// RKE drain nodes. Default: `false` (bool)
+	// RKE drain nodes (bool)
 	Drain pulumi.BoolPtrInput `pulumi:"drain"`
 	// RKE drain node input (list Maxitems: 1)
 	DrainInput ClusterUpgradeStrategyDrainInputPtrInput `pulumi:"drainInput"`
-	// RKE max unavailable controlplane nodes. Default: `1` (string)
+	// RKE max unavailable controlplane nodes (string)
 	MaxUnavailableControlplane pulumi.StringPtrInput `pulumi:"maxUnavailableControlplane"`
-	// RKE max unavailable worker nodes. Default: `10%` (string)
+	// RKE max unavailable worker nodes (string)
 	MaxUnavailableWorker pulumi.StringPtrInput `pulumi:"maxUnavailableWorker"`
 }
 
@@ -18640,12 +18551,11 @@ func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyPtrOutputWithContext
 // ClusterUpgradeStrategyPtrInput is an input type that accepts ClusterUpgradeStrategyArgs, ClusterUpgradeStrategyPtr and ClusterUpgradeStrategyPtrOutput values.
 // You can construct a concrete instance of `ClusterUpgradeStrategyPtrInput` via:
 //
-// 		 ClusterUpgradeStrategyArgs{...}
+//          ClusterUpgradeStrategyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterUpgradeStrategyPtrInput interface {
 	pulumi.Input
 
@@ -18695,7 +18605,7 @@ func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutputWithConte
 	}).(ClusterUpgradeStrategyPtrOutput)
 }
 
-// RKE drain nodes. Default: `false` (bool)
+// RKE drain nodes (bool)
 func (o ClusterUpgradeStrategyOutput) Drain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategy) *bool { return v.Drain }).(pulumi.BoolPtrOutput)
 }
@@ -18705,12 +18615,12 @@ func (o ClusterUpgradeStrategyOutput) DrainInput() ClusterUpgradeStrategyDrainIn
 	return o.ApplyT(func(v ClusterUpgradeStrategy) *ClusterUpgradeStrategyDrainInput { return v.DrainInput }).(ClusterUpgradeStrategyDrainInputPtrOutput)
 }
 
-// RKE max unavailable controlplane nodes. Default: `1` (string)
+// RKE max unavailable controlplane nodes (string)
 func (o ClusterUpgradeStrategyOutput) MaxUnavailableControlplane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableControlplane }).(pulumi.StringPtrOutput)
 }
 
-// RKE max unavailable worker nodes. Default: `10%` (string)
+// RKE max unavailable worker nodes (string)
 func (o ClusterUpgradeStrategyOutput) MaxUnavailableWorker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategy) *string { return v.MaxUnavailableWorker }).(pulumi.StringPtrOutput)
 }
@@ -18733,7 +18643,7 @@ func (o ClusterUpgradeStrategyPtrOutput) Elem() ClusterUpgradeStrategyOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategy) ClusterUpgradeStrategy { return *v }).(ClusterUpgradeStrategyOutput)
 }
 
-// RKE drain nodes. Default: `false` (bool)
+// RKE drain nodes (bool)
 func (o ClusterUpgradeStrategyPtrOutput) Drain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategy) *bool {
 		if v == nil {
@@ -18753,7 +18663,7 @@ func (o ClusterUpgradeStrategyPtrOutput) DrainInput() ClusterUpgradeStrategyDrai
 	}).(ClusterUpgradeStrategyDrainInputPtrOutput)
 }
 
-// RKE max unavailable controlplane nodes. Default: `1` (string)
+// RKE max unavailable controlplane nodes (string)
 func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableControlplane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategy) *string {
 		if v == nil {
@@ -18763,7 +18673,7 @@ func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableControlplane() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// RKE max unavailable worker nodes. Default: `10%` (string)
+// RKE max unavailable worker nodes (string)
 func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableWorker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategy) *string {
 		if v == nil {
@@ -18774,23 +18684,22 @@ func (o ClusterUpgradeStrategyPtrOutput) MaxUnavailableWorker() pulumi.StringPtr
 }
 
 type ClusterUpgradeStrategyDrainInput struct {
-	// Delete RKE node local data. Default: `false` (bool)
+	// Delete RKE node local data (bool)
 	DeleteLocalData *bool `pulumi:"deleteLocalData"`
-	// Force RKE node drain. Default: `false` (bool)
+	// Force RKE node drain (bool)
 	Force *bool `pulumi:"force"`
-	// RKE node drain grace period. Default: `-1` (int)
+	// RKE node drain grace period (int)
 	GracePeriod *int `pulumi:"gracePeriod"`
-	// Ignore RKE daemon sets. Default: `true` (bool)
+	// Ignore RKE daemon sets (bool)
 	IgnoreDaemonSets *bool `pulumi:"ignoreDaemonSets"`
-	// RKE node drain timeout. Default: `60` (int)
+	// RKE node drain timeout (int)
 	Timeout *int `pulumi:"timeout"`
 }
 
 // ClusterUpgradeStrategyDrainInputInput is an input type that accepts ClusterUpgradeStrategyDrainInputArgs and ClusterUpgradeStrategyDrainInputOutput values.
 // You can construct a concrete instance of `ClusterUpgradeStrategyDrainInputInput` via:
 //
-// 		 ClusterUpgradeStrategyDrainInputArgs{...}
-//
+//          ClusterUpgradeStrategyDrainInputArgs{...}
 type ClusterUpgradeStrategyDrainInputInput interface {
 	pulumi.Input
 
@@ -18799,15 +18708,15 @@ type ClusterUpgradeStrategyDrainInputInput interface {
 }
 
 type ClusterUpgradeStrategyDrainInputArgs struct {
-	// Delete RKE node local data. Default: `false` (bool)
+	// Delete RKE node local data (bool)
 	DeleteLocalData pulumi.BoolPtrInput `pulumi:"deleteLocalData"`
-	// Force RKE node drain. Default: `false` (bool)
+	// Force RKE node drain (bool)
 	Force pulumi.BoolPtrInput `pulumi:"force"`
-	// RKE node drain grace period. Default: `-1` (int)
+	// RKE node drain grace period (int)
 	GracePeriod pulumi.IntPtrInput `pulumi:"gracePeriod"`
-	// Ignore RKE daemon sets. Default: `true` (bool)
+	// Ignore RKE daemon sets (bool)
 	IgnoreDaemonSets pulumi.BoolPtrInput `pulumi:"ignoreDaemonSets"`
-	// RKE node drain timeout. Default: `60` (int)
+	// RKE node drain timeout (int)
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -18834,12 +18743,11 @@ func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInput
 // ClusterUpgradeStrategyDrainInputPtrInput is an input type that accepts ClusterUpgradeStrategyDrainInputArgs, ClusterUpgradeStrategyDrainInputPtr and ClusterUpgradeStrategyDrainInputPtrOutput values.
 // You can construct a concrete instance of `ClusterUpgradeStrategyDrainInputPtrInput` via:
 //
-// 		 ClusterUpgradeStrategyDrainInputArgs{...}
+//          ClusterUpgradeStrategyDrainInputArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterUpgradeStrategyDrainInputPtrInput interface {
 	pulumi.Input
 
@@ -18889,27 +18797,27 @@ func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInp
 	}).(ClusterUpgradeStrategyDrainInputPtrOutput)
 }
 
-// Delete RKE node local data. Default: `false` (bool)
+// Delete RKE node local data (bool)
 func (o ClusterUpgradeStrategyDrainInputOutput) DeleteLocalData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.DeleteLocalData }).(pulumi.BoolPtrOutput)
 }
 
-// Force RKE node drain. Default: `false` (bool)
+// Force RKE node drain (bool)
 func (o ClusterUpgradeStrategyDrainInputOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.Force }).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain grace period. Default: `-1` (int)
+// RKE node drain grace period (int)
 func (o ClusterUpgradeStrategyDrainInputOutput) GracePeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.GracePeriod }).(pulumi.IntPtrOutput)
 }
 
-// Ignore RKE daemon sets. Default: `true` (bool)
+// Ignore RKE daemon sets (bool)
 func (o ClusterUpgradeStrategyDrainInputOutput) IgnoreDaemonSets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.IgnoreDaemonSets }).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout. Default: `60` (int)
+// RKE node drain timeout (int)
 func (o ClusterUpgradeStrategyDrainInputOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -18932,7 +18840,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) Elem() ClusterUpgradeStrategy
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) ClusterUpgradeStrategyDrainInput { return *v }).(ClusterUpgradeStrategyDrainInputOutput)
 }
 
-// Delete RKE node local data. Default: `false` (bool)
+// Delete RKE node local data (bool)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) DeleteLocalData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *bool {
 		if v == nil {
@@ -18942,7 +18850,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) DeleteLocalData() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Force RKE node drain. Default: `false` (bool)
+// Force RKE node drain (bool)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *bool {
 		if v == nil {
@@ -18952,7 +18860,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) Force() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain grace period. Default: `-1` (int)
+// RKE node drain grace period (int)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) GracePeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *int {
 		if v == nil {
@@ -18962,7 +18870,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) GracePeriod() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Ignore RKE daemon sets. Default: `true` (bool)
+// Ignore RKE daemon sets (bool)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) IgnoreDaemonSets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *bool {
 		if v == nil {
@@ -18972,7 +18880,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) IgnoreDaemonSets() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout. Default: `60` (int)
+// RKE node drain timeout (int)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *int {
 		if v == nil {
@@ -18992,8 +18900,7 @@ type ClusterWorkerHost struct {
 // ClusterWorkerHostInput is an input type that accepts ClusterWorkerHostArgs and ClusterWorkerHostOutput values.
 // You can construct a concrete instance of `ClusterWorkerHostInput` via:
 //
-// 		 ClusterWorkerHostArgs{...}
-//
+//          ClusterWorkerHostArgs{...}
 type ClusterWorkerHostInput interface {
 	pulumi.Input
 
@@ -19023,8 +18930,7 @@ func (i ClusterWorkerHostArgs) ToClusterWorkerHostOutputWithContext(ctx context.
 // ClusterWorkerHostArrayInput is an input type that accepts ClusterWorkerHostArray and ClusterWorkerHostArrayOutput values.
 // You can construct a concrete instance of `ClusterWorkerHostArrayInput` via:
 //
-// 		 ClusterWorkerHostArray{ ClusterWorkerHostArgs{...} }
-//
+//          ClusterWorkerHostArray{ ClusterWorkerHostArgs{...} }
 type ClusterWorkerHostArrayInput interface {
 	pulumi.Input
 

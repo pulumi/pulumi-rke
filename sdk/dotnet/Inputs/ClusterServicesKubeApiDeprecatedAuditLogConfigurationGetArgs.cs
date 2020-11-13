@@ -13,13 +13,13 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Audit log format. Default: `json` (string)
+        /// Audit log format (string)
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// Audit log max age. Default: `30` (int)
+        /// Audit log max age (int)
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }

@@ -10,12 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke
 {
     /// <summary>
-    /// Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
+    /// ## Import
     /// 
-    /// RKE clusters can be defined in the provider:
-    /// - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
-    /// - Using the TF provider arguments to define the entire cluster.
-    /// - Using a combination of both the cluster_yaml and TF provider arguments. The TF arguments will override the cluster_yaml options if collisions occur.
+    /// rke_cluster can be imported using the RKE cluster config and state files as ID in the format `&lt;cluster_config_file&gt;:&lt;rke_state_file&gt;`
+    /// 
+    /// ```sh
+    ///  $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;
+    /// ```
+    /// 
+    ///  As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `&lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind`
+    /// 
+    /// ```sh
+    ///  $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;:dind
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -23,7 +30,7 @@ namespace Pulumi.Rke
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
         /// </summary>
         [Output("addonJobTimeout")]
-        public Output<int> AddonJobTimeout { get; private set; } = null!;
+        public Output<int?> AddonJobTimeout { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster user addons YAML manifest to be deployed (string)
@@ -47,13 +54,13 @@ namespace Pulumi.Rke
         /// RKE k8s cluster authentication configuration (list maxitems:1)
         /// </summary>
         [Output("authentication")]
-        public Output<Outputs.ClusterAuthentication> Authentication { get; private set; } = null!;
+        public Output<Outputs.ClusterAuthentication?> Authentication { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster authorization mode configuration (list maxitems:1)
         /// </summary>
         [Output("authorization")]
-        public Output<Outputs.ClusterAuthorization> Authorization { get; private set; } = null!;
+        public Output<Outputs.ClusterAuthorization?> Authorization { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster bastion Host configuration (list maxitems:1)
@@ -119,7 +126,7 @@ namespace Pulumi.Rke
         /// RKE k8s cluster name used in the kube config (string)
         /// </summary>
         [Output("clusterName")]
-        public Output<string> ClusterName { get; private set; } = null!;
+        public Output<string?> ClusterName { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
@@ -173,7 +180,7 @@ namespace Pulumi.Rke
         /// RKE k8s cluster DNS Config (list maxitems:1)
         /// </summary>
         [Output("dns")]
-        public Output<Outputs.ClusterDns> Dns { get; private set; } = null!;
+        public Output<Outputs.ClusterDns?> Dns { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster etcd nodes (list)
@@ -185,7 +192,7 @@ namespace Pulumi.Rke
         /// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         /// </summary>
         [Output("ignoreDockerVersion")]
-        public Output<bool> IgnoreDockerVersion { get; private set; } = null!;
+        public Output<bool?> IgnoreDockerVersion { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster inactive nodes (list)
@@ -197,7 +204,7 @@ namespace Pulumi.Rke
         /// Docker image for ingress (string)
         /// </summary>
         [Output("ingress")]
-        public Output<Outputs.ClusterIngress> Ingress { get; private set; } = null!;
+        public Output<Outputs.ClusterIngress?> Ingress { get; private set; } = null!;
 
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
@@ -227,13 +234,13 @@ namespace Pulumi.Rke
         /// RKE k8s cluster monitoring Config (list maxitems:1)
         /// </summary>
         [Output("monitoring")]
-        public Output<Outputs.ClusterMonitoring> Monitoring { get; private set; } = null!;
+        public Output<Outputs.ClusterMonitoring?> Monitoring { get; private set; } = null!;
 
         /// <summary>
         /// (list maxitems:1)
         /// </summary>
         [Output("network")]
-        public Output<Outputs.ClusterNetwork> Network { get; private set; } = null!;
+        public Output<Outputs.ClusterNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster nodes (list)
@@ -248,7 +255,7 @@ namespace Pulumi.Rke
         /// RKE k8s directory path (string)
         /// </summary>
         [Output("prefixPath")]
-        public Output<string> PrefixPath { get; private set; } = null!;
+        public Output<string?> PrefixPath { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster private docker registries (list)
@@ -260,7 +267,7 @@ namespace Pulumi.Rke
         /// Restore cluster. Default `false` (bool)
         /// </summary>
         [Output("restore")]
-        public Output<Outputs.ClusterRestore> Restore { get; private set; } = null!;
+        public Output<Outputs.ClusterRestore?> Restore { get; private set; } = null!;
 
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster config yaml (string)
@@ -290,7 +297,7 @@ namespace Pulumi.Rke
         /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
         /// </summary>
         [Output("services")]
-        public Output<Outputs.ClusterServices> Services { get; private set; } = null!;
+        public Output<Outputs.ClusterServices?> Services { get; private set; } = null!;
 
         /// <summary>
         /// Use services.etcd instead (list maxitems:1)
@@ -338,13 +345,13 @@ namespace Pulumi.Rke
         /// SSH Certificate path (string)
         /// </summary>
         [Output("sshCertPath")]
-        public Output<string> SshCertPath { get; private set; } = null!;
+        public Output<string?> SshCertPath { get; private set; } = null!;
 
         /// <summary>
         /// SSH Private Key path (string)
         /// </summary>
         [Output("sshKeyPath")]
-        public Output<string> SshKeyPath { get; private set; } = null!;
+        public Output<string?> SshKeyPath { get; private set; } = null!;
 
         /// <summary>
         /// RKE k8s cluster system images list (list maxitems:1)
@@ -362,7 +369,7 @@ namespace Pulumi.Rke
         /// RKE k8s cluster upgrade strategy (list maxitems:1)
         /// </summary>
         [Output("upgradeStrategy")]
-        public Output<Outputs.ClusterUpgradeStrategy> UpgradeStrategy { get; private set; } = null!;
+        public Output<Outputs.ClusterUpgradeStrategy?> UpgradeStrategy { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster worker nodes (list)

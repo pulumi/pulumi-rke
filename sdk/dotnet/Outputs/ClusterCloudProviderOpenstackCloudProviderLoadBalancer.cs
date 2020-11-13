@@ -38,15 +38,15 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? ManageSecurityGroups;
         /// <summary>
-        /// Default `60s` (string)
+        /// (string)
         /// </summary>
         public readonly string? MonitorDelay;
         /// <summary>
-        /// Default 5 (int)
+        /// (int)
         /// </summary>
         public readonly int? MonitorMaxRetries;
         /// <summary>
-        /// Default `30s` (string)
+        /// (string)
         /// </summary>
         public readonly string? MonitorTimeout;
         /// <summary>

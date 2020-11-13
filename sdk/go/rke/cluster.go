@@ -4,22 +4,30 @@
 package rke
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
+// ## Import
 //
-// RKE clusters can be defined in the provider:
-// - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
-// - Using the TF provider arguments to define the entire cluster.
-// - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
+// rke_cluster can be imported using the RKE cluster config and state files as ID in the format `<cluster_config_file>:<rke_state_file>`
+//
+// ```sh
+//  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
+// ```
+//
+//  As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
+//
+// ```sh
+//  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// RKE k8s cluster addon deployment timeout in seconds for status check (int)
-	AddonJobTimeout pulumi.IntOutput `pulumi:"addonJobTimeout"`
+	AddonJobTimeout pulumi.IntPtrOutput `pulumi:"addonJobTimeout"`
 	// RKE k8s cluster user addons YAML manifest to be deployed (string)
 	Addons pulumi.StringPtrOutput `pulumi:"addons"`
 	// RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
@@ -27,9 +35,9 @@ type Cluster struct {
 	// (Computed) RKE k8s cluster api server url (string)
 	ApiServerUrl pulumi.StringOutput `pulumi:"apiServerUrl"`
 	// RKE k8s cluster authentication configuration (list maxitems:1)
-	Authentication ClusterAuthenticationOutput `pulumi:"authentication"`
+	Authentication ClusterAuthenticationPtrOutput `pulumi:"authentication"`
 	// RKE k8s cluster authorization mode configuration (list maxitems:1)
-	Authorization ClusterAuthorizationOutput `pulumi:"authorization"`
+	Authorization ClusterAuthorizationPtrOutput `pulumi:"authorization"`
 	// RKE k8s cluster bastion Host configuration (list maxitems:1)
 	BastionHost ClusterBastionHostPtrOutput `pulumi:"bastionHost"`
 	// (Computed/Sensitive) RKE k8s cluster CA certificate (string)
@@ -51,7 +59,7 @@ type Cluster struct {
 	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
 	ClusterDomain pulumi.StringOutput `pulumi:"clusterDomain"`
 	// RKE k8s cluster name used in the kube config (string)
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
 	// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
 	ClusterYaml pulumi.StringPtrOutput `pulumi:"clusterYaml"`
 	// (Computed) RKE k8s cluster control plane nodes (list)
@@ -69,15 +77,15 @@ type Cluster struct {
 	// Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
 	DisablePortCheck pulumi.BoolPtrOutput `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
-	Dns ClusterDnsOutput `pulumi:"dns"`
+	Dns ClusterDnsPtrOutput `pulumi:"dns"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayOutput `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
-	IgnoreDockerVersion pulumi.BoolOutput `pulumi:"ignoreDockerVersion"`
+	IgnoreDockerVersion pulumi.BoolPtrOutput `pulumi:"ignoreDockerVersion"`
 	// (Computed) RKE k8s cluster inactive nodes (list)
 	InactiveHosts ClusterInactiveHostArrayOutput `pulumi:"inactiveHosts"`
 	// Docker image for ingress (string)
-	Ingress ClusterIngressOutput `pulumi:"ingress"`
+	Ingress ClusterIngressPtrOutput `pulumi:"ingress"`
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
 	//
 	// Deprecated: Use kube_config_yaml instead
@@ -89,19 +97,19 @@ type Cluster struct {
 	// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
 	KubernetesVersion pulumi.StringPtrOutput `pulumi:"kubernetesVersion"`
 	// RKE k8s cluster monitoring Config (list maxitems:1)
-	Monitoring ClusterMonitoringOutput `pulumi:"monitoring"`
+	Monitoring ClusterMonitoringPtrOutput `pulumi:"monitoring"`
 	// (list maxitems:1)
-	Network ClusterNetworkOutput `pulumi:"network"`
+	Network ClusterNetworkPtrOutput `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
 	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
 	// Deprecated: Use cluster_yaml instead
 	NodesConfs pulumi.StringArrayOutput `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
-	PrefixPath pulumi.StringOutput `pulumi:"prefixPath"`
+	PrefixPath pulumi.StringPtrOutput `pulumi:"prefixPath"`
 	// RKE k8s cluster private docker registries (list)
 	PrivateRegistries ClusterPrivateRegistryArrayOutput `pulumi:"privateRegistries"`
 	// Restore cluster. Default `false` (bool)
-	Restore ClusterRestoreOutput `pulumi:"restore"`
+	Restore ClusterRestorePtrOutput `pulumi:"restore"`
 	// (Computed/Sensitive) RKE k8s cluster config yaml (string)
 	RkeClusterYaml pulumi.StringOutput `pulumi:"rkeClusterYaml"`
 	// (Computed/Sensitive) RKE k8s cluster state (string)
@@ -111,7 +119,7 @@ type Cluster struct {
 	// (Computed) RKE k8s cluster running system images list (list)
 	RunningSystemImages ClusterRunningSystemImagesOutput `pulumi:"runningSystemImages"`
 	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
-	Services ClusterServicesOutput `pulumi:"services"`
+	Services ClusterServicesPtrOutput `pulumi:"services"`
 	// Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
@@ -139,15 +147,15 @@ type Cluster struct {
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolOutput `pulumi:"sshAgentAuth"`
 	// SSH Certificate path (string)
-	SshCertPath pulumi.StringOutput `pulumi:"sshCertPath"`
+	SshCertPath pulumi.StringPtrOutput `pulumi:"sshCertPath"`
 	// SSH Private Key path (string)
-	SshKeyPath pulumi.StringOutput `pulumi:"sshKeyPath"`
+	SshKeyPath pulumi.StringPtrOutput `pulumi:"sshKeyPath"`
 	// RKE k8s cluster system images list (list maxitems:1)
 	SystemImages ClusterSystemImagesPtrOutput `pulumi:"systemImages"`
 	// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
 	UpdateOnly pulumi.BoolPtrOutput `pulumi:"updateOnly"`
 	// RKE k8s cluster upgrade strategy (list maxitems:1)
-	UpgradeStrategy ClusterUpgradeStrategyOutput `pulumi:"upgradeStrategy"`
+	UpgradeStrategy ClusterUpgradeStrategyPtrOutput `pulumi:"upgradeStrategy"`
 	// (Computed) RKE k8s cluster worker nodes (list)
 	WorkerHosts ClusterWorkerHostArrayOutput `pulumi:"workerHosts"`
 }
@@ -650,4 +658,43 @@ type ClusterArgs struct {
 
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
+}
+
+type ClusterInput interface {
+	pulumi.Input
+
+	ToClusterOutput() ClusterOutput
+	ToClusterOutputWithContext(ctx context.Context) ClusterOutput
+}
+
+func (Cluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cluster)(nil)).Elem()
+}
+
+func (i Cluster) ToClusterOutput() ClusterOutput {
+	return i.ToClusterOutputWithContext(context.Background())
+}
+
+func (i Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
+}
+
+type ClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutput)(nil)).Elem()
+}
+
+func (o ClusterOutput) ToClusterOutput() ClusterOutput {
+	return o
+}
+
+func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterOutput{})
 }

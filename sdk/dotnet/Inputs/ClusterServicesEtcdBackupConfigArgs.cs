@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesEtcdBackupConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
+        /// Enable secrets encryption (bool)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

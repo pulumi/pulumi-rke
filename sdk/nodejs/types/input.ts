@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 
 export interface ClusterAuthentication {
     /**
@@ -48,7 +47,7 @@ export interface ClusterBastionHost {
      */
     address: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -679,15 +678,15 @@ export interface ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
      */
     manageSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * Default `60s` (string)
+     * (string)
      */
     monitorDelay?: pulumi.Input<string>;
     /**
-     * Default 5 (int)
+     * (int)
      */
     monitorMaxRetries?: pulumi.Input<number>;
     /**
-     * Default `30s` (string)
+     * (string)
      */
     monitorTimeout?: pulumi.Input<string>;
     /**
@@ -829,15 +828,15 @@ export interface ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
      */
     manageSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * Default `60s` (string)
+     * (string)
      */
     monitorDelay?: pulumi.Input<string>;
     /**
-     * Default 5 (int)
+     * (int)
      */
     monitorMaxRetries?: pulumi.Input<number>;
     /**
-     * Default `30s` (string)
+     * (string)
      */
     monitorTimeout?: pulumi.Input<string>;
     /**
@@ -920,7 +919,7 @@ export interface ClusterCloudProviderVsphereCloudConfigGlobal {
      */
     password?: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -966,7 +965,7 @@ export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
      */
     password: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -1054,7 +1053,7 @@ export interface ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     password?: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -1100,7 +1099,7 @@ export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     password: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -1326,7 +1325,7 @@ export interface ClusterNode {
      */
     nodeName?: pulumi.Input<string>;
     /**
-     * Port used for SSH communication. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
     /**
@@ -1642,7 +1641,7 @@ export interface ClusterServicesEtcd {
 
 export interface ClusterServicesEtcdBackupConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -1759,7 +1758,7 @@ export interface ClusterServicesEtcdDeprecated {
 
 export interface ClusterServicesEtcdDeprecatedBackupConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -1813,7 +1812,7 @@ export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
 
 export interface ClusterServicesKubeApi {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
      */
     alwaysPullImages?: pulumi.Input<boolean>;
     /**
@@ -1841,7 +1840,7 @@ export interface ClusterServicesKubeApi {
      */
     image?: pulumi.Input<string>;
     /**
-     * Pod Security Policy option for kube API service. Default `false` (bool)
+     * Pod Security Policy option for kube API service (bool)
      */
     podSecurityPolicy?: pulumi.Input<boolean>;
     /**
@@ -1860,22 +1859,22 @@ export interface ClusterServicesKubeApi {
 
 export interface ClusterServicesKubeApiAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration?: pulumi.Input<inputs.ClusterServicesKubeApiAuditLogConfiguration>;
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiAuditLogConfiguration {
     /**
-     * Audit log format. Default: `json` (string)
+     * Audit log format (string)
      */
     format?: pulumi.Input<string>;
     /**
-     * Audit log max age. Default: `30` (int)
+     * Audit log max age (int)
      */
     maxAge?: pulumi.Input<number>;
     /**
@@ -1898,7 +1897,7 @@ export interface ClusterServicesKubeApiAuditLogConfiguration {
 
 export interface ClusterServicesKubeApiDeprecated {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
      */
     alwaysPullImages?: pulumi.Input<boolean>;
     /**
@@ -1926,7 +1925,7 @@ export interface ClusterServicesKubeApiDeprecated {
      */
     image?: pulumi.Input<string>;
     /**
-     * Pod Security Policy option for kube API service. Default `false` (bool)
+     * Pod Security Policy option for kube API service (bool)
      */
     podSecurityPolicy?: pulumi.Input<boolean>;
     /**
@@ -1945,22 +1944,22 @@ export interface ClusterServicesKubeApiDeprecated {
 
 export interface ClusterServicesKubeApiDeprecatedAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration>;
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
     /**
-     * Audit log format. Default: `json` (string)
+     * Audit log format (string)
      */
     format?: pulumi.Input<string>;
     /**
-     * Audit log max age. Default: `30` (int)
+     * Audit log max age (int)
      */
     maxAge?: pulumi.Input<number>;
     /**
@@ -1983,28 +1982,44 @@ export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 
 export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     */
+    configuration?: pulumi.Input<string>;
+    /**
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+     */
+    customConfig?: pulumi.Input<string>;
+    /**
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiEventRateLimit {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     */
+    configuration?: pulumi.Input<string>;
+    /**
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiSecretsEncryptionConfig {
     /**
-     * Enable secrets encryption. Default: `false` (bool)
+     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+     */
+    customConfig?: pulumi.Input<string>;
+    /**
+     * Enable secrets encryption (bool)
      */
     enabled?: pulumi.Input<boolean>;
 }
@@ -2346,7 +2361,7 @@ export interface ClusterSystemImages {
 
 export interface ClusterUpgradeStrategy {
     /**
-     * RKE drain nodes. Default: `false` (bool)
+     * RKE drain nodes (bool)
      */
     drain?: pulumi.Input<boolean>;
     /**
@@ -2354,34 +2369,34 @@ export interface ClusterUpgradeStrategy {
      */
     drainInput?: pulumi.Input<inputs.ClusterUpgradeStrategyDrainInput>;
     /**
-     * RKE max unavailable controlplane nodes. Default: `1` (string)
+     * RKE max unavailable controlplane nodes (string)
      */
     maxUnavailableControlplane?: pulumi.Input<string>;
     /**
-     * RKE max unavailable worker nodes. Default: `10%` (string)
+     * RKE max unavailable worker nodes (string)
      */
     maxUnavailableWorker?: pulumi.Input<string>;
 }
 
 export interface ClusterUpgradeStrategyDrainInput {
     /**
-     * Delete RKE node local data. Default: `false` (bool)
+     * Delete RKE node local data (bool)
      */
     deleteLocalData?: pulumi.Input<boolean>;
     /**
-     * Force RKE node drain. Default: `false` (bool)
+     * Force RKE node drain (bool)
      */
     force?: pulumi.Input<boolean>;
     /**
-     * RKE node drain grace period. Default: `-1` (int)
+     * RKE node drain grace period (int)
      */
     gracePeriod?: pulumi.Input<number>;
     /**
-     * Ignore RKE daemon sets. Default: `true` (bool)
+     * Ignore RKE daemon sets (bool)
      */
     ignoreDaemonSets?: pulumi.Input<boolean>;
     /**
-     * RKE node drain timeout. Default: `60` (int)
+     * RKE node drain timeout (int)
      */
     timeout?: pulumi.Input<number>;
 }

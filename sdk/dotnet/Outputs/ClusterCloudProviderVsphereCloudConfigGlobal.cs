@@ -34,7 +34,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// Port used for SSH communication. Default `22` (string)
+        /// Port used for SSH communication (string)
         /// </summary>
         public readonly string? Port;
         /// <summary>

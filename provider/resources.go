@@ -19,12 +19,12 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	//"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
+	//"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/rancher/terraform-provider-rke/rke"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 )
 
 // all of the token components used below.
@@ -59,9 +59,11 @@ func makeResource(mod string, res string) tokens.Type {
 // It should validate that the provider can be configured, and provide actionable errors in the case
 // it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
 // for example `stringValue(vars, "accessKey")`.
+/*
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
 	return nil
 }
+*/
 
 func refProviderLicense(license tfbridge.TFProviderLicense) *tfbridge.TFProviderLicense {
 	return &license
@@ -77,15 +79,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "rke",
-		Description: "A Pulumi package for creating and managing rke cloud resources.",
-		Keywords:    []string{"pulumi", "rke"},
+		P:                 p,
+		Name:              "rke",
+		Description:       "A Pulumi package for creating and managing rke cloud resources.",
+		Keywords:          []string{"pulumi", "rke"},
 		TFProviderLicense: refProviderLicense(tfbridge.MITLicenseType),
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/jaxxstorm/pulumi-rke",
-		GitHubOrg:   "rancher",
+		License:           "Apache-2.0",
+		Homepage:          "https://pulumi.io",
+		Repository:        "https://github.com/jaxxstorm/pulumi-rke",
+		GitHubOrg:         "rancher",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"log_file": {
 				Default: &tfbridge.DefaultInfo{

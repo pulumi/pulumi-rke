@@ -14,13 +14,21 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeApiEventRateLimit
     {
         /// <summary>
-        /// Enable secrets encryption. Default: `false` (bool)
+        /// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+        /// </summary>
+        public readonly string? Configuration;
+        /// <summary>
+        /// Enable secrets encryption (bool)
         /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
-        private ClusterServicesKubeApiEventRateLimit(bool? enabled)
+        private ClusterServicesKubeApiEventRateLimit(
+            string? configuration,
+
+            bool? enabled)
         {
+            Configuration = configuration;
             Enabled = enabled;
         }
     }

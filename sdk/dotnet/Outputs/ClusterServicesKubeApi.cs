@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeApi
     {
         /// <summary>
-        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) Default: `false` (bool)
+        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
         /// </summary>
         public readonly bool? AlwaysPullImages;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Pod Security Policy option for kube API service. Default `false` (bool)
+        /// Pod Security Policy option for kube API service (bool)
         /// </summary>
         public readonly bool? PodSecurityPolicy;
         /// <summary>

@@ -2,17 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides RKE cluster resource. This can be used to create RKE clusters and retrieve their information.
+ * ## Import
  *
- * RKE clusters can be defined in the provider:
- * - Using cluster_yaml: The full RKE cluster is defined in an RKE cluster.yml file.
- * - Using the TF provider arguments to define the entire cluster.
- * - Using a combination of both the clusterYaml and TF provider arguments. The TF arguments will override the clusterYaml options if collisions occur.
+ * rke_cluster can be imported using the RKE cluster config and state files as ID in the format `<cluster_config_file>:<rke_state_file>`
+ *
+ * ```sh
+ *  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
+ * ```
+ *
+ *  As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
+ *
+ * ```sh
+ *  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -45,7 +51,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster addon deployment timeout in seconds for status check (int)
      */
-    public readonly addonJobTimeout!: pulumi.Output<number>;
+    public readonly addonJobTimeout!: pulumi.Output<number | undefined>;
     /**
      * RKE k8s cluster user addons YAML manifest to be deployed (string)
      */
@@ -61,11 +67,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster authentication configuration (list maxitems:1)
      */
-    public readonly authentication!: pulumi.Output<outputs.ClusterAuthentication>;
+    public readonly authentication!: pulumi.Output<outputs.ClusterAuthentication | undefined>;
     /**
      * RKE k8s cluster authorization mode configuration (list maxitems:1)
      */
-    public readonly authorization!: pulumi.Output<outputs.ClusterAuthorization>;
+    public readonly authorization!: pulumi.Output<outputs.ClusterAuthorization | undefined>;
     /**
      * RKE k8s cluster bastion Host configuration (list maxitems:1)
      */
@@ -109,7 +115,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster name used in the kube config (string)
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string | undefined>;
     /**
      * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
      */
@@ -145,7 +151,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
-    public readonly dns!: pulumi.Output<outputs.ClusterDns>;
+    public readonly dns!: pulumi.Output<outputs.ClusterDns | undefined>;
     /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
@@ -153,7 +159,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */
-    public readonly ignoreDockerVersion!: pulumi.Output<boolean>;
+    public readonly ignoreDockerVersion!: pulumi.Output<boolean | undefined>;
     /**
      * (Computed) RKE k8s cluster inactive nodes (list)
      */
@@ -161,7 +167,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Docker image for ingress (string)
      */
-    public readonly ingress!: pulumi.Output<outputs.ClusterIngress>;
+    public readonly ingress!: pulumi.Output<outputs.ClusterIngress | undefined>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
      *
@@ -183,11 +189,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster monitoring Config (list maxitems:1)
      */
-    public readonly monitoring!: pulumi.Output<outputs.ClusterMonitoring>;
+    public readonly monitoring!: pulumi.Output<outputs.ClusterMonitoring | undefined>;
     /**
      * (list maxitems:1)
      */
-    public readonly network!: pulumi.Output<outputs.ClusterNetwork>;
+    public readonly network!: pulumi.Output<outputs.ClusterNetwork | undefined>;
     /**
      * RKE k8s cluster nodes (list)
      */
@@ -199,7 +205,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s directory path (string)
      */
-    public readonly prefixPath!: pulumi.Output<string>;
+    public readonly prefixPath!: pulumi.Output<string | undefined>;
     /**
      * RKE k8s cluster private docker registries (list)
      */
@@ -207,7 +213,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Restore cluster. Default `false` (bool)
      */
-    public readonly restore!: pulumi.Output<outputs.ClusterRestore>;
+    public readonly restore!: pulumi.Output<outputs.ClusterRestore | undefined>;
     /**
      * (Computed/Sensitive) RKE k8s cluster config yaml (string)
      */
@@ -227,7 +233,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
      */
-    public readonly services!: pulumi.Output<outputs.ClusterServices>;
+    public readonly services!: pulumi.Output<outputs.ClusterServices | undefined>;
     /**
      * Use services.etcd instead (list maxitems:1)
      *
@@ -271,11 +277,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * SSH Certificate path (string)
      */
-    public readonly sshCertPath!: pulumi.Output<string>;
+    public readonly sshCertPath!: pulumi.Output<string | undefined>;
     /**
      * SSH Private Key path (string)
      */
-    public readonly sshKeyPath!: pulumi.Output<string>;
+    public readonly sshKeyPath!: pulumi.Output<string | undefined>;
     /**
      * RKE k8s cluster system images list (list maxitems:1)
      */
@@ -287,7 +293,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * RKE k8s cluster upgrade strategy (list maxitems:1)
      */
-    public readonly upgradeStrategy!: pulumi.Output<outputs.ClusterUpgradeStrategy>;
+    public readonly upgradeStrategy!: pulumi.Output<outputs.ClusterUpgradeStrategy | undefined>;
     /**
      * (Computed) RKE k8s cluster worker nodes (list)
      */
