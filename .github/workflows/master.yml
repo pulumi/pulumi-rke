@@ -89,7 +89,7 @@ jobs:
         pythonversion:
         - "3.7"
   lint:
-    container: golangci/golangci-lint:v1.32.0
+    container: golangci/golangci-lint:latest
     name: lint
     runs-on: ubuntu-latest
     steps:
@@ -222,7 +222,7 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
-        ref: 3411cb21fe253c2a65eaaf3a39db2320077ce675
+        ref: cd87b45d3187e45b5b9a7d99e885c9bcc436990a
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go

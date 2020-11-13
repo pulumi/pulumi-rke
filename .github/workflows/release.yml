@@ -89,7 +89,7 @@ jobs:
         pythonversion:
         - "3.7"
   lint:
-    container: golangci/golangci-lint:v1.32.0
+    container: golangci/golangci-lint:latest
     name: lint
     runs-on: ubuntu-latest
     steps:
@@ -242,7 +242,6 @@ jobs:
       with:
         always-auth: true
         registry-url: https://registry.npmjs.org
-    - run: npm whoami
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
     - name: Setup Python
