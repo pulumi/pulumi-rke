@@ -35,7 +35,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -111,7 +111,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Run golangci
       run: make lint_provider
   lint_sdk:
@@ -138,7 +138,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Run golangci
       run: cd sdk/go/rke && golangci-lint run -c ../../../.golangci.yml
   prerequisites:
@@ -163,7 +163,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Tar provider binaries
@@ -199,7 +199,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Set PreRelease Version
       run: |
         echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)" >> $GITHUB_ENV
@@ -234,7 +234,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -294,7 +294,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
