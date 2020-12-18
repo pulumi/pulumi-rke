@@ -1,19 +1,24 @@
-version: 1
-update_configs:
-  - package_manager: "go:modules"
-    directory: "/sdk"
-    update_schedule: "daily"
-    default_reviewers:
-      - jaxxstorm
-    default_labels:
-      - dependencies
-      - dependabot
-  - package_manager: "go:modules"
-    directory: "/provider"
-    update_schedule: "daily"
-    default_reviewers:
-      - jaxxstorm
-    default_labels:
-      - dependencies
-      - dependabot
-
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/provider"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - jaxxstorm
+  labels:
+  - dependencies
+  - dependabot
+- package-ecosystem: gomod
+  directory: "/sdk"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - jaxxstorm
+  labels:
+  - dependencies
+  - dependabot
