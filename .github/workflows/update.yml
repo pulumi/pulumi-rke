@@ -17,6 +17,10 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.1.0
       with:
         repo: pulumi/pulumictl
+    - name: Install golang-ci
+      uses: jaxxstorm/action-install-gh-release@v1.1.0
+      with:
+        repo: golangci/golangci-lint
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Setup Node
