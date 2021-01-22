@@ -159,7 +159,7 @@ class Cluster(pulumi.CustomResource):
             __props__['monitoring'] = monitoring
             __props__['network'] = network
             __props__['nodes'] = nodes
-            if nodes_confs is not None:
+            if nodes_confs is not None and not opts.urn:
                 warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
                 pulumi.log.warn("nodes_confs is deprecated: Use cluster_yaml instead")
             __props__['nodes_confs'] = nodes_confs
@@ -168,27 +168,27 @@ class Cluster(pulumi.CustomResource):
             __props__['restore'] = restore
             __props__['rotate_certificates'] = rotate_certificates
             __props__['services'] = services
-            if services_etcd_deprecated is not None:
+            if services_etcd_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.etcd instead""", DeprecationWarning)
                 pulumi.log.warn("services_etcd_deprecated is deprecated: Use services.etcd instead")
             __props__['services_etcd_deprecated'] = services_etcd_deprecated
-            if services_kube_api_deprecated is not None:
+            if services_kube_api_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
                 pulumi.log.warn("services_kube_api_deprecated is deprecated: Use services.kube_api instead")
             __props__['services_kube_api_deprecated'] = services_kube_api_deprecated
-            if services_kube_controller_deprecated is not None:
+            if services_kube_controller_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
                 pulumi.log.warn("services_kube_controller_deprecated is deprecated: Use services.kube_controller instead")
             __props__['services_kube_controller_deprecated'] = services_kube_controller_deprecated
-            if services_kube_proxy_deprecated is not None:
+            if services_kube_proxy_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
                 pulumi.log.warn("services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead")
             __props__['services_kube_proxy_deprecated'] = services_kube_proxy_deprecated
-            if services_kube_scheduler_deprecated is not None:
+            if services_kube_scheduler_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
                 pulumi.log.warn("services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead")
             __props__['services_kube_scheduler_deprecated'] = services_kube_scheduler_deprecated
-            if services_kubelet_deprecated is not None:
+            if services_kubelet_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
                 pulumi.log.warn("services_kubelet_deprecated is deprecated: Use services.kubelet instead")
             __props__['services_kubelet_deprecated'] = services_kubelet_deprecated

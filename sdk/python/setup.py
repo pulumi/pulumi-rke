@@ -48,7 +48,7 @@ setup(name='pulumi_rke',
       packages=find_packages(),
       package_data={
           'pulumi_rke': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

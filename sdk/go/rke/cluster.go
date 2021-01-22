@@ -166,6 +166,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClusterArgs{}
 	}
+
 	var resource Cluster
 	err := ctx.RegisterResource("rke:index/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -667,15 +668,15 @@ type ClusterInput interface {
 	ToClusterOutputWithContext(ctx context.Context) ClusterOutput
 }
 
-func (Cluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil)).Elem()
+func (*Cluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cluster)(nil))
 }
 
-func (i Cluster) ToClusterOutput() ClusterOutput {
+func (i *Cluster) ToClusterOutput() ClusterOutput {
 	return i.ToClusterOutputWithContext(context.Background())
 }
 
-func (i Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
+func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
@@ -684,7 +685,7 @@ type ClusterOutput struct {
 }
 
 func (ClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*Cluster)(nil))
 }
 
 func (o ClusterOutput) ToClusterOutput() ClusterOutput {

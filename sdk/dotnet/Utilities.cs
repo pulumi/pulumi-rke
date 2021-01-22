@@ -77,4 +77,11 @@ namespace Pulumi.Rke
             }
         }
     }
+
+    internal sealed class RkeResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public RkeResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

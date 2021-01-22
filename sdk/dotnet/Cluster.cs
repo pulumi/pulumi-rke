@@ -24,6 +24,7 @@ namespace Pulumi.Rke
     ///  $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;:dind
     /// ```
     /// </summary>
+    [RkeResourceType("rke:index/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
