@@ -7,7 +7,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.13.1
 	github.com/pulumi/pulumi/pkg/v2 v2.13.3-0.20201109230029-a6f8b9b205cd // indirect
 	github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd
-	github.com/rancher/terraform-provider-rke v1.1.6
+	github.com/rancher/terraform-provider-rke v1.1.7
 	google.golang.org/grpc/examples v0.0.0-20201218190559-666aea1fb34c // indirect
 )
 
