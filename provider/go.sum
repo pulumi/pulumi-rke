@@ -1001,6 +1001,8 @@ github.com/pulumi/pulumi-terraform-bridge/v2 v2.13.1 h1:9YQ5L+j8aTWW2lFWz9XG4uzC
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.13.1/go.mod h1:NVzB8KA29SMXW8Nwp6OHI4yevnQkLiY0VMucAI2R7jU=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.0 h1:on+pV+9qT4Mc3k1ktJeUr2VA7nWcTzbcit4JR1U20aQ=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.0/go.mod h1:UrgBEaSeCcTUfjd4bdYe3YdQpBMr4ewN00wuVH+jDh0=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.19.0 h1:V5pLq3IwjdnhZYJyU7FZBA9jpgdj3cAOSyPfLD8HjWA=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.19.0/go.mod h1:uvKH79L6R+rBhfqxp6gZqxasm904MvNoc/UtFcCCvVI=
 github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3 h1:CUswHMz3r5GBJHeGL5p4NtAGwqoelFyv54KW1A1XQfk=
 github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3/go.mod h1:iX8/aPGtI3VhJnIUqHoT2iy3/0wQJySIRMs9y2TBILw=
 github.com/pulumi/pulumi/pkg/v2 v2.11.3-0.20201009201355-249140242ebb/go.mod h1:7NmgAy555Lk7v4Ddb6HF1BVAhdyT3012h47vz/hLD2k=
@@ -1011,6 +1013,8 @@ github.com/pulumi/pulumi/pkg/v2 v2.13.3-0.20201109230029-a6f8b9b205cd h1:ID3x2Bv
 github.com/pulumi/pulumi/pkg/v2 v2.13.3-0.20201109230029-a6f8b9b205cd/go.mod h1:xLEDqsipr92IXfe8EJrl8bANoEUtwmBJGBE8X8PKmP0=
 github.com/pulumi/pulumi/pkg/v2 v2.18.0 h1:vH+VyzpxWZVW7CSJ7ThD0w6uKXQa5j+TptzyQM6eT2o=
 github.com/pulumi/pulumi/pkg/v2 v2.18.0/go.mod h1:bAbzFeU3gHu1diqcckqUqaFf5dP02BfJlP8dnHwm00k=
+github.com/pulumi/pulumi/pkg/v2 v2.20.1-0.20210212181059-f4b0fa86fedc h1:OKgY4zg5/aksD8XNrjKQi1z4axbGh+R70hCbZNrRHAM=
+github.com/pulumi/pulumi/pkg/v2 v2.20.1-0.20210212181059-f4b0fa86fedc/go.mod h1:bAbzFeU3gHu1diqcckqUqaFf5dP02BfJlP8dnHwm00k=
 github.com/pulumi/pulumi/sdk v0.0.0-20200321193742-f095e64d0f8e/go.mod h1:ZCVEM4V8vr5IogqUhSu28+FEEn3bIjGYpEOSHRureO0=
 github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
 github.com/pulumi/pulumi/sdk v1.14.1 h1:FnUPMgO2AgqvKzSBOy3F2X4nJ8n/SaXCOP2eYSNkAxk=
@@ -1024,6 +1028,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd h1:acvoTtW
 github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
 github.com/pulumi/pulumi/sdk/v2 v2.18.0 h1:fOno92mnb/4xoVV+TqtQG0W6KCJLe87JyfBVVhZ8voE=
 github.com/pulumi/pulumi/sdk/v2 v2.18.0/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
+github.com/pulumi/pulumi/sdk/v2 v2.20.1-0.20210212181059-f4b0fa86fedc h1:3fFCltLbUZE0eMJu/MYDP2W43oqM45iuKcbbuqi94gk=
+github.com/pulumi/pulumi/sdk/v2 v2.20.1-0.20210212181059-f4b0fa86fedc/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/rancher/lasso v0.0.0-20200515155337-a34e1e26ad91 h1:p4VVl0tr6YAeUILFMCn+0DKzbUOS0ah9biSsL7Sy6S4=

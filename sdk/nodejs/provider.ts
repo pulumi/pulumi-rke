@@ -35,16 +35,13 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
             inputs["debug"] = pulumi.output((args ? args.debug : undefined) || (<any>utilities.getEnvBoolean("RKE_DEBUG") || false)).apply(JSON.stringify);
             inputs["logFile"] = (args ? args.logFile : undefined) || (utilities.getEnv("RKE_LOG_FILE") || "");
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

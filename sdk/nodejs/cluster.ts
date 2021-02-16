@@ -309,7 +309,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["addonJobTimeout"] = state ? state.addonJobTimeout : undefined;
             inputs["addons"] = state ? state.addons : undefined;
@@ -432,12 +433,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["runningSystemImages"] = undefined /*out*/;
             inputs["workerHosts"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
