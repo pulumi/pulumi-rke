@@ -13,6 +13,12 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterNetworkGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Aci network provider config (list maxitems:1)
+        /// </summary>
+        [Input("aciNetworkProvider")]
+        public Input<Inputs.ClusterNetworkAciNetworkProviderGetArgs>? AciNetworkProvider { get; set; }
+
+        /// <summary>
         /// Calico network provider config (list maxitems:1)
         /// </summary>
         [Input("calicoNetworkProvider")]

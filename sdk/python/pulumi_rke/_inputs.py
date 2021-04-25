@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 
 __all__ = [
     'ClusterAuthenticationArgs',
@@ -55,6 +55,7 @@ __all__ = [
     'ClusterIngressArgs',
     'ClusterMonitoringArgs',
     'ClusterNetworkArgs',
+    'ClusterNetworkAciNetworkProviderArgs',
     'ClusterNetworkCalicoNetworkProviderArgs',
     'ClusterNetworkCanalNetworkProviderArgs',
     'ClusterNetworkFlannelNetworkProviderArgs',
@@ -571,35 +572,35 @@ class ClusterCloudProviderArgs:
         pulumi.set(__self__, "name", name)
         if aws_cloud_config is not None:
             warnings.warn("""Use aws_cloud_provider instead""", DeprecationWarning)
-            pulumi.log.warn("aws_cloud_config is deprecated: Use aws_cloud_provider instead")
+            pulumi.log.warn("""aws_cloud_config is deprecated: Use aws_cloud_provider instead""")
         if aws_cloud_config is not None:
             pulumi.set(__self__, "aws_cloud_config", aws_cloud_config)
         if aws_cloud_provider is not None:
             pulumi.set(__self__, "aws_cloud_provider", aws_cloud_provider)
         if azure_cloud_config is not None:
             warnings.warn("""Use azure_cloud_provider instead""", DeprecationWarning)
-            pulumi.log.warn("azure_cloud_config is deprecated: Use azure_cloud_provider instead")
+            pulumi.log.warn("""azure_cloud_config is deprecated: Use azure_cloud_provider instead""")
         if azure_cloud_config is not None:
             pulumi.set(__self__, "azure_cloud_config", azure_cloud_config)
         if azure_cloud_provider is not None:
             pulumi.set(__self__, "azure_cloud_provider", azure_cloud_provider)
         if custom_cloud_config is not None:
             warnings.warn("""Use custom_cloud_provider instead""", DeprecationWarning)
-            pulumi.log.warn("custom_cloud_config is deprecated: Use custom_cloud_provider instead")
+            pulumi.log.warn("""custom_cloud_config is deprecated: Use custom_cloud_provider instead""")
         if custom_cloud_config is not None:
             pulumi.set(__self__, "custom_cloud_config", custom_cloud_config)
         if custom_cloud_provider is not None:
             pulumi.set(__self__, "custom_cloud_provider", custom_cloud_provider)
         if openstack_cloud_config is not None:
             warnings.warn("""Use openstack_cloud_provider instead""", DeprecationWarning)
-            pulumi.log.warn("openstack_cloud_config is deprecated: Use openstack_cloud_provider instead")
+            pulumi.log.warn("""openstack_cloud_config is deprecated: Use openstack_cloud_provider instead""")
         if openstack_cloud_config is not None:
             pulumi.set(__self__, "openstack_cloud_config", openstack_cloud_config)
         if openstack_cloud_provider is not None:
             pulumi.set(__self__, "openstack_cloud_provider", openstack_cloud_provider)
         if vsphere_cloud_config is not None:
             warnings.warn("""Use vsphere_cloud_provider instead""", DeprecationWarning)
-            pulumi.log.warn("vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead")
+            pulumi.log.warn("""vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead""")
         if vsphere_cloud_config is not None:
             pulumi.set(__self__, "vsphere_cloud_config", vsphere_cloud_config)
         if vsphere_cloud_provider is not None:
@@ -966,7 +967,7 @@ class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs:
         pulumi.set(__self__, "service", service)
         if key is not None:
             warnings.warn("""Use service instead""", DeprecationWarning)
-            pulumi.log.warn("key is deprecated: Use service instead")
+            pulumi.log.warn("""key is deprecated: Use service instead""")
         if key is not None:
             pulumi.set(__self__, "key", key)
         if region is not None:
@@ -1293,7 +1294,7 @@ class ClusterCloudProviderAwsCloudProviderServiceOverrideArgs:
         pulumi.set(__self__, "service", service)
         if key is not None:
             warnings.warn("""Use service instead""", DeprecationWarning)
-            pulumi.log.warn("key is deprecated: Use service instead")
+            pulumi.log.warn("""key is deprecated: Use service instead""")
         if key is not None:
             pulumi.set(__self__, "key", key)
         if region is not None:
@@ -4836,6 +4837,7 @@ class ClusterMonitoringArgs:
 @pulumi.input_type
 class ClusterNetworkArgs:
     def __init__(__self__, *,
+                 aci_network_provider: Optional[pulumi.Input['ClusterNetworkAciNetworkProviderArgs']] = None,
                  calico_network_provider: Optional[pulumi.Input['ClusterNetworkCalicoNetworkProviderArgs']] = None,
                  canal_network_provider: Optional[pulumi.Input['ClusterNetworkCanalNetworkProviderArgs']] = None,
                  flannel_network_provider: Optional[pulumi.Input['ClusterNetworkFlannelNetworkProviderArgs']] = None,
@@ -4844,6 +4846,7 @@ class ClusterNetworkArgs:
                  plugin: Optional[pulumi.Input[str]] = None,
                  weave_network_provider: Optional[pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs']] = None):
         """
+        :param pulumi.Input['ClusterNetworkAciNetworkProviderArgs'] aci_network_provider: Aci network provider config (list maxitems:1)
         :param pulumi.Input['ClusterNetworkCalicoNetworkProviderArgs'] calico_network_provider: Calico network provider config (list maxitems:1)
         :param pulumi.Input['ClusterNetworkCanalNetworkProviderArgs'] canal_network_provider: Canal network provider config (list maxitems:1)
         :param pulumi.Input['ClusterNetworkFlannelNetworkProviderArgs'] flannel_network_provider: Flannel network provider config (list maxitems:1)
@@ -4852,6 +4855,8 @@ class ClusterNetworkArgs:
         :param pulumi.Input[str] plugin: Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
         :param pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs'] weave_network_provider: Weave network provider config (list maxitems:1)
         """
+        if aci_network_provider is not None:
+            pulumi.set(__self__, "aci_network_provider", aci_network_provider)
         if calico_network_provider is not None:
             pulumi.set(__self__, "calico_network_provider", calico_network_provider)
         if canal_network_provider is not None:
@@ -4866,6 +4871,18 @@ class ClusterNetworkArgs:
             pulumi.set(__self__, "plugin", plugin)
         if weave_network_provider is not None:
             pulumi.set(__self__, "weave_network_provider", weave_network_provider)
+
+    @property
+    @pulumi.getter(name="aciNetworkProvider")
+    def aci_network_provider(self) -> Optional[pulumi.Input['ClusterNetworkAciNetworkProviderArgs']]:
+        """
+        Aci network provider config (list maxitems:1)
+        """
+        return pulumi.get(self, "aci_network_provider")
+
+    @aci_network_provider.setter
+    def aci_network_provider(self, value: Optional[pulumi.Input['ClusterNetworkAciNetworkProviderArgs']]):
+        pulumi.set(self, "aci_network_provider", value)
 
     @property
     @pulumi.getter(name="calicoNetworkProvider")
@@ -4950,6 +4967,374 @@ class ClusterNetworkArgs:
     @weave_network_provider.setter
     def weave_network_provider(self, value: Optional[pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs']]):
         pulumi.set(self, "weave_network_provider", value)
+
+
+@pulumi.input_type
+class ClusterNetworkAciNetworkProviderArgs:
+    def __init__(__self__, *,
+                 aep: pulumi.Input[str],
+                 apic_hosts: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 apic_user_crt: pulumi.Input[str],
+                 apic_user_key: pulumi.Input[str],
+                 apic_user_name: pulumi.Input[str],
+                 encap_type: pulumi.Input[str],
+                 extern_dynamic: pulumi.Input[str],
+                 extern_static: pulumi.Input[str],
+                 infra_vlan: pulumi.Input[str],
+                 kube_api_vlan: pulumi.Input[str],
+                 l3out: pulumi.Input[str],
+                 l3out_external_networks: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 mcast_range_end: pulumi.Input[str],
+                 mcast_range_start: pulumi.Input[str],
+                 node_subnet: pulumi.Input[str],
+                 node_svc_subnet: pulumi.Input[str],
+                 service_vlan: pulumi.Input[str],
+                 system_id: pulumi.Input[str],
+                 token: pulumi.Input[str],
+                 vrf_name: pulumi.Input[str],
+                 vrf_tenant: pulumi.Input[str],
+                 snat_port_range_end: Optional[pulumi.Input[str]] = None,
+                 snat_port_range_start: Optional[pulumi.Input[str]] = None,
+                 snat_ports_per_node: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aep: Attachment entity profile name on aci (string)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apic_hosts: Ip address for apic hosts (list)
+        :param pulumi.Input[str] apic_user_crt: Base64 encoded certificate for aci apic user (string)
+        :param pulumi.Input[str] apic_user_key: Base64 encoded private key for aci apic user (string)
+        :param pulumi.Input[str] apic_user_name: User name for aci apic (string)
+        :param pulumi.Input[str] encap_type: One of the supported encap types for aci(vlan/vxlan) (string)
+        :param pulumi.Input[str] extern_dynamic: Subnet to use for dynamic external IPs on aci (string)
+               * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
+        :param pulumi.Input[str] infra_vlan: Vlan for infra network on aci (string)
+        :param pulumi.Input[str] kube_api_vlan: Vlan for node network on aci (string)
+        :param pulumi.Input[str] l3out: L3Out on aci (string)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] l3out_external_networks: L3out external networks on aci (list)
+        :param pulumi.Input[str] mcast_range_end: Mcast range end address for endpoint groups on aci (string)
+        :param pulumi.Input[str] mcast_range_start: Mcast range start address for endpoint groups on aci (string)
+        :param pulumi.Input[str] node_subnet: Kubernetes node address subnet (string)
+        :param pulumi.Input[str] node_svc_subnet: Subnet to use for service graph endpoints on aci (string)
+        :param pulumi.Input[str] service_vlan: Vlan for service graph nodes on aci (string)
+        :param pulumi.Input[str] system_id: Unique suffix for all cluster related objects in aci (string)
+        :param pulumi.Input[str] token: UUID for this version of the input configuration (string)
+        :param pulumi.Input[str] vrf_name: VRF Name on aci (string)
+        :param pulumi.Input[str] vrf_tenant: Tenant for VRF on aci (string)
+        :param pulumi.Input[str] snat_port_range_end: Port end range for Source Network Address Translation on aci (string)
+        :param pulumi.Input[str] snat_port_range_start: Port start range for Source Network Address Translation on aci (string)
+        :param pulumi.Input[str] snat_ports_per_node: Ports per node for Source Network Address Translation on aci (string)
+        """
+        pulumi.set(__self__, "aep", aep)
+        pulumi.set(__self__, "apic_hosts", apic_hosts)
+        pulumi.set(__self__, "apic_user_crt", apic_user_crt)
+        pulumi.set(__self__, "apic_user_key", apic_user_key)
+        pulumi.set(__self__, "apic_user_name", apic_user_name)
+        pulumi.set(__self__, "encap_type", encap_type)
+        pulumi.set(__self__, "extern_dynamic", extern_dynamic)
+        pulumi.set(__self__, "extern_static", extern_static)
+        pulumi.set(__self__, "infra_vlan", infra_vlan)
+        pulumi.set(__self__, "kube_api_vlan", kube_api_vlan)
+        pulumi.set(__self__, "l3out", l3out)
+        pulumi.set(__self__, "l3out_external_networks", l3out_external_networks)
+        pulumi.set(__self__, "mcast_range_end", mcast_range_end)
+        pulumi.set(__self__, "mcast_range_start", mcast_range_start)
+        pulumi.set(__self__, "node_subnet", node_subnet)
+        pulumi.set(__self__, "node_svc_subnet", node_svc_subnet)
+        pulumi.set(__self__, "service_vlan", service_vlan)
+        pulumi.set(__self__, "system_id", system_id)
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "vrf_name", vrf_name)
+        pulumi.set(__self__, "vrf_tenant", vrf_tenant)
+        if snat_port_range_end is not None:
+            pulumi.set(__self__, "snat_port_range_end", snat_port_range_end)
+        if snat_port_range_start is not None:
+            pulumi.set(__self__, "snat_port_range_start", snat_port_range_start)
+        if snat_ports_per_node is not None:
+            pulumi.set(__self__, "snat_ports_per_node", snat_ports_per_node)
+
+    @property
+    @pulumi.getter
+    def aep(self) -> pulumi.Input[str]:
+        """
+        Attachment entity profile name on aci (string)
+        """
+        return pulumi.get(self, "aep")
+
+    @aep.setter
+    def aep(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aep", value)
+
+    @property
+    @pulumi.getter(name="apicHosts")
+    def apic_hosts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Ip address for apic hosts (list)
+        """
+        return pulumi.get(self, "apic_hosts")
+
+    @apic_hosts.setter
+    def apic_hosts(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "apic_hosts", value)
+
+    @property
+    @pulumi.getter(name="apicUserCrt")
+    def apic_user_crt(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded certificate for aci apic user (string)
+        """
+        return pulumi.get(self, "apic_user_crt")
+
+    @apic_user_crt.setter
+    def apic_user_crt(self, value: pulumi.Input[str]):
+        pulumi.set(self, "apic_user_crt", value)
+
+    @property
+    @pulumi.getter(name="apicUserKey")
+    def apic_user_key(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded private key for aci apic user (string)
+        """
+        return pulumi.get(self, "apic_user_key")
+
+    @apic_user_key.setter
+    def apic_user_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "apic_user_key", value)
+
+    @property
+    @pulumi.getter(name="apicUserName")
+    def apic_user_name(self) -> pulumi.Input[str]:
+        """
+        User name for aci apic (string)
+        """
+        return pulumi.get(self, "apic_user_name")
+
+    @apic_user_name.setter
+    def apic_user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "apic_user_name", value)
+
+    @property
+    @pulumi.getter(name="encapType")
+    def encap_type(self) -> pulumi.Input[str]:
+        """
+        One of the supported encap types for aci(vlan/vxlan) (string)
+        """
+        return pulumi.get(self, "encap_type")
+
+    @encap_type.setter
+    def encap_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encap_type", value)
+
+    @property
+    @pulumi.getter(name="externDynamic")
+    def extern_dynamic(self) -> pulumi.Input[str]:
+        """
+        Subnet to use for dynamic external IPs on aci (string)
+        * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
+        """
+        return pulumi.get(self, "extern_dynamic")
+
+    @extern_dynamic.setter
+    def extern_dynamic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extern_dynamic", value)
+
+    @property
+    @pulumi.getter(name="externStatic")
+    def extern_static(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "extern_static")
+
+    @extern_static.setter
+    def extern_static(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extern_static", value)
+
+    @property
+    @pulumi.getter(name="infraVlan")
+    def infra_vlan(self) -> pulumi.Input[str]:
+        """
+        Vlan for infra network on aci (string)
+        """
+        return pulumi.get(self, "infra_vlan")
+
+    @infra_vlan.setter
+    def infra_vlan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "infra_vlan", value)
+
+    @property
+    @pulumi.getter(name="kubeApiVlan")
+    def kube_api_vlan(self) -> pulumi.Input[str]:
+        """
+        Vlan for node network on aci (string)
+        """
+        return pulumi.get(self, "kube_api_vlan")
+
+    @kube_api_vlan.setter
+    def kube_api_vlan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kube_api_vlan", value)
+
+    @property
+    @pulumi.getter
+    def l3out(self) -> pulumi.Input[str]:
+        """
+        L3Out on aci (string)
+        """
+        return pulumi.get(self, "l3out")
+
+    @l3out.setter
+    def l3out(self, value: pulumi.Input[str]):
+        pulumi.set(self, "l3out", value)
+
+    @property
+    @pulumi.getter(name="l3outExternalNetworks")
+    def l3out_external_networks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        L3out external networks on aci (list)
+        """
+        return pulumi.get(self, "l3out_external_networks")
+
+    @l3out_external_networks.setter
+    def l3out_external_networks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "l3out_external_networks", value)
+
+    @property
+    @pulumi.getter(name="mcastRangeEnd")
+    def mcast_range_end(self) -> pulumi.Input[str]:
+        """
+        Mcast range end address for endpoint groups on aci (string)
+        """
+        return pulumi.get(self, "mcast_range_end")
+
+    @mcast_range_end.setter
+    def mcast_range_end(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mcast_range_end", value)
+
+    @property
+    @pulumi.getter(name="mcastRangeStart")
+    def mcast_range_start(self) -> pulumi.Input[str]:
+        """
+        Mcast range start address for endpoint groups on aci (string)
+        """
+        return pulumi.get(self, "mcast_range_start")
+
+    @mcast_range_start.setter
+    def mcast_range_start(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mcast_range_start", value)
+
+    @property
+    @pulumi.getter(name="nodeSubnet")
+    def node_subnet(self) -> pulumi.Input[str]:
+        """
+        Kubernetes node address subnet (string)
+        """
+        return pulumi.get(self, "node_subnet")
+
+    @node_subnet.setter
+    def node_subnet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_subnet", value)
+
+    @property
+    @pulumi.getter(name="nodeSvcSubnet")
+    def node_svc_subnet(self) -> pulumi.Input[str]:
+        """
+        Subnet to use for service graph endpoints on aci (string)
+        """
+        return pulumi.get(self, "node_svc_subnet")
+
+    @node_svc_subnet.setter
+    def node_svc_subnet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_svc_subnet", value)
+
+    @property
+    @pulumi.getter(name="serviceVlan")
+    def service_vlan(self) -> pulumi.Input[str]:
+        """
+        Vlan for service graph nodes on aci (string)
+        """
+        return pulumi.get(self, "service_vlan")
+
+    @service_vlan.setter
+    def service_vlan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_vlan", value)
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> pulumi.Input[str]:
+        """
+        Unique suffix for all cluster related objects in aci (string)
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "system_id", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        UUID for this version of the input configuration (string)
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="vrfName")
+    def vrf_name(self) -> pulumi.Input[str]:
+        """
+        VRF Name on aci (string)
+        """
+        return pulumi.get(self, "vrf_name")
+
+    @vrf_name.setter
+    def vrf_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vrf_name", value)
+
+    @property
+    @pulumi.getter(name="vrfTenant")
+    def vrf_tenant(self) -> pulumi.Input[str]:
+        """
+        Tenant for VRF on aci (string)
+        """
+        return pulumi.get(self, "vrf_tenant")
+
+    @vrf_tenant.setter
+    def vrf_tenant(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vrf_tenant", value)
+
+    @property
+    @pulumi.getter(name="snatPortRangeEnd")
+    def snat_port_range_end(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port end range for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_port_range_end")
+
+    @snat_port_range_end.setter
+    def snat_port_range_end(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snat_port_range_end", value)
+
+    @property
+    @pulumi.getter(name="snatPortRangeStart")
+    def snat_port_range_start(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port start range for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_port_range_start")
+
+    @snat_port_range_start.setter
+    def snat_port_range_start(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snat_port_range_start", value)
+
+    @property
+    @pulumi.getter(name="snatPortsPerNode")
+    def snat_ports_per_node(self) -> Optional[pulumi.Input[str]]:
+        """
+        Ports per node for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_ports_per_node")
+
+    @snat_ports_per_node.setter
+    def snat_ports_per_node(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snat_ports_per_node", value)
 
 
 @pulumi.input_type
@@ -5096,7 +5481,7 @@ class ClusterNodeArgs:
             pulumi.set(__self__, "port", port)
         if roles_deprecated is not None:
             warnings.warn("""Use role instead""", DeprecationWarning)
-            pulumi.log.warn("roles_deprecated is deprecated: Use role instead")
+            pulumi.log.warn("""roles_deprecated is deprecated: Use role instead""")
         if roles_deprecated is not None:
             pulumi.set(__self__, "roles_deprecated", roles_deprecated)
         if ssh_agent_auth is not None:
@@ -5506,6 +5891,12 @@ class ClusterRotateCertificatesArgs:
 @pulumi.input_type
 class ClusterRunningSystemImagesArgs:
     def __init__(__self__, *,
+                 aci_cni_deploy_container: Optional[pulumi.Input[str]] = None,
+                 aci_controller_container: Optional[pulumi.Input[str]] = None,
+                 aci_host_container: Optional[pulumi.Input[str]] = None,
+                 aci_mcast_container: Optional[pulumi.Input[str]] = None,
+                 aci_opflex_container: Optional[pulumi.Input[str]] = None,
+                 aci_ovs_container: Optional[pulumi.Input[str]] = None,
                  alpine: Optional[pulumi.Input[str]] = None,
                  calico_cni: Optional[pulumi.Input[str]] = None,
                  calico_controllers: Optional[pulumi.Input[str]] = None,
@@ -5538,6 +5929,12 @@ class ClusterRunningSystemImagesArgs:
                  weave_node: Optional[pulumi.Input[str]] = None,
                  windows_pod_infra_container: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] aci_cni_deploy_container: Docker image for aci_cni_deploy_container (string)
+        :param pulumi.Input[str] aci_controller_container: Docker image for aci_controller_container (string)
+        :param pulumi.Input[str] aci_host_container: Docker image for aci_host_container (string)
+        :param pulumi.Input[str] aci_mcast_container: Docker image for aci_mcast_container (string)
+        :param pulumi.Input[str] aci_opflex_container: Docker image for aci_opflex_container (string)
+        :param pulumi.Input[str] aci_ovs_container: Docker image for aci_ovs_container (string)
         :param pulumi.Input[str] alpine: Docker image for alpine (string)
         :param pulumi.Input[str] calico_cni: Docker image for calico_cni (string)
         :param pulumi.Input[str] calico_controllers: Docker image for calico_controllers (string)
@@ -5570,6 +5967,18 @@ class ClusterRunningSystemImagesArgs:
         :param pulumi.Input[str] weave_node: Docker image for weave_node (string)
         :param pulumi.Input[str] windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        if aci_cni_deploy_container is not None:
+            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+        if aci_controller_container is not None:
+            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+        if aci_host_container is not None:
+            pulumi.set(__self__, "aci_host_container", aci_host_container)
+        if aci_mcast_container is not None:
+            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+        if aci_opflex_container is not None:
+            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+        if aci_ovs_container is not None:
+            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
         if alpine is not None:
             pulumi.set(__self__, "alpine", alpine)
         if calico_cni is not None:
@@ -5632,6 +6041,78 @@ class ClusterRunningSystemImagesArgs:
             pulumi.set(__self__, "weave_node", weave_node)
         if windows_pod_infra_container is not None:
             pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+
+    @property
+    @pulumi.getter(name="aciCniDeployContainer")
+    def aci_cni_deploy_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_cni_deploy_container (string)
+        """
+        return pulumi.get(self, "aci_cni_deploy_container")
+
+    @aci_cni_deploy_container.setter
+    def aci_cni_deploy_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_cni_deploy_container", value)
+
+    @property
+    @pulumi.getter(name="aciControllerContainer")
+    def aci_controller_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_controller_container (string)
+        """
+        return pulumi.get(self, "aci_controller_container")
+
+    @aci_controller_container.setter
+    def aci_controller_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_controller_container", value)
+
+    @property
+    @pulumi.getter(name="aciHostContainer")
+    def aci_host_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_host_container (string)
+        """
+        return pulumi.get(self, "aci_host_container")
+
+    @aci_host_container.setter
+    def aci_host_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_host_container", value)
+
+    @property
+    @pulumi.getter(name="aciMcastContainer")
+    def aci_mcast_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_mcast_container (string)
+        """
+        return pulumi.get(self, "aci_mcast_container")
+
+    @aci_mcast_container.setter
+    def aci_mcast_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_mcast_container", value)
+
+    @property
+    @pulumi.getter(name="aciOpflexContainer")
+    def aci_opflex_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_opflex_container (string)
+        """
+        return pulumi.get(self, "aci_opflex_container")
+
+    @aci_opflex_container.setter
+    def aci_opflex_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_opflex_container", value)
+
+    @property
+    @pulumi.getter(name="aciOvsContainer")
+    def aci_ovs_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_ovs_container (string)
+        """
+        return pulumi.get(self, "aci_ovs_container")
+
+    @aci_ovs_container.setter
+    def aci_ovs_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_ovs_container", value)
 
     @property
     @pulumi.getter
@@ -6363,13 +6844,15 @@ class ClusterServicesEtcdBackupConfigArgs:
                  interval_hours: Optional[pulumi.Input[int]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
                  s3_backup_config: Optional[pulumi.Input['ClusterServicesEtcdBackupConfigS3BackupConfigArgs']] = None,
-                 safe_timestamp: Optional[pulumi.Input[bool]] = None):
+                 safe_timestamp: Optional[pulumi.Input[bool]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         :param pulumi.Input[int] interval_hours: Interval hours for etcd backup. Default `12` (int)
         :param pulumi.Input[int] retention: Retention for etcd backup. Default `6` (int)
         :param pulumi.Input['ClusterServicesEtcdBackupConfigS3BackupConfigArgs'] s3_backup_config: S3 config options for etcd backup (list maxitems:1)
         :param pulumi.Input[bool] safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
+        :param pulumi.Input[int] timeout: RKE node drain timeout (int)
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -6381,6 +6864,8 @@ class ClusterServicesEtcdBackupConfigArgs:
             pulumi.set(__self__, "s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
             pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -6441,6 +6926,18 @@ class ClusterServicesEtcdBackupConfigArgs:
     @safe_timestamp.setter
     def safe_timestamp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "safe_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE node drain timeout (int)
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -6816,13 +7313,15 @@ class ClusterServicesEtcdDeprecatedBackupConfigArgs:
                  interval_hours: Optional[pulumi.Input[int]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
                  s3_backup_config: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs']] = None,
-                 safe_timestamp: Optional[pulumi.Input[bool]] = None):
+                 safe_timestamp: Optional[pulumi.Input[bool]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         :param pulumi.Input[int] interval_hours: Interval hours for etcd backup. Default `12` (int)
         :param pulumi.Input[int] retention: Retention for etcd backup. Default `6` (int)
         :param pulumi.Input['ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs'] s3_backup_config: S3 config options for etcd backup (list maxitems:1)
         :param pulumi.Input[bool] safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
+        :param pulumi.Input[int] timeout: RKE node drain timeout (int)
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -6834,6 +7333,8 @@ class ClusterServicesEtcdDeprecatedBackupConfigArgs:
             pulumi.set(__self__, "s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
             pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -6894,6 +7395,18 @@ class ClusterServicesEtcdDeprecatedBackupConfigArgs:
     @safe_timestamp.setter
     def safe_timestamp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "safe_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE node drain timeout (int)
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -8616,6 +9129,12 @@ class ClusterServicesSchedulerArgs:
 @pulumi.input_type
 class ClusterSystemImagesArgs:
     def __init__(__self__, *,
+                 aci_cni_deploy_container: Optional[pulumi.Input[str]] = None,
+                 aci_controller_container: Optional[pulumi.Input[str]] = None,
+                 aci_host_container: Optional[pulumi.Input[str]] = None,
+                 aci_mcast_container: Optional[pulumi.Input[str]] = None,
+                 aci_opflex_container: Optional[pulumi.Input[str]] = None,
+                 aci_ovs_container: Optional[pulumi.Input[str]] = None,
                  alpine: Optional[pulumi.Input[str]] = None,
                  calico_cni: Optional[pulumi.Input[str]] = None,
                  calico_controllers: Optional[pulumi.Input[str]] = None,
@@ -8648,6 +9167,12 @@ class ClusterSystemImagesArgs:
                  weave_node: Optional[pulumi.Input[str]] = None,
                  windows_pod_infra_container: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] aci_cni_deploy_container: Docker image for aci_cni_deploy_container (string)
+        :param pulumi.Input[str] aci_controller_container: Docker image for aci_controller_container (string)
+        :param pulumi.Input[str] aci_host_container: Docker image for aci_host_container (string)
+        :param pulumi.Input[str] aci_mcast_container: Docker image for aci_mcast_container (string)
+        :param pulumi.Input[str] aci_opflex_container: Docker image for aci_opflex_container (string)
+        :param pulumi.Input[str] aci_ovs_container: Docker image for aci_ovs_container (string)
         :param pulumi.Input[str] alpine: Docker image for alpine (string)
         :param pulumi.Input[str] calico_cni: Docker image for calico_cni (string)
         :param pulumi.Input[str] calico_controllers: Docker image for calico_controllers (string)
@@ -8680,6 +9205,18 @@ class ClusterSystemImagesArgs:
         :param pulumi.Input[str] weave_node: Docker image for weave_node (string)
         :param pulumi.Input[str] windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        if aci_cni_deploy_container is not None:
+            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+        if aci_controller_container is not None:
+            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+        if aci_host_container is not None:
+            pulumi.set(__self__, "aci_host_container", aci_host_container)
+        if aci_mcast_container is not None:
+            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+        if aci_opflex_container is not None:
+            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+        if aci_ovs_container is not None:
+            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
         if alpine is not None:
             pulumi.set(__self__, "alpine", alpine)
         if calico_cni is not None:
@@ -8742,6 +9279,78 @@ class ClusterSystemImagesArgs:
             pulumi.set(__self__, "weave_node", weave_node)
         if windows_pod_infra_container is not None:
             pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+
+    @property
+    @pulumi.getter(name="aciCniDeployContainer")
+    def aci_cni_deploy_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_cni_deploy_container (string)
+        """
+        return pulumi.get(self, "aci_cni_deploy_container")
+
+    @aci_cni_deploy_container.setter
+    def aci_cni_deploy_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_cni_deploy_container", value)
+
+    @property
+    @pulumi.getter(name="aciControllerContainer")
+    def aci_controller_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_controller_container (string)
+        """
+        return pulumi.get(self, "aci_controller_container")
+
+    @aci_controller_container.setter
+    def aci_controller_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_controller_container", value)
+
+    @property
+    @pulumi.getter(name="aciHostContainer")
+    def aci_host_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_host_container (string)
+        """
+        return pulumi.get(self, "aci_host_container")
+
+    @aci_host_container.setter
+    def aci_host_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_host_container", value)
+
+    @property
+    @pulumi.getter(name="aciMcastContainer")
+    def aci_mcast_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_mcast_container (string)
+        """
+        return pulumi.get(self, "aci_mcast_container")
+
+    @aci_mcast_container.setter
+    def aci_mcast_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_mcast_container", value)
+
+    @property
+    @pulumi.getter(name="aciOpflexContainer")
+    def aci_opflex_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_opflex_container (string)
+        """
+        return pulumi.get(self, "aci_opflex_container")
+
+    @aci_opflex_container.setter
+    def aci_opflex_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_opflex_container", value)
+
+    @property
+    @pulumi.getter(name="aciOvsContainer")
+    def aci_ovs_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        Docker image for aci_ovs_container (string)
+        """
+        return pulumi.get(self, "aci_ovs_container")
+
+    @aci_ovs_container.setter
+    def aci_ovs_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aci_ovs_container", value)
 
     @property
     @pulumi.getter

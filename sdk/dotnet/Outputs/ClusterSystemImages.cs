@@ -14,6 +14,30 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterSystemImages
     {
         /// <summary>
+        /// Docker image for aci_cni_deploy_container (string)
+        /// </summary>
+        public readonly string? AciCniDeployContainer;
+        /// <summary>
+        /// Docker image for aci_controller_container (string)
+        /// </summary>
+        public readonly string? AciControllerContainer;
+        /// <summary>
+        /// Docker image for aci_host_container (string)
+        /// </summary>
+        public readonly string? AciHostContainer;
+        /// <summary>
+        /// Docker image for aci_mcast_container (string)
+        /// </summary>
+        public readonly string? AciMcastContainer;
+        /// <summary>
+        /// Docker image for aci_opflex_container (string)
+        /// </summary>
+        public readonly string? AciOpflexContainer;
+        /// <summary>
+        /// Docker image for aci_ovs_container (string)
+        /// </summary>
+        public readonly string? AciOvsContainer;
+        /// <summary>
         /// Docker image for alpine (string)
         /// </summary>
         public readonly string? Alpine;
@@ -140,6 +164,18 @@ namespace Pulumi.Rke.Outputs
 
         [OutputConstructor]
         private ClusterSystemImages(
+            string? aciCniDeployContainer,
+
+            string? aciControllerContainer,
+
+            string? aciHostContainer,
+
+            string? aciMcastContainer,
+
+            string? aciOpflexContainer,
+
+            string? aciOvsContainer,
+
             string? alpine,
 
             string? calicoCni,
@@ -202,6 +238,12 @@ namespace Pulumi.Rke.Outputs
 
             string? windowsPodInfraContainer)
         {
+            AciCniDeployContainer = aciCniDeployContainer;
+            AciControllerContainer = aciControllerContainer;
+            AciHostContainer = aciHostContainer;
+            AciMcastContainer = aciMcastContainer;
+            AciOpflexContainer = aciOpflexContainer;
+            AciOvsContainer = aciOvsContainer;
             Alpine = alpine;
             CalicoCni = calicoCni;
             CalicoControllers = calicoControllers;

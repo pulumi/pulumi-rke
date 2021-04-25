@@ -15,10 +15,10 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 
-	rke "github.com/jaxxstorm/pulumi-rke/provider/v2"
-	"github.com/jaxxstorm/pulumi-rke/provider/v2/pkg/version"
+	rke "github.com/jaxxstorm/pulumi-rke/provider/v3"
+	"github.com/jaxxstorm/pulumi-rke/provider/v3/pkg/version"
 )
 
 func main() {

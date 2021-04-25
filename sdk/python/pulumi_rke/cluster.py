@@ -5,15 +5,1668 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 addon_job_timeout: Optional[pulumi.Input[int]] = None,
+                 addons: Optional[pulumi.Input[str]] = None,
+                 addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authentication: Optional[pulumi.Input['ClusterAuthenticationArgs']] = None,
+                 authorization: Optional[pulumi.Input['ClusterAuthorizationArgs']] = None,
+                 bastion_host: Optional[pulumi.Input['ClusterBastionHostArgs']] = None,
+                 cert_dir: Optional[pulumi.Input[str]] = None,
+                 cloud_provider: Optional[pulumi.Input['ClusterCloudProviderArgs']] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_yaml: Optional[pulumi.Input[str]] = None,
+                 custom_certs: Optional[pulumi.Input[bool]] = None,
+                 delay_on_creation: Optional[pulumi.Input[int]] = None,
+                 dind: Optional[pulumi.Input[bool]] = None,
+                 dind_dns_server: Optional[pulumi.Input[str]] = None,
+                 dind_storage_driver: Optional[pulumi.Input[str]] = None,
+                 disable_port_check: Optional[pulumi.Input[bool]] = None,
+                 dns: Optional[pulumi.Input['ClusterDnsArgs']] = None,
+                 ignore_docker_version: Optional[pulumi.Input[bool]] = None,
+                 ingress: Optional[pulumi.Input['ClusterIngressArgs']] = None,
+                 kubernetes_version: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input['ClusterMonitoringArgs']] = None,
+                 network: Optional[pulumi.Input['ClusterNetworkArgs']] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]] = None,
+                 nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 prefix_path: Optional[pulumi.Input[str]] = None,
+                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]] = None,
+                 restore: Optional[pulumi.Input['ClusterRestoreArgs']] = None,
+                 rotate_certificates: Optional[pulumi.Input['ClusterRotateCertificatesArgs']] = None,
+                 services: Optional[pulumi.Input['ClusterServicesArgs']] = None,
+                 services_etcd_deprecated: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']] = None,
+                 services_kube_api_deprecated: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']] = None,
+                 services_kube_controller_deprecated: Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']] = None,
+                 services_kube_proxy_deprecated: Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']] = None,
+                 services_kube_scheduler_deprecated: Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']] = None,
+                 services_kubelet_deprecated: Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']] = None,
+                 ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
+                 ssh_cert_path: Optional[pulumi.Input[str]] = None,
+                 ssh_key_path: Optional[pulumi.Input[str]] = None,
+                 system_images: Optional[pulumi.Input['ClusterSystemImagesArgs']] = None,
+                 update_only: Optional[pulumi.Input[bool]] = None,
+                 upgrade_strategy: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']] = None):
+        """
+        The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[int] addon_job_timeout: RKE k8s cluster addon deployment timeout in seconds for status check (int)
+        :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
+        :param pulumi.Input['ClusterAuthenticationArgs'] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
+        :param pulumi.Input['ClusterAuthorizationArgs'] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
+        :param pulumi.Input['ClusterBastionHostArgs'] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
+        :param pulumi.Input[str] cert_dir: Specify a certificate dir path (string)
+        :param pulumi.Input['ClusterCloudProviderArgs'] cloud_provider: Calico cloud provider (string)
+        :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
+        :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
+        :param pulumi.Input[int] delay_on_creation: RKE k8s cluster delay on creation (int)
+        :param pulumi.Input[bool] dind: Deploy RKE cluster on a dind environment. Default: `false` (bool)
+        :param pulumi.Input[str] dind_dns_server: DinD RKE cluster dns (string)
+        :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
+        :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
+        :param pulumi.Input['ClusterDnsArgs'] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
+        :param pulumi.Input['ClusterIngressArgs'] ingress: Docker image for ingress (string)
+        :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+        :param pulumi.Input['ClusterMonitoringArgs'] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
+        :param pulumi.Input['ClusterNetworkArgs'] network: (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]] nodes: RKE k8s cluster nodes (list)
+        :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]] private_registries: RKE k8s cluster private docker registries (list)
+        :param pulumi.Input['ClusterRestoreArgs'] restore: Restore cluster. Default `false` (bool)
+        :param pulumi.Input['ClusterRotateCertificatesArgs'] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        :param pulumi.Input['ClusterServicesArgs'] services: Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
+        :param pulumi.Input[str] ssh_cert_path: SSH Certificate path (string)
+        :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
+        :param pulumi.Input['ClusterSystemImagesArgs'] system_images: RKE k8s cluster system images list (list maxitems:1)
+        :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        :param pulumi.Input['ClusterUpgradeStrategyArgs'] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
+        """
+        if addon_job_timeout is not None:
+            pulumi.set(__self__, "addon_job_timeout", addon_job_timeout)
+        if addons is not None:
+            pulumi.set(__self__, "addons", addons)
+        if addons_includes is not None:
+            pulumi.set(__self__, "addons_includes", addons_includes)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if bastion_host is not None:
+            pulumi.set(__self__, "bastion_host", bastion_host)
+        if cert_dir is not None:
+            pulumi.set(__self__, "cert_dir", cert_dir)
+        if cloud_provider is not None:
+            pulumi.set(__self__, "cloud_provider", cloud_provider)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_yaml is not None:
+            pulumi.set(__self__, "cluster_yaml", cluster_yaml)
+        if custom_certs is not None:
+            pulumi.set(__self__, "custom_certs", custom_certs)
+        if delay_on_creation is not None:
+            pulumi.set(__self__, "delay_on_creation", delay_on_creation)
+        if dind is not None:
+            pulumi.set(__self__, "dind", dind)
+        if dind_dns_server is not None:
+            pulumi.set(__self__, "dind_dns_server", dind_dns_server)
+        if dind_storage_driver is not None:
+            pulumi.set(__self__, "dind_storage_driver", dind_storage_driver)
+        if disable_port_check is not None:
+            pulumi.set(__self__, "disable_port_check", disable_port_check)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if ignore_docker_version is not None:
+            pulumi.set(__self__, "ignore_docker_version", ignore_docker_version)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+        if nodes_confs is not None:
+            warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
+            pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
+        if nodes_confs is not None:
+            pulumi.set(__self__, "nodes_confs", nodes_confs)
+        if prefix_path is not None:
+            pulumi.set(__self__, "prefix_path", prefix_path)
+        if private_registries is not None:
+            pulumi.set(__self__, "private_registries", private_registries)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+        if rotate_certificates is not None:
+            pulumi.set(__self__, "rotate_certificates", rotate_certificates)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if services_etcd_deprecated is not None:
+            warnings.warn("""Use services.etcd instead""", DeprecationWarning)
+            pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
+        if services_etcd_deprecated is not None:
+            pulumi.set(__self__, "services_etcd_deprecated", services_etcd_deprecated)
+        if services_kube_api_deprecated is not None:
+            warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
+        if services_kube_api_deprecated is not None:
+            pulumi.set(__self__, "services_kube_api_deprecated", services_kube_api_deprecated)
+        if services_kube_controller_deprecated is not None:
+            warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
+        if services_kube_controller_deprecated is not None:
+            pulumi.set(__self__, "services_kube_controller_deprecated", services_kube_controller_deprecated)
+        if services_kube_proxy_deprecated is not None:
+            warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
+        if services_kube_proxy_deprecated is not None:
+            pulumi.set(__self__, "services_kube_proxy_deprecated", services_kube_proxy_deprecated)
+        if services_kube_scheduler_deprecated is not None:
+            warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
+        if services_kube_scheduler_deprecated is not None:
+            pulumi.set(__self__, "services_kube_scheduler_deprecated", services_kube_scheduler_deprecated)
+        if services_kubelet_deprecated is not None:
+            warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
+        if services_kubelet_deprecated is not None:
+            pulumi.set(__self__, "services_kubelet_deprecated", services_kubelet_deprecated)
+        if ssh_agent_auth is not None:
+            pulumi.set(__self__, "ssh_agent_auth", ssh_agent_auth)
+        if ssh_cert_path is not None:
+            pulumi.set(__self__, "ssh_cert_path", ssh_cert_path)
+        if ssh_key_path is not None:
+            pulumi.set(__self__, "ssh_key_path", ssh_key_path)
+        if system_images is not None:
+            pulumi.set(__self__, "system_images", system_images)
+        if update_only is not None:
+            pulumi.set(__self__, "update_only", update_only)
+        if upgrade_strategy is not None:
+            pulumi.set(__self__, "upgrade_strategy", upgrade_strategy)
+
+    @property
+    @pulumi.getter(name="addonJobTimeout")
+    def addon_job_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE k8s cluster addon deployment timeout in seconds for status check (int)
+        """
+        return pulumi.get(self, "addon_job_timeout")
+
+    @addon_job_timeout.setter
+    def addon_job_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "addon_job_timeout", value)
+
+    @property
+    @pulumi.getter
+    def addons(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster user addons YAML manifest to be deployed (string)
+        """
+        return pulumi.get(self, "addons")
+
+    @addons.setter
+    def addons(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addons", value)
+
+    @property
+    @pulumi.getter(name="addonsIncludes")
+    def addons_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
+        """
+        return pulumi.get(self, "addons_includes")
+
+    @addons_includes.setter
+    def addons_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "addons_includes", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['ClusterAuthenticationArgs']]:
+        """
+        RKE k8s cluster authentication configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['ClusterAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input['ClusterAuthorizationArgs']]:
+        """
+        RKE k8s cluster authorization mode configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input['ClusterAuthorizationArgs']]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter(name="bastionHost")
+    def bastion_host(self) -> Optional[pulumi.Input['ClusterBastionHostArgs']]:
+        """
+        RKE k8s cluster bastion Host configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "bastion_host")
+
+    @bastion_host.setter
+    def bastion_host(self, value: Optional[pulumi.Input['ClusterBastionHostArgs']]):
+        pulumi.set(self, "bastion_host", value)
+
+    @property
+    @pulumi.getter(name="certDir")
+    def cert_dir(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a certificate dir path (string)
+        """
+        return pulumi.get(self, "cert_dir")
+
+    @cert_dir.setter
+    def cert_dir(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_dir", value)
+
+    @property
+    @pulumi.getter(name="cloudProvider")
+    def cloud_provider(self) -> Optional[pulumi.Input['ClusterCloudProviderArgs']]:
+        """
+        Calico cloud provider (string)
+        """
+        return pulumi.get(self, "cloud_provider")
+
+    @cloud_provider.setter
+    def cloud_provider(self, value: Optional[pulumi.Input['ClusterCloudProviderArgs']]):
+        pulumi.set(self, "cloud_provider", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster name used in the kube config (string)
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterYaml")
+    def cluster_yaml(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        """
+        return pulumi.get(self, "cluster_yaml")
+
+    @cluster_yaml.setter
+    def cluster_yaml(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_yaml", value)
+
+    @property
+    @pulumi.getter(name="customCerts")
+    def custom_certs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use custom certificates from a cert dir (string)
+        """
+        return pulumi.get(self, "custom_certs")
+
+    @custom_certs.setter
+    def custom_certs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_certs", value)
+
+    @property
+    @pulumi.getter(name="delayOnCreation")
+    def delay_on_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE k8s cluster delay on creation (int)
+        """
+        return pulumi.get(self, "delay_on_creation")
+
+    @delay_on_creation.setter
+    def delay_on_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay_on_creation", value)
+
+    @property
+    @pulumi.getter
+    def dind(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Deploy RKE cluster on a dind environment. Default: `false` (bool)
+        """
+        return pulumi.get(self, "dind")
+
+    @dind.setter
+    def dind(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dind", value)
+
+    @property
+    @pulumi.getter(name="dindDnsServer")
+    def dind_dns_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        DinD RKE cluster dns (string)
+        """
+        return pulumi.get(self, "dind_dns_server")
+
+    @dind_dns_server.setter
+    def dind_dns_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dind_dns_server", value)
+
+    @property
+    @pulumi.getter(name="dindStorageDriver")
+    def dind_storage_driver(self) -> Optional[pulumi.Input[str]]:
+        """
+        DinD RKE cluster storage driver (string)
+        """
+        return pulumi.get(self, "dind_storage_driver")
+
+    @dind_storage_driver.setter
+    def dind_storage_driver(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dind_storage_driver", value)
+
+    @property
+    @pulumi.getter(name="disablePortCheck")
+    def disable_port_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
+        """
+        return pulumi.get(self, "disable_port_check")
+
+    @disable_port_check.setter
+    def disable_port_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_port_check", value)
+
+    @property
+    @pulumi.getter
+    def dns(self) -> Optional[pulumi.Input['ClusterDnsArgs']]:
+        """
+        RKE k8s cluster DNS Config (list maxitems:1)
+        """
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: Optional[pulumi.Input['ClusterDnsArgs']]):
+        pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter(name="ignoreDockerVersion")
+    def ignore_docker_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
+        """
+        return pulumi.get(self, "ignore_docker_version")
+
+    @ignore_docker_version.setter
+    def ignore_docker_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_docker_version", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input['ClusterIngressArgs']]:
+        """
+        Docker image for ingress (string)
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input['ClusterIngressArgs']]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @kubernetes_version.setter
+    def kubernetes_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubernetes_version", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['ClusterMonitoringArgs']]:
+        """
+        RKE k8s cluster monitoring Config (list maxitems:1)
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['ClusterMonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['ClusterNetworkArgs']]:
+        """
+        (list maxitems:1)
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['ClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]:
+        """
+        RKE k8s cluster nodes (list)
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter(name="nodesConfs")
+    def nodes_confs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "nodes_confs")
+
+    @nodes_confs.setter
+    def nodes_confs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "nodes_confs", value)
+
+    @property
+    @pulumi.getter(name="prefixPath")
+    def prefix_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s directory path (string)
+        """
+        return pulumi.get(self, "prefix_path")
+
+    @prefix_path.setter
+    def prefix_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_path", value)
+
+    @property
+    @pulumi.getter(name="privateRegistries")
+    def private_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]]:
+        """
+        RKE k8s cluster private docker registries (list)
+        """
+        return pulumi.get(self, "private_registries")
+
+    @private_registries.setter
+    def private_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]]):
+        pulumi.set(self, "private_registries", value)
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input['ClusterRestoreArgs']]:
+        """
+        Restore cluster. Default `false` (bool)
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input['ClusterRestoreArgs']]):
+        pulumi.set(self, "restore", value)
+
+    @property
+    @pulumi.getter(name="rotateCertificates")
+    def rotate_certificates(self) -> Optional[pulumi.Input['ClusterRotateCertificatesArgs']]:
+        """
+        RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "rotate_certificates")
+
+    @rotate_certificates.setter
+    def rotate_certificates(self, value: Optional[pulumi.Input['ClusterRotateCertificatesArgs']]):
+        pulumi.set(self, "rotate_certificates", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input['ClusterServicesArgs']]:
+        """
+        Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input['ClusterServicesArgs']]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter(name="servicesEtcdDeprecated")
+    def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
+        """
+        Use services.etcd instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_etcd_deprecated")
+
+    @services_etcd_deprecated.setter
+    def services_etcd_deprecated(self, value: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]):
+        pulumi.set(self, "services_etcd_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeApiDeprecated")
+    def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
+        """
+        Use services.kube_api instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_api_deprecated")
+
+    @services_kube_api_deprecated.setter
+    def services_kube_api_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_api_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeControllerDeprecated")
+    def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
+        """
+        Use services.kube_controller instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_controller_deprecated")
+
+    @services_kube_controller_deprecated.setter
+    def services_kube_controller_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_controller_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeProxyDeprecated")
+    def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
+        """
+        Use services.kubeproxy instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_proxy_deprecated")
+
+    @services_kube_proxy_deprecated.setter
+    def services_kube_proxy_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_proxy_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeSchedulerDeprecated")
+    def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
+        """
+        Use services.scheduler instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_scheduler_deprecated")
+
+    @services_kube_scheduler_deprecated.setter
+    def services_kube_scheduler_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_scheduler_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeletDeprecated")
+    def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
+        """
+        Use services.kubelet instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kubelet_deprecated")
+
+    @services_kubelet_deprecated.setter
+    def services_kubelet_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]):
+        pulumi.set(self, "services_kubelet_deprecated", value)
+
+    @property
+    @pulumi.getter(name="sshAgentAuth")
+    def ssh_agent_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SSH Agent Auth enable (bool)
+        """
+        return pulumi.get(self, "ssh_agent_auth")
+
+    @ssh_agent_auth.setter
+    def ssh_agent_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ssh_agent_auth", value)
+
+    @property
+    @pulumi.getter(name="sshCertPath")
+    def ssh_cert_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH Certificate path (string)
+        """
+        return pulumi.get(self, "ssh_cert_path")
+
+    @ssh_cert_path.setter
+    def ssh_cert_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_cert_path", value)
+
+    @property
+    @pulumi.getter(name="sshKeyPath")
+    def ssh_key_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH Private Key path (string)
+        """
+        return pulumi.get(self, "ssh_key_path")
+
+    @ssh_key_path.setter
+    def ssh_key_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_key_path", value)
+
+    @property
+    @pulumi.getter(name="systemImages")
+    def system_images(self) -> Optional[pulumi.Input['ClusterSystemImagesArgs']]:
+        """
+        RKE k8s cluster system images list (list maxitems:1)
+        """
+        return pulumi.get(self, "system_images")
+
+    @system_images.setter
+    def system_images(self, value: Optional[pulumi.Input['ClusterSystemImagesArgs']]):
+        pulumi.set(self, "system_images", value)
+
+    @property
+    @pulumi.getter(name="updateOnly")
+    def update_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        """
+        return pulumi.get(self, "update_only")
+
+    @update_only.setter
+    def update_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "update_only", value)
+
+    @property
+    @pulumi.getter(name="upgradeStrategy")
+    def upgrade_strategy(self) -> Optional[pulumi.Input['ClusterUpgradeStrategyArgs']]:
+        """
+        RKE k8s cluster upgrade strategy (list maxitems:1)
+        """
+        return pulumi.get(self, "upgrade_strategy")
+
+    @upgrade_strategy.setter
+    def upgrade_strategy(self, value: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']]):
+        pulumi.set(self, "upgrade_strategy", value)
+
+
+@pulumi.input_type
+class _ClusterState:
+    def __init__(__self__, *,
+                 addon_job_timeout: Optional[pulumi.Input[int]] = None,
+                 addons: Optional[pulumi.Input[str]] = None,
+                 addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_server_url: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input['ClusterAuthenticationArgs']] = None,
+                 authorization: Optional[pulumi.Input['ClusterAuthorizationArgs']] = None,
+                 bastion_host: Optional[pulumi.Input['ClusterBastionHostArgs']] = None,
+                 ca_crt: Optional[pulumi.Input[str]] = None,
+                 cert_dir: Optional[pulumi.Input[str]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateArgs']]]] = None,
+                 client_cert: Optional[pulumi.Input[str]] = None,
+                 client_key: Optional[pulumi.Input[str]] = None,
+                 cloud_provider: Optional[pulumi.Input['ClusterCloudProviderArgs']] = None,
+                 cluster_cidr: Optional[pulumi.Input[str]] = None,
+                 cluster_dns_server: Optional[pulumi.Input[str]] = None,
+                 cluster_domain: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_yaml: Optional[pulumi.Input[str]] = None,
+                 control_plane_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterControlPlaneHostArgs']]]] = None,
+                 custom_certs: Optional[pulumi.Input[bool]] = None,
+                 delay_on_creation: Optional[pulumi.Input[int]] = None,
+                 dind: Optional[pulumi.Input[bool]] = None,
+                 dind_dns_server: Optional[pulumi.Input[str]] = None,
+                 dind_storage_driver: Optional[pulumi.Input[str]] = None,
+                 disable_port_check: Optional[pulumi.Input[bool]] = None,
+                 dns: Optional[pulumi.Input['ClusterDnsArgs']] = None,
+                 etcd_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]]] = None,
+                 ignore_docker_version: Optional[pulumi.Input[bool]] = None,
+                 inactive_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]]] = None,
+                 ingress: Optional[pulumi.Input['ClusterIngressArgs']] = None,
+                 internal_kube_config_yaml: Optional[pulumi.Input[str]] = None,
+                 kube_admin_user: Optional[pulumi.Input[str]] = None,
+                 kube_config_yaml: Optional[pulumi.Input[str]] = None,
+                 kubernetes_version: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input['ClusterMonitoringArgs']] = None,
+                 network: Optional[pulumi.Input['ClusterNetworkArgs']] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]] = None,
+                 nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 prefix_path: Optional[pulumi.Input[str]] = None,
+                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]] = None,
+                 restore: Optional[pulumi.Input['ClusterRestoreArgs']] = None,
+                 rke_cluster_yaml: Optional[pulumi.Input[str]] = None,
+                 rke_state: Optional[pulumi.Input[str]] = None,
+                 rotate_certificates: Optional[pulumi.Input['ClusterRotateCertificatesArgs']] = None,
+                 running_system_images: Optional[pulumi.Input['ClusterRunningSystemImagesArgs']] = None,
+                 services: Optional[pulumi.Input['ClusterServicesArgs']] = None,
+                 services_etcd_deprecated: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']] = None,
+                 services_kube_api_deprecated: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']] = None,
+                 services_kube_controller_deprecated: Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']] = None,
+                 services_kube_proxy_deprecated: Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']] = None,
+                 services_kube_scheduler_deprecated: Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']] = None,
+                 services_kubelet_deprecated: Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']] = None,
+                 ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
+                 ssh_cert_path: Optional[pulumi.Input[str]] = None,
+                 ssh_key_path: Optional[pulumi.Input[str]] = None,
+                 system_images: Optional[pulumi.Input['ClusterSystemImagesArgs']] = None,
+                 update_only: Optional[pulumi.Input[bool]] = None,
+                 upgrade_strategy: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']] = None,
+                 worker_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterWorkerHostArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[int] addon_job_timeout: RKE k8s cluster addon deployment timeout in seconds for status check (int)
+        :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
+        :param pulumi.Input[str] api_server_url: (Computed) RKE k8s cluster api server url (string)
+        :param pulumi.Input['ClusterAuthenticationArgs'] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
+        :param pulumi.Input['ClusterAuthorizationArgs'] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
+        :param pulumi.Input['ClusterBastionHostArgs'] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
+        :param pulumi.Input[str] ca_crt: (Computed/Sensitive) RKE k8s cluster CA certificate (string)
+        :param pulumi.Input[str] cert_dir: Specify a certificate dir path (string)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateArgs']]] certificates: (Computed/Sensitive) RKE k8s cluster certificates (string)
+        :param pulumi.Input[str] client_cert: (Computed/Sensitive) RKE k8s cluster client certificate (string)
+        :param pulumi.Input[str] client_key: (Computed/Sensitive) RKE k8s cluster client key (string)
+        :param pulumi.Input['ClusterCloudProviderArgs'] cloud_provider: Calico cloud provider (string)
+        :param pulumi.Input[str] cluster_cidr: Cluster CIDR option for kube controller service (string)
+        :param pulumi.Input[str] cluster_dns_server: Cluster DNS Server option for kubelet service (string)
+        :param pulumi.Input[str] cluster_domain: Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
+        :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterControlPlaneHostArgs']]] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
+        :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
+        :param pulumi.Input[int] delay_on_creation: RKE k8s cluster delay on creation (int)
+        :param pulumi.Input[bool] dind: Deploy RKE cluster on a dind environment. Default: `false` (bool)
+        :param pulumi.Input[str] dind_dns_server: DinD RKE cluster dns (string)
+        :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
+        :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
+        :param pulumi.Input['ClusterDnsArgs'] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]] etcd_hosts: (Computed) RKE k8s cluster etcd nodes (list)
+        :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]] inactive_hosts: (Computed) RKE k8s cluster inactive nodes (list)
+        :param pulumi.Input['ClusterIngressArgs'] ingress: Docker image for ingress (string)
+        :param pulumi.Input[str] internal_kube_config_yaml: (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+        :param pulumi.Input[str] kube_admin_user: (Computed) RKE k8s cluster admin user (string)
+        :param pulumi.Input[str] kube_config_yaml: (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
+        :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+        :param pulumi.Input['ClusterMonitoringArgs'] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
+        :param pulumi.Input['ClusterNetworkArgs'] network: (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]] nodes: RKE k8s cluster nodes (list)
+        :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]] private_registries: RKE k8s cluster private docker registries (list)
+        :param pulumi.Input['ClusterRestoreArgs'] restore: Restore cluster. Default `false` (bool)
+        :param pulumi.Input[str] rke_cluster_yaml: (Computed/Sensitive) RKE k8s cluster config yaml (string)
+        :param pulumi.Input[str] rke_state: (Computed/Sensitive) RKE k8s cluster state (string)
+        :param pulumi.Input['ClusterRotateCertificatesArgs'] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        :param pulumi.Input['ClusterRunningSystemImagesArgs'] running_system_images: (Computed) RKE k8s cluster running system images list (list)
+        :param pulumi.Input['ClusterServicesArgs'] services: Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
+        :param pulumi.Input[str] ssh_cert_path: SSH Certificate path (string)
+        :param pulumi.Input[str] ssh_key_path: SSH Private Key path (string)
+        :param pulumi.Input['ClusterSystemImagesArgs'] system_images: RKE k8s cluster system images list (list maxitems:1)
+        :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        :param pulumi.Input['ClusterUpgradeStrategyArgs'] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterWorkerHostArgs']]] worker_hosts: (Computed) RKE k8s cluster worker nodes (list)
+        """
+        if addon_job_timeout is not None:
+            pulumi.set(__self__, "addon_job_timeout", addon_job_timeout)
+        if addons is not None:
+            pulumi.set(__self__, "addons", addons)
+        if addons_includes is not None:
+            pulumi.set(__self__, "addons_includes", addons_includes)
+        if api_server_url is not None:
+            pulumi.set(__self__, "api_server_url", api_server_url)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if bastion_host is not None:
+            pulumi.set(__self__, "bastion_host", bastion_host)
+        if ca_crt is not None:
+            pulumi.set(__self__, "ca_crt", ca_crt)
+        if cert_dir is not None:
+            pulumi.set(__self__, "cert_dir", cert_dir)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if client_cert is not None:
+            pulumi.set(__self__, "client_cert", client_cert)
+        if client_key is not None:
+            pulumi.set(__self__, "client_key", client_key)
+        if cloud_provider is not None:
+            pulumi.set(__self__, "cloud_provider", cloud_provider)
+        if cluster_cidr is not None:
+            pulumi.set(__self__, "cluster_cidr", cluster_cidr)
+        if cluster_dns_server is not None:
+            pulumi.set(__self__, "cluster_dns_server", cluster_dns_server)
+        if cluster_domain is not None:
+            pulumi.set(__self__, "cluster_domain", cluster_domain)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_yaml is not None:
+            pulumi.set(__self__, "cluster_yaml", cluster_yaml)
+        if control_plane_hosts is not None:
+            pulumi.set(__self__, "control_plane_hosts", control_plane_hosts)
+        if custom_certs is not None:
+            pulumi.set(__self__, "custom_certs", custom_certs)
+        if delay_on_creation is not None:
+            pulumi.set(__self__, "delay_on_creation", delay_on_creation)
+        if dind is not None:
+            pulumi.set(__self__, "dind", dind)
+        if dind_dns_server is not None:
+            pulumi.set(__self__, "dind_dns_server", dind_dns_server)
+        if dind_storage_driver is not None:
+            pulumi.set(__self__, "dind_storage_driver", dind_storage_driver)
+        if disable_port_check is not None:
+            pulumi.set(__self__, "disable_port_check", disable_port_check)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if etcd_hosts is not None:
+            pulumi.set(__self__, "etcd_hosts", etcd_hosts)
+        if ignore_docker_version is not None:
+            pulumi.set(__self__, "ignore_docker_version", ignore_docker_version)
+        if inactive_hosts is not None:
+            pulumi.set(__self__, "inactive_hosts", inactive_hosts)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if internal_kube_config_yaml is not None:
+            warnings.warn("""Use kube_config_yaml instead""", DeprecationWarning)
+            pulumi.log.warn("""internal_kube_config_yaml is deprecated: Use kube_config_yaml instead""")
+        if internal_kube_config_yaml is not None:
+            pulumi.set(__self__, "internal_kube_config_yaml", internal_kube_config_yaml)
+        if kube_admin_user is not None:
+            pulumi.set(__self__, "kube_admin_user", kube_admin_user)
+        if kube_config_yaml is not None:
+            pulumi.set(__self__, "kube_config_yaml", kube_config_yaml)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+        if nodes_confs is not None:
+            warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
+            pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
+        if nodes_confs is not None:
+            pulumi.set(__self__, "nodes_confs", nodes_confs)
+        if prefix_path is not None:
+            pulumi.set(__self__, "prefix_path", prefix_path)
+        if private_registries is not None:
+            pulumi.set(__self__, "private_registries", private_registries)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+        if rke_cluster_yaml is not None:
+            pulumi.set(__self__, "rke_cluster_yaml", rke_cluster_yaml)
+        if rke_state is not None:
+            pulumi.set(__self__, "rke_state", rke_state)
+        if rotate_certificates is not None:
+            pulumi.set(__self__, "rotate_certificates", rotate_certificates)
+        if running_system_images is not None:
+            pulumi.set(__self__, "running_system_images", running_system_images)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if services_etcd_deprecated is not None:
+            warnings.warn("""Use services.etcd instead""", DeprecationWarning)
+            pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
+        if services_etcd_deprecated is not None:
+            pulumi.set(__self__, "services_etcd_deprecated", services_etcd_deprecated)
+        if services_kube_api_deprecated is not None:
+            warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
+        if services_kube_api_deprecated is not None:
+            pulumi.set(__self__, "services_kube_api_deprecated", services_kube_api_deprecated)
+        if services_kube_controller_deprecated is not None:
+            warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
+        if services_kube_controller_deprecated is not None:
+            pulumi.set(__self__, "services_kube_controller_deprecated", services_kube_controller_deprecated)
+        if services_kube_proxy_deprecated is not None:
+            warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
+        if services_kube_proxy_deprecated is not None:
+            pulumi.set(__self__, "services_kube_proxy_deprecated", services_kube_proxy_deprecated)
+        if services_kube_scheduler_deprecated is not None:
+            warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
+        if services_kube_scheduler_deprecated is not None:
+            pulumi.set(__self__, "services_kube_scheduler_deprecated", services_kube_scheduler_deprecated)
+        if services_kubelet_deprecated is not None:
+            warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
+            pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
+        if services_kubelet_deprecated is not None:
+            pulumi.set(__self__, "services_kubelet_deprecated", services_kubelet_deprecated)
+        if ssh_agent_auth is not None:
+            pulumi.set(__self__, "ssh_agent_auth", ssh_agent_auth)
+        if ssh_cert_path is not None:
+            pulumi.set(__self__, "ssh_cert_path", ssh_cert_path)
+        if ssh_key_path is not None:
+            pulumi.set(__self__, "ssh_key_path", ssh_key_path)
+        if system_images is not None:
+            pulumi.set(__self__, "system_images", system_images)
+        if update_only is not None:
+            pulumi.set(__self__, "update_only", update_only)
+        if upgrade_strategy is not None:
+            pulumi.set(__self__, "upgrade_strategy", upgrade_strategy)
+        if worker_hosts is not None:
+            pulumi.set(__self__, "worker_hosts", worker_hosts)
+
+    @property
+    @pulumi.getter(name="addonJobTimeout")
+    def addon_job_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE k8s cluster addon deployment timeout in seconds for status check (int)
+        """
+        return pulumi.get(self, "addon_job_timeout")
+
+    @addon_job_timeout.setter
+    def addon_job_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "addon_job_timeout", value)
+
+    @property
+    @pulumi.getter
+    def addons(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster user addons YAML manifest to be deployed (string)
+        """
+        return pulumi.get(self, "addons")
+
+    @addons.setter
+    def addons(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addons", value)
+
+    @property
+    @pulumi.getter(name="addonsIncludes")
+    def addons_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
+        """
+        return pulumi.get(self, "addons_includes")
+
+    @addons_includes.setter
+    def addons_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "addons_includes", value)
+
+    @property
+    @pulumi.getter(name="apiServerUrl")
+    def api_server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) RKE k8s cluster api server url (string)
+        """
+        return pulumi.get(self, "api_server_url")
+
+    @api_server_url.setter
+    def api_server_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_server_url", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['ClusterAuthenticationArgs']]:
+        """
+        RKE k8s cluster authentication configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['ClusterAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input['ClusterAuthorizationArgs']]:
+        """
+        RKE k8s cluster authorization mode configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input['ClusterAuthorizationArgs']]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter(name="bastionHost")
+    def bastion_host(self) -> Optional[pulumi.Input['ClusterBastionHostArgs']]:
+        """
+        RKE k8s cluster bastion Host configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "bastion_host")
+
+    @bastion_host.setter
+    def bastion_host(self, value: Optional[pulumi.Input['ClusterBastionHostArgs']]):
+        pulumi.set(self, "bastion_host", value)
+
+    @property
+    @pulumi.getter(name="caCrt")
+    def ca_crt(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster CA certificate (string)
+        """
+        return pulumi.get(self, "ca_crt")
+
+    @ca_crt.setter
+    def ca_crt(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_crt", value)
+
+    @property
+    @pulumi.getter(name="certDir")
+    def cert_dir(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a certificate dir path (string)
+        """
+        return pulumi.get(self, "cert_dir")
+
+    @cert_dir.setter
+    def cert_dir(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_dir", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateArgs']]]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster certificates (string)
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter(name="clientCert")
+    def client_cert(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster client certificate (string)
+        """
+        return pulumi.get(self, "client_cert")
+
+    @client_cert.setter
+    def client_cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_cert", value)
+
+    @property
+    @pulumi.getter(name="clientKey")
+    def client_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster client key (string)
+        """
+        return pulumi.get(self, "client_key")
+
+    @client_key.setter
+    def client_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_key", value)
+
+    @property
+    @pulumi.getter(name="cloudProvider")
+    def cloud_provider(self) -> Optional[pulumi.Input['ClusterCloudProviderArgs']]:
+        """
+        Calico cloud provider (string)
+        """
+        return pulumi.get(self, "cloud_provider")
+
+    @cloud_provider.setter
+    def cloud_provider(self, value: Optional[pulumi.Input['ClusterCloudProviderArgs']]):
+        pulumi.set(self, "cloud_provider", value)
+
+    @property
+    @pulumi.getter(name="clusterCidr")
+    def cluster_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster CIDR option for kube controller service (string)
+        """
+        return pulumi.get(self, "cluster_cidr")
+
+    @cluster_cidr.setter
+    def cluster_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_cidr", value)
+
+    @property
+    @pulumi.getter(name="clusterDnsServer")
+    def cluster_dns_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster DNS Server option for kubelet service (string)
+        """
+        return pulumi.get(self, "cluster_dns_server")
+
+    @cluster_dns_server.setter
+    def cluster_dns_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_dns_server", value)
+
+    @property
+    @pulumi.getter(name="clusterDomain")
+    def cluster_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        """
+        return pulumi.get(self, "cluster_domain")
+
+    @cluster_domain.setter
+    def cluster_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_domain", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster name used in the kube config (string)
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterYaml")
+    def cluster_yaml(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+        """
+        return pulumi.get(self, "cluster_yaml")
+
+    @cluster_yaml.setter
+    def cluster_yaml(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_yaml", value)
+
+    @property
+    @pulumi.getter(name="controlPlaneHosts")
+    def control_plane_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterControlPlaneHostArgs']]]]:
+        """
+        (Computed) RKE k8s cluster control plane nodes (list)
+        """
+        return pulumi.get(self, "control_plane_hosts")
+
+    @control_plane_hosts.setter
+    def control_plane_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterControlPlaneHostArgs']]]]):
+        pulumi.set(self, "control_plane_hosts", value)
+
+    @property
+    @pulumi.getter(name="customCerts")
+    def custom_certs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use custom certificates from a cert dir (string)
+        """
+        return pulumi.get(self, "custom_certs")
+
+    @custom_certs.setter
+    def custom_certs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_certs", value)
+
+    @property
+    @pulumi.getter(name="delayOnCreation")
+    def delay_on_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        RKE k8s cluster delay on creation (int)
+        """
+        return pulumi.get(self, "delay_on_creation")
+
+    @delay_on_creation.setter
+    def delay_on_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay_on_creation", value)
+
+    @property
+    @pulumi.getter
+    def dind(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Deploy RKE cluster on a dind environment. Default: `false` (bool)
+        """
+        return pulumi.get(self, "dind")
+
+    @dind.setter
+    def dind(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dind", value)
+
+    @property
+    @pulumi.getter(name="dindDnsServer")
+    def dind_dns_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        DinD RKE cluster dns (string)
+        """
+        return pulumi.get(self, "dind_dns_server")
+
+    @dind_dns_server.setter
+    def dind_dns_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dind_dns_server", value)
+
+    @property
+    @pulumi.getter(name="dindStorageDriver")
+    def dind_storage_driver(self) -> Optional[pulumi.Input[str]]:
+        """
+        DinD RKE cluster storage driver (string)
+        """
+        return pulumi.get(self, "dind_storage_driver")
+
+    @dind_storage_driver.setter
+    def dind_storage_driver(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dind_storage_driver", value)
+
+    @property
+    @pulumi.getter(name="disablePortCheck")
+    def disable_port_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
+        """
+        return pulumi.get(self, "disable_port_check")
+
+    @disable_port_check.setter
+    def disable_port_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_port_check", value)
+
+    @property
+    @pulumi.getter
+    def dns(self) -> Optional[pulumi.Input['ClusterDnsArgs']]:
+        """
+        RKE k8s cluster DNS Config (list maxitems:1)
+        """
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: Optional[pulumi.Input['ClusterDnsArgs']]):
+        pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter(name="etcdHosts")
+    def etcd_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]]]:
+        """
+        (Computed) RKE k8s cluster etcd nodes (list)
+        """
+        return pulumi.get(self, "etcd_hosts")
+
+    @etcd_hosts.setter
+    def etcd_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]]]):
+        pulumi.set(self, "etcd_hosts", value)
+
+    @property
+    @pulumi.getter(name="ignoreDockerVersion")
+    def ignore_docker_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
+        """
+        return pulumi.get(self, "ignore_docker_version")
+
+    @ignore_docker_version.setter
+    def ignore_docker_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_docker_version", value)
+
+    @property
+    @pulumi.getter(name="inactiveHosts")
+    def inactive_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]]]:
+        """
+        (Computed) RKE k8s cluster inactive nodes (list)
+        """
+        return pulumi.get(self, "inactive_hosts")
+
+    @inactive_hosts.setter
+    def inactive_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]]]):
+        pulumi.set(self, "inactive_hosts", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input['ClusterIngressArgs']]:
+        """
+        Docker image for ingress (string)
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input['ClusterIngressArgs']]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter(name="internalKubeConfigYaml")
+    def internal_kube_config_yaml(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+        """
+        return pulumi.get(self, "internal_kube_config_yaml")
+
+    @internal_kube_config_yaml.setter
+    def internal_kube_config_yaml(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "internal_kube_config_yaml", value)
+
+    @property
+    @pulumi.getter(name="kubeAdminUser")
+    def kube_admin_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) RKE k8s cluster admin user (string)
+        """
+        return pulumi.get(self, "kube_admin_user")
+
+    @kube_admin_user.setter
+    def kube_admin_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kube_admin_user", value)
+
+    @property
+    @pulumi.getter(name="kubeConfigYaml")
+    def kube_config_yaml(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
+        """
+        return pulumi.get(self, "kube_config_yaml")
+
+    @kube_config_yaml.setter
+    def kube_config_yaml(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kube_config_yaml", value)
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @kubernetes_version.setter
+    def kubernetes_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubernetes_version", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['ClusterMonitoringArgs']]:
+        """
+        RKE k8s cluster monitoring Config (list maxitems:1)
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['ClusterMonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['ClusterNetworkArgs']]:
+        """
+        (list maxitems:1)
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['ClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]:
+        """
+        RKE k8s cluster nodes (list)
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter(name="nodesConfs")
+    def nodes_confs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "nodes_confs")
+
+    @nodes_confs.setter
+    def nodes_confs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "nodes_confs", value)
+
+    @property
+    @pulumi.getter(name="prefixPath")
+    def prefix_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        RKE k8s directory path (string)
+        """
+        return pulumi.get(self, "prefix_path")
+
+    @prefix_path.setter
+    def prefix_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_path", value)
+
+    @property
+    @pulumi.getter(name="privateRegistries")
+    def private_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]]:
+        """
+        RKE k8s cluster private docker registries (list)
+        """
+        return pulumi.get(self, "private_registries")
+
+    @private_registries.setter
+    def private_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPrivateRegistryArgs']]]]):
+        pulumi.set(self, "private_registries", value)
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input['ClusterRestoreArgs']]:
+        """
+        Restore cluster. Default `false` (bool)
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input['ClusterRestoreArgs']]):
+        pulumi.set(self, "restore", value)
+
+    @property
+    @pulumi.getter(name="rkeClusterYaml")
+    def rke_cluster_yaml(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster config yaml (string)
+        """
+        return pulumi.get(self, "rke_cluster_yaml")
+
+    @rke_cluster_yaml.setter
+    def rke_cluster_yaml(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rke_cluster_yaml", value)
+
+    @property
+    @pulumi.getter(name="rkeState")
+    def rke_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed/Sensitive) RKE k8s cluster state (string)
+        """
+        return pulumi.get(self, "rke_state")
+
+    @rke_state.setter
+    def rke_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rke_state", value)
+
+    @property
+    @pulumi.getter(name="rotateCertificates")
+    def rotate_certificates(self) -> Optional[pulumi.Input['ClusterRotateCertificatesArgs']]:
+        """
+        RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        """
+        return pulumi.get(self, "rotate_certificates")
+
+    @rotate_certificates.setter
+    def rotate_certificates(self, value: Optional[pulumi.Input['ClusterRotateCertificatesArgs']]):
+        pulumi.set(self, "rotate_certificates", value)
+
+    @property
+    @pulumi.getter(name="runningSystemImages")
+    def running_system_images(self) -> Optional[pulumi.Input['ClusterRunningSystemImagesArgs']]:
+        """
+        (Computed) RKE k8s cluster running system images list (list)
+        """
+        return pulumi.get(self, "running_system_images")
+
+    @running_system_images.setter
+    def running_system_images(self, value: Optional[pulumi.Input['ClusterRunningSystemImagesArgs']]):
+        pulumi.set(self, "running_system_images", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input['ClusterServicesArgs']]:
+        """
+        Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input['ClusterServicesArgs']]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter(name="servicesEtcdDeprecated")
+    def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
+        """
+        Use services.etcd instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_etcd_deprecated")
+
+    @services_etcd_deprecated.setter
+    def services_etcd_deprecated(self, value: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]):
+        pulumi.set(self, "services_etcd_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeApiDeprecated")
+    def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
+        """
+        Use services.kube_api instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_api_deprecated")
+
+    @services_kube_api_deprecated.setter
+    def services_kube_api_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_api_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeControllerDeprecated")
+    def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
+        """
+        Use services.kube_controller instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_controller_deprecated")
+
+    @services_kube_controller_deprecated.setter
+    def services_kube_controller_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_controller_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeProxyDeprecated")
+    def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
+        """
+        Use services.kubeproxy instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_proxy_deprecated")
+
+    @services_kube_proxy_deprecated.setter
+    def services_kube_proxy_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_proxy_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeSchedulerDeprecated")
+    def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
+        """
+        Use services.scheduler instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kube_scheduler_deprecated")
+
+    @services_kube_scheduler_deprecated.setter
+    def services_kube_scheduler_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]):
+        pulumi.set(self, "services_kube_scheduler_deprecated", value)
+
+    @property
+    @pulumi.getter(name="servicesKubeletDeprecated")
+    def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
+        """
+        Use services.kubelet instead (list maxitems:1)
+        """
+        return pulumi.get(self, "services_kubelet_deprecated")
+
+    @services_kubelet_deprecated.setter
+    def services_kubelet_deprecated(self, value: Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]):
+        pulumi.set(self, "services_kubelet_deprecated", value)
+
+    @property
+    @pulumi.getter(name="sshAgentAuth")
+    def ssh_agent_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SSH Agent Auth enable (bool)
+        """
+        return pulumi.get(self, "ssh_agent_auth")
+
+    @ssh_agent_auth.setter
+    def ssh_agent_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ssh_agent_auth", value)
+
+    @property
+    @pulumi.getter(name="sshCertPath")
+    def ssh_cert_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH Certificate path (string)
+        """
+        return pulumi.get(self, "ssh_cert_path")
+
+    @ssh_cert_path.setter
+    def ssh_cert_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_cert_path", value)
+
+    @property
+    @pulumi.getter(name="sshKeyPath")
+    def ssh_key_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH Private Key path (string)
+        """
+        return pulumi.get(self, "ssh_key_path")
+
+    @ssh_key_path.setter
+    def ssh_key_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_key_path", value)
+
+    @property
+    @pulumi.getter(name="systemImages")
+    def system_images(self) -> Optional[pulumi.Input['ClusterSystemImagesArgs']]:
+        """
+        RKE k8s cluster system images list (list maxitems:1)
+        """
+        return pulumi.get(self, "system_images")
+
+    @system_images.setter
+    def system_images(self, value: Optional[pulumi.Input['ClusterSystemImagesArgs']]):
+        pulumi.set(self, "system_images", value)
+
+    @property
+    @pulumi.getter(name="updateOnly")
+    def update_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+        """
+        return pulumi.get(self, "update_only")
+
+    @update_only.setter
+    def update_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "update_only", value)
+
+    @property
+    @pulumi.getter(name="upgradeStrategy")
+    def upgrade_strategy(self) -> Optional[pulumi.Input['ClusterUpgradeStrategyArgs']]:
+        """
+        RKE k8s cluster upgrade strategy (list maxitems:1)
+        """
+        return pulumi.get(self, "upgrade_strategy")
+
+    @upgrade_strategy.setter
+    def upgrade_strategy(self, value: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']]):
+        pulumi.set(self, "upgrade_strategy", value)
+
+    @property
+    @pulumi.getter(name="workerHosts")
+    def worker_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterWorkerHostArgs']]]]:
+        """
+        (Computed) RKE k8s cluster worker nodes (list)
+        """
+        return pulumi.get(self, "worker_hosts")
+
+    @worker_hosts.setter
+    def worker_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterWorkerHostArgs']]]]):
+        pulumi.set(self, "worker_hosts", value)
 
 
 class Cluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,9 +1711,7 @@ class Cluster(pulumi.CustomResource):
                  system_images: Optional[pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']]] = None,
                  update_only: Optional[pulumi.Input[bool]] = None,
                  upgrade_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -119,12 +1770,84 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
         :param pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ClusterArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        rke_cluster can be imported using the RKE cluster config and state files as ID in the format `<cluster_config_file>:<rke_state_file>`
+
+        ```sh
+         $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
+        ```
+
+         As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
+
+        ```sh
+         $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_job_timeout: Optional[pulumi.Input[int]] = None,
+                 addons: Optional[pulumi.Input[str]] = None,
+                 addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']]] = None,
+                 authorization: Optional[pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']]] = None,
+                 bastion_host: Optional[pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']]] = None,
+                 cert_dir: Optional[pulumi.Input[str]] = None,
+                 cloud_provider: Optional[pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_yaml: Optional[pulumi.Input[str]] = None,
+                 custom_certs: Optional[pulumi.Input[bool]] = None,
+                 delay_on_creation: Optional[pulumi.Input[int]] = None,
+                 dind: Optional[pulumi.Input[bool]] = None,
+                 dind_dns_server: Optional[pulumi.Input[str]] = None,
+                 dind_storage_driver: Optional[pulumi.Input[str]] = None,
+                 disable_port_check: Optional[pulumi.Input[bool]] = None,
+                 dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+                 ignore_docker_version: Optional[pulumi.Input[bool]] = None,
+                 ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
+                 kubernetes_version: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['ClusterNetworkArgs']]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+                 nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 prefix_path: Optional[pulumi.Input[str]] = None,
+                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]]] = None,
+                 restore: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreArgs']]] = None,
+                 rotate_certificates: Optional[pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']]] = None,
+                 services: Optional[pulumi.Input[pulumi.InputType['ClusterServicesArgs']]] = None,
+                 services_etcd_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']]] = None,
+                 services_kube_api_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']]] = None,
+                 services_kube_controller_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']]] = None,
+                 services_kube_proxy_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']]] = None,
+                 services_kube_scheduler_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']]] = None,
+                 services_kubelet_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']]] = None,
+                 ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
+                 ssh_cert_path: Optional[pulumi.Input[str]] = None,
+                 ssh_key_path: Optional[pulumi.Input[str]] = None,
+                 system_images: Optional[pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']]] = None,
+                 update_only: Optional[pulumi.Input[bool]] = None,
+                 upgrade_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -134,88 +1857,88 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['addon_job_timeout'] = addon_job_timeout
-            __props__['addons'] = addons
-            __props__['addons_includes'] = addons_includes
-            __props__['authentication'] = authentication
-            __props__['authorization'] = authorization
-            __props__['bastion_host'] = bastion_host
-            __props__['cert_dir'] = cert_dir
-            __props__['cloud_provider'] = cloud_provider
-            __props__['cluster_name'] = cluster_name
-            __props__['cluster_yaml'] = cluster_yaml
-            __props__['custom_certs'] = custom_certs
-            __props__['delay_on_creation'] = delay_on_creation
-            __props__['dind'] = dind
-            __props__['dind_dns_server'] = dind_dns_server
-            __props__['dind_storage_driver'] = dind_storage_driver
-            __props__['disable_port_check'] = disable_port_check
-            __props__['dns'] = dns
-            __props__['ignore_docker_version'] = ignore_docker_version
-            __props__['ingress'] = ingress
-            __props__['kubernetes_version'] = kubernetes_version
-            __props__['monitoring'] = monitoring
-            __props__['network'] = network
-            __props__['nodes'] = nodes
+            __props__.__dict__["addon_job_timeout"] = addon_job_timeout
+            __props__.__dict__["addons"] = addons
+            __props__.__dict__["addons_includes"] = addons_includes
+            __props__.__dict__["authentication"] = authentication
+            __props__.__dict__["authorization"] = authorization
+            __props__.__dict__["bastion_host"] = bastion_host
+            __props__.__dict__["cert_dir"] = cert_dir
+            __props__.__dict__["cloud_provider"] = cloud_provider
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["cluster_yaml"] = cluster_yaml
+            __props__.__dict__["custom_certs"] = custom_certs
+            __props__.__dict__["delay_on_creation"] = delay_on_creation
+            __props__.__dict__["dind"] = dind
+            __props__.__dict__["dind_dns_server"] = dind_dns_server
+            __props__.__dict__["dind_storage_driver"] = dind_storage_driver
+            __props__.__dict__["disable_port_check"] = disable_port_check
+            __props__.__dict__["dns"] = dns
+            __props__.__dict__["ignore_docker_version"] = ignore_docker_version
+            __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["kubernetes_version"] = kubernetes_version
+            __props__.__dict__["monitoring"] = monitoring
+            __props__.__dict__["network"] = network
+            __props__.__dict__["nodes"] = nodes
             if nodes_confs is not None and not opts.urn:
                 warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
-                pulumi.log.warn("nodes_confs is deprecated: Use cluster_yaml instead")
-            __props__['nodes_confs'] = nodes_confs
-            __props__['prefix_path'] = prefix_path
-            __props__['private_registries'] = private_registries
-            __props__['restore'] = restore
-            __props__['rotate_certificates'] = rotate_certificates
-            __props__['services'] = services
+                pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
+            __props__.__dict__["nodes_confs"] = nodes_confs
+            __props__.__dict__["prefix_path"] = prefix_path
+            __props__.__dict__["private_registries"] = private_registries
+            __props__.__dict__["restore"] = restore
+            __props__.__dict__["rotate_certificates"] = rotate_certificates
+            __props__.__dict__["services"] = services
             if services_etcd_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.etcd instead""", DeprecationWarning)
-                pulumi.log.warn("services_etcd_deprecated is deprecated: Use services.etcd instead")
-            __props__['services_etcd_deprecated'] = services_etcd_deprecated
+                pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
+            __props__.__dict__["services_etcd_deprecated"] = services_etcd_deprecated
             if services_kube_api_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
-                pulumi.log.warn("services_kube_api_deprecated is deprecated: Use services.kube_api instead")
-            __props__['services_kube_api_deprecated'] = services_kube_api_deprecated
+                pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
+            __props__.__dict__["services_kube_api_deprecated"] = services_kube_api_deprecated
             if services_kube_controller_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
-                pulumi.log.warn("services_kube_controller_deprecated is deprecated: Use services.kube_controller instead")
-            __props__['services_kube_controller_deprecated'] = services_kube_controller_deprecated
+                pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
+            __props__.__dict__["services_kube_controller_deprecated"] = services_kube_controller_deprecated
             if services_kube_proxy_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
-                pulumi.log.warn("services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead")
-            __props__['services_kube_proxy_deprecated'] = services_kube_proxy_deprecated
+                pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
+            __props__.__dict__["services_kube_proxy_deprecated"] = services_kube_proxy_deprecated
             if services_kube_scheduler_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
-                pulumi.log.warn("services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead")
-            __props__['services_kube_scheduler_deprecated'] = services_kube_scheduler_deprecated
+                pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
+            __props__.__dict__["services_kube_scheduler_deprecated"] = services_kube_scheduler_deprecated
             if services_kubelet_deprecated is not None and not opts.urn:
                 warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
-                pulumi.log.warn("services_kubelet_deprecated is deprecated: Use services.kubelet instead")
-            __props__['services_kubelet_deprecated'] = services_kubelet_deprecated
-            __props__['ssh_agent_auth'] = ssh_agent_auth
-            __props__['ssh_cert_path'] = ssh_cert_path
-            __props__['ssh_key_path'] = ssh_key_path
-            __props__['system_images'] = system_images
-            __props__['update_only'] = update_only
-            __props__['upgrade_strategy'] = upgrade_strategy
-            __props__['api_server_url'] = None
-            __props__['ca_crt'] = None
-            __props__['certificates'] = None
-            __props__['client_cert'] = None
-            __props__['client_key'] = None
-            __props__['cluster_cidr'] = None
-            __props__['cluster_dns_server'] = None
-            __props__['cluster_domain'] = None
-            __props__['control_plane_hosts'] = None
-            __props__['etcd_hosts'] = None
-            __props__['inactive_hosts'] = None
-            __props__['internal_kube_config_yaml'] = None
-            __props__['kube_admin_user'] = None
-            __props__['kube_config_yaml'] = None
-            __props__['rke_cluster_yaml'] = None
-            __props__['rke_state'] = None
-            __props__['running_system_images'] = None
-            __props__['worker_hosts'] = None
+                pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
+            __props__.__dict__["services_kubelet_deprecated"] = services_kubelet_deprecated
+            __props__.__dict__["ssh_agent_auth"] = ssh_agent_auth
+            __props__.__dict__["ssh_cert_path"] = ssh_cert_path
+            __props__.__dict__["ssh_key_path"] = ssh_key_path
+            __props__.__dict__["system_images"] = system_images
+            __props__.__dict__["update_only"] = update_only
+            __props__.__dict__["upgrade_strategy"] = upgrade_strategy
+            __props__.__dict__["api_server_url"] = None
+            __props__.__dict__["ca_crt"] = None
+            __props__.__dict__["certificates"] = None
+            __props__.__dict__["client_cert"] = None
+            __props__.__dict__["client_key"] = None
+            __props__.__dict__["cluster_cidr"] = None
+            __props__.__dict__["cluster_dns_server"] = None
+            __props__.__dict__["cluster_domain"] = None
+            __props__.__dict__["control_plane_hosts"] = None
+            __props__.__dict__["etcd_hosts"] = None
+            __props__.__dict__["inactive_hosts"] = None
+            __props__.__dict__["internal_kube_config_yaml"] = None
+            __props__.__dict__["kube_admin_user"] = None
+            __props__.__dict__["kube_config_yaml"] = None
+            __props__.__dict__["rke_cluster_yaml"] = None
+            __props__.__dict__["rke_state"] = None
+            __props__.__dict__["running_system_images"] = None
+            __props__.__dict__["worker_hosts"] = None
         super(Cluster, __self__).__init__(
             'rke:index/cluster:Cluster',
             resource_name,
@@ -353,67 +2076,67 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterState.__new__(_ClusterState)
 
-        __props__["addon_job_timeout"] = addon_job_timeout
-        __props__["addons"] = addons
-        __props__["addons_includes"] = addons_includes
-        __props__["api_server_url"] = api_server_url
-        __props__["authentication"] = authentication
-        __props__["authorization"] = authorization
-        __props__["bastion_host"] = bastion_host
-        __props__["ca_crt"] = ca_crt
-        __props__["cert_dir"] = cert_dir
-        __props__["certificates"] = certificates
-        __props__["client_cert"] = client_cert
-        __props__["client_key"] = client_key
-        __props__["cloud_provider"] = cloud_provider
-        __props__["cluster_cidr"] = cluster_cidr
-        __props__["cluster_dns_server"] = cluster_dns_server
-        __props__["cluster_domain"] = cluster_domain
-        __props__["cluster_name"] = cluster_name
-        __props__["cluster_yaml"] = cluster_yaml
-        __props__["control_plane_hosts"] = control_plane_hosts
-        __props__["custom_certs"] = custom_certs
-        __props__["delay_on_creation"] = delay_on_creation
-        __props__["dind"] = dind
-        __props__["dind_dns_server"] = dind_dns_server
-        __props__["dind_storage_driver"] = dind_storage_driver
-        __props__["disable_port_check"] = disable_port_check
-        __props__["dns"] = dns
-        __props__["etcd_hosts"] = etcd_hosts
-        __props__["ignore_docker_version"] = ignore_docker_version
-        __props__["inactive_hosts"] = inactive_hosts
-        __props__["ingress"] = ingress
-        __props__["internal_kube_config_yaml"] = internal_kube_config_yaml
-        __props__["kube_admin_user"] = kube_admin_user
-        __props__["kube_config_yaml"] = kube_config_yaml
-        __props__["kubernetes_version"] = kubernetes_version
-        __props__["monitoring"] = monitoring
-        __props__["network"] = network
-        __props__["nodes"] = nodes
-        __props__["nodes_confs"] = nodes_confs
-        __props__["prefix_path"] = prefix_path
-        __props__["private_registries"] = private_registries
-        __props__["restore"] = restore
-        __props__["rke_cluster_yaml"] = rke_cluster_yaml
-        __props__["rke_state"] = rke_state
-        __props__["rotate_certificates"] = rotate_certificates
-        __props__["running_system_images"] = running_system_images
-        __props__["services"] = services
-        __props__["services_etcd_deprecated"] = services_etcd_deprecated
-        __props__["services_kube_api_deprecated"] = services_kube_api_deprecated
-        __props__["services_kube_controller_deprecated"] = services_kube_controller_deprecated
-        __props__["services_kube_proxy_deprecated"] = services_kube_proxy_deprecated
-        __props__["services_kube_scheduler_deprecated"] = services_kube_scheduler_deprecated
-        __props__["services_kubelet_deprecated"] = services_kubelet_deprecated
-        __props__["ssh_agent_auth"] = ssh_agent_auth
-        __props__["ssh_cert_path"] = ssh_cert_path
-        __props__["ssh_key_path"] = ssh_key_path
-        __props__["system_images"] = system_images
-        __props__["update_only"] = update_only
-        __props__["upgrade_strategy"] = upgrade_strategy
-        __props__["worker_hosts"] = worker_hosts
+        __props__.__dict__["addon_job_timeout"] = addon_job_timeout
+        __props__.__dict__["addons"] = addons
+        __props__.__dict__["addons_includes"] = addons_includes
+        __props__.__dict__["api_server_url"] = api_server_url
+        __props__.__dict__["authentication"] = authentication
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["bastion_host"] = bastion_host
+        __props__.__dict__["ca_crt"] = ca_crt
+        __props__.__dict__["cert_dir"] = cert_dir
+        __props__.__dict__["certificates"] = certificates
+        __props__.__dict__["client_cert"] = client_cert
+        __props__.__dict__["client_key"] = client_key
+        __props__.__dict__["cloud_provider"] = cloud_provider
+        __props__.__dict__["cluster_cidr"] = cluster_cidr
+        __props__.__dict__["cluster_dns_server"] = cluster_dns_server
+        __props__.__dict__["cluster_domain"] = cluster_domain
+        __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["cluster_yaml"] = cluster_yaml
+        __props__.__dict__["control_plane_hosts"] = control_plane_hosts
+        __props__.__dict__["custom_certs"] = custom_certs
+        __props__.__dict__["delay_on_creation"] = delay_on_creation
+        __props__.__dict__["dind"] = dind
+        __props__.__dict__["dind_dns_server"] = dind_dns_server
+        __props__.__dict__["dind_storage_driver"] = dind_storage_driver
+        __props__.__dict__["disable_port_check"] = disable_port_check
+        __props__.__dict__["dns"] = dns
+        __props__.__dict__["etcd_hosts"] = etcd_hosts
+        __props__.__dict__["ignore_docker_version"] = ignore_docker_version
+        __props__.__dict__["inactive_hosts"] = inactive_hosts
+        __props__.__dict__["ingress"] = ingress
+        __props__.__dict__["internal_kube_config_yaml"] = internal_kube_config_yaml
+        __props__.__dict__["kube_admin_user"] = kube_admin_user
+        __props__.__dict__["kube_config_yaml"] = kube_config_yaml
+        __props__.__dict__["kubernetes_version"] = kubernetes_version
+        __props__.__dict__["monitoring"] = monitoring
+        __props__.__dict__["network"] = network
+        __props__.__dict__["nodes"] = nodes
+        __props__.__dict__["nodes_confs"] = nodes_confs
+        __props__.__dict__["prefix_path"] = prefix_path
+        __props__.__dict__["private_registries"] = private_registries
+        __props__.__dict__["restore"] = restore
+        __props__.__dict__["rke_cluster_yaml"] = rke_cluster_yaml
+        __props__.__dict__["rke_state"] = rke_state
+        __props__.__dict__["rotate_certificates"] = rotate_certificates
+        __props__.__dict__["running_system_images"] = running_system_images
+        __props__.__dict__["services"] = services
+        __props__.__dict__["services_etcd_deprecated"] = services_etcd_deprecated
+        __props__.__dict__["services_kube_api_deprecated"] = services_kube_api_deprecated
+        __props__.__dict__["services_kube_controller_deprecated"] = services_kube_controller_deprecated
+        __props__.__dict__["services_kube_proxy_deprecated"] = services_kube_proxy_deprecated
+        __props__.__dict__["services_kube_scheduler_deprecated"] = services_kube_scheduler_deprecated
+        __props__.__dict__["services_kubelet_deprecated"] = services_kubelet_deprecated
+        __props__.__dict__["ssh_agent_auth"] = ssh_agent_auth
+        __props__.__dict__["ssh_cert_path"] = ssh_cert_path
+        __props__.__dict__["ssh_key_path"] = ssh_key_path
+        __props__.__dict__["system_images"] = system_images
+        __props__.__dict__["update_only"] = update_only
+        __props__.__dict__["upgrade_strategy"] = upgrade_strategy
+        __props__.__dict__["worker_hosts"] = worker_hosts
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -884,10 +2607,4 @@ class Cluster(pulumi.CustomResource):
         (Computed) RKE k8s cluster worker nodes (list)
         """
         return pulumi.get(self, "worker_hosts")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
