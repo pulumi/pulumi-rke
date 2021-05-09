@@ -16,7 +16,7 @@ WORKING_DIR     := $(shell pwd)
 
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
-development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
+development:: install_plugins provider lint_provider build_sdks install_sdks # Build the provider & SDKs for a development environment
 
 # used by the downstream provider action
 build:: install_plugins provider build_sdks install_sdks
