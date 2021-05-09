@@ -10,14 +10,6 @@ const cluster = new rke.Cluster(`actions`, {
         user: "docker",
         roles: [ "controlplane", "worker", "etcd" ],
         address: "pulumi-gha-node1"
-    }, {
-        user: "docker",
-        roles: [ "controlplane", "worker", "etcd" ],
-        address: "pulumi-gha-node2"
-    }, {
-        user: "docker",
-        roles: [ "controlplane", "worker", "etcd" ],
-        address: "pulumi-gha-node3"
     }]
 })
 
