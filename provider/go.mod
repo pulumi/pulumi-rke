@@ -3,8 +3,7 @@ module github.com/jaxxstorm/pulumi-rke/provider/v2
 go 1.15
 
 require (
-	github.com/Azure/go-autorest/autorest v0.10.0 // indirect
-	github.com/hashicorp/terraform-plugin-sdk v1.15.0
+	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.19.0
 	github.com/pulumi/pulumi/sdk/v2 v2.20.1-0.20210212181059-f4b0fa86fedc
 	github.com/rancher/terraform-provider-rke v1.1.6
