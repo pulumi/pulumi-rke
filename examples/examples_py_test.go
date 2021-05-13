@@ -3,23 +3,21 @@
 package examples
 
 import (
-	// "path"
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
-/*
-func TestAccPyDinD(t *testing.T) {
+func TestAccClusterPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "dind", "python"),
+			RunUpdateTest: false,
+			Dir:           filepath.Join(getCwd(t), "cluster", "python"),
 		})
 
 	integration.ProgramTest(t, &test)
 }
-*/
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions()

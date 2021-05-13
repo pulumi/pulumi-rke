@@ -8,8 +8,7 @@
     "homepage": "https://pulumi.io",
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`rke` Terraform Provider](https://github.com/rancher/terraform-provider-rke).",
-    "repository": "https://github.com/jaxxstorm/pulumi-rke",
-    "pluginDownloadURL": "https://bintray.com/jaxxstorm/pulumi/download_file?file_path=",
+    "repository": "https://github.com/pulumi/pulumi-rke",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
@@ -26,7 +25,6 @@
             },
             "logFile": {
                 "type": "string",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "RKE_LOG_FILE"
@@ -3056,6 +3054,15 @@
         },
         "rke:index/ClusterNetwork:ClusterNetwork": {
             "properties": {
+                "aciNetworkProvider": {
+                    "$ref": "#/types/rke:index/ClusterNetworkAciNetworkProvider:ClusterNetworkAciNetworkProvider",
+                    "description": "Aci network provider config (list maxitems:1)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "calicoNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkCalicoNetworkProvider:ClusterNetworkCalicoNetworkProvider",
                     "description": "Calico network provider config (list maxitems:1)\n",
@@ -3131,6 +3138,255 @@
                     ]
                 }
             }
+        },
+        "rke:index/ClusterNetworkAciNetworkProvider:ClusterNetworkAciNetworkProvider": {
+            "properties": {
+                "aep": {
+                    "type": "string",
+                    "description": "Attachment entity profile name on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apicHosts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ip address for apic hosts (list)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apicUserCrt": {
+                    "type": "string",
+                    "description": "Base64 encoded certificate for aci apic user (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apicUserKey": {
+                    "type": "string",
+                    "description": "Base64 encoded private key for aci apic user (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apicUserName": {
+                    "type": "string",
+                    "description": "User name for aci apic (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "encapType": {
+                    "type": "string",
+                    "description": "One of the supported encap types for aci(vlan/vxlan) (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "externDynamic": {
+                    "type": "string",
+                    "description": "Subnet to use for dynamic external IPs on aci (string)\n* `extern_static\"` - (Required) Subnet to use for static external IPs on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "externStatic": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "infraVlan": {
+                    "type": "string",
+                    "description": "Vlan for infra network on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeApiVlan": {
+                    "type": "string",
+                    "description": "Vlan for node network on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "l3out": {
+                    "type": "string",
+                    "description": "L3Out on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "l3outExternalNetworks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "L3out external networks on aci (list)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "mcastRangeEnd": {
+                    "type": "string",
+                    "description": "Mcast range end address for endpoint groups on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "mcastRangeStart": {
+                    "type": "string",
+                    "description": "Mcast range start address for endpoint groups on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nodeSubnet": {
+                    "type": "string",
+                    "description": "Kubernetes node address subnet (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nodeSvcSubnet": {
+                    "type": "string",
+                    "description": "Subnet to use for service graph endpoints on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceVlan": {
+                    "type": "string",
+                    "description": "Vlan for service graph nodes on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "snatPortRangeEnd": {
+                    "type": "string",
+                    "description": "Port end range for Source Network Address Translation on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "snatPortRangeStart": {
+                    "type": "string",
+                    "description": "Port start range for Source Network Address Translation on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "snatPortsPerNode": {
+                    "type": "string",
+                    "description": "Ports per node for Source Network Address Translation on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "systemId": {
+                    "type": "string",
+                    "description": "Unique suffix for all cluster related objects in aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string",
+                    "description": "UUID for this version of the input configuration (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vrfName": {
+                    "type": "string",
+                    "description": "VRF Name on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vrfTenant": {
+                    "type": "string",
+                    "description": "Tenant for VRF on aci (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aep",
+                "apicHosts",
+                "apicUserCrt",
+                "apicUserKey",
+                "apicUserName",
+                "encapType",
+                "externDynamic",
+                "externStatic",
+                "infraVlan",
+                "kubeApiVlan",
+                "l3out",
+                "l3outExternalNetworks",
+                "mcastRangeEnd",
+                "mcastRangeStart",
+                "nodeSubnet",
+                "nodeSvcSubnet",
+                "serviceVlan",
+                "systemId",
+                "token",
+                "vrfName",
+                "vrfTenant"
+            ]
         },
         "rke:index/ClusterNetworkCalicoNetworkProvider:ClusterNetworkCalicoNetworkProvider": {
             "properties": {
@@ -3519,6 +3775,60 @@
         },
         "rke:index/ClusterRunningSystemImages:ClusterRunningSystemImages": {
             "properties": {
+                "aciCniDeployContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_cni_deploy_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciControllerContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_controller_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciHostContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_host_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciMcastContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_mcast_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciOpflexContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_opflex_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciOvsContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_ovs_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "alpine": {
                     "type": "string",
                     "description": "Docker image for alpine (string)\n",
@@ -4088,6 +4398,15 @@
                             "mapCase": false
                         }
                     }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "RKE node drain timeout (int)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object"
@@ -4371,6 +4690,15 @@
                 "safeTimestamp": {
                     "type": "boolean",
                     "description": "Safe timestamp for etcd backup. Default: `false` (bool)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "RKE node drain timeout (int)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5650,6 +5978,60 @@
         },
         "rke:index/ClusterSystemImages:ClusterSystemImages": {
             "properties": {
+                "aciCniDeployContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_cni_deploy_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciControllerContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_controller_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciHostContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_host_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciMcastContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_mcast_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciOpflexContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_opflex_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "aciOvsContainer": {
+                    "type": "string",
+                    "description": "Docker image for aci_ovs_container (string)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "alpine": {
                     "type": "string",
                     "description": "Docker image for alpine (string)\n",
@@ -6090,7 +6472,6 @@
             },
             "logFile": {
                 "type": "string",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "RKE_LOG_FILE"
@@ -6859,33 +7240,36 @@
     },
     "language": {
         "csharp": {
+            "compatibility": "tfbridge20",
             "namespaces": {
                 "index": "index",
                 "rke": "Rke"
             },
             "packageReferences": {
-                "Pulumi": "2.*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
         "nodejs": {
+            "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^2.0.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
-                "@types/node": "^8.0.25"
+                "@types/node": "^10.0.0"
             },
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing rke cloud resources.",
-            "packageName": "@jaxxstorm/pulumi-rke",
+            "packageName": "",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`rancher/terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
             "typescriptVersion": ""
         },
         "python": {
+            "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`rancher/terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
             "requires": {
-                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }

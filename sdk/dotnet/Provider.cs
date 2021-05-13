@@ -54,7 +54,7 @@ namespace Pulumi.Rke
         public ProviderArgs()
         {
             Debug = Utilities.GetEnvBoolean("RKE_DEBUG") ?? false;
-            LogFile = Utilities.GetEnv("RKE_LOG_FILE") ?? "";
+            LogFile = Utilities.GetEnv("RKE_LOG_FILE");
         }
     }
 }

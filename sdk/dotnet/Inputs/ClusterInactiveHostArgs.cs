@@ -9,23 +9,4 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Rke.Inputs
 {
-
-    public sealed class ClusterInactiveHostArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Address ip for node (string)
-        /// </summary>
-        [Input("address")]
-        public Input<string>? Address { get; set; }
-
-        /// <summary>
-        /// Name of the host provisioned via docker machine (string)
-        /// </summary>
-        [Input("nodeName")]
-        public Input<string>? NodeName { get; set; }
-
-        public ClusterInactiveHostArgs()
-        {
-        }
-    }
 }

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'debug',
@@ -17,5 +17,5 @@ __config__ = pulumi.Config('rke')
 
 debug = __config__.get('debug') or (_utilities.get_env_bool('RKE_DEBUG') or False)
 
-log_file = __config__.get('logFile') or (_utilities.get_env('RKE_LOG_FILE') or '')
+log_file = __config__.get('logFile') or _utilities.get_env('RKE_LOG_FILE')
 

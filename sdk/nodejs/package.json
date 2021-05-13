@@ -1,5 +1,5 @@
 {
-    "name": "@jaxxstorm/pulumi-rke",
+    "name": "@pulumi/rke",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing rke cloud resources.",
     "keywords": [
@@ -7,20 +7,19 @@
         "rke"
     ],
     "homepage": "https://pulumi.io",
-    "repository": "https://github.com/jaxxstorm/pulumi-rke",
+    "repository": "https://github.com/pulumi/pulumi-rke",
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^2.0.0"
+        "@pulumi/pulumi": "^3.0.0"
     },
     "devDependencies": {
         "@types/mime": "^2.0.0",
-        "@types/node": "^8.0.25"
+        "@types/node": "^10.0.0"
     },
     "pulumi": {
-        "resource": true,
-        "pluginDownloadURL": "https://bintray.com/jaxxstorm/pulumi/download_file?file_path="
+        "resource": true
     }
 }

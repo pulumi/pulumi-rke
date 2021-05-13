@@ -1,3 +1,0 @@
-name: dotnet-full
-runtime: dotnet
-description: A minimal C# Pulumi program

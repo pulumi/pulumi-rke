@@ -1,30 +1,32 @@
 archives:
-- id: archive
-  name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+  - id: archive
+    name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
 before:
   hooks:
-  - make tfgen
-uploads:
-- name: bintray
-  target: https://api.bintray.com/content/jaxxstorm/pulumi/pulumi-rke/{{ .Version }}/
-  username: jaxxstorm
-  mode: archive
-  method: PUT
+    - make tfgen
+blobs:
+  - bucket: get.pulumi.com
+    folder: releases/plugins/
+    ids:
+      - archive
+    provider: s3
+    region: us-west-2
 builds:
-- binary: pulumi-resource-rke
-  dir: provider
-  env:
-  - CGO_ENABLED=0
-  - GO111MODULE=on
-  goarch:
-  - amd64
-  goos:
-  - darwin
-  - windows
-  - linux
-  ldflags:
-  - -X github.com/jaxxstorm/pulumi-rke/provider/v2/pkg/version.Version={{.Tag}}
-  main: ./cmd/pulumi-resource-rke/
+  - binary: pulumi-resource-rke
+    dir: provider
+    env:
+      - CGO_ENABLED=0
+      - GO111MODULE=on
+    goarch:
+      - amd64
+      - arm64
+    goos:
+      - darwin
+      - windows
+      - linux
+    ldflags:
+      - -X github.com/pulumi/pulumi-rke/provider/v3/pkg/version.Version={{.Tag}}
+    main: ./cmd/pulumi-resource-rke/
 changelog:
   skip: true
 release:

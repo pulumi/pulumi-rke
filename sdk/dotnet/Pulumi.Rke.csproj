@@ -7,7 +7,7 @@
     <Description>A Pulumi package for creating and managing rke cloud resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jaxxstorm/pulumi-rke</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pulumi/pulumi-rke</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -31,11 +31,11 @@
 
   <ItemGroup>
     <EmbeddedResource Include="version.txt" />
-    <Content Include="version.txt" />
+    <None Include="version.txt" Pack="True" PackagePath="content" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pulumi" Version="2.*" />
+    <PackageReference Include="Pulumi" Version="3.*" />
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
   </ItemGroup>
 

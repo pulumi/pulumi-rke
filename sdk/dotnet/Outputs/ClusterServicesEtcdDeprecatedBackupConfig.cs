@@ -33,6 +33,10 @@ namespace Pulumi.Rke.Outputs
         /// Safe timestamp for etcd backup. Default: `false` (bool)
         /// </summary>
         public readonly bool? SafeTimestamp;
+        /// <summary>
+        /// RKE node drain timeout (int)
+        /// </summary>
+        public readonly int? Timeout;
 
         [OutputConstructor]
         private ClusterServicesEtcdDeprecatedBackupConfig(
@@ -44,13 +48,16 @@ namespace Pulumi.Rke.Outputs
 
             Outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig? s3BackupConfig,
 
-            bool? safeTimestamp)
+            bool? safeTimestamp,
+
+            int? timeout)
         {
             Enabled = enabled;
             IntervalHours = intervalHours;
             Retention = retention;
             S3BackupConfig = s3BackupConfig;
             SafeTimestamp = safeTimestamp;
+            Timeout = timeout;
         }
     }
 }

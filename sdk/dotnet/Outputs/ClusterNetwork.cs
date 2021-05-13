@@ -14,6 +14,10 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterNetwork
     {
         /// <summary>
+        /// Aci network provider config (list maxitems:1)
+        /// </summary>
+        public readonly Outputs.ClusterNetworkAciNetworkProvider? AciNetworkProvider;
+        /// <summary>
         /// Calico network provider config (list maxitems:1)
         /// </summary>
         public readonly Outputs.ClusterNetworkCalicoNetworkProvider? CalicoNetworkProvider;
@@ -44,6 +48,8 @@ namespace Pulumi.Rke.Outputs
 
         [OutputConstructor]
         private ClusterNetwork(
+            Outputs.ClusterNetworkAciNetworkProvider? aciNetworkProvider,
+
             Outputs.ClusterNetworkCalicoNetworkProvider? calicoNetworkProvider,
 
             Outputs.ClusterNetworkCanalNetworkProvider? canalNetworkProvider,
@@ -58,6 +64,7 @@ namespace Pulumi.Rke.Outputs
 
             Outputs.ClusterNetworkWeaveNetworkProvider? weaveNetworkProvider)
         {
+            AciNetworkProvider = aciNetworkProvider;
             CalicoNetworkProvider = calicoNetworkProvider;
             CanalNetworkProvider = canalNetworkProvider;
             FlannelNetworkProvider = flannelNetworkProvider;
