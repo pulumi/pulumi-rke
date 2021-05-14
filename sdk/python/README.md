@@ -6,9 +6,9 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-rke/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-rke/sdk/v3/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-rke/blob/master/LICENSE)
 
-# DigitalOcean provider
+# Rancher RKE provider
 
-The DigitalOcean resource provider for Pulumi lets you use DigitalOcean resources in your cloud programs.  To use
+The RKE provider is used to interact with Rancher Kubernetes Engine kubernetes clusters. To use
 this package, please [install the Pulumi CLI first](https://pulumi.io/).
 
 ## Installing
@@ -47,22 +47,11 @@ To use from .NET, install using `dotnet add package`:
 
 The following configuration points are available:
 
-- `digitalocean:token` - (Required) This is the DO API token. Alternatively, this can also be specified using environment
-  variables, ordered by precedence, `DIGITALOCEAN_TOKEN` or `DIGITALOCEAN_ACCESS_TOKEN`.
-- `digitalocean:spacesAccessId` - (Optional) The access key ID used for Spaces API operations. May be set via the
-  `SPACES_ACCESS_KEY_ID` environment variable.
-- `digitalocean:spacesSecretKey` - (Optional) The secret key used for Spaces API operations. May be set via the
-  `SPACES_SECRET_ACCESS_KEY` environment variable.
-- `digitalocean:apiEndpoint` - (Optional) This can be used to override the base URL for DigitalOcean API requests. May
-  be set via the `DIGITALOCEAN_API_URL` environment variable. Default is `https://api.digitalocean.com`.
-
-## Concepts
-
-The `@pulumi/digitalocean` package provides a strongly-typed means to create cloud applications that create and interact
-closely with DigitalOcean resources.  Resources are exposed for the entirety of DigitalOcean resources and their
-properties, including (but not limited to), 'droplet', 'floatingIp', 'firewalls', etc.  Many convenience APIs have also
-been added to make development easier and to help avoid common mistakes, and to get stronger typing.
+- `rke:debug` - (Optional) Enable RKE debug logs. It can also be sourced from the `RKE_DEBUG` 
+  environment variable. Default `false` (bool)
+- `rke:logFile` - (Optional) Save RKE logs to a file. It can also be sourced from the `RKE_LOG_FILE` 
+  environment variable (string)
 
 ## Reference
 
-For further information, please visit [the DigitalOcean provider docs](https://www.pulumi.com/docs/intro/cloud-providers/digitalocean) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/digitalocean).
+For further information, please visit [the DigitalOcean provider docs](https://www.pulumi.com/docs/intro/cloud-providers/rke) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/rke).
