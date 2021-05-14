@@ -85,7 +85,7 @@ const cluster = new rke.Cluster(`actions`, {
         address: rkeInstance.publicIp,
         internalAddress: rkeInstance.privateIp.apply(async (ip) => {
             console.log("waiting for rke instance to be ready")
-            await new Promise(resolve => setTimeout(resolve, 60000));
+            await new Promise(resolve => setTimeout(resolve, 120000));
             return ip;
         }),
         user: "ubuntu",
