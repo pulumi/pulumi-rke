@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type ClusterAuthentication struct {
@@ -9834,6 +9834,8 @@ func (o ClusterMonitoringPtrOutput) Provider() pulumi.StringPtrOutput {
 }
 
 type ClusterNetwork struct {
+	// Aci network provider config (list maxitems:1)
+	AciNetworkProvider *ClusterNetworkAciNetworkProvider `pulumi:"aciNetworkProvider"`
 	// Calico network provider config (list maxitems:1)
 	CalicoNetworkProvider *ClusterNetworkCalicoNetworkProvider `pulumi:"calicoNetworkProvider"`
 	// Canal network provider config (list maxitems:1)
@@ -9862,6 +9864,8 @@ type ClusterNetworkInput interface {
 }
 
 type ClusterNetworkArgs struct {
+	// Aci network provider config (list maxitems:1)
+	AciNetworkProvider ClusterNetworkAciNetworkProviderPtrInput `pulumi:"aciNetworkProvider"`
 	// Calico network provider config (list maxitems:1)
 	CalicoNetworkProvider ClusterNetworkCalicoNetworkProviderPtrInput `pulumi:"calicoNetworkProvider"`
 	// Canal network provider config (list maxitems:1)
@@ -9955,6 +9959,11 @@ func (o ClusterNetworkOutput) ToClusterNetworkPtrOutputWithContext(ctx context.C
 	}).(ClusterNetworkPtrOutput)
 }
 
+// Aci network provider config (list maxitems:1)
+func (o ClusterNetworkOutput) AciNetworkProvider() ClusterNetworkAciNetworkProviderPtrOutput {
+	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkAciNetworkProvider { return v.AciNetworkProvider }).(ClusterNetworkAciNetworkProviderPtrOutput)
+}
+
 // Calico network provider config (list maxitems:1)
 func (o ClusterNetworkOutput) CalicoNetworkProvider() ClusterNetworkCalicoNetworkProviderPtrOutput {
 	return o.ApplyT(func(v ClusterNetwork) *ClusterNetworkCalicoNetworkProvider { return v.CalicoNetworkProvider }).(ClusterNetworkCalicoNetworkProviderPtrOutput)
@@ -10006,6 +10015,16 @@ func (o ClusterNetworkPtrOutput) ToClusterNetworkPtrOutputWithContext(ctx contex
 
 func (o ClusterNetworkPtrOutput) Elem() ClusterNetworkOutput {
 	return o.ApplyT(func(v *ClusterNetwork) ClusterNetwork { return *v }).(ClusterNetworkOutput)
+}
+
+// Aci network provider config (list maxitems:1)
+func (o ClusterNetworkPtrOutput) AciNetworkProvider() ClusterNetworkAciNetworkProviderPtrOutput {
+	return o.ApplyT(func(v *ClusterNetwork) *ClusterNetworkAciNetworkProvider {
+		if v == nil {
+			return nil
+		}
+		return v.AciNetworkProvider
+	}).(ClusterNetworkAciNetworkProviderPtrOutput)
 }
 
 // Calico network provider config (list maxitems:1)
@@ -10076,6 +10095,574 @@ func (o ClusterNetworkPtrOutput) WeaveNetworkProvider() ClusterNetworkWeaveNetwo
 		}
 		return v.WeaveNetworkProvider
 	}).(ClusterNetworkWeaveNetworkProviderPtrOutput)
+}
+
+type ClusterNetworkAciNetworkProvider struct {
+	// Attachment entity profile name on aci (string)
+	Aep string `pulumi:"aep"`
+	// Ip address for apic hosts (list)
+	ApicHosts []string `pulumi:"apicHosts"`
+	// Base64 encoded certificate for aci apic user (string)
+	ApicUserCrt string `pulumi:"apicUserCrt"`
+	// Base64 encoded private key for aci apic user (string)
+	ApicUserKey string `pulumi:"apicUserKey"`
+	// User name for aci apic (string)
+	ApicUserName string `pulumi:"apicUserName"`
+	// One of the supported encap types for aci(vlan/vxlan) (string)
+	EncapType string `pulumi:"encapType"`
+	// Subnet to use for dynamic external IPs on aci (string)
+	// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+	ExternDynamic string `pulumi:"externDynamic"`
+	ExternStatic  string `pulumi:"externStatic"`
+	// Vlan for infra network on aci (string)
+	InfraVlan string `pulumi:"infraVlan"`
+	// Vlan for node network on aci (string)
+	KubeApiVlan string `pulumi:"kubeApiVlan"`
+	// L3Out on aci (string)
+	L3out string `pulumi:"l3out"`
+	// L3out external networks on aci (list)
+	L3outExternalNetworks []string `pulumi:"l3outExternalNetworks"`
+	// Mcast range end address for endpoint groups on aci (string)
+	McastRangeEnd string `pulumi:"mcastRangeEnd"`
+	// Mcast range start address for endpoint groups on aci (string)
+	McastRangeStart string `pulumi:"mcastRangeStart"`
+	// Kubernetes node address subnet (string)
+	NodeSubnet string `pulumi:"nodeSubnet"`
+	// Subnet to use for service graph endpoints on aci (string)
+	NodeSvcSubnet string `pulumi:"nodeSvcSubnet"`
+	// Vlan for service graph nodes on aci (string)
+	ServiceVlan string `pulumi:"serviceVlan"`
+	// Port end range for Source Network Address Translation on aci (string)
+	SnatPortRangeEnd *string `pulumi:"snatPortRangeEnd"`
+	// Port start range for Source Network Address Translation on aci (string)
+	SnatPortRangeStart *string `pulumi:"snatPortRangeStart"`
+	// Ports per node for Source Network Address Translation on aci (string)
+	SnatPortsPerNode *string `pulumi:"snatPortsPerNode"`
+	// Unique suffix for all cluster related objects in aci (string)
+	SystemId string `pulumi:"systemId"`
+	// UUID for this version of the input configuration (string)
+	Token string `pulumi:"token"`
+	// VRF Name on aci (string)
+	VrfName string `pulumi:"vrfName"`
+	// Tenant for VRF on aci (string)
+	VrfTenant string `pulumi:"vrfTenant"`
+}
+
+// ClusterNetworkAciNetworkProviderInput is an input type that accepts ClusterNetworkAciNetworkProviderArgs and ClusterNetworkAciNetworkProviderOutput values.
+// You can construct a concrete instance of `ClusterNetworkAciNetworkProviderInput` via:
+//
+//          ClusterNetworkAciNetworkProviderArgs{...}
+type ClusterNetworkAciNetworkProviderInput interface {
+	pulumi.Input
+
+	ToClusterNetworkAciNetworkProviderOutput() ClusterNetworkAciNetworkProviderOutput
+	ToClusterNetworkAciNetworkProviderOutputWithContext(context.Context) ClusterNetworkAciNetworkProviderOutput
+}
+
+type ClusterNetworkAciNetworkProviderArgs struct {
+	// Attachment entity profile name on aci (string)
+	Aep pulumi.StringInput `pulumi:"aep"`
+	// Ip address for apic hosts (list)
+	ApicHosts pulumi.StringArrayInput `pulumi:"apicHosts"`
+	// Base64 encoded certificate for aci apic user (string)
+	ApicUserCrt pulumi.StringInput `pulumi:"apicUserCrt"`
+	// Base64 encoded private key for aci apic user (string)
+	ApicUserKey pulumi.StringInput `pulumi:"apicUserKey"`
+	// User name for aci apic (string)
+	ApicUserName pulumi.StringInput `pulumi:"apicUserName"`
+	// One of the supported encap types for aci(vlan/vxlan) (string)
+	EncapType pulumi.StringInput `pulumi:"encapType"`
+	// Subnet to use for dynamic external IPs on aci (string)
+	// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+	ExternDynamic pulumi.StringInput `pulumi:"externDynamic"`
+	ExternStatic  pulumi.StringInput `pulumi:"externStatic"`
+	// Vlan for infra network on aci (string)
+	InfraVlan pulumi.StringInput `pulumi:"infraVlan"`
+	// Vlan for node network on aci (string)
+	KubeApiVlan pulumi.StringInput `pulumi:"kubeApiVlan"`
+	// L3Out on aci (string)
+	L3out pulumi.StringInput `pulumi:"l3out"`
+	// L3out external networks on aci (list)
+	L3outExternalNetworks pulumi.StringArrayInput `pulumi:"l3outExternalNetworks"`
+	// Mcast range end address for endpoint groups on aci (string)
+	McastRangeEnd pulumi.StringInput `pulumi:"mcastRangeEnd"`
+	// Mcast range start address for endpoint groups on aci (string)
+	McastRangeStart pulumi.StringInput `pulumi:"mcastRangeStart"`
+	// Kubernetes node address subnet (string)
+	NodeSubnet pulumi.StringInput `pulumi:"nodeSubnet"`
+	// Subnet to use for service graph endpoints on aci (string)
+	NodeSvcSubnet pulumi.StringInput `pulumi:"nodeSvcSubnet"`
+	// Vlan for service graph nodes on aci (string)
+	ServiceVlan pulumi.StringInput `pulumi:"serviceVlan"`
+	// Port end range for Source Network Address Translation on aci (string)
+	SnatPortRangeEnd pulumi.StringPtrInput `pulumi:"snatPortRangeEnd"`
+	// Port start range for Source Network Address Translation on aci (string)
+	SnatPortRangeStart pulumi.StringPtrInput `pulumi:"snatPortRangeStart"`
+	// Ports per node for Source Network Address Translation on aci (string)
+	SnatPortsPerNode pulumi.StringPtrInput `pulumi:"snatPortsPerNode"`
+	// Unique suffix for all cluster related objects in aci (string)
+	SystemId pulumi.StringInput `pulumi:"systemId"`
+	// UUID for this version of the input configuration (string)
+	Token pulumi.StringInput `pulumi:"token"`
+	// VRF Name on aci (string)
+	VrfName pulumi.StringInput `pulumi:"vrfName"`
+	// Tenant for VRF on aci (string)
+	VrfTenant pulumi.StringInput `pulumi:"vrfTenant"`
+}
+
+func (ClusterNetworkAciNetworkProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkAciNetworkProvider)(nil)).Elem()
+}
+
+func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProviderOutput() ClusterNetworkAciNetworkProviderOutput {
+	return i.ToClusterNetworkAciNetworkProviderOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProviderOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkAciNetworkProviderOutput)
+}
+
+func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput {
+	return i.ToClusterNetworkAciNetworkProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkAciNetworkProviderOutput).ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx)
+}
+
+// ClusterNetworkAciNetworkProviderPtrInput is an input type that accepts ClusterNetworkAciNetworkProviderArgs, ClusterNetworkAciNetworkProviderPtr and ClusterNetworkAciNetworkProviderPtrOutput values.
+// You can construct a concrete instance of `ClusterNetworkAciNetworkProviderPtrInput` via:
+//
+//          ClusterNetworkAciNetworkProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterNetworkAciNetworkProviderPtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput
+	ToClusterNetworkAciNetworkProviderPtrOutputWithContext(context.Context) ClusterNetworkAciNetworkProviderPtrOutput
+}
+
+type clusterNetworkAciNetworkProviderPtrType ClusterNetworkAciNetworkProviderArgs
+
+func ClusterNetworkAciNetworkProviderPtr(v *ClusterNetworkAciNetworkProviderArgs) ClusterNetworkAciNetworkProviderPtrInput {
+	return (*clusterNetworkAciNetworkProviderPtrType)(v)
+}
+
+func (*clusterNetworkAciNetworkProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkAciNetworkProvider)(nil)).Elem()
+}
+
+func (i *clusterNetworkAciNetworkProviderPtrType) ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput {
+	return i.ToClusterNetworkAciNetworkProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterNetworkAciNetworkProviderPtrType) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkAciNetworkProviderPtrOutput)
+}
+
+type ClusterNetworkAciNetworkProviderOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkAciNetworkProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkAciNetworkProvider)(nil)).Elem()
+}
+
+func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProviderOutput() ClusterNetworkAciNetworkProviderOutput {
+	return o
+}
+
+func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProviderOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderOutput {
+	return o
+}
+
+func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput {
+	return o.ToClusterNetworkAciNetworkProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) *ClusterNetworkAciNetworkProvider {
+		return &v
+	}).(ClusterNetworkAciNetworkProviderPtrOutput)
+}
+
+// Attachment entity profile name on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) Aep() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.Aep }).(pulumi.StringOutput)
+}
+
+// Ip address for apic hosts (list)
+func (o ClusterNetworkAciNetworkProviderOutput) ApicHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) []string { return v.ApicHosts }).(pulumi.StringArrayOutput)
+}
+
+// Base64 encoded certificate for aci apic user (string)
+func (o ClusterNetworkAciNetworkProviderOutput) ApicUserCrt() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ApicUserCrt }).(pulumi.StringOutput)
+}
+
+// Base64 encoded private key for aci apic user (string)
+func (o ClusterNetworkAciNetworkProviderOutput) ApicUserKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ApicUserKey }).(pulumi.StringOutput)
+}
+
+// User name for aci apic (string)
+func (o ClusterNetworkAciNetworkProviderOutput) ApicUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ApicUserName }).(pulumi.StringOutput)
+}
+
+// One of the supported encap types for aci(vlan/vxlan) (string)
+func (o ClusterNetworkAciNetworkProviderOutput) EncapType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.EncapType }).(pulumi.StringOutput)
+}
+
+// Subnet to use for dynamic external IPs on aci (string)
+// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) ExternDynamic() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ExternDynamic }).(pulumi.StringOutput)
+}
+
+func (o ClusterNetworkAciNetworkProviderOutput) ExternStatic() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ExternStatic }).(pulumi.StringOutput)
+}
+
+// Vlan for infra network on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) InfraVlan() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.InfraVlan }).(pulumi.StringOutput)
+}
+
+// Vlan for node network on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) KubeApiVlan() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.KubeApiVlan }).(pulumi.StringOutput)
+}
+
+// L3Out on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) L3out() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.L3out }).(pulumi.StringOutput)
+}
+
+// L3out external networks on aci (list)
+func (o ClusterNetworkAciNetworkProviderOutput) L3outExternalNetworks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) []string { return v.L3outExternalNetworks }).(pulumi.StringArrayOutput)
+}
+
+// Mcast range end address for endpoint groups on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) McastRangeEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.McastRangeEnd }).(pulumi.StringOutput)
+}
+
+// Mcast range start address for endpoint groups on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) McastRangeStart() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.McastRangeStart }).(pulumi.StringOutput)
+}
+
+// Kubernetes node address subnet (string)
+func (o ClusterNetworkAciNetworkProviderOutput) NodeSubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.NodeSubnet }).(pulumi.StringOutput)
+}
+
+// Subnet to use for service graph endpoints on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) NodeSvcSubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.NodeSvcSubnet }).(pulumi.StringOutput)
+}
+
+// Vlan for service graph nodes on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) ServiceVlan() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ServiceVlan }).(pulumi.StringOutput)
+}
+
+// Port end range for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) SnatPortRangeEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) *string { return v.SnatPortRangeEnd }).(pulumi.StringPtrOutput)
+}
+
+// Port start range for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) SnatPortRangeStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) *string { return v.SnatPortRangeStart }).(pulumi.StringPtrOutput)
+}
+
+// Ports per node for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) SnatPortsPerNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) *string { return v.SnatPortsPerNode }).(pulumi.StringPtrOutput)
+}
+
+// Unique suffix for all cluster related objects in aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) SystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.SystemId }).(pulumi.StringOutput)
+}
+
+// UUID for this version of the input configuration (string)
+func (o ClusterNetworkAciNetworkProviderOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// VRF Name on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) VrfName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.VrfName }).(pulumi.StringOutput)
+}
+
+// Tenant for VRF on aci (string)
+func (o ClusterNetworkAciNetworkProviderOutput) VrfTenant() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.VrfTenant }).(pulumi.StringOutput)
+}
+
+type ClusterNetworkAciNetworkProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkAciNetworkProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkAciNetworkProvider)(nil)).Elem()
+}
+
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput {
+	return o
+}
+
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
+	return o
+}
+
+func (o ClusterNetworkAciNetworkProviderPtrOutput) Elem() ClusterNetworkAciNetworkProviderOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) ClusterNetworkAciNetworkProvider { return *v }).(ClusterNetworkAciNetworkProviderOutput)
+}
+
+// Attachment entity profile name on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) Aep() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aep
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ip address for apic hosts (list)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ApicHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApicHosts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Base64 encoded certificate for aci apic user (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ApicUserCrt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApicUserCrt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded private key for aci apic user (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ApicUserKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApicUserKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// User name for aci apic (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ApicUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApicUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// One of the supported encap types for aci(vlan/vxlan) (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) EncapType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncapType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subnet to use for dynamic external IPs on aci (string)
+// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ExternDynamic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternDynamic
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ExternStatic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternStatic
+	}).(pulumi.StringPtrOutput)
+}
+
+// Vlan for infra network on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) InfraVlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InfraVlan
+	}).(pulumi.StringPtrOutput)
+}
+
+// Vlan for node network on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) KubeApiVlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KubeApiVlan
+	}).(pulumi.StringPtrOutput)
+}
+
+// L3Out on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) L3out() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.L3out
+	}).(pulumi.StringPtrOutput)
+}
+
+// L3out external networks on aci (list)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) L3outExternalNetworks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) []string {
+		if v == nil {
+			return nil
+		}
+		return v.L3outExternalNetworks
+	}).(pulumi.StringArrayOutput)
+}
+
+// Mcast range end address for endpoint groups on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) McastRangeEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.McastRangeEnd
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mcast range start address for endpoint groups on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) McastRangeStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.McastRangeStart
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kubernetes node address subnet (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) NodeSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeSubnet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subnet to use for service graph endpoints on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) NodeSvcSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeSvcSubnet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Vlan for service graph nodes on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) ServiceVlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceVlan
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port end range for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) SnatPortRangeEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnatPortRangeEnd
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port start range for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) SnatPortRangeStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnatPortRangeStart
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ports per node for Source Network Address Translation on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) SnatPortsPerNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnatPortsPerNode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique suffix for all cluster related objects in aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) SystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// UUID for this version of the input configuration (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// VRF Name on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) VrfName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VrfName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant for VRF on aci (string)
+func (o ClusterNetworkAciNetworkProviderPtrOutput) VrfTenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VrfTenant
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterNetworkCalicoNetworkProvider struct {
@@ -11374,6 +11961,18 @@ func (o ClusterRotateCertificatesPtrOutput) Services() pulumi.StringArrayOutput 
 }
 
 type ClusterRunningSystemImages struct {
+	// Docker image for aciCniDeployContainer (string)
+	AciCniDeployContainer *string `pulumi:"aciCniDeployContainer"`
+	// Docker image for aciControllerContainer (string)
+	AciControllerContainer *string `pulumi:"aciControllerContainer"`
+	// Docker image for aciHostContainer (string)
+	AciHostContainer *string `pulumi:"aciHostContainer"`
+	// Docker image for aciMcastContainer (string)
+	AciMcastContainer *string `pulumi:"aciMcastContainer"`
+	// Docker image for aciOpflexContainer (string)
+	AciOpflexContainer *string `pulumi:"aciOpflexContainer"`
+	// Docker image for aciOvsContainer (string)
+	AciOvsContainer *string `pulumi:"aciOvsContainer"`
 	// Docker image for alpine (string)
 	Alpine *string `pulumi:"alpine"`
 	// Docker image for calicoCni (string)
@@ -11450,6 +12049,18 @@ type ClusterRunningSystemImagesInput interface {
 }
 
 type ClusterRunningSystemImagesArgs struct {
+	// Docker image for aciCniDeployContainer (string)
+	AciCniDeployContainer pulumi.StringPtrInput `pulumi:"aciCniDeployContainer"`
+	// Docker image for aciControllerContainer (string)
+	AciControllerContainer pulumi.StringPtrInput `pulumi:"aciControllerContainer"`
+	// Docker image for aciHostContainer (string)
+	AciHostContainer pulumi.StringPtrInput `pulumi:"aciHostContainer"`
+	// Docker image for aciMcastContainer (string)
+	AciMcastContainer pulumi.StringPtrInput `pulumi:"aciMcastContainer"`
+	// Docker image for aciOpflexContainer (string)
+	AciOpflexContainer pulumi.StringPtrInput `pulumi:"aciOpflexContainer"`
+	// Docker image for aciOvsContainer (string)
+	AciOvsContainer pulumi.StringPtrInput `pulumi:"aciOvsContainer"`
 	// Docker image for alpine (string)
 	Alpine pulumi.StringPtrInput `pulumi:"alpine"`
 	// Docker image for calicoCni (string)
@@ -11589,6 +12200,36 @@ func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutputW
 	return o.ApplyT(func(v ClusterRunningSystemImages) *ClusterRunningSystemImages {
 		return &v
 	}).(ClusterRunningSystemImagesPtrOutput)
+}
+
+// Docker image for aciCniDeployContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciCniDeployContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciControllerContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciControllerContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciControllerContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciHostContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciHostContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciHostContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciMcastContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciMcastContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciMcastContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOpflexContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciOpflexContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciOpflexContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOvsContainer (string)
+func (o ClusterRunningSystemImagesOutput) AciOvsContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciOvsContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for alpine (string)
@@ -11762,6 +12403,66 @@ func (o ClusterRunningSystemImagesPtrOutput) ToClusterRunningSystemImagesPtrOutp
 
 func (o ClusterRunningSystemImagesPtrOutput) Elem() ClusterRunningSystemImagesOutput {
 	return o.ApplyT(func(v *ClusterRunningSystemImages) ClusterRunningSystemImages { return *v }).(ClusterRunningSystemImagesOutput)
+}
+
+// Docker image for aciCniDeployContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciCniDeployContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciControllerContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciControllerContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciControllerContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciHostContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciHostContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciHostContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciMcastContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciMcastContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciMcastContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOpflexContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciOpflexContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciOpflexContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOvsContainer (string)
+func (o ClusterRunningSystemImagesPtrOutput) AciOvsContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciOvsContainer
+	}).(pulumi.StringPtrOutput)
 }
 
 // Docker image for alpine (string)
@@ -12708,6 +13409,8 @@ type ClusterServicesEtcdBackupConfig struct {
 	S3BackupConfig *ClusterServicesEtcdBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp *bool `pulumi:"safeTimestamp"`
+	// RKE node drain timeout (int)
+	Timeout *int `pulumi:"timeout"`
 }
 
 // ClusterServicesEtcdBackupConfigInput is an input type that accepts ClusterServicesEtcdBackupConfigArgs and ClusterServicesEtcdBackupConfigOutput values.
@@ -12732,6 +13435,8 @@ type ClusterServicesEtcdBackupConfigArgs struct {
 	S3BackupConfig ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
+	// RKE node drain timeout (int)
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
 func (ClusterServicesEtcdBackupConfigArgs) ElementType() reflect.Type {
@@ -12838,6 +13543,11 @@ func (o ClusterServicesEtcdBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOut
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
+// RKE node drain timeout (int)
+func (o ClusterServicesEtcdBackupConfigOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
 type ClusterServicesEtcdBackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigPtrOutput) ElementType() reflect.Type {
@@ -12904,6 +13614,16 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtr
 		}
 		return v.SafeTimestamp
 	}).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain timeout (int)
+func (o ClusterServicesEtcdBackupConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterServicesEtcdBackupConfigS3BackupConfig struct {
@@ -13563,6 +14283,8 @@ type ClusterServicesEtcdDeprecatedBackupConfig struct {
 	S3BackupConfig *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp *bool `pulumi:"safeTimestamp"`
+	// RKE node drain timeout (int)
+	Timeout *int `pulumi:"timeout"`
 }
 
 // ClusterServicesEtcdDeprecatedBackupConfigInput is an input type that accepts ClusterServicesEtcdDeprecatedBackupConfigArgs and ClusterServicesEtcdDeprecatedBackupConfigOutput values.
@@ -13587,6 +14309,8 @@ type ClusterServicesEtcdDeprecatedBackupConfigArgs struct {
 	S3BackupConfig ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
+	// RKE node drain timeout (int)
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigArgs) ElementType() reflect.Type {
@@ -13693,6 +14417,11 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) SafeTimestamp() pulumi.
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
+// RKE node drain timeout (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
 type ClusterServicesEtcdDeprecatedBackupConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ElementType() reflect.Type {
@@ -13761,6 +14490,16 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) SafeTimestamp() pulu
 		}
 		return v.SafeTimestamp
 	}).(pulumi.BoolPtrOutput)
+}
+
+// RKE node drain timeout (int)
+func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig struct {
@@ -17795,6 +18534,18 @@ func (o ClusterServicesSchedulerPtrOutput) Image() pulumi.StringPtrOutput {
 }
 
 type ClusterSystemImages struct {
+	// Docker image for aciCniDeployContainer (string)
+	AciCniDeployContainer *string `pulumi:"aciCniDeployContainer"`
+	// Docker image for aciControllerContainer (string)
+	AciControllerContainer *string `pulumi:"aciControllerContainer"`
+	// Docker image for aciHostContainer (string)
+	AciHostContainer *string `pulumi:"aciHostContainer"`
+	// Docker image for aciMcastContainer (string)
+	AciMcastContainer *string `pulumi:"aciMcastContainer"`
+	// Docker image for aciOpflexContainer (string)
+	AciOpflexContainer *string `pulumi:"aciOpflexContainer"`
+	// Docker image for aciOvsContainer (string)
+	AciOvsContainer *string `pulumi:"aciOvsContainer"`
 	// Docker image for alpine (string)
 	Alpine *string `pulumi:"alpine"`
 	// Docker image for calicoCni (string)
@@ -17871,6 +18622,18 @@ type ClusterSystemImagesInput interface {
 }
 
 type ClusterSystemImagesArgs struct {
+	// Docker image for aciCniDeployContainer (string)
+	AciCniDeployContainer pulumi.StringPtrInput `pulumi:"aciCniDeployContainer"`
+	// Docker image for aciControllerContainer (string)
+	AciControllerContainer pulumi.StringPtrInput `pulumi:"aciControllerContainer"`
+	// Docker image for aciHostContainer (string)
+	AciHostContainer pulumi.StringPtrInput `pulumi:"aciHostContainer"`
+	// Docker image for aciMcastContainer (string)
+	AciMcastContainer pulumi.StringPtrInput `pulumi:"aciMcastContainer"`
+	// Docker image for aciOpflexContainer (string)
+	AciOpflexContainer pulumi.StringPtrInput `pulumi:"aciOpflexContainer"`
+	// Docker image for aciOvsContainer (string)
+	AciOvsContainer pulumi.StringPtrInput `pulumi:"aciOvsContainer"`
 	// Docker image for alpine (string)
 	Alpine pulumi.StringPtrInput `pulumi:"alpine"`
 	// Docker image for calicoCni (string)
@@ -18010,6 +18773,36 @@ func (o ClusterSystemImagesOutput) ToClusterSystemImagesPtrOutputWithContext(ctx
 	return o.ApplyT(func(v ClusterSystemImages) *ClusterSystemImages {
 		return &v
 	}).(ClusterSystemImagesPtrOutput)
+}
+
+// Docker image for aciCniDeployContainer (string)
+func (o ClusterSystemImagesOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciCniDeployContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciControllerContainer (string)
+func (o ClusterSystemImagesOutput) AciControllerContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciControllerContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciHostContainer (string)
+func (o ClusterSystemImagesOutput) AciHostContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciHostContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciMcastContainer (string)
+func (o ClusterSystemImagesOutput) AciMcastContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciMcastContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOpflexContainer (string)
+func (o ClusterSystemImagesOutput) AciOpflexContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciOpflexContainer }).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOvsContainer (string)
+func (o ClusterSystemImagesOutput) AciOvsContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSystemImages) *string { return v.AciOvsContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for alpine (string)
@@ -18183,6 +18976,66 @@ func (o ClusterSystemImagesPtrOutput) ToClusterSystemImagesPtrOutputWithContext(
 
 func (o ClusterSystemImagesPtrOutput) Elem() ClusterSystemImagesOutput {
 	return o.ApplyT(func(v *ClusterSystemImages) ClusterSystemImages { return *v }).(ClusterSystemImagesOutput)
+}
+
+// Docker image for aciCniDeployContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciCniDeployContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciControllerContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciControllerContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciControllerContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciHostContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciHostContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciHostContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciMcastContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciMcastContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciMcastContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOpflexContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciOpflexContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciOpflexContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Docker image for aciOvsContainer (string)
+func (o ClusterSystemImagesPtrOutput) AciOvsContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSystemImages) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AciOvsContainer
+	}).(pulumi.StringPtrOutput)
 }
 
 // Docker image for alpine (string)
@@ -19089,6 +19942,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkAciNetworkProviderOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkAciNetworkProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkCalicoNetworkProviderOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkCalicoNetworkProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkCanalNetworkProviderOutput{})

@@ -42,6 +42,12 @@ namespace Pulumi.Rke.Inputs
         [Input("safeTimestamp")]
         public Input<bool>? SafeTimestamp { get; set; }
 
+        /// <summary>
+        /// RKE node drain timeout (int)
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
         public ClusterServicesEtcdBackupConfigArgs()
         {
         }

@@ -1242,6 +1242,10 @@ export interface ClusterMonitoring {
 
 export interface ClusterNetwork {
     /**
+     * Aci network provider config (list maxitems:1)
+     */
+    aciNetworkProvider?: pulumi.Input<inputs.ClusterNetworkAciNetworkProvider>;
+    /**
      * Calico network provider config (list maxitems:1)
      */
     calicoNetworkProvider?: pulumi.Input<inputs.ClusterNetworkCalicoNetworkProvider>;
@@ -1269,6 +1273,103 @@ export interface ClusterNetwork {
      * Weave network provider config (list maxitems:1)
      */
     weaveNetworkProvider?: pulumi.Input<inputs.ClusterNetworkWeaveNetworkProvider>;
+}
+
+export interface ClusterNetworkAciNetworkProvider {
+    /**
+     * Attachment entity profile name on aci (string)
+     */
+    aep: pulumi.Input<string>;
+    /**
+     * Ip address for apic hosts (list)
+     */
+    apicHosts: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Base64 encoded certificate for aci apic user (string)
+     */
+    apicUserCrt: pulumi.Input<string>;
+    /**
+     * Base64 encoded private key for aci apic user (string)
+     */
+    apicUserKey: pulumi.Input<string>;
+    /**
+     * User name for aci apic (string)
+     */
+    apicUserName: pulumi.Input<string>;
+    /**
+     * One of the supported encap types for aci(vlan/vxlan) (string)
+     */
+    encapType: pulumi.Input<string>;
+    /**
+     * Subnet to use for dynamic external IPs on aci (string)
+     * * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+     */
+    externDynamic: pulumi.Input<string>;
+    externStatic: pulumi.Input<string>;
+    /**
+     * Vlan for infra network on aci (string)
+     */
+    infraVlan: pulumi.Input<string>;
+    /**
+     * Vlan for node network on aci (string)
+     */
+    kubeApiVlan: pulumi.Input<string>;
+    /**
+     * L3Out on aci (string)
+     */
+    l3out: pulumi.Input<string>;
+    /**
+     * L3out external networks on aci (list)
+     */
+    l3outExternalNetworks: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Mcast range end address for endpoint groups on aci (string)
+     */
+    mcastRangeEnd: pulumi.Input<string>;
+    /**
+     * Mcast range start address for endpoint groups on aci (string)
+     */
+    mcastRangeStart: pulumi.Input<string>;
+    /**
+     * Kubernetes node address subnet (string)
+     */
+    nodeSubnet: pulumi.Input<string>;
+    /**
+     * Subnet to use for service graph endpoints on aci (string)
+     */
+    nodeSvcSubnet: pulumi.Input<string>;
+    /**
+     * Vlan for service graph nodes on aci (string)
+     */
+    serviceVlan: pulumi.Input<string>;
+    /**
+     * Port end range for Source Network Address Translation on aci (string)
+     */
+    snatPortRangeEnd?: pulumi.Input<string>;
+    /**
+     * Port start range for Source Network Address Translation on aci (string)
+     */
+    snatPortRangeStart?: pulumi.Input<string>;
+    /**
+     * Ports per node for Source Network Address Translation on aci (string)
+     */
+    snatPortsPerNode?: pulumi.Input<string>;
+    /**
+     * Unique suffix for all cluster related objects in aci (string)
+     */
+    systemId: pulumi.Input<string>;
+    /**
+     * UUID for this version of the input configuration (string)
+     */
+    token: pulumi.Input<string>;
+    /**
+     * VRF Name on aci (string)
+     */
+    vrfName: pulumi.Input<string>;
+    /**
+     * Tenant for VRF on aci (string)
+     */
+    vrfTenant: pulumi.Input<string>;
 }
 
 export interface ClusterNetworkCalicoNetworkProvider {
@@ -1423,6 +1524,30 @@ export interface ClusterRotateCertificates {
 }
 
 export interface ClusterRunningSystemImages {
+    /**
+     * Docker image for aciCniDeployContainer (string)
+     */
+    aciCniDeployContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciControllerContainer (string)
+     */
+    aciControllerContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciHostContainer (string)
+     */
+    aciHostContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciMcastContainer (string)
+     */
+    aciMcastContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciOpflexContainer (string)
+     */
+    aciOpflexContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciOvsContainer (string)
+     */
+    aciOvsContainer?: pulumi.Input<string>;
     /**
      * Docker image for alpine (string)
      */
@@ -1660,6 +1785,10 @@ export interface ClusterServicesEtcdBackupConfig {
      * Safe timestamp for etcd backup. Default: `false` (bool)
      */
     safeTimestamp?: pulumi.Input<boolean>;
+    /**
+     * RKE node drain timeout (int)
+     */
+    timeout?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
@@ -1777,6 +1906,10 @@ export interface ClusterServicesEtcdDeprecatedBackupConfig {
      * Safe timestamp for etcd backup. Default: `false` (bool)
      */
     safeTimestamp?: pulumi.Input<boolean>;
+    /**
+     * RKE node drain timeout (int)
+     */
+    timeout?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
@@ -2233,6 +2366,30 @@ export interface ClusterServicesScheduler {
 }
 
 export interface ClusterSystemImages {
+    /**
+     * Docker image for aciCniDeployContainer (string)
+     */
+    aciCniDeployContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciControllerContainer (string)
+     */
+    aciControllerContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciHostContainer (string)
+     */
+    aciHostContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciMcastContainer (string)
+     */
+    aciMcastContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciOpflexContainer (string)
+     */
+    aciOpflexContainer?: pulumi.Input<string>;
+    /**
+     * Docker image for aciOvsContainer (string)
+     */
+    aciOvsContainer?: pulumi.Input<string>;
     /**
      * Docker image for alpine (string)
      */

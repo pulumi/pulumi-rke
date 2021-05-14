@@ -19,11 +19,9 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	//"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
-	//"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/rancher/terraform-provider-rke/rke"
 )
 
@@ -86,14 +84,12 @@ func Provider() tfbridge.ProviderInfo {
 		TFProviderLicense: refProviderLicense(tfbridge.MITLicenseType),
 		License:           "Apache-2.0",
 		Homepage:          "https://pulumi.io",
-		Repository:        "https://github.com/jaxxstorm/pulumi-rke",
+		Repository:        "https://github.com/pulumi/pulumi-rke",
 		GitHubOrg:         "rancher",
-		PluginDownloadURL: "https://bintray.com/jaxxstorm/pulumi/download_file?file_path=",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"log_file": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"RKE_LOG_FILE"},
-					Value:   "",
 				},
 			},
 			"debug": {
@@ -143,27 +139,22 @@ func Provider() tfbridge.ProviderInfo {
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^2.0.0",
+				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
-			PackageName: "@jaxxstorm/pulumi-rke",
-			// See the documentation for tfbridge.OverlayInfo for how to lay out this
-			// section, or refer to the AWS provider. Delete this section if there are
-			// no overlay files.
-			//Overlay: &tfbridge.OverlayInfo{},
 		},
 		Python: &tfbridge.PythonInfo{
 			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
-				"pulumi": ">=2.0.0,<3.0.0",
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "2.*",
+				"Pulumi":                       "3.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,

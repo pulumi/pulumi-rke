@@ -5,21 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 
-__all__ = ['Provider']
+__all__ = ['ProviderArgs', 'Provider']
+
+@pulumi.input_type
+class ProviderArgs:
+    def __init__(__self__, *,
+                 debug: Optional[pulumi.Input[bool]] = None,
+                 log_file: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Provider resource.
+        """
+        if debug is None:
+            debug = (_utilities.get_env_bool('RKE_DEBUG') or False)
+        if debug is not None:
+            pulumi.set(__self__, "debug", debug)
+        if log_file is None:
+            log_file = _utilities.get_env('RKE_LOG_FILE')
+        if log_file is not None:
+            pulumi.set(__self__, "log_file", log_file)
+
+    @property
+    @pulumi.getter
+    def debug(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "debug")
+
+    @debug.setter
+    def debug(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "debug", value)
+
+    @property
+    @pulumi.getter(name="logFile")
+    def log_file(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_file")
+
+    @log_file.setter
+    def log_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_file", value)
 
 
 class Provider(pulumi.ProviderResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  debug: Optional[pulumi.Input[bool]] = None,
                  log_file: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The provider type for the rke package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -29,12 +63,36 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ProviderArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The provider type for the rke package. By default, resources use package-wide configuration
+        settings, however an explicit `Provider` instance may be created and passed during resource
+        construction to achieve fine-grained programmatic control over provider settings. See the
+        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
+        :param str resource_name: The name of the resource.
+        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 debug: Optional[pulumi.Input[bool]] = None,
+                 log_file: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -44,23 +102,17 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
             if debug is None:
                 debug = (_utilities.get_env_bool('RKE_DEBUG') or False)
-            __props__['debug'] = pulumi.Output.from_input(debug).apply(pulumi.runtime.to_json) if debug is not None else None
+            __props__.__dict__["debug"] = pulumi.Output.from_input(debug).apply(pulumi.runtime.to_json) if debug is not None else None
             if log_file is None:
-                log_file = (_utilities.get_env('RKE_LOG_FILE') or '')
-            __props__['log_file'] = log_file
+                log_file = _utilities.get_env('RKE_LOG_FILE')
+            __props__.__dict__["log_file"] = log_file
         super(Provider, __self__).__init__(
             'rke',
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -56,6 +56,7 @@ __all__ = [
     'ClusterIngress',
     'ClusterMonitoring',
     'ClusterNetwork',
+    'ClusterNetworkAciNetworkProvider',
     'ClusterNetworkCalicoNetworkProvider',
     'ClusterNetworkCanalNetworkProvider',
     'ClusterNetworkFlannelNetworkProvider',
@@ -139,12 +140,28 @@ class ClusterAuthentication(dict):
         """
         return pulumi.get(self, "webhook")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterAuthenticationWebhook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheTimeout":
+            suggest = "cache_timeout"
+        elif key == "configFile":
+            suggest = "config_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAuthenticationWebhook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAuthenticationWebhook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAuthenticationWebhook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_timeout: Optional[str] = None,
                  config_file: Optional[str] = None):
@@ -172,9 +189,6 @@ class ClusterAuthenticationWebhook(dict):
         Multiline string that represent a custom webhook config file (string)
         """
         return pulumi.get(self, "config_file")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -207,12 +221,34 @@ class ClusterAuthorization(dict):
         """
         return pulumi.get(self, "options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterBastionHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sshAgentAuth":
+            suggest = "ssh_agent_auth"
+        elif key == "sshCert":
+            suggest = "ssh_cert"
+        elif key == "sshCertPath":
+            suggest = "ssh_cert_path"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+        elif key == "sshKeyPath":
+            suggest = "ssh_key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterBastionHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterBastionHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterBastionHost.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: str,
                  user: str,
@@ -311,12 +347,38 @@ class ClusterBastionHost(dict):
         """
         return pulumi.get(self, "ssh_key_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+        elif key == "configEnvName":
+            suggest = "config_env_name"
+        elif key == "configPath":
+            suggest = "config_path"
+        elif key == "envName":
+            suggest = "env_name"
+        elif key == "keyEnvName":
+            suggest = "key_env_name"
+        elif key == "keyPath":
+            suggest = "key_path"
+        elif key == "ouName":
+            suggest = "ou_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate: Optional[str] = None,
                  common_name: Optional[str] = None,
@@ -441,12 +503,44 @@ class ClusterCertificate(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsCloudConfig":
+            suggest = "aws_cloud_config"
+        elif key == "awsCloudProvider":
+            suggest = "aws_cloud_provider"
+        elif key == "azureCloudConfig":
+            suggest = "azure_cloud_config"
+        elif key == "azureCloudProvider":
+            suggest = "azure_cloud_provider"
+        elif key == "customCloudConfig":
+            suggest = "custom_cloud_config"
+        elif key == "customCloudProvider":
+            suggest = "custom_cloud_provider"
+        elif key == "openstackCloudConfig":
+            suggest = "openstack_cloud_config"
+        elif key == "openstackCloudProvider":
+            suggest = "openstack_cloud_provider"
+        elif key == "vsphereCloudConfig":
+            suggest = "vsphere_cloud_config"
+        elif key == "vsphereCloudProvider":
+            suggest = "vsphere_cloud_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  aws_cloud_config: Optional['outputs.ClusterCloudProviderAwsCloudConfig'] = None,
@@ -582,12 +676,28 @@ class ClusterCloudProvider(dict):
         """
         return pulumi.get(self, "vsphere_cloud_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "global":
+            suggest = "global_"
+        elif key == "serviceOverrides":
+            suggest = "service_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  global_: Optional['outputs.ClusterCloudProviderAwsCloudConfigGlobal'] = None,
                  service_overrides: Optional[Sequence['outputs.ClusterCloudProviderAwsCloudConfigServiceOverride']] = None):
@@ -616,12 +726,40 @@ class ClusterCloudProviderAwsCloudConfig(dict):
         """
         return pulumi.get(self, "service_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudConfigGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableSecurityGroupIngress":
+            suggest = "disable_security_group_ingress"
+        elif key == "disableStrictZoneCheck":
+            suggest = "disable_strict_zone_check"
+        elif key == "elbSecurityGroup":
+            suggest = "elb_security_group"
+        elif key == "kubernetesClusterId":
+            suggest = "kubernetes_cluster_id"
+        elif key == "kubernetesClusterTag":
+            suggest = "kubernetes_cluster_tag"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "routeTableId":
+            suggest = "route_table_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudConfigGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudConfigGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudConfigGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_security_group_ingress: Optional[bool] = None,
                  disable_strict_zone_check: Optional[bool] = None,
@@ -746,12 +884,30 @@ class ClusterCloudProviderAwsCloudConfigGlobal(dict):
         """
         return pulumi.get(self, "zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudConfigServiceOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingMethod":
+            suggest = "signing_method"
+        elif key == "signingName":
+            suggest = "signing_name"
+        elif key == "signingRegion":
+            suggest = "signing_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudConfigServiceOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudConfigServiceOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudConfigServiceOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service: str,
                  key: Optional[str] = None,
@@ -839,12 +995,28 @@ class ClusterCloudProviderAwsCloudConfigServiceOverride(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "global":
+            suggest = "global_"
+        elif key == "serviceOverrides":
+            suggest = "service_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  global_: Optional['outputs.ClusterCloudProviderAwsCloudProviderGlobal'] = None,
                  service_overrides: Optional[Sequence['outputs.ClusterCloudProviderAwsCloudProviderServiceOverride']] = None):
@@ -873,12 +1045,40 @@ class ClusterCloudProviderAwsCloudProvider(dict):
         """
         return pulumi.get(self, "service_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudProviderGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableSecurityGroupIngress":
+            suggest = "disable_security_group_ingress"
+        elif key == "disableStrictZoneCheck":
+            suggest = "disable_strict_zone_check"
+        elif key == "elbSecurityGroup":
+            suggest = "elb_security_group"
+        elif key == "kubernetesClusterId":
+            suggest = "kubernetes_cluster_id"
+        elif key == "kubernetesClusterTag":
+            suggest = "kubernetes_cluster_tag"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "routeTableId":
+            suggest = "route_table_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudProviderGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudProviderGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudProviderGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_security_group_ingress: Optional[bool] = None,
                  disable_strict_zone_check: Optional[bool] = None,
@@ -1003,12 +1203,30 @@ class ClusterCloudProviderAwsCloudProviderGlobal(dict):
         """
         return pulumi.get(self, "zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAwsCloudProviderServiceOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingMethod":
+            suggest = "signing_method"
+        elif key == "signingName":
+            suggest = "signing_name"
+        elif key == "signingRegion":
+            suggest = "signing_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAwsCloudProviderServiceOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAwsCloudProviderServiceOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAwsCloudProviderServiceOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service: str,
                  key: Optional[str] = None,
@@ -1096,12 +1314,78 @@ class ClusterCloudProviderAwsCloudProviderServiceOverride(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderAzureCloudConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadClientId":
+            suggest = "aad_client_id"
+        elif key == "aadClientSecret":
+            suggest = "aad_client_secret"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "aadClientCertPassword":
+            suggest = "aad_client_cert_password"
+        elif key == "aadClientCertPath":
+            suggest = "aad_client_cert_path"
+        elif key == "cloudProviderBackoff":
+            suggest = "cloud_provider_backoff"
+        elif key == "cloudProviderBackoffDuration":
+            suggest = "cloud_provider_backoff_duration"
+        elif key == "cloudProviderBackoffExponent":
+            suggest = "cloud_provider_backoff_exponent"
+        elif key == "cloudProviderBackoffJitter":
+            suggest = "cloud_provider_backoff_jitter"
+        elif key == "cloudProviderBackoffRetries":
+            suggest = "cloud_provider_backoff_retries"
+        elif key == "cloudProviderRateLimit":
+            suggest = "cloud_provider_rate_limit"
+        elif key == "cloudProviderRateLimitBucket":
+            suggest = "cloud_provider_rate_limit_bucket"
+        elif key == "cloudProviderRateLimitQps":
+            suggest = "cloud_provider_rate_limit_qps"
+        elif key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "maximumLoadBalancerRuleCount":
+            suggest = "maximum_load_balancer_rule_count"
+        elif key == "primaryAvailabilitySetName":
+            suggest = "primary_availability_set_name"
+        elif key == "primaryScaleSetName":
+            suggest = "primary_scale_set_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "routeTableName":
+            suggest = "route_table_name"
+        elif key == "securityGroupName":
+            suggest = "security_group_name"
+        elif key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "useInstanceMetadata":
+            suggest = "use_instance_metadata"
+        elif key == "useManagedIdentityExtension":
+            suggest = "use_managed_identity_extension"
+        elif key == "vmType":
+            suggest = "vm_type"
+        elif key == "vnetName":
+            suggest = "vnet_name"
+        elif key == "vnetResourceGroup":
+            suggest = "vnet_resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAzureCloudConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAzureCloudConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAzureCloudConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aad_client_id: str,
                  aad_client_secret: str,
@@ -1445,13 +1729,79 @@ class ClusterCloudProviderAzureCloudConfig(dict):
         (string)
         """
         return pulumi.get(self, "vnet_resource_group")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterCloudProviderAzureCloudProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadClientId":
+            suggest = "aad_client_id"
+        elif key == "aadClientSecret":
+            suggest = "aad_client_secret"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "aadClientCertPassword":
+            suggest = "aad_client_cert_password"
+        elif key == "aadClientCertPath":
+            suggest = "aad_client_cert_path"
+        elif key == "cloudProviderBackoff":
+            suggest = "cloud_provider_backoff"
+        elif key == "cloudProviderBackoffDuration":
+            suggest = "cloud_provider_backoff_duration"
+        elif key == "cloudProviderBackoffExponent":
+            suggest = "cloud_provider_backoff_exponent"
+        elif key == "cloudProviderBackoffJitter":
+            suggest = "cloud_provider_backoff_jitter"
+        elif key == "cloudProviderBackoffRetries":
+            suggest = "cloud_provider_backoff_retries"
+        elif key == "cloudProviderRateLimit":
+            suggest = "cloud_provider_rate_limit"
+        elif key == "cloudProviderRateLimitBucket":
+            suggest = "cloud_provider_rate_limit_bucket"
+        elif key == "cloudProviderRateLimitQps":
+            suggest = "cloud_provider_rate_limit_qps"
+        elif key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "maximumLoadBalancerRuleCount":
+            suggest = "maximum_load_balancer_rule_count"
+        elif key == "primaryAvailabilitySetName":
+            suggest = "primary_availability_set_name"
+        elif key == "primaryScaleSetName":
+            suggest = "primary_scale_set_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "routeTableName":
+            suggest = "route_table_name"
+        elif key == "securityGroupName":
+            suggest = "security_group_name"
+        elif key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "useInstanceMetadata":
+            suggest = "use_instance_metadata"
+        elif key == "useManagedIdentityExtension":
+            suggest = "use_managed_identity_extension"
+        elif key == "vmType":
+            suggest = "vm_type"
+        elif key == "vnetName":
+            suggest = "vnet_name"
+        elif key == "vnetResourceGroup":
+            suggest = "vnet_resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderAzureCloudProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderAzureCloudProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderAzureCloudProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aad_client_id: str,
                  aad_client_secret: str,
@@ -1796,12 +2146,30 @@ class ClusterCloudProviderAzureCloudProvider(dict):
         """
         return pulumi.get(self, "vnet_resource_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "global":
+            suggest = "global_"
+        elif key == "blockStorage":
+            suggest = "block_storage"
+        elif key == "loadBalancer":
+            suggest = "load_balancer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  global_: 'outputs.ClusterCloudProviderOpenstackCloudConfigGlobal',
                  block_storage: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage'] = None,
@@ -1865,12 +2233,30 @@ class ClusterCloudProviderOpenstackCloudConfig(dict):
         """
         return pulumi.get(self, "route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfigBlockStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bsVersion":
+            suggest = "bs_version"
+        elif key == "ignoreVolumeAz":
+            suggest = "ignore_volume_az"
+        elif key == "trustDevicePath":
+            suggest = "trust_device_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfigBlockStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigBlockStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigBlockStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bs_version: Optional[str] = None,
                  ignore_volume_az: Optional[bool] = None,
@@ -1911,12 +2297,40 @@ class ClusterCloudProviderOpenstackCloudConfigBlockStorage(dict):
         """
         return pulumi.get(self, "trust_device_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfigGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authUrl":
+            suggest = "auth_url"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "domainId":
+            suggest = "domain_id"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "tenantName":
+            suggest = "tenant_name"
+        elif key == "trustId":
+            suggest = "trust_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfigGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_url: str,
                  password: str,
@@ -2051,12 +2465,46 @@ class ClusterCloudProviderOpenstackCloudConfigGlobal(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfigLoadBalancer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMonitor":
+            suggest = "create_monitor"
+        elif key == "floatingNetworkId":
+            suggest = "floating_network_id"
+        elif key == "lbMethod":
+            suggest = "lb_method"
+        elif key == "lbProvider":
+            suggest = "lb_provider"
+        elif key == "lbVersion":
+            suggest = "lb_version"
+        elif key == "manageSecurityGroups":
+            suggest = "manage_security_groups"
+        elif key == "monitorDelay":
+            suggest = "monitor_delay"
+        elif key == "monitorMaxRetries":
+            suggest = "monitor_max_retries"
+        elif key == "monitorTimeout":
+            suggest = "monitor_timeout"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "useOctavia":
+            suggest = "use_octavia"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfigLoadBalancer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigLoadBalancer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigLoadBalancer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_monitor: Optional[bool] = None,
                  floating_network_id: Optional[str] = None,
@@ -2193,12 +2641,28 @@ class ClusterCloudProviderOpenstackCloudConfigLoadBalancer(dict):
         """
         return pulumi.get(self, "use_octavia")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfigMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestTimeout":
+            suggest = "request_timeout"
+        elif key == "searchOrder":
+            suggest = "search_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfigMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  request_timeout: Optional[int] = None,
                  search_order: Optional[str] = None):
@@ -2227,12 +2691,26 @@ class ClusterCloudProviderOpenstackCloudConfigMetadata(dict):
         """
         return pulumi.get(self, "search_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudConfigRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routerId":
+            suggest = "router_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudConfigRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudConfigRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  router_id: Optional[str] = None):
         """
@@ -2249,12 +2727,30 @@ class ClusterCloudProviderOpenstackCloudConfigRoute(dict):
         """
         return pulumi.get(self, "router_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "global":
+            suggest = "global_"
+        elif key == "blockStorage":
+            suggest = "block_storage"
+        elif key == "loadBalancer":
+            suggest = "load_balancer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  global_: 'outputs.ClusterCloudProviderOpenstackCloudProviderGlobal',
                  block_storage: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage'] = None,
@@ -2318,12 +2814,30 @@ class ClusterCloudProviderOpenstackCloudProvider(dict):
         """
         return pulumi.get(self, "route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProviderBlockStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bsVersion":
+            suggest = "bs_version"
+        elif key == "ignoreVolumeAz":
+            suggest = "ignore_volume_az"
+        elif key == "trustDevicePath":
+            suggest = "trust_device_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProviderBlockStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderBlockStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderBlockStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bs_version: Optional[str] = None,
                  ignore_volume_az: Optional[bool] = None,
@@ -2364,12 +2878,40 @@ class ClusterCloudProviderOpenstackCloudProviderBlockStorage(dict):
         """
         return pulumi.get(self, "trust_device_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProviderGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authUrl":
+            suggest = "auth_url"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "domainId":
+            suggest = "domain_id"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "tenantName":
+            suggest = "tenant_name"
+        elif key == "trustId":
+            suggest = "trust_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProviderGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_url: str,
                  password: str,
@@ -2504,12 +3046,46 @@ class ClusterCloudProviderOpenstackCloudProviderGlobal(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProviderLoadBalancer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMonitor":
+            suggest = "create_monitor"
+        elif key == "floatingNetworkId":
+            suggest = "floating_network_id"
+        elif key == "lbMethod":
+            suggest = "lb_method"
+        elif key == "lbProvider":
+            suggest = "lb_provider"
+        elif key == "lbVersion":
+            suggest = "lb_version"
+        elif key == "manageSecurityGroups":
+            suggest = "manage_security_groups"
+        elif key == "monitorDelay":
+            suggest = "monitor_delay"
+        elif key == "monitorMaxRetries":
+            suggest = "monitor_max_retries"
+        elif key == "monitorTimeout":
+            suggest = "monitor_timeout"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "useOctavia":
+            suggest = "use_octavia"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProviderLoadBalancer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderLoadBalancer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderLoadBalancer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_monitor: Optional[bool] = None,
                  floating_network_id: Optional[str] = None,
@@ -2646,12 +3222,28 @@ class ClusterCloudProviderOpenstackCloudProviderLoadBalancer(dict):
         """
         return pulumi.get(self, "use_octavia")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProviderMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestTimeout":
+            suggest = "request_timeout"
+        elif key == "searchOrder":
+            suggest = "search_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProviderMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  request_timeout: Optional[int] = None,
                  search_order: Optional[str] = None):
@@ -2680,12 +3272,26 @@ class ClusterCloudProviderOpenstackCloudProviderMetadata(dict):
         """
         return pulumi.get(self, "search_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderOpenstackCloudProviderRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routerId":
+            suggest = "router_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderOpenstackCloudProviderRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderOpenstackCloudProviderRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  router_id: Optional[str] = None):
         """
@@ -2702,12 +3308,28 @@ class ClusterCloudProviderOpenstackCloudProviderRoute(dict):
         """
         return pulumi.get(self, "router_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualCenters":
+            suggest = "virtual_centers"
+        elif key == "global":
+            suggest = "global_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_centers: Sequence['outputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter'],
                  workspace: 'outputs.ClusterCloudProviderVsphereCloudConfigWorkspace',
@@ -2770,12 +3392,26 @@ class ClusterCloudProviderVsphereCloudConfig(dict):
         """
         return pulumi.get(self, "network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfigDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scsiControllerType":
+            suggest = "scsi_controller_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfigDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfigDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfigDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scsi_controller_type: Optional[str] = None):
         """
@@ -2792,12 +3428,34 @@ class ClusterCloudProviderVsphereCloudConfigDisk(dict):
         """
         return pulumi.get(self, "scsi_controller_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfigGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insecureFlag":
+            suggest = "insecure_flag"
+        elif key == "soapRoundtripCount":
+            suggest = "soap_roundtrip_count"
+        elif key == "vmName":
+            suggest = "vm_name"
+        elif key == "vmUuid":
+            suggest = "vm_uuid"
+        elif key == "workingDir":
+            suggest = "working_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfigGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfigGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfigGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenter: Optional[str] = None,
                  datacenters: Optional[str] = None,
@@ -2934,12 +3592,26 @@ class ClusterCloudProviderVsphereCloudConfigGlobal(dict):
         """
         return pulumi.get(self, "working_dir")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfigNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicNetwork":
+            suggest = "public_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfigNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfigNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfigNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_network: Optional[str] = None):
         """
@@ -2956,12 +3628,26 @@ class ClusterCloudProviderVsphereCloudConfigNetwork(dict):
         """
         return pulumi.get(self, "public_network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfigVirtualCenter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "soapRoundtripCount":
+            suggest = "soap_roundtrip_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfigVirtualCenter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfigVirtualCenter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfigVirtualCenter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenters: str,
                  name: str,
@@ -3034,12 +3720,28 @@ class ClusterCloudProviderVsphereCloudConfigVirtualCenter(dict):
         """
         return pulumi.get(self, "soap_roundtrip_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudConfigWorkspace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDatastore":
+            suggest = "default_datastore"
+        elif key == "resourcepoolPath":
+            suggest = "resourcepool_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudConfigWorkspace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudConfigWorkspace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudConfigWorkspace.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenter: str,
                  server: str,
@@ -3102,12 +3804,28 @@ class ClusterCloudProviderVsphereCloudConfigWorkspace(dict):
         """
         return pulumi.get(self, "resourcepool_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualCenters":
+            suggest = "virtual_centers"
+        elif key == "global":
+            suggest = "global_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_centers: Sequence['outputs.ClusterCloudProviderVsphereCloudProviderVirtualCenter'],
                  workspace: 'outputs.ClusterCloudProviderVsphereCloudProviderWorkspace',
@@ -3170,12 +3888,26 @@ class ClusterCloudProviderVsphereCloudProvider(dict):
         """
         return pulumi.get(self, "network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProviderDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scsiControllerType":
+            suggest = "scsi_controller_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProviderDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProviderDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProviderDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scsi_controller_type: Optional[str] = None):
         """
@@ -3192,12 +3924,34 @@ class ClusterCloudProviderVsphereCloudProviderDisk(dict):
         """
         return pulumi.get(self, "scsi_controller_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProviderGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insecureFlag":
+            suggest = "insecure_flag"
+        elif key == "soapRoundtripCount":
+            suggest = "soap_roundtrip_count"
+        elif key == "vmName":
+            suggest = "vm_name"
+        elif key == "vmUuid":
+            suggest = "vm_uuid"
+        elif key == "workingDir":
+            suggest = "working_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProviderGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProviderGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProviderGlobal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenter: Optional[str] = None,
                  datacenters: Optional[str] = None,
@@ -3334,12 +4088,26 @@ class ClusterCloudProviderVsphereCloudProviderGlobal(dict):
         """
         return pulumi.get(self, "working_dir")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProviderNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicNetwork":
+            suggest = "public_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProviderNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProviderNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProviderNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_network: Optional[str] = None):
         """
@@ -3356,12 +4124,26 @@ class ClusterCloudProviderVsphereCloudProviderNetwork(dict):
         """
         return pulumi.get(self, "public_network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProviderVirtualCenter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "soapRoundtripCount":
+            suggest = "soap_roundtrip_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProviderVirtualCenter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProviderVirtualCenter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProviderVirtualCenter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenters: str,
                  name: str,
@@ -3434,12 +4216,28 @@ class ClusterCloudProviderVsphereCloudProviderVirtualCenter(dict):
         """
         return pulumi.get(self, "soap_roundtrip_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCloudProviderVsphereCloudProviderWorkspace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDatastore":
+            suggest = "default_datastore"
+        elif key == "resourcepoolPath":
+            suggest = "resourcepool_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudProviderVsphereCloudProviderWorkspace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudProviderVsphereCloudProviderWorkspace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudProviderVsphereCloudProviderWorkspace.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datacenter: str,
                  server: str,
@@ -3502,12 +4300,26 @@ class ClusterCloudProviderVsphereCloudProviderWorkspace(dict):
         """
         return pulumi.get(self, "resourcepool_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterControlPlaneHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterControlPlaneHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterControlPlaneHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterControlPlaneHost.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  node_name: Optional[str] = None):
@@ -3536,12 +4348,30 @@ class ClusterControlPlaneHost(dict):
         """
         return pulumi.get(self, "node_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterDns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeSelector":
+            suggest = "node_selector"
+        elif key == "reverseCidrs":
+            suggest = "reverse_cidrs"
+        elif key == "upstreamNameservers":
+            suggest = "upstream_nameservers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterDns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterDns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterDns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  node_selector: Optional[Mapping[str, Any]] = None,
                  nodelocal: Optional['outputs.ClusterDnsNodelocal'] = None,
@@ -3606,12 +4436,28 @@ class ClusterDns(dict):
         """
         return pulumi.get(self, "upstream_nameservers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterDnsNodelocal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "nodeSelector":
+            suggest = "node_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterDnsNodelocal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterDnsNodelocal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterDnsNodelocal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_address: Optional[str] = None,
                  node_selector: Optional[Mapping[str, Any]] = None):
@@ -3640,12 +4486,26 @@ class ClusterDnsNodelocal(dict):
         """
         return pulumi.get(self, "node_selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEtcdHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEtcdHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEtcdHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEtcdHost.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  node_name: Optional[str] = None):
@@ -3673,13 +4533,27 @@ class ClusterEtcdHost(dict):
         Name of the host provisioned via docker machine (string)
         """
         return pulumi.get(self, "node_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterInactiveHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInactiveHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInactiveHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInactiveHost.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  node_name: Optional[str] = None):
@@ -3708,12 +4582,30 @@ class ClusterInactiveHost(dict):
         """
         return pulumi.get(self, "node_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterIngress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPolicy":
+            suggest = "dns_policy"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "nodeSelector":
+            suggest = "node_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterIngress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterIngress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterIngress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_policy: Optional[str] = None,
                  extra_args: Optional[Mapping[str, Any]] = None,
@@ -3778,12 +4670,26 @@ class ClusterIngress(dict):
         """
         return pulumi.get(self, "provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMonitoring(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeSelector":
+            suggest = "node_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMonitoring. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMonitoring.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMonitoring.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  node_selector: Optional[Mapping[str, Any]] = None,
                  options: Optional[Mapping[str, Any]] = None,
@@ -3824,13 +4730,36 @@ class ClusterMonitoring(dict):
         """
         return pulumi.get(self, "provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aciNetworkProvider":
+            suggest = "aci_network_provider"
+        elif key == "calicoNetworkProvider":
+            suggest = "calico_network_provider"
+        elif key == "canalNetworkProvider":
+            suggest = "canal_network_provider"
+        elif key == "flannelNetworkProvider":
+            suggest = "flannel_network_provider"
+        elif key == "weaveNetworkProvider":
+            suggest = "weave_network_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 aci_network_provider: Optional['outputs.ClusterNetworkAciNetworkProvider'] = None,
                  calico_network_provider: Optional['outputs.ClusterNetworkCalicoNetworkProvider'] = None,
                  canal_network_provider: Optional['outputs.ClusterNetworkCanalNetworkProvider'] = None,
                  flannel_network_provider: Optional['outputs.ClusterNetworkFlannelNetworkProvider'] = None,
@@ -3839,6 +4768,7 @@ class ClusterNetwork(dict):
                  plugin: Optional[str] = None,
                  weave_network_provider: Optional['outputs.ClusterNetworkWeaveNetworkProvider'] = None):
         """
+        :param 'ClusterNetworkAciNetworkProviderArgs' aci_network_provider: Aci network provider config (list maxitems:1)
         :param 'ClusterNetworkCalicoNetworkProviderArgs' calico_network_provider: Calico network provider config (list maxitems:1)
         :param 'ClusterNetworkCanalNetworkProviderArgs' canal_network_provider: Canal network provider config (list maxitems:1)
         :param 'ClusterNetworkFlannelNetworkProviderArgs' flannel_network_provider: Flannel network provider config (list maxitems:1)
@@ -3847,6 +4777,8 @@ class ClusterNetwork(dict):
         :param str plugin: Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
         :param 'ClusterNetworkWeaveNetworkProviderArgs' weave_network_provider: Weave network provider config (list maxitems:1)
         """
+        if aci_network_provider is not None:
+            pulumi.set(__self__, "aci_network_provider", aci_network_provider)
         if calico_network_provider is not None:
             pulumi.set(__self__, "calico_network_provider", calico_network_provider)
         if canal_network_provider is not None:
@@ -3861,6 +4793,14 @@ class ClusterNetwork(dict):
             pulumi.set(__self__, "plugin", plugin)
         if weave_network_provider is not None:
             pulumi.set(__self__, "weave_network_provider", weave_network_provider)
+
+    @property
+    @pulumi.getter(name="aciNetworkProvider")
+    def aci_network_provider(self) -> Optional['outputs.ClusterNetworkAciNetworkProvider']:
+        """
+        Aci network provider config (list maxitems:1)
+        """
+        return pulumi.get(self, "aci_network_provider")
 
     @property
     @pulumi.getter(name="calicoNetworkProvider")
@@ -3918,12 +4858,355 @@ class ClusterNetwork(dict):
         """
         return pulumi.get(self, "weave_network_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+@pulumi.output_type
+class ClusterNetworkAciNetworkProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apicHosts":
+            suggest = "apic_hosts"
+        elif key == "apicUserCrt":
+            suggest = "apic_user_crt"
+        elif key == "apicUserKey":
+            suggest = "apic_user_key"
+        elif key == "apicUserName":
+            suggest = "apic_user_name"
+        elif key == "encapType":
+            suggest = "encap_type"
+        elif key == "externDynamic":
+            suggest = "extern_dynamic"
+        elif key == "externStatic":
+            suggest = "extern_static"
+        elif key == "infraVlan":
+            suggest = "infra_vlan"
+        elif key == "kubeApiVlan":
+            suggest = "kube_api_vlan"
+        elif key == "l3outExternalNetworks":
+            suggest = "l3out_external_networks"
+        elif key == "mcastRangeEnd":
+            suggest = "mcast_range_end"
+        elif key == "mcastRangeStart":
+            suggest = "mcast_range_start"
+        elif key == "nodeSubnet":
+            suggest = "node_subnet"
+        elif key == "nodeSvcSubnet":
+            suggest = "node_svc_subnet"
+        elif key == "serviceVlan":
+            suggest = "service_vlan"
+        elif key == "systemId":
+            suggest = "system_id"
+        elif key == "vrfName":
+            suggest = "vrf_name"
+        elif key == "vrfTenant":
+            suggest = "vrf_tenant"
+        elif key == "snatPortRangeEnd":
+            suggest = "snat_port_range_end"
+        elif key == "snatPortRangeStart":
+            suggest = "snat_port_range_start"
+        elif key == "snatPortsPerNode":
+            suggest = "snat_ports_per_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNetworkAciNetworkProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNetworkAciNetworkProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNetworkAciNetworkProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aep: str,
+                 apic_hosts: Sequence[str],
+                 apic_user_crt: str,
+                 apic_user_key: str,
+                 apic_user_name: str,
+                 encap_type: str,
+                 extern_dynamic: str,
+                 extern_static: str,
+                 infra_vlan: str,
+                 kube_api_vlan: str,
+                 l3out: str,
+                 l3out_external_networks: Sequence[str],
+                 mcast_range_end: str,
+                 mcast_range_start: str,
+                 node_subnet: str,
+                 node_svc_subnet: str,
+                 service_vlan: str,
+                 system_id: str,
+                 token: str,
+                 vrf_name: str,
+                 vrf_tenant: str,
+                 snat_port_range_end: Optional[str] = None,
+                 snat_port_range_start: Optional[str] = None,
+                 snat_ports_per_node: Optional[str] = None):
+        """
+        :param str aep: Attachment entity profile name on aci (string)
+        :param Sequence[str] apic_hosts: Ip address for apic hosts (list)
+        :param str apic_user_crt: Base64 encoded certificate for aci apic user (string)
+        :param str apic_user_key: Base64 encoded private key for aci apic user (string)
+        :param str apic_user_name: User name for aci apic (string)
+        :param str encap_type: One of the supported encap types for aci(vlan/vxlan) (string)
+        :param str extern_dynamic: Subnet to use for dynamic external IPs on aci (string)
+               * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
+        :param str infra_vlan: Vlan for infra network on aci (string)
+        :param str kube_api_vlan: Vlan for node network on aci (string)
+        :param str l3out: L3Out on aci (string)
+        :param Sequence[str] l3out_external_networks: L3out external networks on aci (list)
+        :param str mcast_range_end: Mcast range end address for endpoint groups on aci (string)
+        :param str mcast_range_start: Mcast range start address for endpoint groups on aci (string)
+        :param str node_subnet: Kubernetes node address subnet (string)
+        :param str node_svc_subnet: Subnet to use for service graph endpoints on aci (string)
+        :param str service_vlan: Vlan for service graph nodes on aci (string)
+        :param str system_id: Unique suffix for all cluster related objects in aci (string)
+        :param str token: UUID for this version of the input configuration (string)
+        :param str vrf_name: VRF Name on aci (string)
+        :param str vrf_tenant: Tenant for VRF on aci (string)
+        :param str snat_port_range_end: Port end range for Source Network Address Translation on aci (string)
+        :param str snat_port_range_start: Port start range for Source Network Address Translation on aci (string)
+        :param str snat_ports_per_node: Ports per node for Source Network Address Translation on aci (string)
+        """
+        pulumi.set(__self__, "aep", aep)
+        pulumi.set(__self__, "apic_hosts", apic_hosts)
+        pulumi.set(__self__, "apic_user_crt", apic_user_crt)
+        pulumi.set(__self__, "apic_user_key", apic_user_key)
+        pulumi.set(__self__, "apic_user_name", apic_user_name)
+        pulumi.set(__self__, "encap_type", encap_type)
+        pulumi.set(__self__, "extern_dynamic", extern_dynamic)
+        pulumi.set(__self__, "extern_static", extern_static)
+        pulumi.set(__self__, "infra_vlan", infra_vlan)
+        pulumi.set(__self__, "kube_api_vlan", kube_api_vlan)
+        pulumi.set(__self__, "l3out", l3out)
+        pulumi.set(__self__, "l3out_external_networks", l3out_external_networks)
+        pulumi.set(__self__, "mcast_range_end", mcast_range_end)
+        pulumi.set(__self__, "mcast_range_start", mcast_range_start)
+        pulumi.set(__self__, "node_subnet", node_subnet)
+        pulumi.set(__self__, "node_svc_subnet", node_svc_subnet)
+        pulumi.set(__self__, "service_vlan", service_vlan)
+        pulumi.set(__self__, "system_id", system_id)
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "vrf_name", vrf_name)
+        pulumi.set(__self__, "vrf_tenant", vrf_tenant)
+        if snat_port_range_end is not None:
+            pulumi.set(__self__, "snat_port_range_end", snat_port_range_end)
+        if snat_port_range_start is not None:
+            pulumi.set(__self__, "snat_port_range_start", snat_port_range_start)
+        if snat_ports_per_node is not None:
+            pulumi.set(__self__, "snat_ports_per_node", snat_ports_per_node)
+
+    @property
+    @pulumi.getter
+    def aep(self) -> str:
+        """
+        Attachment entity profile name on aci (string)
+        """
+        return pulumi.get(self, "aep")
+
+    @property
+    @pulumi.getter(name="apicHosts")
+    def apic_hosts(self) -> Sequence[str]:
+        """
+        Ip address for apic hosts (list)
+        """
+        return pulumi.get(self, "apic_hosts")
+
+    @property
+    @pulumi.getter(name="apicUserCrt")
+    def apic_user_crt(self) -> str:
+        """
+        Base64 encoded certificate for aci apic user (string)
+        """
+        return pulumi.get(self, "apic_user_crt")
+
+    @property
+    @pulumi.getter(name="apicUserKey")
+    def apic_user_key(self) -> str:
+        """
+        Base64 encoded private key for aci apic user (string)
+        """
+        return pulumi.get(self, "apic_user_key")
+
+    @property
+    @pulumi.getter(name="apicUserName")
+    def apic_user_name(self) -> str:
+        """
+        User name for aci apic (string)
+        """
+        return pulumi.get(self, "apic_user_name")
+
+    @property
+    @pulumi.getter(name="encapType")
+    def encap_type(self) -> str:
+        """
+        One of the supported encap types for aci(vlan/vxlan) (string)
+        """
+        return pulumi.get(self, "encap_type")
+
+    @property
+    @pulumi.getter(name="externDynamic")
+    def extern_dynamic(self) -> str:
+        """
+        Subnet to use for dynamic external IPs on aci (string)
+        * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
+        """
+        return pulumi.get(self, "extern_dynamic")
+
+    @property
+    @pulumi.getter(name="externStatic")
+    def extern_static(self) -> str:
+        return pulumi.get(self, "extern_static")
+
+    @property
+    @pulumi.getter(name="infraVlan")
+    def infra_vlan(self) -> str:
+        """
+        Vlan for infra network on aci (string)
+        """
+        return pulumi.get(self, "infra_vlan")
+
+    @property
+    @pulumi.getter(name="kubeApiVlan")
+    def kube_api_vlan(self) -> str:
+        """
+        Vlan for node network on aci (string)
+        """
+        return pulumi.get(self, "kube_api_vlan")
+
+    @property
+    @pulumi.getter
+    def l3out(self) -> str:
+        """
+        L3Out on aci (string)
+        """
+        return pulumi.get(self, "l3out")
+
+    @property
+    @pulumi.getter(name="l3outExternalNetworks")
+    def l3out_external_networks(self) -> Sequence[str]:
+        """
+        L3out external networks on aci (list)
+        """
+        return pulumi.get(self, "l3out_external_networks")
+
+    @property
+    @pulumi.getter(name="mcastRangeEnd")
+    def mcast_range_end(self) -> str:
+        """
+        Mcast range end address for endpoint groups on aci (string)
+        """
+        return pulumi.get(self, "mcast_range_end")
+
+    @property
+    @pulumi.getter(name="mcastRangeStart")
+    def mcast_range_start(self) -> str:
+        """
+        Mcast range start address for endpoint groups on aci (string)
+        """
+        return pulumi.get(self, "mcast_range_start")
+
+    @property
+    @pulumi.getter(name="nodeSubnet")
+    def node_subnet(self) -> str:
+        """
+        Kubernetes node address subnet (string)
+        """
+        return pulumi.get(self, "node_subnet")
+
+    @property
+    @pulumi.getter(name="nodeSvcSubnet")
+    def node_svc_subnet(self) -> str:
+        """
+        Subnet to use for service graph endpoints on aci (string)
+        """
+        return pulumi.get(self, "node_svc_subnet")
+
+    @property
+    @pulumi.getter(name="serviceVlan")
+    def service_vlan(self) -> str:
+        """
+        Vlan for service graph nodes on aci (string)
+        """
+        return pulumi.get(self, "service_vlan")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> str:
+        """
+        Unique suffix for all cluster related objects in aci (string)
+        """
+        return pulumi.get(self, "system_id")
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        UUID for this version of the input configuration (string)
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="vrfName")
+    def vrf_name(self) -> str:
+        """
+        VRF Name on aci (string)
+        """
+        return pulumi.get(self, "vrf_name")
+
+    @property
+    @pulumi.getter(name="vrfTenant")
+    def vrf_tenant(self) -> str:
+        """
+        Tenant for VRF on aci (string)
+        """
+        return pulumi.get(self, "vrf_tenant")
+
+    @property
+    @pulumi.getter(name="snatPortRangeEnd")
+    def snat_port_range_end(self) -> Optional[str]:
+        """
+        Port end range for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_port_range_end")
+
+    @property
+    @pulumi.getter(name="snatPortRangeStart")
+    def snat_port_range_start(self) -> Optional[str]:
+        """
+        Port start range for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_port_range_start")
+
+    @property
+    @pulumi.getter(name="snatPortsPerNode")
+    def snat_ports_per_node(self) -> Optional[str]:
+        """
+        Ports per node for Source Network Address Translation on aci (string)
+        """
+        return pulumi.get(self, "snat_ports_per_node")
 
 
 @pulumi.output_type
 class ClusterNetworkCalicoNetworkProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudProvider":
+            suggest = "cloud_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNetworkCalicoNetworkProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNetworkCalicoNetworkProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNetworkCalicoNetworkProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_provider: Optional[str] = None):
         """
@@ -3939,9 +5222,6 @@ class ClusterNetworkCalicoNetworkProvider(dict):
         Calico cloud provider (string)
         """
         return pulumi.get(self, "cloud_provider")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3962,9 +5242,6 @@ class ClusterNetworkCanalNetworkProvider(dict):
         """
         return pulumi.get(self, "iface")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNetworkFlannelNetworkProvider(dict):
@@ -3984,9 +5261,6 @@ class ClusterNetworkFlannelNetworkProvider(dict):
         """
         return pulumi.get(self, "iface")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNetworkWeaveNetworkProvider(dict):
@@ -4005,12 +5279,44 @@ class ClusterNetworkWeaveNetworkProvider(dict):
         """
         return pulumi.get(self, "password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dockerSocket":
+            suggest = "docker_socket"
+        elif key == "hostnameOverride":
+            suggest = "hostname_override"
+        elif key == "internalAddress":
+            suggest = "internal_address"
+        elif key == "nodeName":
+            suggest = "node_name"
+        elif key == "rolesDeprecated":
+            suggest = "roles_deprecated"
+        elif key == "sshAgentAuth":
+            suggest = "ssh_agent_auth"
+        elif key == "sshCert":
+            suggest = "ssh_cert"
+        elif key == "sshCertPath":
+            suggest = "ssh_cert_path"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+        elif key == "sshKeyPath":
+            suggest = "ssh_key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: str,
                  roles: Sequence[str],
@@ -4200,9 +5506,6 @@ class ClusterNode(dict):
         """
         return pulumi.get(self, "taints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNodeTaint(dict):
@@ -4244,12 +5547,26 @@ class ClusterNodeTaint(dict):
         """
         return pulumi.get(self, "effect")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterPrivateRegistry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPrivateRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPrivateRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPrivateRegistry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  is_default: Optional[bool] = None,
@@ -4301,12 +5618,26 @@ class ClusterPrivateRegistry(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotName":
+            suggest = "snapshot_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRestore.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  restore: Optional[bool] = None,
                  snapshot_name: Optional[str] = None):
@@ -4335,12 +5666,26 @@ class ClusterRestore(dict):
         """
         return pulumi.get(self, "snapshot_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterRotateCertificates(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caCertificates":
+            suggest = "ca_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRotateCertificates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRotateCertificates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRotateCertificates.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ca_certificates: Optional[bool] = None,
                  services: Optional[Sequence[str]] = None):
@@ -4369,13 +5714,89 @@ class ClusterRotateCertificates(dict):
         """
         return pulumi.get(self, "services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterRunningSystemImages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aciCniDeployContainer":
+            suggest = "aci_cni_deploy_container"
+        elif key == "aciControllerContainer":
+            suggest = "aci_controller_container"
+        elif key == "aciHostContainer":
+            suggest = "aci_host_container"
+        elif key == "aciMcastContainer":
+            suggest = "aci_mcast_container"
+        elif key == "aciOpflexContainer":
+            suggest = "aci_opflex_container"
+        elif key == "aciOvsContainer":
+            suggest = "aci_ovs_container"
+        elif key == "calicoCni":
+            suggest = "calico_cni"
+        elif key == "calicoControllers":
+            suggest = "calico_controllers"
+        elif key == "calicoCtl":
+            suggest = "calico_ctl"
+        elif key == "calicoFlexVol":
+            suggest = "calico_flex_vol"
+        elif key == "calicoNode":
+            suggest = "calico_node"
+        elif key == "canalCni":
+            suggest = "canal_cni"
+        elif key == "canalFlannel":
+            suggest = "canal_flannel"
+        elif key == "canalFlexVol":
+            suggest = "canal_flex_vol"
+        elif key == "canalNode":
+            suggest = "canal_node"
+        elif key == "certDownloader":
+            suggest = "cert_downloader"
+        elif key == "corednsAutoscaler":
+            suggest = "coredns_autoscaler"
+        elif key == "flannelCni":
+            suggest = "flannel_cni"
+        elif key == "ingressBackend":
+            suggest = "ingress_backend"
+        elif key == "kubeDns":
+            suggest = "kube_dns"
+        elif key == "kubeDnsAutoscaler":
+            suggest = "kube_dns_autoscaler"
+        elif key == "kubeDnsSidecar":
+            suggest = "kube_dns_sidecar"
+        elif key == "kubernetesServicesSidecar":
+            suggest = "kubernetes_services_sidecar"
+        elif key == "metricsServer":
+            suggest = "metrics_server"
+        elif key == "nginxProxy":
+            suggest = "nginx_proxy"
+        elif key == "podInfraContainer":
+            suggest = "pod_infra_container"
+        elif key == "weaveCni":
+            suggest = "weave_cni"
+        elif key == "weaveNode":
+            suggest = "weave_node"
+        elif key == "windowsPodInfraContainer":
+            suggest = "windows_pod_infra_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRunningSystemImages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRunningSystemImages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRunningSystemImages.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 aci_cni_deploy_container: Optional[str] = None,
+                 aci_controller_container: Optional[str] = None,
+                 aci_host_container: Optional[str] = None,
+                 aci_mcast_container: Optional[str] = None,
+                 aci_opflex_container: Optional[str] = None,
+                 aci_ovs_container: Optional[str] = None,
                  alpine: Optional[str] = None,
                  calico_cni: Optional[str] = None,
                  calico_controllers: Optional[str] = None,
@@ -4408,6 +5829,12 @@ class ClusterRunningSystemImages(dict):
                  weave_node: Optional[str] = None,
                  windows_pod_infra_container: Optional[str] = None):
         """
+        :param str aci_cni_deploy_container: Docker image for aci_cni_deploy_container (string)
+        :param str aci_controller_container: Docker image for aci_controller_container (string)
+        :param str aci_host_container: Docker image for aci_host_container (string)
+        :param str aci_mcast_container: Docker image for aci_mcast_container (string)
+        :param str aci_opflex_container: Docker image for aci_opflex_container (string)
+        :param str aci_ovs_container: Docker image for aci_ovs_container (string)
         :param str alpine: Docker image for alpine (string)
         :param str calico_cni: Docker image for calico_cni (string)
         :param str calico_controllers: Docker image for calico_controllers (string)
@@ -4440,6 +5867,18 @@ class ClusterRunningSystemImages(dict):
         :param str weave_node: Docker image for weave_node (string)
         :param str windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        if aci_cni_deploy_container is not None:
+            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+        if aci_controller_container is not None:
+            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+        if aci_host_container is not None:
+            pulumi.set(__self__, "aci_host_container", aci_host_container)
+        if aci_mcast_container is not None:
+            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+        if aci_opflex_container is not None:
+            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+        if aci_ovs_container is not None:
+            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
         if alpine is not None:
             pulumi.set(__self__, "alpine", alpine)
         if calico_cni is not None:
@@ -4502,6 +5941,54 @@ class ClusterRunningSystemImages(dict):
             pulumi.set(__self__, "weave_node", weave_node)
         if windows_pod_infra_container is not None:
             pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+
+    @property
+    @pulumi.getter(name="aciCniDeployContainer")
+    def aci_cni_deploy_container(self) -> Optional[str]:
+        """
+        Docker image for aci_cni_deploy_container (string)
+        """
+        return pulumi.get(self, "aci_cni_deploy_container")
+
+    @property
+    @pulumi.getter(name="aciControllerContainer")
+    def aci_controller_container(self) -> Optional[str]:
+        """
+        Docker image for aci_controller_container (string)
+        """
+        return pulumi.get(self, "aci_controller_container")
+
+    @property
+    @pulumi.getter(name="aciHostContainer")
+    def aci_host_container(self) -> Optional[str]:
+        """
+        Docker image for aci_host_container (string)
+        """
+        return pulumi.get(self, "aci_host_container")
+
+    @property
+    @pulumi.getter(name="aciMcastContainer")
+    def aci_mcast_container(self) -> Optional[str]:
+        """
+        Docker image for aci_mcast_container (string)
+        """
+        return pulumi.get(self, "aci_mcast_container")
+
+    @property
+    @pulumi.getter(name="aciOpflexContainer")
+    def aci_opflex_container(self) -> Optional[str]:
+        """
+        Docker image for aci_opflex_container (string)
+        """
+        return pulumi.get(self, "aci_opflex_container")
+
+    @property
+    @pulumi.getter(name="aciOvsContainer")
+    def aci_ovs_container(self) -> Optional[str]:
+        """
+        Docker image for aci_ovs_container (string)
+        """
+        return pulumi.get(self, "aci_ovs_container")
 
     @property
     @pulumi.getter
@@ -4751,12 +6238,28 @@ class ClusterRunningSystemImages(dict):
         """
         return pulumi.get(self, "windows_pod_infra_container")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServices(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubeApi":
+            suggest = "kube_api"
+        elif key == "kubeController":
+            suggest = "kube_controller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServices. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServices.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServices.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etcd: Optional['outputs.ClusterServicesEtcd'] = None,
                  kube_api: Optional['outputs.ClusterServicesKubeApi'] = None,
@@ -4833,12 +6336,36 @@ class ClusterServices(dict):
         """
         return pulumi.get(self, "scheduler")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesEtcd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupConfig":
+            suggest = "backup_config"
+        elif key == "caCert":
+            suggest = "ca_cert"
+        elif key == "externalUrls":
+            suggest = "external_urls"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcd.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_config: Optional['outputs.ClusterServicesEtcdBackupConfig'] = None,
                  ca_cert: Optional[str] = None,
@@ -5023,24 +6550,44 @@ class ClusterServicesEtcd(dict):
         """
         return pulumi.get(self, "uid")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesEtcdBackupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalHours":
+            suggest = "interval_hours"
+        elif key == "s3BackupConfig":
+            suggest = "s3_backup_config"
+        elif key == "safeTimestamp":
+            suggest = "safe_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcdBackupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcdBackupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcdBackupConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  interval_hours: Optional[int] = None,
                  retention: Optional[int] = None,
                  s3_backup_config: Optional['outputs.ClusterServicesEtcdBackupConfigS3BackupConfig'] = None,
-                 safe_timestamp: Optional[bool] = None):
+                 safe_timestamp: Optional[bool] = None,
+                 timeout: Optional[int] = None):
         """
         :param bool enabled: Enable secrets encryption (bool)
         :param int interval_hours: Interval hours for etcd backup. Default `12` (int)
         :param int retention: Retention for etcd backup. Default `6` (int)
         :param 'ClusterServicesEtcdBackupConfigS3BackupConfigArgs' s3_backup_config: S3 config options for etcd backup (list maxitems:1)
         :param bool safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
+        :param int timeout: RKE node drain timeout (int)
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -5052,6 +6599,8 @@ class ClusterServicesEtcdBackupConfig(dict):
             pulumi.set(__self__, "s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
             pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -5093,12 +6642,40 @@ class ClusterServicesEtcdBackupConfig(dict):
         """
         return pulumi.get(self, "safe_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        RKE node drain timeout (int)
+        """
+        return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type
 class ClusterServicesEtcdBackupConfigS3BackupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "customCa":
+            suggest = "custom_ca"
+        elif key == "secretKey":
+            suggest = "secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcdBackupConfigS3BackupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcdBackupConfigS3BackupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcdBackupConfigS3BackupConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key: Optional[str] = None,
                  bucket_name: Optional[str] = None,
@@ -5187,12 +6764,36 @@ class ClusterServicesEtcdBackupConfigS3BackupConfig(dict):
         """
         return pulumi.get(self, "secret_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesEtcdDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupConfig":
+            suggest = "backup_config"
+        elif key == "caCert":
+            suggest = "ca_cert"
+        elif key == "externalUrls":
+            suggest = "external_urls"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcdDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcdDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcdDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_config: Optional['outputs.ClusterServicesEtcdDeprecatedBackupConfig'] = None,
                  ca_cert: Optional[str] = None,
@@ -5377,24 +6978,44 @@ class ClusterServicesEtcdDeprecated(dict):
         """
         return pulumi.get(self, "uid")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesEtcdDeprecatedBackupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalHours":
+            suggest = "interval_hours"
+        elif key == "s3BackupConfig":
+            suggest = "s3_backup_config"
+        elif key == "safeTimestamp":
+            suggest = "safe_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcdDeprecatedBackupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcdDeprecatedBackupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcdDeprecatedBackupConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  interval_hours: Optional[int] = None,
                  retention: Optional[int] = None,
                  s3_backup_config: Optional['outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig'] = None,
-                 safe_timestamp: Optional[bool] = None):
+                 safe_timestamp: Optional[bool] = None,
+                 timeout: Optional[int] = None):
         """
         :param bool enabled: Enable secrets encryption (bool)
         :param int interval_hours: Interval hours for etcd backup. Default `12` (int)
         :param int retention: Retention for etcd backup. Default `6` (int)
         :param 'ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs' s3_backup_config: S3 config options for etcd backup (list maxitems:1)
         :param bool safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
+        :param int timeout: RKE node drain timeout (int)
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -5406,6 +7027,8 @@ class ClusterServicesEtcdDeprecatedBackupConfig(dict):
             pulumi.set(__self__, "s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
             pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -5447,12 +7070,40 @@ class ClusterServicesEtcdDeprecatedBackupConfig(dict):
         """
         return pulumi.get(self, "safe_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        RKE node drain timeout (int)
+        """
+        return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type
 class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "customCa":
+            suggest = "custom_ca"
+        elif key == "secretKey":
+            suggest = "secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key: Optional[str] = None,
                  bucket_name: Optional[str] = None,
@@ -5541,12 +7192,44 @@ class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig(dict):
         """
         return pulumi.get(self, "secret_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApi(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysPullImages":
+            suggest = "always_pull_images"
+        elif key == "auditLog":
+            suggest = "audit_log"
+        elif key == "eventRateLimit":
+            suggest = "event_rate_limit"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "podSecurityPolicy":
+            suggest = "pod_security_policy"
+        elif key == "secretsEncryptionConfig":
+            suggest = "secrets_encryption_config"
+        elif key == "serviceClusterIpRange":
+            suggest = "service_cluster_ip_range"
+        elif key == "serviceNodePortRange":
+            suggest = "service_node_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApi. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApi.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApi.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_pull_images: Optional[bool] = None,
                  audit_log: Optional['outputs.ClusterServicesKubeApiAuditLog'] = None,
@@ -5683,9 +7366,6 @@ class ClusterServicesKubeApi(dict):
         """
         return pulumi.get(self, "service_node_port_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiAuditLog(dict):
@@ -5717,12 +7397,30 @@ class ClusterServicesKubeApiAuditLog(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiAuditLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAge":
+            suggest = "max_age"
+        elif key == "maxBackup":
+            suggest = "max_backup"
+        elif key == "maxSize":
+            suggest = "max_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApiAuditLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApiAuditLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApiAuditLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  format: Optional[str] = None,
                  max_age: Optional[int] = None,
@@ -5799,12 +7497,44 @@ class ClusterServicesKubeApiAuditLogConfiguration(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysPullImages":
+            suggest = "always_pull_images"
+        elif key == "auditLog":
+            suggest = "audit_log"
+        elif key == "eventRateLimit":
+            suggest = "event_rate_limit"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "podSecurityPolicy":
+            suggest = "pod_security_policy"
+        elif key == "secretsEncryptionConfig":
+            suggest = "secrets_encryption_config"
+        elif key == "serviceClusterIpRange":
+            suggest = "service_cluster_ip_range"
+        elif key == "serviceNodePortRange":
+            suggest = "service_node_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApiDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApiDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApiDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_pull_images: Optional[bool] = None,
                  audit_log: Optional['outputs.ClusterServicesKubeApiDeprecatedAuditLog'] = None,
@@ -5941,9 +7671,6 @@ class ClusterServicesKubeApiDeprecated(dict):
         """
         return pulumi.get(self, "service_node_port_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiDeprecatedAuditLog(dict):
@@ -5975,12 +7702,30 @@ class ClusterServicesKubeApiDeprecatedAuditLog(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiDeprecatedAuditLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAge":
+            suggest = "max_age"
+        elif key == "maxBackup":
+            suggest = "max_backup"
+        elif key == "maxSize":
+            suggest = "max_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApiDeprecatedAuditLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApiDeprecatedAuditLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApiDeprecatedAuditLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  format: Optional[str] = None,
                  max_age: Optional[int] = None,
@@ -6057,9 +7802,6 @@ class ClusterServicesKubeApiDeprecatedAuditLogConfiguration(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiDeprecatedEventRateLimit(dict):
@@ -6091,12 +7833,26 @@ class ClusterServicesKubeApiDeprecatedEventRateLimit(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customConfig":
+            suggest = "custom_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_config: Optional[str] = None,
                  enabled: Optional[bool] = None):
@@ -6124,9 +7880,6 @@ class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig(dict):
         Enable secrets encryption (bool)
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6159,12 +7912,26 @@ class ClusterServicesKubeApiEventRateLimit(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeApiSecretsEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customConfig":
+            suggest = "custom_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeApiSecretsEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeApiSecretsEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeApiSecretsEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_config: Optional[str] = None,
                  enabled: Optional[bool] = None):
@@ -6193,12 +7960,34 @@ class ClusterServicesKubeApiSecretsEncryptionConfig(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeController(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterCidr":
+            suggest = "cluster_cidr"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "serviceClusterIpRange":
+            suggest = "service_cluster_ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeController. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeController.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeController.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_cidr: Optional[str] = None,
                  extra_args: Optional[Mapping[str, Any]] = None,
@@ -6274,13 +8063,35 @@ class ClusterServicesKubeController(dict):
         Service Cluster ip Range option for kube controller service (string)
         """
         return pulumi.get(self, "service_cluster_ip_range")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterServicesKubeControllerDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterCidr":
+            suggest = "cluster_cidr"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "serviceClusterIpRange":
+            suggest = "service_cluster_ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeControllerDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeControllerDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeControllerDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_cidr: Optional[str] = None,
                  extra_args: Optional[Mapping[str, Any]] = None,
@@ -6357,12 +8168,30 @@ class ClusterServicesKubeControllerDeprecated(dict):
         """
         return pulumi.get(self, "service_cluster_ip_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeProxyDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeProxyDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeProxyDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeProxyDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extra_args: Optional[Mapping[str, Any]] = None,
                  extra_binds: Optional[Sequence[str]] = None,
@@ -6414,13 +8243,31 @@ class ClusterServicesKubeProxyDeprecated(dict):
         Docker image for scheduler service (string)
         """
         return pulumi.get(self, "image")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterServicesKubeSchedulerDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeSchedulerDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeSchedulerDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeSchedulerDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extra_args: Optional[Mapping[str, Any]] = None,
                  extra_binds: Optional[Sequence[str]] = None,
@@ -6472,13 +8319,41 @@ class ClusterServicesKubeSchedulerDeprecated(dict):
         Docker image for scheduler service (string)
         """
         return pulumi.get(self, "image")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterServicesKubelet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterDnsServer":
+            suggest = "cluster_dns_server"
+        elif key == "clusterDomain":
+            suggest = "cluster_domain"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "failSwapOn":
+            suggest = "fail_swap_on"
+        elif key == "generateServingCertificate":
+            suggest = "generate_serving_certificate"
+        elif key == "infraContainerImage":
+            suggest = "infra_container_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubelet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubelet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubelet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_dns_server: Optional[str] = None,
                  cluster_domain: Optional[str] = None,
@@ -6590,13 +8465,41 @@ class ClusterServicesKubelet(dict):
         Infra container image for kubelet service (string)
         """
         return pulumi.get(self, "infra_container_image")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterServicesKubeletDeprecated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterDnsServer":
+            suggest = "cluster_dns_server"
+        elif key == "clusterDomain":
+            suggest = "cluster_domain"
+        elif key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+        elif key == "failSwapOn":
+            suggest = "fail_swap_on"
+        elif key == "generateServingCertificate":
+            suggest = "generate_serving_certificate"
+        elif key == "infraContainerImage":
+            suggest = "infra_container_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeletDeprecated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeletDeprecated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeletDeprecated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_dns_server: Optional[str] = None,
                  cluster_domain: Optional[str] = None,
@@ -6709,12 +8612,30 @@ class ClusterServicesKubeletDeprecated(dict):
         """
         return pulumi.get(self, "infra_container_image")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServicesKubeproxy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesKubeproxy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesKubeproxy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesKubeproxy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extra_args: Optional[Mapping[str, Any]] = None,
                  extra_binds: Optional[Sequence[str]] = None,
@@ -6766,13 +8687,31 @@ class ClusterServicesKubeproxy(dict):
         Docker image for scheduler service (string)
         """
         return pulumi.get(self, "image")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterServicesScheduler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extraArgs":
+            suggest = "extra_args"
+        elif key == "extraBinds":
+            suggest = "extra_binds"
+        elif key == "extraEnvs":
+            suggest = "extra_envs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServicesScheduler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServicesScheduler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServicesScheduler.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extra_args: Optional[Mapping[str, Any]] = None,
                  extra_binds: Optional[Sequence[str]] = None,
@@ -6825,13 +8764,89 @@ class ClusterServicesScheduler(dict):
         """
         return pulumi.get(self, "image")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterSystemImages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aciCniDeployContainer":
+            suggest = "aci_cni_deploy_container"
+        elif key == "aciControllerContainer":
+            suggest = "aci_controller_container"
+        elif key == "aciHostContainer":
+            suggest = "aci_host_container"
+        elif key == "aciMcastContainer":
+            suggest = "aci_mcast_container"
+        elif key == "aciOpflexContainer":
+            suggest = "aci_opflex_container"
+        elif key == "aciOvsContainer":
+            suggest = "aci_ovs_container"
+        elif key == "calicoCni":
+            suggest = "calico_cni"
+        elif key == "calicoControllers":
+            suggest = "calico_controllers"
+        elif key == "calicoCtl":
+            suggest = "calico_ctl"
+        elif key == "calicoFlexVol":
+            suggest = "calico_flex_vol"
+        elif key == "calicoNode":
+            suggest = "calico_node"
+        elif key == "canalCni":
+            suggest = "canal_cni"
+        elif key == "canalFlannel":
+            suggest = "canal_flannel"
+        elif key == "canalFlexVol":
+            suggest = "canal_flex_vol"
+        elif key == "canalNode":
+            suggest = "canal_node"
+        elif key == "certDownloader":
+            suggest = "cert_downloader"
+        elif key == "corednsAutoscaler":
+            suggest = "coredns_autoscaler"
+        elif key == "flannelCni":
+            suggest = "flannel_cni"
+        elif key == "ingressBackend":
+            suggest = "ingress_backend"
+        elif key == "kubeDns":
+            suggest = "kube_dns"
+        elif key == "kubeDnsAutoscaler":
+            suggest = "kube_dns_autoscaler"
+        elif key == "kubeDnsSidecar":
+            suggest = "kube_dns_sidecar"
+        elif key == "kubernetesServicesSidecar":
+            suggest = "kubernetes_services_sidecar"
+        elif key == "metricsServer":
+            suggest = "metrics_server"
+        elif key == "nginxProxy":
+            suggest = "nginx_proxy"
+        elif key == "podInfraContainer":
+            suggest = "pod_infra_container"
+        elif key == "weaveCni":
+            suggest = "weave_cni"
+        elif key == "weaveNode":
+            suggest = "weave_node"
+        elif key == "windowsPodInfraContainer":
+            suggest = "windows_pod_infra_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSystemImages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSystemImages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSystemImages.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 aci_cni_deploy_container: Optional[str] = None,
+                 aci_controller_container: Optional[str] = None,
+                 aci_host_container: Optional[str] = None,
+                 aci_mcast_container: Optional[str] = None,
+                 aci_opflex_container: Optional[str] = None,
+                 aci_ovs_container: Optional[str] = None,
                  alpine: Optional[str] = None,
                  calico_cni: Optional[str] = None,
                  calico_controllers: Optional[str] = None,
@@ -6864,6 +8879,12 @@ class ClusterSystemImages(dict):
                  weave_node: Optional[str] = None,
                  windows_pod_infra_container: Optional[str] = None):
         """
+        :param str aci_cni_deploy_container: Docker image for aci_cni_deploy_container (string)
+        :param str aci_controller_container: Docker image for aci_controller_container (string)
+        :param str aci_host_container: Docker image for aci_host_container (string)
+        :param str aci_mcast_container: Docker image for aci_mcast_container (string)
+        :param str aci_opflex_container: Docker image for aci_opflex_container (string)
+        :param str aci_ovs_container: Docker image for aci_ovs_container (string)
         :param str alpine: Docker image for alpine (string)
         :param str calico_cni: Docker image for calico_cni (string)
         :param str calico_controllers: Docker image for calico_controllers (string)
@@ -6896,6 +8917,18 @@ class ClusterSystemImages(dict):
         :param str weave_node: Docker image for weave_node (string)
         :param str windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        if aci_cni_deploy_container is not None:
+            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+        if aci_controller_container is not None:
+            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+        if aci_host_container is not None:
+            pulumi.set(__self__, "aci_host_container", aci_host_container)
+        if aci_mcast_container is not None:
+            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+        if aci_opflex_container is not None:
+            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+        if aci_ovs_container is not None:
+            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
         if alpine is not None:
             pulumi.set(__self__, "alpine", alpine)
         if calico_cni is not None:
@@ -6958,6 +8991,54 @@ class ClusterSystemImages(dict):
             pulumi.set(__self__, "weave_node", weave_node)
         if windows_pod_infra_container is not None:
             pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+
+    @property
+    @pulumi.getter(name="aciCniDeployContainer")
+    def aci_cni_deploy_container(self) -> Optional[str]:
+        """
+        Docker image for aci_cni_deploy_container (string)
+        """
+        return pulumi.get(self, "aci_cni_deploy_container")
+
+    @property
+    @pulumi.getter(name="aciControllerContainer")
+    def aci_controller_container(self) -> Optional[str]:
+        """
+        Docker image for aci_controller_container (string)
+        """
+        return pulumi.get(self, "aci_controller_container")
+
+    @property
+    @pulumi.getter(name="aciHostContainer")
+    def aci_host_container(self) -> Optional[str]:
+        """
+        Docker image for aci_host_container (string)
+        """
+        return pulumi.get(self, "aci_host_container")
+
+    @property
+    @pulumi.getter(name="aciMcastContainer")
+    def aci_mcast_container(self) -> Optional[str]:
+        """
+        Docker image for aci_mcast_container (string)
+        """
+        return pulumi.get(self, "aci_mcast_container")
+
+    @property
+    @pulumi.getter(name="aciOpflexContainer")
+    def aci_opflex_container(self) -> Optional[str]:
+        """
+        Docker image for aci_opflex_container (string)
+        """
+        return pulumi.get(self, "aci_opflex_container")
+
+    @property
+    @pulumi.getter(name="aciOvsContainer")
+    def aci_ovs_container(self) -> Optional[str]:
+        """
+        Docker image for aci_ovs_container (string)
+        """
+        return pulumi.get(self, "aci_ovs_container")
 
     @property
     @pulumi.getter
@@ -7207,12 +9288,30 @@ class ClusterSystemImages(dict):
         """
         return pulumi.get(self, "windows_pod_infra_container")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradeStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "drainInput":
+            suggest = "drain_input"
+        elif key == "maxUnavailableControlplane":
+            suggest = "max_unavailable_controlplane"
+        elif key == "maxUnavailableWorker":
+            suggest = "max_unavailable_worker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradeStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradeStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradeStrategy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  drain: Optional[bool] = None,
                  drain_input: Optional['outputs.ClusterUpgradeStrategyDrainInput'] = None,
@@ -7265,12 +9364,30 @@ class ClusterUpgradeStrategy(dict):
         """
         return pulumi.get(self, "max_unavailable_worker")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradeStrategyDrainInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteLocalData":
+            suggest = "delete_local_data"
+        elif key == "gracePeriod":
+            suggest = "grace_period"
+        elif key == "ignoreDaemonSets":
+            suggest = "ignore_daemon_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradeStrategyDrainInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradeStrategyDrainInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradeStrategyDrainInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_local_data: Optional[bool] = None,
                  force: Optional[bool] = None,
@@ -7335,12 +9452,26 @@ class ClusterUpgradeStrategyDrainInput(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterWorkerHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterWorkerHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterWorkerHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterWorkerHost.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  node_name: Optional[str] = None):
@@ -7368,8 +9499,5 @@ class ClusterWorkerHost(dict):
         Name of the host provisioned via docker machine (string)
         """
         return pulumi.get(self, "node_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -13,6 +13,42 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterRunningSystemImagesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Docker image for aci_cni_deploy_container (string)
+        /// </summary>
+        [Input("aciCniDeployContainer")]
+        public Input<string>? AciCniDeployContainer { get; set; }
+
+        /// <summary>
+        /// Docker image for aci_controller_container (string)
+        /// </summary>
+        [Input("aciControllerContainer")]
+        public Input<string>? AciControllerContainer { get; set; }
+
+        /// <summary>
+        /// Docker image for aci_host_container (string)
+        /// </summary>
+        [Input("aciHostContainer")]
+        public Input<string>? AciHostContainer { get; set; }
+
+        /// <summary>
+        /// Docker image for aci_mcast_container (string)
+        /// </summary>
+        [Input("aciMcastContainer")]
+        public Input<string>? AciMcastContainer { get; set; }
+
+        /// <summary>
+        /// Docker image for aci_opflex_container (string)
+        /// </summary>
+        [Input("aciOpflexContainer")]
+        public Input<string>? AciOpflexContainer { get; set; }
+
+        /// <summary>
+        /// Docker image for aci_ovs_container (string)
+        /// </summary>
+        [Input("aciOvsContainer")]
+        public Input<string>? AciOvsContainer { get; set; }
+
+        /// <summary>
         /// Docker image for alpine (string)
         /// </summary>
         [Input("alpine")]

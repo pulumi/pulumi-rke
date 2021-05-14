@@ -1,6 +1,0 @@
-name: pulumi-rke-python-dind
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: DinD Python RKE Cluster

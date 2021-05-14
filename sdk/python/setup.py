@@ -12,7 +12,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'rke', '${PLUGIN_VERSION}', '--server', 'https://bintray.com/jaxxstorm/pulumi/download_file?file_path='])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'rke', '${PLUGIN_VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""
@@ -42,7 +42,7 @@ setup(name='pulumi_rke',
       keywords='pulumi rke',
       url='https://pulumi.io',
       project_urls={
-          'Repository': 'https://github.com/jaxxstorm/pulumi-rke'
+          'Repository': 'https://github.com/pulumi/pulumi-rke'
       },
       license='Apache-2.0',
       packages=find_packages(),
@@ -53,7 +53,7 @@ setup(name='pulumi_rke',
       },
       install_requires=[
           'parver>=0.2.1',
-          'pulumi>=2.0.0,<3.0.0',
+          'pulumi>=3.0.0,<4.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)

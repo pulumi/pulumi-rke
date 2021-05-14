@@ -1242,6 +1242,10 @@ export interface ClusterMonitoring {
 
 export interface ClusterNetwork {
     /**
+     * Aci network provider config (list maxitems:1)
+     */
+    aciNetworkProvider?: outputs.ClusterNetworkAciNetworkProvider;
+    /**
      * Calico network provider config (list maxitems:1)
      */
     calicoNetworkProvider?: outputs.ClusterNetworkCalicoNetworkProvider;
@@ -1269,6 +1273,103 @@ export interface ClusterNetwork {
      * Weave network provider config (list maxitems:1)
      */
     weaveNetworkProvider?: outputs.ClusterNetworkWeaveNetworkProvider;
+}
+
+export interface ClusterNetworkAciNetworkProvider {
+    /**
+     * Attachment entity profile name on aci (string)
+     */
+    aep: string;
+    /**
+     * Ip address for apic hosts (list)
+     */
+    apicHosts: string[];
+    /**
+     * Base64 encoded certificate for aci apic user (string)
+     */
+    apicUserCrt: string;
+    /**
+     * Base64 encoded private key for aci apic user (string)
+     */
+    apicUserKey: string;
+    /**
+     * User name for aci apic (string)
+     */
+    apicUserName: string;
+    /**
+     * One of the supported encap types for aci(vlan/vxlan) (string)
+     */
+    encapType: string;
+    /**
+     * Subnet to use for dynamic external IPs on aci (string)
+     * * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
+     */
+    externDynamic: string;
+    externStatic: string;
+    /**
+     * Vlan for infra network on aci (string)
+     */
+    infraVlan: string;
+    /**
+     * Vlan for node network on aci (string)
+     */
+    kubeApiVlan: string;
+    /**
+     * L3Out on aci (string)
+     */
+    l3out: string;
+    /**
+     * L3out external networks on aci (list)
+     */
+    l3outExternalNetworks: string[];
+    /**
+     * Mcast range end address for endpoint groups on aci (string)
+     */
+    mcastRangeEnd: string;
+    /**
+     * Mcast range start address for endpoint groups on aci (string)
+     */
+    mcastRangeStart: string;
+    /**
+     * Kubernetes node address subnet (string)
+     */
+    nodeSubnet: string;
+    /**
+     * Subnet to use for service graph endpoints on aci (string)
+     */
+    nodeSvcSubnet: string;
+    /**
+     * Vlan for service graph nodes on aci (string)
+     */
+    serviceVlan: string;
+    /**
+     * Port end range for Source Network Address Translation on aci (string)
+     */
+    snatPortRangeEnd?: string;
+    /**
+     * Port start range for Source Network Address Translation on aci (string)
+     */
+    snatPortRangeStart?: string;
+    /**
+     * Ports per node for Source Network Address Translation on aci (string)
+     */
+    snatPortsPerNode?: string;
+    /**
+     * Unique suffix for all cluster related objects in aci (string)
+     */
+    systemId: string;
+    /**
+     * UUID for this version of the input configuration (string)
+     */
+    token: string;
+    /**
+     * VRF Name on aci (string)
+     */
+    vrfName: string;
+    /**
+     * Tenant for VRF on aci (string)
+     */
+    vrfTenant: string;
 }
 
 export interface ClusterNetworkCalicoNetworkProvider {
@@ -1423,6 +1524,30 @@ export interface ClusterRotateCertificates {
 }
 
 export interface ClusterRunningSystemImages {
+    /**
+     * Docker image for aciCniDeployContainer (string)
+     */
+    aciCniDeployContainer?: string;
+    /**
+     * Docker image for aciControllerContainer (string)
+     */
+    aciControllerContainer?: string;
+    /**
+     * Docker image for aciHostContainer (string)
+     */
+    aciHostContainer?: string;
+    /**
+     * Docker image for aciMcastContainer (string)
+     */
+    aciMcastContainer?: string;
+    /**
+     * Docker image for aciOpflexContainer (string)
+     */
+    aciOpflexContainer?: string;
+    /**
+     * Docker image for aciOvsContainer (string)
+     */
+    aciOvsContainer?: string;
     /**
      * Docker image for alpine (string)
      */
@@ -1660,6 +1785,10 @@ export interface ClusterServicesEtcdBackupConfig {
      * Safe timestamp for etcd backup. Default: `false` (bool)
      */
     safeTimestamp?: boolean;
+    /**
+     * RKE node drain timeout (int)
+     */
+    timeout?: number;
 }
 
 export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
@@ -1777,6 +1906,10 @@ export interface ClusterServicesEtcdDeprecatedBackupConfig {
      * Safe timestamp for etcd backup. Default: `false` (bool)
      */
     safeTimestamp?: boolean;
+    /**
+     * RKE node drain timeout (int)
+     */
+    timeout?: number;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
@@ -2233,6 +2366,30 @@ export interface ClusterServicesScheduler {
 }
 
 export interface ClusterSystemImages {
+    /**
+     * Docker image for aciCniDeployContainer (string)
+     */
+    aciCniDeployContainer?: string;
+    /**
+     * Docker image for aciControllerContainer (string)
+     */
+    aciControllerContainer?: string;
+    /**
+     * Docker image for aciHostContainer (string)
+     */
+    aciHostContainer?: string;
+    /**
+     * Docker image for aciMcastContainer (string)
+     */
+    aciMcastContainer?: string;
+    /**
+     * Docker image for aciOpflexContainer (string)
+     */
+    aciOpflexContainer?: string;
+    /**
+     * Docker image for aciOvsContainer (string)
+     */
+    aciOvsContainer?: string;
     /**
      * Docker image for alpine (string)
      */
