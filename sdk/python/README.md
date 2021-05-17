@@ -54,4 +54,4 @@ The following configuration points are available:
 
 ## Reference
 
-For further information, please visit [the DigitalOcean provider docs](https://www.pulumi.com/docs/intro/cloud-providers/rke) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/rke).
+For further information, please visit [the RKE provider docs](https://www.pulumi.com/docs/intro/cloud-providers/rke) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/rke).
