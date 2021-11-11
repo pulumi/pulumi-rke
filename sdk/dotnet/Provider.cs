@@ -18,6 +18,10 @@ namespace Pulumi.Rke
     [RkeResourceType("pulumi:providers:rke")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("logFile")]
+        public Output<string?> LogFile { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
