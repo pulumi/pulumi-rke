@@ -111,7 +111,7 @@ func (o ClusterAuthenticationOutput) ToClusterAuthenticationPtrOutput() ClusterA
 }
 
 func (o ClusterAuthenticationOutput) ToClusterAuthenticationPtrOutputWithContext(ctx context.Context) ClusterAuthenticationPtrOutput {
-	return o.ApplyT(func(v ClusterAuthentication) *ClusterAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAuthentication) *ClusterAuthentication {
 		return &v
 	}).(ClusterAuthenticationPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ClusterAuthenticationPtrOutput) ToClusterAuthenticationPtrOutputWithCont
 }
 
 func (o ClusterAuthenticationPtrOutput) Elem() ClusterAuthenticationOutput {
-	return o.ApplyT(func(v *ClusterAuthentication) ClusterAuthentication { return *v }).(ClusterAuthenticationOutput)
+	return o.ApplyT(func(v *ClusterAuthentication) ClusterAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAuthentication
+		return ret
+	}).(ClusterAuthenticationOutput)
 }
 
 // List of additional hostnames and IPs to include in the api server PKI cert (list)
@@ -276,7 +282,7 @@ func (o ClusterAuthenticationWebhookOutput) ToClusterAuthenticationWebhookPtrOut
 }
 
 func (o ClusterAuthenticationWebhookOutput) ToClusterAuthenticationWebhookPtrOutputWithContext(ctx context.Context) ClusterAuthenticationWebhookPtrOutput {
-	return o.ApplyT(func(v ClusterAuthenticationWebhook) *ClusterAuthenticationWebhook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAuthenticationWebhook) *ClusterAuthenticationWebhook {
 		return &v
 	}).(ClusterAuthenticationWebhookPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o ClusterAuthenticationWebhookPtrOutput) ToClusterAuthenticationWebhookPtr
 }
 
 func (o ClusterAuthenticationWebhookPtrOutput) Elem() ClusterAuthenticationWebhookOutput {
-	return o.ApplyT(func(v *ClusterAuthenticationWebhook) ClusterAuthenticationWebhook { return *v }).(ClusterAuthenticationWebhookOutput)
+	return o.ApplyT(func(v *ClusterAuthenticationWebhook) ClusterAuthenticationWebhook {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAuthenticationWebhook
+		return ret
+	}).(ClusterAuthenticationWebhookOutput)
 }
 
 // Controls how long to cache authentication decisions (string)
@@ -426,7 +438,7 @@ func (o ClusterAuthorizationOutput) ToClusterAuthorizationPtrOutput() ClusterAut
 }
 
 func (o ClusterAuthorizationOutput) ToClusterAuthorizationPtrOutputWithContext(ctx context.Context) ClusterAuthorizationPtrOutput {
-	return o.ApplyT(func(v ClusterAuthorization) *ClusterAuthorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAuthorization) *ClusterAuthorization {
 		return &v
 	}).(ClusterAuthorizationPtrOutput)
 }
@@ -456,7 +468,13 @@ func (o ClusterAuthorizationPtrOutput) ToClusterAuthorizationPtrOutputWithContex
 }
 
 func (o ClusterAuthorizationPtrOutput) Elem() ClusterAuthorizationOutput {
-	return o.ApplyT(func(v *ClusterAuthorization) ClusterAuthorization { return *v }).(ClusterAuthorizationOutput)
+	return o.ApplyT(func(v *ClusterAuthorization) ClusterAuthorization {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAuthorization
+		return ret
+	}).(ClusterAuthorizationOutput)
 }
 
 // RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
@@ -600,7 +618,7 @@ func (o ClusterBastionHostOutput) ToClusterBastionHostPtrOutput() ClusterBastion
 }
 
 func (o ClusterBastionHostOutput) ToClusterBastionHostPtrOutputWithContext(ctx context.Context) ClusterBastionHostPtrOutput {
-	return o.ApplyT(func(v ClusterBastionHost) *ClusterBastionHost {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBastionHost) *ClusterBastionHost {
 		return &v
 	}).(ClusterBastionHostPtrOutput)
 }
@@ -660,7 +678,13 @@ func (o ClusterBastionHostPtrOutput) ToClusterBastionHostPtrOutputWithContext(ct
 }
 
 func (o ClusterBastionHostPtrOutput) Elem() ClusterBastionHostOutput {
-	return o.ApplyT(func(v *ClusterBastionHost) ClusterBastionHost { return *v }).(ClusterBastionHostOutput)
+	return o.ApplyT(func(v *ClusterBastionHost) ClusterBastionHost {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBastionHost
+		return ret
+	}).(ClusterBastionHostOutput)
 }
 
 // Address ip for node (string)
@@ -1074,7 +1098,7 @@ func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutput() ClusterClo
 }
 
 func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProvider) *ClusterCloudProvider {
 		return &v
 	}).(ClusterCloudProviderPtrOutput)
 }
@@ -1161,7 +1185,13 @@ func (o ClusterCloudProviderPtrOutput) ToClusterCloudProviderPtrOutputWithContex
 }
 
 func (o ClusterCloudProviderPtrOutput) Elem() ClusterCloudProviderOutput {
-	return o.ApplyT(func(v *ClusterCloudProvider) ClusterCloudProvider { return *v }).(ClusterCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProvider) ClusterCloudProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProvider
+		return ret
+	}).(ClusterCloudProviderOutput)
 }
 
 // Use awsCloudProvider instead
@@ -1381,7 +1411,7 @@ func (o ClusterCloudProviderAwsCloudConfigOutput) ToClusterCloudProviderAwsCloud
 }
 
 func (o ClusterCloudProviderAwsCloudConfigOutput) ToClusterCloudProviderAwsCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudConfigPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfig {
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
@@ -1413,7 +1443,13 @@ func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ToClusterCloudProviderAwsCl
 }
 
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfig) ClusterCloudProviderAwsCloudConfig { return *v }).(ClusterCloudProviderAwsCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfig) ClusterCloudProviderAwsCloudConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAwsCloudConfig
+		return ret
+	}).(ClusterCloudProviderAwsCloudConfigOutput)
 }
 
 // (list maxitems:1)
@@ -1565,7 +1601,7 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ToClusterCloudProviderAw
 }
 
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ToClusterCloudProviderAwsCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *ClusterCloudProviderAwsCloudConfigGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudConfigGlobal) *ClusterCloudProviderAwsCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
@@ -1635,7 +1671,13 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigGlobalOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfigGlobal) ClusterCloudProviderAwsCloudConfigGlobal { return *v }).(ClusterCloudProviderAwsCloudConfigGlobalOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfigGlobal) ClusterCloudProviderAwsCloudConfigGlobal {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAwsCloudConfigGlobal
+		return ret
+	}).(ClusterCloudProviderAwsCloudConfigGlobalOutput)
 }
 
 // Disables the automatic ingress creation. Default `false` (bool)
@@ -1992,7 +2034,7 @@ func (o ClusterCloudProviderAwsCloudProviderOutput) ToClusterCloudProviderAwsClo
 }
 
 func (o ClusterCloudProviderAwsCloudProviderOutput) ToClusterCloudProviderAwsCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProvider {
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
@@ -2026,7 +2068,13 @@ func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ToClusterCloudProviderAws
 }
 
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProvider) ClusterCloudProviderAwsCloudProvider { return *v }).(ClusterCloudProviderAwsCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProvider) ClusterCloudProviderAwsCloudProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAwsCloudProvider
+		return ret
+	}).(ClusterCloudProviderAwsCloudProviderOutput)
 }
 
 // (list maxitems:1)
@@ -2178,7 +2226,7 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ToClusterCloudProvider
 }
 
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ToClusterCloudProviderAwsCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *ClusterCloudProviderAwsCloudProviderGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudProviderGlobal) *ClusterCloudProviderAwsCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
@@ -2249,7 +2297,11 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderGlobalOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProviderGlobal) ClusterCloudProviderAwsCloudProviderGlobal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAwsCloudProviderGlobal
+		return ret
 	}).(ClusterCloudProviderAwsCloudProviderGlobalOutput)
 }
 
@@ -2713,7 +2765,7 @@ func (o ClusterCloudProviderAzureCloudConfigOutput) ToClusterCloudProviderAzureC
 }
 
 func (o ClusterCloudProviderAzureCloudConfigOutput) ToClusterCloudProviderAzureCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAzureCloudConfigPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *ClusterCloudProviderAzureCloudConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAzureCloudConfig) *ClusterCloudProviderAzureCloudConfig {
 		return &v
 	}).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
@@ -2877,7 +2929,13 @@ func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ToClusterCloudProviderAzu
 }
 
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) Elem() ClusterCloudProviderAzureCloudConfigOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudConfig) ClusterCloudProviderAzureCloudConfig { return *v }).(ClusterCloudProviderAzureCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudConfig) ClusterCloudProviderAzureCloudConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAzureCloudConfig
+		return ret
+	}).(ClusterCloudProviderAzureCloudConfigOutput)
 }
 
 // (string)
@@ -3372,7 +3430,7 @@ func (o ClusterCloudProviderAzureCloudProviderOutput) ToClusterCloudProviderAzur
 }
 
 func (o ClusterCloudProviderAzureCloudProviderOutput) ToClusterCloudProviderAzureCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAzureCloudProviderPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *ClusterCloudProviderAzureCloudProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAzureCloudProvider) *ClusterCloudProviderAzureCloudProvider {
 		return &v
 	}).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
@@ -3536,7 +3594,13 @@ func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ToClusterCloudProviderA
 }
 
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) Elem() ClusterCloudProviderAzureCloudProviderOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudProvider) ClusterCloudProviderAzureCloudProvider { return *v }).(ClusterCloudProviderAzureCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudProvider) ClusterCloudProviderAzureCloudProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderAzureCloudProvider
+		return ret
+	}).(ClusterCloudProviderAzureCloudProviderOutput)
 }
 
 // (string)
@@ -3937,7 +4001,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigOutput) ToClusterCloudProviderOp
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigOutput) ToClusterCloudProviderOpenstackCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfig {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
@@ -3992,7 +4056,13 @@ func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfig { return *v }).(ClusterCloudProviderOpenstackCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfig) ClusterCloudProviderOpenstackCloudConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfig
+		return ret
+	}).(ClusterCloudProviderOpenstackCloudConfigOutput)
 }
 
 // (list maxitems:1)
@@ -4146,7 +4216,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ToClusterClo
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ToClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *ClusterCloudProviderOpenstackCloudConfigBlockStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *ClusterCloudProviderOpenstackCloudConfigBlockStorage {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
@@ -4182,7 +4252,11 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ToCluster
 
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigBlockStorage) ClusterCloudProviderOpenstackCloudConfigBlockStorage {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfigBlockStorage
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput)
 }
 
@@ -4349,7 +4423,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ToClusterCloudProv
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ToClusterCloudProviderOpenstackCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *ClusterCloudProviderOpenstackCloudConfigGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigGlobal) *ClusterCloudProviderOpenstackCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput)
 }
@@ -4425,7 +4499,11 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) ToClusterCloudP
 
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigGlobalOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigGlobal) ClusterCloudProviderOpenstackCloudConfigGlobal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfigGlobal
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
 }
 
@@ -4672,7 +4750,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ToClusterClo
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ToClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
@@ -4748,7 +4826,11 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ToCluster
 
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfigLoadBalancer
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput)
 }
 
@@ -4959,7 +5041,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ToClusterCloudPr
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ToClusterCloudProviderOpenstackCloudConfigMetadataPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *ClusterCloudProviderOpenstackCloudConfigMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigMetadata) *ClusterCloudProviderOpenstackCloudConfigMetadata {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
@@ -4990,7 +5072,11 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ToClusterClou
 
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigMetadataOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigMetadata) ClusterCloudProviderOpenstackCloudConfigMetadata {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfigMetadata
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudConfigMetadataOutput)
 }
 
@@ -5107,7 +5193,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) ToClusterCloudProvi
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) ToClusterCloudProviderOpenstackCloudConfigRoutePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigRoute) *ClusterCloudProviderOpenstackCloudConfigRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigRoute) *ClusterCloudProviderOpenstackCloudConfigRoute {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
@@ -5133,7 +5219,11 @@ func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ToClusterCloudPr
 
 func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigRouteOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigRoute) ClusterCloudProviderOpenstackCloudConfigRoute {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudConfigRoute
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudConfigRouteOutput)
 }
 
@@ -5256,7 +5346,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderOutput) ToClusterCloudProvider
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderOutput) ToClusterCloudProviderOpenstackCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProvider {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
@@ -5312,7 +5402,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProvider) ClusterCloudProviderOpenstackCloudProvider {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProvider
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderOutput)
 }
 
@@ -5467,7 +5561,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ToClusterC
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ToClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *ClusterCloudProviderOpenstackCloudProviderBlockStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *ClusterCloudProviderOpenstackCloudProviderBlockStorage {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
@@ -5503,7 +5597,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ToClust
 
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderBlockStorage) ClusterCloudProviderOpenstackCloudProviderBlockStorage {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProviderBlockStorage
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput)
 }
 
@@ -5670,7 +5768,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ToClusterCloudPr
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ToClusterCloudProviderOpenstackCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *ClusterCloudProviderOpenstackCloudProviderGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderGlobal) *ClusterCloudProviderOpenstackCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput)
 }
@@ -5746,7 +5844,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) ToClusterClou
 
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderGlobalOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderGlobal) ClusterCloudProviderOpenstackCloudProviderGlobal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProviderGlobal
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
 }
 
@@ -5993,7 +6095,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ToClusterC
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ToClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
@@ -6069,7 +6171,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ToClust
 
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProviderLoadBalancer
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput)
 }
 
@@ -6280,7 +6386,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ToClusterCloud
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ToClusterCloudProviderOpenstackCloudProviderMetadataPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *ClusterCloudProviderOpenstackCloudProviderMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderMetadata) *ClusterCloudProviderOpenstackCloudProviderMetadata {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
@@ -6311,7 +6417,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ToClusterCl
 
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderMetadataOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderMetadata) ClusterCloudProviderOpenstackCloudProviderMetadata {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProviderMetadata
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderMetadataOutput)
 }
 
@@ -6428,7 +6538,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) ToClusterCloudPro
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) ToClusterCloudProviderOpenstackCloudProviderRoutePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderRoute) *ClusterCloudProviderOpenstackCloudProviderRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderRoute) *ClusterCloudProviderOpenstackCloudProviderRoute {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
@@ -6454,7 +6564,11 @@ func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderRouteOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderRoute) ClusterCloudProviderOpenstackCloudProviderRoute {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderOpenstackCloudProviderRoute
+		return ret
 	}).(ClusterCloudProviderOpenstackCloudProviderRouteOutput)
 }
 
@@ -6577,7 +6691,7 @@ func (o ClusterCloudProviderVsphereCloudConfigOutput) ToClusterCloudProviderVsph
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigOutput) ToClusterCloudProviderVsphereCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfig {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
@@ -6632,7 +6746,13 @@ func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) ToClusterCloudProviderV
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfig { return *v }).(ClusterCloudProviderVsphereCloudConfigOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfig) ClusterCloudProviderVsphereCloudConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudConfig
+		return ret
+	}).(ClusterCloudProviderVsphereCloudConfigOutput)
 }
 
 // (list maxitems:1)
@@ -6778,7 +6898,7 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ToClusterCloudProvider
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ToClusterCloudProviderVsphereCloudConfigDiskPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigDiskPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigDisk) *ClusterCloudProviderVsphereCloudConfigDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigDisk) *ClusterCloudProviderVsphereCloudConfigDisk {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
@@ -6804,7 +6924,11 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigDiskOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigDisk) ClusterCloudProviderVsphereCloudConfigDisk {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudConfigDisk
+		return ret
 	}).(ClusterCloudProviderVsphereCloudConfigDiskOutput)
 }
 
@@ -6951,7 +7075,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) ToClusterCloudProvid
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) ToClusterCloudProviderVsphereCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *ClusterCloudProviderVsphereCloudConfigGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigGlobal) *ClusterCloudProviderVsphereCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
@@ -7027,7 +7151,11 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ToClusterCloudPro
 
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigGlobalOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) ClusterCloudProviderVsphereCloudConfigGlobal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudConfigGlobal
+		return ret
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalOutput)
 }
 
@@ -7234,7 +7362,7 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) ToClusterCloudProvi
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) ToClusterCloudProviderVsphereCloudConfigNetworkPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigNetwork) *ClusterCloudProviderVsphereCloudConfigNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigNetwork) *ClusterCloudProviderVsphereCloudConfigNetwork {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
@@ -7260,7 +7388,11 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ToClusterCloudPr
 
 func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigNetworkOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigNetwork) ClusterCloudProviderVsphereCloudConfigNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudConfigNetwork
+		return ret
 	}).(ClusterCloudProviderVsphereCloudConfigNetworkOutput)
 }
 
@@ -7525,7 +7657,7 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ToClusterCloudPro
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ToClusterCloudProviderVsphereCloudConfigWorkspacePtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *ClusterCloudProviderVsphereCloudConfigWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigWorkspace) *ClusterCloudProviderVsphereCloudConfigWorkspace {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput)
 }
@@ -7571,7 +7703,11 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigWorkspaceOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigWorkspace) ClusterCloudProviderVsphereCloudConfigWorkspace {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudConfigWorkspace
+		return ret
 	}).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
 }
 
@@ -7734,7 +7870,7 @@ func (o ClusterCloudProviderVsphereCloudProviderOutput) ToClusterCloudProviderVs
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderOutput) ToClusterCloudProviderVsphereCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProvider {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
@@ -7789,7 +7925,13 @@ func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) ToClusterCloudProvide
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderOutput {
-	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProvider { return *v }).(ClusterCloudProviderVsphereCloudProviderOutput)
+	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProvider) ClusterCloudProviderVsphereCloudProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudProvider
+		return ret
+	}).(ClusterCloudProviderVsphereCloudProviderOutput)
 }
 
 // (list maxitems:1)
@@ -7935,7 +8077,7 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ToClusterCloudProvid
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ToClusterCloudProviderVsphereCloudProviderDiskPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderDiskPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderDisk) *ClusterCloudProviderVsphereCloudProviderDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderDisk) *ClusterCloudProviderVsphereCloudProviderDisk {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
@@ -7961,7 +8103,11 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ToClusterCloudPro
 
 func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderDiskOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderDisk) ClusterCloudProviderVsphereCloudProviderDisk {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudProviderDisk
+		return ret
 	}).(ClusterCloudProviderVsphereCloudProviderDiskOutput)
 }
 
@@ -8108,7 +8254,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) ToClusterCloudProv
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) ToClusterCloudProviderVsphereCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *ClusterCloudProviderVsphereCloudProviderGlobal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderGlobal) *ClusterCloudProviderVsphereCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
@@ -8184,7 +8330,11 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ToClusterCloudP
 
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderGlobalOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) ClusterCloudProviderVsphereCloudProviderGlobal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudProviderGlobal
+		return ret
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalOutput)
 }
 
@@ -8391,7 +8541,7 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) ToClusterCloudPro
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) ToClusterCloudProviderVsphereCloudProviderNetworkPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderNetwork) *ClusterCloudProviderVsphereCloudProviderNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderNetwork) *ClusterCloudProviderVsphereCloudProviderNetwork {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
@@ -8417,7 +8567,11 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderNetworkOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderNetwork) ClusterCloudProviderVsphereCloudProviderNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudProviderNetwork
+		return ret
 	}).(ClusterCloudProviderVsphereCloudProviderNetworkOutput)
 }
 
@@ -8682,7 +8836,7 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ToClusterCloudP
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ToClusterCloudProviderVsphereCloudProviderWorkspacePtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput {
-	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *ClusterCloudProviderVsphereCloudProviderWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderWorkspace) *ClusterCloudProviderVsphereCloudProviderWorkspace {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput)
 }
@@ -8728,7 +8882,11 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) ToClusterClo
 
 func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderWorkspaceOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderWorkspace) ClusterCloudProviderVsphereCloudProviderWorkspace {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudProviderVsphereCloudProviderWorkspace
+		return ret
 	}).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
 }
 
@@ -8997,7 +9155,7 @@ func (o ClusterDnsOutput) ToClusterDnsPtrOutput() ClusterDnsPtrOutput {
 }
 
 func (o ClusterDnsOutput) ToClusterDnsPtrOutputWithContext(ctx context.Context) ClusterDnsPtrOutput {
-	return o.ApplyT(func(v ClusterDns) *ClusterDns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDns) *ClusterDns {
 		return &v
 	}).(ClusterDnsPtrOutput)
 }
@@ -9042,7 +9200,13 @@ func (o ClusterDnsPtrOutput) ToClusterDnsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterDnsPtrOutput) Elem() ClusterDnsOutput {
-	return o.ApplyT(func(v *ClusterDns) ClusterDns { return *v }).(ClusterDnsOutput)
+	return o.ApplyT(func(v *ClusterDns) ClusterDns {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDns
+		return ret
+	}).(ClusterDnsOutput)
 }
 
 // Node selector key pair (map)
@@ -9192,7 +9356,7 @@ func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalPtrOutput() ClusterDnsNo
 }
 
 func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
-	return o.ApplyT(func(v ClusterDnsNodelocal) *ClusterDnsNodelocal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDnsNodelocal) *ClusterDnsNodelocal {
 		return &v
 	}).(ClusterDnsNodelocalPtrOutput)
 }
@@ -9222,7 +9386,13 @@ func (o ClusterDnsNodelocalPtrOutput) ToClusterDnsNodelocalPtrOutputWithContext(
 }
 
 func (o ClusterDnsNodelocalPtrOutput) Elem() ClusterDnsNodelocalOutput {
-	return o.ApplyT(func(v *ClusterDnsNodelocal) ClusterDnsNodelocal { return *v }).(ClusterDnsNodelocalOutput)
+	return o.ApplyT(func(v *ClusterDnsNodelocal) ClusterDnsNodelocal {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDnsNodelocal
+		return ret
+	}).(ClusterDnsNodelocalOutput)
 }
 
 // Nodelocal dns ip address (string)
@@ -9566,7 +9736,7 @@ func (o ClusterIngressOutput) ToClusterIngressPtrOutput() ClusterIngressPtrOutpu
 }
 
 func (o ClusterIngressOutput) ToClusterIngressPtrOutputWithContext(ctx context.Context) ClusterIngressPtrOutput {
-	return o.ApplyT(func(v ClusterIngress) *ClusterIngress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIngress) *ClusterIngress {
 		return &v
 	}).(ClusterIngressPtrOutput)
 }
@@ -9611,7 +9781,13 @@ func (o ClusterIngressPtrOutput) ToClusterIngressPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterIngressPtrOutput) Elem() ClusterIngressOutput {
-	return o.ApplyT(func(v *ClusterIngress) ClusterIngress { return *v }).(ClusterIngressOutput)
+	return o.ApplyT(func(v *ClusterIngress) ClusterIngress {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterIngress
+		return ret
+	}).(ClusterIngressOutput)
 }
 
 // Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
@@ -9765,7 +9941,7 @@ func (o ClusterMonitoringOutput) ToClusterMonitoringPtrOutput() ClusterMonitorin
 }
 
 func (o ClusterMonitoringOutput) ToClusterMonitoringPtrOutputWithContext(ctx context.Context) ClusterMonitoringPtrOutput {
-	return o.ApplyT(func(v ClusterMonitoring) *ClusterMonitoring {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMonitoring) *ClusterMonitoring {
 		return &v
 	}).(ClusterMonitoringPtrOutput)
 }
@@ -9800,7 +9976,13 @@ func (o ClusterMonitoringPtrOutput) ToClusterMonitoringPtrOutputWithContext(ctx 
 }
 
 func (o ClusterMonitoringPtrOutput) Elem() ClusterMonitoringOutput {
-	return o.ApplyT(func(v *ClusterMonitoring) ClusterMonitoring { return *v }).(ClusterMonitoringOutput)
+	return o.ApplyT(func(v *ClusterMonitoring) ClusterMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterMonitoring
+		return ret
+	}).(ClusterMonitoringOutput)
 }
 
 // Node selector key pair (map)
@@ -9954,7 +10136,7 @@ func (o ClusterNetworkOutput) ToClusterNetworkPtrOutput() ClusterNetworkPtrOutpu
 }
 
 func (o ClusterNetworkOutput) ToClusterNetworkPtrOutputWithContext(ctx context.Context) ClusterNetworkPtrOutput {
-	return o.ApplyT(func(v ClusterNetwork) *ClusterNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetwork) *ClusterNetwork {
 		return &v
 	}).(ClusterNetworkPtrOutput)
 }
@@ -10014,7 +10196,13 @@ func (o ClusterNetworkPtrOutput) ToClusterNetworkPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterNetworkPtrOutput) Elem() ClusterNetworkOutput {
-	return o.ApplyT(func(v *ClusterNetwork) ClusterNetwork { return *v }).(ClusterNetworkOutput)
+	return o.ApplyT(func(v *ClusterNetwork) ClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetwork
+		return ret
+	}).(ClusterNetworkOutput)
 }
 
 // Aci network provider config (list maxitems:1)
@@ -10282,7 +10470,7 @@ func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProvid
 }
 
 func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
-	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) *ClusterNetworkAciNetworkProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkAciNetworkProvider) *ClusterNetworkAciNetworkProvider {
 		return &v
 	}).(ClusterNetworkAciNetworkProviderPtrOutput)
 }
@@ -10422,7 +10610,13 @@ func (o ClusterNetworkAciNetworkProviderPtrOutput) ToClusterNetworkAciNetworkPro
 }
 
 func (o ClusterNetworkAciNetworkProviderPtrOutput) Elem() ClusterNetworkAciNetworkProviderOutput {
-	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) ClusterNetworkAciNetworkProvider { return *v }).(ClusterNetworkAciNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) ClusterNetworkAciNetworkProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkAciNetworkProvider
+		return ret
+	}).(ClusterNetworkAciNetworkProviderOutput)
 }
 
 // Attachment entity profile name on aci (string)
@@ -10758,7 +10952,7 @@ func (o ClusterNetworkCalicoNetworkProviderOutput) ToClusterNetworkCalicoNetwork
 }
 
 func (o ClusterNetworkCalicoNetworkProviderOutput) ToClusterNetworkCalicoNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkCalicoNetworkProviderPtrOutput {
-	return o.ApplyT(func(v ClusterNetworkCalicoNetworkProvider) *ClusterNetworkCalicoNetworkProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkCalicoNetworkProvider) *ClusterNetworkCalicoNetworkProvider {
 		return &v
 	}).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
@@ -10783,7 +10977,13 @@ func (o ClusterNetworkCalicoNetworkProviderPtrOutput) ToClusterNetworkCalicoNetw
 }
 
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) Elem() ClusterNetworkCalicoNetworkProviderOutput {
-	return o.ApplyT(func(v *ClusterNetworkCalicoNetworkProvider) ClusterNetworkCalicoNetworkProvider { return *v }).(ClusterNetworkCalicoNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkCalicoNetworkProvider) ClusterNetworkCalicoNetworkProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkCalicoNetworkProvider
+		return ret
+	}).(ClusterNetworkCalicoNetworkProviderOutput)
 }
 
 // Calico cloud provider (string)
@@ -10889,7 +11089,7 @@ func (o ClusterNetworkCanalNetworkProviderOutput) ToClusterNetworkCanalNetworkPr
 }
 
 func (o ClusterNetworkCanalNetworkProviderOutput) ToClusterNetworkCanalNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkCanalNetworkProviderPtrOutput {
-	return o.ApplyT(func(v ClusterNetworkCanalNetworkProvider) *ClusterNetworkCanalNetworkProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkCanalNetworkProvider) *ClusterNetworkCanalNetworkProvider {
 		return &v
 	}).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
@@ -10914,7 +11114,13 @@ func (o ClusterNetworkCanalNetworkProviderPtrOutput) ToClusterNetworkCanalNetwor
 }
 
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) Elem() ClusterNetworkCanalNetworkProviderOutput {
-	return o.ApplyT(func(v *ClusterNetworkCanalNetworkProvider) ClusterNetworkCanalNetworkProvider { return *v }).(ClusterNetworkCanalNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkCanalNetworkProvider) ClusterNetworkCanalNetworkProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkCanalNetworkProvider
+		return ret
+	}).(ClusterNetworkCanalNetworkProviderOutput)
 }
 
 // Flannel network interface (string)
@@ -11020,7 +11226,7 @@ func (o ClusterNetworkFlannelNetworkProviderOutput) ToClusterNetworkFlannelNetwo
 }
 
 func (o ClusterNetworkFlannelNetworkProviderOutput) ToClusterNetworkFlannelNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkFlannelNetworkProviderPtrOutput {
-	return o.ApplyT(func(v ClusterNetworkFlannelNetworkProvider) *ClusterNetworkFlannelNetworkProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkFlannelNetworkProvider) *ClusterNetworkFlannelNetworkProvider {
 		return &v
 	}).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
@@ -11045,7 +11251,13 @@ func (o ClusterNetworkFlannelNetworkProviderPtrOutput) ToClusterNetworkFlannelNe
 }
 
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Elem() ClusterNetworkFlannelNetworkProviderOutput {
-	return o.ApplyT(func(v *ClusterNetworkFlannelNetworkProvider) ClusterNetworkFlannelNetworkProvider { return *v }).(ClusterNetworkFlannelNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkFlannelNetworkProvider) ClusterNetworkFlannelNetworkProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkFlannelNetworkProvider
+		return ret
+	}).(ClusterNetworkFlannelNetworkProviderOutput)
 }
 
 // Flannel network interface (string)
@@ -11151,7 +11363,7 @@ func (o ClusterNetworkWeaveNetworkProviderOutput) ToClusterNetworkWeaveNetworkPr
 }
 
 func (o ClusterNetworkWeaveNetworkProviderOutput) ToClusterNetworkWeaveNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkWeaveNetworkProviderPtrOutput {
-	return o.ApplyT(func(v ClusterNetworkWeaveNetworkProvider) *ClusterNetworkWeaveNetworkProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkWeaveNetworkProvider) *ClusterNetworkWeaveNetworkProvider {
 		return &v
 	}).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
@@ -11176,7 +11388,13 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) ToClusterNetworkWeaveNetwor
 }
 
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Elem() ClusterNetworkWeaveNetworkProviderOutput {
-	return o.ApplyT(func(v *ClusterNetworkWeaveNetworkProvider) ClusterNetworkWeaveNetworkProvider { return *v }).(ClusterNetworkWeaveNetworkProviderOutput)
+	return o.ApplyT(func(v *ClusterNetworkWeaveNetworkProvider) ClusterNetworkWeaveNetworkProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkWeaveNetworkProvider
+		return ret
+	}).(ClusterNetworkWeaveNetworkProviderOutput)
 }
 
 // Registry password (string)
@@ -11757,7 +11975,7 @@ func (o ClusterRestoreOutput) ToClusterRestorePtrOutput() ClusterRestorePtrOutpu
 }
 
 func (o ClusterRestoreOutput) ToClusterRestorePtrOutputWithContext(ctx context.Context) ClusterRestorePtrOutput {
-	return o.ApplyT(func(v ClusterRestore) *ClusterRestore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRestore) *ClusterRestore {
 		return &v
 	}).(ClusterRestorePtrOutput)
 }
@@ -11787,7 +12005,13 @@ func (o ClusterRestorePtrOutput) ToClusterRestorePtrOutputWithContext(ctx contex
 }
 
 func (o ClusterRestorePtrOutput) Elem() ClusterRestoreOutput {
-	return o.ApplyT(func(v *ClusterRestore) ClusterRestore { return *v }).(ClusterRestoreOutput)
+	return o.ApplyT(func(v *ClusterRestore) ClusterRestore {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRestore
+		return ret
+	}).(ClusterRestoreOutput)
 }
 
 // Restore cluster. Default `false` (bool)
@@ -11907,7 +12131,7 @@ func (o ClusterRotateCertificatesOutput) ToClusterRotateCertificatesPtrOutput() 
 }
 
 func (o ClusterRotateCertificatesOutput) ToClusterRotateCertificatesPtrOutputWithContext(ctx context.Context) ClusterRotateCertificatesPtrOutput {
-	return o.ApplyT(func(v ClusterRotateCertificates) *ClusterRotateCertificates {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRotateCertificates) *ClusterRotateCertificates {
 		return &v
 	}).(ClusterRotateCertificatesPtrOutput)
 }
@@ -11937,7 +12161,13 @@ func (o ClusterRotateCertificatesPtrOutput) ToClusterRotateCertificatesPtrOutput
 }
 
 func (o ClusterRotateCertificatesPtrOutput) Elem() ClusterRotateCertificatesOutput {
-	return o.ApplyT(func(v *ClusterRotateCertificates) ClusterRotateCertificates { return *v }).(ClusterRotateCertificatesOutput)
+	return o.ApplyT(func(v *ClusterRotateCertificates) ClusterRotateCertificates {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRotateCertificates
+		return ret
+	}).(ClusterRotateCertificatesOutput)
 }
 
 // Rotate CA Certificates. Default `false` (bool)
@@ -12197,7 +12427,7 @@ func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutput(
 }
 
 func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutputWithContext(ctx context.Context) ClusterRunningSystemImagesPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *ClusterRunningSystemImages {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRunningSystemImages) *ClusterRunningSystemImages {
 		return &v
 	}).(ClusterRunningSystemImagesPtrOutput)
 }
@@ -12402,7 +12632,13 @@ func (o ClusterRunningSystemImagesPtrOutput) ToClusterRunningSystemImagesPtrOutp
 }
 
 func (o ClusterRunningSystemImagesPtrOutput) Elem() ClusterRunningSystemImagesOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) ClusterRunningSystemImages { return *v }).(ClusterRunningSystemImagesOutput)
+	return o.ApplyT(func(v *ClusterRunningSystemImages) ClusterRunningSystemImages {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRunningSystemImages
+		return ret
+	}).(ClusterRunningSystemImagesOutput)
 }
 
 // Docker image for aciCniDeployContainer (string)
@@ -12888,7 +13124,7 @@ func (o ClusterServicesOutput) ToClusterServicesPtrOutput() ClusterServicesPtrOu
 }
 
 func (o ClusterServicesOutput) ToClusterServicesPtrOutputWithContext(ctx context.Context) ClusterServicesPtrOutput {
-	return o.ApplyT(func(v ClusterServices) *ClusterServices {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServices) *ClusterServices {
 		return &v
 	}).(ClusterServicesPtrOutput)
 }
@@ -12938,7 +13174,13 @@ func (o ClusterServicesPtrOutput) ToClusterServicesPtrOutputWithContext(ctx cont
 }
 
 func (o ClusterServicesPtrOutput) Elem() ClusterServicesOutput {
-	return o.ApplyT(func(v *ClusterServices) ClusterServices { return *v }).(ClusterServicesOutput)
+	return o.ApplyT(func(v *ClusterServices) ClusterServices {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServices
+		return ret
+	}).(ClusterServicesOutput)
 }
 
 // Docker image for etcd (string)
@@ -13150,7 +13392,7 @@ func (o ClusterServicesEtcdOutput) ToClusterServicesEtcdPtrOutput() ClusterServi
 }
 
 func (o ClusterServicesEtcdOutput) ToClusterServicesEtcdPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcd) *ClusterServicesEtcd {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcd) *ClusterServicesEtcd {
 		return &v
 	}).(ClusterServicesEtcdPtrOutput)
 }
@@ -13245,7 +13487,13 @@ func (o ClusterServicesEtcdPtrOutput) ToClusterServicesEtcdPtrOutputWithContext(
 }
 
 func (o ClusterServicesEtcdPtrOutput) Elem() ClusterServicesEtcdOutput {
-	return o.ApplyT(func(v *ClusterServicesEtcd) ClusterServicesEtcd { return *v }).(ClusterServicesEtcdOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcd) ClusterServicesEtcd {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcd
+		return ret
+	}).(ClusterServicesEtcdOutput)
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -13511,7 +13759,7 @@ func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfig
 }
 
 func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdBackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfig {
 		return &v
 	}).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
@@ -13563,7 +13811,13 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) ToClusterServicesEtcdBackupCon
 }
 
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigOutput {
-	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) ClusterServicesEtcdBackupConfig { return *v }).(ClusterServicesEtcdBackupConfigOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) ClusterServicesEtcdBackupConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcdBackupConfig
+		return ret
+	}).(ClusterServicesEtcdBackupConfigOutput)
 }
 
 // Enable secrets encryption (bool)
@@ -13743,7 +13997,7 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ToClusterServicesEt
 }
 
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdBackupConfigS3BackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig {
 		return &v
 	}).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
@@ -13799,7 +14053,11 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ToClusterService
 
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigS3BackupConfigOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfigS3BackupConfig) ClusterServicesEtcdBackupConfigS3BackupConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcdBackupConfigS3BackupConfig
+		return ret
 	}).(ClusterServicesEtcdBackupConfigS3BackupConfigOutput)
 }
 
@@ -14022,7 +14280,7 @@ func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrO
 }
 
 func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecated {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
@@ -14119,7 +14377,13 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedP
 }
 
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Elem() ClusterServicesEtcdDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) ClusterServicesEtcdDeprecated { return *v }).(ClusterServicesEtcdDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) ClusterServicesEtcdDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcdDeprecated
+		return ret
+	}).(ClusterServicesEtcdDeprecatedOutput)
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -14385,7 +14649,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDe
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfig {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
@@ -14438,7 +14702,11 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtc
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) ClusterServicesEtcdDeprecatedBackupConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcdDeprecatedBackupConfig
+		return ret
 	}).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
 }
 
@@ -14619,7 +14887,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToCluster
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
@@ -14675,7 +14943,11 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClus
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig
+		return ret
 	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
 }
 
@@ -14882,7 +15154,7 @@ func (o ClusterServicesKubeApiOutput) ToClusterServicesKubeApiPtrOutput() Cluste
 }
 
 func (o ClusterServicesKubeApiOutput) ToClusterServicesKubeApiPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApi {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApi) *ClusterServicesKubeApi {
 		return &v
 	}).(ClusterServicesKubeApiPtrOutput)
 }
@@ -14959,7 +15231,13 @@ func (o ClusterServicesKubeApiPtrOutput) ToClusterServicesKubeApiPtrOutputWithCo
 }
 
 func (o ClusterServicesKubeApiPtrOutput) Elem() ClusterServicesKubeApiOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApi) ClusterServicesKubeApi { return *v }).(ClusterServicesKubeApiOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApi) ClusterServicesKubeApi {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApi
+		return ret
+	}).(ClusterServicesKubeApiOutput)
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -15169,7 +15447,7 @@ func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPt
 }
 
 func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiAuditLogPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLog {
 		return &v
 	}).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
@@ -15201,7 +15479,13 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) ToClusterServicesKubeApiAuditLo
 }
 
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Elem() ClusterServicesKubeApiAuditLogOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) ClusterServicesKubeApiAuditLog { return *v }).(ClusterServicesKubeApiAuditLogOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) ClusterServicesKubeApiAuditLog {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiAuditLog
+		return ret
+	}).(ClusterServicesKubeApiAuditLogOutput)
 }
 
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
@@ -15337,7 +15621,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToClusterServicesKube
 }
 
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToClusterServicesKubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *ClusterServicesKubeApiAuditLogConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiAuditLogConfiguration) *ClusterServicesKubeApiAuditLogConfiguration {
 		return &v
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
@@ -15388,7 +15672,11 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ToClusterServicesK
 
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiAuditLogConfigurationOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLogConfiguration) ClusterServicesKubeApiAuditLogConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiAuditLogConfiguration
+		return ret
 	}).(ClusterServicesKubeApiAuditLogConfigurationOutput)
 }
 
@@ -15585,7 +15873,7 @@ func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecat
 }
 
 func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecated {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
@@ -15664,7 +15952,13 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDepre
 }
 
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) Elem() ClusterServicesKubeApiDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated { return *v }).(ClusterServicesKubeApiDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) ClusterServicesKubeApiDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiDeprecated
+		return ret
+	}).(ClusterServicesKubeApiDeprecatedOutput)
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -15874,7 +16168,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApi
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLog {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
@@ -15906,7 +16200,13 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKube
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog { return *v }).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) ClusterServicesKubeApiDeprecatedAuditLog {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiDeprecatedAuditLog
+		return ret
+	}).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
 }
 
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
@@ -16042,7 +16342,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterSe
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
@@ -16093,7 +16393,11 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToCluste
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiDeprecatedAuditLogConfiguration
+		return ret
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
 }
 
@@ -16254,7 +16558,7 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesK
 }
 
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *ClusterServicesKubeApiDeprecatedEventRateLimit {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedEventRateLimit) *ClusterServicesKubeApiDeprecatedEventRateLimit {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
@@ -16285,7 +16589,11 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServic
 
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) ClusterServicesKubeApiDeprecatedEventRateLimit {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiDeprecatedEventRateLimit
+		return ret
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
 }
 
@@ -16406,7 +16714,7 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToCluster
 }
 
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
@@ -16437,7 +16745,11 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClus
 
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig
+		return ret
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
 }
 
@@ -16558,7 +16870,7 @@ func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEven
 }
 
 func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiEventRateLimitPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *ClusterServicesKubeApiEventRateLimit {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiEventRateLimit) *ClusterServicesKubeApiEventRateLimit {
 		return &v
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
@@ -16588,7 +16900,13 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) ToClusterServicesKubeApiE
 }
 
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiEventRateLimitOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) ClusterServicesKubeApiEventRateLimit { return *v }).(ClusterServicesKubeApiEventRateLimitOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) ClusterServicesKubeApiEventRateLimit {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiEventRateLimit
+		return ret
+	}).(ClusterServicesKubeApiEventRateLimitOutput)
 }
 
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
@@ -16708,7 +17026,7 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToClusterServicesKu
 }
 
 func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToClusterServicesKubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *ClusterServicesKubeApiSecretsEncryptionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiSecretsEncryptionConfig) *ClusterServicesKubeApiSecretsEncryptionConfig {
 		return &v
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
@@ -16739,7 +17057,11 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ToClusterService
 
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiSecretsEncryptionConfigOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiSecretsEncryptionConfig) ClusterServicesKubeApiSecretsEncryptionConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeApiSecretsEncryptionConfig
+		return ret
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigOutput)
 }
 
@@ -16876,7 +17198,7 @@ func (o ClusterServicesKubeControllerOutput) ToClusterServicesKubeControllerPtrO
 }
 
 func (o ClusterServicesKubeControllerOutput) ToClusterServicesKubeControllerPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeController) *ClusterServicesKubeController {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeController) *ClusterServicesKubeController {
 		return &v
 	}).(ClusterServicesKubeControllerPtrOutput)
 }
@@ -16926,7 +17248,13 @@ func (o ClusterServicesKubeControllerPtrOutput) ToClusterServicesKubeControllerP
 }
 
 func (o ClusterServicesKubeControllerPtrOutput) Elem() ClusterServicesKubeControllerOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeController) ClusterServicesKubeController { return *v }).(ClusterServicesKubeControllerOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeController) ClusterServicesKubeController {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeController
+		return ret
+	}).(ClusterServicesKubeControllerOutput)
 }
 
 // Cluster CIDR option for kube controller service (string)
@@ -17102,7 +17430,7 @@ func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeCont
 }
 
 func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *ClusterServicesKubeControllerDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeControllerDeprecated) *ClusterServicesKubeControllerDeprecated {
 		return &v
 	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
 }
@@ -17152,7 +17480,13 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeC
 }
 
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Elem() ClusterServicesKubeControllerDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) ClusterServicesKubeControllerDeprecated { return *v }).(ClusterServicesKubeControllerDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) ClusterServicesKubeControllerDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeControllerDeprecated
+		return ret
+	}).(ClusterServicesKubeControllerDeprecatedOutput)
 }
 
 // Cluster CIDR option for kube controller service (string)
@@ -17320,7 +17654,7 @@ func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDepr
 }
 
 func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) *ClusterServicesKubeProxyDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeProxyDeprecated) *ClusterServicesKubeProxyDeprecated {
 		return &v
 	}).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
@@ -17360,7 +17694,13 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyD
 }
 
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeProxyDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) ClusterServicesKubeProxyDeprecated { return *v }).(ClusterServicesKubeProxyDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) ClusterServicesKubeProxyDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeProxyDeprecated
+		return ret
+	}).(ClusterServicesKubeProxyDeprecatedOutput)
 }
 
 // Extra arguments for scheduler service (map)
@@ -17508,7 +17848,7 @@ func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSched
 }
 
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) *ClusterServicesKubeSchedulerDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeSchedulerDeprecated) *ClusterServicesKubeSchedulerDeprecated {
 		return &v
 	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
@@ -17548,7 +17888,13 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSc
 }
 
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesKubeSchedulerDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) ClusterServicesKubeSchedulerDeprecated { return *v }).(ClusterServicesKubeSchedulerDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) ClusterServicesKubeSchedulerDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeSchedulerDeprecated
+		return ret
+	}).(ClusterServicesKubeSchedulerDeprecatedOutput)
 }
 
 // Extra arguments for scheduler service (map)
@@ -17716,7 +18062,7 @@ func (o ClusterServicesKubeletOutput) ToClusterServicesKubeletPtrOutput() Cluste
 }
 
 func (o ClusterServicesKubeletOutput) ToClusterServicesKubeletPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubelet) *ClusterServicesKubelet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubelet) *ClusterServicesKubelet {
 		return &v
 	}).(ClusterServicesKubeletPtrOutput)
 }
@@ -17781,7 +18127,13 @@ func (o ClusterServicesKubeletPtrOutput) ToClusterServicesKubeletPtrOutputWithCo
 }
 
 func (o ClusterServicesKubeletPtrOutput) Elem() ClusterServicesKubeletOutput {
-	return o.ApplyT(func(v *ClusterServicesKubelet) ClusterServicesKubelet { return *v }).(ClusterServicesKubeletOutput)
+	return o.ApplyT(func(v *ClusterServicesKubelet) ClusterServicesKubelet {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubelet
+		return ret
+	}).(ClusterServicesKubeletOutput)
 }
 
 // Cluster DNS Server option for kubelet service (string)
@@ -17999,7 +18351,7 @@ func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecat
 }
 
 func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *ClusterServicesKubeletDeprecated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeletDeprecated) *ClusterServicesKubeletDeprecated {
 		return &v
 	}).(ClusterServicesKubeletDeprecatedPtrOutput)
 }
@@ -18064,7 +18416,13 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDepre
 }
 
 func (o ClusterServicesKubeletDeprecatedPtrOutput) Elem() ClusterServicesKubeletDeprecatedOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) ClusterServicesKubeletDeprecated { return *v }).(ClusterServicesKubeletDeprecatedOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) ClusterServicesKubeletDeprecated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeletDeprecated
+		return ret
+	}).(ClusterServicesKubeletDeprecatedOutput)
 }
 
 // Cluster DNS Server option for kubelet service (string)
@@ -18262,7 +18620,7 @@ func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutput() Cl
 }
 
 func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutputWithContext(ctx context.Context) ClusterServicesKubeproxyPtrOutput {
-	return o.ApplyT(func(v ClusterServicesKubeproxy) *ClusterServicesKubeproxy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeproxy) *ClusterServicesKubeproxy {
 		return &v
 	}).(ClusterServicesKubeproxyPtrOutput)
 }
@@ -18302,7 +18660,13 @@ func (o ClusterServicesKubeproxyPtrOutput) ToClusterServicesKubeproxyPtrOutputWi
 }
 
 func (o ClusterServicesKubeproxyPtrOutput) Elem() ClusterServicesKubeproxyOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeproxy) ClusterServicesKubeproxy { return *v }).(ClusterServicesKubeproxyOutput)
+	return o.ApplyT(func(v *ClusterServicesKubeproxy) ClusterServicesKubeproxy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesKubeproxy
+		return ret
+	}).(ClusterServicesKubeproxyOutput)
 }
 
 // Extra arguments for scheduler service (map)
@@ -18450,7 +18814,7 @@ func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutput() Cl
 }
 
 func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutputWithContext(ctx context.Context) ClusterServicesSchedulerPtrOutput {
-	return o.ApplyT(func(v ClusterServicesScheduler) *ClusterServicesScheduler {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesScheduler) *ClusterServicesScheduler {
 		return &v
 	}).(ClusterServicesSchedulerPtrOutput)
 }
@@ -18490,7 +18854,13 @@ func (o ClusterServicesSchedulerPtrOutput) ToClusterServicesSchedulerPtrOutputWi
 }
 
 func (o ClusterServicesSchedulerPtrOutput) Elem() ClusterServicesSchedulerOutput {
-	return o.ApplyT(func(v *ClusterServicesScheduler) ClusterServicesScheduler { return *v }).(ClusterServicesSchedulerOutput)
+	return o.ApplyT(func(v *ClusterServicesScheduler) ClusterServicesScheduler {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServicesScheduler
+		return ret
+	}).(ClusterServicesSchedulerOutput)
 }
 
 // Extra arguments for scheduler service (map)
@@ -18770,7 +19140,7 @@ func (o ClusterSystemImagesOutput) ToClusterSystemImagesPtrOutput() ClusterSyste
 }
 
 func (o ClusterSystemImagesOutput) ToClusterSystemImagesPtrOutputWithContext(ctx context.Context) ClusterSystemImagesPtrOutput {
-	return o.ApplyT(func(v ClusterSystemImages) *ClusterSystemImages {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSystemImages) *ClusterSystemImages {
 		return &v
 	}).(ClusterSystemImagesPtrOutput)
 }
@@ -18975,7 +19345,13 @@ func (o ClusterSystemImagesPtrOutput) ToClusterSystemImagesPtrOutputWithContext(
 }
 
 func (o ClusterSystemImagesPtrOutput) Elem() ClusterSystemImagesOutput {
-	return o.ApplyT(func(v *ClusterSystemImages) ClusterSystemImages { return *v }).(ClusterSystemImagesOutput)
+	return o.ApplyT(func(v *ClusterSystemImages) ClusterSystemImages {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSystemImages
+		return ret
+	}).(ClusterSystemImagesOutput)
 }
 
 // Docker image for aciCniDeployContainer (string)
@@ -19453,7 +19829,7 @@ func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutput() Cluste
 }
 
 func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeStrategy) *ClusterUpgradeStrategy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeStrategy) *ClusterUpgradeStrategy {
 		return &v
 	}).(ClusterUpgradeStrategyPtrOutput)
 }
@@ -19493,7 +19869,13 @@ func (o ClusterUpgradeStrategyPtrOutput) ToClusterUpgradeStrategyPtrOutputWithCo
 }
 
 func (o ClusterUpgradeStrategyPtrOutput) Elem() ClusterUpgradeStrategyOutput {
-	return o.ApplyT(func(v *ClusterUpgradeStrategy) ClusterUpgradeStrategy { return *v }).(ClusterUpgradeStrategyOutput)
+	return o.ApplyT(func(v *ClusterUpgradeStrategy) ClusterUpgradeStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradeStrategy
+		return ret
+	}).(ClusterUpgradeStrategyOutput)
 }
 
 // RKE drain nodes (bool)
@@ -19645,7 +20027,7 @@ func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInp
 }
 
 func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *ClusterUpgradeStrategyDrainInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeStrategyDrainInput) *ClusterUpgradeStrategyDrainInput {
 		return &v
 	}).(ClusterUpgradeStrategyDrainInputPtrOutput)
 }
@@ -19690,7 +20072,13 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToClusterUpgradeStrategyDrain
 }
 
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) Elem() ClusterUpgradeStrategyDrainInputOutput {
-	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) ClusterUpgradeStrategyDrainInput { return *v }).(ClusterUpgradeStrategyDrainInputOutput)
+	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) ClusterUpgradeStrategyDrainInput {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradeStrategyDrainInput
+		return ret
+	}).(ClusterUpgradeStrategyDrainInputOutput)
 }
 
 // Delete RKE node local data (bool)
@@ -19850,6 +20238,178 @@ func (o ClusterWorkerHostArrayOutput) Index(i pulumi.IntInput) ClusterWorkerHost
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthenticationInput)(nil)).Elem(), ClusterAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthenticationPtrInput)(nil)).Elem(), ClusterAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthenticationWebhookInput)(nil)).Elem(), ClusterAuthenticationWebhookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthenticationWebhookPtrInput)(nil)).Elem(), ClusterAuthenticationWebhookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthorizationInput)(nil)).Elem(), ClusterAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthorizationPtrInput)(nil)).Elem(), ClusterAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBastionHostInput)(nil)).Elem(), ClusterBastionHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBastionHostPtrInput)(nil)).Elem(), ClusterBastionHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateInput)(nil)).Elem(), ClusterCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateArrayInput)(nil)).Elem(), ClusterCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderInput)(nil)).Elem(), ClusterCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderPtrInput)(nil)).Elem(), ClusterCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigPtrInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigGlobalInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigServiceOverrideInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigServiceOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput)(nil)).Elem(), ClusterCloudProviderAwsCloudConfigServiceOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderPtrInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderGlobalInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderServiceOverrideInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderServiceOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput)(nil)).Elem(), ClusterCloudProviderAwsCloudProviderServiceOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAzureCloudConfigInput)(nil)).Elem(), ClusterCloudProviderAzureCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAzureCloudConfigPtrInput)(nil)).Elem(), ClusterCloudProviderAzureCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAzureCloudProviderInput)(nil)).Elem(), ClusterCloudProviderAzureCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderAzureCloudProviderPtrInput)(nil)).Elem(), ClusterCloudProviderAzureCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigBlockStorageInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigGlobalInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigLoadBalancerInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigMetadataInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigMetadataPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigRouteInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudConfigRoutePtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudConfigRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderBlockStorageInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderGlobalInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderLoadBalancerInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderMetadataInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderMetadataPtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderRouteInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderOpenstackCloudProviderRoutePtrInput)(nil)).Elem(), ClusterCloudProviderOpenstackCloudProviderRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigDiskInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigDiskPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigGlobalInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigNetworkInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigNetworkPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigVirtualCenterInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigVirtualCenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigWorkspaceInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudConfigWorkspacePtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudConfigWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderDiskInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderDiskPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderGlobalInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderGlobalPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderNetworkInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderNetworkPtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderVirtualCenterInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderVirtualCenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderWorkspaceInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudProviderVsphereCloudProviderWorkspacePtrInput)(nil)).Elem(), ClusterCloudProviderVsphereCloudProviderWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneHostInput)(nil)).Elem(), ClusterControlPlaneHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneHostArrayInput)(nil)).Elem(), ClusterControlPlaneHostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDnsInput)(nil)).Elem(), ClusterDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDnsPtrInput)(nil)).Elem(), ClusterDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDnsNodelocalInput)(nil)).Elem(), ClusterDnsNodelocalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDnsNodelocalPtrInput)(nil)).Elem(), ClusterDnsNodelocalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdHostInput)(nil)).Elem(), ClusterEtcdHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdHostArrayInput)(nil)).Elem(), ClusterEtcdHostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInactiveHostInput)(nil)).Elem(), ClusterInactiveHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInactiveHostArrayInput)(nil)).Elem(), ClusterInactiveHostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIngressInput)(nil)).Elem(), ClusterIngressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIngressPtrInput)(nil)).Elem(), ClusterIngressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMonitoringInput)(nil)).Elem(), ClusterMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMonitoringPtrInput)(nil)).Elem(), ClusterMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkInput)(nil)).Elem(), ClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkPtrInput)(nil)).Elem(), ClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkAciNetworkProviderInput)(nil)).Elem(), ClusterNetworkAciNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkAciNetworkProviderPtrInput)(nil)).Elem(), ClusterNetworkAciNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkCalicoNetworkProviderInput)(nil)).Elem(), ClusterNetworkCalicoNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkCalicoNetworkProviderPtrInput)(nil)).Elem(), ClusterNetworkCalicoNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkCanalNetworkProviderInput)(nil)).Elem(), ClusterNetworkCanalNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkCanalNetworkProviderPtrInput)(nil)).Elem(), ClusterNetworkCanalNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkFlannelNetworkProviderInput)(nil)).Elem(), ClusterNetworkFlannelNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkFlannelNetworkProviderPtrInput)(nil)).Elem(), ClusterNetworkFlannelNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkWeaveNetworkProviderInput)(nil)).Elem(), ClusterNetworkWeaveNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkWeaveNetworkProviderPtrInput)(nil)).Elem(), ClusterNetworkWeaveNetworkProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeInput)(nil)).Elem(), ClusterNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeArrayInput)(nil)).Elem(), ClusterNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeTaintInput)(nil)).Elem(), ClusterNodeTaintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeTaintArrayInput)(nil)).Elem(), ClusterNodeTaintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrivateRegistryInput)(nil)).Elem(), ClusterPrivateRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrivateRegistryArrayInput)(nil)).Elem(), ClusterPrivateRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestoreInput)(nil)).Elem(), ClusterRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestorePtrInput)(nil)).Elem(), ClusterRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRotateCertificatesInput)(nil)).Elem(), ClusterRotateCertificatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRotateCertificatesPtrInput)(nil)).Elem(), ClusterRotateCertificatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImagesInput)(nil)).Elem(), ClusterRunningSystemImagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImagesPtrInput)(nil)).Elem(), ClusterRunningSystemImagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesInput)(nil)).Elem(), ClusterServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesPtrInput)(nil)).Elem(), ClusterServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdInput)(nil)).Elem(), ClusterServicesEtcdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdPtrInput)(nil)).Elem(), ClusterServicesEtcdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdBackupConfigInput)(nil)).Elem(), ClusterServicesEtcdBackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdBackupConfigPtrInput)(nil)).Elem(), ClusterServicesEtcdBackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdBackupConfigS3BackupConfigInput)(nil)).Elem(), ClusterServicesEtcdBackupConfigS3BackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput)(nil)).Elem(), ClusterServicesEtcdBackupConfigS3BackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedPtrInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedBackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigPtrInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedBackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput)(nil)).Elem(), ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiInput)(nil)).Elem(), ClusterServicesKubeApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiPtrInput)(nil)).Elem(), ClusterServicesKubeApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiAuditLogInput)(nil)).Elem(), ClusterServicesKubeApiAuditLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiAuditLogPtrInput)(nil)).Elem(), ClusterServicesKubeApiAuditLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiAuditLogConfigurationInput)(nil)).Elem(), ClusterServicesKubeApiAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiAuditLogConfigurationPtrInput)(nil)).Elem(), ClusterServicesKubeApiAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedPtrInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedAuditLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogPtrInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedAuditLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogConfigurationInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedEventRateLimitInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedEventRateLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedEventRateLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput)(nil)).Elem(), ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiEventRateLimitInput)(nil)).Elem(), ClusterServicesKubeApiEventRateLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiEventRateLimitPtrInput)(nil)).Elem(), ClusterServicesKubeApiEventRateLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiSecretsEncryptionConfigInput)(nil)).Elem(), ClusterServicesKubeApiSecretsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeApiSecretsEncryptionConfigPtrInput)(nil)).Elem(), ClusterServicesKubeApiSecretsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeControllerInput)(nil)).Elem(), ClusterServicesKubeControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeControllerPtrInput)(nil)).Elem(), ClusterServicesKubeControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeControllerDeprecatedInput)(nil)).Elem(), ClusterServicesKubeControllerDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeControllerDeprecatedPtrInput)(nil)).Elem(), ClusterServicesKubeControllerDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeProxyDeprecatedInput)(nil)).Elem(), ClusterServicesKubeProxyDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeProxyDeprecatedPtrInput)(nil)).Elem(), ClusterServicesKubeProxyDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeSchedulerDeprecatedInput)(nil)).Elem(), ClusterServicesKubeSchedulerDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeSchedulerDeprecatedPtrInput)(nil)).Elem(), ClusterServicesKubeSchedulerDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeletInput)(nil)).Elem(), ClusterServicesKubeletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeletPtrInput)(nil)).Elem(), ClusterServicesKubeletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeletDeprecatedInput)(nil)).Elem(), ClusterServicesKubeletDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeletDeprecatedPtrInput)(nil)).Elem(), ClusterServicesKubeletDeprecatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeproxyInput)(nil)).Elem(), ClusterServicesKubeproxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesKubeproxyPtrInput)(nil)).Elem(), ClusterServicesKubeproxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesSchedulerInput)(nil)).Elem(), ClusterServicesSchedulerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesSchedulerPtrInput)(nil)).Elem(), ClusterServicesSchedulerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSystemImagesInput)(nil)).Elem(), ClusterSystemImagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSystemImagesPtrInput)(nil)).Elem(), ClusterSystemImagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradeStrategyInput)(nil)).Elem(), ClusterUpgradeStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradeStrategyPtrInput)(nil)).Elem(), ClusterUpgradeStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradeStrategyDrainInputInput)(nil)).Elem(), ClusterUpgradeStrategyDrainInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradeStrategyDrainInputPtrInput)(nil)).Elem(), ClusterUpgradeStrategyDrainInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterWorkerHostInput)(nil)).Elem(), ClusterWorkerHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterWorkerHostArrayInput)(nil)).Elem(), ClusterWorkerHostArray{})
 	pulumi.RegisterOutputType(ClusterAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAuthenticationWebhookOutput{})

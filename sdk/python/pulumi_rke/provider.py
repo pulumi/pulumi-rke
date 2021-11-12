@@ -116,3 +116,8 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="logFile")
+    def log_file(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "log_file")
+

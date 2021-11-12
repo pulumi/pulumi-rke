@@ -2568,3 +2568,4 @@ export interface ClusterWorkerHost {
      */
     nodeName?: pulumi.Input<string>;
 }
+

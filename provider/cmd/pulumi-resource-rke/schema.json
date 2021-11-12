@@ -6460,6 +6460,14 @@
     },
     "provider": {
         "description": "The provider type for the rke package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "debug": {
+                "type": "boolean"
+            },
+            "logFile": {
+                "type": "string"
+            }
+        },
         "inputProperties": {
             "debug": {
                 "type": "boolean",
@@ -7246,8 +7254,7 @@
                 "rke": "Rke"
             },
             "packageReferences": {
-                "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "Pulumi": "3.*"
             }
         },
         "nodejs": {

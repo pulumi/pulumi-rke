@@ -447,253 +447,253 @@ export interface ClusterState {
     /**
      * RKE k8s cluster addon deployment timeout in seconds for status check (int)
      */
-    readonly addonJobTimeout?: pulumi.Input<number>;
+    addonJobTimeout?: pulumi.Input<number>;
     /**
      * RKE k8s cluster user addons YAML manifest to be deployed (string)
      */
-    readonly addons?: pulumi.Input<string>;
+    addons?: pulumi.Input<string>;
     /**
      * RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
      */
-    readonly addonsIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    addonsIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Computed) RKE k8s cluster api server url (string)
      */
-    readonly apiServerUrl?: pulumi.Input<string>;
+    apiServerUrl?: pulumi.Input<string>;
     /**
      * RKE k8s cluster authentication configuration (list maxitems:1)
      */
-    readonly authentication?: pulumi.Input<inputs.ClusterAuthentication>;
+    authentication?: pulumi.Input<inputs.ClusterAuthentication>;
     /**
      * RKE k8s cluster authorization mode configuration (list maxitems:1)
      */
-    readonly authorization?: pulumi.Input<inputs.ClusterAuthorization>;
+    authorization?: pulumi.Input<inputs.ClusterAuthorization>;
     /**
      * RKE k8s cluster bastion Host configuration (list maxitems:1)
      */
-    readonly bastionHost?: pulumi.Input<inputs.ClusterBastionHost>;
+    bastionHost?: pulumi.Input<inputs.ClusterBastionHost>;
     /**
      * (Computed/Sensitive) RKE k8s cluster CA certificate (string)
      */
-    readonly caCrt?: pulumi.Input<string>;
+    caCrt?: pulumi.Input<string>;
     /**
      * Specify a certificate dir path (string)
      */
-    readonly certDir?: pulumi.Input<string>;
+    certDir?: pulumi.Input<string>;
     /**
      * (Computed/Sensitive) RKE k8s cluster certificates (string)
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.ClusterCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.ClusterCertificate>[]>;
     /**
      * (Computed/Sensitive) RKE k8s cluster client certificate (string)
      */
-    readonly clientCert?: pulumi.Input<string>;
+    clientCert?: pulumi.Input<string>;
     /**
      * (Computed/Sensitive) RKE k8s cluster client key (string)
      */
-    readonly clientKey?: pulumi.Input<string>;
+    clientKey?: pulumi.Input<string>;
     /**
      * Calico cloud provider (string)
      */
-    readonly cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
+    cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
     /**
      * Cluster CIDR option for kube controller service (string)
      */
-    readonly clusterCidr?: pulumi.Input<string>;
+    clusterCidr?: pulumi.Input<string>;
     /**
      * Cluster DNS Server option for kubelet service (string)
      */
-    readonly clusterDnsServer?: pulumi.Input<string>;
+    clusterDnsServer?: pulumi.Input<string>;
     /**
      * Cluster Domain option for kubelet service. Default `cluster.local` (string)
      */
-    readonly clusterDomain?: pulumi.Input<string>;
+    clusterDomain?: pulumi.Input<string>;
     /**
      * RKE k8s cluster name used in the kube config (string)
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
      */
-    readonly clusterYaml?: pulumi.Input<string>;
+    clusterYaml?: pulumi.Input<string>;
     /**
      * (Computed) RKE k8s cluster control plane nodes (list)
      */
-    readonly controlPlaneHosts?: pulumi.Input<pulumi.Input<inputs.ClusterControlPlaneHost>[]>;
+    controlPlaneHosts?: pulumi.Input<pulumi.Input<inputs.ClusterControlPlaneHost>[]>;
     /**
      * Use custom certificates from a cert dir (string)
      */
-    readonly customCerts?: pulumi.Input<boolean>;
+    customCerts?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster delay on creation (int)
      */
-    readonly delayOnCreation?: pulumi.Input<number>;
+    delayOnCreation?: pulumi.Input<number>;
     /**
      * Deploy RKE cluster on a dind environment. Default: `false` (bool)
      */
-    readonly dind?: pulumi.Input<boolean>;
+    dind?: pulumi.Input<boolean>;
     /**
      * DinD RKE cluster dns (string)
      */
-    readonly dindDnsServer?: pulumi.Input<string>;
+    dindDnsServer?: pulumi.Input<string>;
     /**
      * DinD RKE cluster storage driver (string)
      */
-    readonly dindStorageDriver?: pulumi.Input<string>;
+    dindStorageDriver?: pulumi.Input<string>;
     /**
      * Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
      */
-    readonly disablePortCheck?: pulumi.Input<boolean>;
+    disablePortCheck?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
-    readonly dns?: pulumi.Input<inputs.ClusterDns>;
+    dns?: pulumi.Input<inputs.ClusterDns>;
     /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
-    readonly etcdHosts?: pulumi.Input<pulumi.Input<inputs.ClusterEtcdHost>[]>;
+    etcdHosts?: pulumi.Input<pulumi.Input<inputs.ClusterEtcdHost>[]>;
     /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */
-    readonly ignoreDockerVersion?: pulumi.Input<boolean>;
+    ignoreDockerVersion?: pulumi.Input<boolean>;
     /**
      * (Computed) RKE k8s cluster inactive nodes (list)
      */
-    readonly inactiveHosts?: pulumi.Input<pulumi.Input<inputs.ClusterInactiveHost>[]>;
+    inactiveHosts?: pulumi.Input<pulumi.Input<inputs.ClusterInactiveHost>[]>;
     /**
      * Docker image for ingress (string)
      */
-    readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
+    ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
      *
      * @deprecated Use kube_config_yaml instead
      */
-    readonly internalKubeConfigYaml?: pulumi.Input<string>;
+    internalKubeConfigYaml?: pulumi.Input<string>;
     /**
      * (Computed) RKE k8s cluster admin user (string)
      */
-    readonly kubeAdminUser?: pulumi.Input<string>;
+    kubeAdminUser?: pulumi.Input<string>;
     /**
      * (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
      */
-    readonly kubeConfigYaml?: pulumi.Input<string>;
+    kubeConfigYaml?: pulumi.Input<string>;
     /**
      * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      */
-    readonly kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string>;
     /**
      * RKE k8s cluster monitoring Config (list maxitems:1)
      */
-    readonly monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
+    monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
     /**
      * (list maxitems:1)
      */
-    readonly network?: pulumi.Input<inputs.ClusterNetwork>;
+    network?: pulumi.Input<inputs.ClusterNetwork>;
     /**
      * RKE k8s cluster nodes (list)
      */
-    readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
     /**
      * @deprecated Use cluster_yaml instead
      */
-    readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
      */
-    readonly prefixPath?: pulumi.Input<string>;
+    prefixPath?: pulumi.Input<string>;
     /**
      * RKE k8s cluster private docker registries (list)
      */
-    readonly privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
+    privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
     /**
      * Restore cluster. Default `false` (bool)
      */
-    readonly restore?: pulumi.Input<inputs.ClusterRestore>;
+    restore?: pulumi.Input<inputs.ClusterRestore>;
     /**
      * (Computed/Sensitive) RKE k8s cluster config yaml (string)
      */
-    readonly rkeClusterYaml?: pulumi.Input<string>;
+    rkeClusterYaml?: pulumi.Input<string>;
     /**
      * (Computed/Sensitive) RKE k8s cluster state (string)
      */
-    readonly rkeState?: pulumi.Input<string>;
+    rkeState?: pulumi.Input<string>;
     /**
      * RKE k8s cluster rotate certificates configuration (list maxitems:1)
      */
-    readonly rotateCertificates?: pulumi.Input<inputs.ClusterRotateCertificates>;
+    rotateCertificates?: pulumi.Input<inputs.ClusterRotateCertificates>;
     /**
      * (Computed) RKE k8s cluster running system images list (list)
      */
-    readonly runningSystemImages?: pulumi.Input<inputs.ClusterRunningSystemImages>;
+    runningSystemImages?: pulumi.Input<inputs.ClusterRunningSystemImages>;
     /**
      * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
      */
-    readonly services?: pulumi.Input<inputs.ClusterServices>;
+    services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
      *
      * @deprecated Use services.etcd instead
      */
-    readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
+    servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
      *
      * @deprecated Use services.kube_api instead
      */
-    readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
+    servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
      *
      * @deprecated Use services.kube_controller instead
      */
-    readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
+    servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
      *
      * @deprecated Use services.kubeproxy instead
      */
-    readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
+    servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
      *
      * @deprecated Use services.scheduler instead
      */
-    readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
+    servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
      *
      * @deprecated Use services.kubelet instead
      */
-    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
+    servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */
-    readonly sshAgentAuth?: pulumi.Input<boolean>;
+    sshAgentAuth?: pulumi.Input<boolean>;
     /**
      * SSH Certificate path (string)
      */
-    readonly sshCertPath?: pulumi.Input<string>;
+    sshCertPath?: pulumi.Input<string>;
     /**
      * SSH Private Key path (string)
      */
-    readonly sshKeyPath?: pulumi.Input<string>;
+    sshKeyPath?: pulumi.Input<string>;
     /**
      * RKE k8s cluster system images list (list maxitems:1)
      */
-    readonly systemImages?: pulumi.Input<inputs.ClusterSystemImages>;
+    systemImages?: pulumi.Input<inputs.ClusterSystemImages>;
     /**
      * Skip idempotent deployment of control and etcd plane. Default `false` (bool)
      */
-    readonly updateOnly?: pulumi.Input<boolean>;
+    updateOnly?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster upgrade strategy (list maxitems:1)
      */
-    readonly upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
+    upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
     /**
      * (Computed) RKE k8s cluster worker nodes (list)
      */
-    readonly workerHosts?: pulumi.Input<pulumi.Input<inputs.ClusterWorkerHost>[]>;
+    workerHosts?: pulumi.Input<pulumi.Input<inputs.ClusterWorkerHost>[]>;
 }
 
 /**
@@ -703,177 +703,177 @@ export interface ClusterArgs {
     /**
      * RKE k8s cluster addon deployment timeout in seconds for status check (int)
      */
-    readonly addonJobTimeout?: pulumi.Input<number>;
+    addonJobTimeout?: pulumi.Input<number>;
     /**
      * RKE k8s cluster user addons YAML manifest to be deployed (string)
      */
-    readonly addons?: pulumi.Input<string>;
+    addons?: pulumi.Input<string>;
     /**
      * RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
      */
-    readonly addonsIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    addonsIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s cluster authentication configuration (list maxitems:1)
      */
-    readonly authentication?: pulumi.Input<inputs.ClusterAuthentication>;
+    authentication?: pulumi.Input<inputs.ClusterAuthentication>;
     /**
      * RKE k8s cluster authorization mode configuration (list maxitems:1)
      */
-    readonly authorization?: pulumi.Input<inputs.ClusterAuthorization>;
+    authorization?: pulumi.Input<inputs.ClusterAuthorization>;
     /**
      * RKE k8s cluster bastion Host configuration (list maxitems:1)
      */
-    readonly bastionHost?: pulumi.Input<inputs.ClusterBastionHost>;
+    bastionHost?: pulumi.Input<inputs.ClusterBastionHost>;
     /**
      * Specify a certificate dir path (string)
      */
-    readonly certDir?: pulumi.Input<string>;
+    certDir?: pulumi.Input<string>;
     /**
      * Calico cloud provider (string)
      */
-    readonly cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
+    cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
     /**
      * RKE k8s cluster name used in the kube config (string)
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
      */
-    readonly clusterYaml?: pulumi.Input<string>;
+    clusterYaml?: pulumi.Input<string>;
     /**
      * Use custom certificates from a cert dir (string)
      */
-    readonly customCerts?: pulumi.Input<boolean>;
+    customCerts?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster delay on creation (int)
      */
-    readonly delayOnCreation?: pulumi.Input<number>;
+    delayOnCreation?: pulumi.Input<number>;
     /**
      * Deploy RKE cluster on a dind environment. Default: `false` (bool)
      */
-    readonly dind?: pulumi.Input<boolean>;
+    dind?: pulumi.Input<boolean>;
     /**
      * DinD RKE cluster dns (string)
      */
-    readonly dindDnsServer?: pulumi.Input<string>;
+    dindDnsServer?: pulumi.Input<string>;
     /**
      * DinD RKE cluster storage driver (string)
      */
-    readonly dindStorageDriver?: pulumi.Input<string>;
+    dindStorageDriver?: pulumi.Input<string>;
     /**
      * Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
      */
-    readonly disablePortCheck?: pulumi.Input<boolean>;
+    disablePortCheck?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
-    readonly dns?: pulumi.Input<inputs.ClusterDns>;
+    dns?: pulumi.Input<inputs.ClusterDns>;
     /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */
-    readonly ignoreDockerVersion?: pulumi.Input<boolean>;
+    ignoreDockerVersion?: pulumi.Input<boolean>;
     /**
      * Docker image for ingress (string)
      */
-    readonly ingress?: pulumi.Input<inputs.ClusterIngress>;
+    ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
      * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      */
-    readonly kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string>;
     /**
      * RKE k8s cluster monitoring Config (list maxitems:1)
      */
-    readonly monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
+    monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
     /**
      * (list maxitems:1)
      */
-    readonly network?: pulumi.Input<inputs.ClusterNetwork>;
+    network?: pulumi.Input<inputs.ClusterNetwork>;
     /**
      * RKE k8s cluster nodes (list)
      */
-    readonly nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
     /**
      * @deprecated Use cluster_yaml instead
      */
-    readonly nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RKE k8s directory path (string)
      */
-    readonly prefixPath?: pulumi.Input<string>;
+    prefixPath?: pulumi.Input<string>;
     /**
      * RKE k8s cluster private docker registries (list)
      */
-    readonly privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
+    privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
     /**
      * Restore cluster. Default `false` (bool)
      */
-    readonly restore?: pulumi.Input<inputs.ClusterRestore>;
+    restore?: pulumi.Input<inputs.ClusterRestore>;
     /**
      * RKE k8s cluster rotate certificates configuration (list maxitems:1)
      */
-    readonly rotateCertificates?: pulumi.Input<inputs.ClusterRotateCertificates>;
+    rotateCertificates?: pulumi.Input<inputs.ClusterRotateCertificates>;
     /**
      * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
      */
-    readonly services?: pulumi.Input<inputs.ClusterServices>;
+    services?: pulumi.Input<inputs.ClusterServices>;
     /**
      * Use services.etcd instead (list maxitems:1)
      *
      * @deprecated Use services.etcd instead
      */
-    readonly servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
+    servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
      * Use services.kube_api instead (list maxitems:1)
      *
      * @deprecated Use services.kube_api instead
      */
-    readonly servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
+    servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
      * Use services.kube_controller instead (list maxitems:1)
      *
      * @deprecated Use services.kube_controller instead
      */
-    readonly servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
+    servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
      * Use services.kubeproxy instead (list maxitems:1)
      *
      * @deprecated Use services.kubeproxy instead
      */
-    readonly servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
+    servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
      * Use services.scheduler instead (list maxitems:1)
      *
      * @deprecated Use services.scheduler instead
      */
-    readonly servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
+    servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
      * Use services.kubelet instead (list maxitems:1)
      *
      * @deprecated Use services.kubelet instead
      */
-    readonly servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
+    servicesKubeletDeprecated?: pulumi.Input<inputs.ClusterServicesKubeletDeprecated>;
     /**
      * SSH Agent Auth enable (bool)
      */
-    readonly sshAgentAuth?: pulumi.Input<boolean>;
+    sshAgentAuth?: pulumi.Input<boolean>;
     /**
      * SSH Certificate path (string)
      */
-    readonly sshCertPath?: pulumi.Input<string>;
+    sshCertPath?: pulumi.Input<string>;
     /**
      * SSH Private Key path (string)
      */
-    readonly sshKeyPath?: pulumi.Input<string>;
+    sshKeyPath?: pulumi.Input<string>;
     /**
      * RKE k8s cluster system images list (list maxitems:1)
      */
-    readonly systemImages?: pulumi.Input<inputs.ClusterSystemImages>;
+    systemImages?: pulumi.Input<inputs.ClusterSystemImages>;
     /**
      * Skip idempotent deployment of control and etcd plane. Default `false` (bool)
      */
-    readonly updateOnly?: pulumi.Input<boolean>;
+    updateOnly?: pulumi.Input<boolean>;
     /**
      * RKE k8s cluster upgrade strategy (list maxitems:1)
      */
-    readonly upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
+    upgradeStrategy?: pulumi.Input<inputs.ClusterUpgradeStrategy>;
 }

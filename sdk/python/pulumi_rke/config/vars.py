@@ -8,14 +8,17 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'debug',
-    'log_file',
-]
+import types
 
 __config__ = pulumi.Config('rke')
 
-debug = __config__.get('debug') or (_utilities.get_env_bool('RKE_DEBUG') or False)
 
-log_file = __config__.get('logFile') or _utilities.get_env('RKE_LOG_FILE')
+class _ExportableConfig(types.ModuleType):
+    @property
+    def debug(self) -> bool:
+        return __config__.get_bool('debug') or (_utilities.get_env_bool('RKE_DEBUG') or False)
+
+    @property
+    def log_file(self) -> Optional[str]:
+        return __config__.get('logFile') or _utilities.get_env('RKE_LOG_FILE')
 

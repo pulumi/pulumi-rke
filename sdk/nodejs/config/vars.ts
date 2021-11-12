@@ -4,7 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("rke");
+declare var exports: any;
+const __config = new pulumi.Config("rke");
 
-export let debug: boolean | undefined = __config.getObject<boolean>("debug") || (<any>utilities.getEnvBoolean("RKE_DEBUG") || false);
-export let logFile: string | undefined = __config.get("logFile") || utilities.getEnv("RKE_LOG_FILE");
+export declare const debug: boolean;
+Object.defineProperty(exports, "debug", {
+    get() {
+        return __config.getObject<boolean>("debug") ?? (<any>utilities.getEnvBoolean("RKE_DEBUG") || false);
+    },
+    enumerable: true,
+});
+
+export declare const logFile: string | undefined;
+Object.defineProperty(exports, "logFile", {
+    get() {
+        return __config.get("logFile") ?? utilities.getEnv("RKE_LOG_FILE");
+    },
+    enumerable: true,
+});
+
