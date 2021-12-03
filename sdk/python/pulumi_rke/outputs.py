@@ -4588,7 +4588,9 @@ class ClusterIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dnsPolicy":
+        if key == "defaultBackend":
+            suggest = "default_backend"
+        elif key == "dnsPolicy":
             suggest = "dns_policy"
         elif key == "extraArgs":
             suggest = "extra_args"
@@ -4607,6 +4609,7 @@ class ClusterIngress(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 default_backend: Optional[bool] = None,
                  dns_policy: Optional[str] = None,
                  extra_args: Optional[Mapping[str, Any]] = None,
                  node_selector: Optional[Mapping[str, Any]] = None,
@@ -4619,6 +4622,8 @@ class ClusterIngress(dict):
         :param Mapping[str, Any] options: Network provider options (map)
         :param str provider: Monitoring provider (string)
         """
+        if default_backend is not None:
+            pulumi.set(__self__, "default_backend", default_backend)
         if dns_policy is not None:
             pulumi.set(__self__, "dns_policy", dns_policy)
         if extra_args is not None:
@@ -4629,6 +4634,11 @@ class ClusterIngress(dict):
             pulumi.set(__self__, "options", options)
         if provider is not None:
             pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="defaultBackend")
+    def default_backend(self) -> Optional[bool]:
+        return pulumi.get(self, "default_backend")
 
     @property
     @pulumi.getter(name="dnsPolicy")

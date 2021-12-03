@@ -2950,6 +2950,14 @@
         },
         "rke:index/ClusterIngress:ClusterIngress": {
             "properties": {
+                "defaultBackend": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "dnsPolicy": {
                     "type": "string",
                     "description": "Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)\n",

@@ -13,6 +13,7 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterIngress
     {
+        public readonly bool? DefaultBackend;
         /// <summary>
         /// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.Rke.Outputs
 
         [OutputConstructor]
         private ClusterIngress(
+            bool? defaultBackend,
+
             string? dnsPolicy,
 
             ImmutableDictionary<string, object>? extraArgs,
@@ -46,6 +49,7 @@ namespace Pulumi.Rke.Outputs
 
             string? provider)
         {
+            DefaultBackend = defaultBackend;
             DnsPolicy = dnsPolicy;
             ExtraArgs = extraArgs;
             NodeSelector = nodeSelector;
