@@ -4695,6 +4695,7 @@ class ClusterInactiveHostArgs:
 @pulumi.input_type
 class ClusterIngressArgs:
     def __init__(__self__, *,
+                 default_backend: Optional[pulumi.Input[bool]] = None,
                  dns_policy: Optional[pulumi.Input[str]] = None,
                  extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -4707,6 +4708,8 @@ class ClusterIngressArgs:
         :param pulumi.Input[Mapping[str, Any]] options: Network provider options (map)
         :param pulumi.Input[str] provider: Monitoring provider (string)
         """
+        if default_backend is not None:
+            pulumi.set(__self__, "default_backend", default_backend)
         if dns_policy is not None:
             pulumi.set(__self__, "dns_policy", dns_policy)
         if extra_args is not None:
@@ -4717,6 +4720,15 @@ class ClusterIngressArgs:
             pulumi.set(__self__, "options", options)
         if provider is not None:
             pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="defaultBackend")
+    def default_backend(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "default_backend")
+
+    @default_backend.setter
+    def default_backend(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_backend", value)
 
     @property
     @pulumi.getter(name="dnsPolicy")

@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterIngressArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultBackend")]
+        public Input<bool>? DefaultBackend { get; set; }
+
         /// <summary>
         /// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
         /// </summary>

@@ -9628,6 +9628,7 @@ func (o ClusterInactiveHostArrayOutput) Index(i pulumi.IntInput) ClusterInactive
 }
 
 type ClusterIngress struct {
+	DefaultBackend *bool `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy *string `pulumi:"dnsPolicy"`
 	// Extra arguments for scheduler service (map)
@@ -9652,6 +9653,7 @@ type ClusterIngressInput interface {
 }
 
 type ClusterIngressArgs struct {
+	DefaultBackend pulumi.BoolPtrInput `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
 	// Extra arguments for scheduler service (map)
@@ -9741,6 +9743,10 @@ func (o ClusterIngressOutput) ToClusterIngressPtrOutputWithContext(ctx context.C
 	}).(ClusterIngressPtrOutput)
 }
 
+func (o ClusterIngressOutput) DefaultBackend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterIngress) *bool { return v.DefaultBackend }).(pulumi.BoolPtrOutput)
+}
+
 // Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 func (o ClusterIngressOutput) DnsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
@@ -9788,6 +9794,15 @@ func (o ClusterIngressPtrOutput) Elem() ClusterIngressOutput {
 		var ret ClusterIngress
 		return ret
 	}).(ClusterIngressOutput)
+}
+
+func (o ClusterIngressPtrOutput) DefaultBackend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterIngress) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultBackend
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
