@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.2.4 of the RKE Terraform Provider
+_(none)_
 
 ---
+
+## 3.1.1 (2021-12-17)
+* Upgrade to v1.2.4 of the RKE Terraform Provider
 
 ## 3.1.0 (2021-11-12)
 * Upgrade to terraform-bridge 3.11.0
