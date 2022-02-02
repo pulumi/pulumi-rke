@@ -55,6 +55,7 @@ setup(name='pulumi_rke',
       package_data={
           'pulumi_rke': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

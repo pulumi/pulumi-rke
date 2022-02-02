@@ -10,7 +10,7 @@ const __config = new pulumi.Config("rke");
 export declare const debug: boolean;
 Object.defineProperty(exports, "debug", {
     get() {
-        return __config.getObject<boolean>("debug") ?? (<any>utilities.getEnvBoolean("RKE_DEBUG") || false);
+        return __config.getObject<boolean>("debug") ?? (utilities.getEnvBoolean("RKE_DEBUG") || false);
     },
     enumerable: true,
 });

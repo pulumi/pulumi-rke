@@ -4,5 +4,5 @@ go 1.15
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
-	github.com/pulumi/pulumi/sdk/v3 v3.14.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )
