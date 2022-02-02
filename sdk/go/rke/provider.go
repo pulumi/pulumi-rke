@@ -27,10 +27,10 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if args.Debug == nil {
+	if isZero(args.Debug) {
 		args.Debug = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "RKE_DEBUG").(bool))
 	}
-	if args.LogFile == nil {
+	if isZero(args.LogFile) {
 		args.LogFile = pulumi.StringPtr(getEnvOrDefault("", nil, "RKE_LOG_FILE").(string))
 	}
 	var resource Provider
@@ -64,7 +64,7 @@ type ProviderInput interface {
 }
 
 func (*Provider) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (i *Provider) ToProviderOutput() ProviderOutput {
@@ -78,7 +78,7 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (o ProviderOutput) ToProviderOutput() ProviderOutput {

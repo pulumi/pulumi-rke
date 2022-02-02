@@ -35,16 +35,14 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["debug"] = pulumi.output((args ? args.debug : undefined) ?? (<any>utilities.getEnvBoolean("RKE_DEBUG") || false)).apply(JSON.stringify);
-            inputs["logFile"] = (args ? args.logFile : undefined) ?? utilities.getEnv("RKE_LOG_FILE");
+            resourceInputs["debug"] = pulumi.output((args ? args.debug : undefined) ?? (utilities.getEnvBoolean("RKE_DEBUG") || false)).apply(JSON.stringify);
+            resourceInputs["logFile"] = (args ? args.logFile : undefined) ?? utilities.getEnv("RKE_LOG_FILE");
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 
