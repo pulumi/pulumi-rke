@@ -137,6 +137,15 @@
                         }
                     }
                 },
+                "ignoreProxyEnvVars": {
+                    "type": "boolean",
+                    "description": "Ignore proxy env vars at Bastion Host? Default: `false` (bool)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "port": {
                     "type": "string",
                     "description": "Port used for SSH communication (string)\n",
@@ -2973,6 +2982,33 @@
                         "$ref": "pulumi.json#/Any"
                     },
                     "description": "Extra arguments for scheduler service (map)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpPort": {
+                    "type": "integer",
+                    "description": "Ingress controller http port (int)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpsPort": {
+                    "type": "integer",
+                    "description": "Ingress controller https port (int)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkMode": {
+                    "type": "string",
+                    "description": "Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)\n",
                     "language": {
                         "python": {
                             "mapCase": false

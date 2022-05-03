@@ -33,6 +33,24 @@ namespace Pulumi.Rke.Inputs
             set => _extraArgs = value;
         }
 
+        /// <summary>
+        /// Ingress controller http port (int)
+        /// </summary>
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
+
+        /// <summary>
+        /// Ingress controller https port (int)
+        /// </summary>
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
+
+        /// <summary>
+        /// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+        /// </summary>
+        [Input("networkMode")]
+        public Input<string>? NetworkMode { get; set; }
+
         [Input("nodeSelector")]
         private InputMap<object>? _nodeSelector;
 

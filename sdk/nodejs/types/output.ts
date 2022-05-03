@@ -47,6 +47,10 @@ export interface ClusterBastionHost {
      */
     address: string;
     /**
+     * Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     */
+    ignoreProxyEnvVars?: boolean;
+    /**
      * Port used for SSH communication (string)
      */
     port?: string;
@@ -1212,6 +1216,18 @@ export interface ClusterIngress {
      * Extra arguments for scheduler service (map)
      */
     extraArgs?: {[key: string]: any};
+    /**
+     * Ingress controller http port (int)
+     */
+    httpPort?: number;
+    /**
+     * Ingress controller https port (int)
+     */
+    httpsPort?: number;
+    /**
+     * Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     */
+    networkMode?: string;
     /**
      * Node selector key pair (map)
      */
