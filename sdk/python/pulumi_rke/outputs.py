@@ -227,7 +227,9 @@ class ClusterBastionHost(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sshAgentAuth":
+        if key == "ignoreProxyEnvVars":
+            suggest = "ignore_proxy_env_vars"
+        elif key == "sshAgentAuth":
             suggest = "ssh_agent_auth"
         elif key == "sshCert":
             suggest = "ssh_cert"
@@ -252,6 +254,7 @@ class ClusterBastionHost(dict):
     def __init__(__self__, *,
                  address: str,
                  user: str,
+                 ignore_proxy_env_vars: Optional[bool] = None,
                  port: Optional[str] = None,
                  ssh_agent_auth: Optional[bool] = None,
                  ssh_cert: Optional[str] = None,
@@ -261,6 +264,7 @@ class ClusterBastionHost(dict):
         """
         :param str address: Address ip for node (string)
         :param str user: Registry user (string)
+        :param bool ignore_proxy_env_vars: Ignore proxy env vars at Bastion Host? Default: `false` (bool)
         :param str port: Port used for SSH communication (string)
         :param bool ssh_agent_auth: SSH Agent Auth enable (bool)
         :param str ssh_cert: SSH Certificate (string)
@@ -270,6 +274,8 @@ class ClusterBastionHost(dict):
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "user", user)
+        if ignore_proxy_env_vars is not None:
+            pulumi.set(__self__, "ignore_proxy_env_vars", ignore_proxy_env_vars)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if ssh_agent_auth is not None:
@@ -298,6 +304,14 @@ class ClusterBastionHost(dict):
         Registry user (string)
         """
         return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter(name="ignoreProxyEnvVars")
+    def ignore_proxy_env_vars(self) -> Optional[bool]:
+        """
+        Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+        """
+        return pulumi.get(self, "ignore_proxy_env_vars")
 
     @property
     @pulumi.getter
@@ -4594,6 +4608,12 @@ class ClusterIngress(dict):
             suggest = "dns_policy"
         elif key == "extraArgs":
             suggest = "extra_args"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "networkMode":
+            suggest = "network_mode"
         elif key == "nodeSelector":
             suggest = "node_selector"
 
@@ -4612,12 +4632,18 @@ class ClusterIngress(dict):
                  default_backend: Optional[bool] = None,
                  dns_policy: Optional[str] = None,
                  extra_args: Optional[Mapping[str, Any]] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
+                 network_mode: Optional[str] = None,
                  node_selector: Optional[Mapping[str, Any]] = None,
                  options: Optional[Mapping[str, Any]] = None,
                  provider: Optional[str] = None):
         """
         :param str dns_policy: Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
         :param Mapping[str, Any] extra_args: Extra arguments for scheduler service (map)
+        :param int http_port: Ingress controller http port (int)
+        :param int https_port: Ingress controller https port (int)
+        :param str network_mode: Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
         :param Mapping[str, Any] node_selector: Node selector key pair (map)
         :param Mapping[str, Any] options: Network provider options (map)
         :param str provider: Monitoring provider (string)
@@ -4628,6 +4654,12 @@ class ClusterIngress(dict):
             pulumi.set(__self__, "dns_policy", dns_policy)
         if extra_args is not None:
             pulumi.set(__self__, "extra_args", extra_args)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if network_mode is not None:
+            pulumi.set(__self__, "network_mode", network_mode)
         if node_selector is not None:
             pulumi.set(__self__, "node_selector", node_selector)
         if options is not None:
@@ -4655,6 +4687,30 @@ class ClusterIngress(dict):
         Extra arguments for scheduler service (map)
         """
         return pulumi.get(self, "extra_args")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        """
+        Ingress controller http port (int)
+        """
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        """
+        Ingress controller https port (int)
+        """
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> Optional[str]:
+        """
+        Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+        """
+        return pulumi.get(self, "network_mode")
 
     @property
     @pulumi.getter(name="nodeSelector")

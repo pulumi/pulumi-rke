@@ -9,8 +9,4 @@ require (
 	github.com/rancher/terraform-provider-rke v1.2.2
 )
 
-replace (
-	github.com/rancher/terraform-provider-rke => github.com/pulumi/terraform-provider-rke v1.2.3-0.20211203121652-e3d88620727a
-	google.golang.org/grpc => google.golang.org/grpc v1.29.1
-	k8s.io/client-go => k8s.io/client-go v0.20.0
-)
+replace github.com/rancher/terraform-provider-rke => github.com/pulumi/terraform-provider-rke v1.2.3-0.20220503203333-1a50633ebbbf

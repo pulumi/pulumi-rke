@@ -18,6 +18,10 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string Address;
         /// <summary>
+        /// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+        /// </summary>
+        public readonly bool? IgnoreProxyEnvVars;
+        /// <summary>
         /// Port used for SSH communication (string)
         /// </summary>
         public readonly string? Port;
@@ -50,6 +54,8 @@ namespace Pulumi.Rke.Outputs
         private ClusterBastionHost(
             string address,
 
+            bool? ignoreProxyEnvVars,
+
             string? port,
 
             bool? sshAgentAuth,
@@ -65,6 +71,7 @@ namespace Pulumi.Rke.Outputs
             string user)
         {
             Address = address;
+            IgnoreProxyEnvVars = ignoreProxyEnvVars;
             Port = port;
             SshAgentAuth = sshAgentAuth;
             SshCert = sshCert;

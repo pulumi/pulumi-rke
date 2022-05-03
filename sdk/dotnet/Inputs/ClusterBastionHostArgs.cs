@@ -19,6 +19,12 @@ namespace Pulumi.Rke.Inputs
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
+        /// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+        /// </summary>
+        [Input("ignoreProxyEnvVars")]
+        public Input<bool>? IgnoreProxyEnvVars { get; set; }
+
+        /// <summary>
         /// Port used for SSH communication (string)
         /// </summary>
         [Input("port")]

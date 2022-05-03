@@ -23,6 +23,18 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
+        /// Ingress controller http port (int)
+        /// </summary>
+        public readonly int? HttpPort;
+        /// <summary>
+        /// Ingress controller https port (int)
+        /// </summary>
+        public readonly int? HttpsPort;
+        /// <summary>
+        /// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+        /// </summary>
+        public readonly string? NetworkMode;
+        /// <summary>
         /// Node selector key pair (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
@@ -43,6 +55,12 @@ namespace Pulumi.Rke.Outputs
 
             ImmutableDictionary<string, object>? extraArgs,
 
+            int? httpPort,
+
+            int? httpsPort,
+
+            string? networkMode,
+
             ImmutableDictionary<string, object>? nodeSelector,
 
             ImmutableDictionary<string, object>? options,
@@ -52,6 +70,9 @@ namespace Pulumi.Rke.Outputs
             DefaultBackend = defaultBackend;
             DnsPolicy = dnsPolicy;
             ExtraArgs = extraArgs;
+            HttpPort = httpPort;
+            HttpsPort = httpsPort;
+            NetworkMode = networkMode;
             NodeSelector = nodeSelector;
             Options = options;
             Provider = provider;

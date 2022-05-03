@@ -47,6 +47,10 @@ export interface ClusterBastionHost {
      */
     address: pulumi.Input<string>;
     /**
+     * Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     */
+    ignoreProxyEnvVars?: pulumi.Input<boolean>;
+    /**
      * Port used for SSH communication (string)
      */
     port?: pulumi.Input<string>;
@@ -1212,6 +1216,18 @@ export interface ClusterIngress {
      * Extra arguments for scheduler service (map)
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Ingress controller http port (int)
+     */
+    httpPort?: pulumi.Input<number>;
+    /**
+     * Ingress controller https port (int)
+     */
+    httpsPort?: pulumi.Input<number>;
+    /**
+     * Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     */
+    networkMode?: pulumi.Input<string>;
     /**
      * Node selector key pair (map)
      */

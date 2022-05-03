@@ -500,6 +500,8 @@ func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
 type ClusterBastionHost struct {
 	// Address ip for node (string)
 	Address string `pulumi:"address"`
+	// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+	IgnoreProxyEnvVars *bool `pulumi:"ignoreProxyEnvVars"`
 	// Port used for SSH communication (string)
 	Port *string `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
@@ -530,6 +532,8 @@ type ClusterBastionHostInput interface {
 type ClusterBastionHostArgs struct {
 	// Address ip for node (string)
 	Address pulumi.StringInput `pulumi:"address"`
+	// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+	IgnoreProxyEnvVars pulumi.BoolPtrInput `pulumi:"ignoreProxyEnvVars"`
 	// Port used for SSH communication (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
@@ -628,6 +632,11 @@ func (o ClusterBastionHostOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+func (o ClusterBastionHostOutput) IgnoreProxyEnvVars() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterBastionHost) *bool { return v.IgnoreProxyEnvVars }).(pulumi.BoolPtrOutput)
+}
+
 // Port used for SSH communication (string)
 func (o ClusterBastionHostOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
@@ -695,6 +704,16 @@ func (o ClusterBastionHostPtrOutput) Address() pulumi.StringPtrOutput {
 		}
 		return &v.Address
 	}).(pulumi.StringPtrOutput)
+}
+
+// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+func (o ClusterBastionHostPtrOutput) IgnoreProxyEnvVars() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterBastionHost) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreProxyEnvVars
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Port used for SSH communication (string)
@@ -9633,6 +9652,12 @@ type ClusterIngress struct {
 	DnsPolicy *string `pulumi:"dnsPolicy"`
 	// Extra arguments for scheduler service (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	// Ingress controller http port (int)
+	HttpPort *int `pulumi:"httpPort"`
+	// Ingress controller https port (int)
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+	NetworkMode *string `pulumi:"networkMode"`
 	// Node selector key pair (map)
 	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
 	// Network provider options (map)
@@ -9658,6 +9683,12 @@ type ClusterIngressArgs struct {
 	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
 	// Extra arguments for scheduler service (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	// Ingress controller http port (int)
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// Ingress controller https port (int)
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Node selector key pair (map)
 	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
 	// Network provider options (map)
@@ -9757,6 +9788,21 @@ func (o ClusterIngressOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
+// Ingress controller http port (int)
+func (o ClusterIngressOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterIngress) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// Ingress controller https port (int)
+func (o ClusterIngressOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterIngress) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+func (o ClusterIngressOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIngress) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
+}
+
 // Node selector key pair (map)
 func (o ClusterIngressOutput) NodeSelector() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
@@ -9823,6 +9869,36 @@ func (o ClusterIngressPtrOutput) ExtraArgs() pulumi.MapOutput {
 		}
 		return v.ExtraArgs
 	}).(pulumi.MapOutput)
+}
+
+// Ingress controller http port (int)
+func (o ClusterIngressPtrOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterIngress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Ingress controller https port (int)
+func (o ClusterIngressPtrOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterIngress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+func (o ClusterIngressPtrOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIngress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Node selector key pair (map)
