@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCertificateGetArgs()
         {
         }
+        public static new ClusterCertificateGetArgs Empty => new ClusterCertificateGetArgs();
     }
 }

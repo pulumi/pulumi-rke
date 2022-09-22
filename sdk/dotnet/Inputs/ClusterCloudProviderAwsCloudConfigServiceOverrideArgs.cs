@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// TLS key for etcd service (string)
@@ -57,5 +57,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAwsCloudConfigServiceOverrideArgs()
         {
         }
+        public static new ClusterCloudProviderAwsCloudConfigServiceOverrideArgs Empty => new ClusterCloudProviderAwsCloudConfigServiceOverrideArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterUpgradeStrategyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradeStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE drain nodes (bool)
@@ -39,5 +39,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterUpgradeStrategyArgs()
         {
         }
+        public static new ClusterUpgradeStrategyArgs Empty => new ClusterUpgradeStrategyArgs();
     }
 }

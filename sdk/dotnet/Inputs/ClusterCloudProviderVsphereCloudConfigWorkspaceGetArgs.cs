@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -45,5 +45,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs()
         {
         }
+        public static new ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs Empty => new ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeProxyDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeProxyDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("extraArgs")]
         private InputMap<object>? _extraArgs;
@@ -57,5 +57,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeProxyDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesKubeProxyDeprecatedGetArgs Empty => new ClusterServicesKubeProxyDeprecatedGetArgs();
     }
 }

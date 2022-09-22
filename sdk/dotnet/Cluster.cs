@@ -25,7 +25,7 @@ namespace Pulumi.Rke
     /// ```
     /// </summary>
     [RkeResourceType("rke:index/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -182,6 +182,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Output("dns")]
         public Output<Outputs.ClusterDns?> Dns { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Output("enableCriDockerd")]
+        public Output<bool?> EnableCriDockerd { get; private set; } = null!;
 
         /// <summary>
         /// (Computed) RKE k8s cluster etcd nodes (list)
@@ -422,7 +428,7 @@ namespace Pulumi.Rke
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -531,6 +537,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Input("dns")]
         public Input<Inputs.ClusterDnsArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
 
         /// <summary>
         /// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -694,9 +706,10 @@ namespace Pulumi.Rke
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -871,6 +884,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Input("dns")]
         public Input<Inputs.ClusterDnsGetArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
 
         [Input("etcdHosts")]
         private InputList<Inputs.ClusterEtcdHostGetArgs>? _etcdHosts;
@@ -1106,5 +1125,6 @@ namespace Pulumi.Rke
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

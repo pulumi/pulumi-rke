@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkAciNetworkProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkAciNetworkProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Attachment entity profile name on aci (string)
@@ -169,5 +169,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkAciNetworkProviderGetArgs()
         {
         }
+        public static new ClusterNetworkAciNetworkProviderGetArgs Empty => new ClusterNetworkAciNetworkProviderGetArgs();
     }
 }

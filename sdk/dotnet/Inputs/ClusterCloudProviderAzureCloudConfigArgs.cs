@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAzureCloudConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAzureCloudConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -186,5 +186,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAzureCloudConfigArgs()
         {
         }
+        public static new ClusterCloudProviderAzureCloudConfigArgs Empty => new ClusterCloudProviderAzureCloudConfigArgs();
     }
 }

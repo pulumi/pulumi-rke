@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterWorkerHostGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterWorkerHostGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address ip for node (string)
@@ -27,5 +27,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterWorkerHostGetArgs()
         {
         }
+        public static new ClusterWorkerHostGetArgs Empty => new ClusterWorkerHostGetArgs();
     }
 }

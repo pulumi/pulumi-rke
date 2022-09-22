@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterDnsGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterDnsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
         private InputMap<object>? _nodeSelector;
@@ -63,5 +63,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterDnsGetArgs()
         {
         }
+        public static new ClusterDnsGetArgs Empty => new ClusterDnsGetArgs();
     }
 }

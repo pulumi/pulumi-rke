@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -152,6 +153,10 @@ export class Cluster extends pulumi.CustomResource {
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
     public readonly dns!: pulumi.Output<outputs.ClusterDns | undefined>;
+    /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    public readonly enableCriDockerd!: pulumi.Output<boolean | undefined>;
     /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
@@ -338,6 +343,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dindStorageDriver"] = state ? state.dindStorageDriver : undefined;
             resourceInputs["disablePortCheck"] = state ? state.disablePortCheck : undefined;
             resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["enableCriDockerd"] = state ? state.enableCriDockerd : undefined;
             resourceInputs["etcdHosts"] = state ? state.etcdHosts : undefined;
             resourceInputs["ignoreDockerVersion"] = state ? state.ignoreDockerVersion : undefined;
             resourceInputs["inactiveHosts"] = state ? state.inactiveHosts : undefined;
@@ -390,6 +396,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dindStorageDriver"] = args ? args.dindStorageDriver : undefined;
             resourceInputs["disablePortCheck"] = args ? args.disablePortCheck : undefined;
             resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["enableCriDockerd"] = args ? args.enableCriDockerd : undefined;
             resourceInputs["ignoreDockerVersion"] = args ? args.ignoreDockerVersion : undefined;
             resourceInputs["ingress"] = args ? args.ingress : undefined;
             resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -546,6 +553,10 @@ export interface ClusterState {
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
+    /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    enableCriDockerd?: pulumi.Input<boolean>;
     /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
@@ -766,6 +777,10 @@ export interface ClusterArgs {
      * RKE k8s cluster DNS Config (list maxitems:1)
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
+    /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    enableCriDockerd?: pulumi.Input<boolean>;
     /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeletDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeletDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster DNS Server option for kubelet service (string)
@@ -87,5 +87,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeletDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesKubeletDeprecatedGetArgs Empty => new ClusterServicesKubeletDeprecatedGetArgs();
     }
 }

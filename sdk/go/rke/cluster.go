@@ -15,13 +15,17 @@ import (
 // rke_cluster can be imported using the RKE cluster config and state files as ID in the format `<cluster_config_file>:<rke_state_file>`
 //
 // ```sh
-//  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
+//
+//	$ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
+//
 // ```
 //
-//  As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
+//	As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
 //
 // ```sh
-//  $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind
+//
+//	$ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -78,6 +82,8 @@ type Cluster struct {
 	DisablePortCheck pulumi.BoolPtrOutput `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrOutput `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrOutput `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayOutput `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -241,6 +247,8 @@ type clusterState struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts []ClusterEtcdHost `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -376,6 +384,8 @@ type ClusterState struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrInput
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayInput
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -497,6 +507,8 @@ type clusterArgs struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion *bool `pulumi:"ignoreDockerVersion"`
 	// Docker image for ingress (string)
@@ -595,6 +607,8 @@ type ClusterArgs struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrInput
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion pulumi.BoolPtrInput
 	// Docker image for ingress (string)
@@ -692,6 +706,324 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
+}
+
+// RKE k8s cluster addon deployment timeout in seconds for status check (int)
+func (o ClusterOutput) AddonJobTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.AddonJobTimeout }).(pulumi.IntPtrOutput)
+}
+
+// RKE k8s cluster user addons YAML manifest to be deployed (string)
+func (o ClusterOutput) Addons() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Addons }).(pulumi.StringPtrOutput)
+}
+
+// RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
+func (o ClusterOutput) AddonsIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AddonsIncludes }).(pulumi.StringArrayOutput)
+}
+
+// (Computed) RKE k8s cluster api server url (string)
+func (o ClusterOutput) ApiServerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ApiServerUrl }).(pulumi.StringOutput)
+}
+
+// RKE k8s cluster authentication configuration (list maxitems:1)
+func (o ClusterOutput) Authentication() ClusterAuthenticationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAuthenticationPtrOutput { return v.Authentication }).(ClusterAuthenticationPtrOutput)
+}
+
+// RKE k8s cluster authorization mode configuration (list maxitems:1)
+func (o ClusterOutput) Authorization() ClusterAuthorizationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAuthorizationPtrOutput { return v.Authorization }).(ClusterAuthorizationPtrOutput)
+}
+
+// RKE k8s cluster bastion Host configuration (list maxitems:1)
+func (o ClusterOutput) BastionHost() ClusterBastionHostPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterBastionHostPtrOutput { return v.BastionHost }).(ClusterBastionHostPtrOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster CA certificate (string)
+func (o ClusterOutput) CaCrt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CaCrt }).(pulumi.StringOutput)
+}
+
+// Specify a certificate dir path (string)
+func (o ClusterOutput) CertDir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CertDir }).(pulumi.StringPtrOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster certificates (string)
+func (o ClusterOutput) Certificates() ClusterCertificateArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateArrayOutput { return v.Certificates }).(ClusterCertificateArrayOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster client certificate (string)
+func (o ClusterOutput) ClientCert() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClientCert }).(pulumi.StringOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster client key (string)
+func (o ClusterOutput) ClientKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClientKey }).(pulumi.StringOutput)
+}
+
+// Calico cloud provider (string)
+func (o ClusterOutput) CloudProvider() ClusterCloudProviderPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCloudProviderPtrOutput { return v.CloudProvider }).(ClusterCloudProviderPtrOutput)
+}
+
+// Cluster CIDR option for kube controller service (string)
+func (o ClusterOutput) ClusterCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterCidr }).(pulumi.StringOutput)
+}
+
+// Cluster DNS Server option for kubelet service (string)
+func (o ClusterOutput) ClusterDnsServer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDnsServer }).(pulumi.StringOutput)
+}
+
+// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+func (o ClusterOutput) ClusterDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDomain }).(pulumi.StringOutput)
+}
+
+// RKE k8s cluster name used in the kube config (string)
+func (o ClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
+func (o ClusterOutput) ClusterYaml() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterYaml }).(pulumi.StringPtrOutput)
+}
+
+// (Computed) RKE k8s cluster control plane nodes (list)
+func (o ClusterOutput) ControlPlaneHosts() ClusterControlPlaneHostArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterControlPlaneHostArrayOutput { return v.ControlPlaneHosts }).(ClusterControlPlaneHostArrayOutput)
+}
+
+// Use custom certificates from a cert dir (string)
+func (o ClusterOutput) CustomCerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.CustomCerts }).(pulumi.BoolPtrOutput)
+}
+
+// RKE k8s cluster delay on creation (int)
+func (o ClusterOutput) DelayOnCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.DelayOnCreation }).(pulumi.IntPtrOutput)
+}
+
+// Deploy RKE cluster on a dind environment. Default: `false` (bool)
+func (o ClusterOutput) Dind() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Dind }).(pulumi.BoolPtrOutput)
+}
+
+// DinD RKE cluster dns (string)
+func (o ClusterOutput) DindDnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DindDnsServer }).(pulumi.StringPtrOutput)
+}
+
+// DinD RKE cluster storage driver (string)
+func (o ClusterOutput) DindStorageDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DindStorageDriver }).(pulumi.StringPtrOutput)
+}
+
+// Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
+func (o ClusterOutput) DisablePortCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DisablePortCheck }).(pulumi.BoolPtrOutput)
+}
+
+// RKE k8s cluster DNS Config (list maxitems:1)
+func (o ClusterOutput) Dns() ClusterDnsPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterDnsPtrOutput { return v.Dns }).(ClusterDnsPtrOutput)
+}
+
+// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+func (o ClusterOutput) EnableCriDockerd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableCriDockerd }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) RKE k8s cluster etcd nodes (list)
+func (o ClusterOutput) EtcdHosts() ClusterEtcdHostArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEtcdHostArrayOutput { return v.EtcdHosts }).(ClusterEtcdHostArrayOutput)
+}
+
+// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
+func (o ClusterOutput) IgnoreDockerVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.IgnoreDockerVersion }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) RKE k8s cluster inactive nodes (list)
+func (o ClusterOutput) InactiveHosts() ClusterInactiveHostArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterInactiveHostArrayOutput { return v.InactiveHosts }).(ClusterInactiveHostArrayOutput)
+}
+
+// Docker image for ingress (string)
+func (o ClusterOutput) Ingress() ClusterIngressPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterIngressPtrOutput { return v.Ingress }).(ClusterIngressPtrOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
+//
+// Deprecated: Use kube_config_yaml instead
+func (o ClusterOutput) InternalKubeConfigYaml() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.InternalKubeConfigYaml }).(pulumi.StringOutput)
+}
+
+// (Computed) RKE k8s cluster admin user (string)
+func (o ClusterOutput) KubeAdminUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KubeAdminUser }).(pulumi.StringOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
+func (o ClusterOutput) KubeConfigYaml() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KubeConfigYaml }).(pulumi.StringOutput)
+}
+
+// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
+func (o ClusterOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+// RKE k8s cluster monitoring Config (list maxitems:1)
+func (o ClusterOutput) Monitoring() ClusterMonitoringPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterMonitoringPtrOutput { return v.Monitoring }).(ClusterMonitoringPtrOutput)
+}
+
+// (list maxitems:1)
+func (o ClusterOutput) Network() ClusterNetworkPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterNetworkPtrOutput { return v.Network }).(ClusterNetworkPtrOutput)
+}
+
+// RKE k8s cluster nodes (list)
+func (o ClusterOutput) Nodes() ClusterNodeArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterNodeArrayOutput { return v.Nodes }).(ClusterNodeArrayOutput)
+}
+
+// Deprecated: Use cluster_yaml instead
+func (o ClusterOutput) NodesConfs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.NodesConfs }).(pulumi.StringArrayOutput)
+}
+
+// RKE k8s directory path (string)
+func (o ClusterOutput) PrefixPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PrefixPath }).(pulumi.StringPtrOutput)
+}
+
+// RKE k8s cluster private docker registries (list)
+func (o ClusterOutput) PrivateRegistries() ClusterPrivateRegistryArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterPrivateRegistryArrayOutput { return v.PrivateRegistries }).(ClusterPrivateRegistryArrayOutput)
+}
+
+// Restore cluster. Default `false` (bool)
+func (o ClusterOutput) Restore() ClusterRestorePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRestorePtrOutput { return v.Restore }).(ClusterRestorePtrOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster config yaml (string)
+func (o ClusterOutput) RkeClusterYaml() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RkeClusterYaml }).(pulumi.StringOutput)
+}
+
+// (Computed/Sensitive) RKE k8s cluster state (string)
+func (o ClusterOutput) RkeState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RkeState }).(pulumi.StringOutput)
+}
+
+// RKE k8s cluster rotate certificates configuration (list maxitems:1)
+func (o ClusterOutput) RotateCertificates() ClusterRotateCertificatesPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRotateCertificatesPtrOutput { return v.RotateCertificates }).(ClusterRotateCertificatesPtrOutput)
+}
+
+// (Computed) RKE k8s cluster running system images list (list)
+func (o ClusterOutput) RunningSystemImages() ClusterRunningSystemImagesOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRunningSystemImagesOutput { return v.RunningSystemImages }).(ClusterRunningSystemImagesOutput)
+}
+
+// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+func (o ClusterOutput) Services() ClusterServicesPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesPtrOutput { return v.Services }).(ClusterServicesPtrOutput)
+}
+
+// Use services.etcd instead (list maxitems:1)
+//
+// Deprecated: Use services.etcd instead
+func (o ClusterOutput) ServicesEtcdDeprecated() ClusterServicesEtcdDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesEtcdDeprecatedPtrOutput { return v.ServicesEtcdDeprecated }).(ClusterServicesEtcdDeprecatedPtrOutput)
+}
+
+// Use services.kube_api instead (list maxitems:1)
+//
+// Deprecated: Use services.kube_api instead
+func (o ClusterOutput) ServicesKubeApiDeprecated() ClusterServicesKubeApiDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesKubeApiDeprecatedPtrOutput { return v.ServicesKubeApiDeprecated }).(ClusterServicesKubeApiDeprecatedPtrOutput)
+}
+
+// Use services.kube_controller instead (list maxitems:1)
+//
+// Deprecated: Use services.kube_controller instead
+func (o ClusterOutput) ServicesKubeControllerDeprecated() ClusterServicesKubeControllerDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesKubeControllerDeprecatedPtrOutput {
+		return v.ServicesKubeControllerDeprecated
+	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
+}
+
+// Use services.kubeproxy instead (list maxitems:1)
+//
+// Deprecated: Use services.kubeproxy instead
+func (o ClusterOutput) ServicesKubeProxyDeprecated() ClusterServicesKubeProxyDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesKubeProxyDeprecatedPtrOutput { return v.ServicesKubeProxyDeprecated }).(ClusterServicesKubeProxyDeprecatedPtrOutput)
+}
+
+// Use services.scheduler instead (list maxitems:1)
+//
+// Deprecated: Use services.scheduler instead
+func (o ClusterOutput) ServicesKubeSchedulerDeprecated() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
+		return v.ServicesKubeSchedulerDeprecated
+	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
+}
+
+// Use services.kubelet instead (list maxitems:1)
+//
+// Deprecated: Use services.kubelet instead
+func (o ClusterOutput) ServicesKubeletDeprecated() ClusterServicesKubeletDeprecatedPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicesKubeletDeprecatedPtrOutput { return v.ServicesKubeletDeprecated }).(ClusterServicesKubeletDeprecatedPtrOutput)
+}
+
+// SSH Agent Auth enable (bool)
+func (o ClusterOutput) SshAgentAuth() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.SshAgentAuth }).(pulumi.BoolOutput)
+}
+
+// SSH Certificate path (string)
+func (o ClusterOutput) SshCertPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SshCertPath }).(pulumi.StringPtrOutput)
+}
+
+// SSH Private Key path (string)
+func (o ClusterOutput) SshKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SshKeyPath }).(pulumi.StringPtrOutput)
+}
+
+// RKE k8s cluster system images list (list maxitems:1)
+func (o ClusterOutput) SystemImages() ClusterSystemImagesPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSystemImagesPtrOutput { return v.SystemImages }).(ClusterSystemImagesPtrOutput)
+}
+
+// Skip idempotent deployment of control and etcd plane. Default `false` (bool)
+func (o ClusterOutput) UpdateOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.UpdateOnly }).(pulumi.BoolPtrOutput)
+}
+
+// RKE k8s cluster upgrade strategy (list maxitems:1)
+func (o ClusterOutput) UpgradeStrategy() ClusterUpgradeStrategyPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterUpgradeStrategyPtrOutput { return v.UpgradeStrategy }).(ClusterUpgradeStrategyPtrOutput)
+}
+
+// (Computed) RKE k8s cluster worker nodes (list)
+func (o ClusterOutput) WorkerHosts() ClusterWorkerHostArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterWorkerHostArrayOutput { return v.WorkerHosts }).(ClusterWorkerHostArrayOutput)
 }
 
 func init() {

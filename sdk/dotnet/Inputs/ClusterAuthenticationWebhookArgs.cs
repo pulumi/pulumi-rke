@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterAuthenticationWebhookArgs : Pulumi.ResourceArgs
+    public sealed class ClusterAuthenticationWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Controls how long to cache authentication decisions (string)
@@ -27,5 +27,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterAuthenticationWebhookArgs()
         {
         }
+        public static new ClusterAuthenticationWebhookArgs Empty => new ClusterAuthenticationWebhookArgs();
     }
 }

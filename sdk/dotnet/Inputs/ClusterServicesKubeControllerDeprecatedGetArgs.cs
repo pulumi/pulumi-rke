@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeControllerDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeControllerDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster CIDR option for kube controller service (string)
@@ -69,5 +69,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeControllerDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesKubeControllerDeprecatedGetArgs Empty => new ClusterServicesKubeControllerDeprecatedGetArgs();
     }
 }

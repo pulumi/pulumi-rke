@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAwsCloudConfigGlobalArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAwsCloudConfigGlobalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disables the automatic ingress creation. Default `false` (bool)
@@ -75,5 +75,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAwsCloudConfigGlobalArgs()
         {
         }
+        public static new ClusterCloudProviderAwsCloudConfigGlobalArgs Empty => new ClusterCloudProviderAwsCloudConfigGlobalArgs();
     }
 }

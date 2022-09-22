@@ -12,6 +12,40 @@
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": {
+                "index": "index",
+                "rke": "Rke"
+            },
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing rke cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    },
     "config": {
         "variables": {
             "debug": {
@@ -6649,6 +6683,10 @@
                     "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                     "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
                 },
+                "enableCriDockerd": {
+                    "type": "boolean",
+                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                },
                 "etcdHosts": {
                     "type": "array",
                     "items": {
@@ -6900,6 +6938,10 @@
                     "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                     "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
                 },
+                "enableCriDockerd": {
+                    "type": "boolean",
+                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                },
                 "ignoreDockerVersion": {
                     "type": "boolean",
                     "description": "Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)\n"
@@ -7128,6 +7170,10 @@
                         "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                         "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
                     },
+                    "enableCriDockerd": {
+                        "type": "boolean",
+                        "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                    },
                     "etcdHosts": {
                         "type": "array",
                         "items": {
@@ -7287,40 +7333,6 @@
                     }
                 },
                 "type": "object"
-            }
-        }
-    },
-    "language": {
-        "csharp": {
-            "compatibility": "tfbridge20",
-            "namespaces": {
-                "index": "index",
-                "rke": "Rke"
-            },
-            "packageReferences": {
-                "Pulumi": "3.*"
-            }
-        },
-        "nodejs": {
-            "compatibility": "tfbridge20",
-            "dependencies": {
-                "@pulumi/pulumi": "^3.0.0"
-            },
-            "devDependencies": {
-                "@types/mime": "^2.0.0",
-                "@types/node": "^10.0.0"
-            },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing rke cloud resources.",
-            "packageName": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`rancher/terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
-            "typescriptVersion": ""
-        },
-        "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`rancher/terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
-            "requires": {
-                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterRotateCertificatesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterRotateCertificatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rotate CA Certificates. Default `false` (bool)
@@ -33,5 +33,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterRotateCertificatesArgs()
         {
         }
+        public static new ClusterRotateCertificatesArgs Empty => new ClusterRotateCertificatesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkFlannelNetworkProviderArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkFlannelNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flannel network interface (string)
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkFlannelNetworkProviderArgs()
         {
         }
+        public static new ClusterNetworkFlannelNetworkProviderArgs Empty => new ClusterNetworkFlannelNetworkProviderArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access key for S3 service (string)
@@ -57,5 +57,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs()
         {
         }
+        public static new ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs Empty => new ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs();
     }
 }

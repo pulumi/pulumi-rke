@@ -16,7 +16,7 @@ namespace Pulumi.Rke
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [RkeResourceType("pulumi:providers:rke")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         [Output("logFile")]
         public Output<string?> LogFile { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.Rke
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("debug", json: true)]
         public Input<bool>? Debug { get; set; }
@@ -60,5 +60,6 @@ namespace Pulumi.Rke
             Debug = Utilities.GetEnvBoolean("RKE_DEBUG") ?? false;
             LogFile = Utilities.GetEnv("RKE_LOG_FILE");
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

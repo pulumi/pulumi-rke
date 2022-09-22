@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderOpenstackCloudConfigGlobalArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderOpenstackCloudConfigGlobalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -81,5 +81,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderOpenstackCloudConfigGlobalArgs()
         {
         }
+        public static new ClusterCloudProviderOpenstackCloudConfigGlobalArgs Empty => new ClusterCloudProviderOpenstackCloudConfigGlobalArgs();
     }
 }

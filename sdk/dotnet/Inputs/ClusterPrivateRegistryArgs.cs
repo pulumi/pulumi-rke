@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterPrivateRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ClusterPrivateRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set as default registry. Default `false` (bool)
@@ -39,5 +39,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterPrivateRegistryArgs()
         {
         }
+        public static new ClusterPrivateRegistryArgs Empty => new ClusterPrivateRegistryArgs();
     }
 }

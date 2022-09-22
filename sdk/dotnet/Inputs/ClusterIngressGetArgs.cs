@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterIngressGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIngressGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultBackend")]
         public Input<bool>? DefaultBackend { get; set; }
@@ -84,5 +84,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterIngressGetArgs()
         {
         }
+        public static new ClusterIngressGetArgs Empty => new ClusterIngressGetArgs();
     }
 }

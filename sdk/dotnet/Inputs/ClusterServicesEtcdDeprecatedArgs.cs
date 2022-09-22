@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesEtcdDeprecatedArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesEtcdDeprecatedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -129,5 +129,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesEtcdDeprecatedArgs()
         {
         }
+        public static new ClusterServicesEtcdDeprecatedArgs Empty => new ClusterServicesEtcdDeprecatedArgs();
     }
 }

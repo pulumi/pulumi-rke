@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkWeaveNetworkProviderArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkWeaveNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Registry password (string)
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkWeaveNetworkProviderArgs()
         {
         }
+        public static new ClusterNetworkWeaveNetworkProviderArgs Empty => new ClusterNetworkWeaveNetworkProviderArgs();
     }
 }

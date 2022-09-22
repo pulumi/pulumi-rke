@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Aci network provider config (list maxitems:1)
@@ -69,5 +69,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkGetArgs()
         {
         }
+        public static new ClusterNetworkGetArgs Empty => new ClusterNetworkGetArgs();
     }
 }

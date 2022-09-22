@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeApiDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeApiDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -99,5 +99,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeApiDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesKubeApiDeprecatedGetArgs Empty => new ClusterServicesKubeApiDeprecatedGetArgs();
     }
 }

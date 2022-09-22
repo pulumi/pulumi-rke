@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesEtcdDeprecatedBackupConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesEtcdDeprecatedBackupConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable secrets encryption (bool)
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesEtcdDeprecatedBackupConfigGetArgs()
         {
         }
+        public static new ClusterServicesEtcdDeprecatedBackupConfigGetArgs Empty => new ClusterServicesEtcdDeprecatedBackupConfigGetArgs();
     }
 }

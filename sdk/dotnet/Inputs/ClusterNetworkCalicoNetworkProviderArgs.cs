@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkCalicoNetworkProviderArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkCalicoNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Calico cloud provider (string)
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkCalicoNetworkProviderArgs()
         {
         }
+        public static new ClusterNetworkCalicoNetworkProviderArgs Empty => new ClusterNetworkCalicoNetworkProviderArgs();
     }
 }

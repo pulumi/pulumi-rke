@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Docker image for etcd (string)
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesArgs()
         {
         }
+        public static new ClusterServicesArgs Empty => new ClusterServicesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterSystemImagesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSystemImagesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Docker image for aci_cni_deploy_container (string)
@@ -237,5 +237,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterSystemImagesGetArgs()
         {
         }
+        public static new ClusterSystemImagesGetArgs Empty => new ClusterSystemImagesGetArgs();
     }
 }

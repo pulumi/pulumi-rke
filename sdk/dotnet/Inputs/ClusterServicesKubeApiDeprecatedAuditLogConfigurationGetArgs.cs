@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Audit log format (string)
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs()
         {
         }
+        public static new ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs Empty => new ClusterServicesKubeApiDeprecatedAuditLogConfigurationGetArgs();
     }
 }
