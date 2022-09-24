@@ -95,7 +95,7 @@ def wait_for_ready(private_ip):
     # time to spin up and be ready
     # if we had a custom image with docker installed then it would
     # be a faster start up time
-    time.sleep(120)
+    time.sleep(600)
     return private_ip
 
 rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs(name="aws"),
