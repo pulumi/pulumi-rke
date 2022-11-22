@@ -6649,6 +6649,10 @@
                     "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                     "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
                 },
+                "enableCriDockerd": {
+                    "type": "boolean",
+                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                },
                 "etcdHosts": {
                     "type": "array",
                     "items": {
@@ -6900,6 +6904,10 @@
                     "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                     "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
                 },
+                "enableCriDockerd": {
+                    "type": "boolean",
+                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                },
                 "ignoreDockerVersion": {
                     "type": "boolean",
                     "description": "Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)\n"
@@ -7127,6 +7135,10 @@
                     "dns": {
                         "$ref": "#/types/rke:index/ClusterDns:ClusterDns",
                         "description": "RKE k8s cluster DNS Config (list maxitems:1)\n"
+                    },
+                    "enableCriDockerd": {
+                        "type": "boolean",
+                        "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
                     },
                     "etcdHosts": {
                         "type": "array",

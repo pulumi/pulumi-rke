@@ -184,6 +184,12 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterDns?> Dns { get; private set; } = null!;
 
         /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Output("enableCriDockerd")]
+        public Output<bool?> EnableCriDockerd { get; private set; } = null!;
+
+        /// <summary>
         /// (Computed) RKE k8s cluster etcd nodes (list)
         /// </summary>
         [Output("etcdHosts")]
@@ -533,6 +539,12 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterDnsArgs>? Dns { get; set; }
 
         /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
+
+        /// <summary>
         /// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         /// </summary>
         [Input("ignoreDockerVersion")]
@@ -871,6 +883,12 @@ namespace Pulumi.Rke
         /// </summary>
         [Input("dns")]
         public Input<Inputs.ClusterDnsGetArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
 
         [Input("etcdHosts")]
         private InputList<Inputs.ClusterEtcdHostGetArgs>? _etcdHosts;

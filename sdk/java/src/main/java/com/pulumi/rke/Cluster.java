@@ -427,6 +427,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dns);
     }
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    @Export(name="enableCriDockerd", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableCriDockerd;
+
+    /**
+     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    public Output<Optional<Boolean>> enableCriDockerd() {
+        return Codegen.optional(this.enableCriDockerd);
+    }
+    /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      * 
      */

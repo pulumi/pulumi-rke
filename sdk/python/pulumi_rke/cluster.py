@@ -32,6 +32,7 @@ class ClusterArgs:
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
                  dns: Optional[pulumi.Input['ClusterDnsArgs']] = None,
+                 enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
                  ingress: Optional[pulumi.Input['ClusterIngressArgs']] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -75,6 +76,7 @@ class ClusterArgs:
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
         :param pulumi.Input['ClusterDnsArgs'] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         :param pulumi.Input['ClusterIngressArgs'] ingress: Docker image for ingress (string)
         :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
@@ -133,6 +135,8 @@ class ClusterArgs:
             pulumi.set(__self__, "disable_port_check", disable_port_check)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
+        if enable_cri_dockerd is not None:
+            pulumi.set(__self__, "enable_cri_dockerd", enable_cri_dockerd)
         if ignore_docker_version is not None:
             pulumi.set(__self__, "ignore_docker_version", ignore_docker_version)
         if ingress is not None:
@@ -406,6 +410,18 @@ class ClusterArgs:
     @dns.setter
     def dns(self, value: Optional[pulumi.Input['ClusterDnsArgs']]):
         pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter(name="enableCriDockerd")
+    def enable_cri_dockerd(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        """
+        return pulumi.get(self, "enable_cri_dockerd")
+
+    @enable_cri_dockerd.setter
+    def enable_cri_dockerd(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cri_dockerd", value)
 
     @property
     @pulumi.getter(name="ignoreDockerVersion")
@@ -722,6 +738,7 @@ class _ClusterState:
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
                  dns: Optional[pulumi.Input['ClusterDnsArgs']] = None,
+                 enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  etcd_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
                  inactive_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]]] = None,
@@ -783,6 +800,7 @@ class _ClusterState:
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
         :param pulumi.Input['ClusterDnsArgs'] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEtcdHostArgs']]] etcd_hosts: (Computed) RKE k8s cluster etcd nodes (list)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterInactiveHostArgs']]] inactive_hosts: (Computed) RKE k8s cluster inactive nodes (list)
@@ -868,6 +886,8 @@ class _ClusterState:
             pulumi.set(__self__, "disable_port_check", disable_port_check)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
+        if enable_cri_dockerd is not None:
+            pulumi.set(__self__, "enable_cri_dockerd", enable_cri_dockerd)
         if etcd_hosts is not None:
             pulumi.set(__self__, "etcd_hosts", etcd_hosts)
         if ignore_docker_version is not None:
@@ -1270,6 +1290,18 @@ class _ClusterState:
     @dns.setter
     def dns(self, value: Optional[pulumi.Input['ClusterDnsArgs']]):
         pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter(name="enableCriDockerd")
+    def enable_cri_dockerd(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        """
+        return pulumi.get(self, "enable_cri_dockerd")
+
+    @enable_cri_dockerd.setter
+    def enable_cri_dockerd(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cri_dockerd", value)
 
     @property
     @pulumi.getter(name="etcdHosts")
@@ -1687,6 +1719,7 @@ class Cluster(pulumi.CustomResource):
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+                 enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
                  ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1746,6 +1779,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
         :param pulumi.Input[pulumi.InputType['ClusterDnsArgs']] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         :param pulumi.Input[pulumi.InputType['ClusterIngressArgs']] ingress: Docker image for ingress (string)
         :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
@@ -1823,6 +1857,7 @@ class Cluster(pulumi.CustomResource):
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+                 enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
                  ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1876,6 +1911,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["dind_storage_driver"] = dind_storage_driver
             __props__.__dict__["disable_port_check"] = disable_port_check
             __props__.__dict__["dns"] = dns
+            __props__.__dict__["enable_cri_dockerd"] = enable_cri_dockerd
             __props__.__dict__["ignore_docker_version"] = ignore_docker_version
             __props__.__dict__["ingress"] = ingress
             __props__.__dict__["kubernetes_version"] = kubernetes_version
@@ -1975,6 +2011,7 @@ class Cluster(pulumi.CustomResource):
             dind_storage_driver: Optional[pulumi.Input[str]] = None,
             disable_port_check: Optional[pulumi.Input[bool]] = None,
             dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+            enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
             etcd_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEtcdHostArgs']]]]] = None,
             ignore_docker_version: Optional[pulumi.Input[bool]] = None,
             inactive_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterInactiveHostArgs']]]]] = None,
@@ -2041,6 +2078,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
         :param pulumi.Input[pulumi.InputType['ClusterDnsArgs']] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEtcdHostArgs']]]] etcd_hosts: (Computed) RKE k8s cluster etcd nodes (list)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterInactiveHostArgs']]]] inactive_hosts: (Computed) RKE k8s cluster inactive nodes (list)
@@ -2104,6 +2142,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["dind_storage_driver"] = dind_storage_driver
         __props__.__dict__["disable_port_check"] = disable_port_check
         __props__.__dict__["dns"] = dns
+        __props__.__dict__["enable_cri_dockerd"] = enable_cri_dockerd
         __props__.__dict__["etcd_hosts"] = etcd_hosts
         __props__.__dict__["ignore_docker_version"] = ignore_docker_version
         __props__.__dict__["inactive_hosts"] = inactive_hosts
@@ -2346,6 +2385,14 @@ class Cluster(pulumi.CustomResource):
         RKE k8s cluster DNS Config (list maxitems:1)
         """
         return pulumi.get(self, "dns")
+
+    @property
+    @pulumi.getter(name="enableCriDockerd")
+    def enable_cri_dockerd(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        """
+        return pulumi.get(self, "enable_cri_dockerd")
 
     @property
     @pulumi.getter(name="etcdHosts")

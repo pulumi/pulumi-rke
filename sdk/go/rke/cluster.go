@@ -82,6 +82,8 @@ type Cluster struct {
 	DisablePortCheck pulumi.BoolPtrOutput `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrOutput `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrOutput `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayOutput `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -245,6 +247,8 @@ type clusterState struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts []ClusterEtcdHost `pulumi:"etcdHosts"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -380,6 +384,8 @@ type ClusterState struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrInput
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayInput
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
@@ -501,6 +507,8 @@ type clusterArgs struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion *bool `pulumi:"ignoreDockerVersion"`
 	// Docker image for ingress (string)
@@ -599,6 +607,8 @@ type ClusterArgs struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
+	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	EnableCriDockerd pulumi.BoolPtrInput
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion pulumi.BoolPtrInput
 	// Docker image for ingress (string)

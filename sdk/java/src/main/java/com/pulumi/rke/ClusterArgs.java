@@ -295,6 +295,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    @Import(name="enableCriDockerd")
+    private @Nullable Output<Boolean> enableCriDockerd;
+
+    /**
+     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    public Optional<Output<Boolean>> enableCriDockerd() {
+        return Optional.ofNullable(this.enableCriDockerd);
+    }
+
+    /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      * 
      */
@@ -726,6 +741,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.dindStorageDriver = $.dindStorageDriver;
         this.disablePortCheck = $.disablePortCheck;
         this.dns = $.dns;
+        this.enableCriDockerd = $.enableCriDockerd;
         this.ignoreDockerVersion = $.ignoreDockerVersion;
         this.ingress = $.ingress;
         this.kubernetesVersion = $.kubernetesVersion;
@@ -1135,6 +1151,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dns(ClusterDnsArgs dns) {
             return dns(Output.of(dns));
+        }
+
+        /**
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCriDockerd(@Nullable Output<Boolean> enableCriDockerd) {
+            $.enableCriDockerd = enableCriDockerd;
+            return this;
+        }
+
+        /**
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCriDockerd(Boolean enableCriDockerd) {
+            return enableCriDockerd(Output.of(enableCriDockerd));
         }
 
         /**
