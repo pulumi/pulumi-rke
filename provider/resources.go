@@ -79,6 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:                 p,
 		Name:              "rke",
+		DisplayName:       "Rancher Kubernetes Engine (RKE)",
 		Description:       "A Pulumi package for creating and managing rke cloud resources.",
 		Keywords:          []string{"pulumi", "rke"},
 		TFProviderLicense: refProviderLicense(tfbridge.MITLicenseType),
