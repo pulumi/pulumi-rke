@@ -3,6 +3,17 @@ module github.com/pulumi/pulumi-rke/provider/v3
 go 1.16
 
 require (
+	github.com/hashicorp/terraform-plugin-sdk v1.17.2
+	github.com/rancher/terraform-provider-rke v1.3.4
+)
+
+replace (
+	k8s.io/client-go => k8s.io/client-go v0.24.2
+	sigs.k8s.io/kustomize/api => sigs.k8s.io/kustomize/api v0.11.4
+	sigs.k8s.io/kustomize/kyaml => sigs.k8s.io/kustomize/kyaml v0.13.6
+)
+
+require (
 	cloud.google.com/go v0.107.0 // indirect
 	cloud.google.com/go/storage v1.28.0 // indirect
 	github.com/Microsoft/go-winio v0.6.0 // indirect
@@ -27,7 +38,6 @@ require (
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.15.0 // indirect
-	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/hashicorp/terraform-plugin-test v1.4.3 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
@@ -51,7 +61,6 @@ require (
 	github.com/rancher/lasso v0.0.0-20220628160937-749b3397db38 // indirect
 	github.com/rancher/norman v0.0.0-20220719193118-e21cabdc65b9 // indirect
 	github.com/rancher/rke v1.4.0 // indirect
-	github.com/rancher/terraform-provider-rke v1.3.4
 	github.com/rancher/wrangler v1.0.0 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
@@ -82,10 +91,4 @@ require (
 	k8s.io/utils v0.0.0-20221108210102-8e77b1f39fe2 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/kustomize/kyaml v0.13.10 // indirect
-)
-
-replace (
-	k8s.io/client-go => k8s.io/client-go v0.24.2
-	sigs.k8s.io/kustomize/api => sigs.k8s.io/kustomize/api v0.11.4
-	sigs.k8s.io/kustomize/kyaml => sigs.k8s.io/kustomize/kyaml v0.13.6
 )
