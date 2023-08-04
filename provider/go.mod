@@ -167,10 +167,10 @@ require (
 	github.com/prometheus/procfs v0.6.0 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.30.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
-	github.com/rancher/lasso v0.0.0-20200515155337-a34e1e26ad91 // indirect
+	github.com/rancher/lasso v0.0.0-20200905045615-7fcb07d6a20b // indirect
 	github.com/rancher/norman v0.0.0-20200517050325-f53cae161640 // indirect
 	github.com/rancher/rke v1.3.3 // indirect
-	github.com/rancher/wrangler v0.6.2-0.20200515155908-1923f3f8ec3f // indirect
+	github.com/rancher/wrangler v0.7.4-security1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
