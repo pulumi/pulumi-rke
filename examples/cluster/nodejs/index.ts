@@ -81,11 +81,8 @@ const cluster = new rke.Cluster(`actions`, {
     cloudProvider: {
         name: "aws"
     },
-    // Some combination of the three settings below appears to be required to unblock tests.
     // This is likely related to https://github.com/rancher/terraform-provider-rke/issues/370 and/or
     // https://github.com/rancher/terraform-provider-rke/issues/404 from the upstream provider.
-    delayOnCreation: 180,
-    disablePortCheck: true,
     enableCriDockerd: true,
     nodes: [{
         address: rkeInstance.publicIp,

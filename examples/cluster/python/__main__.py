@@ -106,11 +106,8 @@ rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs
                                                   ssh_key=private_key.private_key_pem,
                                                   roles=["controlplane", "etcd", "worker"])
                           ],
-                          # Some combination of the three settings below appears to be required to unblock tests.
                           # This is likely related to https://github.com/rancher/terraform-provider-rke/issues/370 and/or
                           # https://github.com/rancher/terraform-provider-rke/issues/404 from the upstream provider.
-                          delay_on_creation=180,
-                          disable_port_check=True,
                           enable_cri_dockerd=True,
                           cluster_name="python-test-cluster")
 
