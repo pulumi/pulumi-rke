@@ -95,7 +95,7 @@ def wait_for_ready(private_ip):
     # time to spin up and be ready
     # if we had a custom image with docker installed then it would
     # be a faster start up time
-    time.sleep(120)
+    time.sleep(180)
     return private_ip
 
 rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs(name="aws"),
@@ -106,6 +106,9 @@ rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs
                                                   ssh_key=private_key.private_key_pem,
                                                   roles=["controlplane", "etcd", "worker"])
                           ],
+                          # This is likely related to https://github.com/rancher/terraform-provider-rke/issues/370 and/or
+                          # https://github.com/rancher/terraform-provider-rke/issues/404 from the upstream provider.
+                          enable_cri_dockerd=True,
                           cluster_name="python-test-cluster")
 
 pulumi.export("kubeconfig", rke_cluster.kube_config_yaml)

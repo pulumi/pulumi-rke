@@ -35,14 +35,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     @Import(name="nodelocal")
     private @Nullable Output<ClusterDnsNodelocalArgs> nodelocal;
 
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<Output<ClusterDnsNodelocalArgs>> nodelocal() {
@@ -50,14 +50,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Monitoring provider (string)
+     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     public Optional<Output<String>> provider() {
@@ -144,7 +144,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
          * 
          * @return builder
          * 

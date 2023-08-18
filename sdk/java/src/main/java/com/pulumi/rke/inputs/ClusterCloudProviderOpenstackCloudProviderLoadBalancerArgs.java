@@ -153,14 +153,14 @@ public final class ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs ex
     }
 
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB&#39;s (string)
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return (string)
+     * @return Enables using a specific subnet to use for ELB&#39;s (string)
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -406,7 +406,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs ex
         }
 
         /**
-         * @param subnetId (string)
+         * @param subnetId Enables using a specific subnet to use for ELB&#39;s (string)
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs ex
         }
 
         /**
-         * @param subnetId (string)
+         * @param subnetId Enables using a specific subnet to use for ELB&#39;s (string)
          * 
          * @return builder
          * 

@@ -51,14 +51,14 @@ public final class ClusterCloudProviderVsphereCloudProviderArgs extends com.pulu
     }
 
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     @Import(name="network")
     private @Nullable Output<ClusterCloudProviderVsphereCloudProviderNetworkArgs> network;
 
     /**
-     * @return (list maxitems:1)
+     * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterCloudProviderVsphereCloudProviderNetworkArgs>> network() {
@@ -166,7 +166,7 @@ public final class ClusterCloudProviderVsphereCloudProviderArgs extends com.pulu
         }
 
         /**
-         * @param network (list maxitems:1)
+         * @param network RKE k8s cluster network configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ClusterCloudProviderVsphereCloudProviderArgs extends com.pulu
         }
 
         /**
-         * @param network (list maxitems:1)
+         * @param network RKE k8s cluster network configuration (list maxitems:1)
          * 
          * @return builder
          * 

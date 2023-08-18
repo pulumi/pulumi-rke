@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-rke/sdk/v3/go/rke/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterAuthentication struct {
 	// List of additional hostnames and IPs to include in the api server PKI cert (list)
@@ -344,7 +347,7 @@ func (o ClusterAuthenticationWebhookPtrOutput) ConfigFile() pulumi.StringPtrOutp
 type ClusterAuthorization struct {
 	// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 	Mode *string `pulumi:"mode"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options map[string]interface{} `pulumi:"options"`
 }
 
@@ -362,7 +365,7 @@ type ClusterAuthorizationInput interface {
 type ClusterAuthorizationArgs struct {
 	// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options pulumi.MapInput `pulumi:"options"`
 }
 
@@ -448,7 +451,7 @@ func (o ClusterAuthorizationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterAuthorizationOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
@@ -487,7 +490,7 @@ func (o ClusterAuthorizationPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterAuthorization) map[string]interface{} {
 		if v == nil {
@@ -498,23 +501,23 @@ func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
 }
 
 type ClusterBastionHost struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address string `pulumi:"address"`
 	// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
 	IgnoreProxyEnvVars *bool `pulumi:"ignoreProxyEnvVars"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
-	// SSH Certificate (string)
+	// SSH Certificate Key (string)
 	SshCert *string `pulumi:"sshCert"`
-	// SSH Certificate path (string)
+	// SSH Certificate Path (string)
 	SshCertPath *string `pulumi:"sshCertPath"`
 	// SSH Private Key (string)
 	SshKey *string `pulumi:"sshKey"`
-	// SSH Private Key path (string)
+	// SSH Private Key Path (string)
 	SshKeyPath *string `pulumi:"sshKeyPath"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User string `pulumi:"user"`
 }
 
@@ -530,23 +533,23 @@ type ClusterBastionHostInput interface {
 }
 
 type ClusterBastionHostArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringInput `pulumi:"address"`
 	// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
 	IgnoreProxyEnvVars pulumi.BoolPtrInput `pulumi:"ignoreProxyEnvVars"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
-	// SSH Certificate (string)
+	// SSH Certificate Key (string)
 	SshCert pulumi.StringPtrInput `pulumi:"sshCert"`
-	// SSH Certificate path (string)
+	// SSH Certificate Path (string)
 	SshCertPath pulumi.StringPtrInput `pulumi:"sshCertPath"`
 	// SSH Private Key (string)
 	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// SSH Private Key path (string)
+	// SSH Private Key Path (string)
 	SshKeyPath pulumi.StringPtrInput `pulumi:"sshKeyPath"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringInput `pulumi:"user"`
 }
 
@@ -627,7 +630,7 @@ func (o ClusterBastionHostOutput) ToClusterBastionHostPtrOutputWithContext(ctx c
 	}).(ClusterBastionHostPtrOutput)
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterBastionHostOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBastionHost) string { return v.Address }).(pulumi.StringOutput)
 }
@@ -637,7 +640,7 @@ func (o ClusterBastionHostOutput) IgnoreProxyEnvVars() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *bool { return v.IgnoreProxyEnvVars }).(pulumi.BoolPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterBastionHostOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -647,12 +650,12 @@ func (o ClusterBastionHostOutput) SshAgentAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
 }
 
-// SSH Certificate (string)
+// SSH Certificate Key (string)
 func (o ClusterBastionHostOutput) SshCert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCert }).(pulumi.StringPtrOutput)
 }
 
-// SSH Certificate path (string)
+// SSH Certificate Path (string)
 func (o ClusterBastionHostOutput) SshCertPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
 }
@@ -662,12 +665,12 @@ func (o ClusterBastionHostOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// SSH Private Key path (string)
+// SSH Private Key Path (string)
 func (o ClusterBastionHostOutput) SshKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBastionHost) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterBastionHostOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBastionHost) string { return v.User }).(pulumi.StringOutput)
 }
@@ -696,7 +699,7 @@ func (o ClusterBastionHostPtrOutput) Elem() ClusterBastionHostOutput {
 	}).(ClusterBastionHostOutput)
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterBastionHostPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -716,7 +719,7 @@ func (o ClusterBastionHostPtrOutput) IgnoreProxyEnvVars() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterBastionHostPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -736,7 +739,7 @@ func (o ClusterBastionHostPtrOutput) SshAgentAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SSH Certificate (string)
+// SSH Certificate Key (string)
 func (o ClusterBastionHostPtrOutput) SshCert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -746,7 +749,7 @@ func (o ClusterBastionHostPtrOutput) SshCert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH Certificate path (string)
+// SSH Certificate Path (string)
 func (o ClusterBastionHostPtrOutput) SshCertPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -766,7 +769,7 @@ func (o ClusterBastionHostPtrOutput) SshKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH Private Key path (string)
+// SSH Private Key Path (string)
 func (o ClusterBastionHostPtrOutput) SshKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -776,7 +779,7 @@ func (o ClusterBastionHostPtrOutput) SshKeyPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterBastionHostPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBastionHost) *string {
 		if v == nil {
@@ -795,14 +798,14 @@ type ClusterCertificate struct {
 	EnvName       *string `pulumi:"envName"`
 	// (Computed) The ID of the resource (string)
 	Id *string `pulumi:"id"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key        *string `pulumi:"key"`
 	KeyEnvName *string `pulumi:"keyEnvName"`
 	KeyPath    *string `pulumi:"keyPath"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name   *string `pulumi:"name"`
 	OuName *string `pulumi:"ouName"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path *string `pulumi:"path"`
 }
 
@@ -826,14 +829,14 @@ type ClusterCertificateArgs struct {
 	EnvName       pulumi.StringPtrInput `pulumi:"envName"`
 	// (Computed) The ID of the resource (string)
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key        pulumi.StringPtrInput `pulumi:"key"`
 	KeyEnvName pulumi.StringPtrInput `pulumi:"keyEnvName"`
 	KeyPath    pulumi.StringPtrInput `pulumi:"keyPath"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name   pulumi.StringPtrInput `pulumi:"name"`
 	OuName pulumi.StringPtrInput `pulumi:"ouName"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -917,7 +920,7 @@ func (o ClusterCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterCertificateOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -930,7 +933,7 @@ func (o ClusterCertificateOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
 }
 
-// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 func (o ClusterCertificateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -939,7 +942,7 @@ func (o ClusterCertificateOutput) OuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.OuName }).(pulumi.StringPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterCertificateOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -983,7 +986,7 @@ type ClusterCloudProvider struct {
 	CustomCloudConfig *string `pulumi:"customCloudConfig"`
 	// Custom Cloud Provider config (string)
 	CustomCloudProvider *string `pulumi:"customCloudProvider"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name string `pulumi:"name"`
 	// Use openstackCloudProvider instead
 	//
@@ -1029,7 +1032,7 @@ type ClusterCloudProviderArgs struct {
 	CustomCloudConfig pulumi.StringPtrInput `pulumi:"customCloudConfig"`
 	// Custom Cloud Provider config (string)
 	CustomCloudProvider pulumi.StringPtrInput `pulumi:"customCloudProvider"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name pulumi.StringInput `pulumi:"name"`
 	// Use openstackCloudProvider instead
 	//
@@ -1158,7 +1161,7 @@ func (o ClusterCloudProviderOutput) CustomCloudProvider() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ClusterCloudProvider) *string { return v.CustomCloudProvider }).(pulumi.StringPtrOutput)
 }
 
-// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 func (o ClusterCloudProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1279,7 +1282,7 @@ func (o ClusterCloudProviderPtrOutput) CustomCloudProvider() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 func (o ClusterCloudProviderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProvider) *string {
 		if v == nil {
@@ -1506,7 +1509,7 @@ type ClusterCloudProviderAwsCloudConfigGlobal struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Enables using a specific RouteTable (string)
 	RouteTableId *string `pulumi:"routeTableId"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId *string `pulumi:"subnetId"`
 	// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 	Vpc *string `pulumi:"vpc"`
@@ -1540,7 +1543,7 @@ type ClusterCloudProviderAwsCloudConfigGlobalArgs struct {
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// Enables using a specific RouteTable (string)
 	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 	Vpc pulumi.StringPtrInput `pulumi:"vpc"`
@@ -1660,7 +1663,7 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) RouteTableId() pulumi.St
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -1769,7 +1772,7 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) RouteTableId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudConfigGlobal) *string {
 		if v == nil {
@@ -1800,11 +1803,11 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Zone() pulumi.StringP
 }
 
 type ClusterCloudProviderAwsCloudConfigServiceOverride struct {
-	// TLS key for etcd service (string)
+	// Use service instead
 	//
 	// Deprecated: Use service instead
 	Key *string `pulumi:"key"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
 	// (string)
 	Service string `pulumi:"service"`
@@ -1814,7 +1817,7 @@ type ClusterCloudProviderAwsCloudConfigServiceOverride struct {
 	SigningName *string `pulumi:"signingName"`
 	// (string)
 	SigningRegion *string `pulumi:"signingRegion"`
-	// Registry URL (string)
+	// (string)
 	Url *string `pulumi:"url"`
 }
 
@@ -1830,11 +1833,11 @@ type ClusterCloudProviderAwsCloudConfigServiceOverrideInput interface {
 }
 
 type ClusterCloudProviderAwsCloudConfigServiceOverrideArgs struct {
-	// TLS key for etcd service (string)
+	// Use service instead
 	//
 	// Deprecated: Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// (string)
 	Service pulumi.StringInput `pulumi:"service"`
@@ -1844,7 +1847,7 @@ type ClusterCloudProviderAwsCloudConfigServiceOverrideArgs struct {
 	SigningName pulumi.StringPtrInput `pulumi:"signingName"`
 	// (string)
 	SigningRegion pulumi.StringPtrInput `pulumi:"signingRegion"`
-	// Registry URL (string)
+	// (string)
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -1899,14 +1902,14 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToClusterCloudP
 	return o
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 //
 // Deprecated: Use service instead
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1931,7 +1934,7 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) SigningRegion()
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
-// Registry URL (string)
+// (string)
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudConfigServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -2131,7 +2134,7 @@ type ClusterCloudProviderAwsCloudProviderGlobal struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Enables using a specific RouteTable (string)
 	RouteTableId *string `pulumi:"routeTableId"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId *string `pulumi:"subnetId"`
 	// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 	Vpc *string `pulumi:"vpc"`
@@ -2165,7 +2168,7 @@ type ClusterCloudProviderAwsCloudProviderGlobalArgs struct {
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// Enables using a specific RouteTable (string)
 	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
 	Vpc pulumi.StringPtrInput `pulumi:"vpc"`
@@ -2285,7 +2288,7 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) RouteTableId() pulumi.
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderGlobal) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2394,7 +2397,7 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) RouteTableId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAwsCloudProviderGlobal) *string {
 		if v == nil {
@@ -2425,11 +2428,11 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Zone() pulumi.Strin
 }
 
 type ClusterCloudProviderAwsCloudProviderServiceOverride struct {
-	// TLS key for etcd service (string)
+	// Use service instead
 	//
 	// Deprecated: Use service instead
 	Key *string `pulumi:"key"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
 	// (string)
 	Service string `pulumi:"service"`
@@ -2439,7 +2442,7 @@ type ClusterCloudProviderAwsCloudProviderServiceOverride struct {
 	SigningName *string `pulumi:"signingName"`
 	// (string)
 	SigningRegion *string `pulumi:"signingRegion"`
-	// Registry URL (string)
+	// (string)
 	Url *string `pulumi:"url"`
 }
 
@@ -2455,11 +2458,11 @@ type ClusterCloudProviderAwsCloudProviderServiceOverrideInput interface {
 }
 
 type ClusterCloudProviderAwsCloudProviderServiceOverrideArgs struct {
-	// TLS key for etcd service (string)
+	// Use service instead
 	//
 	// Deprecated: Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// (string)
 	Service pulumi.StringInput `pulumi:"service"`
@@ -2469,7 +2472,7 @@ type ClusterCloudProviderAwsCloudProviderServiceOverrideArgs struct {
 	SigningName pulumi.StringPtrInput `pulumi:"signingName"`
 	// (string)
 	SigningRegion pulumi.StringPtrInput `pulumi:"signingRegion"`
-	// Registry URL (string)
+	// (string)
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -2524,14 +2527,14 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToClusterClou
 	return o
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 //
 // Deprecated: Use service instead
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -2556,7 +2559,7 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) SigningRegion
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
-// Registry URL (string)
+// (string)
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAwsCloudProviderServiceOverride) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -2627,7 +2630,7 @@ type ClusterCloudProviderAzureCloudConfig struct {
 	SubnetName *string `pulumi:"subnetName"`
 	// (string)
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId string `pulumi:"tenantId"`
 	// (bool)
 	UseInstanceMetadata *bool `pulumi:"useInstanceMetadata"`
@@ -2698,7 +2701,7 @@ type ClusterCloudProviderAzureCloudConfigArgs struct {
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
 	// (string)
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// (bool)
 	UseInstanceMetadata pulumi.BoolPtrInput `pulumi:"useInstanceMetadata"`
@@ -2903,7 +2906,7 @@ func (o ClusterCloudProviderAzureCloudConfigOutput) SubscriptionId() pulumi.Stri
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderAzureCloudConfigOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -3186,7 +3189,7 @@ func (o ClusterCloudProviderAzureCloudConfigPtrOutput) SubscriptionId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudConfig) *string {
 		if v == nil {
@@ -3292,7 +3295,7 @@ type ClusterCloudProviderAzureCloudProvider struct {
 	SubnetName *string `pulumi:"subnetName"`
 	// (string)
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId string `pulumi:"tenantId"`
 	// (bool)
 	UseInstanceMetadata *bool `pulumi:"useInstanceMetadata"`
@@ -3363,7 +3366,7 @@ type ClusterCloudProviderAzureCloudProviderArgs struct {
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
 	// (string)
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// (bool)
 	UseInstanceMetadata pulumi.BoolPtrInput `pulumi:"useInstanceMetadata"`
@@ -3568,7 +3571,7 @@ func (o ClusterCloudProviderAzureCloudProviderOutput) SubscriptionId() pulumi.St
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderAzureCloudProviderOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -3851,7 +3854,7 @@ func (o ClusterCloudProviderAzureCloudProviderPtrOutput) SubscriptionId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudProvider) *string {
 		if v == nil {
@@ -4318,11 +4321,11 @@ type ClusterCloudProviderOpenstackCloudConfigGlobal struct {
 	DomainId *string `pulumi:"domainId"`
 	// Required if `domainId` not provided. (string)
 	DomainName *string `pulumi:"domainName"`
-	// Registry password (string)
+	// (string)
 	Password string `pulumi:"password"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId *string `pulumi:"tenantId"`
 	// Required if `tenantId` not provided. (string)
 	TenantName *string `pulumi:"tenantName"`
@@ -4354,11 +4357,11 @@ type ClusterCloudProviderOpenstackCloudConfigGlobalArgs struct {
 	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
 	// Required if `domainId` not provided. (string)
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Required if `tenantId` not provided. (string)
 	TenantName pulumi.StringPtrInput `pulumi:"tenantName"`
@@ -4467,17 +4470,17 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) DomainName() pulum
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -4566,7 +4569,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) DomainName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigGlobal) *string {
 		if v == nil {
@@ -4576,7 +4579,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Password() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigGlobal) *string {
 		if v == nil {
@@ -4586,7 +4589,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Region() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigGlobal) *string {
 		if v == nil {
@@ -4655,7 +4658,7 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancer struct {
 	MonitorMaxRetries *int `pulumi:"monitorMaxRetries"`
 	// (string)
 	MonitorTimeout *string `pulumi:"monitorTimeout"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId *string `pulumi:"subnetId"`
 	// (bool)
 	UseOctavia *bool `pulumi:"useOctavia"`
@@ -4691,7 +4694,7 @@ type ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs struct {
 	MonitorMaxRetries pulumi.IntPtrInput `pulumi:"monitorMaxRetries"`
 	// (string)
 	MonitorTimeout pulumi.StringPtrInput `pulumi:"monitorTimeout"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// (bool)
 	UseOctavia pulumi.BoolPtrInput `pulumi:"useOctavia"`
@@ -4819,7 +4822,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) MonitorTimeo
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -4943,7 +4946,7 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) MonitorTi
 	}).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *string {
 		if v == nil {
@@ -5663,11 +5666,11 @@ type ClusterCloudProviderOpenstackCloudProviderGlobal struct {
 	DomainId *string `pulumi:"domainId"`
 	// Required if `domainId` not provided. (string)
 	DomainName *string `pulumi:"domainName"`
-	// Registry password (string)
+	// (string)
 	Password string `pulumi:"password"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId *string `pulumi:"tenantId"`
 	// Required if `tenantId` not provided. (string)
 	TenantName *string `pulumi:"tenantName"`
@@ -5699,11 +5702,11 @@ type ClusterCloudProviderOpenstackCloudProviderGlobalArgs struct {
 	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
 	// Required if `domainId` not provided. (string)
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Required if `tenantName` not provided. (string)
+	// (string)
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Required if `tenantId` not provided. (string)
 	TenantName pulumi.StringPtrInput `pulumi:"tenantName"`
@@ -5812,17 +5815,17 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) DomainName() pul
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderGlobal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -5911,7 +5914,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) DomainName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderGlobal) *string {
 		if v == nil {
@@ -5921,7 +5924,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Password() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderGlobal) *string {
 		if v == nil {
@@ -5931,7 +5934,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Region() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if `tenantName` not provided. (string)
+// (string)
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderGlobal) *string {
 		if v == nil {
@@ -6000,7 +6003,7 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancer struct {
 	MonitorMaxRetries *int `pulumi:"monitorMaxRetries"`
 	// (string)
 	MonitorTimeout *string `pulumi:"monitorTimeout"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId *string `pulumi:"subnetId"`
 	// (bool)
 	UseOctavia *bool `pulumi:"useOctavia"`
@@ -6036,7 +6039,7 @@ type ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs struct {
 	MonitorMaxRetries pulumi.IntPtrInput `pulumi:"monitorMaxRetries"`
 	// (string)
 	MonitorTimeout pulumi.StringPtrInput `pulumi:"monitorTimeout"`
-	// (string)
+	// Enables using a specific subnet to use for ELB's (string)
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// (bool)
 	UseOctavia pulumi.BoolPtrInput `pulumi:"useOctavia"`
@@ -6164,7 +6167,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) MonitorTim
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.MonitorTimeout }).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -6288,7 +6291,7 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Monitor
 	}).(pulumi.StringPtrOutput)
 }
 
-// (string)
+// Enables using a specific subnet to use for ELB's (string)
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *string {
 		if v == nil {
@@ -6606,7 +6609,7 @@ type ClusterCloudProviderVsphereCloudConfig struct {
 	Disk *ClusterCloudProviderVsphereCloudConfigDisk `pulumi:"disk"`
 	// (list maxitems:1)
 	Global *ClusterCloudProviderVsphereCloudConfigGlobal `pulumi:"global"`
-	// (list maxitems:1)
+	// RKE k8s cluster network configuration (list maxitems:1)
 	Network *ClusterCloudProviderVsphereCloudConfigNetwork `pulumi:"network"`
 	// (List)
 	VirtualCenters []ClusterCloudProviderVsphereCloudConfigVirtualCenter `pulumi:"virtualCenters"`
@@ -6630,7 +6633,7 @@ type ClusterCloudProviderVsphereCloudConfigArgs struct {
 	Disk ClusterCloudProviderVsphereCloudConfigDiskPtrInput `pulumi:"disk"`
 	// (list maxitems:1)
 	Global ClusterCloudProviderVsphereCloudConfigGlobalPtrInput `pulumi:"global"`
-	// (list maxitems:1)
+	// RKE k8s cluster network configuration (list maxitems:1)
 	Network ClusterCloudProviderVsphereCloudConfigNetworkPtrInput `pulumi:"network"`
 	// (List)
 	VirtualCenters ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput `pulumi:"virtualCenters"`
@@ -6729,7 +6732,7 @@ func (o ClusterCloudProviderVsphereCloudConfigOutput) Global() ClusterCloudProvi
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
-// (list maxitems:1)
+// RKE k8s cluster network configuration (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigOutput) Network() ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork {
 		return v.Network
@@ -6794,7 +6797,7 @@ func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Global() ClusterCloudPr
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
-// (list maxitems:1)
+// RKE k8s cluster network configuration (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Network() ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfigNetwork {
 		if v == nil {
@@ -6970,13 +6973,13 @@ type ClusterCloudProviderVsphereCloudConfigGlobal struct {
 	Datastore *string `pulumi:"datastore"`
 	// (bool)
 	InsecureFlag *bool `pulumi:"insecureFlag"`
-	// Registry password (string)
+	// (string)
 	Password *string `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User *string `pulumi:"user"`
 	// (string)
 	VmName *string `pulumi:"vmName"`
@@ -7006,13 +7009,13 @@ type ClusterCloudProviderVsphereCloudConfigGlobalArgs struct {
 	Datastore pulumi.StringPtrInput `pulumi:"datastore"`
 	// (bool)
 	InsecureFlag pulumi.BoolPtrInput `pulumi:"insecureFlag"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringPtrInput `pulumi:"user"`
 	// (string)
 	VmName pulumi.StringPtrInput `pulumi:"vmName"`
@@ -7119,12 +7122,12 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) InsecureFlag() pulum
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -7134,7 +7137,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) SoapRoundtripCount()
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
@@ -7218,7 +7221,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) InsecureFlag() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) *string {
 		if v == nil {
@@ -7228,7 +7231,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Password() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) *string {
 		if v == nil {
@@ -7248,7 +7251,7 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) SoapRoundtripCoun
 	}).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigGlobal) *string {
 		if v == nil {
@@ -7428,15 +7431,15 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) PublicNetwork() 
 type ClusterCloudProviderVsphereCloudConfigVirtualCenter struct {
 	// (string)
 	Datacenters string `pulumi:"datacenters"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name string `pulumi:"name"`
-	// Registry password (string)
+	// (string)
 	Password string `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User string `pulumi:"user"`
 }
 
@@ -7454,15 +7457,15 @@ type ClusterCloudProviderVsphereCloudConfigVirtualCenterInput interface {
 type ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs struct {
 	// (string)
 	Datacenters pulumi.StringInput `pulumi:"datacenters"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name pulumi.StringInput `pulumi:"name"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringInput `pulumi:"user"`
 }
 
@@ -7522,17 +7525,17 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Datacenters()
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
 }
 
-// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -7542,7 +7545,7 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) SoapRoundtrip
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigVirtualCenter) string { return v.User }).(pulumi.StringOutput)
 }
@@ -7572,7 +7575,7 @@ type ClusterCloudProviderVsphereCloudConfigWorkspace struct {
 	Datacenter string `pulumi:"datacenter"`
 	// (string)
 	DefaultDatastore *string `pulumi:"defaultDatastore"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder *string `pulumi:"folder"`
 	// (string)
 	ResourcepoolPath *string `pulumi:"resourcepoolPath"`
@@ -7596,7 +7599,7 @@ type ClusterCloudProviderVsphereCloudConfigWorkspaceArgs struct {
 	Datacenter pulumi.StringInput `pulumi:"datacenter"`
 	// (string)
 	DefaultDatastore pulumi.StringPtrInput `pulumi:"defaultDatastore"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder pulumi.StringPtrInput `pulumi:"folder"`
 	// (string)
 	ResourcepoolPath pulumi.StringPtrInput `pulumi:"resourcepoolPath"`
@@ -7691,7 +7694,7 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) DefaultDatastore(
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
@@ -7750,7 +7753,7 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) DefaultDatasto
 	}).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudConfigWorkspace) *string {
 		if v == nil {
@@ -7785,7 +7788,7 @@ type ClusterCloudProviderVsphereCloudProvider struct {
 	Disk *ClusterCloudProviderVsphereCloudProviderDisk `pulumi:"disk"`
 	// (list maxitems:1)
 	Global *ClusterCloudProviderVsphereCloudProviderGlobal `pulumi:"global"`
-	// (list maxitems:1)
+	// RKE k8s cluster network configuration (list maxitems:1)
 	Network *ClusterCloudProviderVsphereCloudProviderNetwork `pulumi:"network"`
 	// (List)
 	VirtualCenters []ClusterCloudProviderVsphereCloudProviderVirtualCenter `pulumi:"virtualCenters"`
@@ -7809,7 +7812,7 @@ type ClusterCloudProviderVsphereCloudProviderArgs struct {
 	Disk ClusterCloudProviderVsphereCloudProviderDiskPtrInput `pulumi:"disk"`
 	// (list maxitems:1)
 	Global ClusterCloudProviderVsphereCloudProviderGlobalPtrInput `pulumi:"global"`
-	// (list maxitems:1)
+	// RKE k8s cluster network configuration (list maxitems:1)
 	Network ClusterCloudProviderVsphereCloudProviderNetworkPtrInput `pulumi:"network"`
 	// (List)
 	VirtualCenters ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput `pulumi:"virtualCenters"`
@@ -7908,7 +7911,7 @@ func (o ClusterCloudProviderVsphereCloudProviderOutput) Global() ClusterCloudPro
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
-// (list maxitems:1)
+// RKE k8s cluster network configuration (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderOutput) Network() ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork {
 		return v.Network
@@ -7973,7 +7976,7 @@ func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Global() ClusterCloud
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
-// (list maxitems:1)
+// RKE k8s cluster network configuration (list maxitems:1)
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Network() ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProviderNetwork {
 		if v == nil {
@@ -8149,13 +8152,13 @@ type ClusterCloudProviderVsphereCloudProviderGlobal struct {
 	Datastore *string `pulumi:"datastore"`
 	// (bool)
 	InsecureFlag *bool `pulumi:"insecureFlag"`
-	// Registry password (string)
+	// (string)
 	Password *string `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User *string `pulumi:"user"`
 	// (string)
 	VmName *string `pulumi:"vmName"`
@@ -8185,13 +8188,13 @@ type ClusterCloudProviderVsphereCloudProviderGlobalArgs struct {
 	Datastore pulumi.StringPtrInput `pulumi:"datastore"`
 	// (bool)
 	InsecureFlag pulumi.BoolPtrInput `pulumi:"insecureFlag"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringPtrInput `pulumi:"user"`
 	// (string)
 	VmName pulumi.StringPtrInput `pulumi:"vmName"`
@@ -8298,12 +8301,12 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) InsecureFlag() pul
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *bool { return v.InsecureFlag }).(pulumi.BoolPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -8313,7 +8316,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) SoapRoundtripCount
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderGlobal) *string { return v.User }).(pulumi.StringPtrOutput)
 }
@@ -8397,7 +8400,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) InsecureFlag() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) *string {
 		if v == nil {
@@ -8407,7 +8410,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Password() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) *string {
 		if v == nil {
@@ -8427,7 +8430,7 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) SoapRoundtripCo
 	}).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderGlobal) *string {
 		if v == nil {
@@ -8607,15 +8610,15 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) PublicNetwork(
 type ClusterCloudProviderVsphereCloudProviderVirtualCenter struct {
 	// (string)
 	Datacenters string `pulumi:"datacenters"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name string `pulumi:"name"`
-	// Registry password (string)
+	// (string)
 	Password string `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount *int `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User string `pulumi:"user"`
 }
 
@@ -8633,15 +8636,15 @@ type ClusterCloudProviderVsphereCloudProviderVirtualCenterInput interface {
 type ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs struct {
 	// (string)
 	Datacenters pulumi.StringInput `pulumi:"datacenters"`
-	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+	// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 	Name pulumi.StringInput `pulumi:"name"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringInput `pulumi:"password"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// (int)
 	SoapRoundtripCount pulumi.IntPtrInput `pulumi:"soapRoundtripCount"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringInput `pulumi:"user"`
 }
 
@@ -8701,17 +8704,17 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Datacenters
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Datacenters }).(pulumi.StringOutput)
 }
 
-// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -8721,7 +8724,7 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) SoapRoundtr
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) *int { return v.SoapRoundtripCount }).(pulumi.IntPtrOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderVirtualCenter) string { return v.User }).(pulumi.StringOutput)
 }
@@ -8751,7 +8754,7 @@ type ClusterCloudProviderVsphereCloudProviderWorkspace struct {
 	Datacenter string `pulumi:"datacenter"`
 	// (string)
 	DefaultDatastore *string `pulumi:"defaultDatastore"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder *string `pulumi:"folder"`
 	// (string)
 	ResourcepoolPath *string `pulumi:"resourcepoolPath"`
@@ -8775,7 +8778,7 @@ type ClusterCloudProviderVsphereCloudProviderWorkspaceArgs struct {
 	Datacenter pulumi.StringInput `pulumi:"datacenter"`
 	// (string)
 	DefaultDatastore pulumi.StringPtrInput `pulumi:"defaultDatastore"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder pulumi.StringPtrInput `pulumi:"folder"`
 	// (string)
 	ResourcepoolPath pulumi.StringPtrInput `pulumi:"resourcepoolPath"`
@@ -8870,7 +8873,7 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) DefaultDatastor
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.DefaultDatastore }).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderWorkspace) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
@@ -8929,7 +8932,7 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) DefaultDatas
 	}).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderVsphereCloudProviderWorkspace) *string {
 		if v == nil {
@@ -8960,7 +8963,7 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) Server() pul
 }
 
 type ClusterControlPlaneHost struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address *string `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
@@ -8978,7 +8981,7 @@ type ClusterControlPlaneHostInput interface {
 }
 
 type ClusterControlPlaneHostArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
@@ -9035,7 +9038,7 @@ func (o ClusterControlPlaneHostOutput) ToClusterControlPlaneHostOutputWithContex
 	return o
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterControlPlaneHostOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterControlPlaneHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -9068,9 +9071,9 @@ func (o ClusterControlPlaneHostArrayOutput) Index(i pulumi.IntInput) ClusterCont
 type ClusterDns struct {
 	// Node selector key pair (map)
 	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal *ClusterDnsNodelocal `pulumi:"nodelocal"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider *string `pulumi:"provider"`
 	// Reverse CIDRs  (list)
 	ReverseCidrs []string `pulumi:"reverseCidrs"`
@@ -9092,9 +9095,9 @@ type ClusterDnsInput interface {
 type ClusterDnsArgs struct {
 	// Node selector key pair (map)
 	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal ClusterDnsNodelocalPtrInput `pulumi:"nodelocal"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 	// Reverse CIDRs  (list)
 	ReverseCidrs pulumi.StringArrayInput `pulumi:"reverseCidrs"`
@@ -9184,12 +9187,12 @@ func (o ClusterDnsOutput) NodeSelector() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
-// Docker image for nodelocal (string)
+// Nodelocal dns config  (list Maxitem: 1)
 func (o ClusterDnsOutput) Nodelocal() ClusterDnsNodelocalPtrOutput {
 	return o.ApplyT(func(v ClusterDns) *ClusterDnsNodelocal { return v.Nodelocal }).(ClusterDnsNodelocalPtrOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterDnsOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterDns) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -9238,7 +9241,7 @@ func (o ClusterDnsPtrOutput) NodeSelector() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Docker image for nodelocal (string)
+// Nodelocal dns config  (list Maxitem: 1)
 func (o ClusterDnsPtrOutput) Nodelocal() ClusterDnsNodelocalPtrOutput {
 	return o.ApplyT(func(v *ClusterDns) *ClusterDnsNodelocal {
 		if v == nil {
@@ -9248,7 +9251,7 @@ func (o ClusterDnsPtrOutput) Nodelocal() ClusterDnsNodelocalPtrOutput {
 	}).(ClusterDnsNodelocalPtrOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterDnsPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterDns) *string {
 		if v == nil {
@@ -9435,7 +9438,7 @@ func (o ClusterDnsNodelocalPtrOutput) NodeSelector() pulumi.MapOutput {
 }
 
 type ClusterEtcdHost struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address *string `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
@@ -9453,7 +9456,7 @@ type ClusterEtcdHostInput interface {
 }
 
 type ClusterEtcdHostArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
@@ -9510,7 +9513,7 @@ func (o ClusterEtcdHostOutput) ToClusterEtcdHostOutputWithContext(ctx context.Co
 	return o
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterEtcdHostOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEtcdHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -9541,7 +9544,7 @@ func (o ClusterEtcdHostArrayOutput) Index(i pulumi.IntInput) ClusterEtcdHostOutp
 }
 
 type ClusterInactiveHost struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address *string `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
@@ -9559,7 +9562,7 @@ type ClusterInactiveHostInput interface {
 }
 
 type ClusterInactiveHostArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
@@ -9616,7 +9619,7 @@ func (o ClusterInactiveHostOutput) ToClusterInactiveHostOutputWithContext(ctx co
 	return o
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterInactiveHostOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterInactiveHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -9650,7 +9653,7 @@ type ClusterIngress struct {
 	DefaultBackend *bool `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy *string `pulumi:"dnsPolicy"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
 	// Ingress controller http port (int)
 	HttpPort *int `pulumi:"httpPort"`
@@ -9660,9 +9663,9 @@ type ClusterIngress struct {
 	NetworkMode *string `pulumi:"networkMode"`
 	// Node selector key pair (map)
 	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options map[string]interface{} `pulumi:"options"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider *string `pulumi:"provider"`
 }
 
@@ -9681,7 +9684,7 @@ type ClusterIngressArgs struct {
 	DefaultBackend pulumi.BoolPtrInput `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
 	// Ingress controller http port (int)
 	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
@@ -9691,9 +9694,9 @@ type ClusterIngressArgs struct {
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Node selector key pair (map)
 	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options pulumi.MapInput `pulumi:"options"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
 
@@ -9783,7 +9786,7 @@ func (o ClusterIngressOutput) DnsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIngress) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterIngressOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
@@ -9808,12 +9811,12 @@ func (o ClusterIngressOutput) NodeSelector() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterIngressOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterIngressOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIngress) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -9861,7 +9864,7 @@ func (o ClusterIngressPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterIngressPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterIngress) map[string]interface{} {
 		if v == nil {
@@ -9911,7 +9914,7 @@ func (o ClusterIngressPtrOutput) NodeSelector() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterIngressPtrOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterIngress) map[string]interface{} {
 		if v == nil {
@@ -9921,7 +9924,7 @@ func (o ClusterIngressPtrOutput) Options() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterIngressPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIngress) *string {
 		if v == nil {
@@ -9934,9 +9937,9 @@ func (o ClusterIngressPtrOutput) Provider() pulumi.StringPtrOutput {
 type ClusterMonitoring struct {
 	// Node selector key pair (map)
 	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options map[string]interface{} `pulumi:"options"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider *string `pulumi:"provider"`
 }
 
@@ -9954,9 +9957,9 @@ type ClusterMonitoringInput interface {
 type ClusterMonitoringArgs struct {
 	// Node selector key pair (map)
 	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options pulumi.MapInput `pulumi:"options"`
-	// Monitoring provider (string)
+	// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
 
@@ -10042,12 +10045,12 @@ func (o ClusterMonitoringOutput) NodeSelector() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterMonitoringOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterMonitoringOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMonitoring) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -10086,7 +10089,7 @@ func (o ClusterMonitoringPtrOutput) NodeSelector() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterMonitoringPtrOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterMonitoring) map[string]interface{} {
 		if v == nil {
@@ -10096,7 +10099,7 @@ func (o ClusterMonitoringPtrOutput) Options() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Monitoring provider (string)
+// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
 func (o ClusterMonitoringPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMonitoring) *string {
 		if v == nil {
@@ -10117,7 +10120,7 @@ type ClusterNetwork struct {
 	FlannelNetworkProvider *ClusterNetworkFlannelNetworkProvider `pulumi:"flannelNetworkProvider"`
 	// Network provider MTU. Default `0` (int)
 	Mtu *int `pulumi:"mtu"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options map[string]interface{} `pulumi:"options"`
 	// Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
 	Plugin *string `pulumi:"plugin"`
@@ -10147,7 +10150,7 @@ type ClusterNetworkArgs struct {
 	FlannelNetworkProvider ClusterNetworkFlannelNetworkProviderPtrInput `pulumi:"flannelNetworkProvider"`
 	// Network provider MTU. Default `0` (int)
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
-	// Network provider options (map)
+	// RKE options for authorization (map)
 	Options pulumi.MapInput `pulumi:"options"`
 	// Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
 	Plugin pulumi.StringPtrInput `pulumi:"plugin"`
@@ -10257,7 +10260,7 @@ func (o ClusterNetworkOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterNetwork) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterNetworkOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
 }
@@ -10346,7 +10349,7 @@ func (o ClusterNetworkPtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Network provider options (map)
+// RKE options for authorization (map)
 func (o ClusterNetworkPtrOutput) Options() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterNetwork) map[string]interface{} {
 		if v == nil {
@@ -10951,7 +10954,7 @@ func (o ClusterNetworkAciNetworkProviderPtrOutput) VrfTenant() pulumi.StringPtrO
 }
 
 type ClusterNetworkCalicoNetworkProvider struct {
-	// Calico cloud provider (string)
+	// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 	CloudProvider *string `pulumi:"cloudProvider"`
 }
 
@@ -10967,7 +10970,7 @@ type ClusterNetworkCalicoNetworkProviderInput interface {
 }
 
 type ClusterNetworkCalicoNetworkProviderArgs struct {
-	// Calico cloud provider (string)
+	// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 	CloudProvider pulumi.StringPtrInput `pulumi:"cloudProvider"`
 }
 
@@ -11048,7 +11051,7 @@ func (o ClusterNetworkCalicoNetworkProviderOutput) ToClusterNetworkCalicoNetwork
 	}).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
-// Calico cloud provider (string)
+// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 func (o ClusterNetworkCalicoNetworkProviderOutput) CloudProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
 }
@@ -11077,7 +11080,7 @@ func (o ClusterNetworkCalicoNetworkProviderPtrOutput) Elem() ClusterNetworkCalic
 	}).(ClusterNetworkCalicoNetworkProviderOutput)
 }
 
-// Calico cloud provider (string)
+// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) CloudProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkCalicoNetworkProvider) *string {
 		if v == nil {
@@ -11088,7 +11091,7 @@ func (o ClusterNetworkCalicoNetworkProviderPtrOutput) CloudProvider() pulumi.Str
 }
 
 type ClusterNetworkCanalNetworkProvider struct {
-	// Flannel network interface (string)
+	// Canal network interface (string)
 	Iface *string `pulumi:"iface"`
 }
 
@@ -11104,7 +11107,7 @@ type ClusterNetworkCanalNetworkProviderInput interface {
 }
 
 type ClusterNetworkCanalNetworkProviderArgs struct {
-	// Flannel network interface (string)
+	// Canal network interface (string)
 	Iface pulumi.StringPtrInput `pulumi:"iface"`
 }
 
@@ -11185,7 +11188,7 @@ func (o ClusterNetworkCanalNetworkProviderOutput) ToClusterNetworkCanalNetworkPr
 	}).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
-// Flannel network interface (string)
+// Canal network interface (string)
 func (o ClusterNetworkCanalNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
@@ -11214,7 +11217,7 @@ func (o ClusterNetworkCanalNetworkProviderPtrOutput) Elem() ClusterNetworkCanalN
 	}).(ClusterNetworkCanalNetworkProviderOutput)
 }
 
-// Flannel network interface (string)
+// Canal network interface (string)
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkCanalNetworkProvider) *string {
 		if v == nil {
@@ -11225,7 +11228,7 @@ func (o ClusterNetworkCanalNetworkProviderPtrOutput) Iface() pulumi.StringPtrOut
 }
 
 type ClusterNetworkFlannelNetworkProvider struct {
-	// Flannel network interface (string)
+	// Canal network interface (string)
 	Iface *string `pulumi:"iface"`
 }
 
@@ -11241,7 +11244,7 @@ type ClusterNetworkFlannelNetworkProviderInput interface {
 }
 
 type ClusterNetworkFlannelNetworkProviderArgs struct {
-	// Flannel network interface (string)
+	// Canal network interface (string)
 	Iface pulumi.StringPtrInput `pulumi:"iface"`
 }
 
@@ -11322,7 +11325,7 @@ func (o ClusterNetworkFlannelNetworkProviderOutput) ToClusterNetworkFlannelNetwo
 	}).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
-// Flannel network interface (string)
+// Canal network interface (string)
 func (o ClusterNetworkFlannelNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
 }
@@ -11351,7 +11354,7 @@ func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Elem() ClusterNetworkFlan
 	}).(ClusterNetworkFlannelNetworkProviderOutput)
 }
 
-// Flannel network interface (string)
+// Canal network interface (string)
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkFlannelNetworkProvider) *string {
 		if v == nil {
@@ -11362,7 +11365,7 @@ func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Iface() pulumi.StringPtrO
 }
 
 type ClusterNetworkWeaveNetworkProvider struct {
-	// Registry password (string)
+	// (string)
 	Password string `pulumi:"password"`
 }
 
@@ -11378,7 +11381,7 @@ type ClusterNetworkWeaveNetworkProviderInput interface {
 }
 
 type ClusterNetworkWeaveNetworkProviderArgs struct {
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringInput `pulumi:"password"`
 }
 
@@ -11459,7 +11462,7 @@ func (o ClusterNetworkWeaveNetworkProviderOutput) ToClusterNetworkWeaveNetworkPr
 	}).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterNetworkWeaveNetworkProviderOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -11488,7 +11491,7 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Elem() ClusterNetworkWeaveN
 	}).(ClusterNetworkWeaveNetworkProviderOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkWeaveNetworkProvider) *string {
 		if v == nil {
@@ -11499,7 +11502,7 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Password() pulumi.StringPtr
 }
 
 type ClusterNode struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address string `pulumi:"address"`
 	// Docker socket on the node that will be used in tunneling (string)
 	DockerSocket *string `pulumi:"dockerSocket"`
@@ -11511,7 +11514,7 @@ type ClusterNode struct {
 	Labels map[string]interface{} `pulumi:"labels"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles []string `pulumi:"roles"`
@@ -11519,17 +11522,17 @@ type ClusterNode struct {
 	RolesDeprecated *string `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth *bool `pulumi:"sshAgentAuth"`
-	// SSH Certificate (string)
+	// SSH Certificate Key (string)
 	SshCert *string `pulumi:"sshCert"`
-	// SSH Certificate path (string)
+	// SSH Certificate Path (string)
 	SshCertPath *string `pulumi:"sshCertPath"`
 	// SSH Private Key (string)
 	SshKey *string `pulumi:"sshKey"`
-	// SSH Private Key path (string)
+	// SSH Private Key Path (string)
 	SshKeyPath *string `pulumi:"sshKeyPath"`
 	// Node taints (list)
 	Taints []ClusterNodeTaint `pulumi:"taints"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User string `pulumi:"user"`
 }
 
@@ -11545,7 +11548,7 @@ type ClusterNodeInput interface {
 }
 
 type ClusterNodeArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringInput `pulumi:"address"`
 	// Docker socket on the node that will be used in tunneling (string)
 	DockerSocket pulumi.StringPtrInput `pulumi:"dockerSocket"`
@@ -11557,7 +11560,7 @@ type ClusterNodeArgs struct {
 	Labels pulumi.MapInput `pulumi:"labels"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
-	// Port used for SSH communication (string)
+	// SSH Port of Bastion Host. Default `22` (string)
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
@@ -11565,17 +11568,17 @@ type ClusterNodeArgs struct {
 	RolesDeprecated pulumi.StringPtrInput `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
 	SshAgentAuth pulumi.BoolPtrInput `pulumi:"sshAgentAuth"`
-	// SSH Certificate (string)
+	// SSH Certificate Key (string)
 	SshCert pulumi.StringPtrInput `pulumi:"sshCert"`
-	// SSH Certificate path (string)
+	// SSH Certificate Path (string)
 	SshCertPath pulumi.StringPtrInput `pulumi:"sshCertPath"`
 	// SSH Private Key (string)
 	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// SSH Private Key path (string)
+	// SSH Private Key Path (string)
 	SshKeyPath pulumi.StringPtrInput `pulumi:"sshKeyPath"`
 	// Node taints (list)
 	Taints ClusterNodeTaintArrayInput `pulumi:"taints"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringInput `pulumi:"user"`
 }
 
@@ -11630,7 +11633,7 @@ func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterNodeOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNode) string { return v.Address }).(pulumi.StringOutput)
 }
@@ -11660,7 +11663,7 @@ func (o ClusterNodeOutput) NodeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.NodeName }).(pulumi.StringPtrOutput)
 }
 
-// Port used for SSH communication (string)
+// SSH Port of Bastion Host. Default `22` (string)
 func (o ClusterNodeOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -11680,12 +11683,12 @@ func (o ClusterNodeOutput) SshAgentAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *bool { return v.SshAgentAuth }).(pulumi.BoolPtrOutput)
 }
 
-// SSH Certificate (string)
+// SSH Certificate Key (string)
 func (o ClusterNodeOutput) SshCert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.SshCert }).(pulumi.StringPtrOutput)
 }
 
-// SSH Certificate path (string)
+// SSH Certificate Path (string)
 func (o ClusterNodeOutput) SshCertPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.SshCertPath }).(pulumi.StringPtrOutput)
 }
@@ -11695,7 +11698,7 @@ func (o ClusterNodeOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// SSH Private Key path (string)
+// SSH Private Key Path (string)
 func (o ClusterNodeOutput) SshKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.SshKeyPath }).(pulumi.StringPtrOutput)
 }
@@ -11705,7 +11708,7 @@ func (o ClusterNodeOutput) Taints() ClusterNodeTaintArrayOutput {
 	return o.ApplyT(func(v ClusterNode) []ClusterNodeTaint { return v.Taints }).(ClusterNodeTaintArrayOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterNodeOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNode) string { return v.User }).(pulumi.StringOutput)
 }
@@ -11733,7 +11736,7 @@ func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
 type ClusterNodeTaint struct {
 	// Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
 	Effect *string `pulumi:"effect"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key string `pulumi:"key"`
 	// Taint value (string)
 	Value string `pulumi:"value"`
@@ -11753,7 +11756,7 @@ type ClusterNodeTaintInput interface {
 type ClusterNodeTaintArgs struct {
 	// Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
 	Effect pulumi.StringPtrInput `pulumi:"effect"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key pulumi.StringInput `pulumi:"key"`
 	// Taint value (string)
 	Value pulumi.StringInput `pulumi:"value"`
@@ -11815,7 +11818,7 @@ func (o ClusterNodeTaintOutput) Effect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNodeTaint) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterNodeTaintOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeTaint) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -11848,11 +11851,11 @@ func (o ClusterNodeTaintArrayOutput) Index(i pulumi.IntInput) ClusterNodeTaintOu
 type ClusterPrivateRegistry struct {
 	// Set as default registry. Default `false` (bool)
 	IsDefault *bool `pulumi:"isDefault"`
-	// Registry password (string)
+	// (string)
 	Password *string `pulumi:"password"`
-	// Registry URL (string)
+	// (string)
 	Url string `pulumi:"url"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User *string `pulumi:"user"`
 }
 
@@ -11870,11 +11873,11 @@ type ClusterPrivateRegistryInput interface {
 type ClusterPrivateRegistryArgs struct {
 	// Set as default registry. Default `false` (bool)
 	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
-	// Registry password (string)
+	// (string)
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Registry URL (string)
+	// (string)
 	Url pulumi.StringInput `pulumi:"url"`
-	// Registry user (string)
+	// SSH User to Bastion Host (string)
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
@@ -11934,17 +11937,17 @@ func (o ClusterPrivateRegistryOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterPrivateRegistry) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
-// Registry password (string)
+// (string)
 func (o ClusterPrivateRegistryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterPrivateRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Registry URL (string)
+// (string)
 func (o ClusterPrivateRegistryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Registry user (string)
+// SSH User to Bastion Host (string)
 func (o ClusterPrivateRegistryOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterPrivateRegistry) *string { return v.User }).(pulumi.StringPtrOutput)
 }
@@ -11970,7 +11973,7 @@ func (o ClusterPrivateRegistryArrayOutput) Index(i pulumi.IntInput) ClusterPriva
 }
 
 type ClusterRestore struct {
-	// Restore cluster. Default `false` (bool)
+	// RKE k8s cluster restore configuration (list maxitems:1)
 	Restore *bool `pulumi:"restore"`
 	// Snapshot name (string)
 	SnapshotName *string `pulumi:"snapshotName"`
@@ -11988,7 +11991,7 @@ type ClusterRestoreInput interface {
 }
 
 type ClusterRestoreArgs struct {
-	// Restore cluster. Default `false` (bool)
+	// RKE k8s cluster restore configuration (list maxitems:1)
 	Restore pulumi.BoolPtrInput `pulumi:"restore"`
 	// Snapshot name (string)
 	SnapshotName pulumi.StringPtrInput `pulumi:"snapshotName"`
@@ -12071,7 +12074,7 @@ func (o ClusterRestoreOutput) ToClusterRestorePtrOutputWithContext(ctx context.C
 	}).(ClusterRestorePtrOutput)
 }
 
-// Restore cluster. Default `false` (bool)
+// RKE k8s cluster restore configuration (list maxitems:1)
 func (o ClusterRestoreOutput) Restore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
 }
@@ -12105,7 +12108,7 @@ func (o ClusterRestorePtrOutput) Elem() ClusterRestoreOutput {
 	}).(ClusterRestoreOutput)
 }
 
-// Restore cluster. Default `false` (bool)
+// RKE k8s cluster restore configuration (list maxitems:1)
 func (o ClusterRestorePtrOutput) Restore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterRestore) *bool {
 		if v == nil {
@@ -12128,7 +12131,7 @@ func (o ClusterRestorePtrOutput) SnapshotName() pulumi.StringPtrOutput {
 type ClusterRotateCertificates struct {
 	// Rotate CA Certificates. Default `false` (bool)
 	CaCertificates *bool `pulumi:"caCertificates"`
-	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+	// RKE k8s cluster services (list maxitems:1)
 	Services []string `pulumi:"services"`
 }
 
@@ -12146,7 +12149,7 @@ type ClusterRotateCertificatesInput interface {
 type ClusterRotateCertificatesArgs struct {
 	// Rotate CA Certificates. Default `false` (bool)
 	CaCertificates pulumi.BoolPtrInput `pulumi:"caCertificates"`
-	// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+	// RKE k8s cluster services (list maxitems:1)
 	Services pulumi.StringArrayInput `pulumi:"services"`
 }
 
@@ -12232,7 +12235,7 @@ func (o ClusterRotateCertificatesOutput) CaCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
 }
 
-// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+// RKE k8s cluster services (list maxitems:1)
 func (o ClusterRotateCertificatesOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterRotateCertificates) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
@@ -12271,7 +12274,7 @@ func (o ClusterRotateCertificatesPtrOutput) CaCertificates() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+// RKE k8s cluster services (list maxitems:1)
 func (o ClusterRotateCertificatesPtrOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterRotateCertificates) []string {
 		if v == nil {
@@ -12281,7 +12284,7 @@ func (o ClusterRotateCertificatesPtrOutput) Services() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-type ClusterRunningSystemImages struct {
+type ClusterRunningSystemImage struct {
 	// Docker image for aciCniDeployContainer (string)
 	AciCniDeployContainer *string `pulumi:"aciCniDeployContainer"`
 	// Docker image for aciControllerContainer (string)
@@ -12322,13 +12325,13 @@ type ClusterRunningSystemImages struct {
 	CorednsAutoscaler *string `pulumi:"corednsAutoscaler"`
 	// Docker image for dnsmasq (string)
 	Dnsmasq *string `pulumi:"dnsmasq"`
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd *string `pulumi:"etcd"`
 	// Docker image for flannel (string)
 	Flannel *string `pulumi:"flannel"`
 	// Docker image for flannelCni (string)
 	FlannelCni *string `pulumi:"flannelCni"`
-	// Docker image for ingress (string)
+	// RKE k8s cluster ingress controller configuration (list maxitems:1)
 	Ingress *string `pulumi:"ingress"`
 	// Docker image for ingressBackend (string)
 	IngressBackend *string `pulumi:"ingressBackend"`
@@ -12346,7 +12349,7 @@ type ClusterRunningSystemImages struct {
 	MetricsServer *string `pulumi:"metricsServer"`
 	// Docker image for nginxProxy (string)
 	NginxProxy *string `pulumi:"nginxProxy"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal *string `pulumi:"nodelocal"`
 	// Docker image for podInfraContainer (string)
 	PodInfraContainer *string `pulumi:"podInfraContainer"`
@@ -12358,18 +12361,18 @@ type ClusterRunningSystemImages struct {
 	WindowsPodInfraContainer *string `pulumi:"windowsPodInfraContainer"`
 }
 
-// ClusterRunningSystemImagesInput is an input type that accepts ClusterRunningSystemImagesArgs and ClusterRunningSystemImagesOutput values.
-// You can construct a concrete instance of `ClusterRunningSystemImagesInput` via:
+// ClusterRunningSystemImageInput is an input type that accepts ClusterRunningSystemImageArgs and ClusterRunningSystemImageOutput values.
+// You can construct a concrete instance of `ClusterRunningSystemImageInput` via:
 //
-//	ClusterRunningSystemImagesArgs{...}
-type ClusterRunningSystemImagesInput interface {
+//	ClusterRunningSystemImageArgs{...}
+type ClusterRunningSystemImageInput interface {
 	pulumi.Input
 
-	ToClusterRunningSystemImagesOutput() ClusterRunningSystemImagesOutput
-	ToClusterRunningSystemImagesOutputWithContext(context.Context) ClusterRunningSystemImagesOutput
+	ToClusterRunningSystemImageOutput() ClusterRunningSystemImageOutput
+	ToClusterRunningSystemImageOutputWithContext(context.Context) ClusterRunningSystemImageOutput
 }
 
-type ClusterRunningSystemImagesArgs struct {
+type ClusterRunningSystemImageArgs struct {
 	// Docker image for aciCniDeployContainer (string)
 	AciCniDeployContainer pulumi.StringPtrInput `pulumi:"aciCniDeployContainer"`
 	// Docker image for aciControllerContainer (string)
@@ -12410,13 +12413,13 @@ type ClusterRunningSystemImagesArgs struct {
 	CorednsAutoscaler pulumi.StringPtrInput `pulumi:"corednsAutoscaler"`
 	// Docker image for dnsmasq (string)
 	Dnsmasq pulumi.StringPtrInput `pulumi:"dnsmasq"`
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd pulumi.StringPtrInput `pulumi:"etcd"`
 	// Docker image for flannel (string)
 	Flannel pulumi.StringPtrInput `pulumi:"flannel"`
 	// Docker image for flannelCni (string)
 	FlannelCni pulumi.StringPtrInput `pulumi:"flannelCni"`
-	// Docker image for ingress (string)
+	// RKE k8s cluster ingress controller configuration (list maxitems:1)
 	Ingress pulumi.StringPtrInput `pulumi:"ingress"`
 	// Docker image for ingressBackend (string)
 	IngressBackend pulumi.StringPtrInput `pulumi:"ingressBackend"`
@@ -12434,7 +12437,7 @@ type ClusterRunningSystemImagesArgs struct {
 	MetricsServer pulumi.StringPtrInput `pulumi:"metricsServer"`
 	// Docker image for nginxProxy (string)
 	NginxProxy pulumi.StringPtrInput `pulumi:"nginxProxy"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal pulumi.StringPtrInput `pulumi:"nodelocal"`
 	// Docker image for podInfraContainer (string)
 	PodInfraContainer pulumi.StringPtrInput `pulumi:"podInfraContainer"`
@@ -12446,664 +12449,264 @@ type ClusterRunningSystemImagesArgs struct {
 	WindowsPodInfraContainer pulumi.StringPtrInput `pulumi:"windowsPodInfraContainer"`
 }
 
-func (ClusterRunningSystemImagesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterRunningSystemImages)(nil)).Elem()
+func (ClusterRunningSystemImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRunningSystemImage)(nil)).Elem()
 }
 
-func (i ClusterRunningSystemImagesArgs) ToClusterRunningSystemImagesOutput() ClusterRunningSystemImagesOutput {
-	return i.ToClusterRunningSystemImagesOutputWithContext(context.Background())
+func (i ClusterRunningSystemImageArgs) ToClusterRunningSystemImageOutput() ClusterRunningSystemImageOutput {
+	return i.ToClusterRunningSystemImageOutputWithContext(context.Background())
 }
 
-func (i ClusterRunningSystemImagesArgs) ToClusterRunningSystemImagesOutputWithContext(ctx context.Context) ClusterRunningSystemImagesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImagesOutput)
+func (i ClusterRunningSystemImageArgs) ToClusterRunningSystemImageOutputWithContext(ctx context.Context) ClusterRunningSystemImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImageOutput)
 }
 
-func (i ClusterRunningSystemImagesArgs) ToClusterRunningSystemImagesPtrOutput() ClusterRunningSystemImagesPtrOutput {
-	return i.ToClusterRunningSystemImagesPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterRunningSystemImagesArgs) ToClusterRunningSystemImagesPtrOutputWithContext(ctx context.Context) ClusterRunningSystemImagesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImagesOutput).ToClusterRunningSystemImagesPtrOutputWithContext(ctx)
-}
-
-// ClusterRunningSystemImagesPtrInput is an input type that accepts ClusterRunningSystemImagesArgs, ClusterRunningSystemImagesPtr and ClusterRunningSystemImagesPtrOutput values.
-// You can construct a concrete instance of `ClusterRunningSystemImagesPtrInput` via:
+// ClusterRunningSystemImageArrayInput is an input type that accepts ClusterRunningSystemImageArray and ClusterRunningSystemImageArrayOutput values.
+// You can construct a concrete instance of `ClusterRunningSystemImageArrayInput` via:
 //
-//	        ClusterRunningSystemImagesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClusterRunningSystemImagesPtrInput interface {
+//	ClusterRunningSystemImageArray{ ClusterRunningSystemImageArgs{...} }
+type ClusterRunningSystemImageArrayInput interface {
 	pulumi.Input
 
-	ToClusterRunningSystemImagesPtrOutput() ClusterRunningSystemImagesPtrOutput
-	ToClusterRunningSystemImagesPtrOutputWithContext(context.Context) ClusterRunningSystemImagesPtrOutput
+	ToClusterRunningSystemImageArrayOutput() ClusterRunningSystemImageArrayOutput
+	ToClusterRunningSystemImageArrayOutputWithContext(context.Context) ClusterRunningSystemImageArrayOutput
 }
 
-type clusterRunningSystemImagesPtrType ClusterRunningSystemImagesArgs
+type ClusterRunningSystemImageArray []ClusterRunningSystemImageInput
 
-func ClusterRunningSystemImagesPtr(v *ClusterRunningSystemImagesArgs) ClusterRunningSystemImagesPtrInput {
-	return (*clusterRunningSystemImagesPtrType)(v)
+func (ClusterRunningSystemImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterRunningSystemImage)(nil)).Elem()
 }
 
-func (*clusterRunningSystemImagesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterRunningSystemImages)(nil)).Elem()
+func (i ClusterRunningSystemImageArray) ToClusterRunningSystemImageArrayOutput() ClusterRunningSystemImageArrayOutput {
+	return i.ToClusterRunningSystemImageArrayOutputWithContext(context.Background())
 }
 
-func (i *clusterRunningSystemImagesPtrType) ToClusterRunningSystemImagesPtrOutput() ClusterRunningSystemImagesPtrOutput {
-	return i.ToClusterRunningSystemImagesPtrOutputWithContext(context.Background())
+func (i ClusterRunningSystemImageArray) ToClusterRunningSystemImageArrayOutputWithContext(ctx context.Context) ClusterRunningSystemImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImageArrayOutput)
 }
 
-func (i *clusterRunningSystemImagesPtrType) ToClusterRunningSystemImagesPtrOutputWithContext(ctx context.Context) ClusterRunningSystemImagesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImagesPtrOutput)
+type ClusterRunningSystemImageOutput struct{ *pulumi.OutputState }
+
+func (ClusterRunningSystemImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRunningSystemImage)(nil)).Elem()
 }
 
-type ClusterRunningSystemImagesOutput struct{ *pulumi.OutputState }
-
-func (ClusterRunningSystemImagesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterRunningSystemImages)(nil)).Elem()
-}
-
-func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesOutput() ClusterRunningSystemImagesOutput {
+func (o ClusterRunningSystemImageOutput) ToClusterRunningSystemImageOutput() ClusterRunningSystemImageOutput {
 	return o
 }
 
-func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesOutputWithContext(ctx context.Context) ClusterRunningSystemImagesOutput {
+func (o ClusterRunningSystemImageOutput) ToClusterRunningSystemImageOutputWithContext(ctx context.Context) ClusterRunningSystemImageOutput {
 	return o
-}
-
-func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutput() ClusterRunningSystemImagesPtrOutput {
-	return o.ToClusterRunningSystemImagesPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterRunningSystemImagesOutput) ToClusterRunningSystemImagesPtrOutputWithContext(ctx context.Context) ClusterRunningSystemImagesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRunningSystemImages) *ClusterRunningSystemImages {
-		return &v
-	}).(ClusterRunningSystemImagesPtrOutput)
 }
 
 // Docker image for aciCniDeployContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciCniDeployContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciCniDeployContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for aciControllerContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciControllerContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciControllerContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciControllerContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciControllerContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for aciHostContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciHostContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciHostContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciHostContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciHostContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for aciMcastContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciMcastContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciMcastContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciMcastContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciMcastContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for aciOpflexContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciOpflexContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciOpflexContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciOpflexContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciOpflexContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for aciOvsContainer (string)
-func (o ClusterRunningSystemImagesOutput) AciOvsContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.AciOvsContainer }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) AciOvsContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.AciOvsContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for alpine (string)
-func (o ClusterRunningSystemImagesOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Alpine }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) Alpine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Alpine }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCni (string)
-func (o ClusterRunningSystemImagesOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CalicoCni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CalicoCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoControllers (string)
-func (o ClusterRunningSystemImagesOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CalicoControllers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CalicoControllers }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoCtl (string)
-func (o ClusterRunningSystemImagesOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CalicoCtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CalicoCtl }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoFlexVol (string)
-func (o ClusterRunningSystemImagesOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CalicoFlexVol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CalicoFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for calicoNode (string)
-func (o ClusterRunningSystemImagesOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CalicoNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CalicoNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalCni (string)
-func (o ClusterRunningSystemImagesOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CanalCni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CanalCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlannel (string)
-func (o ClusterRunningSystemImagesOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CanalFlannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CanalFlannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalFlexVol (string)
-func (o ClusterRunningSystemImagesOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CanalFlexVol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CanalFlexVol }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for canalNode (string)
-func (o ClusterRunningSystemImagesOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CanalNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CanalNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for certDownloader (string)
-func (o ClusterRunningSystemImagesOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CertDownloader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CertDownloader }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for coredns (string)
-func (o ClusterRunningSystemImagesOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Coredns }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) Coredns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Coredns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for corednsAutoscaler (string)
-func (o ClusterRunningSystemImagesOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.CorednsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for dnsmasq (string)
-func (o ClusterRunningSystemImagesOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) Dnsmasq() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for etcd (string)
-func (o ClusterRunningSystemImagesOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for flannel (string)
-func (o ClusterRunningSystemImagesOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Flannel }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for flannelCni (string)
-func (o ClusterRunningSystemImagesOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for ingress (string)
-func (o ClusterRunningSystemImagesOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for ingressBackend (string)
-func (o ClusterRunningSystemImagesOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for kubeDns (string)
-func (o ClusterRunningSystemImagesOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for kubeDnsAutoscaler (string)
-func (o ClusterRunningSystemImagesOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for kubeDnsSidecar (string)
-func (o ClusterRunningSystemImagesOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for kubernetes (string)
-func (o ClusterRunningSystemImagesOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for kubernetesServicesSidecar (string)
-func (o ClusterRunningSystemImagesOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for metricsServer (string)
-func (o ClusterRunningSystemImagesOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for nginxProxy (string)
-func (o ClusterRunningSystemImagesOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for nodelocal (string)
-func (o ClusterRunningSystemImagesOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for podInfraContainer (string)
-func (o ClusterRunningSystemImagesOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for weaveCni (string)
-func (o ClusterRunningSystemImagesOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for weaveNode (string)
-func (o ClusterRunningSystemImagesOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
-}
-
-// Docker image for windowsPodInfraContainer (string)
-func (o ClusterRunningSystemImagesOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterRunningSystemImages) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
-}
-
-type ClusterRunningSystemImagesPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterRunningSystemImagesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterRunningSystemImages)(nil)).Elem()
-}
-
-func (o ClusterRunningSystemImagesPtrOutput) ToClusterRunningSystemImagesPtrOutput() ClusterRunningSystemImagesPtrOutput {
-	return o
-}
-
-func (o ClusterRunningSystemImagesPtrOutput) ToClusterRunningSystemImagesPtrOutputWithContext(ctx context.Context) ClusterRunningSystemImagesPtrOutput {
-	return o
-}
-
-func (o ClusterRunningSystemImagesPtrOutput) Elem() ClusterRunningSystemImagesOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) ClusterRunningSystemImages {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterRunningSystemImages
-		return ret
-	}).(ClusterRunningSystemImagesOutput)
-}
-
-// Docker image for aciCniDeployContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciCniDeployContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciCniDeployContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for aciControllerContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciControllerContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciControllerContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for aciHostContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciHostContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciHostContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for aciMcastContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciMcastContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciMcastContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for aciOpflexContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciOpflexContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciOpflexContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for aciOvsContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) AciOvsContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AciOvsContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for alpine (string)
-func (o ClusterRunningSystemImagesPtrOutput) Alpine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Alpine
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for calicoCni (string)
-func (o ClusterRunningSystemImagesPtrOutput) CalicoCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CalicoCni
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for calicoControllers (string)
-func (o ClusterRunningSystemImagesPtrOutput) CalicoControllers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CalicoControllers
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for calicoCtl (string)
-func (o ClusterRunningSystemImagesPtrOutput) CalicoCtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CalicoCtl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for calicoFlexVol (string)
-func (o ClusterRunningSystemImagesPtrOutput) CalicoFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CalicoFlexVol
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for calicoNode (string)
-func (o ClusterRunningSystemImagesPtrOutput) CalicoNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CalicoNode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for canalCni (string)
-func (o ClusterRunningSystemImagesPtrOutput) CanalCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CanalCni
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for canalFlannel (string)
-func (o ClusterRunningSystemImagesPtrOutput) CanalFlannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CanalFlannel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for canalFlexVol (string)
-func (o ClusterRunningSystemImagesPtrOutput) CanalFlexVol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CanalFlexVol
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for canalNode (string)
-func (o ClusterRunningSystemImagesPtrOutput) CanalNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CanalNode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for certDownloader (string)
-func (o ClusterRunningSystemImagesPtrOutput) CertDownloader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertDownloader
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for coredns (string)
-func (o ClusterRunningSystemImagesPtrOutput) Coredns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Coredns
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for corednsAutoscaler (string)
-func (o ClusterRunningSystemImagesPtrOutput) CorednsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CorednsAutoscaler
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for dnsmasq (string)
-func (o ClusterRunningSystemImagesPtrOutput) Dnsmasq() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Dnsmasq
-	}).(pulumi.StringPtrOutput)
-}
-
-// Docker image for etcd (string)
-func (o ClusterRunningSystemImagesPtrOutput) Etcd() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Etcd
-	}).(pulumi.StringPtrOutput)
+// Etcd options for RKE services (list maxitems:1)
+func (o ClusterRunningSystemImageOutput) Etcd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannel (string)
-func (o ClusterRunningSystemImagesPtrOutput) Flannel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Flannel
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) Flannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Flannel }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for flannelCni (string)
-func (o ClusterRunningSystemImagesPtrOutput) FlannelCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FlannelCni
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) FlannelCni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for ingress (string)
-func (o ClusterRunningSystemImagesPtrOutput) Ingress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Ingress
-	}).(pulumi.StringPtrOutput)
+// RKE k8s cluster ingress controller configuration (list maxitems:1)
+func (o ClusterRunningSystemImageOutput) Ingress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for ingressBackend (string)
-func (o ClusterRunningSystemImagesPtrOutput) IngressBackend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IngressBackend
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) IngressBackend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.IngressBackend }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDns (string)
-func (o ClusterRunningSystemImagesPtrOutput) KubeDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KubeDns
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) KubeDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.KubeDns }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsAutoscaler (string)
-func (o ClusterRunningSystemImagesPtrOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KubeDnsAutoscaler
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) KubeDnsAutoscaler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.KubeDnsAutoscaler }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubeDnsSidecar (string)
-func (o ClusterRunningSystemImagesPtrOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KubeDnsSidecar
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) KubeDnsSidecar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.KubeDnsSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetes (string)
-func (o ClusterRunningSystemImagesPtrOutput) Kubernetes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kubernetes
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) Kubernetes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Kubernetes }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for kubernetesServicesSidecar (string)
-func (o ClusterRunningSystemImagesPtrOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KubernetesServicesSidecar
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) KubernetesServicesSidecar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.KubernetesServicesSidecar }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for metricsServer (string)
-func (o ClusterRunningSystemImagesPtrOutput) MetricsServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MetricsServer
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) MetricsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.MetricsServer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for nginxProxy (string)
-func (o ClusterRunningSystemImagesPtrOutput) NginxProxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NginxProxy
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) NginxProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for nodelocal (string)
-func (o ClusterRunningSystemImagesPtrOutput) Nodelocal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Nodelocal
-	}).(pulumi.StringPtrOutput)
+// Nodelocal dns config  (list Maxitem: 1)
+func (o ClusterRunningSystemImageOutput) Nodelocal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for podInfraContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) PodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PodInfraContainer
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) PodInfraContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.PodInfraContainer }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveCni (string)
-func (o ClusterRunningSystemImagesPtrOutput) WeaveCni() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WeaveCni
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) WeaveCni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.WeaveCni }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for weaveNode (string)
-func (o ClusterRunningSystemImagesPtrOutput) WeaveNode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WeaveNode
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) WeaveNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.WeaveNode }).(pulumi.StringPtrOutput)
 }
 
 // Docker image for windowsPodInfraContainer (string)
-func (o ClusterRunningSystemImagesPtrOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterRunningSystemImages) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WindowsPodInfraContainer
-	}).(pulumi.StringPtrOutput)
+func (o ClusterRunningSystemImageOutput) WindowsPodInfraContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRunningSystemImage) *string { return v.WindowsPodInfraContainer }).(pulumi.StringPtrOutput)
+}
+
+type ClusterRunningSystemImageArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterRunningSystemImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterRunningSystemImage)(nil)).Elem()
+}
+
+func (o ClusterRunningSystemImageArrayOutput) ToClusterRunningSystemImageArrayOutput() ClusterRunningSystemImageArrayOutput {
+	return o
+}
+
+func (o ClusterRunningSystemImageArrayOutput) ToClusterRunningSystemImageArrayOutputWithContext(ctx context.Context) ClusterRunningSystemImageArrayOutput {
+	return o
+}
+
+func (o ClusterRunningSystemImageArrayOutput) Index(i pulumi.IntInput) ClusterRunningSystemImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRunningSystemImage {
+		return vs[0].([]ClusterRunningSystemImage)[vs[1].(int)]
+	}).(ClusterRunningSystemImageOutput)
 }
 
 type ClusterServices struct {
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd *ClusterServicesEtcd `pulumi:"etcd"`
 	// Kube API options for RKE services (list maxitems:1)
 	KubeApi *ClusterServicesKubeApi `pulumi:"kubeApi"`
@@ -13129,7 +12732,7 @@ type ClusterServicesInput interface {
 }
 
 type ClusterServicesArgs struct {
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd ClusterServicesEtcdPtrInput `pulumi:"etcd"`
 	// Kube API options for RKE services (list maxitems:1)
 	KubeApi ClusterServicesKubeApiPtrInput `pulumi:"kubeApi"`
@@ -13220,7 +12823,7 @@ func (o ClusterServicesOutput) ToClusterServicesPtrOutputWithContext(ctx context
 	}).(ClusterServicesPtrOutput)
 }
 
-// Docker image for etcd (string)
+// Etcd options for RKE services (list maxitems:1)
 func (o ClusterServicesOutput) Etcd() ClusterServicesEtcdPtrOutput {
 	return o.ApplyT(func(v ClusterServices) *ClusterServicesEtcd { return v.Etcd }).(ClusterServicesEtcdPtrOutput)
 }
@@ -13274,7 +12877,7 @@ func (o ClusterServicesPtrOutput) Elem() ClusterServicesOutput {
 	}).(ClusterServicesOutput)
 }
 
-// Docker image for etcd (string)
+// Etcd options for RKE services (list maxitems:1)
 func (o ClusterServicesPtrOutput) Etcd() ClusterServicesEtcdPtrOutput {
 	return o.ApplyT(func(v *ClusterServices) *ClusterServicesEtcd {
 		if v == nil {
@@ -13345,21 +12948,21 @@ type ClusterServicesEtcd struct {
 	Creation *string `pulumi:"creation"`
 	// External urls for etcd service (list)
 	ExternalUrls []string `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 	Gid *int `pulumi:"gid"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key *string `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path *string `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention *string `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot *bool `pulumi:"snapshot"`
@@ -13389,21 +12992,21 @@ type ClusterServicesEtcdArgs struct {
 	Creation pulumi.StringPtrInput `pulumi:"creation"`
 	// External urls for etcd service (list)
 	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 	Gid pulumi.IntPtrInput `pulumi:"gid"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention pulumi.StringPtrInput `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
@@ -13513,17 +13116,17 @@ func (o ClusterServicesEtcdOutput) ExternalUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesEtcdOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesEtcdOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesEtcdOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
@@ -13533,22 +13136,22 @@ func (o ClusterServicesEtcdOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesEtcdOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterServicesEtcdOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesEtcdOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdOutput) Retention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
@@ -13637,7 +13240,7 @@ func (o ClusterServicesEtcdPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesEtcdPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) map[string]interface{} {
 		if v == nil {
@@ -13647,7 +13250,7 @@ func (o ClusterServicesEtcdPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesEtcdPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) []string {
 		if v == nil {
@@ -13657,7 +13260,7 @@ func (o ClusterServicesEtcdPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesEtcdPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) []string {
 		if v == nil {
@@ -13677,7 +13280,7 @@ func (o ClusterServicesEtcdPtrOutput) Gid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *string {
 		if v == nil {
@@ -13687,7 +13290,7 @@ func (o ClusterServicesEtcdPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterServicesEtcdPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *string {
 		if v == nil {
@@ -13697,7 +13300,7 @@ func (o ClusterServicesEtcdPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *string {
 		if v == nil {
@@ -13707,7 +13310,7 @@ func (o ClusterServicesEtcdPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdPtrOutput) Retention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *string {
 		if v == nil {
@@ -13738,17 +13341,17 @@ func (o ClusterServicesEtcdPtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ClusterServicesEtcdBackupConfig struct {
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours *int `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention *int `pulumi:"retention"`
 	// S3 config options for etcd backup (list maxitems:1)
 	S3BackupConfig *ClusterServicesEtcdBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp *bool `pulumi:"safeTimestamp"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -13764,17 +13367,17 @@ type ClusterServicesEtcdBackupConfigInput interface {
 }
 
 type ClusterServicesEtcdBackupConfigArgs struct {
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention pulumi.IntPtrInput `pulumi:"retention"`
 	// S3 config options for etcd backup (list maxitems:1)
 	S3BackupConfig ClusterServicesEtcdBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -13855,7 +13458,7 @@ func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfig
 	}).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesEtcdBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -13865,7 +13468,7 @@ func (o ClusterServicesEtcdBackupConfigOutput) IntervalHours() pulumi.IntPtrOutp
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdBackupConfigOutput) Retention() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
@@ -13882,7 +13485,7 @@ func (o ClusterServicesEtcdBackupConfigOutput) SafeTimestamp() pulumi.BoolPtrOut
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterServicesEtcdBackupConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -13911,7 +13514,7 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) Elem() ClusterServicesEtcdBack
 	}).(ClusterServicesEtcdBackupConfigOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) *bool {
 		if v == nil {
@@ -13931,7 +13534,7 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) IntervalHours() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) *int {
 		if v == nil {
@@ -13961,7 +13564,7 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) SafeTimestamp() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfig) *int {
 		if v == nil {
@@ -13980,9 +13583,9 @@ type ClusterServicesEtcdBackupConfigS3BackupConfig struct {
 	CustomCa *string `pulumi:"customCa"`
 	// Endpoint for S3 service (string)
 	Endpoint *string `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder *string `pulumi:"folder"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
 	// Secret key for S3 service (string)
 	SecretKey *string `pulumi:"secretKey"`
@@ -14008,9 +13611,9 @@ type ClusterServicesEtcdBackupConfigS3BackupConfigArgs struct {
 	CustomCa pulumi.StringPtrInput `pulumi:"customCa"`
 	// Endpoint for S3 service (string)
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder pulumi.StringPtrInput `pulumi:"folder"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Secret key for S3 service (string)
 	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
@@ -14113,12 +13716,12 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Endpoint() pulumi.S
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -14192,7 +13795,7 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Endpoint() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfigS3BackupConfig) *string {
 		if v == nil {
@@ -14202,7 +13805,7 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdBackupConfigS3BackupConfig) *string {
 		if v == nil {
@@ -14233,21 +13836,21 @@ type ClusterServicesEtcdDeprecated struct {
 	Creation *string `pulumi:"creation"`
 	// External urls for etcd service (list)
 	ExternalUrls []string `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 	Gid *int `pulumi:"gid"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key *string `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path *string `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention *string `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot *bool `pulumi:"snapshot"`
@@ -14277,21 +13880,21 @@ type ClusterServicesEtcdDeprecatedArgs struct {
 	Creation pulumi.StringPtrInput `pulumi:"creation"`
 	// External urls for etcd service (list)
 	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
 	Gid pulumi.IntPtrInput `pulumi:"gid"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// TLS key for etcd service (string)
+	// Use service instead
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention pulumi.StringPtrInput `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
@@ -14403,17 +14006,17 @@ func (o ClusterServicesEtcdDeprecatedOutput) ExternalUrls() pulumi.StringArrayOu
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
@@ -14423,22 +14026,22 @@ func (o ClusterServicesEtcdDeprecatedOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterServicesEtcdDeprecatedOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedOutput) Retention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *string { return v.Retention }).(pulumi.StringPtrOutput)
 }
@@ -14527,7 +14130,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ExternalUrls() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) map[string]interface{} {
 		if v == nil {
@@ -14537,7 +14140,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) []string {
 		if v == nil {
@@ -14547,7 +14150,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) []string {
 		if v == nil {
@@ -14567,7 +14170,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Gid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *string {
 		if v == nil {
@@ -14577,7 +14180,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// TLS key for etcd service (string)
+// Use service instead
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *string {
 		if v == nil {
@@ -14587,7 +14190,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *string {
 		if v == nil {
@@ -14597,7 +14200,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Retention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *string {
 		if v == nil {
@@ -14628,17 +14231,17 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfig struct {
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours *int `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention *int `pulumi:"retention"`
 	// S3 config options for etcd backup (list maxitems:1)
 	S3BackupConfig *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp *bool `pulumi:"safeTimestamp"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -14654,17 +14257,17 @@ type ClusterServicesEtcdDeprecatedBackupConfigInput interface {
 }
 
 type ClusterServicesEtcdDeprecatedBackupConfigArgs struct {
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Interval hours for etcd backup. Default `12` (int)
 	IntervalHours pulumi.IntPtrInput `pulumi:"intervalHours"`
-	// Retention for etcd backup. Default `6` (int)
+	// Retention option for etcd service (string)
 	Retention pulumi.IntPtrInput `pulumi:"retention"`
 	// S3 config options for etcd backup (list maxitems:1)
 	S3BackupConfig ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrInput `pulumi:"s3BackupConfig"`
 	// Safe timestamp for etcd backup. Default: `false` (bool)
 	SafeTimestamp pulumi.BoolPtrInput `pulumi:"safeTimestamp"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -14745,7 +14348,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDe
 	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -14755,7 +14358,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) IntervalHours() pulumi.
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.IntervalHours }).(pulumi.IntPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Retention() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
@@ -14772,7 +14375,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) SafeTimestamp() pulumi.
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *bool { return v.SafeTimestamp }).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -14801,7 +14404,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServic
 	}).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) *bool {
 		if v == nil {
@@ -14821,7 +14424,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) IntervalHours() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Retention for etcd backup. Default `6` (int)
+// Retention option for etcd service (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Retention() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) *int {
 		if v == nil {
@@ -14851,7 +14454,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) SafeTimestamp() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfig) *int {
 		if v == nil {
@@ -14870,9 +14473,9 @@ type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig struct {
 	CustomCa *string `pulumi:"customCa"`
 	// Endpoint for S3 service (string)
 	Endpoint *string `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder *string `pulumi:"folder"`
-	// Region for S3 service (string)
+	// (string)
 	Region *string `pulumi:"region"`
 	// Secret key for S3 service (string)
 	SecretKey *string `pulumi:"secretKey"`
@@ -14898,9 +14501,9 @@ type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs struct {
 	CustomCa pulumi.StringPtrInput `pulumi:"customCa"`
 	// Endpoint for S3 service (string)
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// Folder for S3 service. Available from Rancher v2.2.7 (string)
+	// (string)
 	Folder pulumi.StringPtrInput `pulumi:"folder"`
-	// Region for S3 service (string)
+	// (string)
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Secret key for S3 service (string)
 	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
@@ -15003,12 +14606,12 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Endpoint(
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -15082,7 +14685,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Endpoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Folder for S3 service. Available from Rancher v2.2.7 (string)
+// (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string {
 		if v == nil {
@@ -15092,7 +14695,7 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Folder
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region for S3 service (string)
+// (string)
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *string {
 		if v == nil {
@@ -15119,19 +14722,19 @@ type ClusterServicesKubeApi struct {
 	AuditLog *ClusterServicesKubeApiAuditLog `pulumi:"auditLog"`
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit *ClusterServicesKubeApiEventRateLimit `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig *ClusterServicesKubeApiSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
 	// Service Node Port Range option for kube API service (string)
 	ServiceNodePortRange *string `pulumi:"serviceNodePortRange"`
@@ -15155,19 +14758,19 @@ type ClusterServicesKubeApiArgs struct {
 	AuditLog ClusterServicesKubeApiAuditLogPtrInput `pulumi:"auditLog"`
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit ClusterServicesKubeApiEventRateLimitPtrInput `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig ClusterServicesKubeApiSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
 	// Service Node Port Range option for kube API service (string)
 	ServiceNodePortRange pulumi.StringPtrInput `pulumi:"serviceNodePortRange"`
@@ -15265,22 +14868,22 @@ func (o ClusterServicesKubeApiOutput) EventRateLimit() ClusterServicesKubeApiEve
 	return o.ApplyT(func(v ClusterServicesKubeApi) *ClusterServicesKubeApiEventRateLimit { return v.EventRateLimit }).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeApiOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeApiOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeApiOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeApiOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -15297,7 +14900,7 @@ func (o ClusterServicesKubeApiOutput) SecretsEncryptionConfig() ClusterServicesK
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeApiOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
@@ -15361,7 +14964,7 @@ func (o ClusterServicesKubeApiPtrOutput) EventRateLimit() ClusterServicesKubeApi
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeApiPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) map[string]interface{} {
 		if v == nil {
@@ -15371,7 +14974,7 @@ func (o ClusterServicesKubeApiPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeApiPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) []string {
 		if v == nil {
@@ -15381,7 +14984,7 @@ func (o ClusterServicesKubeApiPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeApiPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) []string {
 		if v == nil {
@@ -15391,7 +14994,7 @@ func (o ClusterServicesKubeApiPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeApiPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) *string {
 		if v == nil {
@@ -15421,7 +15024,7 @@ func (o ClusterServicesKubeApiPtrOutput) SecretsEncryptionConfig() ClusterServic
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeApiPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApi) *string {
 		if v == nil {
@@ -15442,9 +15045,9 @@ func (o ClusterServicesKubeApiPtrOutput) ServiceNodePortRange() pulumi.StringPtr
 }
 
 type ClusterServicesKubeApiAuditLog struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration *ClusterServicesKubeApiAuditLogConfiguration `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -15460,9 +15063,9 @@ type ClusterServicesKubeApiAuditLogInput interface {
 }
 
 type ClusterServicesKubeApiAuditLogArgs struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration ClusterServicesKubeApiAuditLogConfigurationPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -15543,14 +15146,14 @@ func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPt
 	}).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiAuditLogOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
 		return v.Configuration
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -15579,7 +15182,7 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) Elem() ClusterServicesKubeApiAu
 	}).(ClusterServicesKubeApiAuditLogOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Configuration() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLogConfiguration {
 		if v == nil {
@@ -15589,7 +15192,7 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) Configuration() ClusterServices
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLog) *bool {
 		if v == nil {
@@ -15608,7 +15211,7 @@ type ClusterServicesKubeApiAuditLogConfiguration struct {
 	MaxBackup *int `pulumi:"maxBackup"`
 	// Audit log max size. Default: `100` (int)
 	MaxSize *int `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path *string `pulumi:"path"`
 	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 	Policy *string `pulumi:"policy"`
@@ -15634,7 +15237,7 @@ type ClusterServicesKubeApiAuditLogConfigurationArgs struct {
 	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
 	// Audit log max size. Default: `100` (int)
 	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
@@ -15737,7 +15340,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationOutput) MaxSize() pulumi.IntP
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -15811,7 +15414,7 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) MaxSize() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiAuditLogConfiguration) *string {
 		if v == nil {
@@ -15838,19 +15441,19 @@ type ClusterServicesKubeApiDeprecated struct {
 	AuditLog *ClusterServicesKubeApiDeprecatedAuditLog `pulumi:"auditLog"`
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit *ClusterServicesKubeApiDeprecatedEventRateLimit `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
 	// Service Node Port Range option for kube API service (string)
 	ServiceNodePortRange *string `pulumi:"serviceNodePortRange"`
@@ -15874,19 +15477,19 @@ type ClusterServicesKubeApiDeprecatedArgs struct {
 	AuditLog ClusterServicesKubeApiDeprecatedAuditLogPtrInput `pulumi:"auditLog"`
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput `pulumi:"eventRateLimit"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
 	SecretsEncryptionConfig ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrInput `pulumi:"secretsEncryptionConfig"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
 	// Service Node Port Range option for kube API service (string)
 	ServiceNodePortRange pulumi.StringPtrInput `pulumi:"serviceNodePortRange"`
@@ -15986,22 +15589,22 @@ func (o ClusterServicesKubeApiDeprecatedOutput) EventRateLimit() ClusterServices
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeApiDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeApiDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -16018,7 +15621,7 @@ func (o ClusterServicesKubeApiDeprecatedOutput) SecretsEncryptionConfig() Cluste
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeApiDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
@@ -16082,7 +15685,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) EventRateLimit() ClusterServi
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) map[string]interface{} {
 		if v == nil {
@@ -16092,7 +15695,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput 
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) []string {
 		if v == nil {
@@ -16102,7 +15705,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraBinds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) []string {
 		if v == nil {
@@ -16112,7 +15715,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) *string {
 		if v == nil {
@@ -16142,7 +15745,7 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) SecretsEncryptionConfig() Clu
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) *string {
 		if v == nil {
@@ -16163,9 +15766,9 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ServiceNodePortRange() pulumi
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLog struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration *ClusterServicesKubeApiDeprecatedAuditLogConfiguration `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -16181,9 +15784,9 @@ type ClusterServicesKubeApiDeprecatedAuditLogInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedAuditLogArgs struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -16264,14 +15867,14 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApi
 	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		return v.Configuration
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16300,7 +15903,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterService
 	}).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		if v == nil {
@@ -16310,7 +15913,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Configuration() Clust
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLog) *bool {
 		if v == nil {
@@ -16329,7 +15932,7 @@ type ClusterServicesKubeApiDeprecatedAuditLogConfiguration struct {
 	MaxBackup *int `pulumi:"maxBackup"`
 	// Audit log max size. Default: `100` (int)
 	MaxSize *int `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path *string `pulumi:"path"`
 	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 	Policy *string `pulumi:"policy"`
@@ -16355,7 +15958,7 @@ type ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs struct {
 	MaxBackup pulumi.IntPtrInput `pulumi:"maxBackup"`
 	// Audit log max size. Default: `100` (int)
 	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
-	// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+	// Path for etcd service (string)
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
@@ -16458,7 +16061,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) MaxSize() p
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -16532,7 +16135,7 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) MaxSize(
 	}).(pulumi.IntPtrOutput)
 }
 
-// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+// Path for etcd service (string)
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *string {
 		if v == nil {
@@ -16553,9 +16156,9 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Policy()
 }
 
 type ClusterServicesKubeApiDeprecatedEventRateLimit struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration *string `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -16571,9 +16174,9 @@ type ClusterServicesKubeApiDeprecatedEventRateLimitInput interface {
 }
 
 type ClusterServicesKubeApiDeprecatedEventRateLimitArgs struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -16654,12 +16257,12 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesK
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16688,7 +16291,7 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterS
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) *string {
 		if v == nil {
@@ -16698,7 +16301,7 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Configuration()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedEventRateLimit) *bool {
 		if v == nil {
@@ -16711,7 +16314,7 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Enabled() pulum
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig struct {
 	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 	CustomConfig *string `pulumi:"customConfig"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -16729,7 +16332,7 @@ type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigInput interface {
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs struct {
 	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 	CustomConfig pulumi.StringPtrInput `pulumi:"customConfig"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -16815,7 +16418,7 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) CustomCon
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16854,7 +16457,7 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Custom
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *bool {
 		if v == nil {
@@ -16865,9 +16468,9 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Enable
 }
 
 type ClusterServicesKubeApiEventRateLimit struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration *string `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -16883,9 +16486,9 @@ type ClusterServicesKubeApiEventRateLimitInput interface {
 }
 
 type ClusterServicesKubeApiEventRateLimitArgs struct {
-	// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+	// Audit log configuration. (list maxtiem: 1)
 	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -16966,12 +16569,12 @@ func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEven
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiEventRateLimitOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -17000,7 +16603,7 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Elem() ClusterServicesKub
 	}).(ClusterServicesKubeApiEventRateLimitOutput)
 }
 
-// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+// Audit log configuration. (list maxtiem: 1)
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) *string {
 		if v == nil {
@@ -17010,7 +16613,7 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Configuration() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiEventRateLimit) *bool {
 		if v == nil {
@@ -17023,7 +16626,7 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Enabled() pulumi.BoolPtrO
 type ClusterServicesKubeApiSecretsEncryptionConfig struct {
 	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 	CustomConfig *string `pulumi:"customConfig"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -17041,7 +16644,7 @@ type ClusterServicesKubeApiSecretsEncryptionConfigInput interface {
 type ClusterServicesKubeApiSecretsEncryptionConfigArgs struct {
 	// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 	CustomConfig pulumi.StringPtrInput `pulumi:"customConfig"`
-	// Enable secrets encryption (bool)
+	// Enable etcd backup. Default `true` (bool)
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -17127,7 +16730,7 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) CustomConfig() pulu
 	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -17166,7 +16769,7 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) CustomConfig() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable secrets encryption (bool)
+// Enable etcd backup. Default `true` (bool)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeApiSecretsEncryptionConfig) *bool {
 		if v == nil {
@@ -17179,15 +16782,15 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Enabled() pulumi
 type ClusterServicesKubeController struct {
 	// Cluster CIDR option for kube controller service (string)
 	ClusterCidr *string `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
 }
 
@@ -17205,15 +16808,15 @@ type ClusterServicesKubeControllerInput interface {
 type ClusterServicesKubeControllerArgs struct {
 	// Cluster CIDR option for kube controller service (string)
 	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
 }
 
@@ -17299,27 +16902,27 @@ func (o ClusterServicesKubeControllerOutput) ClusterCidr() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeControllerOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeControllerOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeControllerOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeController) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeControllerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeControllerOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeController) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
@@ -17358,7 +16961,7 @@ func (o ClusterServicesKubeControllerPtrOutput) ClusterCidr() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeController) map[string]interface{} {
 		if v == nil {
@@ -17368,7 +16971,7 @@ func (o ClusterServicesKubeControllerPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeController) []string {
 		if v == nil {
@@ -17378,7 +16981,7 @@ func (o ClusterServicesKubeControllerPtrOutput) ExtraBinds() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeControllerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeController) []string {
 		if v == nil {
@@ -17388,7 +16991,7 @@ func (o ClusterServicesKubeControllerPtrOutput) ExtraEnvs() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeControllerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeController) *string {
 		if v == nil {
@@ -17398,7 +17001,7 @@ func (o ClusterServicesKubeControllerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeControllerPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeController) *string {
 		if v == nil {
@@ -17411,15 +17014,15 @@ func (o ClusterServicesKubeControllerPtrOutput) ServiceClusterIpRange() pulumi.S
 type ClusterServicesKubeControllerDeprecated struct {
 	// Cluster CIDR option for kube controller service (string)
 	ClusterCidr *string `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange *string `pulumi:"serviceClusterIpRange"`
 }
 
@@ -17437,15 +17040,15 @@ type ClusterServicesKubeControllerDeprecatedInput interface {
 type ClusterServicesKubeControllerDeprecatedArgs struct {
 	// Cluster CIDR option for kube controller service (string)
 	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Service Cluster ip Range option for kube controller service (string)
+	// Service Cluster IP Range option for kube API service (string)
 	ServiceClusterIpRange pulumi.StringPtrInput `pulumi:"serviceClusterIpRange"`
 }
 
@@ -17531,27 +17134,27 @@ func (o ClusterServicesKubeControllerDeprecatedOutput) ClusterCidr() pulumi.Stri
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ClusterCidr }).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeControllerDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeControllerDeprecatedOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) *string { return v.ServiceClusterIpRange }).(pulumi.StringPtrOutput)
 }
@@ -17590,7 +17193,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ClusterCidr() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) map[string]interface{} {
 		if v == nil {
@@ -17600,7 +17203,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.Map
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) []string {
 		if v == nil {
@@ -17610,7 +17213,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraBinds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) []string {
 		if v == nil {
@@ -17620,7 +17223,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraEnvs() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) *string {
 		if v == nil {
@@ -17630,7 +17233,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Image() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Cluster ip Range option for kube controller service (string)
+// Service Cluster IP Range option for kube API service (string)
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ServiceClusterIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) *string {
 		if v == nil {
@@ -17641,13 +17244,13 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ServiceClusterIpRange(
 }
 
 type ClusterServicesKubeProxyDeprecated struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 }
 
@@ -17663,13 +17266,13 @@ type ClusterServicesKubeProxyDeprecatedInput interface {
 }
 
 type ClusterServicesKubeProxyDeprecatedArgs struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
@@ -17750,22 +17353,22 @@ func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDepr
 	}).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeProxyDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -17794,7 +17397,7 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeP
 	}).(ClusterServicesKubeProxyDeprecatedOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) map[string]interface{} {
 		if v == nil {
@@ -17804,7 +17407,7 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutpu
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) []string {
 		if v == nil {
@@ -17814,7 +17417,7 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraBinds() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) []string {
 		if v == nil {
@@ -17824,7 +17427,7 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraEnvs() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) *string {
 		if v == nil {
@@ -17835,13 +17438,13 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Image() pulumi.StringPtrOut
 }
 
 type ClusterServicesKubeSchedulerDeprecated struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 }
 
@@ -17857,13 +17460,13 @@ type ClusterServicesKubeSchedulerDeprecatedInput interface {
 }
 
 type ClusterServicesKubeSchedulerDeprecatedArgs struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
@@ -17944,22 +17547,22 @@ func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSched
 	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeSchedulerDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -17988,7 +17591,7 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesK
 	}).(ClusterServicesKubeSchedulerDeprecatedOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) map[string]interface{} {
 		if v == nil {
@@ -17998,7 +17601,7 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.MapO
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) []string {
 		if v == nil {
@@ -18008,7 +17611,7 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraBinds() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) []string {
 		if v == nil {
@@ -18018,7 +17621,7 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraEnvs() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) *string {
 		if v == nil {
@@ -18033,17 +17636,17 @@ type ClusterServicesKubelet struct {
 	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
 	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
 	ClusterDomain *string `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	FailSwapOn *bool `pulumi:"failSwapOn"`
 	// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 	// Infra container image for kubelet service (string)
 	InfraContainerImage *string `pulumi:"infraContainerImage"`
@@ -18065,17 +17668,17 @@ type ClusterServicesKubeletArgs struct {
 	ClusterDnsServer pulumi.StringPtrInput `pulumi:"clusterDnsServer"`
 	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
 	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
 	// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Infra container image for kubelet service (string)
 	InfraContainerImage pulumi.StringPtrInput `pulumi:"infraContainerImage"`
@@ -18168,17 +17771,17 @@ func (o ClusterServicesKubeletOutput) ClusterDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeletOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeletOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeletOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubelet) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
@@ -18193,7 +17796,7 @@ func (o ClusterServicesKubeletOutput) GenerateServingCertificate() pulumi.BoolPt
 	return o.ApplyT(func(v ClusterServicesKubelet) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeletOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubelet) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -18247,7 +17850,7 @@ func (o ClusterServicesKubeletPtrOutput) ClusterDomain() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeletPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubelet) map[string]interface{} {
 		if v == nil {
@@ -18257,7 +17860,7 @@ func (o ClusterServicesKubeletPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeletPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubelet) []string {
 		if v == nil {
@@ -18267,7 +17870,7 @@ func (o ClusterServicesKubeletPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeletPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubelet) []string {
 		if v == nil {
@@ -18297,7 +17900,7 @@ func (o ClusterServicesKubeletPtrOutput) GenerateServingCertificate() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeletPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubelet) *string {
 		if v == nil {
@@ -18322,17 +17925,17 @@ type ClusterServicesKubeletDeprecated struct {
 	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
 	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
 	ClusterDomain *string `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	FailSwapOn *bool `pulumi:"failSwapOn"`
 	// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 	GenerateServingCertificate *bool `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 	// Infra container image for kubelet service (string)
 	InfraContainerImage *string `pulumi:"infraContainerImage"`
@@ -18354,17 +17957,17 @@ type ClusterServicesKubeletDeprecatedArgs struct {
 	ClusterDnsServer pulumi.StringPtrInput `pulumi:"clusterDnsServer"`
 	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
 	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Enable or disable failing when swap on is not supported (bool)
 	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
 	// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
 	GenerateServingCertificate pulumi.BoolPtrInput `pulumi:"generateServingCertificate"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Infra container image for kubelet service (string)
 	InfraContainerImage pulumi.StringPtrInput `pulumi:"infraContainerImage"`
@@ -18457,17 +18060,17 @@ func (o ClusterServicesKubeletDeprecatedOutput) ClusterDomain() pulumi.StringPtr
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.ClusterDomain }).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeletDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
@@ -18482,7 +18085,7 @@ func (o ClusterServicesKubeletDeprecatedOutput) GenerateServingCertificate() pul
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *bool { return v.GenerateServingCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeletDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -18536,7 +18139,7 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDomain() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) map[string]interface{} {
 		if v == nil {
@@ -18546,7 +18149,7 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput 
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) []string {
 		if v == nil {
@@ -18556,7 +18159,7 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraBinds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) []string {
 		if v == nil {
@@ -18586,7 +18189,7 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) GenerateServingCertificate() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeletDeprecatedPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) *string {
 		if v == nil {
@@ -18607,13 +18210,13 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) InfraContainerImage() pulumi.
 }
 
 type ClusterServicesKubeproxy struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 }
 
@@ -18629,13 +18232,13 @@ type ClusterServicesKubeproxyInput interface {
 }
 
 type ClusterServicesKubeproxyArgs struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
@@ -18716,22 +18319,22 @@ func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutputWithC
 	}).(ClusterServicesKubeproxyPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeproxyOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeproxyOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeproxyOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesKubeproxy) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeproxyOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeproxy) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -18760,7 +18363,7 @@ func (o ClusterServicesKubeproxyPtrOutput) Elem() ClusterServicesKubeproxyOutput
 	}).(ClusterServicesKubeproxyOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeproxy) map[string]interface{} {
 		if v == nil {
@@ -18770,7 +18373,7 @@ func (o ClusterServicesKubeproxyPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeproxy) []string {
 		if v == nil {
@@ -18780,7 +18383,7 @@ func (o ClusterServicesKubeproxyPtrOutput) ExtraBinds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesKubeproxyPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeproxy) []string {
 		if v == nil {
@@ -18790,7 +18393,7 @@ func (o ClusterServicesKubeproxyPtrOutput) ExtraEnvs() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesKubeproxyPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesKubeproxy) *string {
 		if v == nil {
@@ -18801,13 +18404,13 @@ func (o ClusterServicesKubeproxyPtrOutput) Image() pulumi.StringPtrOutput {
 }
 
 type ClusterServicesScheduler struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image *string `pulumi:"image"`
 }
 
@@ -18823,13 +18426,13 @@ type ClusterServicesSchedulerInput interface {
 }
 
 type ClusterServicesSchedulerArgs struct {
-	// Extra arguments for scheduler service (map)
+	// Extra arguments for the ingress controller (map)
 	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
-	// Extra binds for scheduler service (list)
+	// Extra binds for etcd service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
-	// Extra environment for scheduler service (list)
+	// Extra environment for etcd service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Docker image for scheduler service (string)
+	// Docker image for etcd service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
@@ -18910,22 +18513,22 @@ func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutputWithC
 	}).(ClusterServicesSchedulerPtrOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesSchedulerOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesSchedulerOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraBinds }).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesSchedulerOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesScheduler) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesSchedulerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesScheduler) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -18954,7 +18557,7 @@ func (o ClusterServicesSchedulerPtrOutput) Elem() ClusterServicesSchedulerOutput
 	}).(ClusterServicesSchedulerOutput)
 }
 
-// Extra arguments for scheduler service (map)
+// Extra arguments for the ingress controller (map)
 func (o ClusterServicesSchedulerPtrOutput) ExtraArgs() pulumi.MapOutput {
 	return o.ApplyT(func(v *ClusterServicesScheduler) map[string]interface{} {
 		if v == nil {
@@ -18964,7 +18567,7 @@ func (o ClusterServicesSchedulerPtrOutput) ExtraArgs() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Extra binds for scheduler service (list)
+// Extra binds for etcd service (list)
 func (o ClusterServicesSchedulerPtrOutput) ExtraBinds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesScheduler) []string {
 		if v == nil {
@@ -18974,7 +18577,7 @@ func (o ClusterServicesSchedulerPtrOutput) ExtraBinds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extra environment for scheduler service (list)
+// Extra environment for etcd service (list)
 func (o ClusterServicesSchedulerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterServicesScheduler) []string {
 		if v == nil {
@@ -18984,7 +18587,7 @@ func (o ClusterServicesSchedulerPtrOutput) ExtraEnvs() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Docker image for scheduler service (string)
+// Docker image for etcd service (string)
 func (o ClusterServicesSchedulerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesScheduler) *string {
 		if v == nil {
@@ -19035,13 +18638,13 @@ type ClusterSystemImages struct {
 	CorednsAutoscaler *string `pulumi:"corednsAutoscaler"`
 	// Docker image for dnsmasq (string)
 	Dnsmasq *string `pulumi:"dnsmasq"`
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd *string `pulumi:"etcd"`
 	// Docker image for flannel (string)
 	Flannel *string `pulumi:"flannel"`
 	// Docker image for flannelCni (string)
 	FlannelCni *string `pulumi:"flannelCni"`
-	// Docker image for ingress (string)
+	// RKE k8s cluster ingress controller configuration (list maxitems:1)
 	Ingress *string `pulumi:"ingress"`
 	// Docker image for ingressBackend (string)
 	IngressBackend *string `pulumi:"ingressBackend"`
@@ -19059,7 +18662,7 @@ type ClusterSystemImages struct {
 	MetricsServer *string `pulumi:"metricsServer"`
 	// Docker image for nginxProxy (string)
 	NginxProxy *string `pulumi:"nginxProxy"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal *string `pulumi:"nodelocal"`
 	// Docker image for podInfraContainer (string)
 	PodInfraContainer *string `pulumi:"podInfraContainer"`
@@ -19123,13 +18726,13 @@ type ClusterSystemImagesArgs struct {
 	CorednsAutoscaler pulumi.StringPtrInput `pulumi:"corednsAutoscaler"`
 	// Docker image for dnsmasq (string)
 	Dnsmasq pulumi.StringPtrInput `pulumi:"dnsmasq"`
-	// Docker image for etcd (string)
+	// Etcd options for RKE services (list maxitems:1)
 	Etcd pulumi.StringPtrInput `pulumi:"etcd"`
 	// Docker image for flannel (string)
 	Flannel pulumi.StringPtrInput `pulumi:"flannel"`
 	// Docker image for flannelCni (string)
 	FlannelCni pulumi.StringPtrInput `pulumi:"flannelCni"`
-	// Docker image for ingress (string)
+	// RKE k8s cluster ingress controller configuration (list maxitems:1)
 	Ingress pulumi.StringPtrInput `pulumi:"ingress"`
 	// Docker image for ingressBackend (string)
 	IngressBackend pulumi.StringPtrInput `pulumi:"ingressBackend"`
@@ -19147,7 +18750,7 @@ type ClusterSystemImagesArgs struct {
 	MetricsServer pulumi.StringPtrInput `pulumi:"metricsServer"`
 	// Docker image for nginxProxy (string)
 	NginxProxy pulumi.StringPtrInput `pulumi:"nginxProxy"`
-	// Docker image for nodelocal (string)
+	// Nodelocal dns config  (list Maxitem: 1)
 	Nodelocal pulumi.StringPtrInput `pulumi:"nodelocal"`
 	// Docker image for podInfraContainer (string)
 	PodInfraContainer pulumi.StringPtrInput `pulumi:"podInfraContainer"`
@@ -19336,7 +18939,7 @@ func (o ClusterSystemImagesOutput) Dnsmasq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Dnsmasq }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for etcd (string)
+// Etcd options for RKE services (list maxitems:1)
 func (o ClusterSystemImagesOutput) Etcd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Etcd }).(pulumi.StringPtrOutput)
 }
@@ -19351,7 +18954,7 @@ func (o ClusterSystemImagesOutput) FlannelCni() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.FlannelCni }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for ingress (string)
+// RKE k8s cluster ingress controller configuration (list maxitems:1)
 func (o ClusterSystemImagesOutput) Ingress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Ingress }).(pulumi.StringPtrOutput)
 }
@@ -19396,7 +18999,7 @@ func (o ClusterSystemImagesOutput) NginxProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.NginxProxy }).(pulumi.StringPtrOutput)
 }
 
-// Docker image for nodelocal (string)
+// Nodelocal dns config  (list Maxitem: 1)
 func (o ClusterSystemImagesOutput) Nodelocal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSystemImages) *string { return v.Nodelocal }).(pulumi.StringPtrOutput)
 }
@@ -19645,7 +19248,7 @@ func (o ClusterSystemImagesPtrOutput) Dnsmasq() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Docker image for etcd (string)
+// Etcd options for RKE services (list maxitems:1)
 func (o ClusterSystemImagesPtrOutput) Etcd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSystemImages) *string {
 		if v == nil {
@@ -19675,7 +19278,7 @@ func (o ClusterSystemImagesPtrOutput) FlannelCni() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Docker image for ingress (string)
+// RKE k8s cluster ingress controller configuration (list maxitems:1)
 func (o ClusterSystemImagesPtrOutput) Ingress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSystemImages) *string {
 		if v == nil {
@@ -19765,7 +19368,7 @@ func (o ClusterSystemImagesPtrOutput) NginxProxy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Docker image for nodelocal (string)
+// Nodelocal dns config  (list Maxitem: 1)
 func (o ClusterSystemImagesPtrOutput) Nodelocal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSystemImages) *string {
 		if v == nil {
@@ -20018,7 +19621,7 @@ type ClusterUpgradeStrategyDrainInput struct {
 	GracePeriod *int `pulumi:"gracePeriod"`
 	// Ignore RKE daemon sets (bool)
 	IgnoreDaemonSets *bool `pulumi:"ignoreDaemonSets"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -20042,7 +19645,7 @@ type ClusterUpgradeStrategyDrainInputArgs struct {
 	GracePeriod pulumi.IntPtrInput `pulumi:"gracePeriod"`
 	// Ignore RKE daemon sets (bool)
 	IgnoreDaemonSets pulumi.BoolPtrInput `pulumi:"ignoreDaemonSets"`
-	// RKE node drain timeout (int)
+	// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -20143,7 +19746,7 @@ func (o ClusterUpgradeStrategyDrainInputOutput) IgnoreDaemonSets() pulumi.BoolPt
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *bool { return v.IgnoreDaemonSets }).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterUpgradeStrategyDrainInputOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradeStrategyDrainInput) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -20212,7 +19815,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) IgnoreDaemonSets() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// RKE node drain timeout (int)
+// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeStrategyDrainInput) *int {
 		if v == nil {
@@ -20223,7 +19826,7 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) Timeout() pulumi.IntPtrOutput
 }
 
 type ClusterWorkerHost struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address *string `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName *string `pulumi:"nodeName"`
@@ -20241,7 +19844,7 @@ type ClusterWorkerHostInput interface {
 }
 
 type ClusterWorkerHostArgs struct {
-	// Address ip for node (string)
+	// Address of Bastion Host (string)
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Name of the host provisioned via docker machine (string)
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
@@ -20298,7 +19901,7 @@ func (o ClusterWorkerHostOutput) ToClusterWorkerHostOutputWithContext(ctx contex
 	return o
 }
 
-// Address ip for node (string)
+// Address of Bastion Host (string)
 func (o ClusterWorkerHostOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterWorkerHost) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -20441,8 +20044,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestorePtrInput)(nil)).Elem(), ClusterRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRotateCertificatesInput)(nil)).Elem(), ClusterRotateCertificatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRotateCertificatesPtrInput)(nil)).Elem(), ClusterRotateCertificatesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImagesInput)(nil)).Elem(), ClusterRunningSystemImagesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImagesPtrInput)(nil)).Elem(), ClusterRunningSystemImagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImageInput)(nil)).Elem(), ClusterRunningSystemImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRunningSystemImageArrayInput)(nil)).Elem(), ClusterRunningSystemImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesInput)(nil)).Elem(), ClusterServicesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesPtrInput)(nil)).Elem(), ClusterServicesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicesEtcdInput)(nil)).Elem(), ClusterServicesEtcdArgs{})
@@ -20613,8 +20216,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRestorePtrOutput{})
 	pulumi.RegisterOutputType(ClusterRotateCertificatesOutput{})
 	pulumi.RegisterOutputType(ClusterRotateCertificatesPtrOutput{})
-	pulumi.RegisterOutputType(ClusterRunningSystemImagesOutput{})
-	pulumi.RegisterOutputType(ClusterRunningSystemImagesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRunningSystemImageOutput{})
+	pulumi.RegisterOutputType(ClusterRunningSystemImageArrayOutput{})
 	pulumi.RegisterOutputType(ClusterServicesOutput{})
 	pulumi.RegisterOutputType(ClusterServicesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServicesEtcdOutput{})

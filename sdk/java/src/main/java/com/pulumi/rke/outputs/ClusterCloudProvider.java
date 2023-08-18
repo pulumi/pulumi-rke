@@ -62,7 +62,7 @@ public final class ClusterCloudProvider {
      */
     private @Nullable String customCloudProvider;
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     private String name;
@@ -151,7 +151,7 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.customCloudProvider);
     }
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     public String name() {

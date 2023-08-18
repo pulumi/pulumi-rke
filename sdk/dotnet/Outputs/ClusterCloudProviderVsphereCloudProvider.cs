@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudProviderGlobal? Global;
         /// <summary>
-        /// (list maxitems:1)
+        /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudProviderNetwork? Network;
         /// <summary>

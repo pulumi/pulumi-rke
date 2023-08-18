@@ -18,17 +18,17 @@ public final class ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     private String datacenters;
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     private String name;
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     private String password;
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     private @Nullable String port;
@@ -38,7 +38,7 @@ public final class ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     private @Nullable Integer soapRoundtripCount;
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     private String user;
@@ -52,21 +52,21 @@ public final class ClusterCloudProviderVsphereCloudProviderVirtualCenter {
         return this.datacenters;
     }
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<String> port() {
@@ -80,7 +80,7 @@ public final class ClusterCloudProviderVsphereCloudProviderVirtualCenter {
         return Optional.ofNullable(this.soapRoundtripCount);
     }
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public String user() {

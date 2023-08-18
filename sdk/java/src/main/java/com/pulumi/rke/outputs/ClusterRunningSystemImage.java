@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class ClusterRunningSystemImages {
+public final class ClusterRunningSystemImage {
     /**
      * @return Docker image for aci_cni_deploy_container (string)
      * 
@@ -112,7 +112,7 @@ public final class ClusterRunningSystemImages {
      */
     private @Nullable String dnsmasq;
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     private @Nullable String etcd;
@@ -127,7 +127,7 @@ public final class ClusterRunningSystemImages {
      */
     private @Nullable String flannelCni;
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     private @Nullable String ingress;
@@ -172,7 +172,7 @@ public final class ClusterRunningSystemImages {
      */
     private @Nullable String nginxProxy;
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     private @Nullable String nodelocal;
@@ -197,7 +197,7 @@ public final class ClusterRunningSystemImages {
      */
     private @Nullable String windowsPodInfraContainer;
 
-    private ClusterRunningSystemImages() {}
+    private ClusterRunningSystemImage() {}
     /**
      * @return Docker image for aci_cni_deploy_container (string)
      * 
@@ -339,7 +339,7 @@ public final class ClusterRunningSystemImages {
         return Optional.ofNullable(this.dnsmasq);
     }
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<String> etcd() {
@@ -360,7 +360,7 @@ public final class ClusterRunningSystemImages {
         return Optional.ofNullable(this.flannelCni);
     }
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Optional<String> ingress() {
@@ -423,7 +423,7 @@ public final class ClusterRunningSystemImages {
         return Optional.ofNullable(this.nginxProxy);
     }
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<String> nodelocal() {
@@ -462,7 +462,7 @@ public final class ClusterRunningSystemImages {
         return new Builder();
     }
 
-    public static Builder builder(ClusterRunningSystemImages defaults) {
+    public static Builder builder(ClusterRunningSystemImage defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -505,7 +505,7 @@ public final class ClusterRunningSystemImages {
         private @Nullable String weaveNode;
         private @Nullable String windowsPodInfraContainer;
         public Builder() {}
-        public Builder(ClusterRunningSystemImages defaults) {
+        public Builder(ClusterRunningSystemImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aciCniDeployContainer = defaults.aciCniDeployContainer;
     	      this.aciControllerContainer = defaults.aciControllerContainer;
@@ -731,8 +731,8 @@ public final class ClusterRunningSystemImages {
             this.windowsPodInfraContainer = windowsPodInfraContainer;
             return this;
         }
-        public ClusterRunningSystemImages build() {
-            final var o = new ClusterRunningSystemImages();
+        public ClusterRunningSystemImage build() {
+            final var o = new ClusterRunningSystemImage();
             o.aciCniDeployContainer = aciCniDeployContainer;
             o.aciControllerContainer = aciControllerContainer;
             o.aciHostContainer = aciHostContainer;

@@ -30,7 +30,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly int? MaxSize;
         /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// Path for etcd service (string)
         /// </summary>
         public readonly string? Path;
         /// <summary>

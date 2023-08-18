@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesEtcdBackupConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesEtcdBackupConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable secrets encryption (bool)
+        /// Enable etcd backup. Default `true` (bool)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? IntervalHours { get; set; }
 
         /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
+        /// Retention option for etcd service (string)
         /// </summary>
         [Input("retention")]
         public Input<int>? Retention { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? SafeTimestamp { get; set; }
 
         /// <summary>
-        /// RKE node drain timeout (int)
+        /// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesEtcdBackupConfigGetArgs()
         {
         }
+        public static new ClusterServicesEtcdBackupConfigGetArgs Empty => new ClusterServicesEtcdBackupConfigGetArgs();
     }
 }

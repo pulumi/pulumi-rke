@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterUpgradeStrategyDrainInputArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradeStrategyDrainInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delete RKE node local data (bool)
@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? IgnoreDaemonSets { get; set; }
 
         /// <summary>
-        /// RKE node drain timeout (int)
+        /// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterUpgradeStrategyDrainInputArgs()
         {
         }
+        public static new ClusterUpgradeStrategyDrainInputArgs Empty => new ClusterUpgradeStrategyDrainInputArgs();
     }
 }

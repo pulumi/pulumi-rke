@@ -16,7 +16,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
     public static final ClusterCloudProviderAwsCloudConfigServiceOverrideArgs Empty = new ClusterCloudProviderAwsCloudConfigServiceOverrideArgs();
 
     /**
-     * TLS key for etcd service (string)
+     * Use service instead
      * 
      * @deprecated
      * Use service instead
@@ -27,7 +27,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
     private @Nullable Output<String> key;
 
     /**
-     * @return TLS key for etcd service (string)
+     * @return Use service instead
      * 
      * @deprecated
      * Use service instead
@@ -39,14 +39,14 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
     }
 
     /**
-     * Region for S3 service (string)
+     * (string)
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> region() {
@@ -114,14 +114,14 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
     }
 
     /**
-     * Registry URL (string)
+     * (string)
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return Registry URL (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> url() {
@@ -159,7 +159,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param key TLS key for etcd service (string)
+         * @param key Use service instead
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param key TLS key for etcd service (string)
+         * @param key Use service instead
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param region Region for S3 service (string)
+         * @param region (string)
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param region Region for S3 service (string)
+         * @param region (string)
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param url Registry URL (string)
+         * @param url (string)
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs extends
         }
 
         /**
-         * @param url Registry URL (string)
+         * @param url (string)
          * 
          * @return builder
          * 

@@ -18,15 +18,15 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string Datacenters;
         /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Registry password (string)
+        /// (string)
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly int? SoapRoundtripCount;
         /// <summary>
-        /// Registry user (string)
+        /// SSH User to Bastion Host (string)
         /// </summary>
         public readonly string User;
 

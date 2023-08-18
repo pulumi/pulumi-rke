@@ -138,14 +138,14 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     public Output<String> name() {
@@ -413,7 +413,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
          * 
          * @return builder
          * 

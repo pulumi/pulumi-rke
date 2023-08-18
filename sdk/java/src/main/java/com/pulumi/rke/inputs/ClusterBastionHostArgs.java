@@ -17,14 +17,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     public static final ClusterBastionHostArgs Empty = new ClusterBastionHostArgs();
 
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host (string)
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host (string)
      * 
      */
     public Output<String> address() {
@@ -47,14 +47,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<Output<String>> port() {
@@ -77,14 +77,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SSH Certificate (string)
+     * SSH Certificate Key (string)
      * 
      */
     @Import(name="sshCert")
     private @Nullable Output<String> sshCert;
 
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key (string)
      * 
      */
     public Optional<Output<String>> sshCert() {
@@ -92,14 +92,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      * 
      */
     @Import(name="sshCertPath")
     private @Nullable Output<String> sshCertPath;
 
     /**
-     * @return SSH Certificate path (string)
+     * @return SSH Certificate Path (string)
      * 
      */
     public Optional<Output<String>> sshCertPath() {
@@ -122,14 +122,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      * 
      */
     @Import(name="sshKeyPath")
     private @Nullable Output<String> sshKeyPath;
 
     /**
-     * @return SSH Private Key path (string)
+     * @return SSH Private Key Path (string)
      * 
      */
     public Optional<Output<String>> sshKeyPath() {
@@ -137,14 +137,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host (string)
      * 
      */
     @Import(name="user", required=true)
     private Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public Output<String> user() {
@@ -184,7 +184,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate Key (string)
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate Key (string)
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCertPath SSH Certificate path (string)
+         * @param sshCertPath SSH Certificate Path (string)
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCertPath SSH Certificate path (string)
+         * @param sshCertPath SSH Certificate Path (string)
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshKeyPath SSH Private Key path (string)
+         * @param sshKeyPath SSH Private Key Path (string)
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshKeyPath SSH Private Key path (string)
+         * @param sshKeyPath SSH Private Key Path (string)
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 

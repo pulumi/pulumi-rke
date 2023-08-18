@@ -27,7 +27,7 @@ public final class ClusterCloudProviderVsphereCloudConfig {
      */
     private @Nullable ClusterCloudProviderVsphereCloudConfigGlobal global;
     /**
-     * @return (list maxitems:1)
+     * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     private @Nullable ClusterCloudProviderVsphereCloudConfigNetwork network;
@@ -58,7 +58,7 @@ public final class ClusterCloudProviderVsphereCloudConfig {
         return Optional.ofNullable(this.global);
     }
     /**
-     * @return (list maxitems:1)
+     * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     public Optional<ClusterCloudProviderVsphereCloudConfigNetwork> network() {

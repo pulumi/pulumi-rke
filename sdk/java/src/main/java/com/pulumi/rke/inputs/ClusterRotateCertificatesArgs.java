@@ -33,14 +33,14 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      * 
      */
     @Import(name="services")
     private @Nullable Output<List<String>> services;
 
     /**
-     * @return Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * @return RKE k8s cluster services (list maxitems:1)
      * 
      */
     public Optional<Output<List<String>>> services() {
@@ -94,7 +94,7 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param services Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+         * @param services RKE k8s cluster services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param services Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+         * @param services RKE k8s cluster services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param services Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+         * @param services RKE k8s cluster services (list maxitems:1)
          * 
          * @return builder
          * 

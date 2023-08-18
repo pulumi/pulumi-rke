@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -25,7 +25,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? DefaultDatastore { get; set; }
 
         /// <summary>
-        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
+        /// (string)
         /// </summary>
         [Input("folder")]
         public Input<string>? Folder { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs()
         {
         }
+        public static new ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs Empty => new ClusterCloudProviderVsphereCloudConfigWorkspaceGetArgs();
     }
 }

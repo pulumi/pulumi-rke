@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAzureCloudProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAzureCloudProviderGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aadClientCertPassword")]
+        private Input<string>? _aadClientCertPassword;
+
         /// <summary>
         /// (string)
         /// </summary>
-        [Input("aadClientCertPassword")]
-        public Input<string>? AadClientCertPassword { get; set; }
+        public Input<string>? AadClientCertPassword
+        {
+            get => _aadClientCertPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _aadClientCertPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (string)
@@ -24,17 +34,37 @@ namespace Pulumi.Rke.Inputs
         [Input("aadClientCertPath")]
         public Input<string>? AadClientCertPath { get; set; }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("aadClientId", required: true)]
-        public Input<string> AadClientId { get; set; } = null!;
+        private Input<string>? _aadClientId;
 
         /// <summary>
         /// (string)
         /// </summary>
+        public Input<string>? AadClientId
+        {
+            get => _aadClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _aadClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("aadClientSecret", required: true)]
-        public Input<string> AadClientSecret { get; set; } = null!;
+        private Input<string>? _aadClientSecret;
+
+        /// <summary>
+        /// (string)
+        /// </summary>
+        public Input<string>? AadClientSecret
+        {
+            get => _aadClientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _aadClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (string)
@@ -141,17 +171,37 @@ namespace Pulumi.Rke.Inputs
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }
 
+        [Input("subscriptionId", required: true)]
+        private Input<string>? _subscriptionId;
+
         /// <summary>
         /// (string)
         /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
+        public Input<string>? SubscriptionId
+        {
+            get => _subscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _subscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tenantId", required: true)]
+        private Input<string>? _tenantId;
 
         /// <summary>
-        /// Required if `tenant_name` not provided. (string)
+        /// (string)
         /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (bool)
@@ -186,5 +236,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAzureCloudProviderGetArgs()
         {
         }
+        public static new ClusterCloudProviderAzureCloudProviderGetArgs Empty => new ClusterCloudProviderAzureCloudProviderGetArgs();
     }
 }

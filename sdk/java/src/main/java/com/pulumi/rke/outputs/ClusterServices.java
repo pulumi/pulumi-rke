@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServices {
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     private @Nullable ClusterServicesEtcd etcd;
@@ -49,7 +49,7 @@ public final class ClusterServices {
 
     private ClusterServices() {}
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<ClusterServicesEtcd> etcd() {

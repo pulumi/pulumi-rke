@@ -76,14 +76,14 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
     }
 
     /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * (string)
      * 
      */
     @Import(name="folder")
     private @Nullable Output<String> folder;
 
     /**
-     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> folder() {
@@ -91,14 +91,14 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
     }
 
     /**
-     * Region for S3 service (string)
+     * (string)
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> region() {
@@ -235,7 +235,7 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
         }
 
         /**
-         * @param folder Folder for S3 service. Available from Rancher v2.2.7 (string)
+         * @param folder (string)
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
         }
 
         /**
-         * @param folder Folder for S3 service. Available from Rancher v2.2.7 (string)
+         * @param folder (string)
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
         }
 
         /**
-         * @param region Region for S3 service (string)
+         * @param region (string)
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfigArgs extends com
         }
 
         /**
-         * @param region Region for S3 service (string)
+         * @param region (string)
          * 
          * @return builder
          * 

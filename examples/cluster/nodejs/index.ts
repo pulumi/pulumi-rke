@@ -81,11 +81,14 @@ const cluster = new rke.Cluster(`actions`, {
     cloudProvider: {
         name: "aws"
     },
+    // This is likely related to https://github.com/rancher/terraform-provider-rke/issues/370 and/or
+    // https://github.com/rancher/terraform-provider-rke/issues/404 from the upstream provider.
+    enableCriDockerd: true,
     nodes: [{
         address: rkeInstance.publicIp,
         internalAddress: rkeInstance.privateIp.apply(async (ip) => {
-            console.log("waiting for rke instance to be ready")
-            await new Promise(resolve => setTimeout(resolve, 120000));
+            pulumi.log.info("waiting for rke instance to be ready", rkeInstance);
+            await new Promise(resolve => setTimeout(resolve, 180000));
             return ip;
         }),
         user: "ubuntu",

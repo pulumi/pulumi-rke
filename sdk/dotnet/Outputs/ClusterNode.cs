@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterNode
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// Address of Bastion Host (string)
         /// </summary>
         public readonly string Address;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? NodeName;
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -51,11 +51,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? SshAgentAuth;
         /// <summary>
-        /// SSH Certificate (string)
+        /// SSH Certificate Key (string)
         /// </summary>
         public readonly string? SshCert;
         /// <summary>
-        /// SSH Certificate path (string)
+        /// SSH Certificate Path (string)
         /// </summary>
         public readonly string? SshCertPath;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SshKey;
         /// <summary>
-        /// SSH Private Key path (string)
+        /// SSH Private Key Path (string)
         /// </summary>
         public readonly string? SshKeyPath;
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterNodeTaint> Taints;
         /// <summary>
-        /// Registry user (string)
+        /// SSH User to Bastion Host (string)
         /// </summary>
         public readonly string User;
 

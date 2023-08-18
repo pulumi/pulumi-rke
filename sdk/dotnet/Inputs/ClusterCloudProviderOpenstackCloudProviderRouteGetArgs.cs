@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderOpenstackCloudProviderRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderOpenstackCloudProviderRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderOpenstackCloudProviderRouteGetArgs()
         {
         }
+        public static new ClusterCloudProviderOpenstackCloudProviderRouteGetArgs Empty => new ClusterCloudProviderOpenstackCloudProviderRouteGetArgs();
     }
 }

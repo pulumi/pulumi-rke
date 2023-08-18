@@ -24,18 +24,18 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// TLS key for etcd service (string)
+        /// Use service instead
         /// </summary>
         public readonly string? Key;
         public readonly string? KeyEnvName;
         public readonly string? KeyPath;
         /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
         /// </summary>
         public readonly string? Name;
         public readonly string? OuName;
         /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// Path for etcd service (string)
         /// </summary>
         public readonly string? Path;
 

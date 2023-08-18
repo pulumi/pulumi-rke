@@ -32,14 +32,14 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs e
     }
 
     /**
-     * Enable secrets encryption (bool)
+     * Enable etcd backup. Default `true` (bool)
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable secrets encryption (bool)
+     * @return Enable etcd backup. Default `true` (bool)
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -93,7 +93,7 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs e
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs e
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 

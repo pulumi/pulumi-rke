@@ -34,12 +34,12 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     private @Nullable Boolean insecureFlag;
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     private @Nullable String password;
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     private @Nullable String port;
@@ -49,7 +49,7 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     private @Nullable Integer soapRoundtripCount;
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     private @Nullable String user;
@@ -99,14 +99,14 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobal {
         return Optional.ofNullable(this.insecureFlag);
     }
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<String> port() {
@@ -120,7 +120,7 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobal {
         return Optional.ofNullable(this.soapRoundtripCount);
     }
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public Optional<String> user() {

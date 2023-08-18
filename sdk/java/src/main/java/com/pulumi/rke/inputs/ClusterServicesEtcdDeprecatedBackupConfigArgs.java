@@ -18,14 +18,14 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
     public static final ClusterServicesEtcdDeprecatedBackupConfigArgs Empty = new ClusterServicesEtcdDeprecatedBackupConfigArgs();
 
     /**
-     * Enable secrets encryption (bool)
+     * Enable etcd backup. Default `true` (bool)
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable secrets encryption (bool)
+     * @return Enable etcd backup. Default `true` (bool)
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -48,14 +48,14 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
     }
 
     /**
-     * Retention for etcd backup. Default `6` (int)
+     * Retention option for etcd service (string)
      * 
      */
     @Import(name="retention")
     private @Nullable Output<Integer> retention;
 
     /**
-     * @return Retention for etcd backup. Default `6` (int)
+     * @return Retention option for etcd service (string)
      * 
      */
     public Optional<Output<Integer>> retention() {
@@ -93,14 +93,14 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
     }
 
     /**
-     * RKE node drain timeout (int)
+     * Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return RKE node drain timeout (int)
+     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -137,7 +137,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param retention Retention for etcd backup. Default `6` (int)
+         * @param retention Retention option for etcd service (string)
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param retention Retention for etcd backup. Default `6` (int)
+         * @param retention Retention option for etcd service (string)
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param timeout RKE node drain timeout (int)
+         * @param timeout Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfigArgs extends com.pul
         }
 
         /**
-         * @param timeout RKE node drain timeout (int)
+         * @param timeout Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
          * 
          * @return builder
          * 

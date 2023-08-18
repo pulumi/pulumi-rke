@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNode {
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host (string)
      * 
      */
     private String address;
@@ -47,7 +47,7 @@ public final class ClusterNode {
      */
     private @Nullable String nodeName;
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     private @Nullable String port;
@@ -69,12 +69,12 @@ public final class ClusterNode {
      */
     private @Nullable Boolean sshAgentAuth;
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key (string)
      * 
      */
     private @Nullable String sshCert;
     /**
-     * @return SSH Certificate path (string)
+     * @return SSH Certificate Path (string)
      * 
      */
     private @Nullable String sshCertPath;
@@ -84,7 +84,7 @@ public final class ClusterNode {
      */
     private @Nullable String sshKey;
     /**
-     * @return SSH Private Key path (string)
+     * @return SSH Private Key Path (string)
      * 
      */
     private @Nullable String sshKeyPath;
@@ -94,14 +94,14 @@ public final class ClusterNode {
      */
     private @Nullable List<ClusterNodeTaint> taints;
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     private String user;
 
     private ClusterNode() {}
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host (string)
      * 
      */
     public String address() {
@@ -143,7 +143,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.nodeName);
     }
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<String> port() {
@@ -173,14 +173,14 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshAgentAuth);
     }
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key (string)
      * 
      */
     public Optional<String> sshCert() {
         return Optional.ofNullable(this.sshCert);
     }
     /**
-     * @return SSH Certificate path (string)
+     * @return SSH Certificate Path (string)
      * 
      */
     public Optional<String> sshCertPath() {
@@ -194,7 +194,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshKey);
     }
     /**
-     * @return SSH Private Key path (string)
+     * @return SSH Private Key Path (string)
      * 
      */
     public Optional<String> sshKeyPath() {
@@ -208,7 +208,7 @@ public final class ClusterNode {
         return this.taints == null ? List.of() : this.taints;
     }
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public String user() {

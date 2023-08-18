@@ -14,14 +14,14 @@ public final class ClusterNetworkWeaveNetworkProviderArgs extends com.pulumi.res
     public static final ClusterNetworkWeaveNetworkProviderArgs Empty = new ClusterNetworkWeaveNetworkProviderArgs();
 
     /**
-     * Registry password (string)
+     * (string)
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public Output<String> password() {
@@ -53,7 +53,7 @@ public final class ClusterNetworkWeaveNetworkProviderArgs extends com.pulumi.res
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ClusterNetworkWeaveNetworkProviderArgs extends com.pulumi.res
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 

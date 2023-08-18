@@ -18,11 +18,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns config  (list Maxitem: 1)
         /// </summary>
         public readonly Outputs.ClusterDnsNodelocal? Nodelocal;
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
         /// </summary>
         public readonly string? Provider;
         /// <summary>

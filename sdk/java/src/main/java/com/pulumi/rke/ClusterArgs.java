@@ -145,14 +145,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Calico cloud provider (string)
+     * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      * 
      */
     @Import(name="cloudProvider")
     private @Nullable Output<ClusterCloudProviderArgs> cloudProvider;
 
     /**
-     * @return Calico cloud provider (string)
+     * @return RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterCloudProviderArgs>> cloudProvider() {
@@ -295,6 +295,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    @Import(name="enableCriDockerd")
+    private @Nullable Output<Boolean> enableCriDockerd;
+
+    /**
+     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    public Optional<Output<Boolean>> enableCriDockerd() {
+        return Optional.ofNullable(this.enableCriDockerd);
+    }
+
+    /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      * 
      */
@@ -310,14 +325,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     @Import(name="ingress")
     private @Nullable Output<ClusterIngressArgs> ingress;
 
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterIngressArgs>> ingress() {
@@ -355,14 +370,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     @Import(name="network")
     private @Nullable Output<ClusterNetworkArgs> network;
 
     /**
-     * @return (list maxitems:1)
+     * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterNetworkArgs>> network() {
@@ -434,14 +449,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     @Import(name="restore")
     private @Nullable Output<ClusterRestoreArgs> restore;
 
     /**
-     * @return Restore cluster. Default `false` (bool)
+     * @return RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterRestoreArgs>> restore() {
@@ -464,14 +479,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      * 
      */
     @Import(name="services")
     private @Nullable Output<ClusterServicesArgs> services;
 
     /**
-     * @return Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * @return RKE k8s cluster services (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterServicesArgs>> services() {
@@ -632,14 +647,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      * 
      */
     @Import(name="sshCertPath")
     private @Nullable Output<String> sshCertPath;
 
     /**
-     * @return SSH Certificate path (string)
+     * @return SSH Certificate Path (string)
      * 
      */
     public Optional<Output<String>> sshCertPath() {
@@ -647,14 +662,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      * 
      */
     @Import(name="sshKeyPath")
     private @Nullable Output<String> sshKeyPath;
 
     /**
-     * @return SSH Private Key path (string)
+     * @return SSH Private Key Path (string)
      * 
      */
     public Optional<Output<String>> sshKeyPath() {
@@ -726,6 +741,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.dindStorageDriver = $.dindStorageDriver;
         this.disablePortCheck = $.disablePortCheck;
         this.dns = $.dns;
+        this.enableCriDockerd = $.enableCriDockerd;
         this.ignoreDockerVersion = $.ignoreDockerVersion;
         this.ingress = $.ingress;
         this.kubernetesVersion = $.kubernetesVersion;
@@ -928,7 +944,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProvider Calico cloud provider (string)
+         * @param cloudProvider RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
          * 
          * @return builder
          * 
@@ -939,7 +955,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProvider Calico cloud provider (string)
+         * @param cloudProvider RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1138,6 +1154,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCriDockerd(@Nullable Output<Boolean> enableCriDockerd) {
+            $.enableCriDockerd = enableCriDockerd;
+            return this;
+        }
+
+        /**
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCriDockerd(Boolean enableCriDockerd) {
+            return enableCriDockerd(Output.of(enableCriDockerd));
+        }
+
+        /**
          * @param ignoreDockerVersion Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
          * 
          * @return builder
@@ -1159,7 +1196,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1170,7 +1207,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1222,7 +1259,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param network (list maxitems:1)
+         * @param network RKE k8s cluster network configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1233,7 +1270,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param network (list maxitems:1)
+         * @param network RKE k8s cluster network configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1363,7 +1400,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore Restore cluster. Default `false` (bool)
+         * @param restore RKE k8s cluster restore configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1374,7 +1411,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore Restore cluster. Default `false` (bool)
+         * @param restore RKE k8s cluster restore configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1405,7 +1442,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param services Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+         * @param services RKE k8s cluster services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1416,7 +1453,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param services Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+         * @param services RKE k8s cluster services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1621,7 +1658,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCertPath SSH Certificate path (string)
+         * @param sshCertPath SSH Certificate Path (string)
          * 
          * @return builder
          * 
@@ -1632,7 +1669,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCertPath SSH Certificate path (string)
+         * @param sshCertPath SSH Certificate Path (string)
          * 
          * @return builder
          * 
@@ -1642,7 +1679,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeyPath SSH Private Key path (string)
+         * @param sshKeyPath SSH Private Key Path (string)
          * 
          * @return builder
          * 
@@ -1653,7 +1690,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKeyPath SSH Private Key path (string)
+         * @param sshKeyPath SSH Private Key Path (string)
          * 
          * @return builder
          * 

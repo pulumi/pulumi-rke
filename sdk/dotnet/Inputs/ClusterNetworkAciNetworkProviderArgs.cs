@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkAciNetworkProviderArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkAciNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Attachment entity profile name on aci (string)
@@ -30,17 +30,37 @@ namespace Pulumi.Rke.Inputs
             set => _apicHosts = value;
         }
 
+        [Input("apicUserCrt", required: true)]
+        private Input<string>? _apicUserCrt;
+
         /// <summary>
         /// Base64 encoded certificate for aci apic user (string)
         /// </summary>
-        [Input("apicUserCrt", required: true)]
-        public Input<string> ApicUserCrt { get; set; } = null!;
+        public Input<string>? ApicUserCrt
+        {
+            get => _apicUserCrt;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apicUserCrt = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apicUserKey", required: true)]
+        private Input<string>? _apicUserKey;
 
         /// <summary>
         /// Base64 encoded private key for aci apic user (string)
         /// </summary>
-        [Input("apicUserKey", required: true)]
-        public Input<string> ApicUserKey { get; set; } = null!;
+        public Input<string>? ApicUserKey
+        {
+            get => _apicUserKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apicUserKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// User name for aci apic (string)
@@ -148,11 +168,21 @@ namespace Pulumi.Rke.Inputs
         [Input("systemId", required: true)]
         public Input<string> SystemId { get; set; } = null!;
 
+        [Input("token", required: true)]
+        private Input<string>? _token;
+
         /// <summary>
         /// UUID for this version of the input configuration (string)
         /// </summary>
-        [Input("token", required: true)]
-        public Input<string> Token { get; set; } = null!;
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// VRF Name on aci (string)
@@ -169,5 +199,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkAciNetworkProviderArgs()
         {
         }
+        public static new ClusterNetworkAciNetworkProviderArgs Empty => new ClusterNetworkAciNetworkProviderArgs();
     }
 }

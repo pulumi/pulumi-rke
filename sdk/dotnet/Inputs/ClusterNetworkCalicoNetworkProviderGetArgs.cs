@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkCalicoNetworkProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkCalicoNetworkProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Calico cloud provider (string)
+        /// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         /// </summary>
         [Input("cloudProvider")]
         public Input<string>? CloudProvider { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkCalicoNetworkProviderGetArgs()
         {
         }
+        public static new ClusterNetworkCalicoNetworkProviderGetArgs Empty => new ClusterNetworkCalicoNetworkProviderGetArgs();
     }
 }

@@ -16,14 +16,14 @@ public final class ClusterControlPlaneHostArgs extends com.pulumi.resources.Reso
     public static final ClusterControlPlaneHostArgs Empty = new ClusterControlPlaneHostArgs();
 
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host (string)
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host (string)
      * 
      */
     public Optional<Output<String>> address() {
@@ -71,7 +71,7 @@ public final class ClusterControlPlaneHostArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterControlPlaneHostArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 

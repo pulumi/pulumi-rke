@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNetworkFlannelNetworkProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNetworkFlannelNetworkProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flannel network interface (string)
+        /// Canal network interface (string)
         /// </summary>
         [Input("iface")]
         public Input<string>? Iface { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNetworkFlannelNetworkProviderGetArgs()
         {
         }
+        public static new ClusterNetworkFlannelNetworkProviderGetArgs Empty => new ClusterNetworkFlannelNetworkProviderGetArgs();
     }
 }

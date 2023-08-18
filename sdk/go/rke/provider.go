@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-rke/sdk/v3/go/rke/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +28,17 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.Debug) {
-		args.Debug = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "RKE_DEBUG").(bool))
+	if args.Debug == nil {
+		if d := internal.GetEnvOrDefault(false, internal.ParseEnvBool, "RKE_DEBUG"); d != nil {
+			args.Debug = pulumi.BoolPtr(d.(bool))
+		}
 	}
-	if isZero(args.LogFile) {
-		args.LogFile = pulumi.StringPtr(getEnvOrDefault("", nil, "RKE_LOG_FILE").(string))
+	if args.LogFile == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "RKE_LOG_FILE"); d != nil {
+			args.LogFile = pulumi.StringPtr(d.(string))
+		}
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:rke", name, args, &resource, opts...)
 	if err != nil {
@@ -87,6 +93,10 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+func (o ProviderOutput) LogFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.LogFile }).(pulumi.StringPtrOutput)
 }
 
 func init() {

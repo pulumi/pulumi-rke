@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNodeArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// Address of Bastion Host (string)
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? NodeName { get; set; }
 
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -81,26 +81,46 @@ namespace Pulumi.Rke.Inputs
         [Input("sshAgentAuth")]
         public Input<bool>? SshAgentAuth { get; set; }
 
-        /// <summary>
-        /// SSH Certificate (string)
-        /// </summary>
         [Input("sshCert")]
-        public Input<string>? SshCert { get; set; }
+        private Input<string>? _sshCert;
 
         /// <summary>
-        /// SSH Certificate path (string)
+        /// SSH Certificate Key (string)
+        /// </summary>
+        public Input<string>? SshCert
+        {
+            get => _sshCert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sshCert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// SSH Certificate Path (string)
         /// </summary>
         [Input("sshCertPath")]
         public Input<string>? SshCertPath { get; set; }
 
+        [Input("sshKey")]
+        private Input<string>? _sshKey;
+
         /// <summary>
         /// SSH Private Key (string)
         /// </summary>
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
+        public Input<string>? SshKey
+        {
+            get => _sshKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sshKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// SSH Private Key path (string)
+        /// SSH Private Key Path (string)
         /// </summary>
         [Input("sshKeyPath")]
         public Input<string>? SshKeyPath { get; set; }
@@ -117,14 +137,25 @@ namespace Pulumi.Rke.Inputs
             set => _taints = value;
         }
 
-        /// <summary>
-        /// Registry user (string)
-        /// </summary>
         [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        private Input<string>? _user;
+
+        /// <summary>
+        /// SSH User to Bastion Host (string)
+        /// </summary>
+        public Input<string>? User
+        {
+            get => _user;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _user = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ClusterNodeArgs()
         {
         }
+        public static new ClusterNodeArgs Empty => new ClusterNodeArgs();
     }
 }

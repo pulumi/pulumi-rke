@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterIngressGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIngressGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultBackend")]
         public Input<bool>? DefaultBackend { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller (map)
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// RKE options for authorization (map)
         /// </summary>
         public InputMap<object> Options
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }
@@ -84,5 +84,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterIngressGetArgs()
         {
         }
+        public static new ClusterIngressGetArgs Empty => new ClusterIngressGetArgs();
     }
 }

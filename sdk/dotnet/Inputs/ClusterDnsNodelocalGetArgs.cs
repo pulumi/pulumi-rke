@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterDnsNodelocalGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterDnsNodelocalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nodelocal dns ip address (string)
@@ -33,5 +33,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterDnsNodelocalGetArgs()
         {
         }
+        public static new ClusterDnsNodelocalGetArgs Empty => new ClusterDnsNodelocalGetArgs();
     }
 }

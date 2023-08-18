@@ -16,14 +16,14 @@ public final class ClusterEtcdHostArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterEtcdHostArgs Empty = new ClusterEtcdHostArgs();
 
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host (string)
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host (string)
      * 
      */
     public Optional<Output<String>> address() {
@@ -71,7 +71,7 @@ public final class ClusterEtcdHostArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterEtcdHostArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host (string)
          * 
          * @return builder
          * 

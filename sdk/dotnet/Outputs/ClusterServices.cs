@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServices
     {
         /// <summary>
-        /// Docker image for etcd (string)
+        /// Etcd options for RKE services (list maxitems:1)
         /// </summary>
         public readonly Outputs.ClusterServicesEtcd? Etcd;
         /// <summary>

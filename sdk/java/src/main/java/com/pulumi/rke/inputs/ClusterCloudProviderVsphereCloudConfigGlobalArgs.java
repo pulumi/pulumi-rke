@@ -78,14 +78,14 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
     }
 
     /**
-     * Registry password (string)
+     * (string)
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> password() {
@@ -93,14 +93,14 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
     }
 
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<Output<String>> port() {
@@ -123,14 +123,14 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
     }
 
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host (string)
      * 
      */
     @Import(name="user")
     private @Nullable Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public Optional<Output<String>> user() {
@@ -301,7 +301,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobalArgs extends com.
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 

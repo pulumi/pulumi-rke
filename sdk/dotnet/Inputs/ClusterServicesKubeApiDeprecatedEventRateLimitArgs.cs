@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeApiDeprecatedEventRateLimitArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeApiDeprecatedEventRateLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+        /// Audit log configuration. (list maxtiem: 1)
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// Enable secrets encryption (bool)
+        /// Enable etcd backup. Default `true` (bool)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeApiDeprecatedEventRateLimitArgs()
         {
         }
+        public static new ClusterServicesKubeApiDeprecatedEventRateLimitArgs Empty => new ClusterServicesKubeApiDeprecatedEventRateLimitArgs();
     }
 }

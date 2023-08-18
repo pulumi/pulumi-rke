@@ -18,7 +18,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? CaCertificates;
         /// <summary>
-        /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        /// RKE k8s cluster services (list maxitems:1)
         /// </summary>
         public readonly ImmutableArray<string> Services;
 

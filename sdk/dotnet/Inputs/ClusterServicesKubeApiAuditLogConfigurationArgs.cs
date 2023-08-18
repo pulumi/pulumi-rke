@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeApiAuditLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeApiAuditLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Audit log format (string)
@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// Path for etcd service (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeApiAuditLogConfigurationArgs()
         {
         }
+        public static new ClusterServicesKubeApiAuditLogConfigurationArgs Empty => new ClusterServicesKubeApiAuditLogConfigurationArgs();
     }
 }

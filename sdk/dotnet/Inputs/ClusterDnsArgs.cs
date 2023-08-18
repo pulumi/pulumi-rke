@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterDnsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterDnsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
         private InputMap<object>? _nodeSelector;
@@ -25,13 +25,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns config  (list Maxitem: 1)
         /// </summary>
         [Input("nodelocal")]
         public Input<Inputs.ClusterDnsNodelocalArgs>? Nodelocal { get; set; }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterDnsArgs()
         {
         }
+        public static new ClusterDnsArgs Empty => new ClusterDnsArgs();
     }
 }

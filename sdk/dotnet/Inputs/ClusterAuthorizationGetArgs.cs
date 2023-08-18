@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterAuthorizationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterAuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// RKE options for authorization (map)
         /// </summary>
         public InputMap<object> Options
         {
@@ -33,5 +33,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterAuthorizationGetArgs()
         {
         }
+        public static new ClusterAuthorizationGetArgs Empty => new ClusterAuthorizationGetArgs();
     }
 }

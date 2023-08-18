@@ -21,14 +21,14 @@ public final class ClusterServicesArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterServicesArgs Empty = new ClusterServicesArgs();
 
     /**
-     * Docker image for etcd (string)
+     * Etcd options for RKE services (list maxitems:1)
      * 
      */
     @Import(name="etcd")
     private @Nullable Output<ClusterServicesEtcdArgs> etcd;
 
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<Output<ClusterServicesEtcdArgs>> etcd() {
@@ -140,7 +140,7 @@ public final class ClusterServicesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ClusterServicesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 

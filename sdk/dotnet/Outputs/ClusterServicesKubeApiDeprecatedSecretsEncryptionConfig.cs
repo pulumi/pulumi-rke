@@ -18,7 +18,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? CustomConfig;
         /// <summary>
-        /// Enable secrets encryption (bool)
+        /// Enable etcd backup. Default `true` (bool)
         /// </summary>
         public readonly bool? Enabled;
 

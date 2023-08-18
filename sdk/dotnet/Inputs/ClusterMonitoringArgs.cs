@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterMonitoringArgs : Pulumi.ResourceArgs
+    public sealed class ClusterMonitoringArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
         private InputMap<object>? _nodeSelector;
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// RKE options for authorization (map)
         /// </summary>
         public InputMap<object> Options
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterMonitoringArgs()
         {
         }
+        public static new ClusterMonitoringArgs Empty => new ClusterMonitoringArgs();
     }
 }

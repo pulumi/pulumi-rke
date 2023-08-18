@@ -112,7 +112,7 @@ public final class ClusterSystemImages {
      */
     private @Nullable String dnsmasq;
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     private @Nullable String etcd;
@@ -127,7 +127,7 @@ public final class ClusterSystemImages {
      */
     private @Nullable String flannelCni;
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     private @Nullable String ingress;
@@ -172,7 +172,7 @@ public final class ClusterSystemImages {
      */
     private @Nullable String nginxProxy;
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     private @Nullable String nodelocal;
@@ -339,7 +339,7 @@ public final class ClusterSystemImages {
         return Optional.ofNullable(this.dnsmasq);
     }
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<String> etcd() {
@@ -360,7 +360,7 @@ public final class ClusterSystemImages {
         return Optional.ofNullable(this.flannelCni);
     }
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Optional<String> ingress() {
@@ -423,7 +423,7 @@ public final class ClusterSystemImages {
         return Optional.ofNullable(this.nginxProxy);
     }
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<String> nodelocal() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeletArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeletArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster DNS Server option for kubelet service (string)
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller (map)
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds for etcd service (list)
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra environment for etcd service (list)
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? GenerateServingCertificate { get; set; }
 
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image for etcd service (string)
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -87,5 +87,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeletArgs()
         {
         }
+        public static new ClusterServicesKubeletArgs Empty => new ClusterServicesKubeletArgs();
     }
 }

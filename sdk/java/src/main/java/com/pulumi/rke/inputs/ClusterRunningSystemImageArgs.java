@@ -11,9 +11,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.ResourceArgs {
+public final class ClusterRunningSystemImageArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final ClusterRunningSystemImagesArgs Empty = new ClusterRunningSystemImagesArgs();
+    public static final ClusterRunningSystemImageArgs Empty = new ClusterRunningSystemImageArgs();
 
     /**
      * Docker image for aci_cni_deploy_container (string)
@@ -316,14 +316,14 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Docker image for etcd (string)
+     * Etcd options for RKE services (list maxitems:1)
      * 
      */
     @Import(name="etcd")
     private @Nullable Output<String> etcd;
 
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<Output<String>> etcd() {
@@ -361,14 +361,14 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     @Import(name="ingress")
     private @Nullable Output<String> ingress;
 
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Optional<Output<String>> ingress() {
@@ -496,14 +496,14 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     @Import(name="nodelocal")
     private @Nullable Output<String> nodelocal;
 
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<Output<String>> nodelocal() {
@@ -570,9 +570,9 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.windowsPodInfraContainer);
     }
 
-    private ClusterRunningSystemImagesArgs() {}
+    private ClusterRunningSystemImageArgs() {}
 
-    private ClusterRunningSystemImagesArgs(ClusterRunningSystemImagesArgs $) {
+    private ClusterRunningSystemImageArgs(ClusterRunningSystemImageArgs $) {
         this.aciCniDeployContainer = $.aciCniDeployContainer;
         this.aciControllerContainer = $.aciControllerContainer;
         this.aciHostContainer = $.aciHostContainer;
@@ -615,19 +615,19 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(ClusterRunningSystemImagesArgs defaults) {
+    public static Builder builder(ClusterRunningSystemImageArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private ClusterRunningSystemImagesArgs $;
+        private ClusterRunningSystemImageArgs $;
 
         public Builder() {
-            $ = new ClusterRunningSystemImagesArgs();
+            $ = new ClusterRunningSystemImageArgs();
         }
 
-        public Builder(ClusterRunningSystemImagesArgs defaults) {
-            $ = new ClusterRunningSystemImagesArgs(Objects.requireNonNull(defaults));
+        public Builder(ClusterRunningSystemImageArgs defaults) {
+            $ = new ClusterRunningSystemImageArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -1051,7 +1051,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1062,7 +1062,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1114,7 +1114,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1125,7 +1125,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1303,7 +1303,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 
@@ -1314,7 +1314,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 
@@ -1407,7 +1407,7 @@ public final class ClusterRunningSystemImagesArgs extends com.pulumi.resources.R
             return windowsPodInfraContainer(Output.of(windowsPodInfraContainer));
         }
 
-        public ClusterRunningSystemImagesArgs build() {
+        public ClusterRunningSystemImageArgs build() {
             return $;
         }
     }

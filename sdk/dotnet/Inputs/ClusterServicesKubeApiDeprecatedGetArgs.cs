@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesKubeApiDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesKubeApiDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -34,7 +34,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller (map)
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds for etcd service (list)
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra environment for etcd service (list)
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image for etcd service (string)
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Rke.Inputs
         public Input<Inputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigGetArgs>? SecretsEncryptionConfig { get; set; }
 
         /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
+        /// Service Cluster IP Range option for kube API service (string)
         /// </summary>
         [Input("serviceClusterIpRange")]
         public Input<string>? ServiceClusterIpRange { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesKubeApiDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesKubeApiDeprecatedGetArgs Empty => new ClusterServicesKubeApiDeprecatedGetArgs();
     }
 }

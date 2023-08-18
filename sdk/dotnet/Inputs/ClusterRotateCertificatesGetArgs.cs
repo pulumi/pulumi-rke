@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterRotateCertificatesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterRotateCertificatesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rotate CA Certificates. Default `false` (bool)
@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _services;
 
         /// <summary>
-        /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        /// RKE k8s cluster services (list maxitems:1)
         /// </summary>
         public InputList<string> Services
         {
@@ -33,5 +33,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterRotateCertificatesGetArgs()
         {
         }
+        public static new ClusterRotateCertificatesGetArgs Empty => new ClusterRotateCertificatesGetArgs();
     }
 }

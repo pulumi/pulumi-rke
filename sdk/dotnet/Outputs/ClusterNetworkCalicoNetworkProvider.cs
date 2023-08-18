@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterNetworkCalicoNetworkProvider
     {
         /// <summary>
-        /// Calico cloud provider (string)
+        /// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         /// </summary>
         public readonly string? CloudProvider;
 

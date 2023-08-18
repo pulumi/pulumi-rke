@@ -17,14 +17,14 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
     public static final ClusterRestoreArgs Empty = new ClusterRestoreArgs();
 
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     @Import(name="restore")
     private @Nullable Output<Boolean> restore;
 
     /**
-     * @return Restore cluster. Default `false` (bool)
+     * @return RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     public Optional<Output<Boolean>> restore() {
@@ -72,7 +72,7 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restore Restore cluster. Default `false` (bool)
+         * @param restore RKE k8s cluster restore configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restore Restore cluster. Default `false` (bool)
+         * @param restore RKE k8s cluster restore configuration (list maxitems:1)
          * 
          * @return builder
          * 
