@@ -30,7 +30,7 @@ namespace Pulumi.Rke
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("rke");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("rke");
 
         private static readonly __Value<bool?> _debug = new __Value<bool?>(() => __config.GetBoolean("debug") ?? Utilities.GetEnvBoolean("RKE_DEBUG") ?? false);
         public static bool? Debug

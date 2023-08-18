@@ -30,11 +30,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? InsecureFlag;
         /// <summary>
-        /// Registry password (string)
+        /// (string)
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly int? SoapRoundtripCount;
         /// <summary>
-        /// Registry user (string)
+        /// SSH User to Bastion Host (string)
         /// </summary>
         public readonly string? User;
         /// <summary>

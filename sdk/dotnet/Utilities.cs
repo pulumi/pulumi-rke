@@ -74,7 +74,7 @@ namespace Pulumi.Rke
         }
     }
 
-    internal sealed class RkeResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class RkeResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public RkeResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

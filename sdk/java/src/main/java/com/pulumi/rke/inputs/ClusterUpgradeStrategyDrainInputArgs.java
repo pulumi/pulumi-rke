@@ -77,14 +77,14 @@ public final class ClusterUpgradeStrategyDrainInputArgs extends com.pulumi.resou
     }
 
     /**
-     * RKE node drain timeout (int)
+     * Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return RKE node drain timeout (int)
+     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -204,7 +204,7 @@ public final class ClusterUpgradeStrategyDrainInputArgs extends com.pulumi.resou
         }
 
         /**
-         * @param timeout RKE node drain timeout (int)
+         * @param timeout Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ClusterUpgradeStrategyDrainInputArgs extends com.pulumi.resou
         }
 
         /**
-         * @param timeout RKE node drain timeout (int)
+         * @param timeout Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
          * 
          * @return builder
          * 

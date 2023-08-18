@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNetworkFlannelNetworkProvider {
     /**
-     * @return Flannel network interface (string)
+     * @return Canal network interface (string)
      * 
      */
     private @Nullable String iface;
 
     private ClusterNetworkFlannelNetworkProvider() {}
     /**
-     * @return Flannel network interface (string)
+     * @return Canal network interface (string)
      * 
      */
     public Optional<String> iface() {

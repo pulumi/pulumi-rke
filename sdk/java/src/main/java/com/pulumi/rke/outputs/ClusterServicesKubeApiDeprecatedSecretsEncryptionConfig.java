@@ -18,7 +18,7 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
      */
     private @Nullable String customConfig;
     /**
-     * @return Enable secrets encryption (bool)
+     * @return Enable etcd backup. Default `true` (bool)
      * 
      */
     private @Nullable Boolean enabled;
@@ -32,7 +32,7 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
         return Optional.ofNullable(this.customConfig);
     }
     /**
-     * @return Enable secrets encryption (bool)
+     * @return Enable etcd backup. Default `true` (bool)
      * 
      */
     public Optional<Boolean> enabled() {

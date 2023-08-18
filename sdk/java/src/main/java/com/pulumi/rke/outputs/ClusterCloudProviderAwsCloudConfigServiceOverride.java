@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
-     * @return TLS key for etcd service (string)
+     * @return Use service instead
      * 
      * @deprecated
      * Use service instead
@@ -21,7 +21,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
     @Deprecated /* Use service instead */
     private @Nullable String key;
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     private @Nullable String region;
@@ -46,14 +46,14 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
      */
     private @Nullable String signingRegion;
     /**
-     * @return Registry URL (string)
+     * @return (string)
      * 
      */
     private @Nullable String url;
 
     private ClusterCloudProviderAwsCloudConfigServiceOverride() {}
     /**
-     * @return TLS key for etcd service (string)
+     * @return Use service instead
      * 
      * @deprecated
      * Use service instead
@@ -64,7 +64,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     public Optional<String> region() {
@@ -99,7 +99,7 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
         return Optional.ofNullable(this.signingRegion);
     }
     /**
-     * @return Registry URL (string)
+     * @return (string)
      * 
      */
     public Optional<String> url() {

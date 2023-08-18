@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ClusterNetworkWeaveNetworkProvider {
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     private String password;
 
     private ClusterNetworkWeaveNetworkProvider() {}
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public String password() {

@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterRestore
     {
         /// <summary>
-        /// Restore cluster. Default `false` (bool)
+        /// RKE k8s cluster restore configuration (list maxitems:1)
         /// </summary>
         public readonly bool? Restore;
         /// <summary>

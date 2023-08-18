@@ -77,14 +77,14 @@ public final class ClusterServicesKubeApiAuditLogConfigurationArgs extends com.p
     }
 
     /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * Path for etcd service (string)
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * @return Path for etcd service (string)
      * 
      */
     public Optional<Output<String>> path() {
@@ -220,7 +220,7 @@ public final class ClusterServicesKubeApiAuditLogConfigurationArgs extends com.p
         }
 
         /**
-         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+         * @param path Path for etcd service (string)
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ClusterServicesKubeApiAuditLogConfigurationArgs extends com.p
         }
 
         /**
-         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+         * @param path Path for etcd service (string)
          * 
          * @return builder
          * 

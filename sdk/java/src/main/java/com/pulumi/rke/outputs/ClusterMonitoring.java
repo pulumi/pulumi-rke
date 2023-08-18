@@ -19,12 +19,12 @@ public final class ClusterMonitoring {
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return Network provider options (map)
+     * @return RKE options for authorization (map)
      * 
      */
     private @Nullable Map<String,Object> options;
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     private @Nullable String provider;
@@ -38,14 +38,14 @@ public final class ClusterMonitoring {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return Network provider options (map)
+     * @return RKE options for authorization (map)
      * 
      */
     public Map<String,Object> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     public Optional<String> provider() {

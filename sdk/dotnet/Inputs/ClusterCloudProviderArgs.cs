@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use aws_cloud_provider instead
@@ -49,7 +49,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? CustomCloudProvider { get; set; }
 
         /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderArgs()
         {
         }
+        public static new ClusterCloudProviderArgs Empty => new ClusterCloudProviderArgs();
     }
 }

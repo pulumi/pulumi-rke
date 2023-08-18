@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterRestoreGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterRestoreGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Restore cluster. Default `false` (bool)
+        /// RKE k8s cluster restore configuration (list maxitems:1)
         /// </summary>
         [Input("restore")]
         public Input<bool>? Restore { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterRestoreGetArgs()
         {
         }
+        public static new ClusterRestoreGetArgs Empty => new ClusterRestoreGetArgs();
     }
 }

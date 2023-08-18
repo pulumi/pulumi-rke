@@ -103,7 +103,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string SubscriptionId;
         /// <summary>
-        /// Required if `tenant_name` not provided. (string)
+        /// (string)
         /// </summary>
         public readonly string TenantId;
         /// <summary>

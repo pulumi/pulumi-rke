@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderOpenstackCloudProviderGlobalArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderOpenstackCloudProviderGlobalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -24,11 +24,21 @@ namespace Pulumi.Rke.Inputs
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
 
+        [Input("domainId")]
+        private Input<string>? _domainId;
+
         /// <summary>
         /// Required if `domain_name` not provided. (string)
         /// </summary>
-        [Input("domainId")]
-        public Input<string>? DomainId { get; set; }
+        public Input<string>? DomainId
+        {
+            get => _domainId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _domainId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Required if `domain_id` not provided. (string)
@@ -36,23 +46,43 @@ namespace Pulumi.Rke.Inputs
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Registry password (string)
-        /// </summary>
         [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        private Input<string>? _password;
 
         /// <summary>
-        /// Region for S3 service (string)
+        /// (string)
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// (string)
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Required if `tenant_name` not provided. (string)
-        /// </summary>
         [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        private Input<string>? _tenantId;
+
+        /// <summary>
+        /// (string)
+        /// </summary>
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Required if `tenant_id` not provided. (string)
@@ -60,17 +90,37 @@ namespace Pulumi.Rke.Inputs
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
 
+        [Input("trustId")]
+        private Input<string>? _trustId;
+
         /// <summary>
         /// (string)
         /// </summary>
-        [Input("trustId")]
-        public Input<string>? TrustId { get; set; }
+        public Input<string>? TrustId
+        {
+            get => _trustId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _trustId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("userId")]
+        private Input<string>? _userId;
 
         /// <summary>
         /// Required if `username` not provided. (string)
         /// </summary>
-        [Input("userId")]
-        public Input<string>? UserId { get; set; }
+        public Input<string>? UserId
+        {
+            get => _userId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _userId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Required if `user_id` not provided. (string)
@@ -81,5 +131,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderOpenstackCloudProviderGlobalArgs()
         {
         }
+        public static new ClusterCloudProviderOpenstackCloudProviderGlobalArgs Empty => new ClusterCloudProviderOpenstackCloudProviderGlobalArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterSystemImagesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSystemImagesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Docker image for aci_cni_deploy_container (string)
@@ -133,7 +133,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Dnsmasq { get; set; }
 
         /// <summary>
-        /// Docker image for etcd (string)
+        /// Etcd options for RKE services (list maxitems:1)
         /// </summary>
         [Input("etcd")]
         public Input<string>? Etcd { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? FlannelCni { get; set; }
 
         /// <summary>
-        /// Docker image for ingress (string)
+        /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         [Input("ingress")]
         public Input<string>? Ingress { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? NginxProxy { get; set; }
 
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns config  (list Maxitem: 1)
         /// </summary>
         [Input("nodelocal")]
         public Input<string>? Nodelocal { get; set; }
@@ -237,5 +237,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterSystemImagesArgs()
         {
         }
+        public static new ClusterSystemImagesArgs Empty => new ClusterSystemImagesArgs();
     }
 }

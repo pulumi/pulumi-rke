@@ -32,14 +32,14 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
     }
 
     /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
     }
 
     /**
-     * Registry password (string)
+     * (string)
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public Output<String> password() {
@@ -62,14 +62,14 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
     }
 
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host. Default `22` (string)
      * 
      */
     public Optional<Output<String>> port() {
@@ -92,14 +92,14 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
     }
 
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host (string)
      * 
      */
     @Import(name="user", required=true)
     private Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host (string)
      * 
      */
     public Output<String> user() {
@@ -157,7 +157,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password (string)
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host. Default `22` (string)
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs exten
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host (string)
          * 
          * @return builder
          * 

@@ -21,12 +21,12 @@ public final class ClusterDns {
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     private @Nullable ClusterDnsNodelocal nodelocal;
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     private @Nullable String provider;
@@ -50,14 +50,14 @@ public final class ClusterDns {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<ClusterDnsNodelocal> nodelocal() {
         return Optional.ofNullable(this.nodelocal);
     }
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
      * 
      */
     public Optional<String> provider() {

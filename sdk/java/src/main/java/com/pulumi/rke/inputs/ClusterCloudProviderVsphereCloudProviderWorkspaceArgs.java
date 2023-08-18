@@ -46,14 +46,14 @@ public final class ClusterCloudProviderVsphereCloudProviderWorkspaceArgs extends
     }
 
     /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * (string)
      * 
      */
     @Import(name="folder")
     private @Nullable Output<String> folder;
 
     /**
-     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> folder() {
@@ -161,7 +161,7 @@ public final class ClusterCloudProviderVsphereCloudProviderWorkspaceArgs extends
         }
 
         /**
-         * @param folder Folder for S3 service. Available from Rancher v2.2.7 (string)
+         * @param folder (string)
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ClusterCloudProviderVsphereCloudProviderWorkspaceArgs extends
         }
 
         /**
-         * @param folder Folder for S3 service. Available from Rancher v2.2.7 (string)
+         * @param folder (string)
          * 
          * @return builder
          * 

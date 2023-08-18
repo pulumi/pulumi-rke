@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAwsCloudConfigServiceOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAwsCloudConfigServiceOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TLS key for etcd service (string)
+        /// Use service instead
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Region for S3 service (string)
+        /// (string)
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? SigningRegion { get; set; }
 
         /// <summary>
-        /// Registry URL (string)
+        /// (string)
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAwsCloudConfigServiceOverrideGetArgs()
         {
         }
+        public static new ClusterCloudProviderAwsCloudConfigServiceOverrideGetArgs Empty => new ClusterCloudProviderAwsCloudConfigServiceOverrideGetArgs();
     }
 }

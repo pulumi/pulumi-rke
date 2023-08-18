@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -97,7 +98,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clientKey!: pulumi.Output<string>;
     /**
-     * Calico cloud provider (string)
+     * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      */
     public readonly cloudProvider!: pulumi.Output<outputs.ClusterCloudProvider | undefined>;
     /**
@@ -153,6 +154,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dns!: pulumi.Output<outputs.ClusterDns | undefined>;
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    public readonly enableCriDockerd!: pulumi.Output<boolean | undefined>;
+    /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
     public /*out*/ readonly etcdHosts!: pulumi.Output<outputs.ClusterEtcdHost[]>;
@@ -165,7 +170,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly inactiveHosts!: pulumi.Output<outputs.ClusterInactiveHost[]>;
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     public readonly ingress!: pulumi.Output<outputs.ClusterIngress | undefined>;
     /**
@@ -191,7 +196,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly monitoring!: pulumi.Output<outputs.ClusterMonitoring | undefined>;
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      */
     public readonly network!: pulumi.Output<outputs.ClusterNetwork | undefined>;
     /**
@@ -211,7 +216,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly privateRegistries!: pulumi.Output<outputs.ClusterPrivateRegistry[] | undefined>;
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      */
     public readonly restore!: pulumi.Output<outputs.ClusterRestore | undefined>;
     /**
@@ -229,9 +234,9 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * (Computed) RKE k8s cluster running system images list (list)
      */
-    public /*out*/ readonly runningSystemImages!: pulumi.Output<outputs.ClusterRunningSystemImages>;
+    public /*out*/ readonly runningSystemImages!: pulumi.Output<outputs.ClusterRunningSystemImage[]>;
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      */
     public readonly services!: pulumi.Output<outputs.ClusterServices | undefined>;
     /**
@@ -275,11 +280,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sshAgentAuth!: pulumi.Output<boolean>;
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      */
     public readonly sshCertPath!: pulumi.Output<string | undefined>;
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      */
     public readonly sshKeyPath!: pulumi.Output<string | undefined>;
     /**
@@ -338,6 +343,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dindStorageDriver"] = state ? state.dindStorageDriver : undefined;
             resourceInputs["disablePortCheck"] = state ? state.disablePortCheck : undefined;
             resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["enableCriDockerd"] = state ? state.enableCriDockerd : undefined;
             resourceInputs["etcdHosts"] = state ? state.etcdHosts : undefined;
             resourceInputs["ignoreDockerVersion"] = state ? state.ignoreDockerVersion : undefined;
             resourceInputs["inactiveHosts"] = state ? state.inactiveHosts : undefined;
@@ -382,7 +388,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["certDir"] = args ? args.certDir : undefined;
             resourceInputs["cloudProvider"] = args ? args.cloudProvider : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterYaml"] = args ? args.clusterYaml : undefined;
+            resourceInputs["clusterYaml"] = args?.clusterYaml ? pulumi.secret(args.clusterYaml) : undefined;
             resourceInputs["customCerts"] = args ? args.customCerts : undefined;
             resourceInputs["delayOnCreation"] = args ? args.delayOnCreation : undefined;
             resourceInputs["dind"] = args ? args.dind : undefined;
@@ -390,6 +396,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dindStorageDriver"] = args ? args.dindStorageDriver : undefined;
             resourceInputs["disablePortCheck"] = args ? args.disablePortCheck : undefined;
             resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["enableCriDockerd"] = args ? args.enableCriDockerd : undefined;
             resourceInputs["ignoreDockerVersion"] = args ? args.ignoreDockerVersion : undefined;
             resourceInputs["ingress"] = args ? args.ingress : undefined;
             resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -434,6 +441,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["workerHosts"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["caCrt", "certificates", "clientCert", "clientKey", "clusterYaml", "internalKubeConfigYaml", "kubeConfigYaml", "rkeClusterYaml", "rkeState"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -491,7 +500,7 @@ export interface ClusterState {
      */
     clientKey?: pulumi.Input<string>;
     /**
-     * Calico cloud provider (string)
+     * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      */
     cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
     /**
@@ -547,6 +556,10 @@ export interface ClusterState {
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    enableCriDockerd?: pulumi.Input<boolean>;
+    /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      */
     etcdHosts?: pulumi.Input<pulumi.Input<inputs.ClusterEtcdHost>[]>;
@@ -559,7 +572,7 @@ export interface ClusterState {
      */
     inactiveHosts?: pulumi.Input<pulumi.Input<inputs.ClusterInactiveHost>[]>;
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
@@ -585,7 +598,7 @@ export interface ClusterState {
      */
     monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      */
     network?: pulumi.Input<inputs.ClusterNetwork>;
     /**
@@ -605,7 +618,7 @@ export interface ClusterState {
      */
     privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      */
     restore?: pulumi.Input<inputs.ClusterRestore>;
     /**
@@ -623,9 +636,9 @@ export interface ClusterState {
     /**
      * (Computed) RKE k8s cluster running system images list (list)
      */
-    runningSystemImages?: pulumi.Input<inputs.ClusterRunningSystemImages>;
+    runningSystemImages?: pulumi.Input<pulumi.Input<inputs.ClusterRunningSystemImage>[]>;
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      */
     services?: pulumi.Input<inputs.ClusterServices>;
     /**
@@ -669,11 +682,11 @@ export interface ClusterState {
      */
     sshAgentAuth?: pulumi.Input<boolean>;
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      */
     sshCertPath?: pulumi.Input<string>;
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      */
     sshKeyPath?: pulumi.Input<string>;
     /**
@@ -727,7 +740,7 @@ export interface ClusterArgs {
      */
     certDir?: pulumi.Input<string>;
     /**
-     * Calico cloud provider (string)
+     * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      */
     cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
     /**
@@ -767,11 +780,15 @@ export interface ClusterArgs {
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     */
+    enableCriDockerd?: pulumi.Input<boolean>;
+    /**
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      */
     ignoreDockerVersion?: pulumi.Input<boolean>;
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: pulumi.Input<inputs.ClusterIngress>;
     /**
@@ -783,7 +800,7 @@ export interface ClusterArgs {
      */
     monitoring?: pulumi.Input<inputs.ClusterMonitoring>;
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      */
     network?: pulumi.Input<inputs.ClusterNetwork>;
     /**
@@ -803,7 +820,7 @@ export interface ClusterArgs {
      */
     privateRegistries?: pulumi.Input<pulumi.Input<inputs.ClusterPrivateRegistry>[]>;
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      */
     restore?: pulumi.Input<inputs.ClusterRestore>;
     /**
@@ -811,7 +828,7 @@ export interface ClusterArgs {
      */
     rotateCertificates?: pulumi.Input<inputs.ClusterRotateCertificates>;
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      */
     services?: pulumi.Input<inputs.ClusterServices>;
     /**
@@ -855,11 +872,11 @@ export interface ClusterArgs {
      */
     sshAgentAuth?: pulumi.Input<boolean>;
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      */
     sshCertPath?: pulumi.Input<string>;
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      */
     sshKeyPath?: pulumi.Input<string>;
     /**

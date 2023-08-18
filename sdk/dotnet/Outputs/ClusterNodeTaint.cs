@@ -18,7 +18,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Effect;
         /// <summary>
-        /// TLS key for etcd service (string)
+        /// Use service instead
         /// </summary>
         public readonly string Key;
         /// <summary>

@@ -26,7 +26,7 @@ import com.pulumi.rke.outputs.ClusterNode;
 import com.pulumi.rke.outputs.ClusterPrivateRegistry;
 import com.pulumi.rke.outputs.ClusterRestore;
 import com.pulumi.rke.outputs.ClusterRotateCertificates;
-import com.pulumi.rke.outputs.ClusterRunningSystemImages;
+import com.pulumi.rke.outputs.ClusterRunningSystemImage;
 import com.pulumi.rke.outputs.ClusterServices;
 import com.pulumi.rke.outputs.ClusterServicesEtcdDeprecated;
 import com.pulumi.rke.outputs.ClusterServicesKubeApiDeprecated;
@@ -231,14 +231,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clientKey;
     }
     /**
-     * Calico cloud provider (string)
+     * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      * 
      */
     @Export(name="cloudProvider", type=ClusterCloudProvider.class, parameters={})
     private Output</* @Nullable */ ClusterCloudProvider> cloudProvider;
 
     /**
-     * @return Calico cloud provider (string)
+     * @return RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterCloudProvider>> cloudProvider() {
@@ -427,6 +427,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dns);
     }
     /**
+     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    @Export(name="enableCriDockerd", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableCriDockerd;
+
+    /**
+     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * 
+     */
+    public Output<Optional<Boolean>> enableCriDockerd() {
+        return Codegen.optional(this.enableCriDockerd);
+    }
+    /**
      * (Computed) RKE k8s cluster etcd nodes (list)
      * 
      */
@@ -469,14 +483,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.inactiveHosts;
     }
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     @Export(name="ingress", type=ClusterIngress.class, parameters={})
     private Output</* @Nullable */ ClusterIngress> ingress;
 
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterIngress>> ingress() {
@@ -557,14 +571,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitoring);
     }
     /**
-     * (list maxitems:1)
+     * RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     @Export(name="network", type=ClusterNetwork.class, parameters={})
     private Output</* @Nullable */ ClusterNetwork> network;
 
     /**
-     * @return (list maxitems:1)
+     * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterNetwork>> network() {
@@ -625,14 +639,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.privateRegistries);
     }
     /**
-     * Restore cluster. Default `false` (bool)
+     * RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     @Export(name="restore", type=ClusterRestore.class, parameters={})
     private Output</* @Nullable */ ClusterRestore> restore;
 
     /**
-     * @return Restore cluster. Default `false` (bool)
+     * @return RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterRestore>> restore() {
@@ -684,25 +698,25 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster running system images list (list)
      * 
      */
-    @Export(name="runningSystemImages", type=ClusterRunningSystemImages.class, parameters={})
-    private Output<ClusterRunningSystemImages> runningSystemImages;
+    @Export(name="runningSystemImages", type=List.class, parameters={ClusterRunningSystemImage.class})
+    private Output<List<ClusterRunningSystemImage>> runningSystemImages;
 
     /**
      * @return (Computed) RKE k8s cluster running system images list (list)
      * 
      */
-    public Output<ClusterRunningSystemImages> runningSystemImages() {
+    public Output<List<ClusterRunningSystemImage>> runningSystemImages() {
         return this.runningSystemImages;
     }
     /**
-     * Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * RKE k8s cluster services (list maxitems:1)
      * 
      */
     @Export(name="services", type=ClusterServices.class, parameters={})
     private Output</* @Nullable */ ClusterServices> services;
 
     /**
-     * @return Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * @return RKE k8s cluster services (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServices>> services() {
@@ -831,28 +845,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.sshAgentAuth;
     }
     /**
-     * SSH Certificate path (string)
+     * SSH Certificate Path (string)
      * 
      */
     @Export(name="sshCertPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> sshCertPath;
 
     /**
-     * @return SSH Certificate path (string)
+     * @return SSH Certificate Path (string)
      * 
      */
     public Output<Optional<String>> sshCertPath() {
         return Codegen.optional(this.sshCertPath);
     }
     /**
-     * SSH Private Key path (string)
+     * SSH Private Key Path (string)
      * 
      */
     @Export(name="sshKeyPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> sshKeyPath;
 
     /**
-     * @return SSH Private Key path (string)
+     * @return SSH Private Key Path (string)
      * 
      */
     public Output<Optional<String>> sshKeyPath() {
@@ -947,6 +961,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "caCrt",
+                "certificates",
+                "clientCert",
+                "clientKey",
+                "clusterYaml",
+                "internalKubeConfigYaml",
+                "kubeConfigYaml",
+                "rkeClusterYaml",
+                "rkeState"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -10,16 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate")]
-        public Input<string>? Certificate { get; set; }
+        private Input<string>? _certificate;
+        public Input<string>? Certificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("commonName")]
         public Input<string>? CommonName { get; set; }
 
         [Input("config")]
-        public Input<string>? Config { get; set; }
+        private Input<string>? _config;
+        public Input<string>? Config
+        {
+            get => _config;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _config = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("configEnvName")]
         public Input<string>? ConfigEnvName { get; set; }
@@ -36,11 +54,21 @@ namespace Pulumi.Rke.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// TLS key for etcd service (string)
-        /// </summary>
         [Input("key")]
-        public Input<string>? Key { get; set; }
+        private Input<string>? _key;
+
+        /// <summary>
+        /// Use service instead
+        /// </summary>
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("keyEnvName")]
         public Input<string>? KeyEnvName { get; set; }
@@ -49,7 +77,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? KeyPath { get; set; }
 
         /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -58,7 +86,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? OuName { get; set; }
 
         /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// Path for etcd service (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -66,5 +94,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCertificateArgs()
         {
         }
+        public static new ClusterCertificateArgs Empty => new ClusterCertificateArgs();
     }
 }

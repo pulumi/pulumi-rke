@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderVsphereCloudConfigGlobalGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderVsphereCloudConfigGlobalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -36,14 +36,24 @@ namespace Pulumi.Rke.Inputs
         [Input("insecureFlag")]
         public Input<bool>? InsecureFlag { get; set; }
 
-        /// <summary>
-        /// Registry password (string)
-        /// </summary>
         [Input("password")]
-        public Input<string>? Password { get; set; }
+        private Input<string>? _password;
 
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// (string)
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -54,11 +64,21 @@ namespace Pulumi.Rke.Inputs
         [Input("soapRoundtripCount")]
         public Input<int>? SoapRoundtripCount { get; set; }
 
-        /// <summary>
-        /// Registry user (string)
-        /// </summary>
         [Input("user")]
-        public Input<string>? User { get; set; }
+        private Input<string>? _user;
+
+        /// <summary>
+        /// SSH User to Bastion Host (string)
+        /// </summary>
+        public Input<string>? User
+        {
+            get => _user;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _user = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (string)
@@ -81,5 +101,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderVsphereCloudConfigGlobalGetArgs()
         {
         }
+        public static new ClusterCloudProviderVsphereCloudConfigGlobalGetArgs Empty => new ClusterCloudProviderVsphereCloudConfigGlobalGetArgs();
     }
 }

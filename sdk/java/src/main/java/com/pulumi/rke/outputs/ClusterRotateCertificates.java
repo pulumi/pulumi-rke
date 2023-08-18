@@ -19,7 +19,7 @@ public final class ClusterRotateCertificates {
      */
     private @Nullable Boolean caCertificates;
     /**
-     * @return Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * @return RKE k8s cluster services (list maxitems:1)
      * 
      */
     private @Nullable List<String> services;
@@ -33,7 +33,7 @@ public final class ClusterRotateCertificates {
         return Optional.ofNullable(this.caCertificates);
     }
     /**
-     * @return Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+     * @return RKE k8s cluster services (list maxitems:1)
      * 
      */
     public List<String> services() {

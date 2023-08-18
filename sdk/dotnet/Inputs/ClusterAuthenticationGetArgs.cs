@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("sans")]
         private InputList<string>? _sans;
@@ -39,5 +39,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterAuthenticationGetArgs()
         {
         }
+        public static new ClusterAuthenticationGetArgs Empty => new ClusterAuthenticationGetArgs();
     }
 }

@@ -17,14 +17,14 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
     public static final ClusterServicesKubeApiEventRateLimitArgs Empty = new ClusterServicesKubeApiEventRateLimitArgs();
 
     /**
-     * Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     * Audit log configuration. (list maxtiem: 1)
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<String> configuration;
 
     /**
-     * @return Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     * @return Audit log configuration. (list maxtiem: 1)
      * 
      */
     public Optional<Output<String>> configuration() {
@@ -32,14 +32,14 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
     }
 
     /**
-     * Enable secrets encryption (bool)
+     * Enable etcd backup. Default `true` (bool)
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable secrets encryption (bool)
+     * @return Enable etcd backup. Default `true` (bool)
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
         }
 
         /**
-         * @param configuration Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+         * @param configuration Audit log configuration. (list maxtiem: 1)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
         }
 
         /**
-         * @param configuration Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+         * @param configuration Audit log configuration. (list maxtiem: 1)
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterServicesKubeApiEventRateLimitArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Enable secrets encryption (bool)
+         * @param enabled Enable etcd backup. Default `true` (bool)
          * 
          * @return builder
          * 

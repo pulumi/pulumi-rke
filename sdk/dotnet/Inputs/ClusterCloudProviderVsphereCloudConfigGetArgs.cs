@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderVsphereCloudConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderVsphereCloudConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (list maxitems:1)
@@ -25,7 +25,7 @@ namespace Pulumi.Rke.Inputs
         public Input<Inputs.ClusterCloudProviderVsphereCloudConfigGlobalGetArgs>? Global { get; set; }
 
         /// <summary>
-        /// (list maxitems:1)
+        /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         [Input("network")]
         public Input<Inputs.ClusterCloudProviderVsphereCloudConfigNetworkGetArgs>? Network { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderVsphereCloudConfigGetArgs()
         {
         }
+        public static new ClusterCloudProviderVsphereCloudConfigGetArgs Empty => new ClusterCloudProviderVsphereCloudConfigGetArgs();
     }
 }

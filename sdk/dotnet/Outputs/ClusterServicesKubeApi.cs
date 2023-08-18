@@ -26,19 +26,19 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterServicesKubeApiEventRateLimit? EventRateLimit;
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds for etcd service (list)
         /// </summary>
         public readonly ImmutableArray<string> ExtraBinds;
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra environment for etcd service (list)
         /// </summary>
         public readonly ImmutableArray<string> ExtraEnvs;
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image for etcd service (string)
         /// </summary>
         public readonly string? Image;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterServicesKubeApiSecretsEncryptionConfig? SecretsEncryptionConfig;
         /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
+        /// Service Cluster IP Range option for kube API service (string)
         /// </summary>
         public readonly string? ServiceClusterIpRange;
         /// <summary>

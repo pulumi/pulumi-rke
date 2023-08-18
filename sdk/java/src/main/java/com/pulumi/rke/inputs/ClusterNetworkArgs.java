@@ -99,14 +99,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Network provider options (map)
+     * RKE options for authorization (map)
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return Network provider options (map)
+     * @return RKE options for authorization (map)
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -280,7 +280,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options RKE options for authorization (map)
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options RKE options for authorization (map)
          * 
          * @return builder
          * 

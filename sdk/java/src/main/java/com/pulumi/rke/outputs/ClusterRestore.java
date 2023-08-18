@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterRestore {
     /**
-     * @return Restore cluster. Default `false` (bool)
+     * @return RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     private @Nullable Boolean restore;
@@ -25,7 +25,7 @@ public final class ClusterRestore {
 
     private ClusterRestore() {}
     /**
-     * @return Restore cluster. Default `false` (bool)
+     * @return RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
     public Optional<Boolean> restore() {

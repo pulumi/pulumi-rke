@@ -316,14 +316,14 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Docker image for etcd (string)
+     * Etcd options for RKE services (list maxitems:1)
      * 
      */
     @Import(name="etcd")
     private @Nullable Output<String> etcd;
 
     /**
-     * @return Docker image for etcd (string)
+     * @return Etcd options for RKE services (list maxitems:1)
      * 
      */
     public Optional<Output<String>> etcd() {
@@ -361,14 +361,14 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Docker image for ingress (string)
+     * RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     @Import(name="ingress")
     private @Nullable Output<String> ingress;
 
     /**
-     * @return Docker image for ingress (string)
+     * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     public Optional<Output<String>> ingress() {
@@ -496,14 +496,14 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     @Import(name="nodelocal")
     private @Nullable Output<String> nodelocal;
 
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns config  (list Maxitem: 1)
      * 
      */
     public Optional<Output<String>> nodelocal() {
@@ -1051,7 +1051,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1062,7 +1062,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etcd Docker image for etcd (string)
+         * @param etcd Etcd options for RKE services (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1114,7 +1114,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1125,7 +1125,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ingress Docker image for ingress (string)
+         * @param ingress RKE k8s cluster ingress controller configuration (list maxitems:1)
          * 
          * @return builder
          * 
@@ -1303,7 +1303,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 
@@ -1314,7 +1314,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
          * 
          * @return builder
          * 

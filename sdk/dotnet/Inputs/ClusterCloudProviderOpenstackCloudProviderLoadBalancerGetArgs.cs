@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (bool)
@@ -67,7 +67,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? MonitorTimeout { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Enables using a specific subnet to use for ELB's (string)
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs()
         {
         }
+        public static new ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs Empty => new ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs();
     }
 }

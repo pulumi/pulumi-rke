@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderAwsCloudProviderGlobalGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderAwsCloudProviderGlobalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disables the automatic ingress creation. Default `false` (bool)
@@ -55,7 +55,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? RouteTableId { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Enables using a specific subnet to use for ELB's (string)
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -75,5 +75,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterCloudProviderAwsCloudProviderGlobalGetArgs()
         {
         }
+        public static new ClusterCloudProviderAwsCloudProviderGlobalGetArgs Empty => new ClusterCloudProviderAwsCloudProviderGlobalGetArgs();
     }
 }

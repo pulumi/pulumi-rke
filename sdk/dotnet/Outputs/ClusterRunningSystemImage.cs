@@ -11,7 +11,7 @@ namespace Pulumi.Rke.Outputs
 {
 
     [OutputType]
-    public sealed class ClusterRunningSystemImages
+    public sealed class ClusterRunningSystemImage
     {
         /// <summary>
         /// Docker image for aci_cni_deploy_container (string)
@@ -94,7 +94,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Dnsmasq;
         /// <summary>
-        /// Docker image for etcd (string)
+        /// Etcd options for RKE services (list maxitems:1)
         /// </summary>
         public readonly string? Etcd;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? FlannelCni;
         /// <summary>
-        /// Docker image for ingress (string)
+        /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         public readonly string? Ingress;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? NginxProxy;
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns config  (list Maxitem: 1)
         /// </summary>
         public readonly string? Nodelocal;
         /// <summary>
@@ -163,7 +163,7 @@ namespace Pulumi.Rke.Outputs
         public readonly string? WindowsPodInfraContainer;
 
         [OutputConstructor]
-        private ClusterRunningSystemImages(
+        private ClusterRunningSystemImage(
             string? aciCniDeployContainer,
 
             string? aciControllerContainer,

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterCloudProviderVsphereCloudProviderVirtualCenterGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudProviderVsphereCloudProviderVirtualCenterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (string)
@@ -19,19 +19,29 @@ namespace Pulumi.Rke.Inputs
         public Input<string> Datacenters { get; set; } = null!;
 
         /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Registry password (string)
-        /// </summary>
         [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        private Input<string>? _password;
 
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// (string)
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// SSH Port of Bastion Host. Default `22` (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -42,14 +52,25 @@ namespace Pulumi.Rke.Inputs
         [Input("soapRoundtripCount")]
         public Input<int>? SoapRoundtripCount { get; set; }
 
-        /// <summary>
-        /// Registry user (string)
-        /// </summary>
         [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        private Input<string>? _user;
+
+        /// <summary>
+        /// SSH User to Bastion Host (string)
+        /// </summary>
+        public Input<string>? User
+        {
+            get => _user;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _user = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ClusterCloudProviderVsphereCloudProviderVirtualCenterGetArgs()
         {
         }
+        public static new ClusterCloudProviderVsphereCloudProviderVirtualCenterGetArgs Empty => new ClusterCloudProviderVsphereCloudProviderVirtualCenterGetArgs();
     }
 }

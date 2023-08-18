@@ -31,14 +31,14 @@ public final class ClusterNodeTaintArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * TLS key for etcd service (string)
+     * Use service instead
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return TLS key for etcd service (string)
+     * @return Use service instead
      * 
      */
     public Output<String> key() {
@@ -108,7 +108,7 @@ public final class ClusterNodeTaintArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key TLS key for etcd service (string)
+         * @param key Use service instead
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ClusterNodeTaintArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key TLS key for etcd service (string)
+         * @param key Use service instead
          * 
          * @return builder
          * 

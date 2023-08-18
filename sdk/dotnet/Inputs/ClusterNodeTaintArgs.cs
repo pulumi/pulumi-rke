@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterNodeTaintArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeTaintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Effect { get; set; }
 
         /// <summary>
-        /// TLS key for etcd service (string)
+        /// Use service instead
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterNodeTaintArgs()
         {
         }
+        public static new ClusterNodeTaintArgs Empty => new ClusterNodeTaintArgs();
     }
 }

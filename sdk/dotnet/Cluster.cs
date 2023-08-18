@@ -25,7 +25,7 @@ namespace Pulumi.Rke
     /// ```
     /// </summary>
     [RkeResourceType("rke:index/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -100,7 +100,7 @@ namespace Pulumi.Rke
         public Output<string> ClientKey { get; private set; } = null!;
 
         /// <summary>
-        /// Calico cloud provider (string)
+        /// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         /// </summary>
         [Output("cloudProvider")]
         public Output<Outputs.ClusterCloudProvider?> CloudProvider { get; private set; } = null!;
@@ -184,6 +184,12 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterDns?> Dns { get; private set; } = null!;
 
         /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Output("enableCriDockerd")]
+        public Output<bool?> EnableCriDockerd { get; private set; } = null!;
+
+        /// <summary>
         /// (Computed) RKE k8s cluster etcd nodes (list)
         /// </summary>
         [Output("etcdHosts")]
@@ -202,7 +208,7 @@ namespace Pulumi.Rke
         public Output<ImmutableArray<Outputs.ClusterInactiveHost>> InactiveHosts { get; private set; } = null!;
 
         /// <summary>
-        /// Docker image for ingress (string)
+        /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         [Output("ingress")]
         public Output<Outputs.ClusterIngress?> Ingress { get; private set; } = null!;
@@ -238,7 +244,7 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterMonitoring?> Monitoring { get; private set; } = null!;
 
         /// <summary>
-        /// (list maxitems:1)
+        /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         [Output("network")]
         public Output<Outputs.ClusterNetwork?> Network { get; private set; } = null!;
@@ -265,7 +271,7 @@ namespace Pulumi.Rke
         public Output<ImmutableArray<Outputs.ClusterPrivateRegistry>> PrivateRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// Restore cluster. Default `false` (bool)
+        /// RKE k8s cluster restore configuration (list maxitems:1)
         /// </summary>
         [Output("restore")]
         public Output<Outputs.ClusterRestore?> Restore { get; private set; } = null!;
@@ -292,10 +298,10 @@ namespace Pulumi.Rke
         /// (Computed) RKE k8s cluster running system images list (list)
         /// </summary>
         [Output("runningSystemImages")]
-        public Output<Outputs.ClusterRunningSystemImages> RunningSystemImages { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterRunningSystemImage>> RunningSystemImages { get; private set; } = null!;
 
         /// <summary>
-        /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        /// RKE k8s cluster services (list maxitems:1)
         /// </summary>
         [Output("services")]
         public Output<Outputs.ClusterServices?> Services { get; private set; } = null!;
@@ -343,13 +349,13 @@ namespace Pulumi.Rke
         public Output<bool> SshAgentAuth { get; private set; } = null!;
 
         /// <summary>
-        /// SSH Certificate path (string)
+        /// SSH Certificate Path (string)
         /// </summary>
         [Output("sshCertPath")]
         public Output<string?> SshCertPath { get; private set; } = null!;
 
         /// <summary>
-        /// SSH Private Key path (string)
+        /// SSH Private Key Path (string)
         /// </summary>
         [Output("sshKeyPath")]
         public Output<string?> SshKeyPath { get; private set; } = null!;
@@ -401,6 +407,18 @@ namespace Pulumi.Rke
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "caCrt",
+                    "certificates",
+                    "clientCert",
+                    "clientKey",
+                    "clusterYaml",
+                    "internalKubeConfigYaml",
+                    "kubeConfigYaml",
+                    "rkeClusterYaml",
+                    "rkeState",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -422,7 +440,7 @@ namespace Pulumi.Rke
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -473,7 +491,7 @@ namespace Pulumi.Rke
         public Input<string>? CertDir { get; set; }
 
         /// <summary>
-        /// Calico cloud provider (string)
+        /// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         /// </summary>
         [Input("cloudProvider")]
         public Input<Inputs.ClusterCloudProviderArgs>? CloudProvider { get; set; }
@@ -484,11 +502,21 @@ namespace Pulumi.Rke
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        [Input("clusterYaml")]
+        private Input<string>? _clusterYaml;
+
         /// <summary>
         /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         /// </summary>
-        [Input("clusterYaml")]
-        public Input<string>? ClusterYaml { get; set; }
+        public Input<string>? ClusterYaml
+        {
+            get => _clusterYaml;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clusterYaml = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Use custom certificates from a cert dir (string)
@@ -533,13 +561,19 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterDnsArgs>? Dns { get; set; }
 
         /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
+
+        /// <summary>
         /// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
         /// </summary>
         [Input("ignoreDockerVersion")]
         public Input<bool>? IgnoreDockerVersion { get; set; }
 
         /// <summary>
-        /// Docker image for ingress (string)
+        /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         [Input("ingress")]
         public Input<Inputs.ClusterIngressArgs>? Ingress { get; set; }
@@ -557,7 +591,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterMonitoringArgs>? Monitoring { get; set; }
 
         /// <summary>
-        /// (list maxitems:1)
+        /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         [Input("network")]
         public Input<Inputs.ClusterNetworkArgs>? Network { get; set; }
@@ -602,7 +636,7 @@ namespace Pulumi.Rke
         }
 
         /// <summary>
-        /// Restore cluster. Default `false` (bool)
+        /// RKE k8s cluster restore configuration (list maxitems:1)
         /// </summary>
         [Input("restore")]
         public Input<Inputs.ClusterRestoreArgs>? Restore { get; set; }
@@ -614,7 +648,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterRotateCertificatesArgs>? RotateCertificates { get; set; }
 
         /// <summary>
-        /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        /// RKE k8s cluster services (list maxitems:1)
         /// </summary>
         [Input("services")]
         public Input<Inputs.ClusterServicesArgs>? Services { get; set; }
@@ -662,13 +696,13 @@ namespace Pulumi.Rke
         public Input<bool>? SshAgentAuth { get; set; }
 
         /// <summary>
-        /// SSH Certificate path (string)
+        /// SSH Certificate Path (string)
         /// </summary>
         [Input("sshCertPath")]
         public Input<string>? SshCertPath { get; set; }
 
         /// <summary>
-        /// SSH Private Key path (string)
+        /// SSH Private Key Path (string)
         /// </summary>
         [Input("sshKeyPath")]
         public Input<string>? SshKeyPath { get; set; }
@@ -694,9 +728,10 @@ namespace Pulumi.Rke
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RKE k8s cluster addon deployment timeout in seconds for status check (int)
@@ -746,11 +781,21 @@ namespace Pulumi.Rke
         [Input("bastionHost")]
         public Input<Inputs.ClusterBastionHostGetArgs>? BastionHost { get; set; }
 
+        [Input("caCrt")]
+        private Input<string>? _caCrt;
+
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster CA certificate (string)
         /// </summary>
-        [Input("caCrt")]
-        public Input<string>? CaCrt { get; set; }
+        public Input<string>? CaCrt
+        {
+            get => _caCrt;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _caCrt = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specify a certificate dir path (string)
@@ -767,23 +812,47 @@ namespace Pulumi.Rke
         public InputList<Inputs.ClusterCertificateGetArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.ClusterCertificateGetArgs>());
-            set => _certificates = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.ClusterCertificateGetArgs>());
+                _certificates = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
+
+        [Input("clientCert")]
+        private Input<string>? _clientCert;
 
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster client certificate (string)
         /// </summary>
-        [Input("clientCert")]
-        public Input<string>? ClientCert { get; set; }
+        public Input<string>? ClientCert
+        {
+            get => _clientCert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientKey")]
+        private Input<string>? _clientKey;
 
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster client key (string)
         /// </summary>
-        [Input("clientKey")]
-        public Input<string>? ClientKey { get; set; }
+        public Input<string>? ClientKey
+        {
+            get => _clientKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// Calico cloud provider (string)
+        /// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         /// </summary>
         [Input("cloudProvider")]
         public Input<Inputs.ClusterCloudProviderGetArgs>? CloudProvider { get; set; }
@@ -812,11 +881,21 @@ namespace Pulumi.Rke
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        [Input("clusterYaml")]
+        private Input<string>? _clusterYaml;
+
         /// <summary>
         /// RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         /// </summary>
-        [Input("clusterYaml")]
-        public Input<string>? ClusterYaml { get; set; }
+        public Input<string>? ClusterYaml
+        {
+            get => _clusterYaml;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clusterYaml = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("controlPlaneHosts")]
         private InputList<Inputs.ClusterControlPlaneHostGetArgs>? _controlPlaneHosts;
@@ -872,6 +951,12 @@ namespace Pulumi.Rke
         [Input("dns")]
         public Input<Inputs.ClusterDnsGetArgs>? Dns { get; set; }
 
+        /// <summary>
+        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// </summary>
+        [Input("enableCriDockerd")]
+        public Input<bool>? EnableCriDockerd { get; set; }
+
         [Input("etcdHosts")]
         private InputList<Inputs.ClusterEtcdHostGetArgs>? _etcdHosts;
 
@@ -903,16 +988,27 @@ namespace Pulumi.Rke
         }
 
         /// <summary>
-        /// Docker image for ingress (string)
+        /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         [Input("ingress")]
         public Input<Inputs.ClusterIngressGetArgs>? Ingress { get; set; }
 
+        [Input("internalKubeConfigYaml")]
+        private Input<string>? _internalKubeConfigYaml;
+
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
         /// </summary>
-        [Input("internalKubeConfigYaml")]
-        public Input<string>? InternalKubeConfigYaml { get; set; }
+        [Obsolete(@"Use kube_config_yaml instead")]
+        public Input<string>? InternalKubeConfigYaml
+        {
+            get => _internalKubeConfigYaml;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _internalKubeConfigYaml = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Computed) RKE k8s cluster admin user (string)
@@ -920,11 +1016,21 @@ namespace Pulumi.Rke
         [Input("kubeAdminUser")]
         public Input<string>? KubeAdminUser { get; set; }
 
+        [Input("kubeConfigYaml")]
+        private Input<string>? _kubeConfigYaml;
+
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
         /// </summary>
-        [Input("kubeConfigYaml")]
-        public Input<string>? KubeConfigYaml { get; set; }
+        public Input<string>? KubeConfigYaml
+        {
+            get => _kubeConfigYaml;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kubeConfigYaml = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
@@ -939,7 +1045,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterMonitoringGetArgs>? Monitoring { get; set; }
 
         /// <summary>
-        /// (list maxitems:1)
+        /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         [Input("network")]
         public Input<Inputs.ClusterNetworkGetArgs>? Network { get; set; }
@@ -984,22 +1090,42 @@ namespace Pulumi.Rke
         }
 
         /// <summary>
-        /// Restore cluster. Default `false` (bool)
+        /// RKE k8s cluster restore configuration (list maxitems:1)
         /// </summary>
         [Input("restore")]
         public Input<Inputs.ClusterRestoreGetArgs>? Restore { get; set; }
 
+        [Input("rkeClusterYaml")]
+        private Input<string>? _rkeClusterYaml;
+
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster config yaml (string)
         /// </summary>
-        [Input("rkeClusterYaml")]
-        public Input<string>? RkeClusterYaml { get; set; }
+        public Input<string>? RkeClusterYaml
+        {
+            get => _rkeClusterYaml;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _rkeClusterYaml = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("rkeState")]
+        private Input<string>? _rkeState;
 
         /// <summary>
         /// (Computed/Sensitive) RKE k8s cluster state (string)
         /// </summary>
-        [Input("rkeState")]
-        public Input<string>? RkeState { get; set; }
+        public Input<string>? RkeState
+        {
+            get => _rkeState;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _rkeState = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// RKE k8s cluster rotate certificates configuration (list maxitems:1)
@@ -1007,14 +1133,20 @@ namespace Pulumi.Rke
         [Input("rotateCertificates")]
         public Input<Inputs.ClusterRotateCertificatesGetArgs>? RotateCertificates { get; set; }
 
+        [Input("runningSystemImages")]
+        private InputList<Inputs.ClusterRunningSystemImageGetArgs>? _runningSystemImages;
+
         /// <summary>
         /// (Computed) RKE k8s cluster running system images list (list)
         /// </summary>
-        [Input("runningSystemImages")]
-        public Input<Inputs.ClusterRunningSystemImagesGetArgs>? RunningSystemImages { get; set; }
+        public InputList<Inputs.ClusterRunningSystemImageGetArgs> RunningSystemImages
+        {
+            get => _runningSystemImages ?? (_runningSystemImages = new InputList<Inputs.ClusterRunningSystemImageGetArgs>());
+            set => _runningSystemImages = value;
+        }
 
         /// <summary>
-        /// Services to rotate their certs. `etcd`, `kubelet`, `kube-apiserver`, `kube-proxy`, `kube-scheduler` and `kube-controller-manager` are supported (list)
+        /// RKE k8s cluster services (list maxitems:1)
         /// </summary>
         [Input("services")]
         public Input<Inputs.ClusterServicesGetArgs>? Services { get; set; }
@@ -1062,13 +1194,13 @@ namespace Pulumi.Rke
         public Input<bool>? SshAgentAuth { get; set; }
 
         /// <summary>
-        /// SSH Certificate path (string)
+        /// SSH Certificate Path (string)
         /// </summary>
         [Input("sshCertPath")]
         public Input<string>? SshCertPath { get; set; }
 
         /// <summary>
-        /// SSH Private Key path (string)
+        /// SSH Private Key Path (string)
         /// </summary>
         [Input("sshKeyPath")]
         public Input<string>? SshKeyPath { get; set; }
@@ -1106,5 +1238,6 @@ namespace Pulumi.Rke
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

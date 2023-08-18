@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterServicesEtcdDeprecatedGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServicesEtcdDeprecatedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -18,17 +18,37 @@ namespace Pulumi.Rke.Inputs
         [Input("backupConfig")]
         public Input<Inputs.ClusterServicesEtcdDeprecatedBackupConfigGetArgs>? BackupConfig { get; set; }
 
+        [Input("caCert")]
+        private Input<string>? _caCert;
+
         /// <summary>
         /// TLS CA certificate for etcd service (string)
         /// </summary>
-        [Input("caCert")]
-        public Input<string>? CaCert { get; set; }
+        public Input<string>? CaCert
+        {
+            get => _caCert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _caCert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("cert")]
+        private Input<string>? _cert;
 
         /// <summary>
         /// TLS certificate for etcd service (string)
         /// </summary>
-        [Input("cert")]
-        public Input<string>? Cert { get; set; }
+        public Input<string>? Cert
+        {
+            get => _cert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Creation option for etcd service (string)
@@ -52,7 +72,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller (map)
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -64,7 +84,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds for etcd service (list)
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -76,7 +96,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra environment for etcd service (list)
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -91,25 +111,35 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? Gid { get; set; }
 
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image for etcd service (string)
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
-        /// <summary>
-        /// TLS key for etcd service (string)
-        /// </summary>
         [Input("key")]
-        public Input<string>? Key { get; set; }
+        private Input<string>? _key;
 
         /// <summary>
-        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// Use service instead
+        /// </summary>
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Path for etcd service (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
+        /// Retention option for etcd service (string)
         /// </summary>
         [Input("retention")]
         public Input<string>? Retention { get; set; }
@@ -129,5 +159,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterServicesEtcdDeprecatedGetArgs()
         {
         }
+        public static new ClusterServicesEtcdDeprecatedGetArgs Empty => new ClusterServicesEtcdDeprecatedGetArgs();
     }
 }

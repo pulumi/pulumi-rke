@@ -32,17 +32,17 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobal {
      */
     private @Nullable String domainName;
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     private String password;
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     private @Nullable String region;
     /**
-     * @return Required if `tenant_name` not provided. (string)
+     * @return (string)
      * 
      */
     private @Nullable String tenantId;
@@ -97,21 +97,21 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobal {
         return Optional.ofNullable(this.domainName);
     }
     /**
-     * @return Registry password (string)
+     * @return (string)
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return Region for S3 service (string)
+     * @return (string)
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return Required if `tenant_name` not provided. (string)
+     * @return (string)
      * 
      */
     public Optional<String> tenantId() {

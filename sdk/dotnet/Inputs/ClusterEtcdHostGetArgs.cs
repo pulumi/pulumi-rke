@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Rke.Inputs
 {
 
-    public sealed class ClusterEtcdHostGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEtcdHostGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// Address of Bastion Host (string)
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Rke.Inputs
         public ClusterEtcdHostGetArgs()
         {
         }
+        public static new ClusterEtcdHostGetArgs Empty => new ClusterEtcdHostGetArgs();
     }
 }
