@@ -1799,7 +1799,6 @@ class Cluster(pulumi.CustomResource):
         ```sh
          $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
         ```
-
          As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
 
         ```sh
@@ -1864,7 +1863,6 @@ class Cluster(pulumi.CustomResource):
         ```sh
          $ pulumi import rke:index/cluster:Cluster foo &lt;cluster_config_file&gt;:&lt;rke_state_file&gt;
         ```
-
          As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `<cluster_config_file>:<rke_state_file>:dind`
 
         ```sh
