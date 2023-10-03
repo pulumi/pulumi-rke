@@ -127,7 +127,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "RKE options for authorization (map)\n"
+                    "description": "Network provider options (map)\n"
                 }
             },
             "type": "object"
@@ -136,7 +136,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "ignoreProxyEnvVars": {
                     "type": "boolean",
@@ -144,7 +144,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "sshAgentAuth": {
                     "type": "boolean",
@@ -152,7 +152,7 @@
                 },
                 "sshCert": {
                     "type": "string",
-                    "description": "SSH Certificate Key (string)\n",
+                    "description": "SSH Certificate (string)\n",
                     "secret": true
                 },
                 "sshCertPath": {
@@ -170,7 +170,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n"
+                    "description": "Registry user (string)\n"
                 }
             },
             "type": "object",
@@ -218,7 +218,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n",
+                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "keyEnvName": {
@@ -229,14 +229,14 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)\n"
+                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
                 },
                 "ouName": {
                     "type": "string"
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path for etcd service (string)\n"
+                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
                 }
             },
             "type": "object",
@@ -291,7 +291,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)\n"
+                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
                 },
                 "openstackCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfig:ClusterCloudProviderOpenstackCloudConfig",
@@ -365,7 +365,7 @@
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "Enables using a specific subnet to use for ELB's (string)\n"
+                    "description": "(string)\n"
                 },
                 "vpc": {
                     "type": "string",
@@ -382,12 +382,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n",
+                    "description": "TLS key for etcd service (string)\n",
                     "deprecationMessage": "Use service instead"
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "service": {
                     "type": "string",
@@ -407,7 +407,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Registry URL (string)\n"
                 }
             },
             "type": "object",
@@ -471,7 +471,7 @@
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "Enables using a specific subnet to use for ELB's (string)\n"
+                    "description": "(string)\n"
                 },
                 "vpc": {
                     "type": "string",
@@ -488,12 +488,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n",
+                    "description": "TLS key for etcd service (string)\n",
                     "deprecationMessage": "Use service instead"
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "service": {
                     "type": "string",
@@ -513,7 +513,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Registry URL (string)\n"
                 }
             },
             "type": "object",
@@ -628,7 +628,7 @@
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "useInstanceMetadata": {
@@ -770,7 +770,7 @@
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "useInstanceMetadata": {
@@ -890,16 +890,16 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "tenantName": {
@@ -967,7 +967,7 @@
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "Enables using a specific subnet to use for ELB's (string)\n"
+                    "description": "(string)\n"
                 },
                 "useOctavia": {
                     "type": "boolean",
@@ -1075,16 +1075,16 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "tenantName": {
@@ -1152,7 +1152,7 @@
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "Enables using a specific subnet to use for ELB's (string)\n"
+                    "description": "(string)\n"
                 },
                 "useOctavia": {
                     "type": "boolean",
@@ -1255,12 +1255,12 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "soapRoundtripCount": {
                     "type": "integer",
@@ -1268,7 +1268,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 },
                 "vmName": {
@@ -1310,16 +1310,16 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)\n"
+                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "soapRoundtripCount": {
                     "type": "integer",
@@ -1327,7 +1327,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -1351,7 +1351,7 @@
                 },
                 "folder": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
                 },
                 "resourcepoolPath": {
                     "type": "string",
@@ -1440,12 +1440,12 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "soapRoundtripCount": {
                     "type": "integer",
@@ -1453,7 +1453,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 },
                 "vmName": {
@@ -1495,16 +1495,16 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)\n"
+                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "soapRoundtripCount": {
                     "type": "integer",
@@ -1512,7 +1512,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -1536,7 +1536,7 @@
                 },
                 "folder": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
                 },
                 "resourcepoolPath": {
                     "type": "string",
@@ -1557,7 +1557,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "nodeName": {
                     "type": "string",
@@ -1585,11 +1585,11 @@
                 },
                 "nodelocal": {
                     "$ref": "#/types/rke:index/ClusterDnsNodelocal:ClusterDnsNodelocal",
-                    "description": "Nodelocal dns config  (list Maxitem: 1)\n"
+                    "description": "Docker image for nodelocal (string)\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)\n"
+                    "description": "Monitoring provider (string)\n"
                 },
                 "reverseCidrs": {
                     "type": "array",
@@ -1628,7 +1628,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "nodeName": {
                     "type": "string",
@@ -1649,7 +1649,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "nodeName": {
                     "type": "string",
@@ -1680,7 +1680,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "httpPort": {
                     "type": "integer",
@@ -1706,11 +1706,11 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "RKE options for authorization (map)\n"
+                    "description": "Network provider options (map)\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)\n"
+                    "description": "Monitoring provider (string)\n"
                 }
             },
             "type": "object"
@@ -1729,11 +1729,11 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "RKE options for authorization (map)\n"
+                    "description": "Network provider options (map)\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)\n"
+                    "description": "Monitoring provider (string)\n"
                 }
             },
             "type": "object",
@@ -1772,7 +1772,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "RKE options for authorization (map)\n"
+                    "description": "Network provider options (map)\n"
                 },
                 "plugin": {
                     "type": "string",
@@ -1944,7 +1944,7 @@
             "properties": {
                 "iface": {
                     "type": "string",
-                    "description": "Canal network interface (string)\n"
+                    "description": "Flannel network interface (string)\n"
                 }
             },
             "type": "object",
@@ -1960,7 +1960,7 @@
             "properties": {
                 "iface": {
                     "type": "string",
-                    "description": "Canal network interface (string)\n"
+                    "description": "Flannel network interface (string)\n"
                 }
             },
             "type": "object",
@@ -1976,7 +1976,7 @@
             "properties": {
                 "password": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Registry password (string)\n"
                 }
             },
             "type": "object",
@@ -1988,7 +1988,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "dockerSocket": {
                     "type": "string",
@@ -2015,7 +2015,7 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "SSH Port of Bastion Host. Default `22` (string)\n"
+                    "description": "Port used for SSH communication (string)\n"
                 },
                 "roles": {
                     "type": "array",
@@ -2039,7 +2039,7 @@
                 },
                 "sshCert": {
                     "type": "string",
-                    "description": "SSH Certificate Key (string)\n",
+                    "description": "SSH Certificate (string)\n",
                     "secret": true
                 },
                 "sshCertPath": {
@@ -2064,7 +2064,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -2093,7 +2093,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n"
+                    "description": "TLS key for etcd service (string)\n"
                 },
                 "value": {
                     "type": "string",
@@ -2114,16 +2114,16 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "url": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Registry URL (string)\n"
                 },
                 "user": {
                     "type": "string",
-                    "description": "SSH User to Bastion Host (string)\n",
+                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -2245,7 +2245,7 @@
                 },
                 "etcd": {
                     "type": "string",
-                    "description": "Etcd options for RKE services (list maxitems:1)\n"
+                    "description": "Docker image for etcd (string)\n"
                 },
                 "flannel": {
                     "type": "string",
@@ -2293,7 +2293,7 @@
                 },
                 "nodelocal": {
                     "type": "string",
-                    "description": "Nodelocal dns config  (list Maxitem: 1)\n"
+                    "description": "Docker image for nodelocal (string)\n"
                 },
                 "podInfraContainer": {
                     "type": "string",
@@ -2318,7 +2318,7 @@
             "properties": {
                 "etcd": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcd:ClusterServicesEtcd",
-                    "description": "Etcd options for RKE services (list maxitems:1)\n"
+                    "description": "Docker image for etcd (string)\n"
                 },
                 "kubeApi": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeApi:ClusterServicesKubeApi",
@@ -2387,21 +2387,21 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "gid": {
                     "type": "integer",
@@ -2409,20 +2409,20 @@
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n",
+                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path for etcd service (string)\n"
+                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
                 },
                 "retention": {
                     "type": "string",
-                    "description": "Retention option for etcd service (string)\n"
+                    "description": "Retention for etcd backup. Default `6` (int)\n"
                 },
                 "snapshot": {
                     "type": "boolean",
@@ -2457,7 +2457,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 },
                 "intervalHours": {
                     "type": "integer",
@@ -2465,7 +2465,7 @@
                 },
                 "retention": {
                     "type": "integer",
-                    "description": "Retention option for etcd service (string)\n"
+                    "description": "Retention for etcd backup. Default `6` (int)\n"
                 },
                 "s3BackupConfig": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfigS3BackupConfig:ClusterServicesEtcdBackupConfigS3BackupConfig",
@@ -2477,7 +2477,7 @@
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)\n"
+                    "description": "RKE node drain timeout (int)\n"
                 }
             },
             "type": "object"
@@ -2503,11 +2503,11 @@
                 },
                 "folder": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "secretKey": {
                     "type": "string",
@@ -2549,21 +2549,21 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "gid": {
                     "type": "integer",
@@ -2571,20 +2571,20 @@
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "key": {
                     "type": "string",
-                    "description": "Use service instead\n",
+                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path for etcd service (string)\n"
+                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
                 },
                 "retention": {
                     "type": "string",
-                    "description": "Retention option for etcd service (string)\n"
+                    "description": "Retention for etcd backup. Default `6` (int)\n"
                 },
                 "snapshot": {
                     "type": "boolean",
@@ -2619,7 +2619,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 },
                 "intervalHours": {
                     "type": "integer",
@@ -2627,7 +2627,7 @@
                 },
                 "retention": {
                     "type": "integer",
-                    "description": "Retention option for etcd service (string)\n"
+                    "description": "Retention for etcd backup. Default `6` (int)\n"
                 },
                 "s3BackupConfig": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig:ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig",
@@ -2639,7 +2639,7 @@
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)\n"
+                    "description": "RKE node drain timeout (int)\n"
                 }
             },
             "type": "object"
@@ -2665,11 +2665,11 @@
                 },
                 "folder": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
                 },
                 "region": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Region for S3 service (string)\n"
                 },
                 "secretKey": {
                     "type": "string",
@@ -2698,25 +2698,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "podSecurityPolicy": {
                     "type": "boolean",
@@ -2728,7 +2728,7 @@
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster IP Range option for kube API service (string)\n"
+                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
                 },
                 "serviceNodePortRange": {
                     "type": "string",
@@ -2756,11 +2756,11 @@
             "properties": {
                 "configuration": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeApiAuditLogConfiguration:ClusterServicesKubeApiAuditLogConfiguration",
-                    "description": "Audit log configuration. (list maxtiem: 1)\n"
+                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -2793,7 +2793,7 @@
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path for etcd service (string)\n"
+                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
                 },
                 "policy": {
                     "type": "string",
@@ -2833,25 +2833,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "podSecurityPolicy": {
                     "type": "boolean",
@@ -2863,7 +2863,7 @@
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster IP Range option for kube API service (string)\n"
+                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
                 },
                 "serviceNodePortRange": {
                     "type": "string",
@@ -2891,11 +2891,11 @@
             "properties": {
                 "configuration": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedAuditLogConfiguration:ClusterServicesKubeApiDeprecatedAuditLogConfiguration",
-                    "description": "Audit log configuration. (list maxtiem: 1)\n"
+                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -2928,7 +2928,7 @@
                 },
                 "path": {
                     "type": "string",
-                    "description": "Path for etcd service (string)\n"
+                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
                 },
                 "policy": {
                     "type": "string",
@@ -2953,11 +2953,11 @@
             "properties": {
                 "configuration": {
                     "type": "string",
-                    "description": "Audit log configuration. (list maxtiem: 1)\n"
+                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -2978,7 +2978,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -2995,11 +2995,11 @@
             "properties": {
                 "configuration": {
                     "type": "string",
-                    "description": "Audit log configuration. (list maxtiem: 1)\n"
+                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -3020,7 +3020,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable etcd backup. Default `true` (bool)\n"
+                    "description": "Enable secrets encryption (bool)\n"
                 }
             },
             "type": "object",
@@ -3044,29 +3044,29 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster IP Range option for kube API service (string)\n"
+                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
                 }
             },
             "type": "object",
@@ -3094,29 +3094,29 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster IP Range option for kube API service (string)\n"
+                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
                 }
             },
             "type": "object",
@@ -3140,25 +3140,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 }
             },
             "type": "object",
@@ -3180,25 +3180,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 }
             },
             "type": "object",
@@ -3228,21 +3228,21 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "failSwapOn": {
                     "type": "boolean",
@@ -3254,7 +3254,7 @@
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "infraContainerImage": {
                     "type": "string",
@@ -3291,21 +3291,21 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "failSwapOn": {
                     "type": "boolean",
@@ -3317,7 +3317,7 @@
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 },
                 "infraContainerImage": {
                     "type": "string",
@@ -3346,25 +3346,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 }
             },
             "type": "object",
@@ -3386,25 +3386,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for the ingress controller (map)\n"
+                    "description": "Extra arguments for scheduler service (map)\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for etcd service (list)\n"
+                    "description": "Extra binds for scheduler service (list)\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for etcd service (list)\n"
+                    "description": "Extra environment for scheduler service (list)\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for etcd service (string)\n"
+                    "description": "Docker image for scheduler service (string)\n"
                 }
             },
             "type": "object",
@@ -3503,7 +3503,7 @@
                 },
                 "etcd": {
                     "type": "string",
-                    "description": "Etcd options for RKE services (list maxitems:1)\n"
+                    "description": "Docker image for etcd (string)\n"
                 },
                 "flannel": {
                     "type": "string",
@@ -3551,7 +3551,7 @@
                 },
                 "nodelocal": {
                     "type": "string",
-                    "description": "Nodelocal dns config  (list Maxitem: 1)\n"
+                    "description": "Docker image for nodelocal (string)\n"
                 },
                 "podInfraContainer": {
                     "type": "string",
@@ -3623,7 +3623,7 @@
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)\n"
+                    "description": "RKE node drain timeout (int)\n"
                 }
             },
             "type": "object",
@@ -3643,7 +3643,7 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address of Bastion Host (string)\n"
+                    "description": "Address ip for node (string)\n"
                 },
                 "nodeName": {
                     "type": "string",
