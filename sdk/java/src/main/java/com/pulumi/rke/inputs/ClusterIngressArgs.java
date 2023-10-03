@@ -42,14 +42,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for the ingress controller (map)
+     * @return Extra arguments for scheduler service (map)
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -117,14 +117,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -132,14 +132,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * Monitoring provider (string)
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * @return Monitoring provider (string)
      * 
      */
     public Optional<Output<String>> provider() {
@@ -209,7 +209,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param extraArgs Extra arguments for the ingress controller (map)
+         * @param extraArgs Extra arguments for scheduler service (map)
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param extraArgs Extra arguments for the ingress controller (map)
+         * @param extraArgs Extra arguments for scheduler service (map)
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options RKE options for authorization (map)
+         * @param options Network provider options (map)
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options RKE options for authorization (map)
+         * @param options Network provider options (map)
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+         * @param provider Monitoring provider (string)
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+         * @param provider Monitoring provider (string)
          * 
          * @return builder
          * 

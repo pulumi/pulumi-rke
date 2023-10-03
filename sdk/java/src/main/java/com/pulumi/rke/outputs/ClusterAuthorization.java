@@ -19,7 +19,7 @@ public final class ClusterAuthorization {
      */
     private @Nullable String mode;
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     private @Nullable Map<String,Object> options;
@@ -33,7 +33,7 @@ public final class ClusterAuthorization {
         return Optional.ofNullable(this.mode);
     }
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     public Map<String,Object> options() {

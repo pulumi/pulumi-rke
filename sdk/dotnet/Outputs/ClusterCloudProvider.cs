@@ -38,7 +38,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? CustomCloudProvider;
         /// <summary>
-        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
         /// </summary>
         public readonly string Name;
         /// <summary>

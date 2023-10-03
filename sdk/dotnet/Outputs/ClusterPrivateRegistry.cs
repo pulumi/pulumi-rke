@@ -18,15 +18,15 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? IsDefault;
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// (string)
+        /// Registry URL (string)
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// SSH User to Bastion Host (string)
+        /// Registry user (string)
         /// </summary>
         public readonly string? User;
 

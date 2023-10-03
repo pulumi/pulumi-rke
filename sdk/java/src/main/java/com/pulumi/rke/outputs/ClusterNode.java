@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNode {
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     private String address;
@@ -47,7 +47,7 @@ public final class ClusterNode {
      */
     private @Nullable String nodeName;
     /**
-     * @return SSH Port of Bastion Host. Default `22` (string)
+     * @return Port used for SSH communication (string)
      * 
      */
     private @Nullable String port;
@@ -69,7 +69,7 @@ public final class ClusterNode {
      */
     private @Nullable Boolean sshAgentAuth;
     /**
-     * @return SSH Certificate Key (string)
+     * @return SSH Certificate (string)
      * 
      */
     private @Nullable String sshCert;
@@ -94,14 +94,14 @@ public final class ClusterNode {
      */
     private @Nullable List<ClusterNodeTaint> taints;
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     private String user;
 
     private ClusterNode() {}
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     public String address() {
@@ -143,7 +143,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.nodeName);
     }
     /**
-     * @return SSH Port of Bastion Host. Default `22` (string)
+     * @return Port used for SSH communication (string)
      * 
      */
     public Optional<String> port() {
@@ -173,7 +173,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshAgentAuth);
     }
     /**
-     * @return SSH Certificate Key (string)
+     * @return SSH Certificate (string)
      * 
      */
     public Optional<String> sshCert() {
@@ -208,7 +208,7 @@ public final class ClusterNode {
         return this.taints == null ? List.of() : this.taints;
     }
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     public String user() {

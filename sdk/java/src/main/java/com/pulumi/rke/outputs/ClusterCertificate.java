@@ -23,20 +23,20 @@ public final class ClusterCertificate {
      */
     private @Nullable String id;
     /**
-     * @return Use service instead
+     * @return TLS key for etcd service (string)
      * 
      */
     private @Nullable String key;
     private @Nullable String keyEnvName;
     private @Nullable String keyPath;
     /**
-     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
      * 
      */
     private @Nullable String name;
     private @Nullable String ouName;
     /**
-     * @return Path for etcd service (string)
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     private @Nullable String path;
@@ -68,7 +68,7 @@ public final class ClusterCertificate {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Use service instead
+     * @return TLS key for etcd service (string)
      * 
      */
     public Optional<String> key() {
@@ -81,7 +81,7 @@ public final class ClusterCertificate {
         return Optional.ofNullable(this.keyPath);
     }
     /**
-     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
      * 
      */
     public Optional<String> name() {
@@ -91,7 +91,7 @@ public final class ClusterCertificate {
         return Optional.ofNullable(this.ouName);
     }
     /**
-     * @return Path for etcd service (string)
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     public Optional<String> path() {

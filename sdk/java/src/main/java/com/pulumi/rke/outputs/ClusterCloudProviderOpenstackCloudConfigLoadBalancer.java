@@ -59,7 +59,7 @@ public final class ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
      */
     private @Nullable String monitorTimeout;
     /**
-     * @return Enables using a specific subnet to use for ELB&#39;s (string)
+     * @return (string)
      * 
      */
     private @Nullable String subnetId;
@@ -134,7 +134,7 @@ public final class ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
         return Optional.ofNullable(this.monitorTimeout);
     }
     /**
-     * @return Enables using a specific subnet to use for ELB&#39;s (string)
+     * @return (string)
      * 
      */
     public Optional<String> subnetId() {

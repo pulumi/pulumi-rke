@@ -33,7 +33,7 @@ public final class ClusterUpgradeStrategyDrainInput {
      */
     private @Nullable Boolean ignoreDaemonSets;
     /**
-     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * @return RKE node drain timeout (int)
      * 
      */
     private @Nullable Integer timeout;
@@ -68,7 +68,7 @@ public final class ClusterUpgradeStrategyDrainInput {
         return Optional.ofNullable(this.ignoreDaemonSets);
     }
     /**
-     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * @return RKE node drain timeout (int)
      * 
      */
     public Optional<Integer> timeout() {

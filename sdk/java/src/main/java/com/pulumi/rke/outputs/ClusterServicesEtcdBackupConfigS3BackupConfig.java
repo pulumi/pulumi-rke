@@ -32,12 +32,12 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfig {
      */
     private @Nullable String endpoint;
     /**
-     * @return (string)
+     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
      * 
      */
     private @Nullable String folder;
     /**
-     * @return (string)
+     * @return Region for S3 service (string)
      * 
      */
     private @Nullable String region;
@@ -77,14 +77,14 @@ public final class ClusterServicesEtcdBackupConfigS3BackupConfig {
         return Optional.ofNullable(this.endpoint);
     }
     /**
-     * @return (string)
+     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
      * 
      */
     public Optional<String> folder() {
         return Optional.ofNullable(this.folder);
     }
     /**
-     * @return (string)
+     * @return Region for S3 service (string)
      * 
      */
     public Optional<String> region() {

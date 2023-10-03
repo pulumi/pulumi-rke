@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterWorkerHostGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address of Bastion Host (string)
+        /// Address ip for node (string)
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }

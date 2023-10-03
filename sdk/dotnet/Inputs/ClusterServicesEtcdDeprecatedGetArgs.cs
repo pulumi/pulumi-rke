@@ -72,7 +72,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for the ingress controller (map)
+        /// Extra arguments for scheduler service (map)
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for etcd service (list)
+        /// Extra binds for scheduler service (list)
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for etcd service (list)
+        /// Extra environment for scheduler service (list)
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -111,7 +111,7 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? Gid { get; set; }
 
         /// <summary>
-        /// Docker image for etcd service (string)
+        /// Docker image for scheduler service (string)
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _key;
 
         /// <summary>
-        /// Use service instead
+        /// TLS key for etcd service (string)
         /// </summary>
         public Input<string>? Key
         {
@@ -133,13 +133,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Path for etcd service (string)
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Retention option for etcd service (string)
+        /// Retention for etcd backup. Default `6` (int)
         /// </summary>
         [Input("retention")]
         public Input<string>? Retention { get; set; }

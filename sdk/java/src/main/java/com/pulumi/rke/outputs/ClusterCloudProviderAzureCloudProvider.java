@@ -125,7 +125,7 @@ public final class ClusterCloudProviderAzureCloudProvider {
      */
     private String subscriptionId;
     /**
-     * @return (string)
+     * @return Required if `tenant_name` not provided. (string)
      * 
      */
     private String tenantId;
@@ -314,7 +314,7 @@ public final class ClusterCloudProviderAzureCloudProvider {
         return this.subscriptionId;
     }
     /**
-     * @return (string)
+     * @return Required if `tenant_name` not provided. (string)
      * 
      */
     public String tenantId() {

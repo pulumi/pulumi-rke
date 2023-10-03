@@ -30,15 +30,15 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? DomainName;
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// (string)
+        /// Required if `tenant_name` not provided. (string)
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

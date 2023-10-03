@@ -32,14 +32,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (string)
+     * Registry password (string)
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return (string)
+     * @return Registry password (string)
      * 
      */
     public Optional<Output<String>> password() {
@@ -47,14 +47,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (string)
+     * Registry URL (string)
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return (string)
+     * @return Registry URL (string)
      * 
      */
     public Output<String> url() {
@@ -62,14 +62,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      * 
      */
     @Import(name="user")
     private @Nullable Output<String> user;
 
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     public Optional<Output<String>> user() {
@@ -125,7 +125,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param password (string)
+         * @param password Registry password (string)
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param password (string)
+         * @param password Registry password (string)
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param url (string)
+         * @param url Registry URL (string)
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param url (string)
+         * @param url Registry URL (string)
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param user SSH User to Bastion Host (string)
+         * @param user Registry user (string)
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param user SSH User to Bastion Host (string)
+         * @param user Registry user (string)
          * 
          * @return builder
          * 

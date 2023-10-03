@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Path for etcd service (string)
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

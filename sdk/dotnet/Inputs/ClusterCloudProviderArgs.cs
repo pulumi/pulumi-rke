@@ -49,7 +49,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? CustomCloudProvider { get; set; }
 
         /// <summary>
-        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

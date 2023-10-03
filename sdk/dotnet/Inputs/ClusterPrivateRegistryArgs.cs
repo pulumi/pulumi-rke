@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public Input<string>? Password
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// (string)
+        /// Registry URL (string)
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _user;
 
         /// <summary>
-        /// SSH User to Bastion Host (string)
+        /// Registry user (string)
         /// </summary>
         public Input<string>? User
         {

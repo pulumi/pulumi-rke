@@ -18,7 +18,7 @@ public final class ClusterServicesKubeApiSecretsEncryptionConfig {
      */
     private @Nullable String customConfig;
     /**
-     * @return Enable etcd backup. Default `true` (bool)
+     * @return Enable secrets encryption (bool)
      * 
      */
     private @Nullable Boolean enabled;
@@ -32,7 +32,7 @@ public final class ClusterServicesKubeApiSecretsEncryptionConfig {
         return Optional.ofNullable(this.customConfig);
     }
     /**
-     * @return Enable etcd backup. Default `true` (bool)
+     * @return Enable secrets encryption (bool)
      * 
      */
     public Optional<Boolean> enabled() {

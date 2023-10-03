@@ -25,13 +25,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Nodelocal dns config  (list Maxitem: 1)
+        /// Docker image for nodelocal (string)
         /// </summary>
         [Input("nodelocal")]
         public Input<Inputs.ClusterDnsNodelocalArgs>? Nodelocal { get; set; }
 
         /// <summary>
-        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+        /// Monitoring provider (string)
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }

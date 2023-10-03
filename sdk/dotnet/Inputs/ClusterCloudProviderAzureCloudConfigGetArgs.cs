@@ -191,7 +191,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _tenantId;
 
         /// <summary>
-        /// (string)
+        /// Required if `tenant_name` not provided. (string)
         /// </summary>
         public Input<string>? TenantId
         {

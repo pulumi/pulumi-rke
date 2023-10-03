@@ -14,11 +14,11 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterCloudProviderAwsCloudProviderServiceOverride
     {
         /// <summary>
-        /// Use service instead
+        /// TLS key for etcd service (string)
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         public readonly string? Region;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SigningRegion;
         /// <summary>
-        /// (string)
+        /// Registry URL (string)
         /// </summary>
         public readonly string? Url;
 

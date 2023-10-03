@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? CustomConfig { get; set; }
 
         /// <summary>
-        /// Enable etcd backup. Default `true` (bool)
+        /// Enable secrets encryption (bool)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

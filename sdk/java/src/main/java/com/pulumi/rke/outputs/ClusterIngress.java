@@ -22,7 +22,7 @@ public final class ClusterIngress {
      */
     private @Nullable String dnsPolicy;
     /**
-     * @return Extra arguments for the ingress controller (map)
+     * @return Extra arguments for scheduler service (map)
      * 
      */
     private @Nullable Map<String,Object> extraArgs;
@@ -47,12 +47,12 @@ public final class ClusterIngress {
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     private @Nullable Map<String,Object> options;
     /**
-     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * @return Monitoring provider (string)
      * 
      */
     private @Nullable String provider;
@@ -69,7 +69,7 @@ public final class ClusterIngress {
         return Optional.ofNullable(this.dnsPolicy);
     }
     /**
-     * @return Extra arguments for the ingress controller (map)
+     * @return Extra arguments for scheduler service (map)
      * 
      */
     public Map<String,Object> extraArgs() {
@@ -104,14 +104,14 @@ public final class ClusterIngress {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     public Map<String,Object> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * @return Monitoring provider (string)
      * 
      */
     public Optional<String> provider() {

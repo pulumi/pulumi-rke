@@ -13,13 +13,13 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use service instead
+        /// TLS key for etcd service (string)
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? SigningRegion { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Registry URL (string)
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

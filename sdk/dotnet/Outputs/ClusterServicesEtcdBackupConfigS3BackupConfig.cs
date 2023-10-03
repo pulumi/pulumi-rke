@@ -30,11 +30,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
-        /// (string)
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
         /// </summary>
         public readonly string? Folder;
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         public readonly string? Region;
         /// <summary>

@@ -67,7 +67,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? MonitorTimeout { get; set; }
 
         /// <summary>
-        /// Enables using a specific subnet to use for ELB's (string)
+        /// (string)
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

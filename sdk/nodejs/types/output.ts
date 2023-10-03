@@ -37,14 +37,14 @@ export interface ClusterAuthorization {
      */
     mode?: string;
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      */
     options?: {[key: string]: any};
 }
 
 export interface ClusterBastionHost {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**
@@ -52,7 +52,7 @@ export interface ClusterBastionHost {
      */
     ignoreProxyEnvVars?: boolean;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -60,7 +60,7 @@ export interface ClusterBastionHost {
      */
     sshAgentAuth: boolean;
     /**
-     * SSH Certificate Key (string)
+     * SSH Certificate (string)
      */
     sshCert?: string;
     /**
@@ -76,7 +76,7 @@ export interface ClusterBastionHost {
      */
     sshKeyPath: string;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user: string;
 }
@@ -93,18 +93,18 @@ export interface ClusterCertificate {
      */
     id: string;
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      */
     key: string;
     keyEnvName: string;
     keyPath: string;
     /**
-     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
      */
     name: string;
     ouName: string;
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
     path: string;
 }
@@ -141,7 +141,7 @@ export interface ClusterCloudProvider {
      */
     customCloudProvider?: string;
     /**
-     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
      */
     name: string;
     /**
@@ -207,7 +207,7 @@ export interface ClusterCloudProviderAwsCloudConfigGlobal {
      */
     routeTableId?: string;
     /**
-     * Enables using a specific subnet to use for ELB's (string)
+     * (string)
      */
     subnetId?: string;
     /**
@@ -222,13 +222,13 @@ export interface ClusterCloudProviderAwsCloudConfigGlobal {
 
 export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      *
      * @deprecated Use service instead
      */
     key?: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
@@ -248,7 +248,7 @@ export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
      */
     signingRegion?: string;
     /**
-     * (string)
+     * Registry URL (string)
      */
     url?: string;
 }
@@ -294,7 +294,7 @@ export interface ClusterCloudProviderAwsCloudProviderGlobal {
      */
     routeTableId?: string;
     /**
-     * Enables using a specific subnet to use for ELB's (string)
+     * (string)
      */
     subnetId?: string;
     /**
@@ -309,13 +309,13 @@ export interface ClusterCloudProviderAwsCloudProviderGlobal {
 
 export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      *
      * @deprecated Use service instead
      */
     key?: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
@@ -335,7 +335,7 @@ export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
      */
     signingRegion?: string;
     /**
-     * (string)
+     * Registry URL (string)
      */
     url?: string;
 }
@@ -431,7 +431,7 @@ export interface ClusterCloudProviderAzureCloudConfig {
      */
     subscriptionId: string;
     /**
-     * (string)
+     * Required if `tenantName` not provided. (string)
      */
     tenantId: string;
     /**
@@ -547,7 +547,7 @@ export interface ClusterCloudProviderAzureCloudProvider {
      */
     subscriptionId: string;
     /**
-     * (string)
+     * Required if `tenantName` not provided. (string)
      */
     tenantId: string;
     /**
@@ -628,15 +628,15 @@ export interface ClusterCloudProviderOpenstackCloudConfigGlobal {
      */
     domainName?: string;
     /**
-     * (string)
+     * Registry password (string)
      */
     password: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
-     * (string)
+     * Required if `tenantName` not provided. (string)
      */
     tenantId?: string;
     /**
@@ -695,7 +695,7 @@ export interface ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
      */
     monitorTimeout?: string;
     /**
-     * Enables using a specific subnet to use for ELB's (string)
+     * (string)
      */
     subnetId?: string;
     /**
@@ -778,15 +778,15 @@ export interface ClusterCloudProviderOpenstackCloudProviderGlobal {
      */
     domainName?: string;
     /**
-     * (string)
+     * Registry password (string)
      */
     password: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
-     * (string)
+     * Required if `tenantName` not provided. (string)
      */
     tenantId?: string;
     /**
@@ -845,7 +845,7 @@ export interface ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
      */
     monitorTimeout?: string;
     /**
-     * Enables using a specific subnet to use for ELB's (string)
+     * (string)
      */
     subnetId?: string;
     /**
@@ -920,11 +920,11 @@ export interface ClusterCloudProviderVsphereCloudConfigGlobal {
      */
     insecureFlag?: boolean;
     /**
-     * (string)
+     * Registry password (string)
      */
     password?: string;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -932,7 +932,7 @@ export interface ClusterCloudProviderVsphereCloudConfigGlobal {
      */
     soapRoundtripCount?: number;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user?: string;
     /**
@@ -962,15 +962,15 @@ export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
      */
     datacenters: string;
     /**
-     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
      */
     name: string;
     /**
-     * (string)
+     * Registry password (string)
      */
     password: string;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -978,7 +978,7 @@ export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
      */
     soapRoundtripCount?: number;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user: string;
 }
@@ -993,7 +993,7 @@ export interface ClusterCloudProviderVsphereCloudConfigWorkspace {
      */
     defaultDatastore?: string;
     /**
-     * (string)
+     * Folder for S3 service. Available from Rancher v2.2.7 (string)
      */
     folder?: string;
     /**
@@ -1054,11 +1054,11 @@ export interface ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     insecureFlag?: boolean;
     /**
-     * (string)
+     * Registry password (string)
      */
     password?: string;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1066,7 +1066,7 @@ export interface ClusterCloudProviderVsphereCloudProviderGlobal {
      */
     soapRoundtripCount?: number;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user?: string;
     /**
@@ -1096,15 +1096,15 @@ export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     datacenters: string;
     /**
-     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
      */
     name: string;
     /**
-     * (string)
+     * Registry password (string)
      */
     password: string;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1112,7 +1112,7 @@ export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
      */
     soapRoundtripCount?: number;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user: string;
 }
@@ -1127,7 +1127,7 @@ export interface ClusterCloudProviderVsphereCloudProviderWorkspace {
      */
     defaultDatastore?: string;
     /**
-     * (string)
+     * Folder for S3 service. Available from Rancher v2.2.7 (string)
      */
     folder?: string;
     /**
@@ -1142,7 +1142,7 @@ export interface ClusterCloudProviderVsphereCloudProviderWorkspace {
 
 export interface ClusterControlPlaneHost {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**
@@ -1157,11 +1157,11 @@ export interface ClusterDns {
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * Nodelocal dns config  (list Maxitem: 1)
+     * Docker image for nodelocal (string)
      */
     nodelocal?: outputs.ClusterDnsNodelocal;
     /**
-     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * Monitoring provider (string)
      */
     provider?: string;
     /**
@@ -1187,7 +1187,7 @@ export interface ClusterDnsNodelocal {
 
 export interface ClusterEtcdHost {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**
@@ -1198,7 +1198,7 @@ export interface ClusterEtcdHost {
 
 export interface ClusterInactiveHost {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**
@@ -1214,7 +1214,7 @@ export interface ClusterIngress {
      */
     dnsPolicy?: string;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs?: {[key: string]: any};
     /**
@@ -1234,11 +1234,11 @@ export interface ClusterIngress {
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      */
     options?: {[key: string]: any};
     /**
-     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * Monitoring provider (string)
      */
     provider?: string;
 }
@@ -1249,11 +1249,11 @@ export interface ClusterMonitoring {
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      */
     options?: {[key: string]: any};
     /**
-     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * Monitoring provider (string)
      */
     provider: string;
 }
@@ -1280,7 +1280,7 @@ export interface ClusterNetwork {
      */
     mtu?: number;
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      */
     options: {[key: string]: any};
     /**
@@ -1399,28 +1399,28 @@ export interface ClusterNetworkCalicoNetworkProvider {
 
 export interface ClusterNetworkCanalNetworkProvider {
     /**
-     * Canal network interface (string)
+     * Flannel network interface (string)
      */
     iface: string;
 }
 
 export interface ClusterNetworkFlannelNetworkProvider {
     /**
-     * Canal network interface (string)
+     * Flannel network interface (string)
      */
     iface: string;
 }
 
 export interface ClusterNetworkWeaveNetworkProvider {
     /**
-     * (string)
+     * Registry password (string)
      */
     password: string;
 }
 
 export interface ClusterNode {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**
@@ -1444,7 +1444,7 @@ export interface ClusterNode {
      */
     nodeName?: string;
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      */
     port?: string;
     /**
@@ -1460,7 +1460,7 @@ export interface ClusterNode {
      */
     sshAgentAuth: boolean;
     /**
-     * SSH Certificate Key (string)
+     * SSH Certificate (string)
      */
     sshCert?: string;
     /**
@@ -1480,7 +1480,7 @@ export interface ClusterNode {
      */
     taints?: outputs.ClusterNodeTaint[];
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user: string;
 }
@@ -1491,7 +1491,7 @@ export interface ClusterNodeTaint {
      */
     effect?: string;
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      */
     key: string;
     /**
@@ -1506,15 +1506,15 @@ export interface ClusterPrivateRegistry {
      */
     isDefault?: boolean;
     /**
-     * (string)
+     * Registry password (string)
      */
     password?: string;
     /**
-     * (string)
+     * Registry URL (string)
      */
     url: string;
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      */
     user?: string;
 }
@@ -1623,7 +1623,7 @@ export interface ClusterRunningSystemImage {
      */
     dnsmasq?: string;
     /**
-     * Etcd options for RKE services (list maxitems:1)
+     * Docker image for etcd (string)
      */
     etcd?: string;
     /**
@@ -1671,7 +1671,7 @@ export interface ClusterRunningSystemImage {
      */
     nginxProxy?: string;
     /**
-     * Nodelocal dns config  (list Maxitem: 1)
+     * Docker image for nodelocal (string)
      */
     nodelocal?: string;
     /**
@@ -1694,7 +1694,7 @@ export interface ClusterRunningSystemImage {
 
 export interface ClusterServices {
     /**
-     * Etcd options for RKE services (list maxitems:1)
+     * Docker image for etcd (string)
      */
     etcd: outputs.ClusterServicesEtcd;
     /**
@@ -1741,15 +1741,15 @@ export interface ClusterServicesEtcd {
      */
     externalUrls: string[];
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
@@ -1757,19 +1757,19 @@ export interface ClusterServicesEtcd {
      */
     gid?: number;
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      */
     key: string;
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
     path: string;
     /**
-     * Retention option for etcd service (string)
+     * Retention for etcd backup. Default `6` (int)
      */
     retention: string;
     /**
@@ -1784,7 +1784,7 @@ export interface ClusterServicesEtcd {
 
 export interface ClusterServicesEtcdBackupConfig {
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: boolean;
     /**
@@ -1792,7 +1792,7 @@ export interface ClusterServicesEtcdBackupConfig {
      */
     intervalHours?: number;
     /**
-     * Retention option for etcd service (string)
+     * Retention for etcd backup. Default `6` (int)
      */
     retention?: number;
     /**
@@ -1804,7 +1804,7 @@ export interface ClusterServicesEtcdBackupConfig {
      */
     safeTimestamp?: boolean;
     /**
-     * Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * RKE node drain timeout (int)
      */
     timeout?: number;
 }
@@ -1827,11 +1827,11 @@ export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
      */
     endpoint?: string;
     /**
-     * (string)
+     * Folder for S3 service. Available from Rancher v2.2.7 (string)
      */
     folder?: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
@@ -1862,15 +1862,15 @@ export interface ClusterServicesEtcdDeprecated {
      */
     externalUrls: string[];
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
@@ -1878,19 +1878,19 @@ export interface ClusterServicesEtcdDeprecated {
      */
     gid?: number;
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      */
     key: string;
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
     path: string;
     /**
-     * Retention option for etcd service (string)
+     * Retention for etcd backup. Default `6` (int)
      */
     retention: string;
     /**
@@ -1905,7 +1905,7 @@ export interface ClusterServicesEtcdDeprecated {
 
 export interface ClusterServicesEtcdDeprecatedBackupConfig {
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled?: boolean;
     /**
@@ -1913,7 +1913,7 @@ export interface ClusterServicesEtcdDeprecatedBackupConfig {
      */
     intervalHours?: number;
     /**
-     * Retention option for etcd service (string)
+     * Retention for etcd backup. Default `6` (int)
      */
     retention?: number;
     /**
@@ -1925,7 +1925,7 @@ export interface ClusterServicesEtcdDeprecatedBackupConfig {
      */
     safeTimestamp?: boolean;
     /**
-     * Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * RKE node drain timeout (int)
      */
     timeout?: number;
 }
@@ -1948,11 +1948,11 @@ export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
      */
     endpoint?: string;
     /**
-     * (string)
+     * Folder for S3 service. Available from Rancher v2.2.7 (string)
      */
     folder?: string;
     /**
-     * (string)
+     * Region for S3 service (string)
      */
     region?: string;
     /**
@@ -1975,19 +1975,19 @@ export interface ClusterServicesKubeApi {
      */
     eventRateLimit?: outputs.ClusterServicesKubeApiEventRateLimit;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
@@ -1999,7 +1999,7 @@ export interface ClusterServicesKubeApi {
      */
     secretsEncryptionConfig?: outputs.ClusterServicesKubeApiSecretsEncryptionConfig;
     /**
-     * Service Cluster IP Range option for kube API service (string)
+     * Service Cluster ip Range option for kube controller service (string)
      */
     serviceClusterIpRange: string;
     /**
@@ -2010,11 +2010,11 @@ export interface ClusterServicesKubeApi {
 
 export interface ClusterServicesKubeApiAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: outputs.ClusterServicesKubeApiAuditLogConfiguration;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
@@ -2037,7 +2037,7 @@ export interface ClusterServicesKubeApiAuditLogConfiguration {
      */
     maxSize: number;
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
     path: string;
     /**
@@ -2060,19 +2060,19 @@ export interface ClusterServicesKubeApiDeprecated {
      */
     eventRateLimit?: outputs.ClusterServicesKubeApiDeprecatedEventRateLimit;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
@@ -2084,7 +2084,7 @@ export interface ClusterServicesKubeApiDeprecated {
      */
     secretsEncryptionConfig?: outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig;
     /**
-     * Service Cluster IP Range option for kube API service (string)
+     * Service Cluster ip Range option for kube controller service (string)
      */
     serviceClusterIpRange: string;
     /**
@@ -2095,11 +2095,11 @@ export interface ClusterServicesKubeApiDeprecated {
 
 export interface ClusterServicesKubeApiDeprecatedAuditLog {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: outputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
@@ -2122,7 +2122,7 @@ export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
      */
     maxSize: number;
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      */
     path: string;
     /**
@@ -2133,11 +2133,11 @@ export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 
 export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: string;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
@@ -2148,18 +2148,18 @@ export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
      */
     customConfig: string;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiEventRateLimit {
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      */
     configuration: string;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
@@ -2170,7 +2170,7 @@ export interface ClusterServicesKubeApiSecretsEncryptionConfig {
      */
     customConfig: string;
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      */
     enabled: boolean;
 }
@@ -2181,23 +2181,23 @@ export interface ClusterServicesKubeController {
      */
     clusterCidr: string;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
-     * Service Cluster IP Range option for kube API service (string)
+     * Service Cluster ip Range option for kube controller service (string)
      */
     serviceClusterIpRange: string;
 }
@@ -2208,61 +2208,61 @@ export interface ClusterServicesKubeControllerDeprecated {
      */
     clusterCidr: string;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
-     * Service Cluster IP Range option for kube API service (string)
+     * Service Cluster ip Range option for kube controller service (string)
      */
     serviceClusterIpRange: string;
 }
 
 export interface ClusterServicesKubeProxyDeprecated {
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
 }
 
 export interface ClusterServicesKubeSchedulerDeprecated {
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
 }
@@ -2277,15 +2277,15 @@ export interface ClusterServicesKubelet {
      */
     clusterDomain?: string;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
@@ -2297,7 +2297,7 @@ export interface ClusterServicesKubelet {
      */
     generateServingCertificate?: boolean;
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
@@ -2316,15 +2316,15 @@ export interface ClusterServicesKubeletDeprecated {
      */
     clusterDomain?: string;
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
@@ -2336,7 +2336,7 @@ export interface ClusterServicesKubeletDeprecated {
      */
     generateServingCertificate?: boolean;
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
     /**
@@ -2347,38 +2347,38 @@ export interface ClusterServicesKubeletDeprecated {
 
 export interface ClusterServicesKubeproxy {
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
 }
 
 export interface ClusterServicesScheduler {
     /**
-     * Extra arguments for the ingress controller (map)
+     * Extra arguments for scheduler service (map)
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for etcd service (list)
+     * Extra binds for scheduler service (list)
      */
     extraBinds: string[];
     /**
-     * Extra environment for etcd service (list)
+     * Extra environment for scheduler service (list)
      */
     extraEnvs: string[];
     /**
-     * Docker image for etcd service (string)
+     * Docker image for scheduler service (string)
      */
     image: string;
 }
@@ -2465,7 +2465,7 @@ export interface ClusterSystemImages {
      */
     dnsmasq?: string;
     /**
-     * Etcd options for RKE services (list maxitems:1)
+     * Docker image for etcd (string)
      */
     etcd?: string;
     /**
@@ -2513,7 +2513,7 @@ export interface ClusterSystemImages {
      */
     nginxProxy?: string;
     /**
-     * Nodelocal dns config  (list Maxitem: 1)
+     * Docker image for nodelocal (string)
      */
     nodelocal?: string;
     /**
@@ -2571,14 +2571,14 @@ export interface ClusterUpgradeStrategyDrainInput {
      */
     ignoreDaemonSets: boolean;
     /**
-     * Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * RKE node drain timeout (int)
      */
     timeout: number;
 }
 
 export interface ClusterWorkerHost {
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      */
     address: string;
     /**

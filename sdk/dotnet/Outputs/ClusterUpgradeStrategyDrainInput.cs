@@ -30,7 +30,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? IgnoreDaemonSets;
         /// <summary>
-        /// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+        /// RKE node drain timeout (int)
         /// </summary>
         public readonly int? Timeout;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesEtcdBackupConfig
     {
         /// <summary>
-        /// Enable etcd backup. Default `true` (bool)
+        /// Enable secrets encryption (bool)
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly int? IntervalHours;
         /// <summary>
-        /// Retention option for etcd service (string)
+        /// Retention for etcd backup. Default `6` (int)
         /// </summary>
         public readonly int? Retention;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? SafeTimestamp;
         /// <summary>
-        /// Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+        /// RKE node drain timeout (int)
         /// </summary>
         public readonly int? Timeout;
 

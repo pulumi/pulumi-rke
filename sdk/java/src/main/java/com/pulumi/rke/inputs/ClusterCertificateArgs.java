@@ -73,14 +73,14 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Use service instead
+     * TLS key for etcd service (string)
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Use service instead
+     * @return TLS key for etcd service (string)
      * 
      */
     public Optional<Output<String>> key() {
@@ -102,14 +102,14 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Path for etcd service (string)
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Path for etcd service (string)
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     public Optional<Output<String>> path() {
@@ -250,7 +250,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key Use service instead
+         * @param key TLS key for etcd service (string)
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key Use service instead
+         * @param key TLS key for etcd service (string)
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param path Path for etcd service (string)
+         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param path Path for etcd service (string)
+         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
          * 
          * @return builder
          * 

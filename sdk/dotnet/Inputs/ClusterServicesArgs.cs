@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Etcd options for RKE services (list maxitems:1)
+        /// Docker image for etcd (string)
         /// </summary>
         [Input("etcd")]
         public Input<Inputs.ClusterServicesEtcdArgs>? Etcd { get; set; }
