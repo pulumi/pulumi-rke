@@ -18,17 +18,17 @@ public final class ClusterPrivateRegistry {
      */
     private @Nullable Boolean isDefault;
     /**
-     * @return (string)
+     * @return Registry password (string)
      * 
      */
     private @Nullable String password;
     /**
-     * @return (string)
+     * @return Registry URL (string)
      * 
      */
     private String url;
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     private @Nullable String user;
@@ -42,21 +42,21 @@ public final class ClusterPrivateRegistry {
         return Optional.ofNullable(this.isDefault);
     }
     /**
-     * @return (string)
+     * @return Registry password (string)
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return (string)
+     * @return Registry URL (string)
      * 
      */
     public String url() {
         return this.url;
     }
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     public Optional<String> user() {

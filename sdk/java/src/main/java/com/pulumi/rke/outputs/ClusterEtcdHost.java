@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterEtcdHost {
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     private @Nullable String address;
@@ -24,7 +24,7 @@ public final class ClusterEtcdHost {
 
     private ClusterEtcdHost() {}
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     public Optional<String> address() {

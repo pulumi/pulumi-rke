@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// RKE options for authorization (map)
+        /// Network provider options (map)
         /// </summary>
         public InputMap<object> Options
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+        /// Monitoring provider (string)
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }

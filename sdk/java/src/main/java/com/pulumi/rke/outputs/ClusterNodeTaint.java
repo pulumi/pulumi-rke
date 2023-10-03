@@ -17,7 +17,7 @@ public final class ClusterNodeTaint {
      */
     private @Nullable String effect;
     /**
-     * @return Use service instead
+     * @return TLS key for etcd service (string)
      * 
      */
     private String key;
@@ -36,7 +36,7 @@ public final class ClusterNodeTaint {
         return Optional.ofNullable(this.effect);
     }
     /**
-     * @return Use service instead
+     * @return TLS key for etcd service (string)
      * 
      */
     public String key() {

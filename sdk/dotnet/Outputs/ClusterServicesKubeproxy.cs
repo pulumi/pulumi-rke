@@ -14,19 +14,19 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeproxy
     {
         /// <summary>
-        /// Extra arguments for the ingress controller (map)
+        /// Extra arguments for scheduler service (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Extra binds for etcd service (list)
+        /// Extra binds for scheduler service (list)
         /// </summary>
         public readonly ImmutableArray<string> ExtraBinds;
         /// <summary>
-        /// Extra environment for etcd service (list)
+        /// Extra environment for scheduler service (list)
         /// </summary>
         public readonly ImmutableArray<string> ExtraEnvs;
         /// <summary>
-        /// Docker image for etcd service (string)
+        /// Docker image for scheduler service (string)
         /// </summary>
         public readonly string? Image;
 

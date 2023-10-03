@@ -45,7 +45,7 @@ public final class ClusterNetwork {
      */
     private @Nullable Integer mtu;
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     private @Nullable Map<String,Object> options;
@@ -97,7 +97,7 @@ public final class ClusterNetwork {
         return Optional.ofNullable(this.mtu);
     }
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     public Map<String,Object> options() {

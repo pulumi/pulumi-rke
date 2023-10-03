@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? DnsPolicy;
         /// <summary>
-        /// Extra arguments for the ingress controller (map)
+        /// Extra arguments for scheduler service (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
@@ -39,11 +39,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// RKE options for authorization (map)
+        /// Network provider options (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>
-        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+        /// Monitoring provider (string)
         /// </summary>
         public readonly string? Provider;
 

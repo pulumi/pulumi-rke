@@ -122,14 +122,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * Enables using a specific subnet to use for ELB&#39;s (string)
+     * (string)
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return Enables using a specific subnet to use for ELB&#39;s (string)
+     * @return (string)
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -347,7 +347,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param subnetId Enables using a specific subnet to use for ELB&#39;s (string)
+         * @param subnetId (string)
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param subnetId Enables using a specific subnet to use for ELB&#39;s (string)
+         * @param subnetId (string)
          * 
          * @return builder
          * 

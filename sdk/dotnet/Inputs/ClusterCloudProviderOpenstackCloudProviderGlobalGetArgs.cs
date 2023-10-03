@@ -50,7 +50,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public Input<string>? Password
         {
@@ -63,7 +63,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -72,7 +72,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _tenantId;
 
         /// <summary>
-        /// (string)
+        /// Required if `tenant_name` not provided. (string)
         /// </summary>
         public Input<string>? TenantId
         {

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServicesEtcdDeprecatedBackupConfig {
     /**
-     * @return Enable etcd backup. Default `true` (bool)
+     * @return Enable secrets encryption (bool)
      * 
      */
     private @Nullable Boolean enabled;
@@ -24,7 +24,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfig {
      */
     private @Nullable Integer intervalHours;
     /**
-     * @return Retention option for etcd service (string)
+     * @return Retention for etcd backup. Default `6` (int)
      * 
      */
     private @Nullable Integer retention;
@@ -39,14 +39,14 @@ public final class ClusterServicesEtcdDeprecatedBackupConfig {
      */
     private @Nullable Boolean safeTimestamp;
     /**
-     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * @return RKE node drain timeout (int)
      * 
      */
     private @Nullable Integer timeout;
 
     private ClusterServicesEtcdDeprecatedBackupConfig() {}
     /**
-     * @return Enable etcd backup. Default `true` (bool)
+     * @return Enable secrets encryption (bool)
      * 
      */
     public Optional<Boolean> enabled() {
@@ -60,7 +60,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfig {
         return Optional.ofNullable(this.intervalHours);
     }
     /**
-     * @return Retention option for etcd service (string)
+     * @return Retention for etcd backup. Default `6` (int)
      * 
      */
     public Optional<Integer> retention() {
@@ -81,7 +81,7 @@ public final class ClusterServicesEtcdDeprecatedBackupConfig {
         return Optional.ofNullable(this.safeTimestamp);
     }
     /**
-     * @return Timeout in seconds for etcd backup. Default: `300`. Just for RKE v1.2.6 and above (int)
+     * @return RKE node drain timeout (int)
      * 
      */
     public Optional<Integer> timeout() {

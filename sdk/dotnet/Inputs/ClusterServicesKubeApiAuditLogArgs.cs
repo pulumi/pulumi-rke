@@ -13,13 +13,13 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesKubeApiAuditLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Audit log configuration. (list maxtiem: 1)
+        /// Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterServicesKubeApiAuditLogConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Enable etcd backup. Default `true` (bool)
+        /// Enable secrets encryption (bool)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

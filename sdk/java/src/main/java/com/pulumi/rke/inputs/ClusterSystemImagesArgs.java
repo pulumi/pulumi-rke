@@ -316,14 +316,14 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Etcd options for RKE services (list maxitems:1)
+     * Docker image for etcd (string)
      * 
      */
     @Import(name="etcd")
     private @Nullable Output<String> etcd;
 
     /**
-     * @return Etcd options for RKE services (list maxitems:1)
+     * @return Docker image for etcd (string)
      * 
      */
     public Optional<Output<String>> etcd() {
@@ -496,14 +496,14 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Nodelocal dns config  (list Maxitem: 1)
+     * Docker image for nodelocal (string)
      * 
      */
     @Import(name="nodelocal")
     private @Nullable Output<String> nodelocal;
 
     /**
-     * @return Nodelocal dns config  (list Maxitem: 1)
+     * @return Docker image for nodelocal (string)
      * 
      */
     public Optional<Output<String>> nodelocal() {
@@ -1051,7 +1051,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etcd Etcd options for RKE services (list maxitems:1)
+         * @param etcd Docker image for etcd (string)
          * 
          * @return builder
          * 
@@ -1062,7 +1062,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etcd Etcd options for RKE services (list maxitems:1)
+         * @param etcd Docker image for etcd (string)
          * 
          * @return builder
          * 
@@ -1303,7 +1303,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
+         * @param nodelocal Docker image for nodelocal (string)
          * 
          * @return builder
          * 
@@ -1314,7 +1314,7 @@ public final class ClusterSystemImagesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodelocal Nodelocal dns config  (list Maxitem: 1)
+         * @param nodelocal Docker image for nodelocal (string)
          * 
          * @return builder
          * 

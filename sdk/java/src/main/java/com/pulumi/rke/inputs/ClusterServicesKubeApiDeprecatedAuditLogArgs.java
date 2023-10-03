@@ -17,14 +17,14 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
     public static final ClusterServicesKubeApiDeprecatedAuditLogArgs Empty = new ClusterServicesKubeApiDeprecatedAuditLogArgs();
 
     /**
-     * Audit log configuration. (list maxtiem: 1)
+     * Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs> configuration;
 
     /**
-     * @return Audit log configuration. (list maxtiem: 1)
+     * @return Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
      * 
      */
     public Optional<Output<ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs>> configuration() {
@@ -32,14 +32,14 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
     }
 
     /**
-     * Enable etcd backup. Default `true` (bool)
+     * Enable secrets encryption (bool)
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable etcd backup. Default `true` (bool)
+     * @return Enable secrets encryption (bool)
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
         }
 
         /**
-         * @param configuration Audit log configuration. (list maxtiem: 1)
+         * @param configuration Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
         }
 
         /**
-         * @param configuration Audit log configuration. (list maxtiem: 1)
+         * @param configuration Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
         }
 
         /**
-         * @param enabled Enable etcd backup. Default `true` (bool)
+         * @param enabled Enable secrets encryption (bool)
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogArgs extends com.pulu
         }
 
         /**
-         * @param enabled Enable etcd backup. Default `true` (bool)
+         * @param enabled Enable secrets encryption (bool)
          * 
          * @return builder
          * 

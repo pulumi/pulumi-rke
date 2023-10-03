@@ -16,14 +16,14 @@ public final class ClusterInactiveHostArgs extends com.pulumi.resources.Resource
     public static final ClusterInactiveHostArgs Empty = new ClusterInactiveHostArgs();
 
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     public Optional<Output<String>> address() {
@@ -71,7 +71,7 @@ public final class ClusterInactiveHostArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param address Address of Bastion Host (string)
+         * @param address Address ip for node (string)
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterInactiveHostArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param address Address of Bastion Host (string)
+         * @param address Address ip for node (string)
          * 
          * @return builder
          * 

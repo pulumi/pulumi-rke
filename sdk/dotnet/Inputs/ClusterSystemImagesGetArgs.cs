@@ -133,7 +133,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Dnsmasq { get; set; }
 
         /// <summary>
-        /// Etcd options for RKE services (list maxitems:1)
+        /// Docker image for etcd (string)
         /// </summary>
         [Input("etcd")]
         public Input<string>? Etcd { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? NginxProxy { get; set; }
 
         /// <summary>
-        /// Nodelocal dns config  (list Maxitem: 1)
+        /// Docker image for nodelocal (string)
         /// </summary>
         [Input("nodelocal")]
         public Input<string>? Nodelocal { get; set; }

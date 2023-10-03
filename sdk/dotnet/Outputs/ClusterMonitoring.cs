@@ -18,11 +18,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// RKE options for authorization (map)
+        /// Network provider options (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>
-        /// DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+        /// Monitoring provider (string)
         /// </summary>
         public readonly string? Provider;
 

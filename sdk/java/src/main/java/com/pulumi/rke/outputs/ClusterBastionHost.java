@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBastionHost {
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     private String address;
@@ -23,7 +23,7 @@ public final class ClusterBastionHost {
      */
     private @Nullable Boolean ignoreProxyEnvVars;
     /**
-     * @return SSH Port of Bastion Host. Default `22` (string)
+     * @return Port used for SSH communication (string)
      * 
      */
     private @Nullable String port;
@@ -33,7 +33,7 @@ public final class ClusterBastionHost {
      */
     private @Nullable Boolean sshAgentAuth;
     /**
-     * @return SSH Certificate Key (string)
+     * @return SSH Certificate (string)
      * 
      */
     private @Nullable String sshCert;
@@ -53,14 +53,14 @@ public final class ClusterBastionHost {
      */
     private @Nullable String sshKeyPath;
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     private String user;
 
     private ClusterBastionHost() {}
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     public String address() {
@@ -74,7 +74,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.ignoreProxyEnvVars);
     }
     /**
-     * @return SSH Port of Bastion Host. Default `22` (string)
+     * @return Port used for SSH communication (string)
      * 
      */
     public Optional<String> port() {
@@ -88,7 +88,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.sshAgentAuth);
     }
     /**
-     * @return SSH Certificate Key (string)
+     * @return SSH Certificate (string)
      * 
      */
     public Optional<String> sshCert() {
@@ -116,7 +116,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.sshKeyPath);
     }
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     public String user() {

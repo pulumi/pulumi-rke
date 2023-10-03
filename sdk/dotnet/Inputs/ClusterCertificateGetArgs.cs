@@ -58,7 +58,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _key;
 
         /// <summary>
-        /// Use service instead
+        /// TLS key for etcd service (string)
         /// </summary>
         public Input<string>? Key
         {
@@ -77,7 +77,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? KeyPath { get; set; }
 
         /// <summary>
-        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -86,7 +86,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? OuName { get; set; }
 
         /// <summary>
-        /// Path for etcd service (string)
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

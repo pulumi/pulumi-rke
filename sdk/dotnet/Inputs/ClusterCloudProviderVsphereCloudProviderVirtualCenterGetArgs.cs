@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string> Datacenters { get; set; } = null!;
 
         /// <summary>
-        /// Cloud Provider name. `aws`, `azure`, `custom`, `external`, `openstack`, `vsphere` are supported (string)
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public Input<string>? Password
         {
@@ -41,7 +41,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// SSH Port of Bastion Host. Default `22` (string)
+        /// Port used for SSH communication (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -56,7 +56,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _user;
 
         /// <summary>
-        /// SSH User to Bastion Host (string)
+        /// Registry user (string)
         /// </summary>
         public Input<string>? User
         {

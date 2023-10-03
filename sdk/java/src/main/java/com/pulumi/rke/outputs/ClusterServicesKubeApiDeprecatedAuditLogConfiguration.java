@@ -33,7 +33,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
      */
     private @Nullable Integer maxSize;
     /**
-     * @return Path for etcd service (string)
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     private @Nullable String path;
@@ -73,7 +73,7 @@ public final class ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
         return Optional.ofNullable(this.maxSize);
     }
     /**
-     * @return Path for etcd service (string)
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
      * 
      */
     public Optional<String> path() {

@@ -94,7 +94,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Dnsmasq;
         /// <summary>
-        /// Etcd options for RKE services (list maxitems:1)
+        /// Docker image for etcd (string)
         /// </summary>
         public readonly string? Etcd;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? NginxProxy;
         /// <summary>
-        /// Nodelocal dns config  (list Maxitem: 1)
+        /// Docker image for nodelocal (string)
         /// </summary>
         public readonly string? Nodelocal;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterWorkerHost
     {
         /// <summary>
-        /// Address of Bastion Host (string)
+        /// Address ip for node (string)
         /// </summary>
         public readonly string? Address;
         /// <summary>

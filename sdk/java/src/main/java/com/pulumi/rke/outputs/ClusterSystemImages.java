@@ -112,7 +112,7 @@ public final class ClusterSystemImages {
      */
     private @Nullable String dnsmasq;
     /**
-     * @return Etcd options for RKE services (list maxitems:1)
+     * @return Docker image for etcd (string)
      * 
      */
     private @Nullable String etcd;
@@ -172,7 +172,7 @@ public final class ClusterSystemImages {
      */
     private @Nullable String nginxProxy;
     /**
-     * @return Nodelocal dns config  (list Maxitem: 1)
+     * @return Docker image for nodelocal (string)
      * 
      */
     private @Nullable String nodelocal;
@@ -339,7 +339,7 @@ public final class ClusterSystemImages {
         return Optional.ofNullable(this.dnsmasq);
     }
     /**
-     * @return Etcd options for RKE services (list maxitems:1)
+     * @return Docker image for etcd (string)
      * 
      */
     public Optional<String> etcd() {
@@ -423,7 +423,7 @@ public final class ClusterSystemImages {
         return Optional.ofNullable(this.nginxProxy);
     }
     /**
-     * @return Nodelocal dns config  (list Maxitem: 1)
+     * @return Docker image for nodelocal (string)
      * 
      */
     public Optional<String> nodelocal() {

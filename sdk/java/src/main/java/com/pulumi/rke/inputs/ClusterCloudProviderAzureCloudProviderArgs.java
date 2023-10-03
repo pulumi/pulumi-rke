@@ -355,14 +355,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * Required if `tenant_name` not provided. (string)
      * 
      */
     @Import(name="tenantId", required=true)
     private Output<String> tenantId;
 
     /**
-     * @return (string)
+     * @return Required if `tenant_name` not provided. (string)
      * 
      */
     public Output<String> tenantId() {
@@ -968,7 +968,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId (string)
+         * @param tenantId Required if `tenant_name` not provided. (string)
          * 
          * @return builder
          * 
@@ -979,7 +979,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId (string)
+         * @param tenantId Required if `tenant_name` not provided. (string)
          * 
          * @return builder
          * 

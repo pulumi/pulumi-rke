@@ -34,7 +34,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly int? Mtu;
         /// <summary>
-        /// RKE options for authorization (map)
+        /// Network provider options (map)
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>

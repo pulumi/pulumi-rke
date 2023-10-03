@@ -21,14 +21,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterNodeArgs Empty = new ClusterNodeArgs();
 
     /**
-     * Address of Bastion Host (string)
+     * Address ip for node (string)
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return Address of Bastion Host (string)
+     * @return Address ip for node (string)
      * 
      */
     public Output<String> address() {
@@ -111,14 +111,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Port of Bastion Host. Default `22` (string)
+     * Port used for SSH communication (string)
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return SSH Port of Bastion Host. Default `22` (string)
+     * @return Port used for SSH communication (string)
      * 
      */
     public Optional<Output<String>> port() {
@@ -175,14 +175,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Certificate Key (string)
+     * SSH Certificate (string)
      * 
      */
     @Import(name="sshCert")
     private @Nullable Output<String> sshCert;
 
     /**
-     * @return SSH Certificate Key (string)
+     * @return SSH Certificate (string)
      * 
      */
     public Optional<Output<String>> sshCert() {
@@ -250,14 +250,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH User to Bastion Host (string)
+     * Registry user (string)
      * 
      */
     @Import(name="user", required=true)
     private Output<String> user;
 
     /**
-     * @return SSH User to Bastion Host (string)
+     * @return Registry user (string)
      * 
      */
     public Output<String> user() {
@@ -304,7 +304,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address Address of Bastion Host (string)
+         * @param address Address ip for node (string)
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address Address of Bastion Host (string)
+         * @param address Address ip for node (string)
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port SSH Port of Bastion Host. Default `22` (string)
+         * @param port Port used for SSH communication (string)
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port SSH Port of Bastion Host. Default `22` (string)
+         * @param port Port used for SSH communication (string)
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCert SSH Certificate Key (string)
+         * @param sshCert SSH Certificate (string)
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCert SSH Certificate Key (string)
+         * @param sshCert SSH Certificate (string)
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user SSH User to Bastion Host (string)
+         * @param user Registry user (string)
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user SSH User to Bastion Host (string)
+         * @param user Registry user (string)
          * 
          * @return builder
          * 

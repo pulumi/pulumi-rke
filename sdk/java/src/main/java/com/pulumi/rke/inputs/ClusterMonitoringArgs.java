@@ -33,14 +33,14 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * RKE options for authorization (map)
+     * Network provider options (map)
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return RKE options for authorization (map)
+     * @return Network provider options (map)
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -48,14 +48,14 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * Monitoring provider (string)
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+     * @return Monitoring provider (string)
      * 
      */
     public Optional<Output<String>> provider() {
@@ -110,7 +110,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options RKE options for authorization (map)
+         * @param options Network provider options (map)
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options RKE options for authorization (map)
+         * @param options Network provider options (map)
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+         * @param provider Monitoring provider (string)
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provider DNS provider. `kube-dns`, `coredns` (default), and `none` are supported (string)
+         * @param provider Monitoring provider (string)
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobal {
      */
     private @Nullable String routeTableId;
     /**
-     * @return Enables using a specific subnet to use for ELB&#39;s (string)
+     * @return (string)
      * 
      */
     private @Nullable String subnetId;
@@ -114,7 +114,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobal {
         return Optional.ofNullable(this.routeTableId);
     }
     /**
-     * @return Enables using a specific subnet to use for ELB&#39;s (string)
+     * @return (string)
      * 
      */
     public Optional<String> subnetId() {

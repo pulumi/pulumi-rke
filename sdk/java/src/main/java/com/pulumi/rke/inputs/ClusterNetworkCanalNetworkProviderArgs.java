@@ -16,14 +16,14 @@ public final class ClusterNetworkCanalNetworkProviderArgs extends com.pulumi.res
     public static final ClusterNetworkCanalNetworkProviderArgs Empty = new ClusterNetworkCanalNetworkProviderArgs();
 
     /**
-     * Canal network interface (string)
+     * Flannel network interface (string)
      * 
      */
     @Import(name="iface")
     private @Nullable Output<String> iface;
 
     /**
-     * @return Canal network interface (string)
+     * @return Flannel network interface (string)
      * 
      */
     public Optional<Output<String>> iface() {
@@ -55,7 +55,7 @@ public final class ClusterNetworkCanalNetworkProviderArgs extends com.pulumi.res
         }
 
         /**
-         * @param iface Canal network interface (string)
+         * @param iface Flannel network interface (string)
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ClusterNetworkCanalNetworkProviderArgs extends com.pulumi.res
         }
 
         /**
-         * @param iface Canal network interface (string)
+         * @param iface Flannel network interface (string)
          * 
          * @return builder
          * 

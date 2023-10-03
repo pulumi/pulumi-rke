@@ -46,7 +46,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// RKE options for authorization (map)
+        /// Network provider options (map)
         /// </summary>
         public InputMap<object> Options
         {

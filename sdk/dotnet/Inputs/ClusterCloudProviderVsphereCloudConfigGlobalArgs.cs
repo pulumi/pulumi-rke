@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// (string)
+        /// Registry password (string)
         /// </summary>
         public Input<string>? Password
         {
@@ -53,7 +53,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// SSH Port of Bastion Host. Default `22` (string)
+        /// Port used for SSH communication (string)
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -68,7 +68,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _user;
 
         /// <summary>
-        /// SSH User to Bastion Host (string)
+        /// Registry user (string)
         /// </summary>
         public Input<string>? User
         {

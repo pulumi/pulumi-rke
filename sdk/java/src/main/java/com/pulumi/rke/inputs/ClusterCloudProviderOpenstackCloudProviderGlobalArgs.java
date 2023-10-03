@@ -76,14 +76,14 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
     }
 
     /**
-     * (string)
+     * Registry password (string)
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return (string)
+     * @return Registry password (string)
      * 
      */
     public Output<String> password() {
@@ -91,14 +91,14 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
     }
 
     /**
-     * (string)
+     * Region for S3 service (string)
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return (string)
+     * @return Region for S3 service (string)
      * 
      */
     public Optional<Output<String>> region() {
@@ -106,14 +106,14 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
     }
 
     /**
-     * (string)
+     * Required if `tenant_name` not provided. (string)
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return (string)
+     * @return Required if `tenant_name` not provided. (string)
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -299,7 +299,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param password (string)
+         * @param password Registry password (string)
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param password (string)
+         * @param password Registry password (string)
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param region (string)
+         * @param region Region for S3 service (string)
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param region (string)
+         * @param region Region for S3 service (string)
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param tenantId (string)
+         * @param tenantId Required if `tenant_name` not provided. (string)
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobalArgs extends 
         }
 
         /**
-         * @param tenantId (string)
+         * @param tenantId Required if `tenant_name` not provided. (string)
          * 
          * @return builder
          * 

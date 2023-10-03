@@ -47,13 +47,13 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
         /// </summary>
         [Input("folder")]
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// (string)
+        /// Region for S3 service (string)
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

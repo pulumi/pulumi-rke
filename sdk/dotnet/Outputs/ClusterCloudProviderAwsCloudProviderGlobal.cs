@@ -42,7 +42,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? RouteTableId;
         /// <summary>
-        /// Enables using a specific subnet to use for ELB's (string)
+        /// (string)
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>

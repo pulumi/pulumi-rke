@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Effect { get; set; }
 
         /// <summary>
-        /// Use service instead
+        /// TLS key for etcd service (string)
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
