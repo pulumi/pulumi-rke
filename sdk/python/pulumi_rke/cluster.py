@@ -192,7 +192,71 @@ class ClusterArgs:
              system_images: Optional[pulumi.Input['ClusterSystemImagesArgs']] = None,
              update_only: Optional[pulumi.Input[bool]] = None,
              upgrade_strategy: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addon_job_timeout is None and 'addonJobTimeout' in kwargs:
+            addon_job_timeout = kwargs['addonJobTimeout']
+        if addons_includes is None and 'addonsIncludes' in kwargs:
+            addons_includes = kwargs['addonsIncludes']
+        if bastion_host is None and 'bastionHost' in kwargs:
+            bastion_host = kwargs['bastionHost']
+        if cert_dir is None and 'certDir' in kwargs:
+            cert_dir = kwargs['certDir']
+        if cloud_provider is None and 'cloudProvider' in kwargs:
+            cloud_provider = kwargs['cloudProvider']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_yaml is None and 'clusterYaml' in kwargs:
+            cluster_yaml = kwargs['clusterYaml']
+        if custom_certs is None and 'customCerts' in kwargs:
+            custom_certs = kwargs['customCerts']
+        if delay_on_creation is None and 'delayOnCreation' in kwargs:
+            delay_on_creation = kwargs['delayOnCreation']
+        if dind_dns_server is None and 'dindDnsServer' in kwargs:
+            dind_dns_server = kwargs['dindDnsServer']
+        if dind_storage_driver is None and 'dindStorageDriver' in kwargs:
+            dind_storage_driver = kwargs['dindStorageDriver']
+        if disable_port_check is None and 'disablePortCheck' in kwargs:
+            disable_port_check = kwargs['disablePortCheck']
+        if enable_cri_dockerd is None and 'enableCriDockerd' in kwargs:
+            enable_cri_dockerd = kwargs['enableCriDockerd']
+        if ignore_docker_version is None and 'ignoreDockerVersion' in kwargs:
+            ignore_docker_version = kwargs['ignoreDockerVersion']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if nodes_confs is None and 'nodesConfs' in kwargs:
+            nodes_confs = kwargs['nodesConfs']
+        if prefix_path is None and 'prefixPath' in kwargs:
+            prefix_path = kwargs['prefixPath']
+        if private_registries is None and 'privateRegistries' in kwargs:
+            private_registries = kwargs['privateRegistries']
+        if rotate_certificates is None and 'rotateCertificates' in kwargs:
+            rotate_certificates = kwargs['rotateCertificates']
+        if services_etcd_deprecated is None and 'servicesEtcdDeprecated' in kwargs:
+            services_etcd_deprecated = kwargs['servicesEtcdDeprecated']
+        if services_kube_api_deprecated is None and 'servicesKubeApiDeprecated' in kwargs:
+            services_kube_api_deprecated = kwargs['servicesKubeApiDeprecated']
+        if services_kube_controller_deprecated is None and 'servicesKubeControllerDeprecated' in kwargs:
+            services_kube_controller_deprecated = kwargs['servicesKubeControllerDeprecated']
+        if services_kube_proxy_deprecated is None and 'servicesKubeProxyDeprecated' in kwargs:
+            services_kube_proxy_deprecated = kwargs['servicesKubeProxyDeprecated']
+        if services_kube_scheduler_deprecated is None and 'servicesKubeSchedulerDeprecated' in kwargs:
+            services_kube_scheduler_deprecated = kwargs['servicesKubeSchedulerDeprecated']
+        if services_kubelet_deprecated is None and 'servicesKubeletDeprecated' in kwargs:
+            services_kubelet_deprecated = kwargs['servicesKubeletDeprecated']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+        if system_images is None and 'systemImages' in kwargs:
+            system_images = kwargs['systemImages']
+        if update_only is None and 'updateOnly' in kwargs:
+            update_only = kwargs['updateOnly']
+        if upgrade_strategy is None and 'upgradeStrategy' in kwargs:
+            upgrade_strategy = kwargs['upgradeStrategy']
+
         if addon_job_timeout is not None:
             _setter("addon_job_timeout", addon_job_timeout)
         if addons is not None:
@@ -1073,7 +1137,105 @@ class _ClusterState:
              update_only: Optional[pulumi.Input[bool]] = None,
              upgrade_strategy: Optional[pulumi.Input['ClusterUpgradeStrategyArgs']] = None,
              worker_hosts: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterWorkerHostArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addon_job_timeout is None and 'addonJobTimeout' in kwargs:
+            addon_job_timeout = kwargs['addonJobTimeout']
+        if addons_includes is None and 'addonsIncludes' in kwargs:
+            addons_includes = kwargs['addonsIncludes']
+        if api_server_url is None and 'apiServerUrl' in kwargs:
+            api_server_url = kwargs['apiServerUrl']
+        if bastion_host is None and 'bastionHost' in kwargs:
+            bastion_host = kwargs['bastionHost']
+        if ca_crt is None and 'caCrt' in kwargs:
+            ca_crt = kwargs['caCrt']
+        if cert_dir is None and 'certDir' in kwargs:
+            cert_dir = kwargs['certDir']
+        if client_cert is None and 'clientCert' in kwargs:
+            client_cert = kwargs['clientCert']
+        if client_key is None and 'clientKey' in kwargs:
+            client_key = kwargs['clientKey']
+        if cloud_provider is None and 'cloudProvider' in kwargs:
+            cloud_provider = kwargs['cloudProvider']
+        if cluster_cidr is None and 'clusterCidr' in kwargs:
+            cluster_cidr = kwargs['clusterCidr']
+        if cluster_dns_server is None and 'clusterDnsServer' in kwargs:
+            cluster_dns_server = kwargs['clusterDnsServer']
+        if cluster_domain is None and 'clusterDomain' in kwargs:
+            cluster_domain = kwargs['clusterDomain']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_yaml is None and 'clusterYaml' in kwargs:
+            cluster_yaml = kwargs['clusterYaml']
+        if control_plane_hosts is None and 'controlPlaneHosts' in kwargs:
+            control_plane_hosts = kwargs['controlPlaneHosts']
+        if custom_certs is None and 'customCerts' in kwargs:
+            custom_certs = kwargs['customCerts']
+        if delay_on_creation is None and 'delayOnCreation' in kwargs:
+            delay_on_creation = kwargs['delayOnCreation']
+        if dind_dns_server is None and 'dindDnsServer' in kwargs:
+            dind_dns_server = kwargs['dindDnsServer']
+        if dind_storage_driver is None and 'dindStorageDriver' in kwargs:
+            dind_storage_driver = kwargs['dindStorageDriver']
+        if disable_port_check is None and 'disablePortCheck' in kwargs:
+            disable_port_check = kwargs['disablePortCheck']
+        if enable_cri_dockerd is None and 'enableCriDockerd' in kwargs:
+            enable_cri_dockerd = kwargs['enableCriDockerd']
+        if etcd_hosts is None and 'etcdHosts' in kwargs:
+            etcd_hosts = kwargs['etcdHosts']
+        if ignore_docker_version is None and 'ignoreDockerVersion' in kwargs:
+            ignore_docker_version = kwargs['ignoreDockerVersion']
+        if inactive_hosts is None and 'inactiveHosts' in kwargs:
+            inactive_hosts = kwargs['inactiveHosts']
+        if internal_kube_config_yaml is None and 'internalKubeConfigYaml' in kwargs:
+            internal_kube_config_yaml = kwargs['internalKubeConfigYaml']
+        if kube_admin_user is None and 'kubeAdminUser' in kwargs:
+            kube_admin_user = kwargs['kubeAdminUser']
+        if kube_config_yaml is None and 'kubeConfigYaml' in kwargs:
+            kube_config_yaml = kwargs['kubeConfigYaml']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if nodes_confs is None and 'nodesConfs' in kwargs:
+            nodes_confs = kwargs['nodesConfs']
+        if prefix_path is None and 'prefixPath' in kwargs:
+            prefix_path = kwargs['prefixPath']
+        if private_registries is None and 'privateRegistries' in kwargs:
+            private_registries = kwargs['privateRegistries']
+        if rke_cluster_yaml is None and 'rkeClusterYaml' in kwargs:
+            rke_cluster_yaml = kwargs['rkeClusterYaml']
+        if rke_state is None and 'rkeState' in kwargs:
+            rke_state = kwargs['rkeState']
+        if rotate_certificates is None and 'rotateCertificates' in kwargs:
+            rotate_certificates = kwargs['rotateCertificates']
+        if running_system_images is None and 'runningSystemImages' in kwargs:
+            running_system_images = kwargs['runningSystemImages']
+        if services_etcd_deprecated is None and 'servicesEtcdDeprecated' in kwargs:
+            services_etcd_deprecated = kwargs['servicesEtcdDeprecated']
+        if services_kube_api_deprecated is None and 'servicesKubeApiDeprecated' in kwargs:
+            services_kube_api_deprecated = kwargs['servicesKubeApiDeprecated']
+        if services_kube_controller_deprecated is None and 'servicesKubeControllerDeprecated' in kwargs:
+            services_kube_controller_deprecated = kwargs['servicesKubeControllerDeprecated']
+        if services_kube_proxy_deprecated is None and 'servicesKubeProxyDeprecated' in kwargs:
+            services_kube_proxy_deprecated = kwargs['servicesKubeProxyDeprecated']
+        if services_kube_scheduler_deprecated is None and 'servicesKubeSchedulerDeprecated' in kwargs:
+            services_kube_scheduler_deprecated = kwargs['servicesKubeSchedulerDeprecated']
+        if services_kubelet_deprecated is None and 'servicesKubeletDeprecated' in kwargs:
+            services_kubelet_deprecated = kwargs['servicesKubeletDeprecated']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+        if system_images is None and 'systemImages' in kwargs:
+            system_images = kwargs['systemImages']
+        if update_only is None and 'updateOnly' in kwargs:
+            update_only = kwargs['updateOnly']
+        if upgrade_strategy is None and 'upgradeStrategy' in kwargs:
+            upgrade_strategy = kwargs['upgradeStrategy']
+        if worker_hosts is None and 'workerHosts' in kwargs:
+            worker_hosts = kwargs['workerHosts']
+
         if addon_job_timeout is not None:
             _setter("addon_job_timeout", addon_job_timeout)
         if addons is not None:
@@ -2160,30 +2322,14 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["addon_job_timeout"] = addon_job_timeout
             __props__.__dict__["addons"] = addons
             __props__.__dict__["addons_includes"] = addons_includes
-            if authentication is not None and not isinstance(authentication, ClusterAuthenticationArgs):
-                authentication = authentication or {}
-                def _setter(key, value):
-                    authentication[key] = value
-                ClusterAuthenticationArgs._configure(_setter, **authentication)
+            authentication = _utilities.configure(authentication, ClusterAuthenticationArgs, True)
             __props__.__dict__["authentication"] = authentication
-            if authorization is not None and not isinstance(authorization, ClusterAuthorizationArgs):
-                authorization = authorization or {}
-                def _setter(key, value):
-                    authorization[key] = value
-                ClusterAuthorizationArgs._configure(_setter, **authorization)
+            authorization = _utilities.configure(authorization, ClusterAuthorizationArgs, True)
             __props__.__dict__["authorization"] = authorization
-            if bastion_host is not None and not isinstance(bastion_host, ClusterBastionHostArgs):
-                bastion_host = bastion_host or {}
-                def _setter(key, value):
-                    bastion_host[key] = value
-                ClusterBastionHostArgs._configure(_setter, **bastion_host)
+            bastion_host = _utilities.configure(bastion_host, ClusterBastionHostArgs, True)
             __props__.__dict__["bastion_host"] = bastion_host
             __props__.__dict__["cert_dir"] = cert_dir
-            if cloud_provider is not None and not isinstance(cloud_provider, ClusterCloudProviderArgs):
-                cloud_provider = cloud_provider or {}
-                def _setter(key, value):
-                    cloud_provider[key] = value
-                ClusterCloudProviderArgs._configure(_setter, **cloud_provider)
+            cloud_provider = _utilities.configure(cloud_provider, ClusterCloudProviderArgs, True)
             __props__.__dict__["cloud_provider"] = cloud_provider
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_yaml"] = None if cluster_yaml is None else pulumi.Output.secret(cluster_yaml)
@@ -2193,106 +2339,46 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["dind_dns_server"] = dind_dns_server
             __props__.__dict__["dind_storage_driver"] = dind_storage_driver
             __props__.__dict__["disable_port_check"] = disable_port_check
-            if dns is not None and not isinstance(dns, ClusterDnsArgs):
-                dns = dns or {}
-                def _setter(key, value):
-                    dns[key] = value
-                ClusterDnsArgs._configure(_setter, **dns)
+            dns = _utilities.configure(dns, ClusterDnsArgs, True)
             __props__.__dict__["dns"] = dns
             __props__.__dict__["enable_cri_dockerd"] = enable_cri_dockerd
             __props__.__dict__["ignore_docker_version"] = ignore_docker_version
-            if ingress is not None and not isinstance(ingress, ClusterIngressArgs):
-                ingress = ingress or {}
-                def _setter(key, value):
-                    ingress[key] = value
-                ClusterIngressArgs._configure(_setter, **ingress)
+            ingress = _utilities.configure(ingress, ClusterIngressArgs, True)
             __props__.__dict__["ingress"] = ingress
             __props__.__dict__["kubernetes_version"] = kubernetes_version
-            if monitoring is not None and not isinstance(monitoring, ClusterMonitoringArgs):
-                monitoring = monitoring or {}
-                def _setter(key, value):
-                    monitoring[key] = value
-                ClusterMonitoringArgs._configure(_setter, **monitoring)
+            monitoring = _utilities.configure(monitoring, ClusterMonitoringArgs, True)
             __props__.__dict__["monitoring"] = monitoring
-            if network is not None and not isinstance(network, ClusterNetworkArgs):
-                network = network or {}
-                def _setter(key, value):
-                    network[key] = value
-                ClusterNetworkArgs._configure(_setter, **network)
+            network = _utilities.configure(network, ClusterNetworkArgs, True)
             __props__.__dict__["network"] = network
             __props__.__dict__["nodes"] = nodes
             __props__.__dict__["nodes_confs"] = nodes_confs
             __props__.__dict__["prefix_path"] = prefix_path
             __props__.__dict__["private_registries"] = private_registries
-            if restore is not None and not isinstance(restore, ClusterRestoreArgs):
-                restore = restore or {}
-                def _setter(key, value):
-                    restore[key] = value
-                ClusterRestoreArgs._configure(_setter, **restore)
+            restore = _utilities.configure(restore, ClusterRestoreArgs, True)
             __props__.__dict__["restore"] = restore
-            if rotate_certificates is not None and not isinstance(rotate_certificates, ClusterRotateCertificatesArgs):
-                rotate_certificates = rotate_certificates or {}
-                def _setter(key, value):
-                    rotate_certificates[key] = value
-                ClusterRotateCertificatesArgs._configure(_setter, **rotate_certificates)
+            rotate_certificates = _utilities.configure(rotate_certificates, ClusterRotateCertificatesArgs, True)
             __props__.__dict__["rotate_certificates"] = rotate_certificates
-            if services is not None and not isinstance(services, ClusterServicesArgs):
-                services = services or {}
-                def _setter(key, value):
-                    services[key] = value
-                ClusterServicesArgs._configure(_setter, **services)
+            services = _utilities.configure(services, ClusterServicesArgs, True)
             __props__.__dict__["services"] = services
-            if services_etcd_deprecated is not None and not isinstance(services_etcd_deprecated, ClusterServicesEtcdDeprecatedArgs):
-                services_etcd_deprecated = services_etcd_deprecated or {}
-                def _setter(key, value):
-                    services_etcd_deprecated[key] = value
-                ClusterServicesEtcdDeprecatedArgs._configure(_setter, **services_etcd_deprecated)
+            services_etcd_deprecated = _utilities.configure(services_etcd_deprecated, ClusterServicesEtcdDeprecatedArgs, True)
             __props__.__dict__["services_etcd_deprecated"] = services_etcd_deprecated
-            if services_kube_api_deprecated is not None and not isinstance(services_kube_api_deprecated, ClusterServicesKubeApiDeprecatedArgs):
-                services_kube_api_deprecated = services_kube_api_deprecated or {}
-                def _setter(key, value):
-                    services_kube_api_deprecated[key] = value
-                ClusterServicesKubeApiDeprecatedArgs._configure(_setter, **services_kube_api_deprecated)
+            services_kube_api_deprecated = _utilities.configure(services_kube_api_deprecated, ClusterServicesKubeApiDeprecatedArgs, True)
             __props__.__dict__["services_kube_api_deprecated"] = services_kube_api_deprecated
-            if services_kube_controller_deprecated is not None and not isinstance(services_kube_controller_deprecated, ClusterServicesKubeControllerDeprecatedArgs):
-                services_kube_controller_deprecated = services_kube_controller_deprecated or {}
-                def _setter(key, value):
-                    services_kube_controller_deprecated[key] = value
-                ClusterServicesKubeControllerDeprecatedArgs._configure(_setter, **services_kube_controller_deprecated)
+            services_kube_controller_deprecated = _utilities.configure(services_kube_controller_deprecated, ClusterServicesKubeControllerDeprecatedArgs, True)
             __props__.__dict__["services_kube_controller_deprecated"] = services_kube_controller_deprecated
-            if services_kube_proxy_deprecated is not None and not isinstance(services_kube_proxy_deprecated, ClusterServicesKubeProxyDeprecatedArgs):
-                services_kube_proxy_deprecated = services_kube_proxy_deprecated or {}
-                def _setter(key, value):
-                    services_kube_proxy_deprecated[key] = value
-                ClusterServicesKubeProxyDeprecatedArgs._configure(_setter, **services_kube_proxy_deprecated)
+            services_kube_proxy_deprecated = _utilities.configure(services_kube_proxy_deprecated, ClusterServicesKubeProxyDeprecatedArgs, True)
             __props__.__dict__["services_kube_proxy_deprecated"] = services_kube_proxy_deprecated
-            if services_kube_scheduler_deprecated is not None and not isinstance(services_kube_scheduler_deprecated, ClusterServicesKubeSchedulerDeprecatedArgs):
-                services_kube_scheduler_deprecated = services_kube_scheduler_deprecated or {}
-                def _setter(key, value):
-                    services_kube_scheduler_deprecated[key] = value
-                ClusterServicesKubeSchedulerDeprecatedArgs._configure(_setter, **services_kube_scheduler_deprecated)
+            services_kube_scheduler_deprecated = _utilities.configure(services_kube_scheduler_deprecated, ClusterServicesKubeSchedulerDeprecatedArgs, True)
             __props__.__dict__["services_kube_scheduler_deprecated"] = services_kube_scheduler_deprecated
-            if services_kubelet_deprecated is not None and not isinstance(services_kubelet_deprecated, ClusterServicesKubeletDeprecatedArgs):
-                services_kubelet_deprecated = services_kubelet_deprecated or {}
-                def _setter(key, value):
-                    services_kubelet_deprecated[key] = value
-                ClusterServicesKubeletDeprecatedArgs._configure(_setter, **services_kubelet_deprecated)
+            services_kubelet_deprecated = _utilities.configure(services_kubelet_deprecated, ClusterServicesKubeletDeprecatedArgs, True)
             __props__.__dict__["services_kubelet_deprecated"] = services_kubelet_deprecated
             __props__.__dict__["ssh_agent_auth"] = ssh_agent_auth
             __props__.__dict__["ssh_cert_path"] = ssh_cert_path
             __props__.__dict__["ssh_key_path"] = ssh_key_path
-            if system_images is not None and not isinstance(system_images, ClusterSystemImagesArgs):
-                system_images = system_images or {}
-                def _setter(key, value):
-                    system_images[key] = value
-                ClusterSystemImagesArgs._configure(_setter, **system_images)
+            system_images = _utilities.configure(system_images, ClusterSystemImagesArgs, True)
             __props__.__dict__["system_images"] = system_images
             __props__.__dict__["update_only"] = update_only
-            if upgrade_strategy is not None and not isinstance(upgrade_strategy, ClusterUpgradeStrategyArgs):
-                upgrade_strategy = upgrade_strategy or {}
-                def _setter(key, value):
-                    upgrade_strategy[key] = value
-                ClusterUpgradeStrategyArgs._configure(_setter, **upgrade_strategy)
+            upgrade_strategy = _utilities.configure(upgrade_strategy, ClusterUpgradeStrategyArgs, True)
             __props__.__dict__["upgrade_strategy"] = upgrade_strategy
             __props__.__dict__["api_server_url"] = None
             __props__.__dict__["ca_crt"] = None
