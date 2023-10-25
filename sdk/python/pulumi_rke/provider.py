@@ -29,7 +29,11 @@ class ProviderArgs:
              _setter: Callable[[Any, Any], None],
              debug: Optional[pulumi.Input[bool]] = None,
              log_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_file is None and 'logFile' in kwargs:
+            log_file = kwargs['logFile']
+
         if debug is None:
             debug = (_utilities.get_env_bool('RKE_DEBUG') or False)
         if debug is not None:

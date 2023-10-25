@@ -122,7 +122,9 @@ class ClusterAuthentication(dict):
              sans: Optional[Sequence[str]] = None,
              strategy: Optional[str] = None,
              webhook: Optional['outputs.ClusterAuthenticationWebhook'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if sans is not None:
             _setter("sans", sans)
         if strategy is not None:
@@ -193,7 +195,13 @@ class ClusterAuthenticationWebhook(dict):
              _setter: Callable[[Any, Any], None],
              cache_timeout: Optional[str] = None,
              config_file: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if config_file is None and 'configFile' in kwargs:
+            config_file = kwargs['configFile']
+
         if cache_timeout is not None:
             _setter("cache_timeout", cache_timeout)
         if config_file is not None:
@@ -235,7 +243,9 @@ class ClusterAuthorization(dict):
              _setter: Callable[[Any, Any], None],
              mode: Optional[str] = None,
              options: Optional[Mapping[str, Any]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
         if options is not None:
@@ -323,8 +333,8 @@ class ClusterBastionHost(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: str,
-             user: str,
+             address: Optional[str] = None,
+             user: Optional[str] = None,
              ignore_proxy_env_vars: Optional[bool] = None,
              port: Optional[str] = None,
              ssh_agent_auth: Optional[bool] = None,
@@ -332,7 +342,25 @@ class ClusterBastionHost(dict):
              ssh_cert_path: Optional[str] = None,
              ssh_key: Optional[str] = None,
              ssh_key_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if ignore_proxy_env_vars is None and 'ignoreProxyEnvVars' in kwargs:
+            ignore_proxy_env_vars = kwargs['ignoreProxyEnvVars']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert is None and 'sshCert' in kwargs:
+            ssh_cert = kwargs['sshCert']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+
         _setter("address", address)
         _setter("user", user)
         if ignore_proxy_env_vars is not None:
@@ -506,7 +534,23 @@ class ClusterCertificate(dict):
              name: Optional[str] = None,
              ou_name: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if config_env_name is None and 'configEnvName' in kwargs:
+            config_env_name = kwargs['configEnvName']
+        if config_path is None and 'configPath' in kwargs:
+            config_path = kwargs['configPath']
+        if env_name is None and 'envName' in kwargs:
+            env_name = kwargs['envName']
+        if key_env_name is None and 'keyEnvName' in kwargs:
+            key_env_name = kwargs['keyEnvName']
+        if key_path is None and 'keyPath' in kwargs:
+            key_path = kwargs['keyPath']
+        if ou_name is None and 'ouName' in kwargs:
+            ou_name = kwargs['ouName']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if common_name is not None:
@@ -691,7 +735,7 @@ class ClusterCloudProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              aws_cloud_config: Optional['outputs.ClusterCloudProviderAwsCloudConfig'] = None,
              aws_cloud_provider: Optional['outputs.ClusterCloudProviderAwsCloudProvider'] = None,
              azure_cloud_config: Optional['outputs.ClusterCloudProviderAzureCloudConfig'] = None,
@@ -702,7 +746,31 @@ class ClusterCloudProvider(dict):
              openstack_cloud_provider: Optional['outputs.ClusterCloudProviderOpenstackCloudProvider'] = None,
              vsphere_cloud_config: Optional['outputs.ClusterCloudProviderVsphereCloudConfig'] = None,
              vsphere_cloud_provider: Optional['outputs.ClusterCloudProviderVsphereCloudProvider'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if aws_cloud_config is None and 'awsCloudConfig' in kwargs:
+            aws_cloud_config = kwargs['awsCloudConfig']
+        if aws_cloud_provider is None and 'awsCloudProvider' in kwargs:
+            aws_cloud_provider = kwargs['awsCloudProvider']
+        if azure_cloud_config is None and 'azureCloudConfig' in kwargs:
+            azure_cloud_config = kwargs['azureCloudConfig']
+        if azure_cloud_provider is None and 'azureCloudProvider' in kwargs:
+            azure_cloud_provider = kwargs['azureCloudProvider']
+        if custom_cloud_config is None and 'customCloudConfig' in kwargs:
+            custom_cloud_config = kwargs['customCloudConfig']
+        if custom_cloud_provider is None and 'customCloudProvider' in kwargs:
+            custom_cloud_provider = kwargs['customCloudProvider']
+        if openstack_cloud_config is None and 'openstackCloudConfig' in kwargs:
+            openstack_cloud_config = kwargs['openstackCloudConfig']
+        if openstack_cloud_provider is None and 'openstackCloudProvider' in kwargs:
+            openstack_cloud_provider = kwargs['openstackCloudProvider']
+        if vsphere_cloud_config is None and 'vsphereCloudConfig' in kwargs:
+            vsphere_cloud_config = kwargs['vsphereCloudConfig']
+        if vsphere_cloud_provider is None and 'vsphereCloudProvider' in kwargs:
+            vsphere_cloud_provider = kwargs['vsphereCloudProvider']
+
         _setter("name", name)
         if aws_cloud_config is not None:
             _setter("aws_cloud_config", aws_cloud_config)
@@ -867,7 +935,13 @@ class ClusterCloudProviderAwsCloudConfig(dict):
              _setter: Callable[[Any, Any], None],
              global_: Optional['outputs.ClusterCloudProviderAwsCloudConfigGlobal'] = None,
              service_overrides: Optional[Sequence['outputs.ClusterCloudProviderAwsCloudConfigServiceOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if service_overrides is None and 'serviceOverrides' in kwargs:
+            service_overrides = kwargs['serviceOverrides']
+
         if global_ is not None:
             _setter("global_", global_)
         if service_overrides is not None:
@@ -972,7 +1046,25 @@ class ClusterCloudProviderAwsCloudConfigGlobal(dict):
              subnet_id: Optional[str] = None,
              vpc: Optional[str] = None,
              zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_security_group_ingress is None and 'disableSecurityGroupIngress' in kwargs:
+            disable_security_group_ingress = kwargs['disableSecurityGroupIngress']
+        if disable_strict_zone_check is None and 'disableStrictZoneCheck' in kwargs:
+            disable_strict_zone_check = kwargs['disableStrictZoneCheck']
+        if elb_security_group is None and 'elbSecurityGroup' in kwargs:
+            elb_security_group = kwargs['elbSecurityGroup']
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if kubernetes_cluster_tag is None and 'kubernetesClusterTag' in kwargs:
+            kubernetes_cluster_tag = kwargs['kubernetesClusterTag']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if disable_security_group_ingress is not None:
             _setter("disable_security_group_ingress", disable_security_group_ingress)
         if disable_strict_zone_check is not None:
@@ -1128,14 +1220,24 @@ class ClusterCloudProviderAwsCloudConfigServiceOverride(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service: str,
+             service: Optional[str] = None,
              key: Optional[str] = None,
              region: Optional[str] = None,
              signing_method: Optional[str] = None,
              signing_name: Optional[str] = None,
              signing_region: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if signing_method is None and 'signingMethod' in kwargs:
+            signing_method = kwargs['signingMethod']
+        if signing_name is None and 'signingName' in kwargs:
+            signing_name = kwargs['signingName']
+        if signing_region is None and 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+
         _setter("service", service)
         if key is not None:
             _setter("key", key)
@@ -1248,7 +1350,13 @@ class ClusterCloudProviderAwsCloudProvider(dict):
              _setter: Callable[[Any, Any], None],
              global_: Optional['outputs.ClusterCloudProviderAwsCloudProviderGlobal'] = None,
              service_overrides: Optional[Sequence['outputs.ClusterCloudProviderAwsCloudProviderServiceOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if service_overrides is None and 'serviceOverrides' in kwargs:
+            service_overrides = kwargs['serviceOverrides']
+
         if global_ is not None:
             _setter("global_", global_)
         if service_overrides is not None:
@@ -1353,7 +1461,25 @@ class ClusterCloudProviderAwsCloudProviderGlobal(dict):
              subnet_id: Optional[str] = None,
              vpc: Optional[str] = None,
              zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_security_group_ingress is None and 'disableSecurityGroupIngress' in kwargs:
+            disable_security_group_ingress = kwargs['disableSecurityGroupIngress']
+        if disable_strict_zone_check is None and 'disableStrictZoneCheck' in kwargs:
+            disable_strict_zone_check = kwargs['disableStrictZoneCheck']
+        if elb_security_group is None and 'elbSecurityGroup' in kwargs:
+            elb_security_group = kwargs['elbSecurityGroup']
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if kubernetes_cluster_tag is None and 'kubernetesClusterTag' in kwargs:
+            kubernetes_cluster_tag = kwargs['kubernetesClusterTag']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if disable_security_group_ingress is not None:
             _setter("disable_security_group_ingress", disable_security_group_ingress)
         if disable_strict_zone_check is not None:
@@ -1509,14 +1635,24 @@ class ClusterCloudProviderAwsCloudProviderServiceOverride(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service: str,
+             service: Optional[str] = None,
              key: Optional[str] = None,
              region: Optional[str] = None,
              signing_method: Optional[str] = None,
              signing_name: Optional[str] = None,
              signing_region: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if signing_method is None and 'signingMethod' in kwargs:
+            signing_method = kwargs['signingMethod']
+        if signing_name is None and 'signingName' in kwargs:
+            signing_name = kwargs['signingName']
+        if signing_region is None and 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+
         _setter("service", service)
         if key is not None:
             _setter("key", key)
@@ -1757,10 +1893,10 @@ class ClusterCloudProviderAzureCloudConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aad_client_id: str,
-             aad_client_secret: str,
-             subscription_id: str,
-             tenant_id: str,
+             aad_client_id: Optional[str] = None,
+             aad_client_secret: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              aad_client_cert_password: Optional[str] = None,
              aad_client_cert_path: Optional[str] = None,
              cloud: Optional[str] = None,
@@ -1786,7 +1922,71 @@ class ClusterCloudProviderAzureCloudConfig(dict):
              vm_type: Optional[str] = None,
              vnet_name: Optional[str] = None,
              vnet_resource_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_client_id is None:
+            raise TypeError("Missing 'aad_client_id' argument")
+        if aad_client_secret is None and 'aadClientSecret' in kwargs:
+            aad_client_secret = kwargs['aadClientSecret']
+        if aad_client_secret is None:
+            raise TypeError("Missing 'aad_client_secret' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if aad_client_cert_password is None and 'aadClientCertPassword' in kwargs:
+            aad_client_cert_password = kwargs['aadClientCertPassword']
+        if aad_client_cert_path is None and 'aadClientCertPath' in kwargs:
+            aad_client_cert_path = kwargs['aadClientCertPath']
+        if cloud_provider_backoff is None and 'cloudProviderBackoff' in kwargs:
+            cloud_provider_backoff = kwargs['cloudProviderBackoff']
+        if cloud_provider_backoff_duration is None and 'cloudProviderBackoffDuration' in kwargs:
+            cloud_provider_backoff_duration = kwargs['cloudProviderBackoffDuration']
+        if cloud_provider_backoff_exponent is None and 'cloudProviderBackoffExponent' in kwargs:
+            cloud_provider_backoff_exponent = kwargs['cloudProviderBackoffExponent']
+        if cloud_provider_backoff_jitter is None and 'cloudProviderBackoffJitter' in kwargs:
+            cloud_provider_backoff_jitter = kwargs['cloudProviderBackoffJitter']
+        if cloud_provider_backoff_retries is None and 'cloudProviderBackoffRetries' in kwargs:
+            cloud_provider_backoff_retries = kwargs['cloudProviderBackoffRetries']
+        if cloud_provider_rate_limit is None and 'cloudProviderRateLimit' in kwargs:
+            cloud_provider_rate_limit = kwargs['cloudProviderRateLimit']
+        if cloud_provider_rate_limit_bucket is None and 'cloudProviderRateLimitBucket' in kwargs:
+            cloud_provider_rate_limit_bucket = kwargs['cloudProviderRateLimitBucket']
+        if cloud_provider_rate_limit_qps is None and 'cloudProviderRateLimitQps' in kwargs:
+            cloud_provider_rate_limit_qps = kwargs['cloudProviderRateLimitQps']
+        if load_balancer_sku is None and 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if maximum_load_balancer_rule_count is None and 'maximumLoadBalancerRuleCount' in kwargs:
+            maximum_load_balancer_rule_count = kwargs['maximumLoadBalancerRuleCount']
+        if primary_availability_set_name is None and 'primaryAvailabilitySetName' in kwargs:
+            primary_availability_set_name = kwargs['primaryAvailabilitySetName']
+        if primary_scale_set_name is None and 'primaryScaleSetName' in kwargs:
+            primary_scale_set_name = kwargs['primaryScaleSetName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if route_table_name is None and 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if security_group_name is None and 'securityGroupName' in kwargs:
+            security_group_name = kwargs['securityGroupName']
+        if subnet_name is None and 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if use_instance_metadata is None and 'useInstanceMetadata' in kwargs:
+            use_instance_metadata = kwargs['useInstanceMetadata']
+        if use_managed_identity_extension is None and 'useManagedIdentityExtension' in kwargs:
+            use_managed_identity_extension = kwargs['useManagedIdentityExtension']
+        if vm_type is None and 'vmType' in kwargs:
+            vm_type = kwargs['vmType']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_resource_group is None and 'vnetResourceGroup' in kwargs:
+            vnet_resource_group = kwargs['vnetResourceGroup']
+
         _setter("aad_client_id", aad_client_id)
         _setter("aad_client_secret", aad_client_secret)
         _setter("subscription_id", subscription_id)
@@ -2238,10 +2438,10 @@ class ClusterCloudProviderAzureCloudProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aad_client_id: str,
-             aad_client_secret: str,
-             subscription_id: str,
-             tenant_id: str,
+             aad_client_id: Optional[str] = None,
+             aad_client_secret: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              aad_client_cert_password: Optional[str] = None,
              aad_client_cert_path: Optional[str] = None,
              cloud: Optional[str] = None,
@@ -2267,7 +2467,71 @@ class ClusterCloudProviderAzureCloudProvider(dict):
              vm_type: Optional[str] = None,
              vnet_name: Optional[str] = None,
              vnet_resource_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_client_id is None:
+            raise TypeError("Missing 'aad_client_id' argument")
+        if aad_client_secret is None and 'aadClientSecret' in kwargs:
+            aad_client_secret = kwargs['aadClientSecret']
+        if aad_client_secret is None:
+            raise TypeError("Missing 'aad_client_secret' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if aad_client_cert_password is None and 'aadClientCertPassword' in kwargs:
+            aad_client_cert_password = kwargs['aadClientCertPassword']
+        if aad_client_cert_path is None and 'aadClientCertPath' in kwargs:
+            aad_client_cert_path = kwargs['aadClientCertPath']
+        if cloud_provider_backoff is None and 'cloudProviderBackoff' in kwargs:
+            cloud_provider_backoff = kwargs['cloudProviderBackoff']
+        if cloud_provider_backoff_duration is None and 'cloudProviderBackoffDuration' in kwargs:
+            cloud_provider_backoff_duration = kwargs['cloudProviderBackoffDuration']
+        if cloud_provider_backoff_exponent is None and 'cloudProviderBackoffExponent' in kwargs:
+            cloud_provider_backoff_exponent = kwargs['cloudProviderBackoffExponent']
+        if cloud_provider_backoff_jitter is None and 'cloudProviderBackoffJitter' in kwargs:
+            cloud_provider_backoff_jitter = kwargs['cloudProviderBackoffJitter']
+        if cloud_provider_backoff_retries is None and 'cloudProviderBackoffRetries' in kwargs:
+            cloud_provider_backoff_retries = kwargs['cloudProviderBackoffRetries']
+        if cloud_provider_rate_limit is None and 'cloudProviderRateLimit' in kwargs:
+            cloud_provider_rate_limit = kwargs['cloudProviderRateLimit']
+        if cloud_provider_rate_limit_bucket is None and 'cloudProviderRateLimitBucket' in kwargs:
+            cloud_provider_rate_limit_bucket = kwargs['cloudProviderRateLimitBucket']
+        if cloud_provider_rate_limit_qps is None and 'cloudProviderRateLimitQps' in kwargs:
+            cloud_provider_rate_limit_qps = kwargs['cloudProviderRateLimitQps']
+        if load_balancer_sku is None and 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if maximum_load_balancer_rule_count is None and 'maximumLoadBalancerRuleCount' in kwargs:
+            maximum_load_balancer_rule_count = kwargs['maximumLoadBalancerRuleCount']
+        if primary_availability_set_name is None and 'primaryAvailabilitySetName' in kwargs:
+            primary_availability_set_name = kwargs['primaryAvailabilitySetName']
+        if primary_scale_set_name is None and 'primaryScaleSetName' in kwargs:
+            primary_scale_set_name = kwargs['primaryScaleSetName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if route_table_name is None and 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if security_group_name is None and 'securityGroupName' in kwargs:
+            security_group_name = kwargs['securityGroupName']
+        if subnet_name is None and 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if use_instance_metadata is None and 'useInstanceMetadata' in kwargs:
+            use_instance_metadata = kwargs['useInstanceMetadata']
+        if use_managed_identity_extension is None and 'useManagedIdentityExtension' in kwargs:
+            use_managed_identity_extension = kwargs['useManagedIdentityExtension']
+        if vm_type is None and 'vmType' in kwargs:
+            vm_type = kwargs['vmType']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_resource_group is None and 'vnetResourceGroup' in kwargs:
+            vnet_resource_group = kwargs['vnetResourceGroup']
+
         _setter("aad_client_id", aad_client_id)
         _setter("aad_client_secret", aad_client_secret)
         _setter("subscription_id", subscription_id)
@@ -2600,12 +2864,22 @@ class ClusterCloudProviderOpenstackCloudConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_: 'outputs.ClusterCloudProviderOpenstackCloudConfigGlobal',
+             global_: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigGlobal'] = None,
              block_storage: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage'] = None,
              load_balancer: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer'] = None,
              metadata: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigMetadata'] = None,
              route: Optional['outputs.ClusterCloudProviderOpenstackCloudConfigRoute'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if global_ is None:
+            raise TypeError("Missing 'global_' argument")
+        if block_storage is None and 'blockStorage' in kwargs:
+            block_storage = kwargs['blockStorage']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
         _setter("global_", global_)
         if block_storage is not None:
             _setter("block_storage", block_storage)
@@ -2701,7 +2975,15 @@ class ClusterCloudProviderOpenstackCloudConfigBlockStorage(dict):
              bs_version: Optional[str] = None,
              ignore_volume_az: Optional[bool] = None,
              trust_device_path: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bs_version is None and 'bsVersion' in kwargs:
+            bs_version = kwargs['bsVersion']
+        if ignore_volume_az is None and 'ignoreVolumeAz' in kwargs:
+            ignore_volume_az = kwargs['ignoreVolumeAz']
+        if trust_device_path is None and 'trustDevicePath' in kwargs:
+            trust_device_path = kwargs['trustDevicePath']
+
         if bs_version is not None:
             _setter("bs_version", bs_version)
         if ignore_volume_az is not None:
@@ -2809,8 +3091,8 @@ class ClusterCloudProviderOpenstackCloudConfigGlobal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_url: str,
-             password: str,
+             auth_url: Optional[str] = None,
+             password: Optional[str] = None,
              ca_file: Optional[str] = None,
              domain_id: Optional[str] = None,
              domain_name: Optional[str] = None,
@@ -2820,7 +3102,29 @@ class ClusterCloudProviderOpenstackCloudConfigGlobal(dict):
              trust_id: Optional[str] = None,
              user_id: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if trust_id is None and 'trustId' in kwargs:
+            trust_id = kwargs['trustId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("auth_url", auth_url)
         _setter("password", password)
         if ca_file is not None:
@@ -3023,7 +3327,31 @@ class ClusterCloudProviderOpenstackCloudConfigLoadBalancer(dict):
              monitor_timeout: Optional[str] = None,
              subnet_id: Optional[str] = None,
              use_octavia: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_monitor is None and 'createMonitor' in kwargs:
+            create_monitor = kwargs['createMonitor']
+        if floating_network_id is None and 'floatingNetworkId' in kwargs:
+            floating_network_id = kwargs['floatingNetworkId']
+        if lb_method is None and 'lbMethod' in kwargs:
+            lb_method = kwargs['lbMethod']
+        if lb_provider is None and 'lbProvider' in kwargs:
+            lb_provider = kwargs['lbProvider']
+        if lb_version is None and 'lbVersion' in kwargs:
+            lb_version = kwargs['lbVersion']
+        if manage_security_groups is None and 'manageSecurityGroups' in kwargs:
+            manage_security_groups = kwargs['manageSecurityGroups']
+        if monitor_delay is None and 'monitorDelay' in kwargs:
+            monitor_delay = kwargs['monitorDelay']
+        if monitor_max_retries is None and 'monitorMaxRetries' in kwargs:
+            monitor_max_retries = kwargs['monitorMaxRetries']
+        if monitor_timeout is None and 'monitorTimeout' in kwargs:
+            monitor_timeout = kwargs['monitorTimeout']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if use_octavia is None and 'useOctavia' in kwargs:
+            use_octavia = kwargs['useOctavia']
+
         if create_monitor is not None:
             _setter("create_monitor", create_monitor)
         if floating_network_id is not None:
@@ -3174,7 +3502,13 @@ class ClusterCloudProviderOpenstackCloudConfigMetadata(dict):
              _setter: Callable[[Any, Any], None],
              request_timeout: Optional[int] = None,
              search_order: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if search_order is None and 'searchOrder' in kwargs:
+            search_order = kwargs['searchOrder']
+
         if request_timeout is not None:
             _setter("request_timeout", request_timeout)
         if search_order is not None:
@@ -3229,7 +3563,11 @@ class ClusterCloudProviderOpenstackCloudConfigRoute(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              router_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if router_id is None and 'routerId' in kwargs:
+            router_id = kwargs['routerId']
+
         if router_id is not None:
             _setter("router_id", router_id)
 
@@ -3289,12 +3627,22 @@ class ClusterCloudProviderOpenstackCloudProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_: 'outputs.ClusterCloudProviderOpenstackCloudProviderGlobal',
+             global_: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderGlobal'] = None,
              block_storage: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage'] = None,
              load_balancer: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancer'] = None,
              metadata: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderMetadata'] = None,
              route: Optional['outputs.ClusterCloudProviderOpenstackCloudProviderRoute'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if global_ is None:
+            raise TypeError("Missing 'global_' argument")
+        if block_storage is None and 'blockStorage' in kwargs:
+            block_storage = kwargs['blockStorage']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
         _setter("global_", global_)
         if block_storage is not None:
             _setter("block_storage", block_storage)
@@ -3390,7 +3738,15 @@ class ClusterCloudProviderOpenstackCloudProviderBlockStorage(dict):
              bs_version: Optional[str] = None,
              ignore_volume_az: Optional[bool] = None,
              trust_device_path: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bs_version is None and 'bsVersion' in kwargs:
+            bs_version = kwargs['bsVersion']
+        if ignore_volume_az is None and 'ignoreVolumeAz' in kwargs:
+            ignore_volume_az = kwargs['ignoreVolumeAz']
+        if trust_device_path is None and 'trustDevicePath' in kwargs:
+            trust_device_path = kwargs['trustDevicePath']
+
         if bs_version is not None:
             _setter("bs_version", bs_version)
         if ignore_volume_az is not None:
@@ -3498,8 +3854,8 @@ class ClusterCloudProviderOpenstackCloudProviderGlobal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_url: str,
-             password: str,
+             auth_url: Optional[str] = None,
+             password: Optional[str] = None,
              ca_file: Optional[str] = None,
              domain_id: Optional[str] = None,
              domain_name: Optional[str] = None,
@@ -3509,7 +3865,29 @@ class ClusterCloudProviderOpenstackCloudProviderGlobal(dict):
              trust_id: Optional[str] = None,
              user_id: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if trust_id is None and 'trustId' in kwargs:
+            trust_id = kwargs['trustId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("auth_url", auth_url)
         _setter("password", password)
         if ca_file is not None:
@@ -3712,7 +4090,31 @@ class ClusterCloudProviderOpenstackCloudProviderLoadBalancer(dict):
              monitor_timeout: Optional[str] = None,
              subnet_id: Optional[str] = None,
              use_octavia: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_monitor is None and 'createMonitor' in kwargs:
+            create_monitor = kwargs['createMonitor']
+        if floating_network_id is None and 'floatingNetworkId' in kwargs:
+            floating_network_id = kwargs['floatingNetworkId']
+        if lb_method is None and 'lbMethod' in kwargs:
+            lb_method = kwargs['lbMethod']
+        if lb_provider is None and 'lbProvider' in kwargs:
+            lb_provider = kwargs['lbProvider']
+        if lb_version is None and 'lbVersion' in kwargs:
+            lb_version = kwargs['lbVersion']
+        if manage_security_groups is None and 'manageSecurityGroups' in kwargs:
+            manage_security_groups = kwargs['manageSecurityGroups']
+        if monitor_delay is None and 'monitorDelay' in kwargs:
+            monitor_delay = kwargs['monitorDelay']
+        if monitor_max_retries is None and 'monitorMaxRetries' in kwargs:
+            monitor_max_retries = kwargs['monitorMaxRetries']
+        if monitor_timeout is None and 'monitorTimeout' in kwargs:
+            monitor_timeout = kwargs['monitorTimeout']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if use_octavia is None and 'useOctavia' in kwargs:
+            use_octavia = kwargs['useOctavia']
+
         if create_monitor is not None:
             _setter("create_monitor", create_monitor)
         if floating_network_id is not None:
@@ -3863,7 +4265,13 @@ class ClusterCloudProviderOpenstackCloudProviderMetadata(dict):
              _setter: Callable[[Any, Any], None],
              request_timeout: Optional[int] = None,
              search_order: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if search_order is None and 'searchOrder' in kwargs:
+            search_order = kwargs['searchOrder']
+
         if request_timeout is not None:
             _setter("request_timeout", request_timeout)
         if search_order is not None:
@@ -3918,7 +4326,11 @@ class ClusterCloudProviderOpenstackCloudProviderRoute(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              router_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if router_id is None and 'routerId' in kwargs:
+            router_id = kwargs['routerId']
+
         if router_id is not None:
             _setter("router_id", router_id)
 
@@ -3976,12 +4388,22 @@ class ClusterCloudProviderVsphereCloudConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_centers: Sequence['outputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter'],
-             workspace: 'outputs.ClusterCloudProviderVsphereCloudConfigWorkspace',
+             virtual_centers: Optional[Sequence['outputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter']] = None,
+             workspace: Optional['outputs.ClusterCloudProviderVsphereCloudConfigWorkspace'] = None,
              disk: Optional['outputs.ClusterCloudProviderVsphereCloudConfigDisk'] = None,
              global_: Optional['outputs.ClusterCloudProviderVsphereCloudConfigGlobal'] = None,
              network: Optional['outputs.ClusterCloudProviderVsphereCloudConfigNetwork'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_centers is None and 'virtualCenters' in kwargs:
+            virtual_centers = kwargs['virtualCenters']
+        if virtual_centers is None:
+            raise TypeError("Missing 'virtual_centers' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+
         _setter("virtual_centers", virtual_centers)
         _setter("workspace", workspace)
         if disk is not None:
@@ -4064,7 +4486,11 @@ class ClusterCloudProviderVsphereCloudConfigDisk(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              scsi_controller_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scsi_controller_type is None and 'scsiControllerType' in kwargs:
+            scsi_controller_type = kwargs['scsiControllerType']
+
         if scsi_controller_type is not None:
             _setter("scsi_controller_type", scsi_controller_type)
 
@@ -4157,7 +4583,19 @@ class ClusterCloudProviderVsphereCloudConfigGlobal(dict):
              vm_name: Optional[str] = None,
              vm_uuid: Optional[str] = None,
              working_dir: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insecure_flag is None and 'insecureFlag' in kwargs:
+            insecure_flag = kwargs['insecureFlag']
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+        if vm_name is None and 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if vm_uuid is None and 'vmUuid' in kwargs:
+            vm_uuid = kwargs['vmUuid']
+        if working_dir is None and 'workingDir' in kwargs:
+            working_dir = kwargs['workingDir']
+
         if datacenter is not None:
             _setter("datacenter", datacenter)
         if datacenters is not None:
@@ -4302,7 +4740,11 @@ class ClusterCloudProviderVsphereCloudConfigNetwork(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              public_network: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_network is None and 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+
         if public_network is not None:
             _setter("public_network", public_network)
 
@@ -4361,13 +4803,25 @@ class ClusterCloudProviderVsphereCloudConfigVirtualCenter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datacenters: str,
-             name: str,
-             password: str,
-             user: str,
+             datacenters: Optional[str] = None,
+             name: Optional[str] = None,
+             password: Optional[str] = None,
+             user: Optional[str] = None,
              port: Optional[str] = None,
              soap_roundtrip_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datacenters is None:
+            raise TypeError("Missing 'datacenters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+
         _setter("datacenters", datacenters)
         _setter("name", name)
         _setter("password", password)
@@ -4471,12 +4925,22 @@ class ClusterCloudProviderVsphereCloudConfigWorkspace(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datacenter: str,
-             server: str,
+             datacenter: Optional[str] = None,
+             server: Optional[str] = None,
              default_datastore: Optional[str] = None,
              folder: Optional[str] = None,
              resourcepool_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if default_datastore is None and 'defaultDatastore' in kwargs:
+            default_datastore = kwargs['defaultDatastore']
+        if resourcepool_path is None and 'resourcepoolPath' in kwargs:
+            resourcepool_path = kwargs['resourcepoolPath']
+
         _setter("datacenter", datacenter)
         _setter("server", server)
         if default_datastore is not None:
@@ -4572,12 +5036,22 @@ class ClusterCloudProviderVsphereCloudProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_centers: Sequence['outputs.ClusterCloudProviderVsphereCloudProviderVirtualCenter'],
-             workspace: 'outputs.ClusterCloudProviderVsphereCloudProviderWorkspace',
+             virtual_centers: Optional[Sequence['outputs.ClusterCloudProviderVsphereCloudProviderVirtualCenter']] = None,
+             workspace: Optional['outputs.ClusterCloudProviderVsphereCloudProviderWorkspace'] = None,
              disk: Optional['outputs.ClusterCloudProviderVsphereCloudProviderDisk'] = None,
              global_: Optional['outputs.ClusterCloudProviderVsphereCloudProviderGlobal'] = None,
              network: Optional['outputs.ClusterCloudProviderVsphereCloudProviderNetwork'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_centers is None and 'virtualCenters' in kwargs:
+            virtual_centers = kwargs['virtualCenters']
+        if virtual_centers is None:
+            raise TypeError("Missing 'virtual_centers' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+
         _setter("virtual_centers", virtual_centers)
         _setter("workspace", workspace)
         if disk is not None:
@@ -4660,7 +5134,11 @@ class ClusterCloudProviderVsphereCloudProviderDisk(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              scsi_controller_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scsi_controller_type is None and 'scsiControllerType' in kwargs:
+            scsi_controller_type = kwargs['scsiControllerType']
+
         if scsi_controller_type is not None:
             _setter("scsi_controller_type", scsi_controller_type)
 
@@ -4753,7 +5231,19 @@ class ClusterCloudProviderVsphereCloudProviderGlobal(dict):
              vm_name: Optional[str] = None,
              vm_uuid: Optional[str] = None,
              working_dir: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insecure_flag is None and 'insecureFlag' in kwargs:
+            insecure_flag = kwargs['insecureFlag']
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+        if vm_name is None and 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if vm_uuid is None and 'vmUuid' in kwargs:
+            vm_uuid = kwargs['vmUuid']
+        if working_dir is None and 'workingDir' in kwargs:
+            working_dir = kwargs['workingDir']
+
         if datacenter is not None:
             _setter("datacenter", datacenter)
         if datacenters is not None:
@@ -4898,7 +5388,11 @@ class ClusterCloudProviderVsphereCloudProviderNetwork(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              public_network: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_network is None and 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+
         if public_network is not None:
             _setter("public_network", public_network)
 
@@ -4957,13 +5451,25 @@ class ClusterCloudProviderVsphereCloudProviderVirtualCenter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datacenters: str,
-             name: str,
-             password: str,
-             user: str,
+             datacenters: Optional[str] = None,
+             name: Optional[str] = None,
+             password: Optional[str] = None,
+             user: Optional[str] = None,
              port: Optional[str] = None,
              soap_roundtrip_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datacenters is None:
+            raise TypeError("Missing 'datacenters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+
         _setter("datacenters", datacenters)
         _setter("name", name)
         _setter("password", password)
@@ -5067,12 +5573,22 @@ class ClusterCloudProviderVsphereCloudProviderWorkspace(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datacenter: str,
-             server: str,
+             datacenter: Optional[str] = None,
+             server: Optional[str] = None,
              default_datastore: Optional[str] = None,
              folder: Optional[str] = None,
              resourcepool_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if default_datastore is None and 'defaultDatastore' in kwargs:
+            default_datastore = kwargs['defaultDatastore']
+        if resourcepool_path is None and 'resourcepoolPath' in kwargs:
+            resourcepool_path = kwargs['resourcepoolPath']
+
         _setter("datacenter", datacenter)
         _setter("server", server)
         if default_datastore is not None:
@@ -5159,7 +5675,11 @@ class ClusterControlPlaneHost(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
             _setter("address", address)
         if node_name is not None:
@@ -5234,7 +5754,15 @@ class ClusterDns(dict):
              provider: Optional[str] = None,
              reverse_cidrs: Optional[Sequence[str]] = None,
              upstream_nameservers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+        if reverse_cidrs is None and 'reverseCidrs' in kwargs:
+            reverse_cidrs = kwargs['reverseCidrs']
+        if upstream_nameservers is None and 'upstreamNameservers' in kwargs:
+            upstream_nameservers = kwargs['upstreamNameservers']
+
         if node_selector is not None:
             _setter("node_selector", node_selector)
         if nodelocal is not None:
@@ -5325,7 +5853,13 @@ class ClusterDnsNodelocal(dict):
              _setter: Callable[[Any, Any], None],
              ip_address: Optional[str] = None,
              node_selector: Optional[Mapping[str, Any]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if ip_address is not None:
             _setter("ip_address", ip_address)
         if node_selector is not None:
@@ -5384,7 +5918,11 @@ class ClusterEtcdHost(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
             _setter("address", address)
         if node_name is not None:
@@ -5443,7 +5981,11 @@ class ClusterInactiveHost(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
             _setter("address", address)
         if node_name is not None:
@@ -5541,7 +6083,23 @@ class ClusterIngress(dict):
              node_selector: Optional[Mapping[str, Any]] = None,
              options: Optional[Mapping[str, Any]] = None,
              provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_backend is None and 'defaultBackend' in kwargs:
+            default_backend = kwargs['defaultBackend']
+        if dns_policy is None and 'dnsPolicy' in kwargs:
+            dns_policy = kwargs['dnsPolicy']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if network_mode is None and 'networkMode' in kwargs:
+            network_mode = kwargs['networkMode']
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if default_backend is not None:
             _setter("default_backend", default_backend)
         if dns_policy is not None:
@@ -5671,7 +6229,11 @@ class ClusterMonitoring(dict):
              node_selector: Optional[Mapping[str, Any]] = None,
              options: Optional[Mapping[str, Any]] = None,
              provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if node_selector is not None:
             _setter("node_selector", node_selector)
         if options is not None:
@@ -5772,7 +6334,19 @@ class ClusterNetwork(dict):
              options: Optional[Mapping[str, Any]] = None,
              plugin: Optional[str] = None,
              weave_network_provider: Optional['outputs.ClusterNetworkWeaveNetworkProvider'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aci_network_provider is None and 'aciNetworkProvider' in kwargs:
+            aci_network_provider = kwargs['aciNetworkProvider']
+        if calico_network_provider is None and 'calicoNetworkProvider' in kwargs:
+            calico_network_provider = kwargs['calicoNetworkProvider']
+        if canal_network_provider is None and 'canalNetworkProvider' in kwargs:
+            canal_network_provider = kwargs['canalNetworkProvider']
+        if flannel_network_provider is None and 'flannelNetworkProvider' in kwargs:
+            flannel_network_provider = kwargs['flannelNetworkProvider']
+        if weave_network_provider is None and 'weaveNetworkProvider' in kwargs:
+            weave_network_provider = kwargs['weaveNetworkProvider']
+
         if aci_network_provider is not None:
             _setter("aci_network_provider", aci_network_provider)
         if calico_network_provider is not None:
@@ -5995,31 +6569,117 @@ class ClusterNetworkAciNetworkProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aep: str,
-             apic_hosts: Sequence[str],
-             apic_user_crt: str,
-             apic_user_key: str,
-             apic_user_name: str,
-             encap_type: str,
-             extern_dynamic: str,
-             extern_static: str,
-             infra_vlan: str,
-             kube_api_vlan: str,
-             l3out: str,
-             l3out_external_networks: Sequence[str],
-             mcast_range_end: str,
-             mcast_range_start: str,
-             node_subnet: str,
-             node_svc_subnet: str,
-             service_vlan: str,
-             system_id: str,
-             token: str,
-             vrf_name: str,
-             vrf_tenant: str,
+             aep: Optional[str] = None,
+             apic_hosts: Optional[Sequence[str]] = None,
+             apic_user_crt: Optional[str] = None,
+             apic_user_key: Optional[str] = None,
+             apic_user_name: Optional[str] = None,
+             encap_type: Optional[str] = None,
+             extern_dynamic: Optional[str] = None,
+             extern_static: Optional[str] = None,
+             infra_vlan: Optional[str] = None,
+             kube_api_vlan: Optional[str] = None,
+             l3out: Optional[str] = None,
+             l3out_external_networks: Optional[Sequence[str]] = None,
+             mcast_range_end: Optional[str] = None,
+             mcast_range_start: Optional[str] = None,
+             node_subnet: Optional[str] = None,
+             node_svc_subnet: Optional[str] = None,
+             service_vlan: Optional[str] = None,
+             system_id: Optional[str] = None,
+             token: Optional[str] = None,
+             vrf_name: Optional[str] = None,
+             vrf_tenant: Optional[str] = None,
              snat_port_range_end: Optional[str] = None,
              snat_port_range_start: Optional[str] = None,
              snat_ports_per_node: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aep is None:
+            raise TypeError("Missing 'aep' argument")
+        if apic_hosts is None and 'apicHosts' in kwargs:
+            apic_hosts = kwargs['apicHosts']
+        if apic_hosts is None:
+            raise TypeError("Missing 'apic_hosts' argument")
+        if apic_user_crt is None and 'apicUserCrt' in kwargs:
+            apic_user_crt = kwargs['apicUserCrt']
+        if apic_user_crt is None:
+            raise TypeError("Missing 'apic_user_crt' argument")
+        if apic_user_key is None and 'apicUserKey' in kwargs:
+            apic_user_key = kwargs['apicUserKey']
+        if apic_user_key is None:
+            raise TypeError("Missing 'apic_user_key' argument")
+        if apic_user_name is None and 'apicUserName' in kwargs:
+            apic_user_name = kwargs['apicUserName']
+        if apic_user_name is None:
+            raise TypeError("Missing 'apic_user_name' argument")
+        if encap_type is None and 'encapType' in kwargs:
+            encap_type = kwargs['encapType']
+        if encap_type is None:
+            raise TypeError("Missing 'encap_type' argument")
+        if extern_dynamic is None and 'externDynamic' in kwargs:
+            extern_dynamic = kwargs['externDynamic']
+        if extern_dynamic is None:
+            raise TypeError("Missing 'extern_dynamic' argument")
+        if extern_static is None and 'externStatic' in kwargs:
+            extern_static = kwargs['externStatic']
+        if extern_static is None:
+            raise TypeError("Missing 'extern_static' argument")
+        if infra_vlan is None and 'infraVlan' in kwargs:
+            infra_vlan = kwargs['infraVlan']
+        if infra_vlan is None:
+            raise TypeError("Missing 'infra_vlan' argument")
+        if kube_api_vlan is None and 'kubeApiVlan' in kwargs:
+            kube_api_vlan = kwargs['kubeApiVlan']
+        if kube_api_vlan is None:
+            raise TypeError("Missing 'kube_api_vlan' argument")
+        if l3out is None:
+            raise TypeError("Missing 'l3out' argument")
+        if l3out_external_networks is None and 'l3outExternalNetworks' in kwargs:
+            l3out_external_networks = kwargs['l3outExternalNetworks']
+        if l3out_external_networks is None:
+            raise TypeError("Missing 'l3out_external_networks' argument")
+        if mcast_range_end is None and 'mcastRangeEnd' in kwargs:
+            mcast_range_end = kwargs['mcastRangeEnd']
+        if mcast_range_end is None:
+            raise TypeError("Missing 'mcast_range_end' argument")
+        if mcast_range_start is None and 'mcastRangeStart' in kwargs:
+            mcast_range_start = kwargs['mcastRangeStart']
+        if mcast_range_start is None:
+            raise TypeError("Missing 'mcast_range_start' argument")
+        if node_subnet is None and 'nodeSubnet' in kwargs:
+            node_subnet = kwargs['nodeSubnet']
+        if node_subnet is None:
+            raise TypeError("Missing 'node_subnet' argument")
+        if node_svc_subnet is None and 'nodeSvcSubnet' in kwargs:
+            node_svc_subnet = kwargs['nodeSvcSubnet']
+        if node_svc_subnet is None:
+            raise TypeError("Missing 'node_svc_subnet' argument")
+        if service_vlan is None and 'serviceVlan' in kwargs:
+            service_vlan = kwargs['serviceVlan']
+        if service_vlan is None:
+            raise TypeError("Missing 'service_vlan' argument")
+        if system_id is None and 'systemId' in kwargs:
+            system_id = kwargs['systemId']
+        if system_id is None:
+            raise TypeError("Missing 'system_id' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if vrf_name is None and 'vrfName' in kwargs:
+            vrf_name = kwargs['vrfName']
+        if vrf_name is None:
+            raise TypeError("Missing 'vrf_name' argument")
+        if vrf_tenant is None and 'vrfTenant' in kwargs:
+            vrf_tenant = kwargs['vrfTenant']
+        if vrf_tenant is None:
+            raise TypeError("Missing 'vrf_tenant' argument")
+        if snat_port_range_end is None and 'snatPortRangeEnd' in kwargs:
+            snat_port_range_end = kwargs['snatPortRangeEnd']
+        if snat_port_range_start is None and 'snatPortRangeStart' in kwargs:
+            snat_port_range_start = kwargs['snatPortRangeStart']
+        if snat_ports_per_node is None and 'snatPortsPerNode' in kwargs:
+            snat_ports_per_node = kwargs['snatPortsPerNode']
+
         _setter("aep", aep)
         _setter("apic_hosts", apic_hosts)
         _setter("apic_user_crt", apic_user_crt)
@@ -6271,7 +6931,11 @@ class ClusterNetworkCalicoNetworkProvider(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_provider is None and 'cloudProvider' in kwargs:
+            cloud_provider = kwargs['cloudProvider']
+
         if cloud_provider is not None:
             _setter("cloud_provider", cloud_provider)
 
@@ -6299,7 +6963,9 @@ class ClusterNetworkCanalNetworkProvider(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              iface: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iface is not None:
             _setter("iface", iface)
 
@@ -6327,7 +6993,9 @@ class ClusterNetworkFlannelNetworkProvider(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              iface: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iface is not None:
             _setter("iface", iface)
 
@@ -6354,8 +7022,12 @@ class ClusterNetworkWeaveNetworkProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+
         _setter("password", password)
 
     @property
@@ -6460,9 +7132,9 @@ class ClusterNode(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: str,
-             roles: Sequence[str],
-             user: str,
+             address: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             user: Optional[str] = None,
              docker_socket: Optional[str] = None,
              hostname_override: Optional[str] = None,
              internal_address: Optional[str] = None,
@@ -6476,7 +7148,35 @@ class ClusterNode(dict):
              ssh_key: Optional[str] = None,
              ssh_key_path: Optional[str] = None,
              taints: Optional[Sequence['outputs.ClusterNodeTaint']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if docker_socket is None and 'dockerSocket' in kwargs:
+            docker_socket = kwargs['dockerSocket']
+        if hostname_override is None and 'hostnameOverride' in kwargs:
+            hostname_override = kwargs['hostnameOverride']
+        if internal_address is None and 'internalAddress' in kwargs:
+            internal_address = kwargs['internalAddress']
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if roles_deprecated is None and 'rolesDeprecated' in kwargs:
+            roles_deprecated = kwargs['rolesDeprecated']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert is None and 'sshCert' in kwargs:
+            ssh_cert = kwargs['sshCert']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+
         _setter("address", address)
         _setter("roles", roles)
         _setter("user", user)
@@ -6656,10 +7356,16 @@ class ClusterNodeTaint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              effect: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
         if effect is not None:
@@ -6730,11 +7436,17 @@ class ClusterPrivateRegistry(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              is_default: Optional[bool] = None,
              password: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
         _setter("url", url)
         if is_default is not None:
             _setter("is_default", is_default)
@@ -6812,7 +7524,11 @@ class ClusterRestore(dict):
              _setter: Callable[[Any, Any], None],
              restore: Optional[bool] = None,
              snapshot_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+
         if restore is not None:
             _setter("restore", restore)
         if snapshot_name is not None:
@@ -6871,7 +7587,11 @@ class ClusterRotateCertificates(dict):
              _setter: Callable[[Any, Any], None],
              ca_certificates: Optional[bool] = None,
              services: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_certificates is None and 'caCertificates' in kwargs:
+            ca_certificates = kwargs['caCertificates']
+
         if ca_certificates is not None:
             _setter("ca_certificates", ca_certificates)
         if services is not None:
@@ -7126,7 +7846,67 @@ class ClusterRunningSystemImage(dict):
              weave_cni: Optional[str] = None,
              weave_node: Optional[str] = None,
              windows_pod_infra_container: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aci_cni_deploy_container is None and 'aciCniDeployContainer' in kwargs:
+            aci_cni_deploy_container = kwargs['aciCniDeployContainer']
+        if aci_controller_container is None and 'aciControllerContainer' in kwargs:
+            aci_controller_container = kwargs['aciControllerContainer']
+        if aci_host_container is None and 'aciHostContainer' in kwargs:
+            aci_host_container = kwargs['aciHostContainer']
+        if aci_mcast_container is None and 'aciMcastContainer' in kwargs:
+            aci_mcast_container = kwargs['aciMcastContainer']
+        if aci_opflex_container is None and 'aciOpflexContainer' in kwargs:
+            aci_opflex_container = kwargs['aciOpflexContainer']
+        if aci_ovs_container is None and 'aciOvsContainer' in kwargs:
+            aci_ovs_container = kwargs['aciOvsContainer']
+        if calico_cni is None and 'calicoCni' in kwargs:
+            calico_cni = kwargs['calicoCni']
+        if calico_controllers is None and 'calicoControllers' in kwargs:
+            calico_controllers = kwargs['calicoControllers']
+        if calico_ctl is None and 'calicoCtl' in kwargs:
+            calico_ctl = kwargs['calicoCtl']
+        if calico_flex_vol is None and 'calicoFlexVol' in kwargs:
+            calico_flex_vol = kwargs['calicoFlexVol']
+        if calico_node is None and 'calicoNode' in kwargs:
+            calico_node = kwargs['calicoNode']
+        if canal_cni is None and 'canalCni' in kwargs:
+            canal_cni = kwargs['canalCni']
+        if canal_flannel is None and 'canalFlannel' in kwargs:
+            canal_flannel = kwargs['canalFlannel']
+        if canal_flex_vol is None and 'canalFlexVol' in kwargs:
+            canal_flex_vol = kwargs['canalFlexVol']
+        if canal_node is None and 'canalNode' in kwargs:
+            canal_node = kwargs['canalNode']
+        if cert_downloader is None and 'certDownloader' in kwargs:
+            cert_downloader = kwargs['certDownloader']
+        if coredns_autoscaler is None and 'corednsAutoscaler' in kwargs:
+            coredns_autoscaler = kwargs['corednsAutoscaler']
+        if flannel_cni is None and 'flannelCni' in kwargs:
+            flannel_cni = kwargs['flannelCni']
+        if ingress_backend is None and 'ingressBackend' in kwargs:
+            ingress_backend = kwargs['ingressBackend']
+        if kube_dns is None and 'kubeDns' in kwargs:
+            kube_dns = kwargs['kubeDns']
+        if kube_dns_autoscaler is None and 'kubeDnsAutoscaler' in kwargs:
+            kube_dns_autoscaler = kwargs['kubeDnsAutoscaler']
+        if kube_dns_sidecar is None and 'kubeDnsSidecar' in kwargs:
+            kube_dns_sidecar = kwargs['kubeDnsSidecar']
+        if kubernetes_services_sidecar is None and 'kubernetesServicesSidecar' in kwargs:
+            kubernetes_services_sidecar = kwargs['kubernetesServicesSidecar']
+        if metrics_server is None and 'metricsServer' in kwargs:
+            metrics_server = kwargs['metricsServer']
+        if nginx_proxy is None and 'nginxProxy' in kwargs:
+            nginx_proxy = kwargs['nginxProxy']
+        if pod_infra_container is None and 'podInfraContainer' in kwargs:
+            pod_infra_container = kwargs['podInfraContainer']
+        if weave_cni is None and 'weaveCni' in kwargs:
+            weave_cni = kwargs['weaveCni']
+        if weave_node is None and 'weaveNode' in kwargs:
+            weave_node = kwargs['weaveNode']
+        if windows_pod_infra_container is None and 'windowsPodInfraContainer' in kwargs:
+            windows_pod_infra_container = kwargs['windowsPodInfraContainer']
+
         if aci_cni_deploy_container is not None:
             _setter("aci_cni_deploy_container", aci_cni_deploy_container)
         if aci_controller_container is not None:
@@ -7553,7 +8333,13 @@ class ClusterServices(dict):
              kubelet: Optional['outputs.ClusterServicesKubelet'] = None,
              kubeproxy: Optional['outputs.ClusterServicesKubeproxy'] = None,
              scheduler: Optional['outputs.ClusterServicesScheduler'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kube_api is None and 'kubeApi' in kwargs:
+            kube_api = kwargs['kubeApi']
+        if kube_controller is None and 'kubeController' in kwargs:
+            kube_controller = kwargs['kubeController']
+
         if etcd is not None:
             _setter("etcd", etcd)
         if kube_api is not None:
@@ -7714,7 +8500,21 @@ class ClusterServicesEtcd(dict):
              retention: Optional[str] = None,
              snapshot: Optional[bool] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_config is None and 'backupConfig' in kwargs:
+            backup_config = kwargs['backupConfig']
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if external_urls is None and 'externalUrls' in kwargs:
+            external_urls = kwargs['externalUrls']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if backup_config is not None:
             _setter("backup_config", backup_config)
         if ca_cert is not None:
@@ -7923,7 +8723,15 @@ class ClusterServicesEtcdBackupConfig(dict):
              s3_backup_config: Optional['outputs.ClusterServicesEtcdBackupConfigS3BackupConfig'] = None,
              safe_timestamp: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_hours is None and 'intervalHours' in kwargs:
+            interval_hours = kwargs['intervalHours']
+        if s3_backup_config is None and 's3BackupConfig' in kwargs:
+            s3_backup_config = kwargs['s3BackupConfig']
+        if safe_timestamp is None and 'safeTimestamp' in kwargs:
+            safe_timestamp = kwargs['safeTimestamp']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if interval_hours is not None:
@@ -8048,7 +8856,17 @@ class ClusterServicesEtcdBackupConfigS3BackupConfig(dict):
              folder: Optional[str] = None,
              region: Optional[str] = None,
              secret_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if custom_ca is None and 'customCa' in kwargs:
+            custom_ca = kwargs['customCa']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         if access_key is not None:
             _setter("access_key", access_key)
         if bucket_name is not None:
@@ -8219,7 +9037,21 @@ class ClusterServicesEtcdDeprecated(dict):
              retention: Optional[str] = None,
              snapshot: Optional[bool] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_config is None and 'backupConfig' in kwargs:
+            backup_config = kwargs['backupConfig']
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if external_urls is None and 'externalUrls' in kwargs:
+            external_urls = kwargs['externalUrls']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if backup_config is not None:
             _setter("backup_config", backup_config)
         if ca_cert is not None:
@@ -8428,7 +9260,15 @@ class ClusterServicesEtcdDeprecatedBackupConfig(dict):
              s3_backup_config: Optional['outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig'] = None,
              safe_timestamp: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_hours is None and 'intervalHours' in kwargs:
+            interval_hours = kwargs['intervalHours']
+        if s3_backup_config is None and 's3BackupConfig' in kwargs:
+            s3_backup_config = kwargs['s3BackupConfig']
+        if safe_timestamp is None and 'safeTimestamp' in kwargs:
+            safe_timestamp = kwargs['safeTimestamp']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if interval_hours is not None:
@@ -8553,7 +9393,17 @@ class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig(dict):
              folder: Optional[str] = None,
              region: Optional[str] = None,
              secret_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if custom_ca is None and 'customCa' in kwargs:
+            custom_ca = kwargs['customCa']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         if access_key is not None:
             _setter("access_key", access_key)
         if bucket_name is not None:
@@ -8716,7 +9566,29 @@ class ClusterServicesKubeApi(dict):
              secrets_encryption_config: Optional['outputs.ClusterServicesKubeApiSecretsEncryptionConfig'] = None,
              service_cluster_ip_range: Optional[str] = None,
              service_node_port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if always_pull_images is None and 'alwaysPullImages' in kwargs:
+            always_pull_images = kwargs['alwaysPullImages']
+        if audit_log is None and 'auditLog' in kwargs:
+            audit_log = kwargs['auditLog']
+        if event_rate_limit is None and 'eventRateLimit' in kwargs:
+            event_rate_limit = kwargs['eventRateLimit']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if pod_security_policy is None and 'podSecurityPolicy' in kwargs:
+            pod_security_policy = kwargs['podSecurityPolicy']
+        if secrets_encryption_config is None and 'secretsEncryptionConfig' in kwargs:
+            secrets_encryption_config = kwargs['secretsEncryptionConfig']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+        if service_node_port_range is None and 'serviceNodePortRange' in kwargs:
+            service_node_port_range = kwargs['serviceNodePortRange']
+
         if always_pull_images is not None:
             _setter("always_pull_images", always_pull_images)
         if audit_log is not None:
@@ -8848,7 +9720,9 @@ class ClusterServicesKubeApiAuditLog(dict):
              _setter: Callable[[Any, Any], None],
              configuration: Optional['outputs.ClusterServicesKubeApiAuditLogConfiguration'] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if enabled is not None:
@@ -8927,7 +9801,15 @@ class ClusterServicesKubeApiAuditLogConfiguration(dict):
              max_size: Optional[int] = None,
              path: Optional[str] = None,
              policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_backup is None and 'maxBackup' in kwargs:
+            max_backup = kwargs['maxBackup']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+
         if format is not None:
             _setter("format", format)
         if max_age is not None:
@@ -9080,7 +9962,29 @@ class ClusterServicesKubeApiDeprecated(dict):
              secrets_encryption_config: Optional['outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig'] = None,
              service_cluster_ip_range: Optional[str] = None,
              service_node_port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if always_pull_images is None and 'alwaysPullImages' in kwargs:
+            always_pull_images = kwargs['alwaysPullImages']
+        if audit_log is None and 'auditLog' in kwargs:
+            audit_log = kwargs['auditLog']
+        if event_rate_limit is None and 'eventRateLimit' in kwargs:
+            event_rate_limit = kwargs['eventRateLimit']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if pod_security_policy is None and 'podSecurityPolicy' in kwargs:
+            pod_security_policy = kwargs['podSecurityPolicy']
+        if secrets_encryption_config is None and 'secretsEncryptionConfig' in kwargs:
+            secrets_encryption_config = kwargs['secretsEncryptionConfig']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+        if service_node_port_range is None and 'serviceNodePortRange' in kwargs:
+            service_node_port_range = kwargs['serviceNodePortRange']
+
         if always_pull_images is not None:
             _setter("always_pull_images", always_pull_images)
         if audit_log is not None:
@@ -9212,7 +10116,9 @@ class ClusterServicesKubeApiDeprecatedAuditLog(dict):
              _setter: Callable[[Any, Any], None],
              configuration: Optional['outputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration'] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if enabled is not None:
@@ -9291,7 +10197,15 @@ class ClusterServicesKubeApiDeprecatedAuditLogConfiguration(dict):
              max_size: Optional[int] = None,
              path: Optional[str] = None,
              policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_backup is None and 'maxBackup' in kwargs:
+            max_backup = kwargs['maxBackup']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+
         if format is not None:
             _setter("format", format)
         if max_age is not None:
@@ -9373,7 +10287,9 @@ class ClusterServicesKubeApiDeprecatedEventRateLimit(dict):
              _setter: Callable[[Any, Any], None],
              configuration: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if enabled is not None:
@@ -9432,7 +10348,11 @@ class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig(dict):
              _setter: Callable[[Any, Any], None],
              custom_config: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+
         if custom_config is not None:
             _setter("custom_config", custom_config)
         if enabled is not None:
@@ -9474,7 +10394,9 @@ class ClusterServicesKubeApiEventRateLimit(dict):
              _setter: Callable[[Any, Any], None],
              configuration: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if enabled is not None:
@@ -9533,7 +10455,11 @@ class ClusterServicesKubeApiSecretsEncryptionConfig(dict):
              _setter: Callable[[Any, Any], None],
              custom_config: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+
         if custom_config is not None:
             _setter("custom_config", custom_config)
         if enabled is not None:
@@ -9616,7 +10542,19 @@ class ClusterServicesKubeController(dict):
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
              service_cluster_ip_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_cidr is None and 'clusterCidr' in kwargs:
+            cluster_cidr = kwargs['clusterCidr']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+
         if cluster_cidr is not None:
             _setter("cluster_cidr", cluster_cidr)
         if extra_args is not None:
@@ -9739,7 +10677,19 @@ class ClusterServicesKubeControllerDeprecated(dict):
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
              service_cluster_ip_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_cidr is None and 'clusterCidr' in kwargs:
+            cluster_cidr = kwargs['clusterCidr']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+
         if cluster_cidr is not None:
             _setter("cluster_cidr", cluster_cidr)
         if extra_args is not None:
@@ -9850,7 +10800,15 @@ class ClusterServicesKubeProxyDeprecated(dict):
              extra_binds: Optional[Sequence[str]] = None,
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
             _setter("extra_args", extra_args)
         if extra_binds is not None:
@@ -9941,7 +10899,15 @@ class ClusterServicesKubeSchedulerDeprecated(dict):
              extra_binds: Optional[Sequence[str]] = None,
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
             _setter("extra_args", extra_args)
         if extra_binds is not None:
@@ -10062,7 +11028,25 @@ class ClusterServicesKubelet(dict):
              generate_serving_certificate: Optional[bool] = None,
              image: Optional[str] = None,
              infra_container_image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_dns_server is None and 'clusterDnsServer' in kwargs:
+            cluster_dns_server = kwargs['clusterDnsServer']
+        if cluster_domain is None and 'clusterDomain' in kwargs:
+            cluster_domain = kwargs['clusterDomain']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if fail_swap_on is None and 'failSwapOn' in kwargs:
+            fail_swap_on = kwargs['failSwapOn']
+        if generate_serving_certificate is None and 'generateServingCertificate' in kwargs:
+            generate_serving_certificate = kwargs['generateServingCertificate']
+        if infra_container_image is None and 'infraContainerImage' in kwargs:
+            infra_container_image = kwargs['infraContainerImage']
+
         if cluster_dns_server is not None:
             _setter("cluster_dns_server", cluster_dns_server)
         if cluster_domain is not None:
@@ -10233,7 +11217,25 @@ class ClusterServicesKubeletDeprecated(dict):
              generate_serving_certificate: Optional[bool] = None,
              image: Optional[str] = None,
              infra_container_image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_dns_server is None and 'clusterDnsServer' in kwargs:
+            cluster_dns_server = kwargs['clusterDnsServer']
+        if cluster_domain is None and 'clusterDomain' in kwargs:
+            cluster_domain = kwargs['clusterDomain']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if fail_swap_on is None and 'failSwapOn' in kwargs:
+            fail_swap_on = kwargs['failSwapOn']
+        if generate_serving_certificate is None and 'generateServingCertificate' in kwargs:
+            generate_serving_certificate = kwargs['generateServingCertificate']
+        if infra_container_image is None and 'infraContainerImage' in kwargs:
+            infra_container_image = kwargs['infraContainerImage']
+
         if cluster_dns_server is not None:
             _setter("cluster_dns_server", cluster_dns_server)
         if cluster_domain is not None:
@@ -10374,7 +11376,15 @@ class ClusterServicesKubeproxy(dict):
              extra_binds: Optional[Sequence[str]] = None,
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
             _setter("extra_args", extra_args)
         if extra_binds is not None:
@@ -10465,7 +11475,15 @@ class ClusterServicesScheduler(dict):
              extra_binds: Optional[Sequence[str]] = None,
              extra_envs: Optional[Sequence[str]] = None,
              image: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
             _setter("extra_args", extra_args)
         if extra_binds is not None:
@@ -10740,7 +11758,67 @@ class ClusterSystemImages(dict):
              weave_cni: Optional[str] = None,
              weave_node: Optional[str] = None,
              windows_pod_infra_container: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aci_cni_deploy_container is None and 'aciCniDeployContainer' in kwargs:
+            aci_cni_deploy_container = kwargs['aciCniDeployContainer']
+        if aci_controller_container is None and 'aciControllerContainer' in kwargs:
+            aci_controller_container = kwargs['aciControllerContainer']
+        if aci_host_container is None and 'aciHostContainer' in kwargs:
+            aci_host_container = kwargs['aciHostContainer']
+        if aci_mcast_container is None and 'aciMcastContainer' in kwargs:
+            aci_mcast_container = kwargs['aciMcastContainer']
+        if aci_opflex_container is None and 'aciOpflexContainer' in kwargs:
+            aci_opflex_container = kwargs['aciOpflexContainer']
+        if aci_ovs_container is None and 'aciOvsContainer' in kwargs:
+            aci_ovs_container = kwargs['aciOvsContainer']
+        if calico_cni is None and 'calicoCni' in kwargs:
+            calico_cni = kwargs['calicoCni']
+        if calico_controllers is None and 'calicoControllers' in kwargs:
+            calico_controllers = kwargs['calicoControllers']
+        if calico_ctl is None and 'calicoCtl' in kwargs:
+            calico_ctl = kwargs['calicoCtl']
+        if calico_flex_vol is None and 'calicoFlexVol' in kwargs:
+            calico_flex_vol = kwargs['calicoFlexVol']
+        if calico_node is None and 'calicoNode' in kwargs:
+            calico_node = kwargs['calicoNode']
+        if canal_cni is None and 'canalCni' in kwargs:
+            canal_cni = kwargs['canalCni']
+        if canal_flannel is None and 'canalFlannel' in kwargs:
+            canal_flannel = kwargs['canalFlannel']
+        if canal_flex_vol is None and 'canalFlexVol' in kwargs:
+            canal_flex_vol = kwargs['canalFlexVol']
+        if canal_node is None and 'canalNode' in kwargs:
+            canal_node = kwargs['canalNode']
+        if cert_downloader is None and 'certDownloader' in kwargs:
+            cert_downloader = kwargs['certDownloader']
+        if coredns_autoscaler is None and 'corednsAutoscaler' in kwargs:
+            coredns_autoscaler = kwargs['corednsAutoscaler']
+        if flannel_cni is None and 'flannelCni' in kwargs:
+            flannel_cni = kwargs['flannelCni']
+        if ingress_backend is None and 'ingressBackend' in kwargs:
+            ingress_backend = kwargs['ingressBackend']
+        if kube_dns is None and 'kubeDns' in kwargs:
+            kube_dns = kwargs['kubeDns']
+        if kube_dns_autoscaler is None and 'kubeDnsAutoscaler' in kwargs:
+            kube_dns_autoscaler = kwargs['kubeDnsAutoscaler']
+        if kube_dns_sidecar is None and 'kubeDnsSidecar' in kwargs:
+            kube_dns_sidecar = kwargs['kubeDnsSidecar']
+        if kubernetes_services_sidecar is None and 'kubernetesServicesSidecar' in kwargs:
+            kubernetes_services_sidecar = kwargs['kubernetesServicesSidecar']
+        if metrics_server is None and 'metricsServer' in kwargs:
+            metrics_server = kwargs['metricsServer']
+        if nginx_proxy is None and 'nginxProxy' in kwargs:
+            nginx_proxy = kwargs['nginxProxy']
+        if pod_infra_container is None and 'podInfraContainer' in kwargs:
+            pod_infra_container = kwargs['podInfraContainer']
+        if weave_cni is None and 'weaveCni' in kwargs:
+            weave_cni = kwargs['weaveCni']
+        if weave_node is None and 'weaveNode' in kwargs:
+            weave_node = kwargs['weaveNode']
+        if windows_pod_infra_container is None and 'windowsPodInfraContainer' in kwargs:
+            windows_pod_infra_container = kwargs['windowsPodInfraContainer']
+
         if aci_cni_deploy_container is not None:
             _setter("aci_cni_deploy_container", aci_cni_deploy_container)
         if aci_controller_container is not None:
@@ -11161,7 +12239,15 @@ class ClusterUpgradeStrategy(dict):
              drain_input: Optional['outputs.ClusterUpgradeStrategyDrainInput'] = None,
              max_unavailable_controlplane: Optional[str] = None,
              max_unavailable_worker: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if drain_input is None and 'drainInput' in kwargs:
+            drain_input = kwargs['drainInput']
+        if max_unavailable_controlplane is None and 'maxUnavailableControlplane' in kwargs:
+            max_unavailable_controlplane = kwargs['maxUnavailableControlplane']
+        if max_unavailable_worker is None and 'maxUnavailableWorker' in kwargs:
+            max_unavailable_worker = kwargs['maxUnavailableWorker']
+
         if drain is not None:
             _setter("drain", drain)
         if drain_input is not None:
@@ -11256,7 +12342,15 @@ class ClusterUpgradeStrategyDrainInput(dict):
              grace_period: Optional[int] = None,
              ignore_daemon_sets: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_local_data is None and 'deleteLocalData' in kwargs:
+            delete_local_data = kwargs['deleteLocalData']
+        if grace_period is None and 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+        if ignore_daemon_sets is None and 'ignoreDaemonSets' in kwargs:
+            ignore_daemon_sets = kwargs['ignoreDaemonSets']
+
         if delete_local_data is not None:
             _setter("delete_local_data", delete_local_data)
         if force is not None:
@@ -11345,7 +12439,11 @@ class ClusterWorkerHost(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
             _setter("address", address)
         if node_name is not None:
