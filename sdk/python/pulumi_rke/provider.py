@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -19,29 +19,14 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         """
-        ProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            debug=debug,
-            log_file=log_file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             debug: Optional[pulumi.Input[bool]] = None,
-             log_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_file is None and 'logFile' in kwargs:
-            log_file = kwargs['logFile']
-
         if debug is None:
             debug = (_utilities.get_env_bool('RKE_DEBUG') or False)
         if debug is not None:
-            _setter("debug", debug)
+            pulumi.set(__self__, "debug", debug)
         if log_file is None:
             log_file = _utilities.get_env('RKE_LOG_FILE')
         if log_file is not None:
-            _setter("log_file", log_file)
+            pulumi.set(__self__, "log_file", log_file)
 
     @property
     @pulumi.getter
@@ -101,10 +86,6 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
