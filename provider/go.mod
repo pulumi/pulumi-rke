@@ -3,8 +3,8 @@ module github.com/pulumi/pulumi-rke/provider/v3
 go 1.21
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.1
-	github.com/pulumi/pulumi/sdk/v3 v3.90.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.2
+	github.com/pulumi/pulumi/sdk/v3 v3.91.1
 	github.com/rancher/terraform-provider-rke v1.4.2
 )
 
@@ -219,7 +219,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.2.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.90.1 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.91.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rancher/lasso v0.0.0-20221202205459-e7138f16489c // indirect
