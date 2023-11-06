@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -109,12 +109,27 @@ class ClusterAuthenticationArgs:
         :param pulumi.Input[str] strategy: Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
         :param pulumi.Input['ClusterAuthenticationWebhookArgs'] webhook: Webhook configuration options (list maxitem: 1)
         """
+        ClusterAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sans=sans,
+            strategy=strategy,
+            webhook=webhook,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             strategy: Optional[pulumi.Input[str]] = None,
+             webhook: Optional[pulumi.Input['ClusterAuthenticationWebhookArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sans is not None:
-            pulumi.set(__self__, "sans", sans)
+            _setter("sans", sans)
         if strategy is not None:
-            pulumi.set(__self__, "strategy", strategy)
+            _setter("strategy", strategy)
         if webhook is not None:
-            pulumi.set(__self__, "webhook", webhook)
+            _setter("webhook", webhook)
 
     @property
     @pulumi.getter
@@ -162,10 +177,27 @@ class ClusterAuthenticationWebhookArgs:
         :param pulumi.Input[str] cache_timeout: Controls how long to cache authentication decisions (string)
         :param pulumi.Input[str] config_file: Multiline string that represent a custom webhook config file (string)
         """
+        ClusterAuthenticationWebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_timeout=cache_timeout,
+            config_file=config_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_timeout: Optional[pulumi.Input[str]] = None,
+             config_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if config_file is None and 'configFile' in kwargs:
+            config_file = kwargs['configFile']
+
         if cache_timeout is not None:
-            pulumi.set(__self__, "cache_timeout", cache_timeout)
+            _setter("cache_timeout", cache_timeout)
         if config_file is not None:
-            pulumi.set(__self__, "config_file", config_file)
+            _setter("config_file", config_file)
 
     @property
     @pulumi.getter(name="cacheTimeout")
@@ -201,10 +233,23 @@ class ClusterAuthorizationArgs:
         :param pulumi.Input[str] mode: RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
         :param pulumi.Input[Mapping[str, Any]] options: Network provider options (map)
         """
+        ClusterAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
 
     @property
     @pulumi.getter
@@ -254,22 +299,65 @@ class ClusterBastionHostArgs:
         :param pulumi.Input[str] ssh_key: SSH Private Key (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "user", user)
+        ClusterBastionHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            user=user,
+            ignore_proxy_env_vars=ignore_proxy_env_vars,
+            port=port,
+            ssh_agent_auth=ssh_agent_auth,
+            ssh_cert=ssh_cert,
+            ssh_cert_path=ssh_cert_path,
+            ssh_key=ssh_key,
+            ssh_key_path=ssh_key_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             ignore_proxy_env_vars: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
+             ssh_cert: Optional[pulumi.Input[str]] = None,
+             ssh_cert_path: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             ssh_key_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if ignore_proxy_env_vars is None and 'ignoreProxyEnvVars' in kwargs:
+            ignore_proxy_env_vars = kwargs['ignoreProxyEnvVars']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert is None and 'sshCert' in kwargs:
+            ssh_cert = kwargs['sshCert']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+
+        _setter("address", address)
+        _setter("user", user)
         if ignore_proxy_env_vars is not None:
-            pulumi.set(__self__, "ignore_proxy_env_vars", ignore_proxy_env_vars)
+            _setter("ignore_proxy_env_vars", ignore_proxy_env_vars)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if ssh_agent_auth is not None:
-            pulumi.set(__self__, "ssh_agent_auth", ssh_agent_auth)
+            _setter("ssh_agent_auth", ssh_agent_auth)
         if ssh_cert is not None:
-            pulumi.set(__self__, "ssh_cert", ssh_cert)
+            _setter("ssh_cert", ssh_cert)
         if ssh_cert_path is not None:
-            pulumi.set(__self__, "ssh_cert_path", ssh_cert_path)
+            _setter("ssh_cert_path", ssh_cert_path)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if ssh_key_path is not None:
-            pulumi.set(__self__, "ssh_key_path", ssh_key_path)
+            _setter("ssh_key_path", ssh_key_path)
 
     @property
     @pulumi.getter
@@ -402,32 +490,81 @@ class ClusterCertificateArgs:
         :param pulumi.Input[str] name: Name of virtualcenter config for Vsphere Cloud Provider config (string)
         :param pulumi.Input[str] path: Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         """
+        ClusterCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            common_name=common_name,
+            config=config,
+            config_env_name=config_env_name,
+            config_path=config_path,
+            env_name=env_name,
+            id=id,
+            key=key,
+            key_env_name=key_env_name,
+            key_path=key_path,
+            name=name,
+            ou_name=ou_name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             common_name: Optional[pulumi.Input[str]] = None,
+             config: Optional[pulumi.Input[str]] = None,
+             config_env_name: Optional[pulumi.Input[str]] = None,
+             config_path: Optional[pulumi.Input[str]] = None,
+             env_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             key_env_name: Optional[pulumi.Input[str]] = None,
+             key_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ou_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if config_env_name is None and 'configEnvName' in kwargs:
+            config_env_name = kwargs['configEnvName']
+        if config_path is None and 'configPath' in kwargs:
+            config_path = kwargs['configPath']
+        if env_name is None and 'envName' in kwargs:
+            env_name = kwargs['envName']
+        if key_env_name is None and 'keyEnvName' in kwargs:
+            key_env_name = kwargs['keyEnvName']
+        if key_path is None and 'keyPath' in kwargs:
+            key_path = kwargs['keyPath']
+        if ou_name is None and 'ouName' in kwargs:
+            ou_name = kwargs['ouName']
+
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if config_env_name is not None:
-            pulumi.set(__self__, "config_env_name", config_env_name)
+            _setter("config_env_name", config_env_name)
         if config_path is not None:
-            pulumi.set(__self__, "config_path", config_path)
+            _setter("config_path", config_path)
         if env_name is not None:
-            pulumi.set(__self__, "env_name", env_name)
+            _setter("env_name", env_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if key_env_name is not None:
-            pulumi.set(__self__, "key_env_name", key_env_name)
+            _setter("key_env_name", key_env_name)
         if key_path is not None:
-            pulumi.set(__self__, "key_path", key_path)
+            _setter("key_path", key_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ou_name is not None:
-            pulumi.set(__self__, "ou_name", ou_name)
+            _setter("ou_name", ou_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -586,42 +723,95 @@ class ClusterCloudProviderArgs:
         :param pulumi.Input['ClusterCloudProviderVsphereCloudConfigArgs'] vsphere_cloud_config: Use vsphere_cloud_provider instead
         :param pulumi.Input['ClusterCloudProviderVsphereCloudProviderArgs'] vsphere_cloud_provider: Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
         """
-        pulumi.set(__self__, "name", name)
+        ClusterCloudProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            aws_cloud_config=aws_cloud_config,
+            aws_cloud_provider=aws_cloud_provider,
+            azure_cloud_config=azure_cloud_config,
+            azure_cloud_provider=azure_cloud_provider,
+            custom_cloud_config=custom_cloud_config,
+            custom_cloud_provider=custom_cloud_provider,
+            openstack_cloud_config=openstack_cloud_config,
+            openstack_cloud_provider=openstack_cloud_provider,
+            vsphere_cloud_config=vsphere_cloud_config,
+            vsphere_cloud_provider=vsphere_cloud_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             aws_cloud_config: Optional[pulumi.Input['ClusterCloudProviderAwsCloudConfigArgs']] = None,
+             aws_cloud_provider: Optional[pulumi.Input['ClusterCloudProviderAwsCloudProviderArgs']] = None,
+             azure_cloud_config: Optional[pulumi.Input['ClusterCloudProviderAzureCloudConfigArgs']] = None,
+             azure_cloud_provider: Optional[pulumi.Input['ClusterCloudProviderAzureCloudProviderArgs']] = None,
+             custom_cloud_config: Optional[pulumi.Input[str]] = None,
+             custom_cloud_provider: Optional[pulumi.Input[str]] = None,
+             openstack_cloud_config: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigArgs']] = None,
+             openstack_cloud_provider: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderArgs']] = None,
+             vsphere_cloud_config: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigArgs']] = None,
+             vsphere_cloud_provider: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if aws_cloud_config is None and 'awsCloudConfig' in kwargs:
+            aws_cloud_config = kwargs['awsCloudConfig']
+        if aws_cloud_provider is None and 'awsCloudProvider' in kwargs:
+            aws_cloud_provider = kwargs['awsCloudProvider']
+        if azure_cloud_config is None and 'azureCloudConfig' in kwargs:
+            azure_cloud_config = kwargs['azureCloudConfig']
+        if azure_cloud_provider is None and 'azureCloudProvider' in kwargs:
+            azure_cloud_provider = kwargs['azureCloudProvider']
+        if custom_cloud_config is None and 'customCloudConfig' in kwargs:
+            custom_cloud_config = kwargs['customCloudConfig']
+        if custom_cloud_provider is None and 'customCloudProvider' in kwargs:
+            custom_cloud_provider = kwargs['customCloudProvider']
+        if openstack_cloud_config is None and 'openstackCloudConfig' in kwargs:
+            openstack_cloud_config = kwargs['openstackCloudConfig']
+        if openstack_cloud_provider is None and 'openstackCloudProvider' in kwargs:
+            openstack_cloud_provider = kwargs['openstackCloudProvider']
+        if vsphere_cloud_config is None and 'vsphereCloudConfig' in kwargs:
+            vsphere_cloud_config = kwargs['vsphereCloudConfig']
+        if vsphere_cloud_provider is None and 'vsphereCloudProvider' in kwargs:
+            vsphere_cloud_provider = kwargs['vsphereCloudProvider']
+
+        _setter("name", name)
         if aws_cloud_config is not None:
             warnings.warn("""Use aws_cloud_provider instead""", DeprecationWarning)
             pulumi.log.warn("""aws_cloud_config is deprecated: Use aws_cloud_provider instead""")
         if aws_cloud_config is not None:
-            pulumi.set(__self__, "aws_cloud_config", aws_cloud_config)
+            _setter("aws_cloud_config", aws_cloud_config)
         if aws_cloud_provider is not None:
-            pulumi.set(__self__, "aws_cloud_provider", aws_cloud_provider)
+            _setter("aws_cloud_provider", aws_cloud_provider)
         if azure_cloud_config is not None:
             warnings.warn("""Use azure_cloud_provider instead""", DeprecationWarning)
             pulumi.log.warn("""azure_cloud_config is deprecated: Use azure_cloud_provider instead""")
         if azure_cloud_config is not None:
-            pulumi.set(__self__, "azure_cloud_config", azure_cloud_config)
+            _setter("azure_cloud_config", azure_cloud_config)
         if azure_cloud_provider is not None:
-            pulumi.set(__self__, "azure_cloud_provider", azure_cloud_provider)
+            _setter("azure_cloud_provider", azure_cloud_provider)
         if custom_cloud_config is not None:
             warnings.warn("""Use custom_cloud_provider instead""", DeprecationWarning)
             pulumi.log.warn("""custom_cloud_config is deprecated: Use custom_cloud_provider instead""")
         if custom_cloud_config is not None:
-            pulumi.set(__self__, "custom_cloud_config", custom_cloud_config)
+            _setter("custom_cloud_config", custom_cloud_config)
         if custom_cloud_provider is not None:
-            pulumi.set(__self__, "custom_cloud_provider", custom_cloud_provider)
+            _setter("custom_cloud_provider", custom_cloud_provider)
         if openstack_cloud_config is not None:
             warnings.warn("""Use openstack_cloud_provider instead""", DeprecationWarning)
             pulumi.log.warn("""openstack_cloud_config is deprecated: Use openstack_cloud_provider instead""")
         if openstack_cloud_config is not None:
-            pulumi.set(__self__, "openstack_cloud_config", openstack_cloud_config)
+            _setter("openstack_cloud_config", openstack_cloud_config)
         if openstack_cloud_provider is not None:
-            pulumi.set(__self__, "openstack_cloud_provider", openstack_cloud_provider)
+            _setter("openstack_cloud_provider", openstack_cloud_provider)
         if vsphere_cloud_config is not None:
             warnings.warn("""Use vsphere_cloud_provider instead""", DeprecationWarning)
             pulumi.log.warn("""vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead""")
         if vsphere_cloud_config is not None:
-            pulumi.set(__self__, "vsphere_cloud_config", vsphere_cloud_config)
+            _setter("vsphere_cloud_config", vsphere_cloud_config)
         if vsphere_cloud_provider is not None:
-            pulumi.set(__self__, "vsphere_cloud_provider", vsphere_cloud_provider)
+            _setter("vsphere_cloud_provider", vsphere_cloud_provider)
 
     @property
     @pulumi.getter
@@ -780,10 +970,27 @@ class ClusterCloudProviderAwsCloudConfigArgs:
         :param pulumi.Input['ClusterCloudProviderAwsCloudConfigGlobalArgs'] global_: (list maxitems:1)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderAwsCloudConfigServiceOverrideArgs']]] service_overrides: (list)
         """
+        ClusterCloudProviderAwsCloudConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_=global_,
+            service_overrides=service_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_: Optional[pulumi.Input['ClusterCloudProviderAwsCloudConfigGlobalArgs']] = None,
+             service_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderAwsCloudConfigServiceOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if service_overrides is None and 'serviceOverrides' in kwargs:
+            service_overrides = kwargs['serviceOverrides']
+
         if global_ is not None:
-            pulumi.set(__self__, "global_", global_)
+            _setter("global_", global_)
         if service_overrides is not None:
-            pulumi.set(__self__, "service_overrides", service_overrides)
+            _setter("service_overrides", service_overrides)
 
     @property
     @pulumi.getter(name="global")
@@ -835,26 +1042,71 @@ class ClusterCloudProviderAwsCloudConfigGlobalArgs:
         :param pulumi.Input[str] vpc: The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
         :param pulumi.Input[str] zone: The AWS zone (string)
         """
+        ClusterCloudProviderAwsCloudConfigGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_security_group_ingress=disable_security_group_ingress,
+            disable_strict_zone_check=disable_strict_zone_check,
+            elb_security_group=elb_security_group,
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            kubernetes_cluster_tag=kubernetes_cluster_tag,
+            role_arn=role_arn,
+            route_table_id=route_table_id,
+            subnet_id=subnet_id,
+            vpc=vpc,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_security_group_ingress: Optional[pulumi.Input[bool]] = None,
+             disable_strict_zone_check: Optional[pulumi.Input[bool]] = None,
+             elb_security_group: Optional[pulumi.Input[str]] = None,
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             kubernetes_cluster_tag: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vpc: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disable_security_group_ingress is None and 'disableSecurityGroupIngress' in kwargs:
+            disable_security_group_ingress = kwargs['disableSecurityGroupIngress']
+        if disable_strict_zone_check is None and 'disableStrictZoneCheck' in kwargs:
+            disable_strict_zone_check = kwargs['disableStrictZoneCheck']
+        if elb_security_group is None and 'elbSecurityGroup' in kwargs:
+            elb_security_group = kwargs['elbSecurityGroup']
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if kubernetes_cluster_tag is None and 'kubernetesClusterTag' in kwargs:
+            kubernetes_cluster_tag = kwargs['kubernetesClusterTag']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if disable_security_group_ingress is not None:
-            pulumi.set(__self__, "disable_security_group_ingress", disable_security_group_ingress)
+            _setter("disable_security_group_ingress", disable_security_group_ingress)
         if disable_strict_zone_check is not None:
-            pulumi.set(__self__, "disable_strict_zone_check", disable_strict_zone_check)
+            _setter("disable_strict_zone_check", disable_strict_zone_check)
         if elb_security_group is not None:
-            pulumi.set(__self__, "elb_security_group", elb_security_group)
+            _setter("elb_security_group", elb_security_group)
         if kubernetes_cluster_id is not None:
-            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         if kubernetes_cluster_tag is not None:
-            pulumi.set(__self__, "kubernetes_cluster_tag", kubernetes_cluster_tag)
+            _setter("kubernetes_cluster_tag", kubernetes_cluster_tag)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="disableSecurityGroupIngress")
@@ -996,22 +1248,53 @@ class ClusterCloudProviderAwsCloudConfigServiceOverrideArgs:
         :param pulumi.Input[str] signing_region: (string)
         :param pulumi.Input[str] url: Registry URL (string)
         """
-        pulumi.set(__self__, "service", service)
+        ClusterCloudProviderAwsCloudConfigServiceOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            key=key,
+            region=region,
+            signing_method=signing_method,
+            signing_name=signing_name,
+            signing_region=signing_region,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             signing_method: Optional[pulumi.Input[str]] = None,
+             signing_name: Optional[pulumi.Input[str]] = None,
+             signing_region: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if signing_method is None and 'signingMethod' in kwargs:
+            signing_method = kwargs['signingMethod']
+        if signing_name is None and 'signingName' in kwargs:
+            signing_name = kwargs['signingName']
+        if signing_region is None and 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+
+        _setter("service", service)
         if key is not None:
             warnings.warn("""Use service instead""", DeprecationWarning)
             pulumi.log.warn("""key is deprecated: Use service instead""")
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if signing_method is not None:
-            pulumi.set(__self__, "signing_method", signing_method)
+            _setter("signing_method", signing_method)
         if signing_name is not None:
-            pulumi.set(__self__, "signing_name", signing_name)
+            _setter("signing_name", signing_name)
         if signing_region is not None:
-            pulumi.set(__self__, "signing_region", signing_region)
+            _setter("signing_region", signing_region)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1110,10 +1393,27 @@ class ClusterCloudProviderAwsCloudProviderArgs:
         :param pulumi.Input['ClusterCloudProviderAwsCloudProviderGlobalArgs'] global_: (list maxitems:1)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderAwsCloudProviderServiceOverrideArgs']]] service_overrides: (list)
         """
+        ClusterCloudProviderAwsCloudProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_=global_,
+            service_overrides=service_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_: Optional[pulumi.Input['ClusterCloudProviderAwsCloudProviderGlobalArgs']] = None,
+             service_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderAwsCloudProviderServiceOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if service_overrides is None and 'serviceOverrides' in kwargs:
+            service_overrides = kwargs['serviceOverrides']
+
         if global_ is not None:
-            pulumi.set(__self__, "global_", global_)
+            _setter("global_", global_)
         if service_overrides is not None:
-            pulumi.set(__self__, "service_overrides", service_overrides)
+            _setter("service_overrides", service_overrides)
 
     @property
     @pulumi.getter(name="global")
@@ -1165,26 +1465,71 @@ class ClusterCloudProviderAwsCloudProviderGlobalArgs:
         :param pulumi.Input[str] vpc: The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
         :param pulumi.Input[str] zone: The AWS zone (string)
         """
+        ClusterCloudProviderAwsCloudProviderGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_security_group_ingress=disable_security_group_ingress,
+            disable_strict_zone_check=disable_strict_zone_check,
+            elb_security_group=elb_security_group,
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            kubernetes_cluster_tag=kubernetes_cluster_tag,
+            role_arn=role_arn,
+            route_table_id=route_table_id,
+            subnet_id=subnet_id,
+            vpc=vpc,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_security_group_ingress: Optional[pulumi.Input[bool]] = None,
+             disable_strict_zone_check: Optional[pulumi.Input[bool]] = None,
+             elb_security_group: Optional[pulumi.Input[str]] = None,
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             kubernetes_cluster_tag: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vpc: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disable_security_group_ingress is None and 'disableSecurityGroupIngress' in kwargs:
+            disable_security_group_ingress = kwargs['disableSecurityGroupIngress']
+        if disable_strict_zone_check is None and 'disableStrictZoneCheck' in kwargs:
+            disable_strict_zone_check = kwargs['disableStrictZoneCheck']
+        if elb_security_group is None and 'elbSecurityGroup' in kwargs:
+            elb_security_group = kwargs['elbSecurityGroup']
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if kubernetes_cluster_tag is None and 'kubernetesClusterTag' in kwargs:
+            kubernetes_cluster_tag = kwargs['kubernetesClusterTag']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if disable_security_group_ingress is not None:
-            pulumi.set(__self__, "disable_security_group_ingress", disable_security_group_ingress)
+            _setter("disable_security_group_ingress", disable_security_group_ingress)
         if disable_strict_zone_check is not None:
-            pulumi.set(__self__, "disable_strict_zone_check", disable_strict_zone_check)
+            _setter("disable_strict_zone_check", disable_strict_zone_check)
         if elb_security_group is not None:
-            pulumi.set(__self__, "elb_security_group", elb_security_group)
+            _setter("elb_security_group", elb_security_group)
         if kubernetes_cluster_id is not None:
-            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         if kubernetes_cluster_tag is not None:
-            pulumi.set(__self__, "kubernetes_cluster_tag", kubernetes_cluster_tag)
+            _setter("kubernetes_cluster_tag", kubernetes_cluster_tag)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="disableSecurityGroupIngress")
@@ -1326,22 +1671,53 @@ class ClusterCloudProviderAwsCloudProviderServiceOverrideArgs:
         :param pulumi.Input[str] signing_region: (string)
         :param pulumi.Input[str] url: Registry URL (string)
         """
-        pulumi.set(__self__, "service", service)
+        ClusterCloudProviderAwsCloudProviderServiceOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            key=key,
+            region=region,
+            signing_method=signing_method,
+            signing_name=signing_name,
+            signing_region=signing_region,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             signing_method: Optional[pulumi.Input[str]] = None,
+             signing_name: Optional[pulumi.Input[str]] = None,
+             signing_region: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if signing_method is None and 'signingMethod' in kwargs:
+            signing_method = kwargs['signingMethod']
+        if signing_name is None and 'signingName' in kwargs:
+            signing_name = kwargs['signingName']
+        if signing_region is None and 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+
+        _setter("service", service)
         if key is not None:
             warnings.warn("""Use service instead""", DeprecationWarning)
             pulumi.log.warn("""key is deprecated: Use service instead""")
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if signing_method is not None:
-            pulumi.set(__self__, "signing_method", signing_method)
+            _setter("signing_method", signing_method)
         if signing_name is not None:
-            pulumi.set(__self__, "signing_name", signing_name)
+            _setter("signing_name", signing_name)
         if signing_region is not None:
-            pulumi.set(__self__, "signing_region", signing_region)
+            _setter("signing_region", signing_region)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1493,60 +1869,189 @@ class ClusterCloudProviderAzureCloudConfigArgs:
         :param pulumi.Input[str] vnet_name: (string)
         :param pulumi.Input[str] vnet_resource_group: (string)
         """
-        pulumi.set(__self__, "aad_client_id", aad_client_id)
-        pulumi.set(__self__, "aad_client_secret", aad_client_secret)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ClusterCloudProviderAzureCloudConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_client_id=aad_client_id,
+            aad_client_secret=aad_client_secret,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            aad_client_cert_password=aad_client_cert_password,
+            aad_client_cert_path=aad_client_cert_path,
+            cloud=cloud,
+            cloud_provider_backoff=cloud_provider_backoff,
+            cloud_provider_backoff_duration=cloud_provider_backoff_duration,
+            cloud_provider_backoff_exponent=cloud_provider_backoff_exponent,
+            cloud_provider_backoff_jitter=cloud_provider_backoff_jitter,
+            cloud_provider_backoff_retries=cloud_provider_backoff_retries,
+            cloud_provider_rate_limit=cloud_provider_rate_limit,
+            cloud_provider_rate_limit_bucket=cloud_provider_rate_limit_bucket,
+            cloud_provider_rate_limit_qps=cloud_provider_rate_limit_qps,
+            load_balancer_sku=load_balancer_sku,
+            location=location,
+            maximum_load_balancer_rule_count=maximum_load_balancer_rule_count,
+            primary_availability_set_name=primary_availability_set_name,
+            primary_scale_set_name=primary_scale_set_name,
+            resource_group=resource_group,
+            route_table_name=route_table_name,
+            security_group_name=security_group_name,
+            subnet_name=subnet_name,
+            use_instance_metadata=use_instance_metadata,
+            use_managed_identity_extension=use_managed_identity_extension,
+            vm_type=vm_type,
+            vnet_name=vnet_name,
+            vnet_resource_group=vnet_resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_client_id: Optional[pulumi.Input[str]] = None,
+             aad_client_secret: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             aad_client_cert_password: Optional[pulumi.Input[str]] = None,
+             aad_client_cert_path: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             cloud_provider_backoff: Optional[pulumi.Input[bool]] = None,
+             cloud_provider_backoff_duration: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_exponent: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_jitter: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_retries: Optional[pulumi.Input[int]] = None,
+             cloud_provider_rate_limit: Optional[pulumi.Input[bool]] = None,
+             cloud_provider_rate_limit_bucket: Optional[pulumi.Input[int]] = None,
+             cloud_provider_rate_limit_qps: Optional[pulumi.Input[int]] = None,
+             load_balancer_sku: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_load_balancer_rule_count: Optional[pulumi.Input[int]] = None,
+             primary_availability_set_name: Optional[pulumi.Input[str]] = None,
+             primary_scale_set_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             security_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_name: Optional[pulumi.Input[str]] = None,
+             use_instance_metadata: Optional[pulumi.Input[bool]] = None,
+             use_managed_identity_extension: Optional[pulumi.Input[bool]] = None,
+             vm_type: Optional[pulumi.Input[str]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_resource_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_client_id is None:
+            raise TypeError("Missing 'aad_client_id' argument")
+        if aad_client_secret is None and 'aadClientSecret' in kwargs:
+            aad_client_secret = kwargs['aadClientSecret']
+        if aad_client_secret is None:
+            raise TypeError("Missing 'aad_client_secret' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if aad_client_cert_password is None and 'aadClientCertPassword' in kwargs:
+            aad_client_cert_password = kwargs['aadClientCertPassword']
+        if aad_client_cert_path is None and 'aadClientCertPath' in kwargs:
+            aad_client_cert_path = kwargs['aadClientCertPath']
+        if cloud_provider_backoff is None and 'cloudProviderBackoff' in kwargs:
+            cloud_provider_backoff = kwargs['cloudProviderBackoff']
+        if cloud_provider_backoff_duration is None and 'cloudProviderBackoffDuration' in kwargs:
+            cloud_provider_backoff_duration = kwargs['cloudProviderBackoffDuration']
+        if cloud_provider_backoff_exponent is None and 'cloudProviderBackoffExponent' in kwargs:
+            cloud_provider_backoff_exponent = kwargs['cloudProviderBackoffExponent']
+        if cloud_provider_backoff_jitter is None and 'cloudProviderBackoffJitter' in kwargs:
+            cloud_provider_backoff_jitter = kwargs['cloudProviderBackoffJitter']
+        if cloud_provider_backoff_retries is None and 'cloudProviderBackoffRetries' in kwargs:
+            cloud_provider_backoff_retries = kwargs['cloudProviderBackoffRetries']
+        if cloud_provider_rate_limit is None and 'cloudProviderRateLimit' in kwargs:
+            cloud_provider_rate_limit = kwargs['cloudProviderRateLimit']
+        if cloud_provider_rate_limit_bucket is None and 'cloudProviderRateLimitBucket' in kwargs:
+            cloud_provider_rate_limit_bucket = kwargs['cloudProviderRateLimitBucket']
+        if cloud_provider_rate_limit_qps is None and 'cloudProviderRateLimitQps' in kwargs:
+            cloud_provider_rate_limit_qps = kwargs['cloudProviderRateLimitQps']
+        if load_balancer_sku is None and 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if maximum_load_balancer_rule_count is None and 'maximumLoadBalancerRuleCount' in kwargs:
+            maximum_load_balancer_rule_count = kwargs['maximumLoadBalancerRuleCount']
+        if primary_availability_set_name is None and 'primaryAvailabilitySetName' in kwargs:
+            primary_availability_set_name = kwargs['primaryAvailabilitySetName']
+        if primary_scale_set_name is None and 'primaryScaleSetName' in kwargs:
+            primary_scale_set_name = kwargs['primaryScaleSetName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if route_table_name is None and 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if security_group_name is None and 'securityGroupName' in kwargs:
+            security_group_name = kwargs['securityGroupName']
+        if subnet_name is None and 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if use_instance_metadata is None and 'useInstanceMetadata' in kwargs:
+            use_instance_metadata = kwargs['useInstanceMetadata']
+        if use_managed_identity_extension is None and 'useManagedIdentityExtension' in kwargs:
+            use_managed_identity_extension = kwargs['useManagedIdentityExtension']
+        if vm_type is None and 'vmType' in kwargs:
+            vm_type = kwargs['vmType']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_resource_group is None and 'vnetResourceGroup' in kwargs:
+            vnet_resource_group = kwargs['vnetResourceGroup']
+
+        _setter("aad_client_id", aad_client_id)
+        _setter("aad_client_secret", aad_client_secret)
+        _setter("subscription_id", subscription_id)
+        _setter("tenant_id", tenant_id)
         if aad_client_cert_password is not None:
-            pulumi.set(__self__, "aad_client_cert_password", aad_client_cert_password)
+            _setter("aad_client_cert_password", aad_client_cert_password)
         if aad_client_cert_path is not None:
-            pulumi.set(__self__, "aad_client_cert_path", aad_client_cert_path)
+            _setter("aad_client_cert_path", aad_client_cert_path)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if cloud_provider_backoff is not None:
-            pulumi.set(__self__, "cloud_provider_backoff", cloud_provider_backoff)
+            _setter("cloud_provider_backoff", cloud_provider_backoff)
         if cloud_provider_backoff_duration is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_duration", cloud_provider_backoff_duration)
+            _setter("cloud_provider_backoff_duration", cloud_provider_backoff_duration)
         if cloud_provider_backoff_exponent is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_exponent", cloud_provider_backoff_exponent)
+            _setter("cloud_provider_backoff_exponent", cloud_provider_backoff_exponent)
         if cloud_provider_backoff_jitter is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_jitter", cloud_provider_backoff_jitter)
+            _setter("cloud_provider_backoff_jitter", cloud_provider_backoff_jitter)
         if cloud_provider_backoff_retries is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_retries", cloud_provider_backoff_retries)
+            _setter("cloud_provider_backoff_retries", cloud_provider_backoff_retries)
         if cloud_provider_rate_limit is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit", cloud_provider_rate_limit)
+            _setter("cloud_provider_rate_limit", cloud_provider_rate_limit)
         if cloud_provider_rate_limit_bucket is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit_bucket", cloud_provider_rate_limit_bucket)
+            _setter("cloud_provider_rate_limit_bucket", cloud_provider_rate_limit_bucket)
         if cloud_provider_rate_limit_qps is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit_qps", cloud_provider_rate_limit_qps)
+            _setter("cloud_provider_rate_limit_qps", cloud_provider_rate_limit_qps)
         if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+            _setter("load_balancer_sku", load_balancer_sku)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_load_balancer_rule_count is not None:
-            pulumi.set(__self__, "maximum_load_balancer_rule_count", maximum_load_balancer_rule_count)
+            _setter("maximum_load_balancer_rule_count", maximum_load_balancer_rule_count)
         if primary_availability_set_name is not None:
-            pulumi.set(__self__, "primary_availability_set_name", primary_availability_set_name)
+            _setter("primary_availability_set_name", primary_availability_set_name)
         if primary_scale_set_name is not None:
-            pulumi.set(__self__, "primary_scale_set_name", primary_scale_set_name)
+            _setter("primary_scale_set_name", primary_scale_set_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
+            _setter("route_table_name", route_table_name)
         if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
+            _setter("security_group_name", security_group_name)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if use_instance_metadata is not None:
-            pulumi.set(__self__, "use_instance_metadata", use_instance_metadata)
+            _setter("use_instance_metadata", use_instance_metadata)
         if use_managed_identity_extension is not None:
-            pulumi.set(__self__, "use_managed_identity_extension", use_managed_identity_extension)
+            _setter("use_managed_identity_extension", use_managed_identity_extension)
         if vm_type is not None:
-            pulumi.set(__self__, "vm_type", vm_type)
+            _setter("vm_type", vm_type)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
         if vnet_resource_group is not None:
-            pulumi.set(__self__, "vnet_resource_group", vnet_resource_group)
+            _setter("vnet_resource_group", vnet_resource_group)
 
     @property
     @pulumi.getter(name="aadClientId")
@@ -1956,60 +2461,189 @@ class ClusterCloudProviderAzureCloudProviderArgs:
         :param pulumi.Input[str] vnet_name: (string)
         :param pulumi.Input[str] vnet_resource_group: (string)
         """
-        pulumi.set(__self__, "aad_client_id", aad_client_id)
-        pulumi.set(__self__, "aad_client_secret", aad_client_secret)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ClusterCloudProviderAzureCloudProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_client_id=aad_client_id,
+            aad_client_secret=aad_client_secret,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            aad_client_cert_password=aad_client_cert_password,
+            aad_client_cert_path=aad_client_cert_path,
+            cloud=cloud,
+            cloud_provider_backoff=cloud_provider_backoff,
+            cloud_provider_backoff_duration=cloud_provider_backoff_duration,
+            cloud_provider_backoff_exponent=cloud_provider_backoff_exponent,
+            cloud_provider_backoff_jitter=cloud_provider_backoff_jitter,
+            cloud_provider_backoff_retries=cloud_provider_backoff_retries,
+            cloud_provider_rate_limit=cloud_provider_rate_limit,
+            cloud_provider_rate_limit_bucket=cloud_provider_rate_limit_bucket,
+            cloud_provider_rate_limit_qps=cloud_provider_rate_limit_qps,
+            load_balancer_sku=load_balancer_sku,
+            location=location,
+            maximum_load_balancer_rule_count=maximum_load_balancer_rule_count,
+            primary_availability_set_name=primary_availability_set_name,
+            primary_scale_set_name=primary_scale_set_name,
+            resource_group=resource_group,
+            route_table_name=route_table_name,
+            security_group_name=security_group_name,
+            subnet_name=subnet_name,
+            use_instance_metadata=use_instance_metadata,
+            use_managed_identity_extension=use_managed_identity_extension,
+            vm_type=vm_type,
+            vnet_name=vnet_name,
+            vnet_resource_group=vnet_resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_client_id: Optional[pulumi.Input[str]] = None,
+             aad_client_secret: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             aad_client_cert_password: Optional[pulumi.Input[str]] = None,
+             aad_client_cert_path: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             cloud_provider_backoff: Optional[pulumi.Input[bool]] = None,
+             cloud_provider_backoff_duration: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_exponent: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_jitter: Optional[pulumi.Input[int]] = None,
+             cloud_provider_backoff_retries: Optional[pulumi.Input[int]] = None,
+             cloud_provider_rate_limit: Optional[pulumi.Input[bool]] = None,
+             cloud_provider_rate_limit_bucket: Optional[pulumi.Input[int]] = None,
+             cloud_provider_rate_limit_qps: Optional[pulumi.Input[int]] = None,
+             load_balancer_sku: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_load_balancer_rule_count: Optional[pulumi.Input[int]] = None,
+             primary_availability_set_name: Optional[pulumi.Input[str]] = None,
+             primary_scale_set_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             security_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_name: Optional[pulumi.Input[str]] = None,
+             use_instance_metadata: Optional[pulumi.Input[bool]] = None,
+             use_managed_identity_extension: Optional[pulumi.Input[bool]] = None,
+             vm_type: Optional[pulumi.Input[str]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_resource_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_client_id is None:
+            raise TypeError("Missing 'aad_client_id' argument")
+        if aad_client_secret is None and 'aadClientSecret' in kwargs:
+            aad_client_secret = kwargs['aadClientSecret']
+        if aad_client_secret is None:
+            raise TypeError("Missing 'aad_client_secret' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if aad_client_cert_password is None and 'aadClientCertPassword' in kwargs:
+            aad_client_cert_password = kwargs['aadClientCertPassword']
+        if aad_client_cert_path is None and 'aadClientCertPath' in kwargs:
+            aad_client_cert_path = kwargs['aadClientCertPath']
+        if cloud_provider_backoff is None and 'cloudProviderBackoff' in kwargs:
+            cloud_provider_backoff = kwargs['cloudProviderBackoff']
+        if cloud_provider_backoff_duration is None and 'cloudProviderBackoffDuration' in kwargs:
+            cloud_provider_backoff_duration = kwargs['cloudProviderBackoffDuration']
+        if cloud_provider_backoff_exponent is None and 'cloudProviderBackoffExponent' in kwargs:
+            cloud_provider_backoff_exponent = kwargs['cloudProviderBackoffExponent']
+        if cloud_provider_backoff_jitter is None and 'cloudProviderBackoffJitter' in kwargs:
+            cloud_provider_backoff_jitter = kwargs['cloudProviderBackoffJitter']
+        if cloud_provider_backoff_retries is None and 'cloudProviderBackoffRetries' in kwargs:
+            cloud_provider_backoff_retries = kwargs['cloudProviderBackoffRetries']
+        if cloud_provider_rate_limit is None and 'cloudProviderRateLimit' in kwargs:
+            cloud_provider_rate_limit = kwargs['cloudProviderRateLimit']
+        if cloud_provider_rate_limit_bucket is None and 'cloudProviderRateLimitBucket' in kwargs:
+            cloud_provider_rate_limit_bucket = kwargs['cloudProviderRateLimitBucket']
+        if cloud_provider_rate_limit_qps is None and 'cloudProviderRateLimitQps' in kwargs:
+            cloud_provider_rate_limit_qps = kwargs['cloudProviderRateLimitQps']
+        if load_balancer_sku is None and 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if maximum_load_balancer_rule_count is None and 'maximumLoadBalancerRuleCount' in kwargs:
+            maximum_load_balancer_rule_count = kwargs['maximumLoadBalancerRuleCount']
+        if primary_availability_set_name is None and 'primaryAvailabilitySetName' in kwargs:
+            primary_availability_set_name = kwargs['primaryAvailabilitySetName']
+        if primary_scale_set_name is None and 'primaryScaleSetName' in kwargs:
+            primary_scale_set_name = kwargs['primaryScaleSetName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if route_table_name is None and 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if security_group_name is None and 'securityGroupName' in kwargs:
+            security_group_name = kwargs['securityGroupName']
+        if subnet_name is None and 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if use_instance_metadata is None and 'useInstanceMetadata' in kwargs:
+            use_instance_metadata = kwargs['useInstanceMetadata']
+        if use_managed_identity_extension is None and 'useManagedIdentityExtension' in kwargs:
+            use_managed_identity_extension = kwargs['useManagedIdentityExtension']
+        if vm_type is None and 'vmType' in kwargs:
+            vm_type = kwargs['vmType']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_resource_group is None and 'vnetResourceGroup' in kwargs:
+            vnet_resource_group = kwargs['vnetResourceGroup']
+
+        _setter("aad_client_id", aad_client_id)
+        _setter("aad_client_secret", aad_client_secret)
+        _setter("subscription_id", subscription_id)
+        _setter("tenant_id", tenant_id)
         if aad_client_cert_password is not None:
-            pulumi.set(__self__, "aad_client_cert_password", aad_client_cert_password)
+            _setter("aad_client_cert_password", aad_client_cert_password)
         if aad_client_cert_path is not None:
-            pulumi.set(__self__, "aad_client_cert_path", aad_client_cert_path)
+            _setter("aad_client_cert_path", aad_client_cert_path)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if cloud_provider_backoff is not None:
-            pulumi.set(__self__, "cloud_provider_backoff", cloud_provider_backoff)
+            _setter("cloud_provider_backoff", cloud_provider_backoff)
         if cloud_provider_backoff_duration is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_duration", cloud_provider_backoff_duration)
+            _setter("cloud_provider_backoff_duration", cloud_provider_backoff_duration)
         if cloud_provider_backoff_exponent is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_exponent", cloud_provider_backoff_exponent)
+            _setter("cloud_provider_backoff_exponent", cloud_provider_backoff_exponent)
         if cloud_provider_backoff_jitter is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_jitter", cloud_provider_backoff_jitter)
+            _setter("cloud_provider_backoff_jitter", cloud_provider_backoff_jitter)
         if cloud_provider_backoff_retries is not None:
-            pulumi.set(__self__, "cloud_provider_backoff_retries", cloud_provider_backoff_retries)
+            _setter("cloud_provider_backoff_retries", cloud_provider_backoff_retries)
         if cloud_provider_rate_limit is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit", cloud_provider_rate_limit)
+            _setter("cloud_provider_rate_limit", cloud_provider_rate_limit)
         if cloud_provider_rate_limit_bucket is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit_bucket", cloud_provider_rate_limit_bucket)
+            _setter("cloud_provider_rate_limit_bucket", cloud_provider_rate_limit_bucket)
         if cloud_provider_rate_limit_qps is not None:
-            pulumi.set(__self__, "cloud_provider_rate_limit_qps", cloud_provider_rate_limit_qps)
+            _setter("cloud_provider_rate_limit_qps", cloud_provider_rate_limit_qps)
         if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+            _setter("load_balancer_sku", load_balancer_sku)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_load_balancer_rule_count is not None:
-            pulumi.set(__self__, "maximum_load_balancer_rule_count", maximum_load_balancer_rule_count)
+            _setter("maximum_load_balancer_rule_count", maximum_load_balancer_rule_count)
         if primary_availability_set_name is not None:
-            pulumi.set(__self__, "primary_availability_set_name", primary_availability_set_name)
+            _setter("primary_availability_set_name", primary_availability_set_name)
         if primary_scale_set_name is not None:
-            pulumi.set(__self__, "primary_scale_set_name", primary_scale_set_name)
+            _setter("primary_scale_set_name", primary_scale_set_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
+            _setter("route_table_name", route_table_name)
         if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
+            _setter("security_group_name", security_group_name)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if use_instance_metadata is not None:
-            pulumi.set(__self__, "use_instance_metadata", use_instance_metadata)
+            _setter("use_instance_metadata", use_instance_metadata)
         if use_managed_identity_extension is not None:
-            pulumi.set(__self__, "use_managed_identity_extension", use_managed_identity_extension)
+            _setter("use_managed_identity_extension", use_managed_identity_extension)
         if vm_type is not None:
-            pulumi.set(__self__, "vm_type", vm_type)
+            _setter("vm_type", vm_type)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
         if vnet_resource_group is not None:
-            pulumi.set(__self__, "vnet_resource_group", vnet_resource_group)
+            _setter("vnet_resource_group", vnet_resource_group)
 
     @property
     @pulumi.getter(name="aadClientId")
@@ -2372,15 +3006,42 @@ class ClusterCloudProviderOpenstackCloudConfigArgs:
         :param pulumi.Input['ClusterCloudProviderOpenstackCloudConfigMetadataArgs'] metadata: (list maxitems:1)
         :param pulumi.Input['ClusterCloudProviderOpenstackCloudConfigRouteArgs'] route: (list maxitems:1)
         """
-        pulumi.set(__self__, "global_", global_)
+        ClusterCloudProviderOpenstackCloudConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_=global_,
+            block_storage=block_storage,
+            load_balancer=load_balancer,
+            metadata=metadata,
+            route=route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigGlobalArgs']] = None,
+             block_storage: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs']] = None,
+             load_balancer: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs']] = None,
+             metadata: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigMetadataArgs']] = None,
+             route: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigRouteArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if global_ is None:
+            raise TypeError("Missing 'global_' argument")
+        if block_storage is None and 'blockStorage' in kwargs:
+            block_storage = kwargs['blockStorage']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
+        _setter("global_", global_)
         if block_storage is not None:
-            pulumi.set(__self__, "block_storage", block_storage)
+            _setter("block_storage", block_storage)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if route is not None:
-            pulumi.set(__self__, "route", route)
+            _setter("route", route)
 
     @property
     @pulumi.getter(name="global")
@@ -2454,12 +3115,33 @@ class ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs:
         :param pulumi.Input[bool] ignore_volume_az: (string)
         :param pulumi.Input[bool] trust_device_path: (string)
         """
+        ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bs_version=bs_version,
+            ignore_volume_az=ignore_volume_az,
+            trust_device_path=trust_device_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bs_version: Optional[pulumi.Input[str]] = None,
+             ignore_volume_az: Optional[pulumi.Input[bool]] = None,
+             trust_device_path: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bs_version is None and 'bsVersion' in kwargs:
+            bs_version = kwargs['bsVersion']
+        if ignore_volume_az is None and 'ignoreVolumeAz' in kwargs:
+            ignore_volume_az = kwargs['ignoreVolumeAz']
+        if trust_device_path is None and 'trustDevicePath' in kwargs:
+            trust_device_path = kwargs['trustDevicePath']
+
         if bs_version is not None:
-            pulumi.set(__self__, "bs_version", bs_version)
+            _setter("bs_version", bs_version)
         if ignore_volume_az is not None:
-            pulumi.set(__self__, "ignore_volume_az", ignore_volume_az)
+            _setter("ignore_volume_az", ignore_volume_az)
         if trust_device_path is not None:
-            pulumi.set(__self__, "trust_device_path", trust_device_path)
+            _setter("trust_device_path", trust_device_path)
 
     @property
     @pulumi.getter(name="bsVersion")
@@ -2525,26 +3207,77 @@ class ClusterCloudProviderOpenstackCloudConfigGlobalArgs:
         :param pulumi.Input[str] user_id: Required if `username` not provided. (string)
         :param pulumi.Input[str] username: Required if `user_id` not provided. (string)
         """
-        pulumi.set(__self__, "auth_url", auth_url)
-        pulumi.set(__self__, "password", password)
+        ClusterCloudProviderOpenstackCloudConfigGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_url=auth_url,
+            password=password,
+            ca_file=ca_file,
+            domain_id=domain_id,
+            domain_name=domain_name,
+            region=region,
+            tenant_id=tenant_id,
+            tenant_name=tenant_name,
+            trust_id=trust_id,
+            user_id=user_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_url: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             ca_file: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             trust_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if trust_id is None and 'trustId' in kwargs:
+            trust_id = kwargs['trustId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
+        _setter("auth_url", auth_url)
+        _setter("password", password)
         if ca_file is not None:
-            pulumi.set(__self__, "ca_file", ca_file)
+            _setter("ca_file", ca_file)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
         if trust_id is not None:
-            pulumi.set(__self__, "trust_id", trust_id)
+            _setter("trust_id", trust_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="authUrl")
@@ -2706,28 +3439,81 @@ class ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs:
         :param pulumi.Input[str] subnet_id: (string)
         :param pulumi.Input[bool] use_octavia: (bool)
         """
+        ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_monitor=create_monitor,
+            floating_network_id=floating_network_id,
+            lb_method=lb_method,
+            lb_provider=lb_provider,
+            lb_version=lb_version,
+            manage_security_groups=manage_security_groups,
+            monitor_delay=monitor_delay,
+            monitor_max_retries=monitor_max_retries,
+            monitor_timeout=monitor_timeout,
+            subnet_id=subnet_id,
+            use_octavia=use_octavia,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_monitor: Optional[pulumi.Input[bool]] = None,
+             floating_network_id: Optional[pulumi.Input[str]] = None,
+             lb_method: Optional[pulumi.Input[str]] = None,
+             lb_provider: Optional[pulumi.Input[str]] = None,
+             lb_version: Optional[pulumi.Input[str]] = None,
+             manage_security_groups: Optional[pulumi.Input[bool]] = None,
+             monitor_delay: Optional[pulumi.Input[str]] = None,
+             monitor_max_retries: Optional[pulumi.Input[int]] = None,
+             monitor_timeout: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             use_octavia: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_monitor is None and 'createMonitor' in kwargs:
+            create_monitor = kwargs['createMonitor']
+        if floating_network_id is None and 'floatingNetworkId' in kwargs:
+            floating_network_id = kwargs['floatingNetworkId']
+        if lb_method is None and 'lbMethod' in kwargs:
+            lb_method = kwargs['lbMethod']
+        if lb_provider is None and 'lbProvider' in kwargs:
+            lb_provider = kwargs['lbProvider']
+        if lb_version is None and 'lbVersion' in kwargs:
+            lb_version = kwargs['lbVersion']
+        if manage_security_groups is None and 'manageSecurityGroups' in kwargs:
+            manage_security_groups = kwargs['manageSecurityGroups']
+        if monitor_delay is None and 'monitorDelay' in kwargs:
+            monitor_delay = kwargs['monitorDelay']
+        if monitor_max_retries is None and 'monitorMaxRetries' in kwargs:
+            monitor_max_retries = kwargs['monitorMaxRetries']
+        if monitor_timeout is None and 'monitorTimeout' in kwargs:
+            monitor_timeout = kwargs['monitorTimeout']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if use_octavia is None and 'useOctavia' in kwargs:
+            use_octavia = kwargs['useOctavia']
+
         if create_monitor is not None:
-            pulumi.set(__self__, "create_monitor", create_monitor)
+            _setter("create_monitor", create_monitor)
         if floating_network_id is not None:
-            pulumi.set(__self__, "floating_network_id", floating_network_id)
+            _setter("floating_network_id", floating_network_id)
         if lb_method is not None:
-            pulumi.set(__self__, "lb_method", lb_method)
+            _setter("lb_method", lb_method)
         if lb_provider is not None:
-            pulumi.set(__self__, "lb_provider", lb_provider)
+            _setter("lb_provider", lb_provider)
         if lb_version is not None:
-            pulumi.set(__self__, "lb_version", lb_version)
+            _setter("lb_version", lb_version)
         if manage_security_groups is not None:
-            pulumi.set(__self__, "manage_security_groups", manage_security_groups)
+            _setter("manage_security_groups", manage_security_groups)
         if monitor_delay is not None:
-            pulumi.set(__self__, "monitor_delay", monitor_delay)
+            _setter("monitor_delay", monitor_delay)
         if monitor_max_retries is not None:
-            pulumi.set(__self__, "monitor_max_retries", monitor_max_retries)
+            _setter("monitor_max_retries", monitor_max_retries)
         if monitor_timeout is not None:
-            pulumi.set(__self__, "monitor_timeout", monitor_timeout)
+            _setter("monitor_timeout", monitor_timeout)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if use_octavia is not None:
-            pulumi.set(__self__, "use_octavia", use_octavia)
+            _setter("use_octavia", use_octavia)
 
     @property
     @pulumi.getter(name="createMonitor")
@@ -2871,10 +3657,27 @@ class ClusterCloudProviderOpenstackCloudConfigMetadataArgs:
         :param pulumi.Input[int] request_timeout: (int)
         :param pulumi.Input[str] search_order: (string)
         """
+        ClusterCloudProviderOpenstackCloudConfigMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_timeout=request_timeout,
+            search_order=search_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_timeout: Optional[pulumi.Input[int]] = None,
+             search_order: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if search_order is None and 'searchOrder' in kwargs:
+            search_order = kwargs['searchOrder']
+
         if request_timeout is not None:
-            pulumi.set(__self__, "request_timeout", request_timeout)
+            _setter("request_timeout", request_timeout)
         if search_order is not None:
-            pulumi.set(__self__, "search_order", search_order)
+            _setter("search_order", search_order)
 
     @property
     @pulumi.getter(name="requestTimeout")
@@ -2908,8 +3711,21 @@ class ClusterCloudProviderOpenstackCloudConfigRouteArgs:
         """
         :param pulumi.Input[str] router_id: (string)
         """
+        ClusterCloudProviderOpenstackCloudConfigRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            router_id=router_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             router_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if router_id is None and 'routerId' in kwargs:
+            router_id = kwargs['routerId']
+
         if router_id is not None:
-            pulumi.set(__self__, "router_id", router_id)
+            _setter("router_id", router_id)
 
     @property
     @pulumi.getter(name="routerId")
@@ -2939,15 +3755,42 @@ class ClusterCloudProviderOpenstackCloudProviderArgs:
         :param pulumi.Input['ClusterCloudProviderOpenstackCloudProviderMetadataArgs'] metadata: (list maxitems:1)
         :param pulumi.Input['ClusterCloudProviderOpenstackCloudProviderRouteArgs'] route: (list maxitems:1)
         """
-        pulumi.set(__self__, "global_", global_)
+        ClusterCloudProviderOpenstackCloudProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_=global_,
+            block_storage=block_storage,
+            load_balancer=load_balancer,
+            metadata=metadata,
+            route=route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderGlobalArgs']] = None,
+             block_storage: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs']] = None,
+             load_balancer: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs']] = None,
+             metadata: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderMetadataArgs']] = None,
+             route: Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudProviderRouteArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+        if global_ is None:
+            raise TypeError("Missing 'global_' argument")
+        if block_storage is None and 'blockStorage' in kwargs:
+            block_storage = kwargs['blockStorage']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
+        _setter("global_", global_)
         if block_storage is not None:
-            pulumi.set(__self__, "block_storage", block_storage)
+            _setter("block_storage", block_storage)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if route is not None:
-            pulumi.set(__self__, "route", route)
+            _setter("route", route)
 
     @property
     @pulumi.getter(name="global")
@@ -3021,12 +3864,33 @@ class ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs:
         :param pulumi.Input[bool] ignore_volume_az: (string)
         :param pulumi.Input[bool] trust_device_path: (string)
         """
+        ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bs_version=bs_version,
+            ignore_volume_az=ignore_volume_az,
+            trust_device_path=trust_device_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bs_version: Optional[pulumi.Input[str]] = None,
+             ignore_volume_az: Optional[pulumi.Input[bool]] = None,
+             trust_device_path: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bs_version is None and 'bsVersion' in kwargs:
+            bs_version = kwargs['bsVersion']
+        if ignore_volume_az is None and 'ignoreVolumeAz' in kwargs:
+            ignore_volume_az = kwargs['ignoreVolumeAz']
+        if trust_device_path is None and 'trustDevicePath' in kwargs:
+            trust_device_path = kwargs['trustDevicePath']
+
         if bs_version is not None:
-            pulumi.set(__self__, "bs_version", bs_version)
+            _setter("bs_version", bs_version)
         if ignore_volume_az is not None:
-            pulumi.set(__self__, "ignore_volume_az", ignore_volume_az)
+            _setter("ignore_volume_az", ignore_volume_az)
         if trust_device_path is not None:
-            pulumi.set(__self__, "trust_device_path", trust_device_path)
+            _setter("trust_device_path", trust_device_path)
 
     @property
     @pulumi.getter(name="bsVersion")
@@ -3092,26 +3956,77 @@ class ClusterCloudProviderOpenstackCloudProviderGlobalArgs:
         :param pulumi.Input[str] user_id: Required if `username` not provided. (string)
         :param pulumi.Input[str] username: Required if `user_id` not provided. (string)
         """
-        pulumi.set(__self__, "auth_url", auth_url)
-        pulumi.set(__self__, "password", password)
+        ClusterCloudProviderOpenstackCloudProviderGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_url=auth_url,
+            password=password,
+            ca_file=ca_file,
+            domain_id=domain_id,
+            domain_name=domain_name,
+            region=region,
+            tenant_id=tenant_id,
+            tenant_name=tenant_name,
+            trust_id=trust_id,
+            user_id=user_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_url: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             ca_file: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             trust_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if trust_id is None and 'trustId' in kwargs:
+            trust_id = kwargs['trustId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
+        _setter("auth_url", auth_url)
+        _setter("password", password)
         if ca_file is not None:
-            pulumi.set(__self__, "ca_file", ca_file)
+            _setter("ca_file", ca_file)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
         if trust_id is not None:
-            pulumi.set(__self__, "trust_id", trust_id)
+            _setter("trust_id", trust_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="authUrl")
@@ -3273,28 +4188,81 @@ class ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs:
         :param pulumi.Input[str] subnet_id: (string)
         :param pulumi.Input[bool] use_octavia: (bool)
         """
+        ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_monitor=create_monitor,
+            floating_network_id=floating_network_id,
+            lb_method=lb_method,
+            lb_provider=lb_provider,
+            lb_version=lb_version,
+            manage_security_groups=manage_security_groups,
+            monitor_delay=monitor_delay,
+            monitor_max_retries=monitor_max_retries,
+            monitor_timeout=monitor_timeout,
+            subnet_id=subnet_id,
+            use_octavia=use_octavia,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_monitor: Optional[pulumi.Input[bool]] = None,
+             floating_network_id: Optional[pulumi.Input[str]] = None,
+             lb_method: Optional[pulumi.Input[str]] = None,
+             lb_provider: Optional[pulumi.Input[str]] = None,
+             lb_version: Optional[pulumi.Input[str]] = None,
+             manage_security_groups: Optional[pulumi.Input[bool]] = None,
+             monitor_delay: Optional[pulumi.Input[str]] = None,
+             monitor_max_retries: Optional[pulumi.Input[int]] = None,
+             monitor_timeout: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             use_octavia: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_monitor is None and 'createMonitor' in kwargs:
+            create_monitor = kwargs['createMonitor']
+        if floating_network_id is None and 'floatingNetworkId' in kwargs:
+            floating_network_id = kwargs['floatingNetworkId']
+        if lb_method is None and 'lbMethod' in kwargs:
+            lb_method = kwargs['lbMethod']
+        if lb_provider is None and 'lbProvider' in kwargs:
+            lb_provider = kwargs['lbProvider']
+        if lb_version is None and 'lbVersion' in kwargs:
+            lb_version = kwargs['lbVersion']
+        if manage_security_groups is None and 'manageSecurityGroups' in kwargs:
+            manage_security_groups = kwargs['manageSecurityGroups']
+        if monitor_delay is None and 'monitorDelay' in kwargs:
+            monitor_delay = kwargs['monitorDelay']
+        if monitor_max_retries is None and 'monitorMaxRetries' in kwargs:
+            monitor_max_retries = kwargs['monitorMaxRetries']
+        if monitor_timeout is None and 'monitorTimeout' in kwargs:
+            monitor_timeout = kwargs['monitorTimeout']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if use_octavia is None and 'useOctavia' in kwargs:
+            use_octavia = kwargs['useOctavia']
+
         if create_monitor is not None:
-            pulumi.set(__self__, "create_monitor", create_monitor)
+            _setter("create_monitor", create_monitor)
         if floating_network_id is not None:
-            pulumi.set(__self__, "floating_network_id", floating_network_id)
+            _setter("floating_network_id", floating_network_id)
         if lb_method is not None:
-            pulumi.set(__self__, "lb_method", lb_method)
+            _setter("lb_method", lb_method)
         if lb_provider is not None:
-            pulumi.set(__self__, "lb_provider", lb_provider)
+            _setter("lb_provider", lb_provider)
         if lb_version is not None:
-            pulumi.set(__self__, "lb_version", lb_version)
+            _setter("lb_version", lb_version)
         if manage_security_groups is not None:
-            pulumi.set(__self__, "manage_security_groups", manage_security_groups)
+            _setter("manage_security_groups", manage_security_groups)
         if monitor_delay is not None:
-            pulumi.set(__self__, "monitor_delay", monitor_delay)
+            _setter("monitor_delay", monitor_delay)
         if monitor_max_retries is not None:
-            pulumi.set(__self__, "monitor_max_retries", monitor_max_retries)
+            _setter("monitor_max_retries", monitor_max_retries)
         if monitor_timeout is not None:
-            pulumi.set(__self__, "monitor_timeout", monitor_timeout)
+            _setter("monitor_timeout", monitor_timeout)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if use_octavia is not None:
-            pulumi.set(__self__, "use_octavia", use_octavia)
+            _setter("use_octavia", use_octavia)
 
     @property
     @pulumi.getter(name="createMonitor")
@@ -3438,10 +4406,27 @@ class ClusterCloudProviderOpenstackCloudProviderMetadataArgs:
         :param pulumi.Input[int] request_timeout: (int)
         :param pulumi.Input[str] search_order: (string)
         """
+        ClusterCloudProviderOpenstackCloudProviderMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_timeout=request_timeout,
+            search_order=search_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_timeout: Optional[pulumi.Input[int]] = None,
+             search_order: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if search_order is None and 'searchOrder' in kwargs:
+            search_order = kwargs['searchOrder']
+
         if request_timeout is not None:
-            pulumi.set(__self__, "request_timeout", request_timeout)
+            _setter("request_timeout", request_timeout)
         if search_order is not None:
-            pulumi.set(__self__, "search_order", search_order)
+            _setter("search_order", search_order)
 
     @property
     @pulumi.getter(name="requestTimeout")
@@ -3475,8 +4460,21 @@ class ClusterCloudProviderOpenstackCloudProviderRouteArgs:
         """
         :param pulumi.Input[str] router_id: (string)
         """
+        ClusterCloudProviderOpenstackCloudProviderRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            router_id=router_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             router_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if router_id is None and 'routerId' in kwargs:
+            router_id = kwargs['routerId']
+
         if router_id is not None:
-            pulumi.set(__self__, "router_id", router_id)
+            _setter("router_id", router_id)
 
     @property
     @pulumi.getter(name="routerId")
@@ -3506,14 +4504,41 @@ class ClusterCloudProviderVsphereCloudConfigArgs:
         :param pulumi.Input['ClusterCloudProviderVsphereCloudConfigGlobalArgs'] global_: (list maxitems:1)
         :param pulumi.Input['ClusterCloudProviderVsphereCloudConfigNetworkArgs'] network: RKE k8s cluster network configuration (list maxitems:1)
         """
-        pulumi.set(__self__, "virtual_centers", virtual_centers)
-        pulumi.set(__self__, "workspace", workspace)
+        ClusterCloudProviderVsphereCloudConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_centers=virtual_centers,
+            workspace=workspace,
+            disk=disk,
+            global_=global_,
+            network=network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_centers: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs']]]] = None,
+             workspace: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigWorkspaceArgs']] = None,
+             disk: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigDiskArgs']] = None,
+             global_: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigGlobalArgs']] = None,
+             network: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigNetworkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if virtual_centers is None and 'virtualCenters' in kwargs:
+            virtual_centers = kwargs['virtualCenters']
+        if virtual_centers is None:
+            raise TypeError("Missing 'virtual_centers' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+
+        _setter("virtual_centers", virtual_centers)
+        _setter("workspace", workspace)
         if disk is not None:
-            pulumi.set(__self__, "disk", disk)
+            _setter("disk", disk)
         if global_ is not None:
-            pulumi.set(__self__, "global_", global_)
+            _setter("global_", global_)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
 
     @property
     @pulumi.getter(name="virtualCenters")
@@ -3583,8 +4608,21 @@ class ClusterCloudProviderVsphereCloudConfigDiskArgs:
         """
         :param pulumi.Input[str] scsi_controller_type: (string)
         """
+        ClusterCloudProviderVsphereCloudConfigDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scsi_controller_type=scsi_controller_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scsi_controller_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scsi_controller_type is None and 'scsiControllerType' in kwargs:
+            scsi_controller_type = kwargs['scsiControllerType']
+
         if scsi_controller_type is not None:
-            pulumi.set(__self__, "scsi_controller_type", scsi_controller_type)
+            _setter("scsi_controller_type", scsi_controller_type)
 
     @property
     @pulumi.getter(name="scsiControllerType")
@@ -3626,28 +4664,69 @@ class ClusterCloudProviderVsphereCloudConfigGlobalArgs:
         :param pulumi.Input[str] vm_uuid: (string)
         :param pulumi.Input[str] working_dir: (string)
         """
+        ClusterCloudProviderVsphereCloudConfigGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenter=datacenter,
+            datacenters=datacenters,
+            datastore=datastore,
+            insecure_flag=insecure_flag,
+            password=password,
+            port=port,
+            soap_roundtrip_count=soap_roundtrip_count,
+            user=user,
+            vm_name=vm_name,
+            vm_uuid=vm_uuid,
+            working_dir=working_dir,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenter: Optional[pulumi.Input[str]] = None,
+             datacenters: Optional[pulumi.Input[str]] = None,
+             datastore: Optional[pulumi.Input[str]] = None,
+             insecure_flag: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             soap_roundtrip_count: Optional[pulumi.Input[int]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             vm_uuid: Optional[pulumi.Input[str]] = None,
+             working_dir: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if insecure_flag is None and 'insecureFlag' in kwargs:
+            insecure_flag = kwargs['insecureFlag']
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+        if vm_name is None and 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if vm_uuid is None and 'vmUuid' in kwargs:
+            vm_uuid = kwargs['vmUuid']
+        if working_dir is None and 'workingDir' in kwargs:
+            working_dir = kwargs['workingDir']
+
         if datacenter is not None:
-            pulumi.set(__self__, "datacenter", datacenter)
+            _setter("datacenter", datacenter)
         if datacenters is not None:
-            pulumi.set(__self__, "datacenters", datacenters)
+            _setter("datacenters", datacenters)
         if datastore is not None:
-            pulumi.set(__self__, "datastore", datastore)
+            _setter("datastore", datastore)
         if insecure_flag is not None:
-            pulumi.set(__self__, "insecure_flag", insecure_flag)
+            _setter("insecure_flag", insecure_flag)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if soap_roundtrip_count is not None:
-            pulumi.set(__self__, "soap_roundtrip_count", soap_roundtrip_count)
+            _setter("soap_roundtrip_count", soap_roundtrip_count)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
         if vm_uuid is not None:
-            pulumi.set(__self__, "vm_uuid", vm_uuid)
+            _setter("vm_uuid", vm_uuid)
         if working_dir is not None:
-            pulumi.set(__self__, "working_dir", working_dir)
+            _setter("working_dir", working_dir)
 
     @property
     @pulumi.getter
@@ -3789,8 +4868,21 @@ class ClusterCloudProviderVsphereCloudConfigNetworkArgs:
         """
         :param pulumi.Input[str] public_network: (string)
         """
+        ClusterCloudProviderVsphereCloudConfigNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network=public_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_network is None and 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+
         if public_network is not None:
-            pulumi.set(__self__, "public_network", public_network)
+            _setter("public_network", public_network)
 
     @property
     @pulumi.getter(name="publicNetwork")
@@ -3822,14 +4914,45 @@ class ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs:
         :param pulumi.Input[str] port: Port used for SSH communication (string)
         :param pulumi.Input[int] soap_roundtrip_count: (int)
         """
-        pulumi.set(__self__, "datacenters", datacenters)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "user", user)
+        ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenters=datacenters,
+            name=name,
+            password=password,
+            user=user,
+            port=port,
+            soap_roundtrip_count=soap_roundtrip_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenters: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             soap_roundtrip_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datacenters is None:
+            raise TypeError("Missing 'datacenters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+
+        _setter("datacenters", datacenters)
+        _setter("name", name)
+        _setter("password", password)
+        _setter("user", user)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if soap_roundtrip_count is not None:
-            pulumi.set(__self__, "soap_roundtrip_count", soap_roundtrip_count)
+            _setter("soap_roundtrip_count", soap_roundtrip_count)
 
     @property
     @pulumi.getter
@@ -3919,14 +5042,41 @@ class ClusterCloudProviderVsphereCloudConfigWorkspaceArgs:
         :param pulumi.Input[str] folder: Folder for S3 service. Available from Rancher v2.2.7 (string)
         :param pulumi.Input[str] resourcepool_path: (string)
         """
-        pulumi.set(__self__, "datacenter", datacenter)
-        pulumi.set(__self__, "server", server)
+        ClusterCloudProviderVsphereCloudConfigWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenter=datacenter,
+            server=server,
+            default_datastore=default_datastore,
+            folder=folder,
+            resourcepool_path=resourcepool_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenter: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             default_datastore: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             resourcepool_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if default_datastore is None and 'defaultDatastore' in kwargs:
+            default_datastore = kwargs['defaultDatastore']
+        if resourcepool_path is None and 'resourcepoolPath' in kwargs:
+            resourcepool_path = kwargs['resourcepoolPath']
+
+        _setter("datacenter", datacenter)
+        _setter("server", server)
         if default_datastore is not None:
-            pulumi.set(__self__, "default_datastore", default_datastore)
+            _setter("default_datastore", default_datastore)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if resourcepool_path is not None:
-            pulumi.set(__self__, "resourcepool_path", resourcepool_path)
+            _setter("resourcepool_path", resourcepool_path)
 
     @property
     @pulumi.getter
@@ -4004,14 +5154,41 @@ class ClusterCloudProviderVsphereCloudProviderArgs:
         :param pulumi.Input['ClusterCloudProviderVsphereCloudProviderGlobalArgs'] global_: (list maxitems:1)
         :param pulumi.Input['ClusterCloudProviderVsphereCloudProviderNetworkArgs'] network: RKE k8s cluster network configuration (list maxitems:1)
         """
-        pulumi.set(__self__, "virtual_centers", virtual_centers)
-        pulumi.set(__self__, "workspace", workspace)
+        ClusterCloudProviderVsphereCloudProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_centers=virtual_centers,
+            workspace=workspace,
+            disk=disk,
+            global_=global_,
+            network=network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_centers: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs']]]] = None,
+             workspace: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderWorkspaceArgs']] = None,
+             disk: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderDiskArgs']] = None,
+             global_: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderGlobalArgs']] = None,
+             network: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderNetworkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if virtual_centers is None and 'virtualCenters' in kwargs:
+            virtual_centers = kwargs['virtualCenters']
+        if virtual_centers is None:
+            raise TypeError("Missing 'virtual_centers' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+        if global_ is None and 'global' in kwargs:
+            global_ = kwargs['global']
+
+        _setter("virtual_centers", virtual_centers)
+        _setter("workspace", workspace)
         if disk is not None:
-            pulumi.set(__self__, "disk", disk)
+            _setter("disk", disk)
         if global_ is not None:
-            pulumi.set(__self__, "global_", global_)
+            _setter("global_", global_)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
 
     @property
     @pulumi.getter(name="virtualCenters")
@@ -4081,8 +5258,21 @@ class ClusterCloudProviderVsphereCloudProviderDiskArgs:
         """
         :param pulumi.Input[str] scsi_controller_type: (string)
         """
+        ClusterCloudProviderVsphereCloudProviderDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scsi_controller_type=scsi_controller_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scsi_controller_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scsi_controller_type is None and 'scsiControllerType' in kwargs:
+            scsi_controller_type = kwargs['scsiControllerType']
+
         if scsi_controller_type is not None:
-            pulumi.set(__self__, "scsi_controller_type", scsi_controller_type)
+            _setter("scsi_controller_type", scsi_controller_type)
 
     @property
     @pulumi.getter(name="scsiControllerType")
@@ -4124,28 +5314,69 @@ class ClusterCloudProviderVsphereCloudProviderGlobalArgs:
         :param pulumi.Input[str] vm_uuid: (string)
         :param pulumi.Input[str] working_dir: (string)
         """
+        ClusterCloudProviderVsphereCloudProviderGlobalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenter=datacenter,
+            datacenters=datacenters,
+            datastore=datastore,
+            insecure_flag=insecure_flag,
+            password=password,
+            port=port,
+            soap_roundtrip_count=soap_roundtrip_count,
+            user=user,
+            vm_name=vm_name,
+            vm_uuid=vm_uuid,
+            working_dir=working_dir,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenter: Optional[pulumi.Input[str]] = None,
+             datacenters: Optional[pulumi.Input[str]] = None,
+             datastore: Optional[pulumi.Input[str]] = None,
+             insecure_flag: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             soap_roundtrip_count: Optional[pulumi.Input[int]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             vm_uuid: Optional[pulumi.Input[str]] = None,
+             working_dir: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if insecure_flag is None and 'insecureFlag' in kwargs:
+            insecure_flag = kwargs['insecureFlag']
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+        if vm_name is None and 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if vm_uuid is None and 'vmUuid' in kwargs:
+            vm_uuid = kwargs['vmUuid']
+        if working_dir is None and 'workingDir' in kwargs:
+            working_dir = kwargs['workingDir']
+
         if datacenter is not None:
-            pulumi.set(__self__, "datacenter", datacenter)
+            _setter("datacenter", datacenter)
         if datacenters is not None:
-            pulumi.set(__self__, "datacenters", datacenters)
+            _setter("datacenters", datacenters)
         if datastore is not None:
-            pulumi.set(__self__, "datastore", datastore)
+            _setter("datastore", datastore)
         if insecure_flag is not None:
-            pulumi.set(__self__, "insecure_flag", insecure_flag)
+            _setter("insecure_flag", insecure_flag)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if soap_roundtrip_count is not None:
-            pulumi.set(__self__, "soap_roundtrip_count", soap_roundtrip_count)
+            _setter("soap_roundtrip_count", soap_roundtrip_count)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
         if vm_uuid is not None:
-            pulumi.set(__self__, "vm_uuid", vm_uuid)
+            _setter("vm_uuid", vm_uuid)
         if working_dir is not None:
-            pulumi.set(__self__, "working_dir", working_dir)
+            _setter("working_dir", working_dir)
 
     @property
     @pulumi.getter
@@ -4287,8 +5518,21 @@ class ClusterCloudProviderVsphereCloudProviderNetworkArgs:
         """
         :param pulumi.Input[str] public_network: (string)
         """
+        ClusterCloudProviderVsphereCloudProviderNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network=public_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_network is None and 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+
         if public_network is not None:
-            pulumi.set(__self__, "public_network", public_network)
+            _setter("public_network", public_network)
 
     @property
     @pulumi.getter(name="publicNetwork")
@@ -4320,14 +5564,45 @@ class ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs:
         :param pulumi.Input[str] port: Port used for SSH communication (string)
         :param pulumi.Input[int] soap_roundtrip_count: (int)
         """
-        pulumi.set(__self__, "datacenters", datacenters)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "user", user)
+        ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenters=datacenters,
+            name=name,
+            password=password,
+            user=user,
+            port=port,
+            soap_roundtrip_count=soap_roundtrip_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenters: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             soap_roundtrip_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datacenters is None:
+            raise TypeError("Missing 'datacenters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if soap_roundtrip_count is None and 'soapRoundtripCount' in kwargs:
+            soap_roundtrip_count = kwargs['soapRoundtripCount']
+
+        _setter("datacenters", datacenters)
+        _setter("name", name)
+        _setter("password", password)
+        _setter("user", user)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if soap_roundtrip_count is not None:
-            pulumi.set(__self__, "soap_roundtrip_count", soap_roundtrip_count)
+            _setter("soap_roundtrip_count", soap_roundtrip_count)
 
     @property
     @pulumi.getter
@@ -4417,14 +5692,41 @@ class ClusterCloudProviderVsphereCloudProviderWorkspaceArgs:
         :param pulumi.Input[str] folder: Folder for S3 service. Available from Rancher v2.2.7 (string)
         :param pulumi.Input[str] resourcepool_path: (string)
         """
-        pulumi.set(__self__, "datacenter", datacenter)
-        pulumi.set(__self__, "server", server)
+        ClusterCloudProviderVsphereCloudProviderWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datacenter=datacenter,
+            server=server,
+            default_datastore=default_datastore,
+            folder=folder,
+            resourcepool_path=resourcepool_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datacenter: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             default_datastore: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             resourcepool_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datacenter is None:
+            raise TypeError("Missing 'datacenter' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if default_datastore is None and 'defaultDatastore' in kwargs:
+            default_datastore = kwargs['defaultDatastore']
+        if resourcepool_path is None and 'resourcepoolPath' in kwargs:
+            resourcepool_path = kwargs['resourcepoolPath']
+
+        _setter("datacenter", datacenter)
+        _setter("server", server)
         if default_datastore is not None:
-            pulumi.set(__self__, "default_datastore", default_datastore)
+            _setter("default_datastore", default_datastore)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if resourcepool_path is not None:
-            pulumi.set(__self__, "resourcepool_path", resourcepool_path)
+            _setter("resourcepool_path", resourcepool_path)
 
     @property
     @pulumi.getter
@@ -4496,10 +5798,25 @@ class ClusterControlPlaneHostArgs:
         :param pulumi.Input[str] address: Address ip for node (string)
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine (string)
         """
+        ClusterControlPlaneHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             node_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if node_name is not None:
-            pulumi.set(__self__, "node_name", node_name)
+            _setter("node_name", node_name)
 
     @property
     @pulumi.getter
@@ -4541,16 +5858,41 @@ class ClusterDnsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reverse_cidrs: Reverse CIDRs  (list)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstream_nameservers: Upstream nameservers  (list)
         """
+        ClusterDnsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_selector=node_selector,
+            nodelocal=nodelocal,
+            provider=provider,
+            reverse_cidrs=reverse_cidrs,
+            upstream_nameservers=upstream_nameservers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             nodelocal: Optional[pulumi.Input['ClusterDnsNodelocalArgs']] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             reverse_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             upstream_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+        if reverse_cidrs is None and 'reverseCidrs' in kwargs:
+            reverse_cidrs = kwargs['reverseCidrs']
+        if upstream_nameservers is None and 'upstreamNameservers' in kwargs:
+            upstream_nameservers = kwargs['upstreamNameservers']
+
         if node_selector is not None:
-            pulumi.set(__self__, "node_selector", node_selector)
+            _setter("node_selector", node_selector)
         if nodelocal is not None:
-            pulumi.set(__self__, "nodelocal", nodelocal)
+            _setter("nodelocal", nodelocal)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
         if reverse_cidrs is not None:
-            pulumi.set(__self__, "reverse_cidrs", reverse_cidrs)
+            _setter("reverse_cidrs", reverse_cidrs)
         if upstream_nameservers is not None:
-            pulumi.set(__self__, "upstream_nameservers", upstream_nameservers)
+            _setter("upstream_nameservers", upstream_nameservers)
 
     @property
     @pulumi.getter(name="nodeSelector")
@@ -4622,10 +5964,27 @@ class ClusterDnsNodelocalArgs:
         :param pulumi.Input[str] ip_address: Nodelocal dns ip address (string)
         :param pulumi.Input[Mapping[str, Any]] node_selector: Node selector key pair (map)
         """
+        ClusterDnsNodelocalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address=ip_address,
+            node_selector=node_selector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address: Optional[pulumi.Input[str]] = None,
+             node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if node_selector is not None:
-            pulumi.set(__self__, "node_selector", node_selector)
+            _setter("node_selector", node_selector)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -4661,10 +6020,25 @@ class ClusterEtcdHostArgs:
         :param pulumi.Input[str] address: Address ip for node (string)
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine (string)
         """
+        ClusterEtcdHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             node_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if node_name is not None:
-            pulumi.set(__self__, "node_name", node_name)
+            _setter("node_name", node_name)
 
     @property
     @pulumi.getter
@@ -4700,10 +6074,25 @@ class ClusterInactiveHostArgs:
         :param pulumi.Input[str] address: Address ip for node (string)
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine (string)
         """
+        ClusterInactiveHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             node_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if node_name is not None:
-            pulumi.set(__self__, "node_name", node_name)
+            _setter("node_name", node_name)
 
     @property
     @pulumi.getter
@@ -4752,24 +6141,65 @@ class ClusterIngressArgs:
         :param pulumi.Input[Mapping[str, Any]] options: Network provider options (map)
         :param pulumi.Input[str] provider: Monitoring provider (string)
         """
+        ClusterIngressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_backend=default_backend,
+            dns_policy=dns_policy,
+            extra_args=extra_args,
+            http_port=http_port,
+            https_port=https_port,
+            network_mode=network_mode,
+            node_selector=node_selector,
+            options=options,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_backend: Optional[pulumi.Input[bool]] = None,
+             dns_policy: Optional[pulumi.Input[str]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             network_mode: Optional[pulumi.Input[str]] = None,
+             node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_backend is None and 'defaultBackend' in kwargs:
+            default_backend = kwargs['defaultBackend']
+        if dns_policy is None and 'dnsPolicy' in kwargs:
+            dns_policy = kwargs['dnsPolicy']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if network_mode is None and 'networkMode' in kwargs:
+            network_mode = kwargs['networkMode']
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if default_backend is not None:
-            pulumi.set(__self__, "default_backend", default_backend)
+            _setter("default_backend", default_backend)
         if dns_policy is not None:
-            pulumi.set(__self__, "dns_policy", dns_policy)
+            _setter("dns_policy", dns_policy)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if network_mode is not None:
-            pulumi.set(__self__, "network_mode", network_mode)
+            _setter("network_mode", network_mode)
         if node_selector is not None:
-            pulumi.set(__self__, "node_selector", node_selector)
+            _setter("node_selector", node_selector)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter(name="defaultBackend")
@@ -4888,12 +6318,29 @@ class ClusterMonitoringArgs:
         :param pulumi.Input[Mapping[str, Any]] options: Network provider options (map)
         :param pulumi.Input[str] provider: Monitoring provider (string)
         """
+        ClusterMonitoringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_selector=node_selector,
+            options=options,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_selector is None and 'nodeSelector' in kwargs:
+            node_selector = kwargs['nodeSelector']
+
         if node_selector is not None:
-            pulumi.set(__self__, "node_selector", node_selector)
+            _setter("node_selector", node_selector)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter(name="nodeSelector")
@@ -4953,22 +6400,57 @@ class ClusterNetworkArgs:
         :param pulumi.Input[str] plugin: Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
         :param pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs'] weave_network_provider: Weave network provider config (list maxitems:1)
         """
+        ClusterNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aci_network_provider=aci_network_provider,
+            calico_network_provider=calico_network_provider,
+            canal_network_provider=canal_network_provider,
+            flannel_network_provider=flannel_network_provider,
+            mtu=mtu,
+            options=options,
+            plugin=plugin,
+            weave_network_provider=weave_network_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aci_network_provider: Optional[pulumi.Input['ClusterNetworkAciNetworkProviderArgs']] = None,
+             calico_network_provider: Optional[pulumi.Input['ClusterNetworkCalicoNetworkProviderArgs']] = None,
+             canal_network_provider: Optional[pulumi.Input['ClusterNetworkCanalNetworkProviderArgs']] = None,
+             flannel_network_provider: Optional[pulumi.Input['ClusterNetworkFlannelNetworkProviderArgs']] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             plugin: Optional[pulumi.Input[str]] = None,
+             weave_network_provider: Optional[pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aci_network_provider is None and 'aciNetworkProvider' in kwargs:
+            aci_network_provider = kwargs['aciNetworkProvider']
+        if calico_network_provider is None and 'calicoNetworkProvider' in kwargs:
+            calico_network_provider = kwargs['calicoNetworkProvider']
+        if canal_network_provider is None and 'canalNetworkProvider' in kwargs:
+            canal_network_provider = kwargs['canalNetworkProvider']
+        if flannel_network_provider is None and 'flannelNetworkProvider' in kwargs:
+            flannel_network_provider = kwargs['flannelNetworkProvider']
+        if weave_network_provider is None and 'weaveNetworkProvider' in kwargs:
+            weave_network_provider = kwargs['weaveNetworkProvider']
+
         if aci_network_provider is not None:
-            pulumi.set(__self__, "aci_network_provider", aci_network_provider)
+            _setter("aci_network_provider", aci_network_provider)
         if calico_network_provider is not None:
-            pulumi.set(__self__, "calico_network_provider", calico_network_provider)
+            _setter("calico_network_provider", calico_network_provider)
         if canal_network_provider is not None:
-            pulumi.set(__self__, "canal_network_provider", canal_network_provider)
+            _setter("canal_network_provider", canal_network_provider)
         if flannel_network_provider is not None:
-            pulumi.set(__self__, "flannel_network_provider", flannel_network_provider)
+            _setter("flannel_network_provider", flannel_network_provider)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if plugin is not None:
-            pulumi.set(__self__, "plugin", plugin)
+            _setter("plugin", plugin)
         if weave_network_provider is not None:
-            pulumi.set(__self__, "weave_network_provider", weave_network_provider)
+            _setter("weave_network_provider", weave_network_provider)
 
     @property
     @pulumi.getter(name="aciNetworkProvider")
@@ -5120,33 +6602,174 @@ class ClusterNetworkAciNetworkProviderArgs:
         :param pulumi.Input[str] snat_port_range_start: Port start range for Source Network Address Translation on aci (string)
         :param pulumi.Input[str] snat_ports_per_node: Ports per node for Source Network Address Translation on aci (string)
         """
-        pulumi.set(__self__, "aep", aep)
-        pulumi.set(__self__, "apic_hosts", apic_hosts)
-        pulumi.set(__self__, "apic_user_crt", apic_user_crt)
-        pulumi.set(__self__, "apic_user_key", apic_user_key)
-        pulumi.set(__self__, "apic_user_name", apic_user_name)
-        pulumi.set(__self__, "encap_type", encap_type)
-        pulumi.set(__self__, "extern_dynamic", extern_dynamic)
-        pulumi.set(__self__, "extern_static", extern_static)
-        pulumi.set(__self__, "infra_vlan", infra_vlan)
-        pulumi.set(__self__, "kube_api_vlan", kube_api_vlan)
-        pulumi.set(__self__, "l3out", l3out)
-        pulumi.set(__self__, "l3out_external_networks", l3out_external_networks)
-        pulumi.set(__self__, "mcast_range_end", mcast_range_end)
-        pulumi.set(__self__, "mcast_range_start", mcast_range_start)
-        pulumi.set(__self__, "node_subnet", node_subnet)
-        pulumi.set(__self__, "node_svc_subnet", node_svc_subnet)
-        pulumi.set(__self__, "service_vlan", service_vlan)
-        pulumi.set(__self__, "system_id", system_id)
-        pulumi.set(__self__, "token", token)
-        pulumi.set(__self__, "vrf_name", vrf_name)
-        pulumi.set(__self__, "vrf_tenant", vrf_tenant)
+        ClusterNetworkAciNetworkProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aep=aep,
+            apic_hosts=apic_hosts,
+            apic_user_crt=apic_user_crt,
+            apic_user_key=apic_user_key,
+            apic_user_name=apic_user_name,
+            encap_type=encap_type,
+            extern_dynamic=extern_dynamic,
+            extern_static=extern_static,
+            infra_vlan=infra_vlan,
+            kube_api_vlan=kube_api_vlan,
+            l3out=l3out,
+            l3out_external_networks=l3out_external_networks,
+            mcast_range_end=mcast_range_end,
+            mcast_range_start=mcast_range_start,
+            node_subnet=node_subnet,
+            node_svc_subnet=node_svc_subnet,
+            service_vlan=service_vlan,
+            system_id=system_id,
+            token=token,
+            vrf_name=vrf_name,
+            vrf_tenant=vrf_tenant,
+            snat_port_range_end=snat_port_range_end,
+            snat_port_range_start=snat_port_range_start,
+            snat_ports_per_node=snat_ports_per_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aep: Optional[pulumi.Input[str]] = None,
+             apic_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             apic_user_crt: Optional[pulumi.Input[str]] = None,
+             apic_user_key: Optional[pulumi.Input[str]] = None,
+             apic_user_name: Optional[pulumi.Input[str]] = None,
+             encap_type: Optional[pulumi.Input[str]] = None,
+             extern_dynamic: Optional[pulumi.Input[str]] = None,
+             extern_static: Optional[pulumi.Input[str]] = None,
+             infra_vlan: Optional[pulumi.Input[str]] = None,
+             kube_api_vlan: Optional[pulumi.Input[str]] = None,
+             l3out: Optional[pulumi.Input[str]] = None,
+             l3out_external_networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mcast_range_end: Optional[pulumi.Input[str]] = None,
+             mcast_range_start: Optional[pulumi.Input[str]] = None,
+             node_subnet: Optional[pulumi.Input[str]] = None,
+             node_svc_subnet: Optional[pulumi.Input[str]] = None,
+             service_vlan: Optional[pulumi.Input[str]] = None,
+             system_id: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             vrf_name: Optional[pulumi.Input[str]] = None,
+             vrf_tenant: Optional[pulumi.Input[str]] = None,
+             snat_port_range_end: Optional[pulumi.Input[str]] = None,
+             snat_port_range_start: Optional[pulumi.Input[str]] = None,
+             snat_ports_per_node: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aep is None:
+            raise TypeError("Missing 'aep' argument")
+        if apic_hosts is None and 'apicHosts' in kwargs:
+            apic_hosts = kwargs['apicHosts']
+        if apic_hosts is None:
+            raise TypeError("Missing 'apic_hosts' argument")
+        if apic_user_crt is None and 'apicUserCrt' in kwargs:
+            apic_user_crt = kwargs['apicUserCrt']
+        if apic_user_crt is None:
+            raise TypeError("Missing 'apic_user_crt' argument")
+        if apic_user_key is None and 'apicUserKey' in kwargs:
+            apic_user_key = kwargs['apicUserKey']
+        if apic_user_key is None:
+            raise TypeError("Missing 'apic_user_key' argument")
+        if apic_user_name is None and 'apicUserName' in kwargs:
+            apic_user_name = kwargs['apicUserName']
+        if apic_user_name is None:
+            raise TypeError("Missing 'apic_user_name' argument")
+        if encap_type is None and 'encapType' in kwargs:
+            encap_type = kwargs['encapType']
+        if encap_type is None:
+            raise TypeError("Missing 'encap_type' argument")
+        if extern_dynamic is None and 'externDynamic' in kwargs:
+            extern_dynamic = kwargs['externDynamic']
+        if extern_dynamic is None:
+            raise TypeError("Missing 'extern_dynamic' argument")
+        if extern_static is None and 'externStatic' in kwargs:
+            extern_static = kwargs['externStatic']
+        if extern_static is None:
+            raise TypeError("Missing 'extern_static' argument")
+        if infra_vlan is None and 'infraVlan' in kwargs:
+            infra_vlan = kwargs['infraVlan']
+        if infra_vlan is None:
+            raise TypeError("Missing 'infra_vlan' argument")
+        if kube_api_vlan is None and 'kubeApiVlan' in kwargs:
+            kube_api_vlan = kwargs['kubeApiVlan']
+        if kube_api_vlan is None:
+            raise TypeError("Missing 'kube_api_vlan' argument")
+        if l3out is None:
+            raise TypeError("Missing 'l3out' argument")
+        if l3out_external_networks is None and 'l3outExternalNetworks' in kwargs:
+            l3out_external_networks = kwargs['l3outExternalNetworks']
+        if l3out_external_networks is None:
+            raise TypeError("Missing 'l3out_external_networks' argument")
+        if mcast_range_end is None and 'mcastRangeEnd' in kwargs:
+            mcast_range_end = kwargs['mcastRangeEnd']
+        if mcast_range_end is None:
+            raise TypeError("Missing 'mcast_range_end' argument")
+        if mcast_range_start is None and 'mcastRangeStart' in kwargs:
+            mcast_range_start = kwargs['mcastRangeStart']
+        if mcast_range_start is None:
+            raise TypeError("Missing 'mcast_range_start' argument")
+        if node_subnet is None and 'nodeSubnet' in kwargs:
+            node_subnet = kwargs['nodeSubnet']
+        if node_subnet is None:
+            raise TypeError("Missing 'node_subnet' argument")
+        if node_svc_subnet is None and 'nodeSvcSubnet' in kwargs:
+            node_svc_subnet = kwargs['nodeSvcSubnet']
+        if node_svc_subnet is None:
+            raise TypeError("Missing 'node_svc_subnet' argument")
+        if service_vlan is None and 'serviceVlan' in kwargs:
+            service_vlan = kwargs['serviceVlan']
+        if service_vlan is None:
+            raise TypeError("Missing 'service_vlan' argument")
+        if system_id is None and 'systemId' in kwargs:
+            system_id = kwargs['systemId']
+        if system_id is None:
+            raise TypeError("Missing 'system_id' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if vrf_name is None and 'vrfName' in kwargs:
+            vrf_name = kwargs['vrfName']
+        if vrf_name is None:
+            raise TypeError("Missing 'vrf_name' argument")
+        if vrf_tenant is None and 'vrfTenant' in kwargs:
+            vrf_tenant = kwargs['vrfTenant']
+        if vrf_tenant is None:
+            raise TypeError("Missing 'vrf_tenant' argument")
+        if snat_port_range_end is None and 'snatPortRangeEnd' in kwargs:
+            snat_port_range_end = kwargs['snatPortRangeEnd']
+        if snat_port_range_start is None and 'snatPortRangeStart' in kwargs:
+            snat_port_range_start = kwargs['snatPortRangeStart']
+        if snat_ports_per_node is None and 'snatPortsPerNode' in kwargs:
+            snat_ports_per_node = kwargs['snatPortsPerNode']
+
+        _setter("aep", aep)
+        _setter("apic_hosts", apic_hosts)
+        _setter("apic_user_crt", apic_user_crt)
+        _setter("apic_user_key", apic_user_key)
+        _setter("apic_user_name", apic_user_name)
+        _setter("encap_type", encap_type)
+        _setter("extern_dynamic", extern_dynamic)
+        _setter("extern_static", extern_static)
+        _setter("infra_vlan", infra_vlan)
+        _setter("kube_api_vlan", kube_api_vlan)
+        _setter("l3out", l3out)
+        _setter("l3out_external_networks", l3out_external_networks)
+        _setter("mcast_range_end", mcast_range_end)
+        _setter("mcast_range_start", mcast_range_start)
+        _setter("node_subnet", node_subnet)
+        _setter("node_svc_subnet", node_svc_subnet)
+        _setter("service_vlan", service_vlan)
+        _setter("system_id", system_id)
+        _setter("token", token)
+        _setter("vrf_name", vrf_name)
+        _setter("vrf_tenant", vrf_tenant)
         if snat_port_range_end is not None:
-            pulumi.set(__self__, "snat_port_range_end", snat_port_range_end)
+            _setter("snat_port_range_end", snat_port_range_end)
         if snat_port_range_start is not None:
-            pulumi.set(__self__, "snat_port_range_start", snat_port_range_start)
+            _setter("snat_port_range_start", snat_port_range_start)
         if snat_ports_per_node is not None:
-            pulumi.set(__self__, "snat_ports_per_node", snat_ports_per_node)
+            _setter("snat_ports_per_node", snat_ports_per_node)
 
     @property
     @pulumi.getter
@@ -5442,8 +7065,21 @@ class ClusterNetworkCalicoNetworkProviderArgs:
         """
         :param pulumi.Input[str] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         """
+        ClusterNetworkCalicoNetworkProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_provider=cloud_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloud_provider is None and 'cloudProvider' in kwargs:
+            cloud_provider = kwargs['cloudProvider']
+
         if cloud_provider is not None:
-            pulumi.set(__self__, "cloud_provider", cloud_provider)
+            _setter("cloud_provider", cloud_provider)
 
     @property
     @pulumi.getter(name="cloudProvider")
@@ -5465,8 +7101,19 @@ class ClusterNetworkCanalNetworkProviderArgs:
         """
         :param pulumi.Input[str] iface: Flannel network interface (string)
         """
+        ClusterNetworkCanalNetworkProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iface=iface,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iface: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iface is not None:
-            pulumi.set(__self__, "iface", iface)
+            _setter("iface", iface)
 
     @property
     @pulumi.getter
@@ -5488,8 +7135,19 @@ class ClusterNetworkFlannelNetworkProviderArgs:
         """
         :param pulumi.Input[str] iface: Flannel network interface (string)
         """
+        ClusterNetworkFlannelNetworkProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iface=iface,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iface: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iface is not None:
-            pulumi.set(__self__, "iface", iface)
+            _setter("iface", iface)
 
     @property
     @pulumi.getter
@@ -5511,7 +7169,20 @@ class ClusterNetworkWeaveNetworkProviderArgs:
         """
         :param pulumi.Input[str] password: Registry password (string)
         """
-        pulumi.set(__self__, "password", password)
+        ClusterNetworkWeaveNetworkProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+
+        _setter("password", password)
 
     @property
     @pulumi.getter
@@ -5562,38 +7233,105 @@ class ClusterNodeArgs:
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeTaintArgs']]] taints: Node taints (list)
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "roles", roles)
-        pulumi.set(__self__, "user", user)
+        ClusterNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            roles=roles,
+            user=user,
+            docker_socket=docker_socket,
+            hostname_override=hostname_override,
+            internal_address=internal_address,
+            labels=labels,
+            node_name=node_name,
+            port=port,
+            roles_deprecated=roles_deprecated,
+            ssh_agent_auth=ssh_agent_auth,
+            ssh_cert=ssh_cert,
+            ssh_cert_path=ssh_cert_path,
+            ssh_key=ssh_key,
+            ssh_key_path=ssh_key_path,
+            taints=taints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             docker_socket: Optional[pulumi.Input[str]] = None,
+             hostname_override: Optional[pulumi.Input[str]] = None,
+             internal_address: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             node_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             roles_deprecated: Optional[pulumi.Input[str]] = None,
+             ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
+             ssh_cert: Optional[pulumi.Input[str]] = None,
+             ssh_cert_path: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             ssh_key_path: Optional[pulumi.Input[str]] = None,
+             taints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeTaintArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if docker_socket is None and 'dockerSocket' in kwargs:
+            docker_socket = kwargs['dockerSocket']
+        if hostname_override is None and 'hostnameOverride' in kwargs:
+            hostname_override = kwargs['hostnameOverride']
+        if internal_address is None and 'internalAddress' in kwargs:
+            internal_address = kwargs['internalAddress']
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if roles_deprecated is None and 'rolesDeprecated' in kwargs:
+            roles_deprecated = kwargs['rolesDeprecated']
+        if ssh_agent_auth is None and 'sshAgentAuth' in kwargs:
+            ssh_agent_auth = kwargs['sshAgentAuth']
+        if ssh_cert is None and 'sshCert' in kwargs:
+            ssh_cert = kwargs['sshCert']
+        if ssh_cert_path is None and 'sshCertPath' in kwargs:
+            ssh_cert_path = kwargs['sshCertPath']
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if ssh_key_path is None and 'sshKeyPath' in kwargs:
+            ssh_key_path = kwargs['sshKeyPath']
+
+        _setter("address", address)
+        _setter("roles", roles)
+        _setter("user", user)
         if docker_socket is not None:
-            pulumi.set(__self__, "docker_socket", docker_socket)
+            _setter("docker_socket", docker_socket)
         if hostname_override is not None:
-            pulumi.set(__self__, "hostname_override", hostname_override)
+            _setter("hostname_override", hostname_override)
         if internal_address is not None:
-            pulumi.set(__self__, "internal_address", internal_address)
+            _setter("internal_address", internal_address)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if node_name is not None:
-            pulumi.set(__self__, "node_name", node_name)
+            _setter("node_name", node_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if roles_deprecated is not None:
             warnings.warn("""Use role instead""", DeprecationWarning)
             pulumi.log.warn("""roles_deprecated is deprecated: Use role instead""")
         if roles_deprecated is not None:
-            pulumi.set(__self__, "roles_deprecated", roles_deprecated)
+            _setter("roles_deprecated", roles_deprecated)
         if ssh_agent_auth is not None:
-            pulumi.set(__self__, "ssh_agent_auth", ssh_agent_auth)
+            _setter("ssh_agent_auth", ssh_agent_auth)
         if ssh_cert is not None:
-            pulumi.set(__self__, "ssh_cert", ssh_cert)
+            _setter("ssh_cert", ssh_cert)
         if ssh_cert_path is not None:
-            pulumi.set(__self__, "ssh_cert_path", ssh_cert_path)
+            _setter("ssh_cert_path", ssh_cert_path)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if ssh_key_path is not None:
-            pulumi.set(__self__, "ssh_key_path", ssh_key_path)
+            _setter("ssh_key_path", ssh_key_path)
         if taints is not None:
-            pulumi.set(__self__, "taints", taints)
+            _setter("taints", taints)
 
     @property
     @pulumi.getter
@@ -5799,10 +7537,29 @@ class ClusterNodeTaintArgs:
         :param pulumi.Input[str] value: Taint value (string)
         :param pulumi.Input[str] effect: Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ClusterNodeTaintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            effect=effect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             effect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
         if effect is not None:
-            pulumi.set(__self__, "effect", effect)
+            _setter("effect", effect)
 
     @property
     @pulumi.getter
@@ -5854,13 +7611,34 @@ class ClusterPrivateRegistryArgs:
         :param pulumi.Input[str] password: Registry password (string)
         :param pulumi.Input[str] user: Registry user (string)
         """
-        pulumi.set(__self__, "url", url)
+        ClusterPrivateRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            is_default=is_default,
+            password=password,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
+        _setter("url", url)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -5920,10 +7698,25 @@ class ClusterRestoreArgs:
         :param pulumi.Input[bool] restore: RKE k8s cluster restore configuration (list maxitems:1)
         :param pulumi.Input[str] snapshot_name: Snapshot name (string)
         """
+        ClusterRestoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restore=restore,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restore: Optional[pulumi.Input[bool]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+
         if restore is not None:
-            pulumi.set(__self__, "restore", restore)
+            _setter("restore", restore)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter
@@ -5959,10 +7752,25 @@ class ClusterRotateCertificatesArgs:
         :param pulumi.Input[bool] ca_certificates: Rotate CA Certificates. Default `false` (bool)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: RKE k8s cluster services (list maxitems:1)
         """
+        ClusterRotateCertificatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_certificates=ca_certificates,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_certificates: Optional[pulumi.Input[bool]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ca_certificates is None and 'caCertificates' in kwargs:
+            ca_certificates = kwargs['caCertificates']
+
         if ca_certificates is not None:
-            pulumi.set(__self__, "ca_certificates", ca_certificates)
+            _setter("ca_certificates", ca_certificates)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter(name="caCertificates")
@@ -6068,80 +7876,221 @@ class ClusterRunningSystemImageArgs:
         :param pulumi.Input[str] weave_node: Docker image for weave_node (string)
         :param pulumi.Input[str] windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        ClusterRunningSystemImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aci_cni_deploy_container=aci_cni_deploy_container,
+            aci_controller_container=aci_controller_container,
+            aci_host_container=aci_host_container,
+            aci_mcast_container=aci_mcast_container,
+            aci_opflex_container=aci_opflex_container,
+            aci_ovs_container=aci_ovs_container,
+            alpine=alpine,
+            calico_cni=calico_cni,
+            calico_controllers=calico_controllers,
+            calico_ctl=calico_ctl,
+            calico_flex_vol=calico_flex_vol,
+            calico_node=calico_node,
+            canal_cni=canal_cni,
+            canal_flannel=canal_flannel,
+            canal_flex_vol=canal_flex_vol,
+            canal_node=canal_node,
+            cert_downloader=cert_downloader,
+            coredns=coredns,
+            coredns_autoscaler=coredns_autoscaler,
+            dnsmasq=dnsmasq,
+            etcd=etcd,
+            flannel=flannel,
+            flannel_cni=flannel_cni,
+            ingress=ingress,
+            ingress_backend=ingress_backend,
+            kube_dns=kube_dns,
+            kube_dns_autoscaler=kube_dns_autoscaler,
+            kube_dns_sidecar=kube_dns_sidecar,
+            kubernetes=kubernetes,
+            kubernetes_services_sidecar=kubernetes_services_sidecar,
+            metrics_server=metrics_server,
+            nginx_proxy=nginx_proxy,
+            nodelocal=nodelocal,
+            pod_infra_container=pod_infra_container,
+            weave_cni=weave_cni,
+            weave_node=weave_node,
+            windows_pod_infra_container=windows_pod_infra_container,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aci_cni_deploy_container: Optional[pulumi.Input[str]] = None,
+             aci_controller_container: Optional[pulumi.Input[str]] = None,
+             aci_host_container: Optional[pulumi.Input[str]] = None,
+             aci_mcast_container: Optional[pulumi.Input[str]] = None,
+             aci_opflex_container: Optional[pulumi.Input[str]] = None,
+             aci_ovs_container: Optional[pulumi.Input[str]] = None,
+             alpine: Optional[pulumi.Input[str]] = None,
+             calico_cni: Optional[pulumi.Input[str]] = None,
+             calico_controllers: Optional[pulumi.Input[str]] = None,
+             calico_ctl: Optional[pulumi.Input[str]] = None,
+             calico_flex_vol: Optional[pulumi.Input[str]] = None,
+             calico_node: Optional[pulumi.Input[str]] = None,
+             canal_cni: Optional[pulumi.Input[str]] = None,
+             canal_flannel: Optional[pulumi.Input[str]] = None,
+             canal_flex_vol: Optional[pulumi.Input[str]] = None,
+             canal_node: Optional[pulumi.Input[str]] = None,
+             cert_downloader: Optional[pulumi.Input[str]] = None,
+             coredns: Optional[pulumi.Input[str]] = None,
+             coredns_autoscaler: Optional[pulumi.Input[str]] = None,
+             dnsmasq: Optional[pulumi.Input[str]] = None,
+             etcd: Optional[pulumi.Input[str]] = None,
+             flannel: Optional[pulumi.Input[str]] = None,
+             flannel_cni: Optional[pulumi.Input[str]] = None,
+             ingress: Optional[pulumi.Input[str]] = None,
+             ingress_backend: Optional[pulumi.Input[str]] = None,
+             kube_dns: Optional[pulumi.Input[str]] = None,
+             kube_dns_autoscaler: Optional[pulumi.Input[str]] = None,
+             kube_dns_sidecar: Optional[pulumi.Input[str]] = None,
+             kubernetes: Optional[pulumi.Input[str]] = None,
+             kubernetes_services_sidecar: Optional[pulumi.Input[str]] = None,
+             metrics_server: Optional[pulumi.Input[str]] = None,
+             nginx_proxy: Optional[pulumi.Input[str]] = None,
+             nodelocal: Optional[pulumi.Input[str]] = None,
+             pod_infra_container: Optional[pulumi.Input[str]] = None,
+             weave_cni: Optional[pulumi.Input[str]] = None,
+             weave_node: Optional[pulumi.Input[str]] = None,
+             windows_pod_infra_container: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aci_cni_deploy_container is None and 'aciCniDeployContainer' in kwargs:
+            aci_cni_deploy_container = kwargs['aciCniDeployContainer']
+        if aci_controller_container is None and 'aciControllerContainer' in kwargs:
+            aci_controller_container = kwargs['aciControllerContainer']
+        if aci_host_container is None and 'aciHostContainer' in kwargs:
+            aci_host_container = kwargs['aciHostContainer']
+        if aci_mcast_container is None and 'aciMcastContainer' in kwargs:
+            aci_mcast_container = kwargs['aciMcastContainer']
+        if aci_opflex_container is None and 'aciOpflexContainer' in kwargs:
+            aci_opflex_container = kwargs['aciOpflexContainer']
+        if aci_ovs_container is None and 'aciOvsContainer' in kwargs:
+            aci_ovs_container = kwargs['aciOvsContainer']
+        if calico_cni is None and 'calicoCni' in kwargs:
+            calico_cni = kwargs['calicoCni']
+        if calico_controllers is None and 'calicoControllers' in kwargs:
+            calico_controllers = kwargs['calicoControllers']
+        if calico_ctl is None and 'calicoCtl' in kwargs:
+            calico_ctl = kwargs['calicoCtl']
+        if calico_flex_vol is None and 'calicoFlexVol' in kwargs:
+            calico_flex_vol = kwargs['calicoFlexVol']
+        if calico_node is None and 'calicoNode' in kwargs:
+            calico_node = kwargs['calicoNode']
+        if canal_cni is None and 'canalCni' in kwargs:
+            canal_cni = kwargs['canalCni']
+        if canal_flannel is None and 'canalFlannel' in kwargs:
+            canal_flannel = kwargs['canalFlannel']
+        if canal_flex_vol is None and 'canalFlexVol' in kwargs:
+            canal_flex_vol = kwargs['canalFlexVol']
+        if canal_node is None and 'canalNode' in kwargs:
+            canal_node = kwargs['canalNode']
+        if cert_downloader is None and 'certDownloader' in kwargs:
+            cert_downloader = kwargs['certDownloader']
+        if coredns_autoscaler is None and 'corednsAutoscaler' in kwargs:
+            coredns_autoscaler = kwargs['corednsAutoscaler']
+        if flannel_cni is None and 'flannelCni' in kwargs:
+            flannel_cni = kwargs['flannelCni']
+        if ingress_backend is None and 'ingressBackend' in kwargs:
+            ingress_backend = kwargs['ingressBackend']
+        if kube_dns is None and 'kubeDns' in kwargs:
+            kube_dns = kwargs['kubeDns']
+        if kube_dns_autoscaler is None and 'kubeDnsAutoscaler' in kwargs:
+            kube_dns_autoscaler = kwargs['kubeDnsAutoscaler']
+        if kube_dns_sidecar is None and 'kubeDnsSidecar' in kwargs:
+            kube_dns_sidecar = kwargs['kubeDnsSidecar']
+        if kubernetes_services_sidecar is None and 'kubernetesServicesSidecar' in kwargs:
+            kubernetes_services_sidecar = kwargs['kubernetesServicesSidecar']
+        if metrics_server is None and 'metricsServer' in kwargs:
+            metrics_server = kwargs['metricsServer']
+        if nginx_proxy is None and 'nginxProxy' in kwargs:
+            nginx_proxy = kwargs['nginxProxy']
+        if pod_infra_container is None and 'podInfraContainer' in kwargs:
+            pod_infra_container = kwargs['podInfraContainer']
+        if weave_cni is None and 'weaveCni' in kwargs:
+            weave_cni = kwargs['weaveCni']
+        if weave_node is None and 'weaveNode' in kwargs:
+            weave_node = kwargs['weaveNode']
+        if windows_pod_infra_container is None and 'windowsPodInfraContainer' in kwargs:
+            windows_pod_infra_container = kwargs['windowsPodInfraContainer']
+
         if aci_cni_deploy_container is not None:
-            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+            _setter("aci_cni_deploy_container", aci_cni_deploy_container)
         if aci_controller_container is not None:
-            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+            _setter("aci_controller_container", aci_controller_container)
         if aci_host_container is not None:
-            pulumi.set(__self__, "aci_host_container", aci_host_container)
+            _setter("aci_host_container", aci_host_container)
         if aci_mcast_container is not None:
-            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+            _setter("aci_mcast_container", aci_mcast_container)
         if aci_opflex_container is not None:
-            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+            _setter("aci_opflex_container", aci_opflex_container)
         if aci_ovs_container is not None:
-            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
+            _setter("aci_ovs_container", aci_ovs_container)
         if alpine is not None:
-            pulumi.set(__self__, "alpine", alpine)
+            _setter("alpine", alpine)
         if calico_cni is not None:
-            pulumi.set(__self__, "calico_cni", calico_cni)
+            _setter("calico_cni", calico_cni)
         if calico_controllers is not None:
-            pulumi.set(__self__, "calico_controllers", calico_controllers)
+            _setter("calico_controllers", calico_controllers)
         if calico_ctl is not None:
-            pulumi.set(__self__, "calico_ctl", calico_ctl)
+            _setter("calico_ctl", calico_ctl)
         if calico_flex_vol is not None:
-            pulumi.set(__self__, "calico_flex_vol", calico_flex_vol)
+            _setter("calico_flex_vol", calico_flex_vol)
         if calico_node is not None:
-            pulumi.set(__self__, "calico_node", calico_node)
+            _setter("calico_node", calico_node)
         if canal_cni is not None:
-            pulumi.set(__self__, "canal_cni", canal_cni)
+            _setter("canal_cni", canal_cni)
         if canal_flannel is not None:
-            pulumi.set(__self__, "canal_flannel", canal_flannel)
+            _setter("canal_flannel", canal_flannel)
         if canal_flex_vol is not None:
-            pulumi.set(__self__, "canal_flex_vol", canal_flex_vol)
+            _setter("canal_flex_vol", canal_flex_vol)
         if canal_node is not None:
-            pulumi.set(__self__, "canal_node", canal_node)
+            _setter("canal_node", canal_node)
         if cert_downloader is not None:
-            pulumi.set(__self__, "cert_downloader", cert_downloader)
+            _setter("cert_downloader", cert_downloader)
         if coredns is not None:
-            pulumi.set(__self__, "coredns", coredns)
+            _setter("coredns", coredns)
         if coredns_autoscaler is not None:
-            pulumi.set(__self__, "coredns_autoscaler", coredns_autoscaler)
+            _setter("coredns_autoscaler", coredns_autoscaler)
         if dnsmasq is not None:
-            pulumi.set(__self__, "dnsmasq", dnsmasq)
+            _setter("dnsmasq", dnsmasq)
         if etcd is not None:
-            pulumi.set(__self__, "etcd", etcd)
+            _setter("etcd", etcd)
         if flannel is not None:
-            pulumi.set(__self__, "flannel", flannel)
+            _setter("flannel", flannel)
         if flannel_cni is not None:
-            pulumi.set(__self__, "flannel_cni", flannel_cni)
+            _setter("flannel_cni", flannel_cni)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if ingress_backend is not None:
-            pulumi.set(__self__, "ingress_backend", ingress_backend)
+            _setter("ingress_backend", ingress_backend)
         if kube_dns is not None:
-            pulumi.set(__self__, "kube_dns", kube_dns)
+            _setter("kube_dns", kube_dns)
         if kube_dns_autoscaler is not None:
-            pulumi.set(__self__, "kube_dns_autoscaler", kube_dns_autoscaler)
+            _setter("kube_dns_autoscaler", kube_dns_autoscaler)
         if kube_dns_sidecar is not None:
-            pulumi.set(__self__, "kube_dns_sidecar", kube_dns_sidecar)
+            _setter("kube_dns_sidecar", kube_dns_sidecar)
         if kubernetes is not None:
-            pulumi.set(__self__, "kubernetes", kubernetes)
+            _setter("kubernetes", kubernetes)
         if kubernetes_services_sidecar is not None:
-            pulumi.set(__self__, "kubernetes_services_sidecar", kubernetes_services_sidecar)
+            _setter("kubernetes_services_sidecar", kubernetes_services_sidecar)
         if metrics_server is not None:
-            pulumi.set(__self__, "metrics_server", metrics_server)
+            _setter("metrics_server", metrics_server)
         if nginx_proxy is not None:
-            pulumi.set(__self__, "nginx_proxy", nginx_proxy)
+            _setter("nginx_proxy", nginx_proxy)
         if nodelocal is not None:
-            pulumi.set(__self__, "nodelocal", nodelocal)
+            _setter("nodelocal", nodelocal)
         if pod_infra_container is not None:
-            pulumi.set(__self__, "pod_infra_container", pod_infra_container)
+            _setter("pod_infra_container", pod_infra_container)
         if weave_cni is not None:
-            pulumi.set(__self__, "weave_cni", weave_cni)
+            _setter("weave_cni", weave_cni)
         if weave_node is not None:
-            pulumi.set(__self__, "weave_node", weave_node)
+            _setter("weave_node", weave_node)
         if windows_pod_infra_container is not None:
-            pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+            _setter("windows_pod_infra_container", windows_pod_infra_container)
 
     @property
     @pulumi.getter(name="aciCniDeployContainer")
@@ -6605,18 +8554,43 @@ class ClusterServicesArgs:
         :param pulumi.Input['ClusterServicesKubeproxyArgs'] kubeproxy: Kubeproxy options for RKE services (list maxitems:1)
         :param pulumi.Input['ClusterServicesSchedulerArgs'] scheduler: Scheduler options for RKE services (list maxitems:1)
         """
+        ClusterServicesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etcd=etcd,
+            kube_api=kube_api,
+            kube_controller=kube_controller,
+            kubelet=kubelet,
+            kubeproxy=kubeproxy,
+            scheduler=scheduler,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etcd: Optional[pulumi.Input['ClusterServicesEtcdArgs']] = None,
+             kube_api: Optional[pulumi.Input['ClusterServicesKubeApiArgs']] = None,
+             kube_controller: Optional[pulumi.Input['ClusterServicesKubeControllerArgs']] = None,
+             kubelet: Optional[pulumi.Input['ClusterServicesKubeletArgs']] = None,
+             kubeproxy: Optional[pulumi.Input['ClusterServicesKubeproxyArgs']] = None,
+             scheduler: Optional[pulumi.Input['ClusterServicesSchedulerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kube_api is None and 'kubeApi' in kwargs:
+            kube_api = kwargs['kubeApi']
+        if kube_controller is None and 'kubeController' in kwargs:
+            kube_controller = kwargs['kubeController']
+
         if etcd is not None:
-            pulumi.set(__self__, "etcd", etcd)
+            _setter("etcd", etcd)
         if kube_api is not None:
-            pulumi.set(__self__, "kube_api", kube_api)
+            _setter("kube_api", kube_api)
         if kube_controller is not None:
-            pulumi.set(__self__, "kube_controller", kube_controller)
+            _setter("kube_controller", kube_controller)
         if kubelet is not None:
-            pulumi.set(__self__, "kubelet", kubelet)
+            _setter("kubelet", kubelet)
         if kubeproxy is not None:
-            pulumi.set(__self__, "kubeproxy", kubeproxy)
+            _setter("kubeproxy", kubeproxy)
         if scheduler is not None:
-            pulumi.set(__self__, "scheduler", scheduler)
+            _setter("scheduler", scheduler)
 
     @property
     @pulumi.getter
@@ -6726,36 +8700,87 @@ class ClusterServicesEtcdArgs:
         :param pulumi.Input[bool] snapshot: Snapshot option for etcd service. Default `true` (bool)
         :param pulumi.Input[int] uid: Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
         """
+        ClusterServicesEtcdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_config=backup_config,
+            ca_cert=ca_cert,
+            cert=cert,
+            creation=creation,
+            external_urls=external_urls,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            gid=gid,
+            image=image,
+            key=key,
+            path=path,
+            retention=retention,
+            snapshot=snapshot,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_config: Optional[pulumi.Input['ClusterServicesEtcdBackupConfigArgs']] = None,
+             ca_cert: Optional[pulumi.Input[str]] = None,
+             cert: Optional[pulumi.Input[str]] = None,
+             creation: Optional[pulumi.Input[str]] = None,
+             external_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gid: Optional[pulumi.Input[int]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             retention: Optional[pulumi.Input[str]] = None,
+             snapshot: Optional[pulumi.Input[bool]] = None,
+             uid: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_config is None and 'backupConfig' in kwargs:
+            backup_config = kwargs['backupConfig']
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if external_urls is None and 'externalUrls' in kwargs:
+            external_urls = kwargs['externalUrls']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if backup_config is not None:
-            pulumi.set(__self__, "backup_config", backup_config)
+            _setter("backup_config", backup_config)
         if ca_cert is not None:
-            pulumi.set(__self__, "ca_cert", ca_cert)
+            _setter("ca_cert", ca_cert)
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if creation is not None:
-            pulumi.set(__self__, "creation", creation)
+            _setter("creation", creation)
         if external_urls is not None:
-            pulumi.set(__self__, "external_urls", external_urls)
+            _setter("external_urls", external_urls)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter(name="backupConfig")
@@ -6955,18 +8980,45 @@ class ClusterServicesEtcdBackupConfigArgs:
         :param pulumi.Input[bool] safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
         :param pulumi.Input[int] timeout: RKE node drain timeout (int)
         """
+        ClusterServicesEtcdBackupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            interval_hours=interval_hours,
+            retention=retention,
+            s3_backup_config=s3_backup_config,
+            safe_timestamp=safe_timestamp,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             interval_hours: Optional[pulumi.Input[int]] = None,
+             retention: Optional[pulumi.Input[int]] = None,
+             s3_backup_config: Optional[pulumi.Input['ClusterServicesEtcdBackupConfigS3BackupConfigArgs']] = None,
+             safe_timestamp: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if interval_hours is None and 'intervalHours' in kwargs:
+            interval_hours = kwargs['intervalHours']
+        if s3_backup_config is None and 's3BackupConfig' in kwargs:
+            s3_backup_config = kwargs['s3BackupConfig']
+        if safe_timestamp is None and 'safeTimestamp' in kwargs:
+            safe_timestamp = kwargs['safeTimestamp']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if interval_hours is not None:
-            pulumi.set(__self__, "interval_hours", interval_hours)
+            _setter("interval_hours", interval_hours)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if s3_backup_config is not None:
-            pulumi.set(__self__, "s3_backup_config", s3_backup_config)
+            _setter("s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
-            pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+            _setter("safe_timestamp", safe_timestamp)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -7060,20 +9112,51 @@ class ClusterServicesEtcdBackupConfigS3BackupConfigArgs:
         :param pulumi.Input[str] region: Region for S3 service (string)
         :param pulumi.Input[str] secret_key: Secret key for S3 service (string)
         """
+        ClusterServicesEtcdBackupConfigS3BackupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            bucket_name=bucket_name,
+            custom_ca=custom_ca,
+            endpoint=endpoint,
+            folder=folder,
+            region=region,
+            secret_key=secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             custom_ca: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if custom_ca is None and 'customCa' in kwargs:
+            custom_ca = kwargs['customCa']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if custom_ca is not None:
-            pulumi.set(__self__, "custom_ca", custom_ca)
+            _setter("custom_ca", custom_ca)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -7195,36 +9278,87 @@ class ClusterServicesEtcdDeprecatedArgs:
         :param pulumi.Input[bool] snapshot: Snapshot option for etcd service. Default `true` (bool)
         :param pulumi.Input[int] uid: Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
         """
+        ClusterServicesEtcdDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_config=backup_config,
+            ca_cert=ca_cert,
+            cert=cert,
+            creation=creation,
+            external_urls=external_urls,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            gid=gid,
+            image=image,
+            key=key,
+            path=path,
+            retention=retention,
+            snapshot=snapshot,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_config: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedBackupConfigArgs']] = None,
+             ca_cert: Optional[pulumi.Input[str]] = None,
+             cert: Optional[pulumi.Input[str]] = None,
+             creation: Optional[pulumi.Input[str]] = None,
+             external_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gid: Optional[pulumi.Input[int]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             retention: Optional[pulumi.Input[str]] = None,
+             snapshot: Optional[pulumi.Input[bool]] = None,
+             uid: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_config is None and 'backupConfig' in kwargs:
+            backup_config = kwargs['backupConfig']
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if external_urls is None and 'externalUrls' in kwargs:
+            external_urls = kwargs['externalUrls']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if backup_config is not None:
-            pulumi.set(__self__, "backup_config", backup_config)
+            _setter("backup_config", backup_config)
         if ca_cert is not None:
-            pulumi.set(__self__, "ca_cert", ca_cert)
+            _setter("ca_cert", ca_cert)
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if creation is not None:
-            pulumi.set(__self__, "creation", creation)
+            _setter("creation", creation)
         if external_urls is not None:
-            pulumi.set(__self__, "external_urls", external_urls)
+            _setter("external_urls", external_urls)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter(name="backupConfig")
@@ -7424,18 +9558,45 @@ class ClusterServicesEtcdDeprecatedBackupConfigArgs:
         :param pulumi.Input[bool] safe_timestamp: Safe timestamp for etcd backup. Default: `false` (bool)
         :param pulumi.Input[int] timeout: RKE node drain timeout (int)
         """
+        ClusterServicesEtcdDeprecatedBackupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            interval_hours=interval_hours,
+            retention=retention,
+            s3_backup_config=s3_backup_config,
+            safe_timestamp=safe_timestamp,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             interval_hours: Optional[pulumi.Input[int]] = None,
+             retention: Optional[pulumi.Input[int]] = None,
+             s3_backup_config: Optional[pulumi.Input['ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs']] = None,
+             safe_timestamp: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if interval_hours is None and 'intervalHours' in kwargs:
+            interval_hours = kwargs['intervalHours']
+        if s3_backup_config is None and 's3BackupConfig' in kwargs:
+            s3_backup_config = kwargs['s3BackupConfig']
+        if safe_timestamp is None and 'safeTimestamp' in kwargs:
+            safe_timestamp = kwargs['safeTimestamp']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if interval_hours is not None:
-            pulumi.set(__self__, "interval_hours", interval_hours)
+            _setter("interval_hours", interval_hours)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if s3_backup_config is not None:
-            pulumi.set(__self__, "s3_backup_config", s3_backup_config)
+            _setter("s3_backup_config", s3_backup_config)
         if safe_timestamp is not None:
-            pulumi.set(__self__, "safe_timestamp", safe_timestamp)
+            _setter("safe_timestamp", safe_timestamp)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -7529,20 +9690,51 @@ class ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs:
         :param pulumi.Input[str] region: Region for S3 service (string)
         :param pulumi.Input[str] secret_key: Secret key for S3 service (string)
         """
+        ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            bucket_name=bucket_name,
+            custom_ca=custom_ca,
+            endpoint=endpoint,
+            folder=folder,
+            region=region,
+            secret_key=secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             custom_ca: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if custom_ca is None and 'customCa' in kwargs:
+            custom_ca = kwargs['customCa']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if custom_ca is not None:
-            pulumi.set(__self__, "custom_ca", custom_ca)
+            _setter("custom_ca", custom_ca)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -7656,28 +9848,79 @@ class ClusterServicesKubeApiArgs:
         :param pulumi.Input[str] service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
         :param pulumi.Input[str] service_node_port_range: Service Node Port Range option for kube API service (string)
         """
+        ClusterServicesKubeApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_pull_images=always_pull_images,
+            audit_log=audit_log,
+            event_rate_limit=event_rate_limit,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+            pod_security_policy=pod_security_policy,
+            secrets_encryption_config=secrets_encryption_config,
+            service_cluster_ip_range=service_cluster_ip_range,
+            service_node_port_range=service_node_port_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_pull_images: Optional[pulumi.Input[bool]] = None,
+             audit_log: Optional[pulumi.Input['ClusterServicesKubeApiAuditLogArgs']] = None,
+             event_rate_limit: Optional[pulumi.Input['ClusterServicesKubeApiEventRateLimitArgs']] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             pod_security_policy: Optional[pulumi.Input[bool]] = None,
+             secrets_encryption_config: Optional[pulumi.Input['ClusterServicesKubeApiSecretsEncryptionConfigArgs']] = None,
+             service_cluster_ip_range: Optional[pulumi.Input[str]] = None,
+             service_node_port_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if always_pull_images is None and 'alwaysPullImages' in kwargs:
+            always_pull_images = kwargs['alwaysPullImages']
+        if audit_log is None and 'auditLog' in kwargs:
+            audit_log = kwargs['auditLog']
+        if event_rate_limit is None and 'eventRateLimit' in kwargs:
+            event_rate_limit = kwargs['eventRateLimit']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if pod_security_policy is None and 'podSecurityPolicy' in kwargs:
+            pod_security_policy = kwargs['podSecurityPolicy']
+        if secrets_encryption_config is None and 'secretsEncryptionConfig' in kwargs:
+            secrets_encryption_config = kwargs['secretsEncryptionConfig']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+        if service_node_port_range is None and 'serviceNodePortRange' in kwargs:
+            service_node_port_range = kwargs['serviceNodePortRange']
+
         if always_pull_images is not None:
-            pulumi.set(__self__, "always_pull_images", always_pull_images)
+            _setter("always_pull_images", always_pull_images)
         if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+            _setter("audit_log", audit_log)
         if event_rate_limit is not None:
-            pulumi.set(__self__, "event_rate_limit", event_rate_limit)
+            _setter("event_rate_limit", event_rate_limit)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if pod_security_policy is not None:
-            pulumi.set(__self__, "pod_security_policy", pod_security_policy)
+            _setter("pod_security_policy", pod_security_policy)
         if secrets_encryption_config is not None:
-            pulumi.set(__self__, "secrets_encryption_config", secrets_encryption_config)
+            _setter("secrets_encryption_config", secrets_encryption_config)
         if service_cluster_ip_range is not None:
-            pulumi.set(__self__, "service_cluster_ip_range", service_cluster_ip_range)
+            _setter("service_cluster_ip_range", service_cluster_ip_range)
         if service_node_port_range is not None:
-            pulumi.set(__self__, "service_node_port_range", service_node_port_range)
+            _setter("service_node_port_range", service_node_port_range)
 
     @property
     @pulumi.getter(name="alwaysPullImages")
@@ -7821,10 +10064,23 @@ class ClusterServicesKubeApiAuditLogArgs:
         :param pulumi.Input['ClusterServicesKubeApiAuditLogConfigurationArgs'] configuration: Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiAuditLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input['ClusterServicesKubeApiAuditLogConfigurationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -7868,18 +10124,45 @@ class ClusterServicesKubeApiAuditLogConfigurationArgs:
         :param pulumi.Input[str] path: Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         :param pulumi.Input[str] policy: Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
         """
+        ClusterServicesKubeApiAuditLogConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            max_age=max_age,
+            max_backup=max_backup,
+            max_size=max_size,
+            path=path,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: Optional[pulumi.Input[str]] = None,
+             max_age: Optional[pulumi.Input[int]] = None,
+             max_backup: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_backup is None and 'maxBackup' in kwargs:
+            max_backup = kwargs['maxBackup']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
         if max_backup is not None:
-            pulumi.set(__self__, "max_backup", max_backup)
+            _setter("max_backup", max_backup)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -7981,28 +10264,79 @@ class ClusterServicesKubeApiDeprecatedArgs:
         :param pulumi.Input[str] service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
         :param pulumi.Input[str] service_node_port_range: Service Node Port Range option for kube API service (string)
         """
+        ClusterServicesKubeApiDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_pull_images=always_pull_images,
+            audit_log=audit_log,
+            event_rate_limit=event_rate_limit,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+            pod_security_policy=pod_security_policy,
+            secrets_encryption_config=secrets_encryption_config,
+            service_cluster_ip_range=service_cluster_ip_range,
+            service_node_port_range=service_node_port_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_pull_images: Optional[pulumi.Input[bool]] = None,
+             audit_log: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedAuditLogArgs']] = None,
+             event_rate_limit: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedEventRateLimitArgs']] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             pod_security_policy: Optional[pulumi.Input[bool]] = None,
+             secrets_encryption_config: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs']] = None,
+             service_cluster_ip_range: Optional[pulumi.Input[str]] = None,
+             service_node_port_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if always_pull_images is None and 'alwaysPullImages' in kwargs:
+            always_pull_images = kwargs['alwaysPullImages']
+        if audit_log is None and 'auditLog' in kwargs:
+            audit_log = kwargs['auditLog']
+        if event_rate_limit is None and 'eventRateLimit' in kwargs:
+            event_rate_limit = kwargs['eventRateLimit']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if pod_security_policy is None and 'podSecurityPolicy' in kwargs:
+            pod_security_policy = kwargs['podSecurityPolicy']
+        if secrets_encryption_config is None and 'secretsEncryptionConfig' in kwargs:
+            secrets_encryption_config = kwargs['secretsEncryptionConfig']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+        if service_node_port_range is None and 'serviceNodePortRange' in kwargs:
+            service_node_port_range = kwargs['serviceNodePortRange']
+
         if always_pull_images is not None:
-            pulumi.set(__self__, "always_pull_images", always_pull_images)
+            _setter("always_pull_images", always_pull_images)
         if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+            _setter("audit_log", audit_log)
         if event_rate_limit is not None:
-            pulumi.set(__self__, "event_rate_limit", event_rate_limit)
+            _setter("event_rate_limit", event_rate_limit)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if pod_security_policy is not None:
-            pulumi.set(__self__, "pod_security_policy", pod_security_policy)
+            _setter("pod_security_policy", pod_security_policy)
         if secrets_encryption_config is not None:
-            pulumi.set(__self__, "secrets_encryption_config", secrets_encryption_config)
+            _setter("secrets_encryption_config", secrets_encryption_config)
         if service_cluster_ip_range is not None:
-            pulumi.set(__self__, "service_cluster_ip_range", service_cluster_ip_range)
+            _setter("service_cluster_ip_range", service_cluster_ip_range)
         if service_node_port_range is not None:
-            pulumi.set(__self__, "service_node_port_range", service_node_port_range)
+            _setter("service_node_port_range", service_node_port_range)
 
     @property
     @pulumi.getter(name="alwaysPullImages")
@@ -8146,10 +10480,23 @@ class ClusterServicesKubeApiDeprecatedAuditLogArgs:
         :param pulumi.Input['ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs'] configuration: Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiDeprecatedAuditLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -8193,18 +10540,45 @@ class ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs:
         :param pulumi.Input[str] path: Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         :param pulumi.Input[str] policy: Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
         """
+        ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            max_age=max_age,
+            max_backup=max_backup,
+            max_size=max_size,
+            path=path,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: Optional[pulumi.Input[str]] = None,
+             max_age: Optional[pulumi.Input[int]] = None,
+             max_backup: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_backup is None and 'maxBackup' in kwargs:
+            max_backup = kwargs['maxBackup']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
         if max_backup is not None:
-            pulumi.set(__self__, "max_backup", max_backup)
+            _setter("max_backup", max_backup)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -8288,10 +10662,23 @@ class ClusterServicesKubeApiDeprecatedEventRateLimitArgs:
         :param pulumi.Input[str] configuration: Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiDeprecatedEventRateLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -8327,10 +10714,25 @@ class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs:
         :param pulumi.Input[str] custom_config: Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\\nkind: EncryptionConfiguration\\nresources:\\n- resources:\\n  - secrets\\n  providers:\\n  - aescbc:\\n      keys:\\n      - name: k-fw5hn\\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\\n    identity: {}\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_config=custom_config,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_config: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+
         if custom_config is not None:
-            pulumi.set(__self__, "custom_config", custom_config)
+            _setter("custom_config", custom_config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="customConfig")
@@ -8366,10 +10768,23 @@ class ClusterServicesKubeApiEventRateLimitArgs:
         :param pulumi.Input[str] configuration: Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiEventRateLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -8405,10 +10820,25 @@ class ClusterServicesKubeApiSecretsEncryptionConfigArgs:
         :param pulumi.Input[str] custom_config: Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\\nkind: EncryptionConfiguration\\nresources:\\n- resources:\\n  - secrets\\n  providers:\\n  - aescbc:\\n      keys:\\n      - name: k-fw5hn\\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\\n    identity: {}\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
         :param pulumi.Input[bool] enabled: Enable secrets encryption (bool)
         """
+        ClusterServicesKubeApiSecretsEncryptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_config=custom_config,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_config: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+
         if custom_config is not None:
-            pulumi.set(__self__, "custom_config", custom_config)
+            _setter("custom_config", custom_config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="customConfig")
@@ -8452,18 +10882,49 @@ class ClusterServicesKubeControllerArgs:
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         :param pulumi.Input[str] service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
         """
+        ClusterServicesKubeControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_cidr=cluster_cidr,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+            service_cluster_ip_range=service_cluster_ip_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_cidr: Optional[pulumi.Input[str]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             service_cluster_ip_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_cidr is None and 'clusterCidr' in kwargs:
+            cluster_cidr = kwargs['clusterCidr']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+
         if cluster_cidr is not None:
-            pulumi.set(__self__, "cluster_cidr", cluster_cidr)
+            _setter("cluster_cidr", cluster_cidr)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if service_cluster_ip_range is not None:
-            pulumi.set(__self__, "service_cluster_ip_range", service_cluster_ip_range)
+            _setter("service_cluster_ip_range", service_cluster_ip_range)
 
     @property
     @pulumi.getter(name="clusterCidr")
@@ -8555,18 +11016,49 @@ class ClusterServicesKubeControllerDeprecatedArgs:
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         :param pulumi.Input[str] service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
         """
+        ClusterServicesKubeControllerDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_cidr=cluster_cidr,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+            service_cluster_ip_range=service_cluster_ip_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_cidr: Optional[pulumi.Input[str]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             service_cluster_ip_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_cidr is None and 'clusterCidr' in kwargs:
+            cluster_cidr = kwargs['clusterCidr']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if service_cluster_ip_range is None and 'serviceClusterIpRange' in kwargs:
+            service_cluster_ip_range = kwargs['serviceClusterIpRange']
+
         if cluster_cidr is not None:
-            pulumi.set(__self__, "cluster_cidr", cluster_cidr)
+            _setter("cluster_cidr", cluster_cidr)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if service_cluster_ip_range is not None:
-            pulumi.set(__self__, "service_cluster_ip_range", service_cluster_ip_range)
+            _setter("service_cluster_ip_range", service_cluster_ip_range)
 
     @property
     @pulumi.getter(name="clusterCidr")
@@ -8654,14 +11146,37 @@ class ClusterServicesKubeProxyDeprecatedArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         """
+        ClusterServicesKubeProxyDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
 
     @property
     @pulumi.getter(name="extraArgs")
@@ -8725,14 +11240,37 @@ class ClusterServicesKubeSchedulerDeprecatedArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         """
+        ClusterServicesKubeSchedulerDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
 
     @property
     @pulumi.getter(name="extraArgs")
@@ -8806,24 +11344,67 @@ class ClusterServicesKubeletArgs:
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         :param pulumi.Input[str] infra_container_image: Infra container image for kubelet service (string)
         """
+        ClusterServicesKubeletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_dns_server=cluster_dns_server,
+            cluster_domain=cluster_domain,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            fail_swap_on=fail_swap_on,
+            generate_serving_certificate=generate_serving_certificate,
+            image=image,
+            infra_container_image=infra_container_image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_dns_server: Optional[pulumi.Input[str]] = None,
+             cluster_domain: Optional[pulumi.Input[str]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_swap_on: Optional[pulumi.Input[bool]] = None,
+             generate_serving_certificate: Optional[pulumi.Input[bool]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             infra_container_image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_dns_server is None and 'clusterDnsServer' in kwargs:
+            cluster_dns_server = kwargs['clusterDnsServer']
+        if cluster_domain is None and 'clusterDomain' in kwargs:
+            cluster_domain = kwargs['clusterDomain']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if fail_swap_on is None and 'failSwapOn' in kwargs:
+            fail_swap_on = kwargs['failSwapOn']
+        if generate_serving_certificate is None and 'generateServingCertificate' in kwargs:
+            generate_serving_certificate = kwargs['generateServingCertificate']
+        if infra_container_image is None and 'infraContainerImage' in kwargs:
+            infra_container_image = kwargs['infraContainerImage']
+
         if cluster_dns_server is not None:
-            pulumi.set(__self__, "cluster_dns_server", cluster_dns_server)
+            _setter("cluster_dns_server", cluster_dns_server)
         if cluster_domain is not None:
-            pulumi.set(__self__, "cluster_domain", cluster_domain)
+            _setter("cluster_domain", cluster_domain)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if fail_swap_on is not None:
-            pulumi.set(__self__, "fail_swap_on", fail_swap_on)
+            _setter("fail_swap_on", fail_swap_on)
         if generate_serving_certificate is not None:
-            pulumi.set(__self__, "generate_serving_certificate", generate_serving_certificate)
+            _setter("generate_serving_certificate", generate_serving_certificate)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if infra_container_image is not None:
-            pulumi.set(__self__, "infra_container_image", infra_container_image)
+            _setter("infra_container_image", infra_container_image)
 
     @property
     @pulumi.getter(name="clusterDnsServer")
@@ -8957,24 +11538,67 @@ class ClusterServicesKubeletDeprecatedArgs:
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         :param pulumi.Input[str] infra_container_image: Infra container image for kubelet service (string)
         """
+        ClusterServicesKubeletDeprecatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_dns_server=cluster_dns_server,
+            cluster_domain=cluster_domain,
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            fail_swap_on=fail_swap_on,
+            generate_serving_certificate=generate_serving_certificate,
+            image=image,
+            infra_container_image=infra_container_image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_dns_server: Optional[pulumi.Input[str]] = None,
+             cluster_domain: Optional[pulumi.Input[str]] = None,
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_swap_on: Optional[pulumi.Input[bool]] = None,
+             generate_serving_certificate: Optional[pulumi.Input[bool]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             infra_container_image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_dns_server is None and 'clusterDnsServer' in kwargs:
+            cluster_dns_server = kwargs['clusterDnsServer']
+        if cluster_domain is None and 'clusterDomain' in kwargs:
+            cluster_domain = kwargs['clusterDomain']
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+        if fail_swap_on is None and 'failSwapOn' in kwargs:
+            fail_swap_on = kwargs['failSwapOn']
+        if generate_serving_certificate is None and 'generateServingCertificate' in kwargs:
+            generate_serving_certificate = kwargs['generateServingCertificate']
+        if infra_container_image is None and 'infraContainerImage' in kwargs:
+            infra_container_image = kwargs['infraContainerImage']
+
         if cluster_dns_server is not None:
-            pulumi.set(__self__, "cluster_dns_server", cluster_dns_server)
+            _setter("cluster_dns_server", cluster_dns_server)
         if cluster_domain is not None:
-            pulumi.set(__self__, "cluster_domain", cluster_domain)
+            _setter("cluster_domain", cluster_domain)
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if fail_swap_on is not None:
-            pulumi.set(__self__, "fail_swap_on", fail_swap_on)
+            _setter("fail_swap_on", fail_swap_on)
         if generate_serving_certificate is not None:
-            pulumi.set(__self__, "generate_serving_certificate", generate_serving_certificate)
+            _setter("generate_serving_certificate", generate_serving_certificate)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if infra_container_image is not None:
-            pulumi.set(__self__, "infra_container_image", infra_container_image)
+            _setter("infra_container_image", infra_container_image)
 
     @property
     @pulumi.getter(name="clusterDnsServer")
@@ -9098,14 +11722,37 @@ class ClusterServicesKubeproxyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         """
+        ClusterServicesKubeproxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
 
     @property
     @pulumi.getter(name="extraArgs")
@@ -9169,14 +11816,37 @@ class ClusterServicesSchedulerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
         """
+        ClusterServicesSchedulerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extra_args=extra_args,
+            extra_binds=extra_binds,
+            extra_envs=extra_envs,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if extra_args is None and 'extraArgs' in kwargs:
+            extra_args = kwargs['extraArgs']
+        if extra_binds is None and 'extraBinds' in kwargs:
+            extra_binds = kwargs['extraBinds']
+        if extra_envs is None and 'extraEnvs' in kwargs:
+            extra_envs = kwargs['extraEnvs']
+
         if extra_args is not None:
-            pulumi.set(__self__, "extra_args", extra_args)
+            _setter("extra_args", extra_args)
         if extra_binds is not None:
-            pulumi.set(__self__, "extra_binds", extra_binds)
+            _setter("extra_binds", extra_binds)
         if extra_envs is not None:
-            pulumi.set(__self__, "extra_envs", extra_envs)
+            _setter("extra_envs", extra_envs)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
 
     @property
     @pulumi.getter(name="extraArgs")
@@ -9306,80 +11976,221 @@ class ClusterSystemImagesArgs:
         :param pulumi.Input[str] weave_node: Docker image for weave_node (string)
         :param pulumi.Input[str] windows_pod_infra_container: Docker image for windows_pod_infra_container (string)
         """
+        ClusterSystemImagesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aci_cni_deploy_container=aci_cni_deploy_container,
+            aci_controller_container=aci_controller_container,
+            aci_host_container=aci_host_container,
+            aci_mcast_container=aci_mcast_container,
+            aci_opflex_container=aci_opflex_container,
+            aci_ovs_container=aci_ovs_container,
+            alpine=alpine,
+            calico_cni=calico_cni,
+            calico_controllers=calico_controllers,
+            calico_ctl=calico_ctl,
+            calico_flex_vol=calico_flex_vol,
+            calico_node=calico_node,
+            canal_cni=canal_cni,
+            canal_flannel=canal_flannel,
+            canal_flex_vol=canal_flex_vol,
+            canal_node=canal_node,
+            cert_downloader=cert_downloader,
+            coredns=coredns,
+            coredns_autoscaler=coredns_autoscaler,
+            dnsmasq=dnsmasq,
+            etcd=etcd,
+            flannel=flannel,
+            flannel_cni=flannel_cni,
+            ingress=ingress,
+            ingress_backend=ingress_backend,
+            kube_dns=kube_dns,
+            kube_dns_autoscaler=kube_dns_autoscaler,
+            kube_dns_sidecar=kube_dns_sidecar,
+            kubernetes=kubernetes,
+            kubernetes_services_sidecar=kubernetes_services_sidecar,
+            metrics_server=metrics_server,
+            nginx_proxy=nginx_proxy,
+            nodelocal=nodelocal,
+            pod_infra_container=pod_infra_container,
+            weave_cni=weave_cni,
+            weave_node=weave_node,
+            windows_pod_infra_container=windows_pod_infra_container,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aci_cni_deploy_container: Optional[pulumi.Input[str]] = None,
+             aci_controller_container: Optional[pulumi.Input[str]] = None,
+             aci_host_container: Optional[pulumi.Input[str]] = None,
+             aci_mcast_container: Optional[pulumi.Input[str]] = None,
+             aci_opflex_container: Optional[pulumi.Input[str]] = None,
+             aci_ovs_container: Optional[pulumi.Input[str]] = None,
+             alpine: Optional[pulumi.Input[str]] = None,
+             calico_cni: Optional[pulumi.Input[str]] = None,
+             calico_controllers: Optional[pulumi.Input[str]] = None,
+             calico_ctl: Optional[pulumi.Input[str]] = None,
+             calico_flex_vol: Optional[pulumi.Input[str]] = None,
+             calico_node: Optional[pulumi.Input[str]] = None,
+             canal_cni: Optional[pulumi.Input[str]] = None,
+             canal_flannel: Optional[pulumi.Input[str]] = None,
+             canal_flex_vol: Optional[pulumi.Input[str]] = None,
+             canal_node: Optional[pulumi.Input[str]] = None,
+             cert_downloader: Optional[pulumi.Input[str]] = None,
+             coredns: Optional[pulumi.Input[str]] = None,
+             coredns_autoscaler: Optional[pulumi.Input[str]] = None,
+             dnsmasq: Optional[pulumi.Input[str]] = None,
+             etcd: Optional[pulumi.Input[str]] = None,
+             flannel: Optional[pulumi.Input[str]] = None,
+             flannel_cni: Optional[pulumi.Input[str]] = None,
+             ingress: Optional[pulumi.Input[str]] = None,
+             ingress_backend: Optional[pulumi.Input[str]] = None,
+             kube_dns: Optional[pulumi.Input[str]] = None,
+             kube_dns_autoscaler: Optional[pulumi.Input[str]] = None,
+             kube_dns_sidecar: Optional[pulumi.Input[str]] = None,
+             kubernetes: Optional[pulumi.Input[str]] = None,
+             kubernetes_services_sidecar: Optional[pulumi.Input[str]] = None,
+             metrics_server: Optional[pulumi.Input[str]] = None,
+             nginx_proxy: Optional[pulumi.Input[str]] = None,
+             nodelocal: Optional[pulumi.Input[str]] = None,
+             pod_infra_container: Optional[pulumi.Input[str]] = None,
+             weave_cni: Optional[pulumi.Input[str]] = None,
+             weave_node: Optional[pulumi.Input[str]] = None,
+             windows_pod_infra_container: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aci_cni_deploy_container is None and 'aciCniDeployContainer' in kwargs:
+            aci_cni_deploy_container = kwargs['aciCniDeployContainer']
+        if aci_controller_container is None and 'aciControllerContainer' in kwargs:
+            aci_controller_container = kwargs['aciControllerContainer']
+        if aci_host_container is None and 'aciHostContainer' in kwargs:
+            aci_host_container = kwargs['aciHostContainer']
+        if aci_mcast_container is None and 'aciMcastContainer' in kwargs:
+            aci_mcast_container = kwargs['aciMcastContainer']
+        if aci_opflex_container is None and 'aciOpflexContainer' in kwargs:
+            aci_opflex_container = kwargs['aciOpflexContainer']
+        if aci_ovs_container is None and 'aciOvsContainer' in kwargs:
+            aci_ovs_container = kwargs['aciOvsContainer']
+        if calico_cni is None and 'calicoCni' in kwargs:
+            calico_cni = kwargs['calicoCni']
+        if calico_controllers is None and 'calicoControllers' in kwargs:
+            calico_controllers = kwargs['calicoControllers']
+        if calico_ctl is None and 'calicoCtl' in kwargs:
+            calico_ctl = kwargs['calicoCtl']
+        if calico_flex_vol is None and 'calicoFlexVol' in kwargs:
+            calico_flex_vol = kwargs['calicoFlexVol']
+        if calico_node is None and 'calicoNode' in kwargs:
+            calico_node = kwargs['calicoNode']
+        if canal_cni is None and 'canalCni' in kwargs:
+            canal_cni = kwargs['canalCni']
+        if canal_flannel is None and 'canalFlannel' in kwargs:
+            canal_flannel = kwargs['canalFlannel']
+        if canal_flex_vol is None and 'canalFlexVol' in kwargs:
+            canal_flex_vol = kwargs['canalFlexVol']
+        if canal_node is None and 'canalNode' in kwargs:
+            canal_node = kwargs['canalNode']
+        if cert_downloader is None and 'certDownloader' in kwargs:
+            cert_downloader = kwargs['certDownloader']
+        if coredns_autoscaler is None and 'corednsAutoscaler' in kwargs:
+            coredns_autoscaler = kwargs['corednsAutoscaler']
+        if flannel_cni is None and 'flannelCni' in kwargs:
+            flannel_cni = kwargs['flannelCni']
+        if ingress_backend is None and 'ingressBackend' in kwargs:
+            ingress_backend = kwargs['ingressBackend']
+        if kube_dns is None and 'kubeDns' in kwargs:
+            kube_dns = kwargs['kubeDns']
+        if kube_dns_autoscaler is None and 'kubeDnsAutoscaler' in kwargs:
+            kube_dns_autoscaler = kwargs['kubeDnsAutoscaler']
+        if kube_dns_sidecar is None and 'kubeDnsSidecar' in kwargs:
+            kube_dns_sidecar = kwargs['kubeDnsSidecar']
+        if kubernetes_services_sidecar is None and 'kubernetesServicesSidecar' in kwargs:
+            kubernetes_services_sidecar = kwargs['kubernetesServicesSidecar']
+        if metrics_server is None and 'metricsServer' in kwargs:
+            metrics_server = kwargs['metricsServer']
+        if nginx_proxy is None and 'nginxProxy' in kwargs:
+            nginx_proxy = kwargs['nginxProxy']
+        if pod_infra_container is None and 'podInfraContainer' in kwargs:
+            pod_infra_container = kwargs['podInfraContainer']
+        if weave_cni is None and 'weaveCni' in kwargs:
+            weave_cni = kwargs['weaveCni']
+        if weave_node is None and 'weaveNode' in kwargs:
+            weave_node = kwargs['weaveNode']
+        if windows_pod_infra_container is None and 'windowsPodInfraContainer' in kwargs:
+            windows_pod_infra_container = kwargs['windowsPodInfraContainer']
+
         if aci_cni_deploy_container is not None:
-            pulumi.set(__self__, "aci_cni_deploy_container", aci_cni_deploy_container)
+            _setter("aci_cni_deploy_container", aci_cni_deploy_container)
         if aci_controller_container is not None:
-            pulumi.set(__self__, "aci_controller_container", aci_controller_container)
+            _setter("aci_controller_container", aci_controller_container)
         if aci_host_container is not None:
-            pulumi.set(__self__, "aci_host_container", aci_host_container)
+            _setter("aci_host_container", aci_host_container)
         if aci_mcast_container is not None:
-            pulumi.set(__self__, "aci_mcast_container", aci_mcast_container)
+            _setter("aci_mcast_container", aci_mcast_container)
         if aci_opflex_container is not None:
-            pulumi.set(__self__, "aci_opflex_container", aci_opflex_container)
+            _setter("aci_opflex_container", aci_opflex_container)
         if aci_ovs_container is not None:
-            pulumi.set(__self__, "aci_ovs_container", aci_ovs_container)
+            _setter("aci_ovs_container", aci_ovs_container)
         if alpine is not None:
-            pulumi.set(__self__, "alpine", alpine)
+            _setter("alpine", alpine)
         if calico_cni is not None:
-            pulumi.set(__self__, "calico_cni", calico_cni)
+            _setter("calico_cni", calico_cni)
         if calico_controllers is not None:
-            pulumi.set(__self__, "calico_controllers", calico_controllers)
+            _setter("calico_controllers", calico_controllers)
         if calico_ctl is not None:
-            pulumi.set(__self__, "calico_ctl", calico_ctl)
+            _setter("calico_ctl", calico_ctl)
         if calico_flex_vol is not None:
-            pulumi.set(__self__, "calico_flex_vol", calico_flex_vol)
+            _setter("calico_flex_vol", calico_flex_vol)
         if calico_node is not None:
-            pulumi.set(__self__, "calico_node", calico_node)
+            _setter("calico_node", calico_node)
         if canal_cni is not None:
-            pulumi.set(__self__, "canal_cni", canal_cni)
+            _setter("canal_cni", canal_cni)
         if canal_flannel is not None:
-            pulumi.set(__self__, "canal_flannel", canal_flannel)
+            _setter("canal_flannel", canal_flannel)
         if canal_flex_vol is not None:
-            pulumi.set(__self__, "canal_flex_vol", canal_flex_vol)
+            _setter("canal_flex_vol", canal_flex_vol)
         if canal_node is not None:
-            pulumi.set(__self__, "canal_node", canal_node)
+            _setter("canal_node", canal_node)
         if cert_downloader is not None:
-            pulumi.set(__self__, "cert_downloader", cert_downloader)
+            _setter("cert_downloader", cert_downloader)
         if coredns is not None:
-            pulumi.set(__self__, "coredns", coredns)
+            _setter("coredns", coredns)
         if coredns_autoscaler is not None:
-            pulumi.set(__self__, "coredns_autoscaler", coredns_autoscaler)
+            _setter("coredns_autoscaler", coredns_autoscaler)
         if dnsmasq is not None:
-            pulumi.set(__self__, "dnsmasq", dnsmasq)
+            _setter("dnsmasq", dnsmasq)
         if etcd is not None:
-            pulumi.set(__self__, "etcd", etcd)
+            _setter("etcd", etcd)
         if flannel is not None:
-            pulumi.set(__self__, "flannel", flannel)
+            _setter("flannel", flannel)
         if flannel_cni is not None:
-            pulumi.set(__self__, "flannel_cni", flannel_cni)
+            _setter("flannel_cni", flannel_cni)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if ingress_backend is not None:
-            pulumi.set(__self__, "ingress_backend", ingress_backend)
+            _setter("ingress_backend", ingress_backend)
         if kube_dns is not None:
-            pulumi.set(__self__, "kube_dns", kube_dns)
+            _setter("kube_dns", kube_dns)
         if kube_dns_autoscaler is not None:
-            pulumi.set(__self__, "kube_dns_autoscaler", kube_dns_autoscaler)
+            _setter("kube_dns_autoscaler", kube_dns_autoscaler)
         if kube_dns_sidecar is not None:
-            pulumi.set(__self__, "kube_dns_sidecar", kube_dns_sidecar)
+            _setter("kube_dns_sidecar", kube_dns_sidecar)
         if kubernetes is not None:
-            pulumi.set(__self__, "kubernetes", kubernetes)
+            _setter("kubernetes", kubernetes)
         if kubernetes_services_sidecar is not None:
-            pulumi.set(__self__, "kubernetes_services_sidecar", kubernetes_services_sidecar)
+            _setter("kubernetes_services_sidecar", kubernetes_services_sidecar)
         if metrics_server is not None:
-            pulumi.set(__self__, "metrics_server", metrics_server)
+            _setter("metrics_server", metrics_server)
         if nginx_proxy is not None:
-            pulumi.set(__self__, "nginx_proxy", nginx_proxy)
+            _setter("nginx_proxy", nginx_proxy)
         if nodelocal is not None:
-            pulumi.set(__self__, "nodelocal", nodelocal)
+            _setter("nodelocal", nodelocal)
         if pod_infra_container is not None:
-            pulumi.set(__self__, "pod_infra_container", pod_infra_container)
+            _setter("pod_infra_container", pod_infra_container)
         if weave_cni is not None:
-            pulumi.set(__self__, "weave_cni", weave_cni)
+            _setter("weave_cni", weave_cni)
         if weave_node is not None:
-            pulumi.set(__self__, "weave_node", weave_node)
+            _setter("weave_node", weave_node)
         if windows_pod_infra_container is not None:
-            pulumi.set(__self__, "windows_pod_infra_container", windows_pod_infra_container)
+            _setter("windows_pod_infra_container", windows_pod_infra_container)
 
     @property
     @pulumi.getter(name="aciCniDeployContainer")
@@ -9839,14 +12650,37 @@ class ClusterUpgradeStrategyArgs:
         :param pulumi.Input[str] max_unavailable_controlplane: RKE max unavailable controlplane nodes (string)
         :param pulumi.Input[str] max_unavailable_worker: RKE max unavailable worker nodes (string)
         """
+        ClusterUpgradeStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            drain=drain,
+            drain_input=drain_input,
+            max_unavailable_controlplane=max_unavailable_controlplane,
+            max_unavailable_worker=max_unavailable_worker,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             drain: Optional[pulumi.Input[bool]] = None,
+             drain_input: Optional[pulumi.Input['ClusterUpgradeStrategyDrainInputArgs']] = None,
+             max_unavailable_controlplane: Optional[pulumi.Input[str]] = None,
+             max_unavailable_worker: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if drain_input is None and 'drainInput' in kwargs:
+            drain_input = kwargs['drainInput']
+        if max_unavailable_controlplane is None and 'maxUnavailableControlplane' in kwargs:
+            max_unavailable_controlplane = kwargs['maxUnavailableControlplane']
+        if max_unavailable_worker is None and 'maxUnavailableWorker' in kwargs:
+            max_unavailable_worker = kwargs['maxUnavailableWorker']
+
         if drain is not None:
-            pulumi.set(__self__, "drain", drain)
+            _setter("drain", drain)
         if drain_input is not None:
-            pulumi.set(__self__, "drain_input", drain_input)
+            _setter("drain_input", drain_input)
         if max_unavailable_controlplane is not None:
-            pulumi.set(__self__, "max_unavailable_controlplane", max_unavailable_controlplane)
+            _setter("max_unavailable_controlplane", max_unavailable_controlplane)
         if max_unavailable_worker is not None:
-            pulumi.set(__self__, "max_unavailable_worker", max_unavailable_worker)
+            _setter("max_unavailable_worker", max_unavailable_worker)
 
     @property
     @pulumi.getter
@@ -9912,16 +12746,41 @@ class ClusterUpgradeStrategyDrainInputArgs:
         :param pulumi.Input[bool] ignore_daemon_sets: Ignore RKE daemon sets (bool)
         :param pulumi.Input[int] timeout: RKE node drain timeout (int)
         """
+        ClusterUpgradeStrategyDrainInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_local_data=delete_local_data,
+            force=force,
+            grace_period=grace_period,
+            ignore_daemon_sets=ignore_daemon_sets,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_local_data: Optional[pulumi.Input[bool]] = None,
+             force: Optional[pulumi.Input[bool]] = None,
+             grace_period: Optional[pulumi.Input[int]] = None,
+             ignore_daemon_sets: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_local_data is None and 'deleteLocalData' in kwargs:
+            delete_local_data = kwargs['deleteLocalData']
+        if grace_period is None and 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+        if ignore_daemon_sets is None and 'ignoreDaemonSets' in kwargs:
+            ignore_daemon_sets = kwargs['ignoreDaemonSets']
+
         if delete_local_data is not None:
-            pulumi.set(__self__, "delete_local_data", delete_local_data)
+            _setter("delete_local_data", delete_local_data)
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if grace_period is not None:
-            pulumi.set(__self__, "grace_period", grace_period)
+            _setter("grace_period", grace_period)
         if ignore_daemon_sets is not None:
-            pulumi.set(__self__, "ignore_daemon_sets", ignore_daemon_sets)
+            _setter("ignore_daemon_sets", ignore_daemon_sets)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="deleteLocalData")
@@ -9993,10 +12852,25 @@ class ClusterWorkerHostArgs:
         :param pulumi.Input[str] address: Address ip for node (string)
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine (string)
         """
+        ClusterWorkerHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             node_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if node_name is not None:
-            pulumi.set(__self__, "node_name", node_name)
+            _setter("node_name", node_name)
 
     @property
     @pulumi.getter
