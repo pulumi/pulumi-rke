@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-rke/sdk/v3/go/rke/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ClusterAuthenticationArgs) ToClusterAuthenticationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationOutput)
 }
 
-func (i ClusterAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthentication] {
-	return pulumix.Output[ClusterAuthentication]{
-		OutputState: i.ToClusterAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterAuthenticationArgs) ToClusterAuthenticationPtrOutput() ClusterAuthenticationPtrOutput {
 	return i.ToClusterAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *clusterAuthenticationPtrType) ToClusterAuthenticationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationPtrOutput)
 }
 
-func (i *clusterAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthentication] {
-	return pulumix.Output[*ClusterAuthentication]{
-		OutputState: i.ToClusterAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ClusterAuthenticationOutput) ToClusterAuthenticationPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAuthentication) *ClusterAuthentication {
 		return &v
 	}).(ClusterAuthenticationPtrOutput)
-}
-
-func (o ClusterAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthentication] {
-	return pulumix.Output[ClusterAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of additional hostnames and IPs to include in the api server PKI cert (list)
@@ -165,12 +146,6 @@ func (o ClusterAuthenticationPtrOutput) ToClusterAuthenticationPtrOutput() Clust
 
 func (o ClusterAuthenticationPtrOutput) ToClusterAuthenticationPtrOutputWithContext(ctx context.Context) ClusterAuthenticationPtrOutput {
 	return o
-}
-
-func (o ClusterAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthentication] {
-	return pulumix.Output[*ClusterAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterAuthenticationPtrOutput) Elem() ClusterAuthenticationOutput {
@@ -250,12 +225,6 @@ func (i ClusterAuthenticationWebhookArgs) ToClusterAuthenticationWebhookOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationWebhookOutput)
 }
 
-func (i ClusterAuthenticationWebhookArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthenticationWebhook] {
-	return pulumix.Output[ClusterAuthenticationWebhook]{
-		OutputState: i.ToClusterAuthenticationWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterAuthenticationWebhookArgs) ToClusterAuthenticationWebhookPtrOutput() ClusterAuthenticationWebhookPtrOutput {
 	return i.ToClusterAuthenticationWebhookPtrOutputWithContext(context.Background())
 }
@@ -297,12 +266,6 @@ func (i *clusterAuthenticationWebhookPtrType) ToClusterAuthenticationWebhookPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthenticationWebhookPtrOutput)
 }
 
-func (i *clusterAuthenticationWebhookPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthenticationWebhook] {
-	return pulumix.Output[*ClusterAuthenticationWebhook]{
-		OutputState: i.ToClusterAuthenticationWebhookPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterAuthenticationWebhookOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthenticationWebhookOutput) ElementType() reflect.Type {
@@ -327,12 +290,6 @@ func (o ClusterAuthenticationWebhookOutput) ToClusterAuthenticationWebhookPtrOut
 	}).(ClusterAuthenticationWebhookPtrOutput)
 }
 
-func (o ClusterAuthenticationWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthenticationWebhook] {
-	return pulumix.Output[ClusterAuthenticationWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Controls how long to cache authentication decisions (string)
 func (o ClusterAuthenticationWebhookOutput) CacheTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAuthenticationWebhook) *string { return v.CacheTimeout }).(pulumi.StringPtrOutput)
@@ -355,12 +312,6 @@ func (o ClusterAuthenticationWebhookPtrOutput) ToClusterAuthenticationWebhookPtr
 
 func (o ClusterAuthenticationWebhookPtrOutput) ToClusterAuthenticationWebhookPtrOutputWithContext(ctx context.Context) ClusterAuthenticationWebhookPtrOutput {
 	return o
-}
-
-func (o ClusterAuthenticationWebhookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthenticationWebhook] {
-	return pulumix.Output[*ClusterAuthenticationWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterAuthenticationWebhookPtrOutput) Elem() ClusterAuthenticationWebhookOutput {
@@ -430,12 +381,6 @@ func (i ClusterAuthorizationArgs) ToClusterAuthorizationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizationOutput)
 }
 
-func (i ClusterAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthorization] {
-	return pulumix.Output[ClusterAuthorization]{
-		OutputState: i.ToClusterAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterAuthorizationArgs) ToClusterAuthorizationPtrOutput() ClusterAuthorizationPtrOutput {
 	return i.ToClusterAuthorizationPtrOutputWithContext(context.Background())
 }
@@ -477,12 +422,6 @@ func (i *clusterAuthorizationPtrType) ToClusterAuthorizationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizationPtrOutput)
 }
 
-func (i *clusterAuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthorization] {
-	return pulumix.Output[*ClusterAuthorization]{
-		OutputState: i.ToClusterAuthorizationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ClusterAuthorizationOutput) ElementType() reflect.Type {
@@ -507,12 +446,6 @@ func (o ClusterAuthorizationOutput) ToClusterAuthorizationPtrOutputWithContext(c
 	}).(ClusterAuthorizationPtrOutput)
 }
 
-func (o ClusterAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAuthorization] {
-	return pulumix.Output[ClusterAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 // RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 func (o ClusterAuthorizationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAuthorization) *string { return v.Mode }).(pulumi.StringPtrOutput)
@@ -535,12 +468,6 @@ func (o ClusterAuthorizationPtrOutput) ToClusterAuthorizationPtrOutput() Cluster
 
 func (o ClusterAuthorizationPtrOutput) ToClusterAuthorizationPtrOutputWithContext(ctx context.Context) ClusterAuthorizationPtrOutput {
 	return o
-}
-
-func (o ClusterAuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthorization] {
-	return pulumix.Output[*ClusterAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterAuthorizationPtrOutput) Elem() ClusterAuthorizationOutput {
@@ -638,12 +565,6 @@ func (i ClusterBastionHostArgs) ToClusterBastionHostOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBastionHostOutput)
 }
 
-func (i ClusterBastionHostArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBastionHost] {
-	return pulumix.Output[ClusterBastionHost]{
-		OutputState: i.ToClusterBastionHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterBastionHostArgs) ToClusterBastionHostPtrOutput() ClusterBastionHostPtrOutput {
 	return i.ToClusterBastionHostPtrOutputWithContext(context.Background())
 }
@@ -685,12 +606,6 @@ func (i *clusterBastionHostPtrType) ToClusterBastionHostPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBastionHostPtrOutput)
 }
 
-func (i *clusterBastionHostPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBastionHost] {
-	return pulumix.Output[*ClusterBastionHost]{
-		OutputState: i.ToClusterBastionHostPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterBastionHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterBastionHostOutput) ElementType() reflect.Type {
@@ -713,12 +628,6 @@ func (o ClusterBastionHostOutput) ToClusterBastionHostPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBastionHost) *ClusterBastionHost {
 		return &v
 	}).(ClusterBastionHostPtrOutput)
-}
-
-func (o ClusterBastionHostOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBastionHost] {
-	return pulumix.Output[ClusterBastionHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -778,12 +687,6 @@ func (o ClusterBastionHostPtrOutput) ToClusterBastionHostPtrOutput() ClusterBast
 
 func (o ClusterBastionHostPtrOutput) ToClusterBastionHostPtrOutputWithContext(ctx context.Context) ClusterBastionHostPtrOutput {
 	return o
-}
-
-func (o ClusterBastionHostPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBastionHost] {
-	return pulumix.Output[*ClusterBastionHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterBastionHostPtrOutput) Elem() ClusterBastionHostOutput {
@@ -949,12 +852,6 @@ func (i ClusterCertificateArgs) ToClusterCertificateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateOutput)
 }
 
-func (i ClusterCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificate] {
-	return pulumix.Output[ClusterCertificate]{
-		OutputState: i.ToClusterCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCertificateArrayInput is an input type that accepts ClusterCertificateArray and ClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `ClusterCertificateArrayInput` via:
 //
@@ -980,12 +877,6 @@ func (i ClusterCertificateArray) ToClusterCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateArrayOutput)
 }
 
-func (i ClusterCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCertificate] {
-	return pulumix.Output[[]ClusterCertificate]{
-		OutputState: i.ToClusterCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateOutput) ElementType() reflect.Type {
@@ -998,12 +889,6 @@ func (o ClusterCertificateOutput) ToClusterCertificateOutput() ClusterCertificat
 
 func (o ClusterCertificateOutput) ToClusterCertificateOutputWithContext(ctx context.Context) ClusterCertificateOutput {
 	return o
-}
-
-func (o ClusterCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificate] {
-	return pulumix.Output[ClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCertificateOutput) Certificate() pulumi.StringPtrOutput {
@@ -1074,12 +959,6 @@ func (o ClusterCertificateArrayOutput) ToClusterCertificateArrayOutput() Cluster
 
 func (o ClusterCertificateArrayOutput) ToClusterCertificateArrayOutputWithContext(ctx context.Context) ClusterCertificateArrayOutput {
 	return o
-}
-
-func (o ClusterCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCertificate] {
-	return pulumix.Output[[]ClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCertificateOutput {
@@ -1181,12 +1060,6 @@ func (i ClusterCloudProviderArgs) ToClusterCloudProviderOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOutput)
 }
 
-func (i ClusterCloudProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProvider] {
-	return pulumix.Output[ClusterCloudProvider]{
-		OutputState: i.ToClusterCloudProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderArgs) ToClusterCloudProviderPtrOutput() ClusterCloudProviderPtrOutput {
 	return i.ToClusterCloudProviderPtrOutputWithContext(context.Background())
 }
@@ -1228,12 +1101,6 @@ func (i *clusterCloudProviderPtrType) ToClusterCloudProviderPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderPtrOutput)
 }
 
-func (i *clusterCloudProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProvider] {
-	return pulumix.Output[*ClusterCloudProvider]{
-		OutputState: i.ToClusterCloudProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOutput) ElementType() reflect.Type {
@@ -1256,12 +1123,6 @@ func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProvider) *ClusterCloudProvider {
 		return &v
 	}).(ClusterCloudProviderPtrOutput)
-}
-
-func (o ClusterCloudProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProvider] {
-	return pulumix.Output[ClusterCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Use awsCloudProvider instead
@@ -1343,12 +1204,6 @@ func (o ClusterCloudProviderPtrOutput) ToClusterCloudProviderPtrOutput() Cluster
 
 func (o ClusterCloudProviderPtrOutput) ToClusterCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProvider] {
-	return pulumix.Output[*ClusterCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderPtrOutput) Elem() ClusterCloudProviderOutput {
@@ -1518,12 +1373,6 @@ func (i ClusterCloudProviderAwsCloudConfigArgs) ToClusterCloudProviderAwsCloudCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfig]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAwsCloudConfigArgs) ToClusterCloudProviderAwsCloudConfigPtrOutput() ClusterCloudProviderAwsCloudConfigPtrOutput {
 	return i.ToClusterCloudProviderAwsCloudConfigPtrOutputWithContext(context.Background())
 }
@@ -1565,12 +1414,6 @@ func (i *clusterCloudProviderAwsCloudConfigPtrType) ToClusterCloudProviderAwsClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigPtrOutput)
 }
 
-func (i *clusterCloudProviderAwsCloudConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudConfig]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigOutput) ElementType() reflect.Type {
@@ -1593,12 +1436,6 @@ func (o ClusterCloudProviderAwsCloudConfigOutput) ToClusterCloudProviderAwsCloud
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudConfig) *ClusterCloudProviderAwsCloudConfig {
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigPtrOutput)
-}
-
-func (o ClusterCloudProviderAwsCloudConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -1625,12 +1462,6 @@ func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ToClusterCloudProviderAwsCl
 
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ToClusterCloudProviderAwsCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudConfigPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAwsCloudConfigPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigOutput {
@@ -1732,12 +1563,6 @@ func (i ClusterCloudProviderAwsCloudConfigGlobalArgs) ToClusterCloudProviderAwsC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigGlobalOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudConfigGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAwsCloudConfigGlobalArgs) ToClusterCloudProviderAwsCloudConfigGlobalPtrOutput() ClusterCloudProviderAwsCloudConfigGlobalPtrOutput {
 	return i.ToClusterCloudProviderAwsCloudConfigGlobalPtrOutputWithContext(context.Background())
 }
@@ -1779,12 +1604,6 @@ func (i *clusterCloudProviderAwsCloudConfigGlobalPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderAwsCloudConfigGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigGlobalOutput) ElementType() reflect.Type {
@@ -1807,12 +1626,6 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ToClusterCloudProviderAw
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudConfigGlobal) *ClusterCloudProviderAwsCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderAwsCloudConfigGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderAwsCloudConfigGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Disables the automatic ingress creation. Default `false` (bool)
@@ -1877,12 +1690,6 @@ func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ToClusterCloudProvide
 
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ToClusterCloudProviderAwsCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudConfigGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAwsCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudConfigGlobalOutput {
@@ -2056,12 +1863,6 @@ func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArgs) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigServiceOverrideOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfigServiceOverride] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfigServiceOverride]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigServiceOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput is an input type that accepts ClusterCloudProviderAwsCloudConfigServiceOverrideArray and ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudConfigServiceOverrideArrayInput` via:
 //
@@ -2087,12 +1888,6 @@ func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArray) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudConfigServiceOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderAwsCloudConfigServiceOverride] {
-	return pulumix.Output[[]ClusterCloudProviderAwsCloudConfigServiceOverride]{
-		OutputState: i.ToClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudConfigServiceOverrideOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ElementType() reflect.Type {
@@ -2105,12 +1900,6 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToClusterCloudP
 
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToClusterCloudProviderAwsCloudConfigServiceOverrideOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudConfigServiceOverrideOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudConfigServiceOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudConfigServiceOverride] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudConfigServiceOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // TLS key for etcd service (string)
@@ -2164,12 +1953,6 @@ func (o ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) ToClusterC
 	return o
 }
 
-func (o ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderAwsCloudConfigServiceOverride] {
-	return pulumix.Output[[]ClusterCloudProviderAwsCloudConfigServiceOverride]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterCloudProviderAwsCloudConfigServiceOverrideArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderAwsCloudConfigServiceOverrideOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCloudProviderAwsCloudConfigServiceOverride {
 		return vs[0].([]ClusterCloudProviderAwsCloudConfigServiceOverride)[vs[1].(int)]
@@ -2213,12 +1996,6 @@ func (i ClusterCloudProviderAwsCloudProviderArgs) ToClusterCloudProviderAwsCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProvider]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAwsCloudProviderArgs) ToClusterCloudProviderAwsCloudProviderPtrOutput() ClusterCloudProviderAwsCloudProviderPtrOutput {
 	return i.ToClusterCloudProviderAwsCloudProviderPtrOutputWithContext(context.Background())
 }
@@ -2260,12 +2037,6 @@ func (i *clusterCloudProviderAwsCloudProviderPtrType) ToClusterCloudProviderAwsC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
-func (i *clusterCloudProviderAwsCloudProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudProvider]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderOutput) ElementType() reflect.Type {
@@ -2288,12 +2059,6 @@ func (o ClusterCloudProviderAwsCloudProviderOutput) ToClusterCloudProviderAwsClo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudProvider) *ClusterCloudProviderAwsCloudProvider {
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderPtrOutput)
-}
-
-func (o ClusterCloudProviderAwsCloudProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -2322,12 +2087,6 @@ func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ToClusterCloudProviderAws
 
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ToClusterCloudProviderAwsCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAwsCloudProviderPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderOutput {
@@ -2429,12 +2188,6 @@ func (i ClusterCloudProviderAwsCloudProviderGlobalArgs) ToClusterCloudProviderAw
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderGlobalOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudProviderGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAwsCloudProviderGlobalArgs) ToClusterCloudProviderAwsCloudProviderGlobalPtrOutput() ClusterCloudProviderAwsCloudProviderGlobalPtrOutput {
 	return i.ToClusterCloudProviderAwsCloudProviderGlobalPtrOutputWithContext(context.Background())
 }
@@ -2476,12 +2229,6 @@ func (i *clusterCloudProviderAwsCloudProviderGlobalPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderAwsCloudProviderGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderGlobalOutput) ElementType() reflect.Type {
@@ -2504,12 +2251,6 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ToClusterCloudProvider
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAwsCloudProviderGlobal) *ClusterCloudProviderAwsCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderAwsCloudProviderGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderAwsCloudProviderGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Disables the automatic ingress creation. Default `false` (bool)
@@ -2574,12 +2315,6 @@ func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ToClusterCloudProviderAwsCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAwsCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderAwsCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAwsCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderAwsCloudProviderGlobalOutput {
@@ -2753,12 +2488,6 @@ func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArgs) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderServiceOverrideOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProviderServiceOverride] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProviderServiceOverride]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderServiceOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput is an input type that accepts ClusterCloudProviderAwsCloudProviderServiceOverrideArray and ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderAwsCloudProviderServiceOverrideArrayInput` via:
 //
@@ -2784,12 +2513,6 @@ func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArray) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput)
 }
 
-func (i ClusterCloudProviderAwsCloudProviderServiceOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderAwsCloudProviderServiceOverride] {
-	return pulumix.Output[[]ClusterCloudProviderAwsCloudProviderServiceOverride]{
-		OutputState: i.ToClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAwsCloudProviderServiceOverrideOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ElementType() reflect.Type {
@@ -2802,12 +2525,6 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToClusterClou
 
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToClusterCloudProviderAwsCloudProviderServiceOverrideOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderServiceOverrideOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudProviderServiceOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAwsCloudProviderServiceOverride] {
-	return pulumix.Output[ClusterCloudProviderAwsCloudProviderServiceOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // TLS key for etcd service (string)
@@ -2859,12 +2576,6 @@ func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) ToCluste
 
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) ToClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutputWithContext(ctx context.Context) ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderAwsCloudProviderServiceOverride] {
-	return pulumix.Output[[]ClusterCloudProviderAwsCloudProviderServiceOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAwsCloudProviderServiceOverrideArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderAwsCloudProviderServiceOverrideOutput {
@@ -3016,12 +2727,6 @@ func (i ClusterCloudProviderAzureCloudConfigArgs) ToClusterCloudProviderAzureClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudConfigOutput)
 }
 
-func (i ClusterCloudProviderAzureCloudConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAzureCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderAzureCloudConfig]{
-		OutputState: i.ToClusterCloudProviderAzureCloudConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAzureCloudConfigArgs) ToClusterCloudProviderAzureCloudConfigPtrOutput() ClusterCloudProviderAzureCloudConfigPtrOutput {
 	return i.ToClusterCloudProviderAzureCloudConfigPtrOutputWithContext(context.Background())
 }
@@ -3063,12 +2768,6 @@ func (i *clusterCloudProviderAzureCloudConfigPtrType) ToClusterCloudProviderAzur
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudConfigPtrOutput)
 }
 
-func (i *clusterCloudProviderAzureCloudConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAzureCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderAzureCloudConfig]{
-		OutputState: i.ToClusterCloudProviderAzureCloudConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAzureCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudConfigOutput) ElementType() reflect.Type {
@@ -3091,12 +2790,6 @@ func (o ClusterCloudProviderAzureCloudConfigOutput) ToClusterCloudProviderAzureC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAzureCloudConfig) *ClusterCloudProviderAzureCloudConfig {
 		return &v
 	}).(ClusterCloudProviderAzureCloudConfigPtrOutput)
-}
-
-func (o ClusterCloudProviderAzureCloudConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAzureCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderAzureCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -3255,12 +2948,6 @@ func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ToClusterCloudProviderAzu
 
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ToClusterCloudProviderAzureCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAzureCloudConfigPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAzureCloudConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAzureCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderAzureCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) Elem() ClusterCloudProviderAzureCloudConfigOutput {
@@ -3705,12 +3392,6 @@ func (i ClusterCloudProviderAzureCloudProviderArgs) ToClusterCloudProviderAzureC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudProviderOutput)
 }
 
-func (i ClusterCloudProviderAzureCloudProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAzureCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderAzureCloudProvider]{
-		OutputState: i.ToClusterCloudProviderAzureCloudProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderAzureCloudProviderArgs) ToClusterCloudProviderAzureCloudProviderPtrOutput() ClusterCloudProviderAzureCloudProviderPtrOutput {
 	return i.ToClusterCloudProviderAzureCloudProviderPtrOutputWithContext(context.Background())
 }
@@ -3752,12 +3433,6 @@ func (i *clusterCloudProviderAzureCloudProviderPtrType) ToClusterCloudProviderAz
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
-func (i *clusterCloudProviderAzureCloudProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAzureCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderAzureCloudProvider]{
-		OutputState: i.ToClusterCloudProviderAzureCloudProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderAzureCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderAzureCloudProviderOutput) ElementType() reflect.Type {
@@ -3780,12 +3455,6 @@ func (o ClusterCloudProviderAzureCloudProviderOutput) ToClusterCloudProviderAzur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderAzureCloudProvider) *ClusterCloudProviderAzureCloudProvider {
 		return &v
 	}).(ClusterCloudProviderAzureCloudProviderPtrOutput)
-}
-
-func (o ClusterCloudProviderAzureCloudProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderAzureCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderAzureCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -3944,12 +3613,6 @@ func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ToClusterCloudProviderA
 
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ToClusterCloudProviderAzureCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderAzureCloudProviderPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderAzureCloudProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderAzureCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderAzureCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) Elem() ClusterCloudProviderAzureCloudProviderOutput {
@@ -4300,12 +3963,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigArgs) ToClusterCloudProviderOpen
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfig]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigArgs) ToClusterCloudProviderOpenstackCloudConfigPtrOutput() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigPtrOutputWithContext(context.Background())
 }
@@ -4347,12 +4004,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfig]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigOutput) ElementType() reflect.Type {
@@ -4375,12 +4026,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigOutput) ToClusterCloudProviderOp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfig) *ClusterCloudProviderOpenstackCloudConfig {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -4430,12 +4075,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) ToClusterCloudProvide
 
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) ToClusterCloudProviderOpenstackCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigOutput {
@@ -4539,12 +4178,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigBlockStorage] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigBlockStorage]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigBlockStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs) ToClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput() ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutputWithContext(context.Background())
 }
@@ -4586,12 +4219,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType) ToClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigBlockStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigBlockStorage] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigBlockStorage]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ElementType() reflect.Type {
@@ -4614,12 +4241,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ToClusterClo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigBlockStorage) *ClusterCloudProviderOpenstackCloudConfigBlockStorage {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigBlockStorage] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigBlockStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -4649,12 +4270,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ToCluster
 
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ToClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigBlockStorage] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigBlockStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigBlockStorageOutput {
@@ -4770,12 +4385,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigGlobalArgs) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigGlobalOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigGlobalArgs) ToClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput() ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigGlobalPtrOutputWithContext(context.Background())
 }
@@ -4817,12 +4426,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigGlobalPtrType) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ElementType() reflect.Type {
@@ -4845,12 +4448,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ToClusterCloudProv
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigGlobal) *ClusterCloudProviderOpenstackCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -4920,12 +4517,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) ToClusterCloudP
 
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) ToClusterCloudProviderOpenstackCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigGlobalOutput {
@@ -5121,12 +4712,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigLoadBalancer] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigLoadBalancer]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigLoadBalancerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs) ToClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput() ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutputWithContext(context.Background())
 }
@@ -5168,12 +4753,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType) ToClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigLoadBalancerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigLoadBalancer] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigLoadBalancer]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ElementType() reflect.Type {
@@ -5196,12 +4775,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ToClusterClo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudConfigLoadBalancer) *ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigLoadBalancer] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (bool)
@@ -5271,12 +4844,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ToCluster
 
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ToClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigLoadBalancer] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigLoadBalancerOutput {
@@ -5436,12 +5003,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigMetadataOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigMetadata] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigMetadata]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigMetadataArgs) ToClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput() ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigMetadataPtrOutputWithContext(context.Background())
 }
@@ -5483,12 +5044,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigMetadataPtrType) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigMetadata] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigMetadata]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigMetadataOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ElementType() reflect.Type {
@@ -5513,12 +5068,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ToClusterCloudPr
 	}).(ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput)
 }
 
-func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigMetadata] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (int)
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataOutput) RequestTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
@@ -5541,12 +5090,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ToClusterClou
 
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ToClusterCloudProviderOpenstackCloudConfigMetadataPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigMetadata] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigMetadataOutput {
@@ -5612,12 +5155,6 @@ func (i ClusterCloudProviderOpenstackCloudConfigRouteArgs) ToClusterCloudProvide
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigRouteOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudConfigRouteArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigRoute] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigRoute]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudConfigRouteArgs) ToClusterCloudProviderOpenstackCloudConfigRoutePtrOutput() ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudConfigRoutePtrOutputWithContext(context.Background())
 }
@@ -5659,12 +5196,6 @@ func (i *clusterCloudProviderOpenstackCloudConfigRoutePtrType) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudConfigRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigRoute] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigRoute]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudConfigRoutePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudConfigRouteOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudConfigRouteOutput) ElementType() reflect.Type {
@@ -5689,12 +5220,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) ToClusterCloudProvi
 	}).(ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput)
 }
 
-func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudConfigRoute] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudConfigRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderOpenstackCloudConfigRouteOutput) RouterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudConfigRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
@@ -5712,12 +5237,6 @@ func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ToClusterCloudPr
 
 func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ToClusterCloudProviderOpenstackCloudConfigRoutePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigRoute] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudConfigRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudConfigRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudConfigRouteOutput {
@@ -5789,12 +5308,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderArgs) ToClusterCloudProviderOp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProvider]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderArgs) ToClusterCloudProviderOpenstackCloudProviderPtrOutput() ClusterCloudProviderOpenstackCloudProviderPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderPtrOutputWithContext(context.Background())
 }
@@ -5836,12 +5349,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProvider]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderOutput) ElementType() reflect.Type {
@@ -5864,12 +5371,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderOutput) ToClusterCloudProvider
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProvider) *ClusterCloudProviderOpenstackCloudProvider {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -5919,12 +5420,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) ToClusterCloudProviderOpenstackCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderOutput {
@@ -6028,12 +5523,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderBlockStorage] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderBlockStorage]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderBlockStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs) ToClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput() ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutputWithContext(context.Background())
 }
@@ -6075,12 +5564,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderBlockStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderBlockStorage] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderBlockStorage]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ElementType() reflect.Type {
@@ -6103,12 +5586,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ToClusterC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderBlockStorage) *ClusterCloudProviderOpenstackCloudProviderBlockStorage {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderBlockStorage] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderBlockStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -6138,12 +5615,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ToClust
 
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ToClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderBlockStorage] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderBlockStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderBlockStoragePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderBlockStorageOutput {
@@ -6259,12 +5730,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderGlobalArgs) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderGlobalOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderGlobalArgs) ToClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput() ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderGlobalPtrOutputWithContext(context.Background())
 }
@@ -6306,12 +5771,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderGlobalPtrType) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ElementType() reflect.Type {
@@ -6334,12 +5793,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ToClusterCloudPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderGlobal) *ClusterCloudProviderOpenstackCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -6409,12 +5862,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) ToClusterClou
 
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) ToClusterCloudProviderOpenstackCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderGlobalOutput {
@@ -6610,12 +6057,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderLoadBalancer] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderLoadBalancer]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderLoadBalancerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs) ToClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput() ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutputWithContext(context.Background())
 }
@@ -6657,12 +6098,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderLoadBalancerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderLoadBalancer] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderLoadBalancer]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ElementType() reflect.Type {
@@ -6685,12 +6120,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ToClusterC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderOpenstackCloudProviderLoadBalancer) *ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
 		return &v
 	}).(ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput)
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderLoadBalancer] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (bool)
@@ -6760,12 +6189,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ToClust
 
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ToClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderLoadBalancer] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderLoadBalancerPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderLoadBalancerOutput {
@@ -6925,12 +6348,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderMetadataOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderMetadata] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderMetadata]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderMetadataArgs) ToClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput() ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderMetadataPtrOutputWithContext(context.Background())
 }
@@ -6972,12 +6389,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderMetadataPtrType) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderMetadata] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderMetadata]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderMetadataOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ElementType() reflect.Type {
@@ -7002,12 +6413,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ToClusterCloud
 	}).(ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput)
 }
 
-func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderMetadata] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (int)
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataOutput) RequestTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderMetadata) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
@@ -7030,12 +6435,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ToClusterCl
 
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ToClusterCloudProviderOpenstackCloudProviderMetadataPtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderMetadata] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderMetadataPtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderMetadataOutput {
@@ -7101,12 +6500,6 @@ func (i ClusterCloudProviderOpenstackCloudProviderRouteArgs) ToClusterCloudProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderRouteOutput)
 }
 
-func (i ClusterCloudProviderOpenstackCloudProviderRouteArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderRoute] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderRoute]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderOpenstackCloudProviderRouteArgs) ToClusterCloudProviderOpenstackCloudProviderRoutePtrOutput() ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput {
 	return i.ToClusterCloudProviderOpenstackCloudProviderRoutePtrOutputWithContext(context.Background())
 }
@@ -7148,12 +6541,6 @@ func (i *clusterCloudProviderOpenstackCloudProviderRoutePtrType) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
 
-func (i *clusterCloudProviderOpenstackCloudProviderRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderRoute] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderRoute]{
-		OutputState: i.ToClusterCloudProviderOpenstackCloudProviderRoutePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderOpenstackCloudProviderRouteOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderOpenstackCloudProviderRouteOutput) ElementType() reflect.Type {
@@ -7178,12 +6565,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) ToClusterCloudPro
 	}).(ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput)
 }
 
-func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderOpenstackCloudProviderRoute] {
-	return pulumix.Output[ClusterCloudProviderOpenstackCloudProviderRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderOpenstackCloudProviderRouteOutput) RouterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderOpenstackCloudProviderRoute) *string { return v.RouterId }).(pulumi.StringPtrOutput)
@@ -7201,12 +6582,6 @@ func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ToClusterCloudProviderOpenstackCloudProviderRoutePtrOutputWithContext(ctx context.Context) ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderRoute] {
-	return pulumix.Output[*ClusterCloudProviderOpenstackCloudProviderRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderOpenstackCloudProviderRoutePtrOutput) Elem() ClusterCloudProviderOpenstackCloudProviderRouteOutput {
@@ -7278,12 +6653,6 @@ func (i ClusterCloudProviderVsphereCloudConfigArgs) ToClusterCloudProviderVspher
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfig]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudConfigArgs) ToClusterCloudProviderVsphereCloudConfigPtrOutput() ClusterCloudProviderVsphereCloudConfigPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudConfigPtrOutputWithContext(context.Background())
 }
@@ -7325,12 +6694,6 @@ func (i *clusterCloudProviderVsphereCloudConfigPtrType) ToClusterCloudProviderVs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfig]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigOutput) ElementType() reflect.Type {
@@ -7353,12 +6716,6 @@ func (o ClusterCloudProviderVsphereCloudConfigOutput) ToClusterCloudProviderVsph
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfig) *ClusterCloudProviderVsphereCloudConfig {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigPtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfig] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -7408,12 +6765,6 @@ func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) ToClusterCloudProviderV
 
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) ToClusterCloudProviderVsphereCloudConfigPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfig] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigOutput {
@@ -7509,12 +6860,6 @@ func (i ClusterCloudProviderVsphereCloudConfigDiskArgs) ToClusterCloudProviderVs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigDiskOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigDiskArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigDisk] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigDisk]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudConfigDiskArgs) ToClusterCloudProviderVsphereCloudConfigDiskPtrOutput() ClusterCloudProviderVsphereCloudConfigDiskPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudConfigDiskPtrOutputWithContext(context.Background())
 }
@@ -7556,12 +6901,6 @@ func (i *clusterCloudProviderVsphereCloudConfigDiskPtrType) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudConfigDiskPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigDisk] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigDisk]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigDiskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigDiskOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigDiskOutput) ElementType() reflect.Type {
@@ -7586,12 +6925,6 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ToClusterCloudProvider
 	}).(ClusterCloudProviderVsphereCloudConfigDiskPtrOutput)
 }
 
-func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigDisk] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigDisk]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigDiskOutput) ScsiControllerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
@@ -7609,12 +6942,6 @@ func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ToClusterCloudProvi
 
 func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ToClusterCloudProviderVsphereCloudConfigDiskPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigDiskPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigDisk] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigDiskOutput {
@@ -7710,12 +7037,6 @@ func (i ClusterCloudProviderVsphereCloudConfigGlobalArgs) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigGlobalOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudConfigGlobalArgs) ToClusterCloudProviderVsphereCloudConfigGlobalPtrOutput() ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudConfigGlobalPtrOutputWithContext(context.Background())
 }
@@ -7757,12 +7078,6 @@ func (i *clusterCloudProviderVsphereCloudConfigGlobalPtrType) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudConfigGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigGlobal]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigGlobalOutput) ElementType() reflect.Type {
@@ -7785,12 +7100,6 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) ToClusterCloudProvid
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigGlobal) *ClusterCloudProviderVsphereCloudConfigGlobal {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigGlobal] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -7860,12 +7169,6 @@ func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ToClusterCloudPro
 
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ToClusterCloudProviderVsphereCloudConfigGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigGlobal] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigGlobalOutput {
@@ -8021,12 +7324,6 @@ func (i ClusterCloudProviderVsphereCloudConfigNetworkArgs) ToClusterCloudProvide
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigNetworkOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigNetwork] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigNetwork]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudConfigNetworkArgs) ToClusterCloudProviderVsphereCloudConfigNetworkPtrOutput() ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudConfigNetworkPtrOutputWithContext(context.Background())
 }
@@ -8068,12 +7365,6 @@ func (i *clusterCloudProviderVsphereCloudConfigNetworkPtrType) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudConfigNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigNetwork] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigNetwork]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigNetworkOutput) ElementType() reflect.Type {
@@ -8098,12 +7389,6 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) ToClusterCloudProvi
 	}).(ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput)
 }
 
-func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigNetwork] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderVsphereCloudConfigNetworkOutput) PublicNetwork() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudConfigNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
@@ -8121,12 +7406,6 @@ func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ToClusterCloudPr
 
 func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ToClusterCloudProviderVsphereCloudConfigNetworkPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigNetwork] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigNetworkOutput {
@@ -8202,12 +7481,6 @@ func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigVirtualCenter] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigVirtualCenter]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigVirtualCenterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput is an input type that accepts ClusterCloudProviderVsphereCloudConfigVirtualCenterArray and ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayInput` via:
 //
@@ -8233,12 +7506,6 @@ func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArray) ToClusterCloud
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigVirtualCenterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderVsphereCloudConfigVirtualCenter] {
-	return pulumix.Output[[]ClusterCloudProviderVsphereCloudConfigVirtualCenter]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ElementType() reflect.Type {
@@ -8251,12 +7518,6 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ToClusterClou
 
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ToClusterCloudProviderVsphereCloudConfigVirtualCenterOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigVirtualCenter] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigVirtualCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -8301,12 +7562,6 @@ func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) ToCluste
 
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) ToClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderVsphereCloudConfigVirtualCenter] {
-	return pulumix.Output[[]ClusterCloudProviderVsphereCloudConfigVirtualCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigVirtualCenterArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderVsphereCloudConfigVirtualCenterOutput {
@@ -8364,12 +7619,6 @@ func (i ClusterCloudProviderVsphereCloudConfigWorkspaceArgs) ToClusterCloudProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigWorkspaceOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudConfigWorkspaceArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigWorkspace] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigWorkspace]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigWorkspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudConfigWorkspaceArgs) ToClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput() ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudConfigWorkspacePtrOutputWithContext(context.Background())
 }
@@ -8411,12 +7660,6 @@ func (i *clusterCloudProviderVsphereCloudConfigWorkspacePtrType) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudConfigWorkspacePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigWorkspace] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigWorkspace]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudConfigWorkspacePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudConfigWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ElementType() reflect.Type {
@@ -8439,12 +7682,6 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ToClusterCloudPro
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudConfigWorkspace) *ClusterCloudProviderVsphereCloudConfigWorkspace {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudConfigWorkspace] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudConfigWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -8484,12 +7721,6 @@ func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) ToClusterCloudProviderVsphereCloudConfigWorkspacePtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudConfigWorkspace] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudConfigWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudConfigWorkspacePtrOutput) Elem() ClusterCloudProviderVsphereCloudConfigWorkspaceOutput {
@@ -8601,12 +7832,6 @@ func (i ClusterCloudProviderVsphereCloudProviderArgs) ToClusterCloudProviderVsph
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProvider]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudProviderArgs) ToClusterCloudProviderVsphereCloudProviderPtrOutput() ClusterCloudProviderVsphereCloudProviderPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudProviderPtrOutputWithContext(context.Background())
 }
@@ -8648,12 +7873,6 @@ func (i *clusterCloudProviderVsphereCloudProviderPtrType) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProvider]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderOutput) ElementType() reflect.Type {
@@ -8676,12 +7895,6 @@ func (o ClusterCloudProviderVsphereCloudProviderOutput) ToClusterCloudProviderVs
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProvider) *ClusterCloudProviderVsphereCloudProvider {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderPtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProvider] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (list maxitems:1)
@@ -8731,12 +7944,6 @@ func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) ToClusterCloudProvide
 
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) ToClusterCloudProviderVsphereCloudProviderPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProvider] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderOutput {
@@ -8832,12 +8039,6 @@ func (i ClusterCloudProviderVsphereCloudProviderDiskArgs) ToClusterCloudProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderDiskOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderDiskArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderDisk] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderDisk]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudProviderDiskArgs) ToClusterCloudProviderVsphereCloudProviderDiskPtrOutput() ClusterCloudProviderVsphereCloudProviderDiskPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudProviderDiskPtrOutputWithContext(context.Background())
 }
@@ -8879,12 +8080,6 @@ func (i *clusterCloudProviderVsphereCloudProviderDiskPtrType) ToClusterCloudProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudProviderDiskPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderDisk] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderDisk]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderDiskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderDiskOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderDiskOutput) ElementType() reflect.Type {
@@ -8909,12 +8104,6 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ToClusterCloudProvid
 	}).(ClusterCloudProviderVsphereCloudProviderDiskPtrOutput)
 }
 
-func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderDisk] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderDisk]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderDiskOutput) ScsiControllerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderDisk) *string { return v.ScsiControllerType }).(pulumi.StringPtrOutput)
@@ -8932,12 +8121,6 @@ func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ToClusterCloudPro
 
 func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ToClusterCloudProviderVsphereCloudProviderDiskPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderDiskPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderDisk] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderDiskPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderDiskOutput {
@@ -9033,12 +8216,6 @@ func (i ClusterCloudProviderVsphereCloudProviderGlobalArgs) ToClusterCloudProvid
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderGlobalOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderGlobalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudProviderGlobalArgs) ToClusterCloudProviderVsphereCloudProviderGlobalPtrOutput() ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudProviderGlobalPtrOutputWithContext(context.Background())
 }
@@ -9080,12 +8257,6 @@ func (i *clusterCloudProviderVsphereCloudProviderGlobalPtrType) ToClusterCloudPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudProviderGlobalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderGlobal]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderGlobalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderGlobalOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderGlobalOutput) ElementType() reflect.Type {
@@ -9108,12 +8279,6 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) ToClusterCloudProv
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderGlobal) *ClusterCloudProviderVsphereCloudProviderGlobal {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderGlobal] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -9183,12 +8348,6 @@ func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ToClusterCloudP
 
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ToClusterCloudProviderVsphereCloudProviderGlobalPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderGlobal] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderGlobal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderGlobalPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderGlobalOutput {
@@ -9344,12 +8503,6 @@ func (i ClusterCloudProviderVsphereCloudProviderNetworkArgs) ToClusterCloudProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderNetworkOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderNetwork] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderNetwork]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudProviderNetworkArgs) ToClusterCloudProviderVsphereCloudProviderNetworkPtrOutput() ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudProviderNetworkPtrOutputWithContext(context.Background())
 }
@@ -9391,12 +8544,6 @@ func (i *clusterCloudProviderVsphereCloudProviderNetworkPtrType) ToClusterCloudP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudProviderNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderNetwork] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderNetwork]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderNetworkOutput) ElementType() reflect.Type {
@@ -9421,12 +8568,6 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) ToClusterCloudPro
 	}).(ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput)
 }
 
-func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderNetwork] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (string)
 func (o ClusterCloudProviderVsphereCloudProviderNetworkOutput) PublicNetwork() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderVsphereCloudProviderNetwork) *string { return v.PublicNetwork }).(pulumi.StringPtrOutput)
@@ -9444,12 +8585,6 @@ func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ToClusterCloud
 
 func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ToClusterCloudProviderVsphereCloudProviderNetworkPtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderNetwork] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderNetworkPtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderNetworkOutput {
@@ -9525,12 +8660,6 @@ func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs) ToClusterClou
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderVirtualCenter] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderVirtualCenter]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderVirtualCenterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput is an input type that accepts ClusterCloudProviderVsphereCloudProviderVirtualCenterArray and ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput values.
 // You can construct a concrete instance of `ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayInput` via:
 //
@@ -9556,12 +8685,6 @@ func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArray) ToClusterClo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderVirtualCenterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderVsphereCloudProviderVirtualCenter] {
-	return pulumix.Output[[]ClusterCloudProviderVsphereCloudProviderVirtualCenter]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ElementType() reflect.Type {
@@ -9574,12 +8697,6 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ToClusterCl
 
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ToClusterCloudProviderVsphereCloudProviderVirtualCenterOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderVirtualCenter] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderVirtualCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -9624,12 +8741,6 @@ func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) ToClus
 
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) ToClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCloudProviderVsphereCloudProviderVirtualCenter] {
-	return pulumix.Output[[]ClusterCloudProviderVsphereCloudProviderVirtualCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderVirtualCenterArrayOutput) Index(i pulumi.IntInput) ClusterCloudProviderVsphereCloudProviderVirtualCenterOutput {
@@ -9687,12 +8798,6 @@ func (i ClusterCloudProviderVsphereCloudProviderWorkspaceArgs) ToClusterCloudPro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderWorkspaceOutput)
 }
 
-func (i ClusterCloudProviderVsphereCloudProviderWorkspaceArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderWorkspace] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderWorkspace]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderWorkspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCloudProviderVsphereCloudProviderWorkspaceArgs) ToClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput() ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput {
 	return i.ToClusterCloudProviderVsphereCloudProviderWorkspacePtrOutputWithContext(context.Background())
 }
@@ -9734,12 +8839,6 @@ func (i *clusterCloudProviderVsphereCloudProviderWorkspacePtrType) ToClusterClou
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput)
 }
 
-func (i *clusterCloudProviderVsphereCloudProviderWorkspacePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderWorkspace] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderWorkspace]{
-		OutputState: i.ToClusterCloudProviderVsphereCloudProviderWorkspacePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCloudProviderVsphereCloudProviderWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ElementType() reflect.Type {
@@ -9762,12 +8861,6 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ToClusterCloudP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudProviderVsphereCloudProviderWorkspace) *ClusterCloudProviderVsphereCloudProviderWorkspace {
 		return &v
 	}).(ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput)
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCloudProviderVsphereCloudProviderWorkspace] {
-	return pulumix.Output[ClusterCloudProviderVsphereCloudProviderWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (string)
@@ -9807,12 +8900,6 @@ func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) ToClusterClo
 
 func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) ToClusterCloudProviderVsphereCloudProviderWorkspacePtrOutputWithContext(ctx context.Context) ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput {
 	return o
-}
-
-func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCloudProviderVsphereCloudProviderWorkspace] {
-	return pulumix.Output[*ClusterCloudProviderVsphereCloudProviderWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCloudProviderVsphereCloudProviderWorkspacePtrOutput) Elem() ClusterCloudProviderVsphereCloudProviderWorkspaceOutput {
@@ -9912,12 +8999,6 @@ func (i ClusterControlPlaneHostArgs) ToClusterControlPlaneHostOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneHostOutput)
 }
 
-func (i ClusterControlPlaneHostArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterControlPlaneHost] {
-	return pulumix.Output[ClusterControlPlaneHost]{
-		OutputState: i.ToClusterControlPlaneHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterControlPlaneHostArrayInput is an input type that accepts ClusterControlPlaneHostArray and ClusterControlPlaneHostArrayOutput values.
 // You can construct a concrete instance of `ClusterControlPlaneHostArrayInput` via:
 //
@@ -9943,12 +9024,6 @@ func (i ClusterControlPlaneHostArray) ToClusterControlPlaneHostArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneHostArrayOutput)
 }
 
-func (i ClusterControlPlaneHostArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterControlPlaneHost] {
-	return pulumix.Output[[]ClusterControlPlaneHost]{
-		OutputState: i.ToClusterControlPlaneHostArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterControlPlaneHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterControlPlaneHostOutput) ElementType() reflect.Type {
@@ -9961,12 +9036,6 @@ func (o ClusterControlPlaneHostOutput) ToClusterControlPlaneHostOutput() Cluster
 
 func (o ClusterControlPlaneHostOutput) ToClusterControlPlaneHostOutputWithContext(ctx context.Context) ClusterControlPlaneHostOutput {
 	return o
-}
-
-func (o ClusterControlPlaneHostOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterControlPlaneHost] {
-	return pulumix.Output[ClusterControlPlaneHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -9991,12 +9060,6 @@ func (o ClusterControlPlaneHostArrayOutput) ToClusterControlPlaneHostArrayOutput
 
 func (o ClusterControlPlaneHostArrayOutput) ToClusterControlPlaneHostArrayOutputWithContext(ctx context.Context) ClusterControlPlaneHostArrayOutput {
 	return o
-}
-
-func (o ClusterControlPlaneHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterControlPlaneHost] {
-	return pulumix.Output[[]ClusterControlPlaneHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterControlPlaneHostArrayOutput) Index(i pulumi.IntInput) ClusterControlPlaneHostOutput {
@@ -10054,12 +9117,6 @@ func (i ClusterDnsArgs) ToClusterDnsOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsOutput)
 }
 
-func (i ClusterDnsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterDns] {
-	return pulumix.Output[ClusterDns]{
-		OutputState: i.ToClusterDnsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterDnsArgs) ToClusterDnsPtrOutput() ClusterDnsPtrOutput {
 	return i.ToClusterDnsPtrOutputWithContext(context.Background())
 }
@@ -10101,12 +9158,6 @@ func (i *clusterDnsPtrType) ToClusterDnsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsPtrOutput)
 }
 
-func (i *clusterDnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterDns] {
-	return pulumix.Output[*ClusterDns]{
-		OutputState: i.ToClusterDnsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterDnsOutput struct{ *pulumi.OutputState }
 
 func (ClusterDnsOutput) ElementType() reflect.Type {
@@ -10129,12 +9180,6 @@ func (o ClusterDnsOutput) ToClusterDnsPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDns) *ClusterDns {
 		return &v
 	}).(ClusterDnsPtrOutput)
-}
-
-func (o ClusterDnsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDns] {
-	return pulumix.Output[ClusterDns]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Node selector key pair (map)
@@ -10174,12 +9219,6 @@ func (o ClusterDnsPtrOutput) ToClusterDnsPtrOutput() ClusterDnsPtrOutput {
 
 func (o ClusterDnsPtrOutput) ToClusterDnsPtrOutputWithContext(ctx context.Context) ClusterDnsPtrOutput {
 	return o
-}
-
-func (o ClusterDnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDns] {
-	return pulumix.Output[*ClusterDns]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterDnsPtrOutput) Elem() ClusterDnsOutput {
@@ -10279,12 +9318,6 @@ func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsNodelocalOutput)
 }
 
-func (i ClusterDnsNodelocalArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterDnsNodelocal] {
-	return pulumix.Output[ClusterDnsNodelocal]{
-		OutputState: i.ToClusterDnsNodelocalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterDnsNodelocalArgs) ToClusterDnsNodelocalPtrOutput() ClusterDnsNodelocalPtrOutput {
 	return i.ToClusterDnsNodelocalPtrOutputWithContext(context.Background())
 }
@@ -10326,12 +9359,6 @@ func (i *clusterDnsNodelocalPtrType) ToClusterDnsNodelocalPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDnsNodelocalPtrOutput)
 }
 
-func (i *clusterDnsNodelocalPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterDnsNodelocal] {
-	return pulumix.Output[*ClusterDnsNodelocal]{
-		OutputState: i.ToClusterDnsNodelocalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterDnsNodelocalOutput struct{ *pulumi.OutputState }
 
 func (ClusterDnsNodelocalOutput) ElementType() reflect.Type {
@@ -10356,12 +9383,6 @@ func (o ClusterDnsNodelocalOutput) ToClusterDnsNodelocalPtrOutputWithContext(ctx
 	}).(ClusterDnsNodelocalPtrOutput)
 }
 
-func (o ClusterDnsNodelocalOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDnsNodelocal] {
-	return pulumix.Output[ClusterDnsNodelocal]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Nodelocal dns ip address (string)
 func (o ClusterDnsNodelocalOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterDnsNodelocal) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -10384,12 +9405,6 @@ func (o ClusterDnsNodelocalPtrOutput) ToClusterDnsNodelocalPtrOutput() ClusterDn
 
 func (o ClusterDnsNodelocalPtrOutput) ToClusterDnsNodelocalPtrOutputWithContext(ctx context.Context) ClusterDnsNodelocalPtrOutput {
 	return o
-}
-
-func (o ClusterDnsNodelocalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDnsNodelocal] {
-	return pulumix.Output[*ClusterDnsNodelocal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterDnsNodelocalPtrOutput) Elem() ClusterDnsNodelocalOutput {
@@ -10459,12 +9474,6 @@ func (i ClusterEtcdHostArgs) ToClusterEtcdHostOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdHostOutput)
 }
 
-func (i ClusterEtcdHostArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEtcdHost] {
-	return pulumix.Output[ClusterEtcdHost]{
-		OutputState: i.ToClusterEtcdHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterEtcdHostArrayInput is an input type that accepts ClusterEtcdHostArray and ClusterEtcdHostArrayOutput values.
 // You can construct a concrete instance of `ClusterEtcdHostArrayInput` via:
 //
@@ -10490,12 +9499,6 @@ func (i ClusterEtcdHostArray) ToClusterEtcdHostArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdHostArrayOutput)
 }
 
-func (i ClusterEtcdHostArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterEtcdHost] {
-	return pulumix.Output[[]ClusterEtcdHost]{
-		OutputState: i.ToClusterEtcdHostArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterEtcdHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterEtcdHostOutput) ElementType() reflect.Type {
@@ -10508,12 +9511,6 @@ func (o ClusterEtcdHostOutput) ToClusterEtcdHostOutput() ClusterEtcdHostOutput {
 
 func (o ClusterEtcdHostOutput) ToClusterEtcdHostOutputWithContext(ctx context.Context) ClusterEtcdHostOutput {
 	return o
-}
-
-func (o ClusterEtcdHostOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEtcdHost] {
-	return pulumix.Output[ClusterEtcdHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -10538,12 +9535,6 @@ func (o ClusterEtcdHostArrayOutput) ToClusterEtcdHostArrayOutput() ClusterEtcdHo
 
 func (o ClusterEtcdHostArrayOutput) ToClusterEtcdHostArrayOutputWithContext(ctx context.Context) ClusterEtcdHostArrayOutput {
 	return o
-}
-
-func (o ClusterEtcdHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterEtcdHost] {
-	return pulumix.Output[[]ClusterEtcdHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterEtcdHostArrayOutput) Index(i pulumi.IntInput) ClusterEtcdHostOutput {
@@ -10589,12 +9580,6 @@ func (i ClusterInactiveHostArgs) ToClusterInactiveHostOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInactiveHostOutput)
 }
 
-func (i ClusterInactiveHostArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterInactiveHost] {
-	return pulumix.Output[ClusterInactiveHost]{
-		OutputState: i.ToClusterInactiveHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterInactiveHostArrayInput is an input type that accepts ClusterInactiveHostArray and ClusterInactiveHostArrayOutput values.
 // You can construct a concrete instance of `ClusterInactiveHostArrayInput` via:
 //
@@ -10620,12 +9605,6 @@ func (i ClusterInactiveHostArray) ToClusterInactiveHostArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInactiveHostArrayOutput)
 }
 
-func (i ClusterInactiveHostArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterInactiveHost] {
-	return pulumix.Output[[]ClusterInactiveHost]{
-		OutputState: i.ToClusterInactiveHostArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterInactiveHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterInactiveHostOutput) ElementType() reflect.Type {
@@ -10638,12 +9617,6 @@ func (o ClusterInactiveHostOutput) ToClusterInactiveHostOutput() ClusterInactive
 
 func (o ClusterInactiveHostOutput) ToClusterInactiveHostOutputWithContext(ctx context.Context) ClusterInactiveHostOutput {
 	return o
-}
-
-func (o ClusterInactiveHostOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterInactiveHost] {
-	return pulumix.Output[ClusterInactiveHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -10668,12 +9641,6 @@ func (o ClusterInactiveHostArrayOutput) ToClusterInactiveHostArrayOutput() Clust
 
 func (o ClusterInactiveHostArrayOutput) ToClusterInactiveHostArrayOutputWithContext(ctx context.Context) ClusterInactiveHostArrayOutput {
 	return o
-}
-
-func (o ClusterInactiveHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterInactiveHost] {
-	return pulumix.Output[[]ClusterInactiveHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterInactiveHostArrayOutput) Index(i pulumi.IntInput) ClusterInactiveHostOutput {
@@ -10745,12 +9712,6 @@ func (i ClusterIngressArgs) ToClusterIngressOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIngressOutput)
 }
 
-func (i ClusterIngressArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterIngress] {
-	return pulumix.Output[ClusterIngress]{
-		OutputState: i.ToClusterIngressOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterIngressArgs) ToClusterIngressPtrOutput() ClusterIngressPtrOutput {
 	return i.ToClusterIngressPtrOutputWithContext(context.Background())
 }
@@ -10792,12 +9753,6 @@ func (i *clusterIngressPtrType) ToClusterIngressPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIngressPtrOutput)
 }
 
-func (i *clusterIngressPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterIngress] {
-	return pulumix.Output[*ClusterIngress]{
-		OutputState: i.ToClusterIngressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterIngressOutput struct{ *pulumi.OutputState }
 
 func (ClusterIngressOutput) ElementType() reflect.Type {
@@ -10820,12 +9775,6 @@ func (o ClusterIngressOutput) ToClusterIngressPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIngress) *ClusterIngress {
 		return &v
 	}).(ClusterIngressPtrOutput)
-}
-
-func (o ClusterIngressOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterIngress] {
-	return pulumix.Output[ClusterIngress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterIngressOutput) DefaultBackend() pulumi.BoolPtrOutput {
@@ -10884,12 +9833,6 @@ func (o ClusterIngressPtrOutput) ToClusterIngressPtrOutput() ClusterIngressPtrOu
 
 func (o ClusterIngressPtrOutput) ToClusterIngressPtrOutputWithContext(ctx context.Context) ClusterIngressPtrOutput {
 	return o
-}
-
-func (o ClusterIngressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterIngress] {
-	return pulumix.Output[*ClusterIngress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterIngressPtrOutput) Elem() ClusterIngressOutput {
@@ -11032,12 +9975,6 @@ func (i ClusterMonitoringArgs) ToClusterMonitoringOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringOutput)
 }
 
-func (i ClusterMonitoringArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMonitoring] {
-	return pulumix.Output[ClusterMonitoring]{
-		OutputState: i.ToClusterMonitoringOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterMonitoringArgs) ToClusterMonitoringPtrOutput() ClusterMonitoringPtrOutput {
 	return i.ToClusterMonitoringPtrOutputWithContext(context.Background())
 }
@@ -11079,12 +10016,6 @@ func (i *clusterMonitoringPtrType) ToClusterMonitoringPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringPtrOutput)
 }
 
-func (i *clusterMonitoringPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterMonitoring] {
-	return pulumix.Output[*ClusterMonitoring]{
-		OutputState: i.ToClusterMonitoringPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMonitoringOutput struct{ *pulumi.OutputState }
 
 func (ClusterMonitoringOutput) ElementType() reflect.Type {
@@ -11107,12 +10038,6 @@ func (o ClusterMonitoringOutput) ToClusterMonitoringPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMonitoring) *ClusterMonitoring {
 		return &v
 	}).(ClusterMonitoringPtrOutput)
-}
-
-func (o ClusterMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMonitoring] {
-	return pulumix.Output[ClusterMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Node selector key pair (map)
@@ -11142,12 +10067,6 @@ func (o ClusterMonitoringPtrOutput) ToClusterMonitoringPtrOutput() ClusterMonito
 
 func (o ClusterMonitoringPtrOutput) ToClusterMonitoringPtrOutputWithContext(ctx context.Context) ClusterMonitoringPtrOutput {
 	return o
-}
-
-func (o ClusterMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterMonitoring] {
-	return pulumix.Output[*ClusterMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMonitoringPtrOutput) Elem() ClusterMonitoringOutput {
@@ -11251,12 +10170,6 @@ func (i ClusterNetworkArgs) ToClusterNetworkOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkOutput)
 }
 
-func (i ClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetwork] {
-	return pulumix.Output[ClusterNetwork]{
-		OutputState: i.ToClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkArgs) ToClusterNetworkPtrOutput() ClusterNetworkPtrOutput {
 	return i.ToClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -11298,12 +10211,6 @@ func (i *clusterNetworkPtrType) ToClusterNetworkPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkPtrOutput)
 }
 
-func (i *clusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetwork] {
-	return pulumix.Output[*ClusterNetwork]{
-		OutputState: i.ToClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkOutput) ElementType() reflect.Type {
@@ -11326,12 +10233,6 @@ func (o ClusterNetworkOutput) ToClusterNetworkPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetwork) *ClusterNetwork {
 		return &v
 	}).(ClusterNetworkPtrOutput)
-}
-
-func (o ClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetwork] {
-	return pulumix.Output[ClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Aci network provider config (list maxitems:1)
@@ -11386,12 +10287,6 @@ func (o ClusterNetworkPtrOutput) ToClusterNetworkPtrOutput() ClusterNetworkPtrOu
 
 func (o ClusterNetworkPtrOutput) ToClusterNetworkPtrOutputWithContext(ctx context.Context) ClusterNetworkPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetwork] {
-	return pulumix.Output[*ClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkPtrOutput) Elem() ClusterNetworkOutput {
@@ -11609,12 +10504,6 @@ func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProvider
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkAciNetworkProviderOutput)
 }
 
-func (i ClusterNetworkAciNetworkProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkAciNetworkProvider] {
-	return pulumix.Output[ClusterNetworkAciNetworkProvider]{
-		OutputState: i.ToClusterNetworkAciNetworkProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkAciNetworkProviderArgs) ToClusterNetworkAciNetworkProviderPtrOutput() ClusterNetworkAciNetworkProviderPtrOutput {
 	return i.ToClusterNetworkAciNetworkProviderPtrOutputWithContext(context.Background())
 }
@@ -11656,12 +10545,6 @@ func (i *clusterNetworkAciNetworkProviderPtrType) ToClusterNetworkAciNetworkProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkAciNetworkProviderPtrOutput)
 }
 
-func (i *clusterNetworkAciNetworkProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkAciNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkAciNetworkProvider]{
-		OutputState: i.ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkAciNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkAciNetworkProviderOutput) ElementType() reflect.Type {
@@ -11684,12 +10567,6 @@ func (o ClusterNetworkAciNetworkProviderOutput) ToClusterNetworkAciNetworkProvid
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkAciNetworkProvider) *ClusterNetworkAciNetworkProvider {
 		return &v
 	}).(ClusterNetworkAciNetworkProviderPtrOutput)
-}
-
-func (o ClusterNetworkAciNetworkProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkAciNetworkProvider] {
-	return pulumix.Output[ClusterNetworkAciNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Attachment entity profile name on aci (string)
@@ -11824,12 +10701,6 @@ func (o ClusterNetworkAciNetworkProviderPtrOutput) ToClusterNetworkAciNetworkPro
 
 func (o ClusterNetworkAciNetworkProviderPtrOutput) ToClusterNetworkAciNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkAciNetworkProviderPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkAciNetworkProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkAciNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkAciNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkAciNetworkProviderPtrOutput) Elem() ClusterNetworkAciNetworkProviderOutput {
@@ -12115,12 +10986,6 @@ func (i ClusterNetworkCalicoNetworkProviderArgs) ToClusterNetworkCalicoNetworkPr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCalicoNetworkProviderOutput)
 }
 
-func (i ClusterNetworkCalicoNetworkProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkCalicoNetworkProvider] {
-	return pulumix.Output[ClusterNetworkCalicoNetworkProvider]{
-		OutputState: i.ToClusterNetworkCalicoNetworkProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkCalicoNetworkProviderArgs) ToClusterNetworkCalicoNetworkProviderPtrOutput() ClusterNetworkCalicoNetworkProviderPtrOutput {
 	return i.ToClusterNetworkCalicoNetworkProviderPtrOutputWithContext(context.Background())
 }
@@ -12162,12 +11027,6 @@ func (i *clusterNetworkCalicoNetworkProviderPtrType) ToClusterNetworkCalicoNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
-func (i *clusterNetworkCalicoNetworkProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkCalicoNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkCalicoNetworkProvider]{
-		OutputState: i.ToClusterNetworkCalicoNetworkProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkCalicoNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCalicoNetworkProviderOutput) ElementType() reflect.Type {
@@ -12192,12 +11051,6 @@ func (o ClusterNetworkCalicoNetworkProviderOutput) ToClusterNetworkCalicoNetwork
 	}).(ClusterNetworkCalicoNetworkProviderPtrOutput)
 }
 
-func (o ClusterNetworkCalicoNetworkProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkCalicoNetworkProvider] {
-	return pulumix.Output[ClusterNetworkCalicoNetworkProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 // RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 func (o ClusterNetworkCalicoNetworkProviderOutput) CloudProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkCalicoNetworkProvider) *string { return v.CloudProvider }).(pulumi.StringPtrOutput)
@@ -12215,12 +11068,6 @@ func (o ClusterNetworkCalicoNetworkProviderPtrOutput) ToClusterNetworkCalicoNetw
 
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) ToClusterNetworkCalicoNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkCalicoNetworkProviderPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkCalicoNetworkProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkCalicoNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkCalicoNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkCalicoNetworkProviderPtrOutput) Elem() ClusterNetworkCalicoNetworkProviderOutput {
@@ -12276,12 +11123,6 @@ func (i ClusterNetworkCanalNetworkProviderArgs) ToClusterNetworkCanalNetworkProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCanalNetworkProviderOutput)
 }
 
-func (i ClusterNetworkCanalNetworkProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkCanalNetworkProvider] {
-	return pulumix.Output[ClusterNetworkCanalNetworkProvider]{
-		OutputState: i.ToClusterNetworkCanalNetworkProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkCanalNetworkProviderArgs) ToClusterNetworkCanalNetworkProviderPtrOutput() ClusterNetworkCanalNetworkProviderPtrOutput {
 	return i.ToClusterNetworkCanalNetworkProviderPtrOutputWithContext(context.Background())
 }
@@ -12323,12 +11164,6 @@ func (i *clusterNetworkCanalNetworkProviderPtrType) ToClusterNetworkCanalNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
-func (i *clusterNetworkCanalNetworkProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkCanalNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkCanalNetworkProvider]{
-		OutputState: i.ToClusterNetworkCanalNetworkProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkCanalNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkCanalNetworkProviderOutput) ElementType() reflect.Type {
@@ -12353,12 +11188,6 @@ func (o ClusterNetworkCanalNetworkProviderOutput) ToClusterNetworkCanalNetworkPr
 	}).(ClusterNetworkCanalNetworkProviderPtrOutput)
 }
 
-func (o ClusterNetworkCanalNetworkProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkCanalNetworkProvider] {
-	return pulumix.Output[ClusterNetworkCanalNetworkProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Flannel network interface (string)
 func (o ClusterNetworkCanalNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkCanalNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
@@ -12376,12 +11205,6 @@ func (o ClusterNetworkCanalNetworkProviderPtrOutput) ToClusterNetworkCanalNetwor
 
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) ToClusterNetworkCanalNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkCanalNetworkProviderPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkCanalNetworkProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkCanalNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkCanalNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkCanalNetworkProviderPtrOutput) Elem() ClusterNetworkCanalNetworkProviderOutput {
@@ -12437,12 +11260,6 @@ func (i ClusterNetworkFlannelNetworkProviderArgs) ToClusterNetworkFlannelNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkFlannelNetworkProviderOutput)
 }
 
-func (i ClusterNetworkFlannelNetworkProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkFlannelNetworkProvider] {
-	return pulumix.Output[ClusterNetworkFlannelNetworkProvider]{
-		OutputState: i.ToClusterNetworkFlannelNetworkProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkFlannelNetworkProviderArgs) ToClusterNetworkFlannelNetworkProviderPtrOutput() ClusterNetworkFlannelNetworkProviderPtrOutput {
 	return i.ToClusterNetworkFlannelNetworkProviderPtrOutputWithContext(context.Background())
 }
@@ -12484,12 +11301,6 @@ func (i *clusterNetworkFlannelNetworkProviderPtrType) ToClusterNetworkFlannelNet
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
-func (i *clusterNetworkFlannelNetworkProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkFlannelNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkFlannelNetworkProvider]{
-		OutputState: i.ToClusterNetworkFlannelNetworkProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkFlannelNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkFlannelNetworkProviderOutput) ElementType() reflect.Type {
@@ -12514,12 +11325,6 @@ func (o ClusterNetworkFlannelNetworkProviderOutput) ToClusterNetworkFlannelNetwo
 	}).(ClusterNetworkFlannelNetworkProviderPtrOutput)
 }
 
-func (o ClusterNetworkFlannelNetworkProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkFlannelNetworkProvider] {
-	return pulumix.Output[ClusterNetworkFlannelNetworkProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Flannel network interface (string)
 func (o ClusterNetworkFlannelNetworkProviderOutput) Iface() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkFlannelNetworkProvider) *string { return v.Iface }).(pulumi.StringPtrOutput)
@@ -12537,12 +11342,6 @@ func (o ClusterNetworkFlannelNetworkProviderPtrOutput) ToClusterNetworkFlannelNe
 
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) ToClusterNetworkFlannelNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkFlannelNetworkProviderPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkFlannelNetworkProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkFlannelNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkFlannelNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkFlannelNetworkProviderPtrOutput) Elem() ClusterNetworkFlannelNetworkProviderOutput {
@@ -12598,12 +11397,6 @@ func (i ClusterNetworkWeaveNetworkProviderArgs) ToClusterNetworkWeaveNetworkProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkWeaveNetworkProviderOutput)
 }
 
-func (i ClusterNetworkWeaveNetworkProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkWeaveNetworkProvider] {
-	return pulumix.Output[ClusterNetworkWeaveNetworkProvider]{
-		OutputState: i.ToClusterNetworkWeaveNetworkProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNetworkWeaveNetworkProviderArgs) ToClusterNetworkWeaveNetworkProviderPtrOutput() ClusterNetworkWeaveNetworkProviderPtrOutput {
 	return i.ToClusterNetworkWeaveNetworkProviderPtrOutputWithContext(context.Background())
 }
@@ -12645,12 +11438,6 @@ func (i *clusterNetworkWeaveNetworkProviderPtrType) ToClusterNetworkWeaveNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
-func (i *clusterNetworkWeaveNetworkProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkWeaveNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkWeaveNetworkProvider]{
-		OutputState: i.ToClusterNetworkWeaveNetworkProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNetworkWeaveNetworkProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterNetworkWeaveNetworkProviderOutput) ElementType() reflect.Type {
@@ -12675,12 +11462,6 @@ func (o ClusterNetworkWeaveNetworkProviderOutput) ToClusterNetworkWeaveNetworkPr
 	}).(ClusterNetworkWeaveNetworkProviderPtrOutput)
 }
 
-func (o ClusterNetworkWeaveNetworkProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNetworkWeaveNetworkProvider] {
-	return pulumix.Output[ClusterNetworkWeaveNetworkProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Registry password (string)
 func (o ClusterNetworkWeaveNetworkProviderOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNetworkWeaveNetworkProvider) string { return v.Password }).(pulumi.StringOutput)
@@ -12698,12 +11479,6 @@ func (o ClusterNetworkWeaveNetworkProviderPtrOutput) ToClusterNetworkWeaveNetwor
 
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) ToClusterNetworkWeaveNetworkProviderPtrOutputWithContext(ctx context.Context) ClusterNetworkWeaveNetworkProviderPtrOutput {
 	return o
-}
-
-func (o ClusterNetworkWeaveNetworkProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNetworkWeaveNetworkProvider] {
-	return pulumix.Output[*ClusterNetworkWeaveNetworkProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNetworkWeaveNetworkProviderPtrOutput) Elem() ClusterNetworkWeaveNetworkProviderOutput {
@@ -12819,12 +11594,6 @@ func (i ClusterNodeArgs) ToClusterNodeOutputWithContext(ctx context.Context) Clu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeOutput)
 }
 
-func (i ClusterNodeArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNode] {
-	return pulumix.Output[ClusterNode]{
-		OutputState: i.ToClusterNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterNodeArrayInput is an input type that accepts ClusterNodeArray and ClusterNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeArrayInput` via:
 //
@@ -12850,12 +11619,6 @@ func (i ClusterNodeArray) ToClusterNodeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeArrayOutput)
 }
 
-func (i ClusterNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNode] {
-	return pulumix.Output[[]ClusterNode]{
-		OutputState: i.ToClusterNodeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeOutput) ElementType() reflect.Type {
@@ -12868,12 +11631,6 @@ func (o ClusterNodeOutput) ToClusterNodeOutput() ClusterNodeOutput {
 
 func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) ClusterNodeOutput {
 	return o
-}
-
-func (o ClusterNodeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNode] {
-	return pulumix.Output[ClusterNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -12970,12 +11727,6 @@ func (o ClusterNodeArrayOutput) ToClusterNodeArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ClusterNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNode] {
-	return pulumix.Output[[]ClusterNode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNode {
 		return vs[0].([]ClusterNode)[vs[1].(int)]
@@ -13023,12 +11774,6 @@ func (i ClusterNodeTaintArgs) ToClusterNodeTaintOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTaintOutput)
 }
 
-func (i ClusterNodeTaintArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTaint] {
-	return pulumix.Output[ClusterNodeTaint]{
-		OutputState: i.ToClusterNodeTaintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterNodeTaintArrayInput is an input type that accepts ClusterNodeTaintArray and ClusterNodeTaintArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeTaintArrayInput` via:
 //
@@ -13054,12 +11799,6 @@ func (i ClusterNodeTaintArray) ToClusterNodeTaintArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTaintArrayOutput)
 }
 
-func (i ClusterNodeTaintArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNodeTaint] {
-	return pulumix.Output[[]ClusterNodeTaint]{
-		OutputState: i.ToClusterNodeTaintArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeTaintOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTaintOutput) ElementType() reflect.Type {
@@ -13072,12 +11811,6 @@ func (o ClusterNodeTaintOutput) ToClusterNodeTaintOutput() ClusterNodeTaintOutpu
 
 func (o ClusterNodeTaintOutput) ToClusterNodeTaintOutputWithContext(ctx context.Context) ClusterNodeTaintOutput {
 	return o
-}
-
-func (o ClusterNodeTaintOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTaint] {
-	return pulumix.Output[ClusterNodeTaint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
@@ -13107,12 +11840,6 @@ func (o ClusterNodeTaintArrayOutput) ToClusterNodeTaintArrayOutput() ClusterNode
 
 func (o ClusterNodeTaintArrayOutput) ToClusterNodeTaintArrayOutputWithContext(ctx context.Context) ClusterNodeTaintArrayOutput {
 	return o
-}
-
-func (o ClusterNodeTaintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNodeTaint] {
-	return pulumix.Output[[]ClusterNodeTaint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNodeTaintArrayOutput) Index(i pulumi.IntInput) ClusterNodeTaintOutput {
@@ -13166,12 +11893,6 @@ func (i ClusterPrivateRegistryArgs) ToClusterPrivateRegistryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrivateRegistryOutput)
 }
 
-func (i ClusterPrivateRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterPrivateRegistry] {
-	return pulumix.Output[ClusterPrivateRegistry]{
-		OutputState: i.ToClusterPrivateRegistryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterPrivateRegistryArrayInput is an input type that accepts ClusterPrivateRegistryArray and ClusterPrivateRegistryArrayOutput values.
 // You can construct a concrete instance of `ClusterPrivateRegistryArrayInput` via:
 //
@@ -13197,12 +11918,6 @@ func (i ClusterPrivateRegistryArray) ToClusterPrivateRegistryArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrivateRegistryArrayOutput)
 }
 
-func (i ClusterPrivateRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPrivateRegistry] {
-	return pulumix.Output[[]ClusterPrivateRegistry]{
-		OutputState: i.ToClusterPrivateRegistryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterPrivateRegistryOutput struct{ *pulumi.OutputState }
 
 func (ClusterPrivateRegistryOutput) ElementType() reflect.Type {
@@ -13215,12 +11930,6 @@ func (o ClusterPrivateRegistryOutput) ToClusterPrivateRegistryOutput() ClusterPr
 
 func (o ClusterPrivateRegistryOutput) ToClusterPrivateRegistryOutputWithContext(ctx context.Context) ClusterPrivateRegistryOutput {
 	return o
-}
-
-func (o ClusterPrivateRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterPrivateRegistry] {
-	return pulumix.Output[ClusterPrivateRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set as default registry. Default `false` (bool)
@@ -13255,12 +11964,6 @@ func (o ClusterPrivateRegistryArrayOutput) ToClusterPrivateRegistryArrayOutput()
 
 func (o ClusterPrivateRegistryArrayOutput) ToClusterPrivateRegistryArrayOutputWithContext(ctx context.Context) ClusterPrivateRegistryArrayOutput {
 	return o
-}
-
-func (o ClusterPrivateRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPrivateRegistry] {
-	return pulumix.Output[[]ClusterPrivateRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterPrivateRegistryArrayOutput) Index(i pulumi.IntInput) ClusterPrivateRegistryOutput {
@@ -13306,12 +12009,6 @@ func (i ClusterRestoreArgs) ToClusterRestoreOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreOutput)
 }
 
-func (i ClusterRestoreArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterRestore] {
-	return pulumix.Output[ClusterRestore]{
-		OutputState: i.ToClusterRestoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterRestoreArgs) ToClusterRestorePtrOutput() ClusterRestorePtrOutput {
 	return i.ToClusterRestorePtrOutputWithContext(context.Background())
 }
@@ -13353,12 +12050,6 @@ func (i *clusterRestorePtrType) ToClusterRestorePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestorePtrOutput)
 }
 
-func (i *clusterRestorePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterRestore] {
-	return pulumix.Output[*ClusterRestore]{
-		OutputState: i.ToClusterRestorePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterRestoreOutput struct{ *pulumi.OutputState }
 
 func (ClusterRestoreOutput) ElementType() reflect.Type {
@@ -13383,12 +12074,6 @@ func (o ClusterRestoreOutput) ToClusterRestorePtrOutputWithContext(ctx context.C
 	}).(ClusterRestorePtrOutput)
 }
 
-func (o ClusterRestoreOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterRestore] {
-	return pulumix.Output[ClusterRestore]{
-		OutputState: o.OutputState,
-	}
-}
-
 // RKE k8s cluster restore configuration (list maxitems:1)
 func (o ClusterRestoreOutput) Restore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterRestore) *bool { return v.Restore }).(pulumi.BoolPtrOutput)
@@ -13411,12 +12096,6 @@ func (o ClusterRestorePtrOutput) ToClusterRestorePtrOutput() ClusterRestorePtrOu
 
 func (o ClusterRestorePtrOutput) ToClusterRestorePtrOutputWithContext(ctx context.Context) ClusterRestorePtrOutput {
 	return o
-}
-
-func (o ClusterRestorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterRestore] {
-	return pulumix.Output[*ClusterRestore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterRestorePtrOutput) Elem() ClusterRestoreOutput {
@@ -13486,12 +12165,6 @@ func (i ClusterRotateCertificatesArgs) ToClusterRotateCertificatesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRotateCertificatesOutput)
 }
 
-func (i ClusterRotateCertificatesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterRotateCertificates] {
-	return pulumix.Output[ClusterRotateCertificates]{
-		OutputState: i.ToClusterRotateCertificatesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterRotateCertificatesArgs) ToClusterRotateCertificatesPtrOutput() ClusterRotateCertificatesPtrOutput {
 	return i.ToClusterRotateCertificatesPtrOutputWithContext(context.Background())
 }
@@ -13533,12 +12206,6 @@ func (i *clusterRotateCertificatesPtrType) ToClusterRotateCertificatesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRotateCertificatesPtrOutput)
 }
 
-func (i *clusterRotateCertificatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterRotateCertificates] {
-	return pulumix.Output[*ClusterRotateCertificates]{
-		OutputState: i.ToClusterRotateCertificatesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterRotateCertificatesOutput struct{ *pulumi.OutputState }
 
 func (ClusterRotateCertificatesOutput) ElementType() reflect.Type {
@@ -13563,12 +12230,6 @@ func (o ClusterRotateCertificatesOutput) ToClusterRotateCertificatesPtrOutputWit
 	}).(ClusterRotateCertificatesPtrOutput)
 }
 
-func (o ClusterRotateCertificatesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterRotateCertificates] {
-	return pulumix.Output[ClusterRotateCertificates]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Rotate CA Certificates. Default `false` (bool)
 func (o ClusterRotateCertificatesOutput) CaCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterRotateCertificates) *bool { return v.CaCertificates }).(pulumi.BoolPtrOutput)
@@ -13591,12 +12252,6 @@ func (o ClusterRotateCertificatesPtrOutput) ToClusterRotateCertificatesPtrOutput
 
 func (o ClusterRotateCertificatesPtrOutput) ToClusterRotateCertificatesPtrOutputWithContext(ctx context.Context) ClusterRotateCertificatesPtrOutput {
 	return o
-}
-
-func (o ClusterRotateCertificatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterRotateCertificates] {
-	return pulumix.Output[*ClusterRotateCertificates]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterRotateCertificatesPtrOutput) Elem() ClusterRotateCertificatesOutput {
@@ -13806,12 +12461,6 @@ func (i ClusterRunningSystemImageArgs) ToClusterRunningSystemImageOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImageOutput)
 }
 
-func (i ClusterRunningSystemImageArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterRunningSystemImage] {
-	return pulumix.Output[ClusterRunningSystemImage]{
-		OutputState: i.ToClusterRunningSystemImageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterRunningSystemImageArrayInput is an input type that accepts ClusterRunningSystemImageArray and ClusterRunningSystemImageArrayOutput values.
 // You can construct a concrete instance of `ClusterRunningSystemImageArrayInput` via:
 //
@@ -13837,12 +12486,6 @@ func (i ClusterRunningSystemImageArray) ToClusterRunningSystemImageArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRunningSystemImageArrayOutput)
 }
 
-func (i ClusterRunningSystemImageArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterRunningSystemImage] {
-	return pulumix.Output[[]ClusterRunningSystemImage]{
-		OutputState: i.ToClusterRunningSystemImageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterRunningSystemImageOutput struct{ *pulumi.OutputState }
 
 func (ClusterRunningSystemImageOutput) ElementType() reflect.Type {
@@ -13855,12 +12498,6 @@ func (o ClusterRunningSystemImageOutput) ToClusterRunningSystemImageOutput() Clu
 
 func (o ClusterRunningSystemImageOutput) ToClusterRunningSystemImageOutputWithContext(ctx context.Context) ClusterRunningSystemImageOutput {
 	return o
-}
-
-func (o ClusterRunningSystemImageOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterRunningSystemImage] {
-	return pulumix.Output[ClusterRunningSystemImage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Docker image for aciCniDeployContainer (string)
@@ -14062,12 +12699,6 @@ func (o ClusterRunningSystemImageArrayOutput) ToClusterRunningSystemImageArrayOu
 	return o
 }
 
-func (o ClusterRunningSystemImageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterRunningSystemImage] {
-	return pulumix.Output[[]ClusterRunningSystemImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterRunningSystemImageArrayOutput) Index(i pulumi.IntInput) ClusterRunningSystemImageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRunningSystemImage {
 		return vs[0].([]ClusterRunningSystemImage)[vs[1].(int)]
@@ -14127,12 +12758,6 @@ func (i ClusterServicesArgs) ToClusterServicesOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesOutput)
 }
 
-func (i ClusterServicesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServices] {
-	return pulumix.Output[ClusterServices]{
-		OutputState: i.ToClusterServicesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesArgs) ToClusterServicesPtrOutput() ClusterServicesPtrOutput {
 	return i.ToClusterServicesPtrOutputWithContext(context.Background())
 }
@@ -14174,12 +12799,6 @@ func (i *clusterServicesPtrType) ToClusterServicesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesPtrOutput)
 }
 
-func (i *clusterServicesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServices] {
-	return pulumix.Output[*ClusterServices]{
-		OutputState: i.ToClusterServicesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesOutput) ElementType() reflect.Type {
@@ -14202,12 +12821,6 @@ func (o ClusterServicesOutput) ToClusterServicesPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServices) *ClusterServices {
 		return &v
 	}).(ClusterServicesPtrOutput)
-}
-
-func (o ClusterServicesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServices] {
-	return pulumix.Output[ClusterServices]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Docker image for etcd (string)
@@ -14252,12 +12865,6 @@ func (o ClusterServicesPtrOutput) ToClusterServicesPtrOutput() ClusterServicesPt
 
 func (o ClusterServicesPtrOutput) ToClusterServicesPtrOutputWithContext(ctx context.Context) ClusterServicesPtrOutput {
 	return o
-}
-
-func (o ClusterServicesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServices] {
-	return pulumix.Output[*ClusterServices]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesPtrOutput) Elem() ClusterServicesOutput {
@@ -14419,12 +13026,6 @@ func (i ClusterServicesEtcdArgs) ToClusterServicesEtcdOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdOutput)
 }
 
-func (i ClusterServicesEtcdArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcd] {
-	return pulumix.Output[ClusterServicesEtcd]{
-		OutputState: i.ToClusterServicesEtcdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdArgs) ToClusterServicesEtcdPtrOutput() ClusterServicesEtcdPtrOutput {
 	return i.ToClusterServicesEtcdPtrOutputWithContext(context.Background())
 }
@@ -14466,12 +13067,6 @@ func (i *clusterServicesEtcdPtrType) ToClusterServicesEtcdPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdPtrOutput)
 }
 
-func (i *clusterServicesEtcdPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcd] {
-	return pulumix.Output[*ClusterServicesEtcd]{
-		OutputState: i.ToClusterServicesEtcdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdOutput) ElementType() reflect.Type {
@@ -14494,12 +13089,6 @@ func (o ClusterServicesEtcdOutput) ToClusterServicesEtcdPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcd) *ClusterServicesEtcd {
 		return &v
 	}).(ClusterServicesEtcdPtrOutput)
-}
-
-func (o ClusterServicesEtcdOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcd] {
-	return pulumix.Output[ClusterServicesEtcd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -14589,12 +13178,6 @@ func (o ClusterServicesEtcdPtrOutput) ToClusterServicesEtcdPtrOutput() ClusterSe
 
 func (o ClusterServicesEtcdPtrOutput) ToClusterServicesEtcdPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcd] {
-	return pulumix.Output[*ClusterServicesEtcd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdPtrOutput) Elem() ClusterServicesEtcdOutput {
@@ -14810,12 +13393,6 @@ func (i ClusterServicesEtcdBackupConfigArgs) ToClusterServicesEtcdBackupConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigOutput)
 }
 
-func (i ClusterServicesEtcdBackupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdBackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdBackupConfig]{
-		OutputState: i.ToClusterServicesEtcdBackupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdBackupConfigArgs) ToClusterServicesEtcdBackupConfigPtrOutput() ClusterServicesEtcdBackupConfigPtrOutput {
 	return i.ToClusterServicesEtcdBackupConfigPtrOutputWithContext(context.Background())
 }
@@ -14857,12 +13434,6 @@ func (i *clusterServicesEtcdBackupConfigPtrType) ToClusterServicesEtcdBackupConf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
 
-func (i *clusterServicesEtcdBackupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdBackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdBackupConfig]{
-		OutputState: i.ToClusterServicesEtcdBackupConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdBackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigOutput) ElementType() reflect.Type {
@@ -14885,12 +13456,6 @@ func (o ClusterServicesEtcdBackupConfigOutput) ToClusterServicesEtcdBackupConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdBackupConfig) *ClusterServicesEtcdBackupConfig {
 		return &v
 	}).(ClusterServicesEtcdBackupConfigPtrOutput)
-}
-
-func (o ClusterServicesEtcdBackupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdBackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdBackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable secrets encryption (bool)
@@ -14937,12 +13502,6 @@ func (o ClusterServicesEtcdBackupConfigPtrOutput) ToClusterServicesEtcdBackupCon
 
 func (o ClusterServicesEtcdBackupConfigPtrOutput) ToClusterServicesEtcdBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdBackupConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdBackupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdBackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdBackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdBackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigOutput {
@@ -15072,12 +13631,6 @@ func (i ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ToClusterServicesEtcd
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigS3BackupConfigOutput)
 }
 
-func (i ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdBackupConfigS3BackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdBackupConfigS3BackupConfig]{
-		OutputState: i.ToClusterServicesEtcdBackupConfigS3BackupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput {
 	return i.ToClusterServicesEtcdBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
 }
@@ -15119,12 +13672,6 @@ func (i *clusterServicesEtcdBackupConfigS3BackupConfigPtrType) ToClusterServices
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
 }
 
-func (i *clusterServicesEtcdBackupConfigS3BackupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdBackupConfigS3BackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdBackupConfigS3BackupConfig]{
-		OutputState: i.ToClusterServicesEtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdBackupConfigS3BackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
@@ -15147,12 +13694,6 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ToClusterServicesEt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdBackupConfigS3BackupConfig) *ClusterServicesEtcdBackupConfigS3BackupConfig {
 		return &v
 	}).(ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput)
-}
-
-func (o ClusterServicesEtcdBackupConfigS3BackupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdBackupConfigS3BackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdBackupConfigS3BackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access key for S3 service (string)
@@ -15202,12 +13743,6 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ToClusterService
 
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ToClusterServicesEtcdBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdBackupConfigS3BackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdBackupConfigS3BackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdBackupConfigS3BackupConfigOutput {
@@ -15379,12 +13914,6 @@ func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedOutput)
 }
 
-func (i ClusterServicesEtcdDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecated] {
-	return pulumix.Output[ClusterServicesEtcdDeprecated]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdDeprecatedArgs) ToClusterServicesEtcdDeprecatedPtrOutput() ClusterServicesEtcdDeprecatedPtrOutput {
 	return i.ToClusterServicesEtcdDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -15426,12 +13955,6 @@ func (i *clusterServicesEtcdDeprecatedPtrType) ToClusterServicesEtcdDeprecatedPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesEtcdDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecated] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecated]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedOutput) ElementType() reflect.Type {
@@ -15454,12 +13977,6 @@ func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecated {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesEtcdDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecated] {
-	return pulumix.Output[ClusterServicesEtcdDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
@@ -15551,12 +14068,6 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedP
 
 func (o ClusterServicesEtcdDeprecatedPtrOutput) ToClusterServicesEtcdDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecated] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Elem() ClusterServicesEtcdDeprecatedOutput {
@@ -15772,12 +14283,6 @@ func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDepr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigOutput)
 }
 
-func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfig]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedBackupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdDeprecatedBackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
 	return i.ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(context.Background())
 }
@@ -15819,12 +14324,6 @@ func (i *clusterServicesEtcdDeprecatedBackupConfigPtrType) ToClusterServicesEtcd
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
 }
 
-func (i *clusterServicesEtcdDeprecatedBackupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfig]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdDeprecatedBackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigOutput) ElementType() reflect.Type {
@@ -15847,12 +14346,6 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToClusterServicesEtcdDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecatedBackupConfig) *ClusterServicesEtcdDeprecatedBackupConfig {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigPtrOutput)
-}
-
-func (o ClusterServicesEtcdDeprecatedBackupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable secrets encryption (bool)
@@ -15899,12 +14392,6 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtc
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigOutput {
@@ -16034,12 +14521,6 @@ func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterSe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput)
 }
 
-func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigArgs) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
 	return i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(context.Background())
 }
@@ -16081,12 +14562,6 @@ func (i *clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ToClust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
 }
 
-func (i *clusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig]{
-		OutputState: i.ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ElementType() reflect.Type {
@@ -16109,12 +14584,6 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToCluster
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig) *ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
 		return &v
 	}).(ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput)
-}
-
-func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig] {
-	return pulumix.Output[ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access key for S3 service (string)
@@ -16164,12 +14633,6 @@ func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClus
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutputWithContext(ctx context.Context) ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig] {
-	return pulumix.Output[*ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigPtrOutput) Elem() ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfigOutput {
@@ -16325,12 +14788,6 @@ func (i ClusterServicesKubeApiArgs) ToClusterServicesKubeApiOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiOutput)
 }
 
-func (i ClusterServicesKubeApiArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApi] {
-	return pulumix.Output[ClusterServicesKubeApi]{
-		OutputState: i.ToClusterServicesKubeApiOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiArgs) ToClusterServicesKubeApiPtrOutput() ClusterServicesKubeApiPtrOutput {
 	return i.ToClusterServicesKubeApiPtrOutputWithContext(context.Background())
 }
@@ -16372,12 +14829,6 @@ func (i *clusterServicesKubeApiPtrType) ToClusterServicesKubeApiPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiPtrOutput)
 }
 
-func (i *clusterServicesKubeApiPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApi] {
-	return pulumix.Output[*ClusterServicesKubeApi]{
-		OutputState: i.ToClusterServicesKubeApiPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiOutput) ElementType() reflect.Type {
@@ -16400,12 +14851,6 @@ func (o ClusterServicesKubeApiOutput) ToClusterServicesKubeApiPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApi) *ClusterServicesKubeApi {
 		return &v
 	}).(ClusterServicesKubeApiPtrOutput)
-}
-
-func (o ClusterServicesKubeApiOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApi] {
-	return pulumix.Output[ClusterServicesKubeApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -16477,12 +14922,6 @@ func (o ClusterServicesKubeApiPtrOutput) ToClusterServicesKubeApiPtrOutput() Clu
 
 func (o ClusterServicesKubeApiPtrOutput) ToClusterServicesKubeApiPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApi] {
-	return pulumix.Output[*ClusterServicesKubeApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiPtrOutput) Elem() ClusterServicesKubeApiOutput {
@@ -16642,12 +15081,6 @@ func (i ClusterServicesKubeApiAuditLogArgs) ToClusterServicesKubeApiAuditLogOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogOutput)
 }
 
-func (i ClusterServicesKubeApiAuditLogArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiAuditLog] {
-	return pulumix.Output[ClusterServicesKubeApiAuditLog]{
-		OutputState: i.ToClusterServicesKubeApiAuditLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiAuditLogArgs) ToClusterServicesKubeApiAuditLogPtrOutput() ClusterServicesKubeApiAuditLogPtrOutput {
 	return i.ToClusterServicesKubeApiAuditLogPtrOutputWithContext(context.Background())
 }
@@ -16689,12 +15122,6 @@ func (i *clusterServicesKubeApiAuditLogPtrType) ToClusterServicesKubeApiAuditLog
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogPtrOutput)
 }
 
-func (i *clusterServicesKubeApiAuditLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiAuditLog] {
-	return pulumix.Output[*ClusterServicesKubeApiAuditLog]{
-		OutputState: i.ToClusterServicesKubeApiAuditLogPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiAuditLogOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogOutput) ElementType() reflect.Type {
@@ -16717,12 +15144,6 @@ func (o ClusterServicesKubeApiAuditLogOutput) ToClusterServicesKubeApiAuditLogPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiAuditLog) *ClusterServicesKubeApiAuditLog {
 		return &v
 	}).(ClusterServicesKubeApiAuditLogPtrOutput)
-}
-
-func (o ClusterServicesKubeApiAuditLogOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiAuditLog] {
-	return pulumix.Output[ClusterServicesKubeApiAuditLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
@@ -16749,12 +15170,6 @@ func (o ClusterServicesKubeApiAuditLogPtrOutput) ToClusterServicesKubeApiAuditLo
 
 func (o ClusterServicesKubeApiAuditLogPtrOutput) ToClusterServicesKubeApiAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiAuditLogPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiAuditLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiAuditLog] {
-	return pulumix.Output[*ClusterServicesKubeApiAuditLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiAuditLogPtrOutput) Elem() ClusterServicesKubeApiAuditLogOutput {
@@ -16840,12 +15255,6 @@ func (i ClusterServicesKubeApiAuditLogConfigurationArgs) ToClusterServicesKubeAp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogConfigurationOutput)
 }
 
-func (i ClusterServicesKubeApiAuditLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiAuditLogConfiguration] {
-	return pulumix.Output[ClusterServicesKubeApiAuditLogConfiguration]{
-		OutputState: i.ToClusterServicesKubeApiAuditLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiAuditLogConfigurationArgs) ToClusterServicesKubeApiAuditLogConfigurationPtrOutput() ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return i.ToClusterServicesKubeApiAuditLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -16887,12 +15296,6 @@ func (i *clusterServicesKubeApiAuditLogConfigurationPtrType) ToClusterServicesKu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
 }
 
-func (i *clusterServicesKubeApiAuditLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiAuditLogConfiguration] {
-	return pulumix.Output[*ClusterServicesKubeApiAuditLogConfiguration]{
-		OutputState: i.ToClusterServicesKubeApiAuditLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiAuditLogConfigurationOutput) ElementType() reflect.Type {
@@ -16915,12 +15318,6 @@ func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToClusterServicesKube
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiAuditLogConfiguration) *ClusterServicesKubeApiAuditLogConfiguration {
 		return &v
 	}).(ClusterServicesKubeApiAuditLogConfigurationPtrOutput)
-}
-
-func (o ClusterServicesKubeApiAuditLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiAuditLogConfiguration] {
-	return pulumix.Output[ClusterServicesKubeApiAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Audit log format (string)
@@ -16965,12 +15362,6 @@ func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ToClusterServicesK
 
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ToClusterServicesKubeApiAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiAuditLogConfigurationPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiAuditLogConfiguration] {
-	return pulumix.Output[*ClusterServicesKubeApiAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiAuditLogConfigurationOutput {
@@ -17116,12 +15507,6 @@ func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecated
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedOutput)
 }
 
-func (i ClusterServicesKubeApiDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecated] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecated]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiDeprecatedArgs) ToClusterServicesKubeApiDeprecatedPtrOutput() ClusterServicesKubeApiDeprecatedPtrOutput {
 	return i.ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -17163,12 +15548,6 @@ func (i *clusterServicesKubeApiDeprecatedPtrType) ToClusterServicesKubeApiDeprec
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesKubeApiDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecated]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedOutput) ElementType() reflect.Type {
@@ -17191,12 +15570,6 @@ func (o ClusterServicesKubeApiDeprecatedOutput) ToClusterServicesKubeApiDeprecat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecated) *ClusterServicesKubeApiDeprecated {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesKubeApiDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecated] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
@@ -17270,12 +15643,6 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDepre
 
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToClusterServicesKubeApiDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiDeprecatedPtrOutput) Elem() ClusterServicesKubeApiDeprecatedOutput {
@@ -17435,12 +15802,6 @@ func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogOutput)
 }
 
-func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLog] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLog]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedAuditLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiDeprecatedAuditLogArgs) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
 	return i.ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(context.Background())
 }
@@ -17482,12 +15843,6 @@ func (i *clusterServicesKubeApiDeprecatedAuditLogPtrType) ToClusterServicesKubeA
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
 }
 
-func (i *clusterServicesKubeApiDeprecatedAuditLogPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLog] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLog]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiDeprecatedAuditLogOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogOutput) ElementType() reflect.Type {
@@ -17510,12 +15865,6 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToClusterServicesKubeApi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedAuditLog) *ClusterServicesKubeApiDeprecatedAuditLog {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogPtrOutput)
-}
-
-func (o ClusterServicesKubeApiDeprecatedAuditLogOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLog] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
@@ -17542,12 +15891,6 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKube
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLog] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogOutput {
@@ -17633,12 +15976,6 @@ func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServ
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput)
 }
 
-func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLogConfiguration] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLogConfiguration]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiDeprecatedAuditLogConfigurationArgs) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput() ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -17680,12 +16017,6 @@ func (i *clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ToCluster
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
 }
 
-func (i *clusterServicesKubeApiDeprecatedAuditLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLogConfiguration] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLogConfiguration]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ElementType() reflect.Type {
@@ -17708,12 +16039,6 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToClusterSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeApiDeprecatedAuditLogConfiguration) *ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
 		return &v
 	}).(ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput)
-}
-
-func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLogConfiguration] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Audit log format (string)
@@ -17758,12 +16083,6 @@ func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToCluste
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLogConfiguration] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiDeprecatedAuditLogConfigurationPtrOutput) Elem() ClusterServicesKubeApiDeprecatedAuditLogConfigurationOutput {
@@ -17873,12 +16192,6 @@ func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKub
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitOutput)
 }
 
-func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedEventRateLimit] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedEventRateLimit]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedEventRateLimitOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiDeprecatedEventRateLimitArgs) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput() ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
 	return i.ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(context.Background())
 }
@@ -17920,12 +16233,6 @@ func (i *clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ToClusterService
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-func (i *clusterServicesKubeApiDeprecatedEventRateLimitPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedEventRateLimit] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedEventRateLimit]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiDeprecatedEventRateLimitOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ElementType() reflect.Type {
@@ -17950,12 +16257,6 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToClusterServicesK
 	}).(ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput)
 }
 
-func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedEventRateLimit] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedEventRateLimit]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
@@ -17978,12 +16279,6 @@ func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServic
 
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToClusterServicesKubeApiDeprecatedEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedEventRateLimit] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedEventRateLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiDeprecatedEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiDeprecatedEventRateLimitOutput {
@@ -18053,12 +16348,6 @@ func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterSe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput)
 }
 
-func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
 	return i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(context.Background())
 }
@@ -18100,12 +16389,6 @@ func (i *clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ToClust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-func (i *clusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig]{
-		OutputState: i.ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ElementType() reflect.Type {
@@ -18130,12 +16413,6 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToCluster
 	}).(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput)
 }
 
-func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig] {
-	return pulumix.Output[ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput) CustomConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
@@ -18158,12 +16435,6 @@ func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClus
 
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig] {
-	return pulumix.Output[*ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigOutput {
@@ -18233,12 +16504,6 @@ func (i ClusterServicesKubeApiEventRateLimitArgs) ToClusterServicesKubeApiEventR
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiEventRateLimitOutput)
 }
 
-func (i ClusterServicesKubeApiEventRateLimitArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiEventRateLimit] {
-	return pulumix.Output[ClusterServicesKubeApiEventRateLimit]{
-		OutputState: i.ToClusterServicesKubeApiEventRateLimitOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiEventRateLimitArgs) ToClusterServicesKubeApiEventRateLimitPtrOutput() ClusterServicesKubeApiEventRateLimitPtrOutput {
 	return i.ToClusterServicesKubeApiEventRateLimitPtrOutputWithContext(context.Background())
 }
@@ -18280,12 +16545,6 @@ func (i *clusterServicesKubeApiEventRateLimitPtrType) ToClusterServicesKubeApiEv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-func (i *clusterServicesKubeApiEventRateLimitPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiEventRateLimit] {
-	return pulumix.Output[*ClusterServicesKubeApiEventRateLimit]{
-		OutputState: i.ToClusterServicesKubeApiEventRateLimitPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiEventRateLimitOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiEventRateLimitOutput) ElementType() reflect.Type {
@@ -18310,12 +16569,6 @@ func (o ClusterServicesKubeApiEventRateLimitOutput) ToClusterServicesKubeApiEven
 	}).(ClusterServicesKubeApiEventRateLimitPtrOutput)
 }
 
-func (o ClusterServicesKubeApiEventRateLimitOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiEventRateLimit] {
-	return pulumix.Output[ClusterServicesKubeApiEventRateLimit]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
 func (o ClusterServicesKubeApiEventRateLimitOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiEventRateLimit) *string { return v.Configuration }).(pulumi.StringPtrOutput)
@@ -18338,12 +16591,6 @@ func (o ClusterServicesKubeApiEventRateLimitPtrOutput) ToClusterServicesKubeApiE
 
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) ToClusterServicesKubeApiEventRateLimitPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiEventRateLimitPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiEventRateLimitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiEventRateLimit] {
-	return pulumix.Output[*ClusterServicesKubeApiEventRateLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiEventRateLimitPtrOutput) Elem() ClusterServicesKubeApiEventRateLimitOutput {
@@ -18413,12 +16660,6 @@ func (i ClusterServicesKubeApiSecretsEncryptionConfigArgs) ToClusterServicesKube
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiSecretsEncryptionConfigOutput)
 }
 
-func (i ClusterServicesKubeApiSecretsEncryptionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiSecretsEncryptionConfig] {
-	return pulumix.Output[ClusterServicesKubeApiSecretsEncryptionConfig]{
-		OutputState: i.ToClusterServicesKubeApiSecretsEncryptionConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeApiSecretsEncryptionConfigArgs) ToClusterServicesKubeApiSecretsEncryptionConfigPtrOutput() ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput {
 	return i.ToClusterServicesKubeApiSecretsEncryptionConfigPtrOutputWithContext(context.Background())
 }
@@ -18460,12 +16701,6 @@ func (i *clusterServicesKubeApiSecretsEncryptionConfigPtrType) ToClusterServices
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-func (i *clusterServicesKubeApiSecretsEncryptionConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiSecretsEncryptionConfig] {
-	return pulumix.Output[*ClusterServicesKubeApiSecretsEncryptionConfig]{
-		OutputState: i.ToClusterServicesKubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeApiSecretsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeApiSecretsEncryptionConfigOutput) ElementType() reflect.Type {
@@ -18490,12 +16725,6 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToClusterServicesKu
 	}).(ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput)
 }
 
-func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeApiSecretsEncryptionConfig] {
-	return pulumix.Output[ClusterServicesKubeApiSecretsEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
 func (o ClusterServicesKubeApiSecretsEncryptionConfigOutput) CustomConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiSecretsEncryptionConfig) *string { return v.CustomConfig }).(pulumi.StringPtrOutput)
@@ -18518,12 +16747,6 @@ func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ToClusterService
 
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ToClusterServicesKubeApiSecretsEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeApiSecretsEncryptionConfig] {
-	return pulumix.Output[*ClusterServicesKubeApiSecretsEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeApiSecretsEncryptionConfigPtrOutput) Elem() ClusterServicesKubeApiSecretsEncryptionConfigOutput {
@@ -18609,12 +16832,6 @@ func (i ClusterServicesKubeControllerArgs) ToClusterServicesKubeControllerOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerOutput)
 }
 
-func (i ClusterServicesKubeControllerArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeController] {
-	return pulumix.Output[ClusterServicesKubeController]{
-		OutputState: i.ToClusterServicesKubeControllerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeControllerArgs) ToClusterServicesKubeControllerPtrOutput() ClusterServicesKubeControllerPtrOutput {
 	return i.ToClusterServicesKubeControllerPtrOutputWithContext(context.Background())
 }
@@ -18656,12 +16873,6 @@ func (i *clusterServicesKubeControllerPtrType) ToClusterServicesKubeControllerPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerPtrOutput)
 }
 
-func (i *clusterServicesKubeControllerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeController] {
-	return pulumix.Output[*ClusterServicesKubeController]{
-		OutputState: i.ToClusterServicesKubeControllerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeControllerOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerOutput) ElementType() reflect.Type {
@@ -18684,12 +16895,6 @@ func (o ClusterServicesKubeControllerOutput) ToClusterServicesKubeControllerPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeController) *ClusterServicesKubeController {
 		return &v
 	}).(ClusterServicesKubeControllerPtrOutput)
-}
-
-func (o ClusterServicesKubeControllerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeController] {
-	return pulumix.Output[ClusterServicesKubeController]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cluster CIDR option for kube controller service (string)
@@ -18734,12 +16939,6 @@ func (o ClusterServicesKubeControllerPtrOutput) ToClusterServicesKubeControllerP
 
 func (o ClusterServicesKubeControllerPtrOutput) ToClusterServicesKubeControllerPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeControllerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeController] {
-	return pulumix.Output[*ClusterServicesKubeController]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeControllerPtrOutput) Elem() ClusterServicesKubeControllerOutput {
@@ -18865,12 +17064,6 @@ func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeContro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedOutput)
 }
 
-func (i ClusterServicesKubeControllerDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeControllerDeprecated] {
-	return pulumix.Output[ClusterServicesKubeControllerDeprecated]{
-		OutputState: i.ToClusterServicesKubeControllerDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeControllerDeprecatedArgs) ToClusterServicesKubeControllerDeprecatedPtrOutput() ClusterServicesKubeControllerDeprecatedPtrOutput {
 	return i.ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -18912,12 +17105,6 @@ func (i *clusterServicesKubeControllerDeprecatedPtrType) ToClusterServicesKubeCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeControllerDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesKubeControllerDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeControllerDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeControllerDeprecated]{
-		OutputState: i.ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeControllerDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeControllerDeprecatedOutput) ElementType() reflect.Type {
@@ -18940,12 +17127,6 @@ func (o ClusterServicesKubeControllerDeprecatedOutput) ToClusterServicesKubeCont
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeControllerDeprecated) *ClusterServicesKubeControllerDeprecated {
 		return &v
 	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesKubeControllerDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeControllerDeprecated] {
-	return pulumix.Output[ClusterServicesKubeControllerDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cluster CIDR option for kube controller service (string)
@@ -18990,12 +17171,6 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeC
 
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToClusterServicesKubeControllerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeControllerDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeControllerDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeControllerDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeControllerDeprecatedPtrOutput) Elem() ClusterServicesKubeControllerDeprecatedOutput {
@@ -19113,12 +17288,6 @@ func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprec
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedOutput)
 }
 
-func (i ClusterServicesKubeProxyDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeProxyDeprecated] {
-	return pulumix.Output[ClusterServicesKubeProxyDeprecated]{
-		OutputState: i.ToClusterServicesKubeProxyDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeProxyDeprecatedArgs) ToClusterServicesKubeProxyDeprecatedPtrOutput() ClusterServicesKubeProxyDeprecatedPtrOutput {
 	return i.ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -19160,12 +17329,6 @@ func (i *clusterServicesKubeProxyDeprecatedPtrType) ToClusterServicesKubeProxyDe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesKubeProxyDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeProxyDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeProxyDeprecated]{
-		OutputState: i.ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeProxyDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeProxyDeprecatedOutput) ElementType() reflect.Type {
@@ -19188,12 +17351,6 @@ func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDepr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeProxyDeprecated) *ClusterServicesKubeProxyDeprecated {
 		return &v
 	}).(ClusterServicesKubeProxyDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesKubeProxyDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeProxyDeprecated] {
-	return pulumix.Output[ClusterServicesKubeProxyDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extra arguments for scheduler service (map)
@@ -19228,12 +17385,6 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyD
 
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToClusterServicesKubeProxyDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeProxyDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeProxyDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeProxyDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeProxyDeprecatedOutput {
@@ -19331,12 +17482,6 @@ func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedul
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedOutput)
 }
 
-func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeSchedulerDeprecated] {
-	return pulumix.Output[ClusterServicesKubeSchedulerDeprecated]{
-		OutputState: i.ToClusterServicesKubeSchedulerDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeSchedulerDeprecatedArgs) ToClusterServicesKubeSchedulerDeprecatedPtrOutput() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
 	return i.ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -19378,12 +17523,6 @@ func (i *clusterServicesKubeSchedulerDeprecatedPtrType) ToClusterServicesKubeSch
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesKubeSchedulerDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeSchedulerDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeSchedulerDeprecated]{
-		OutputState: i.ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeSchedulerDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeSchedulerDeprecatedOutput) ElementType() reflect.Type {
@@ -19406,12 +17545,6 @@ func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSched
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeSchedulerDeprecated) *ClusterServicesKubeSchedulerDeprecated {
 		return &v
 	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeSchedulerDeprecated] {
-	return pulumix.Output[ClusterServicesKubeSchedulerDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extra arguments for scheduler service (map)
@@ -19446,12 +17579,6 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSc
 
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToClusterServicesKubeSchedulerDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeSchedulerDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeSchedulerDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeSchedulerDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesKubeSchedulerDeprecatedOutput {
@@ -19569,12 +17696,6 @@ func (i ClusterServicesKubeletArgs) ToClusterServicesKubeletOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletOutput)
 }
 
-func (i ClusterServicesKubeletArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubelet] {
-	return pulumix.Output[ClusterServicesKubelet]{
-		OutputState: i.ToClusterServicesKubeletOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeletArgs) ToClusterServicesKubeletPtrOutput() ClusterServicesKubeletPtrOutput {
 	return i.ToClusterServicesKubeletPtrOutputWithContext(context.Background())
 }
@@ -19616,12 +17737,6 @@ func (i *clusterServicesKubeletPtrType) ToClusterServicesKubeletPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletPtrOutput)
 }
 
-func (i *clusterServicesKubeletPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubelet] {
-	return pulumix.Output[*ClusterServicesKubelet]{
-		OutputState: i.ToClusterServicesKubeletPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeletOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletOutput) ElementType() reflect.Type {
@@ -19644,12 +17759,6 @@ func (o ClusterServicesKubeletOutput) ToClusterServicesKubeletPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubelet) *ClusterServicesKubelet {
 		return &v
 	}).(ClusterServicesKubeletPtrOutput)
-}
-
-func (o ClusterServicesKubeletOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubelet] {
-	return pulumix.Output[ClusterServicesKubelet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cluster DNS Server option for kubelet service (string)
@@ -19709,12 +17818,6 @@ func (o ClusterServicesKubeletPtrOutput) ToClusterServicesKubeletPtrOutput() Clu
 
 func (o ClusterServicesKubeletPtrOutput) ToClusterServicesKubeletPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeletPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubelet] {
-	return pulumix.Output[*ClusterServicesKubelet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeletPtrOutput) Elem() ClusterServicesKubeletOutput {
@@ -19882,12 +17985,6 @@ func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecated
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedOutput)
 }
 
-func (i ClusterServicesKubeletDeprecatedArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeletDeprecated] {
-	return pulumix.Output[ClusterServicesKubeletDeprecated]{
-		OutputState: i.ToClusterServicesKubeletDeprecatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeletDeprecatedArgs) ToClusterServicesKubeletDeprecatedPtrOutput() ClusterServicesKubeletDeprecatedPtrOutput {
 	return i.ToClusterServicesKubeletDeprecatedPtrOutputWithContext(context.Background())
 }
@@ -19929,12 +18026,6 @@ func (i *clusterServicesKubeletDeprecatedPtrType) ToClusterServicesKubeletDeprec
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeletDeprecatedPtrOutput)
 }
 
-func (i *clusterServicesKubeletDeprecatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeletDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeletDeprecated]{
-		OutputState: i.ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeletDeprecatedOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeletDeprecatedOutput) ElementType() reflect.Type {
@@ -19957,12 +18048,6 @@ func (o ClusterServicesKubeletDeprecatedOutput) ToClusterServicesKubeletDeprecat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeletDeprecated) *ClusterServicesKubeletDeprecated {
 		return &v
 	}).(ClusterServicesKubeletDeprecatedPtrOutput)
-}
-
-func (o ClusterServicesKubeletDeprecatedOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeletDeprecated] {
-	return pulumix.Output[ClusterServicesKubeletDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cluster DNS Server option for kubelet service (string)
@@ -20022,12 +18107,6 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDepre
 
 func (o ClusterServicesKubeletDeprecatedPtrOutput) ToClusterServicesKubeletDeprecatedPtrOutputWithContext(ctx context.Context) ClusterServicesKubeletDeprecatedPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeletDeprecatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeletDeprecated] {
-	return pulumix.Output[*ClusterServicesKubeletDeprecated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeletDeprecatedPtrOutput) Elem() ClusterServicesKubeletDeprecatedOutput {
@@ -20175,12 +18254,6 @@ func (i ClusterServicesKubeproxyArgs) ToClusterServicesKubeproxyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeproxyOutput)
 }
 
-func (i ClusterServicesKubeproxyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeproxy] {
-	return pulumix.Output[ClusterServicesKubeproxy]{
-		OutputState: i.ToClusterServicesKubeproxyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesKubeproxyArgs) ToClusterServicesKubeproxyPtrOutput() ClusterServicesKubeproxyPtrOutput {
 	return i.ToClusterServicesKubeproxyPtrOutputWithContext(context.Background())
 }
@@ -20222,12 +18295,6 @@ func (i *clusterServicesKubeproxyPtrType) ToClusterServicesKubeproxyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesKubeproxyPtrOutput)
 }
 
-func (i *clusterServicesKubeproxyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeproxy] {
-	return pulumix.Output[*ClusterServicesKubeproxy]{
-		OutputState: i.ToClusterServicesKubeproxyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesKubeproxyOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesKubeproxyOutput) ElementType() reflect.Type {
@@ -20250,12 +18317,6 @@ func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesKubeproxy) *ClusterServicesKubeproxy {
 		return &v
 	}).(ClusterServicesKubeproxyPtrOutput)
-}
-
-func (o ClusterServicesKubeproxyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesKubeproxy] {
-	return pulumix.Output[ClusterServicesKubeproxy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extra arguments for scheduler service (map)
@@ -20290,12 +18351,6 @@ func (o ClusterServicesKubeproxyPtrOutput) ToClusterServicesKubeproxyPtrOutput()
 
 func (o ClusterServicesKubeproxyPtrOutput) ToClusterServicesKubeproxyPtrOutputWithContext(ctx context.Context) ClusterServicesKubeproxyPtrOutput {
 	return o
-}
-
-func (o ClusterServicesKubeproxyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesKubeproxy] {
-	return pulumix.Output[*ClusterServicesKubeproxy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesKubeproxyPtrOutput) Elem() ClusterServicesKubeproxyOutput {
@@ -20393,12 +18448,6 @@ func (i ClusterServicesSchedulerArgs) ToClusterServicesSchedulerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesSchedulerOutput)
 }
 
-func (i ClusterServicesSchedulerArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesScheduler] {
-	return pulumix.Output[ClusterServicesScheduler]{
-		OutputState: i.ToClusterServicesSchedulerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterServicesSchedulerArgs) ToClusterServicesSchedulerPtrOutput() ClusterServicesSchedulerPtrOutput {
 	return i.ToClusterServicesSchedulerPtrOutputWithContext(context.Background())
 }
@@ -20440,12 +18489,6 @@ func (i *clusterServicesSchedulerPtrType) ToClusterServicesSchedulerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServicesSchedulerPtrOutput)
 }
 
-func (i *clusterServicesSchedulerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesScheduler] {
-	return pulumix.Output[*ClusterServicesScheduler]{
-		OutputState: i.ToClusterServicesSchedulerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServicesSchedulerOutput struct{ *pulumi.OutputState }
 
 func (ClusterServicesSchedulerOutput) ElementType() reflect.Type {
@@ -20468,12 +18511,6 @@ func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServicesScheduler) *ClusterServicesScheduler {
 		return &v
 	}).(ClusterServicesSchedulerPtrOutput)
-}
-
-func (o ClusterServicesSchedulerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServicesScheduler] {
-	return pulumix.Output[ClusterServicesScheduler]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extra arguments for scheduler service (map)
@@ -20508,12 +18545,6 @@ func (o ClusterServicesSchedulerPtrOutput) ToClusterServicesSchedulerPtrOutput()
 
 func (o ClusterServicesSchedulerPtrOutput) ToClusterServicesSchedulerPtrOutputWithContext(ctx context.Context) ClusterServicesSchedulerPtrOutput {
 	return o
-}
-
-func (o ClusterServicesSchedulerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServicesScheduler] {
-	return pulumix.Output[*ClusterServicesScheduler]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServicesSchedulerPtrOutput) Elem() ClusterServicesSchedulerOutput {
@@ -20743,12 +18774,6 @@ func (i ClusterSystemImagesArgs) ToClusterSystemImagesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSystemImagesOutput)
 }
 
-func (i ClusterSystemImagesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterSystemImages] {
-	return pulumix.Output[ClusterSystemImages]{
-		OutputState: i.ToClusterSystemImagesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterSystemImagesArgs) ToClusterSystemImagesPtrOutput() ClusterSystemImagesPtrOutput {
 	return i.ToClusterSystemImagesPtrOutputWithContext(context.Background())
 }
@@ -20790,12 +18815,6 @@ func (i *clusterSystemImagesPtrType) ToClusterSystemImagesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSystemImagesPtrOutput)
 }
 
-func (i *clusterSystemImagesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterSystemImages] {
-	return pulumix.Output[*ClusterSystemImages]{
-		OutputState: i.ToClusterSystemImagesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterSystemImagesOutput struct{ *pulumi.OutputState }
 
 func (ClusterSystemImagesOutput) ElementType() reflect.Type {
@@ -20818,12 +18837,6 @@ func (o ClusterSystemImagesOutput) ToClusterSystemImagesPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSystemImages) *ClusterSystemImages {
 		return &v
 	}).(ClusterSystemImagesPtrOutput)
-}
-
-func (o ClusterSystemImagesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterSystemImages] {
-	return pulumix.Output[ClusterSystemImages]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Docker image for aciCniDeployContainer (string)
@@ -21023,12 +19036,6 @@ func (o ClusterSystemImagesPtrOutput) ToClusterSystemImagesPtrOutput() ClusterSy
 
 func (o ClusterSystemImagesPtrOutput) ToClusterSystemImagesPtrOutputWithContext(ctx context.Context) ClusterSystemImagesPtrOutput {
 	return o
-}
-
-func (o ClusterSystemImagesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSystemImages] {
-	return pulumix.Output[*ClusterSystemImages]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterSystemImagesPtrOutput) Elem() ClusterSystemImagesOutput {
@@ -21456,12 +19463,6 @@ func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyOutput)
 }
 
-func (i ClusterUpgradeStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradeStrategy] {
-	return pulumix.Output[ClusterUpgradeStrategy]{
-		OutputState: i.ToClusterUpgradeStrategyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterUpgradeStrategyArgs) ToClusterUpgradeStrategyPtrOutput() ClusterUpgradeStrategyPtrOutput {
 	return i.ToClusterUpgradeStrategyPtrOutputWithContext(context.Background())
 }
@@ -21503,12 +19504,6 @@ func (i *clusterUpgradeStrategyPtrType) ToClusterUpgradeStrategyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyPtrOutput)
 }
 
-func (i *clusterUpgradeStrategyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradeStrategy] {
-	return pulumix.Output[*ClusterUpgradeStrategy]{
-		OutputState: i.ToClusterUpgradeStrategyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterUpgradeStrategyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradeStrategyOutput) ElementType() reflect.Type {
@@ -21531,12 +19526,6 @@ func (o ClusterUpgradeStrategyOutput) ToClusterUpgradeStrategyPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeStrategy) *ClusterUpgradeStrategy {
 		return &v
 	}).(ClusterUpgradeStrategyPtrOutput)
-}
-
-func (o ClusterUpgradeStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradeStrategy] {
-	return pulumix.Output[ClusterUpgradeStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // RKE drain nodes (bool)
@@ -21571,12 +19560,6 @@ func (o ClusterUpgradeStrategyPtrOutput) ToClusterUpgradeStrategyPtrOutput() Clu
 
 func (o ClusterUpgradeStrategyPtrOutput) ToClusterUpgradeStrategyPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyPtrOutput {
 	return o
-}
-
-func (o ClusterUpgradeStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradeStrategy] {
-	return pulumix.Output[*ClusterUpgradeStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterUpgradeStrategyPtrOutput) Elem() ClusterUpgradeStrategyOutput {
@@ -21678,12 +19661,6 @@ func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyDrainInputOutput)
 }
 
-func (i ClusterUpgradeStrategyDrainInputArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradeStrategyDrainInput] {
-	return pulumix.Output[ClusterUpgradeStrategyDrainInput]{
-		OutputState: i.ToClusterUpgradeStrategyDrainInputOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterUpgradeStrategyDrainInputArgs) ToClusterUpgradeStrategyDrainInputPtrOutput() ClusterUpgradeStrategyDrainInputPtrOutput {
 	return i.ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(context.Background())
 }
@@ -21725,12 +19702,6 @@ func (i *clusterUpgradeStrategyDrainInputPtrType) ToClusterUpgradeStrategyDrainI
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeStrategyDrainInputPtrOutput)
 }
 
-func (i *clusterUpgradeStrategyDrainInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradeStrategyDrainInput] {
-	return pulumix.Output[*ClusterUpgradeStrategyDrainInput]{
-		OutputState: i.ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterUpgradeStrategyDrainInputOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradeStrategyDrainInputOutput) ElementType() reflect.Type {
@@ -21753,12 +19724,6 @@ func (o ClusterUpgradeStrategyDrainInputOutput) ToClusterUpgradeStrategyDrainInp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeStrategyDrainInput) *ClusterUpgradeStrategyDrainInput {
 		return &v
 	}).(ClusterUpgradeStrategyDrainInputPtrOutput)
-}
-
-func (o ClusterUpgradeStrategyDrainInputOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradeStrategyDrainInput] {
-	return pulumix.Output[ClusterUpgradeStrategyDrainInput]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Delete RKE node local data (bool)
@@ -21798,12 +19763,6 @@ func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToClusterUpgradeStrategyDrain
 
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToClusterUpgradeStrategyDrainInputPtrOutputWithContext(ctx context.Context) ClusterUpgradeStrategyDrainInputPtrOutput {
 	return o
-}
-
-func (o ClusterUpgradeStrategyDrainInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradeStrategyDrainInput] {
-	return pulumix.Output[*ClusterUpgradeStrategyDrainInput]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterUpgradeStrategyDrainInputPtrOutput) Elem() ClusterUpgradeStrategyDrainInputOutput {
@@ -21903,12 +19862,6 @@ func (i ClusterWorkerHostArgs) ToClusterWorkerHostOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterWorkerHostOutput)
 }
 
-func (i ClusterWorkerHostArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterWorkerHost] {
-	return pulumix.Output[ClusterWorkerHost]{
-		OutputState: i.ToClusterWorkerHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterWorkerHostArrayInput is an input type that accepts ClusterWorkerHostArray and ClusterWorkerHostArrayOutput values.
 // You can construct a concrete instance of `ClusterWorkerHostArrayInput` via:
 //
@@ -21934,12 +19887,6 @@ func (i ClusterWorkerHostArray) ToClusterWorkerHostArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterWorkerHostArrayOutput)
 }
 
-func (i ClusterWorkerHostArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterWorkerHost] {
-	return pulumix.Output[[]ClusterWorkerHost]{
-		OutputState: i.ToClusterWorkerHostArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterWorkerHostOutput struct{ *pulumi.OutputState }
 
 func (ClusterWorkerHostOutput) ElementType() reflect.Type {
@@ -21952,12 +19899,6 @@ func (o ClusterWorkerHostOutput) ToClusterWorkerHostOutput() ClusterWorkerHostOu
 
 func (o ClusterWorkerHostOutput) ToClusterWorkerHostOutputWithContext(ctx context.Context) ClusterWorkerHostOutput {
 	return o
-}
-
-func (o ClusterWorkerHostOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterWorkerHost] {
-	return pulumix.Output[ClusterWorkerHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address ip for node (string)
@@ -21982,12 +19923,6 @@ func (o ClusterWorkerHostArrayOutput) ToClusterWorkerHostArrayOutput() ClusterWo
 
 func (o ClusterWorkerHostArrayOutput) ToClusterWorkerHostArrayOutputWithContext(ctx context.Context) ClusterWorkerHostArrayOutput {
 	return o
-}
-
-func (o ClusterWorkerHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterWorkerHost] {
-	return pulumix.Output[[]ClusterWorkerHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterWorkerHostArrayOutput) Index(i pulumi.IntInput) ClusterWorkerHostOutput {
