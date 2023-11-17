@@ -264,7 +264,7 @@
             "properties": {
                 "awsCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudConfig:ClusterCloudProviderAwsCloudConfig",
-                    "description": "Use aws_cloud_provider instead\n",
+                    "description": "(DEPRECATED) Use aws_cloud_provider instead\n",
                     "deprecationMessage": "Use aws_cloud_provider instead"
                 },
                 "awsCloudProvider": {
@@ -273,7 +273,7 @@
                 },
                 "azureCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAzureCloudConfig:ClusterCloudProviderAzureCloudConfig",
-                    "description": "Use azure_cloud_provider instead\n",
+                    "description": "(DEPRECATED) Use azure_cloud_provider instead\n",
                     "deprecationMessage": "Use azure_cloud_provider instead"
                 },
                 "azureCloudProvider": {
@@ -282,7 +282,7 @@
                 },
                 "customCloudConfig": {
                     "type": "string",
-                    "description": "Use custom_cloud_provider instead\n",
+                    "description": "(DEPRECATED) Use custom_cloud_provider instead\n",
                     "deprecationMessage": "Use custom_cloud_provider instead"
                 },
                 "customCloudProvider": {
@@ -295,7 +295,7 @@
                 },
                 "openstackCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfig:ClusterCloudProviderOpenstackCloudConfig",
-                    "description": "Use openstack_cloud_provider instead\n",
+                    "description": "(DEPRECATED) Use openstack_cloud_provider instead\n",
                     "deprecationMessage": "Use openstack_cloud_provider instead"
                 },
                 "openstackCloudProvider": {
@@ -304,7 +304,7 @@
                 },
                 "vsphereCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfig:ClusterCloudProviderVsphereCloudConfig",
-                    "description": "Use vsphere_cloud_provider instead\n",
+                    "description": "(DEPRECATED) Use vsphere_cloud_provider instead\n",
                     "deprecationMessage": "Use vsphere_cloud_provider instead"
                 },
                 "vsphereCloudProvider": {
@@ -1825,7 +1825,7 @@
                 },
                 "externDynamic": {
                     "type": "string",
-                    "description": "Subnet to use for dynamic external IPs on aci (string)\n* `extern_static\"` - (Required) Subnet to use for static external IPs on aci (string)\n"
+                    "description": "Subnet to use for dynamic external IPs on aci (string)\n"
                 },
                 "externStatic": {
                     "type": "string"
@@ -3922,32 +3922,32 @@
                 },
                 "servicesEtcdDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecated:ClusterServicesEtcdDeprecated",
-                    "description": "Use services.etcd instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.etcd instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.etcd instead"
                 },
                 "servicesKubeApiDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecated:ClusterServicesKubeApiDeprecated",
-                    "description": "Use services.kube_api instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kube_api instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kube_api instead"
                 },
                 "servicesKubeControllerDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeControllerDeprecated:ClusterServicesKubeControllerDeprecated",
-                    "description": "Use services.kube_controller instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kube_controller instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kube_controller instead"
                 },
                 "servicesKubeProxyDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeProxyDeprecated:ClusterServicesKubeProxyDeprecated",
-                    "description": "Use services.kubeproxy instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kubeproxy instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kubeproxy instead"
                 },
                 "servicesKubeSchedulerDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeSchedulerDeprecated:ClusterServicesKubeSchedulerDeprecated",
-                    "description": "Use services.scheduler instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.scheduler instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.scheduler instead"
                 },
                 "servicesKubeletDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeletDeprecated:ClusterServicesKubeletDeprecated",
-                    "description": "Use services.kubelet instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kubelet instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kubelet instead"
                 },
                 "sshAgentAuth": {
@@ -4139,32 +4139,32 @@
                 },
                 "servicesEtcdDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecated:ClusterServicesEtcdDeprecated",
-                    "description": "Use services.etcd instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.etcd instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.etcd instead"
                 },
                 "servicesKubeApiDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecated:ClusterServicesKubeApiDeprecated",
-                    "description": "Use services.kube_api instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kube_api instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kube_api instead"
                 },
                 "servicesKubeControllerDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeControllerDeprecated:ClusterServicesKubeControllerDeprecated",
-                    "description": "Use services.kube_controller instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kube_controller instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kube_controller instead"
                 },
                 "servicesKubeProxyDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeProxyDeprecated:ClusterServicesKubeProxyDeprecated",
-                    "description": "Use services.kubeproxy instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kubeproxy instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kubeproxy instead"
                 },
                 "servicesKubeSchedulerDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeSchedulerDeprecated:ClusterServicesKubeSchedulerDeprecated",
-                    "description": "Use services.scheduler instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.scheduler instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.scheduler instead"
                 },
                 "servicesKubeletDeprecated": {
                     "$ref": "#/types/rke:index/ClusterServicesKubeletDeprecated:ClusterServicesKubeletDeprecated",
-                    "description": "Use services.kubelet instead (list maxitems:1)\n",
+                    "description": "(DEPRECATED) Use services.kubelet instead (list maxitems:1)\n",
                     "deprecationMessage": "Use services.kubelet instead"
                 },
                 "sshAgentAuth": {
@@ -4422,32 +4422,32 @@
                     },
                     "servicesEtcdDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecated:ClusterServicesEtcdDeprecated",
-                        "description": "Use services.etcd instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.etcd instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.etcd instead"
                     },
                     "servicesKubeApiDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecated:ClusterServicesKubeApiDeprecated",
-                        "description": "Use services.kube_api instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.kube_api instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.kube_api instead"
                     },
                     "servicesKubeControllerDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesKubeControllerDeprecated:ClusterServicesKubeControllerDeprecated",
-                        "description": "Use services.kube_controller instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.kube_controller instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.kube_controller instead"
                     },
                     "servicesKubeProxyDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesKubeProxyDeprecated:ClusterServicesKubeProxyDeprecated",
-                        "description": "Use services.kubeproxy instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.kubeproxy instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.kubeproxy instead"
                     },
                     "servicesKubeSchedulerDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesKubeSchedulerDeprecated:ClusterServicesKubeSchedulerDeprecated",
-                        "description": "Use services.scheduler instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.scheduler instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.scheduler instead"
                     },
                     "servicesKubeletDeprecated": {
                         "$ref": "#/types/rke:index/ClusterServicesKubeletDeprecated:ClusterServicesKubeletDeprecated",
-                        "description": "Use services.kubelet instead (list maxitems:1)\n",
+                        "description": "(DEPRECATED) Use services.kubelet instead (list maxitems:1)\n",
                         "deprecationMessage": "Use services.kubelet instead"
                     },
                     "sshAgentAuth": {
