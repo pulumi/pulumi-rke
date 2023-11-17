@@ -76,7 +76,6 @@ namespace Pulumi.Rke.Inputs
 
         /// <summary>
         /// Subnet to use for dynamic external IPs on aci (string)
-        /// * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         /// </summary>
         [Input("externDynamic", required: true)]
         public Input<string> ExternDynamic { get; set; } = null!;

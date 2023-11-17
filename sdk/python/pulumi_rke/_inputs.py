@@ -575,15 +575,15 @@ class ClusterCloudProviderArgs:
                  vsphere_cloud_provider: Optional[pulumi.Input['ClusterCloudProviderVsphereCloudProviderArgs']] = None):
         """
         :param pulumi.Input[str] name: Name of virtualcenter config for Vsphere Cloud Provider config (string)
-        :param pulumi.Input['ClusterCloudProviderAwsCloudConfigArgs'] aws_cloud_config: Use aws_cloud_provider instead
+        :param pulumi.Input['ClusterCloudProviderAwsCloudConfigArgs'] aws_cloud_config: (DEPRECATED) Use aws_cloud_provider instead
         :param pulumi.Input['ClusterCloudProviderAwsCloudProviderArgs'] aws_cloud_provider: AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
-        :param pulumi.Input['ClusterCloudProviderAzureCloudConfigArgs'] azure_cloud_config: Use azure_cloud_provider instead
+        :param pulumi.Input['ClusterCloudProviderAzureCloudConfigArgs'] azure_cloud_config: (DEPRECATED) Use azure_cloud_provider instead
         :param pulumi.Input['ClusterCloudProviderAzureCloudProviderArgs'] azure_cloud_provider: Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
-        :param pulumi.Input[str] custom_cloud_config: Use custom_cloud_provider instead
+        :param pulumi.Input[str] custom_cloud_config: (DEPRECATED) Use custom_cloud_provider instead
         :param pulumi.Input[str] custom_cloud_provider: Custom Cloud Provider config (string)
-        :param pulumi.Input['ClusterCloudProviderOpenstackCloudConfigArgs'] openstack_cloud_config: Use openstack_cloud_provider instead
+        :param pulumi.Input['ClusterCloudProviderOpenstackCloudConfigArgs'] openstack_cloud_config: (DEPRECATED) Use openstack_cloud_provider instead
         :param pulumi.Input['ClusterCloudProviderOpenstackCloudProviderArgs'] openstack_cloud_provider: Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
-        :param pulumi.Input['ClusterCloudProviderVsphereCloudConfigArgs'] vsphere_cloud_config: Use vsphere_cloud_provider instead
+        :param pulumi.Input['ClusterCloudProviderVsphereCloudConfigArgs'] vsphere_cloud_config: (DEPRECATED) Use vsphere_cloud_provider instead
         :param pulumi.Input['ClusterCloudProviderVsphereCloudProviderArgs'] vsphere_cloud_provider: Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
         """
         pulumi.set(__self__, "name", name)
@@ -639,7 +639,7 @@ class ClusterCloudProviderArgs:
     @pulumi.getter(name="awsCloudConfig")
     def aws_cloud_config(self) -> Optional[pulumi.Input['ClusterCloudProviderAwsCloudConfigArgs']]:
         """
-        Use aws_cloud_provider instead
+        (DEPRECATED) Use aws_cloud_provider instead
         """
         warnings.warn("""Use aws_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""aws_cloud_config is deprecated: Use aws_cloud_provider instead""")
@@ -666,7 +666,7 @@ class ClusterCloudProviderArgs:
     @pulumi.getter(name="azureCloudConfig")
     def azure_cloud_config(self) -> Optional[pulumi.Input['ClusterCloudProviderAzureCloudConfigArgs']]:
         """
-        Use azure_cloud_provider instead
+        (DEPRECATED) Use azure_cloud_provider instead
         """
         warnings.warn("""Use azure_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""azure_cloud_config is deprecated: Use azure_cloud_provider instead""")
@@ -693,7 +693,7 @@ class ClusterCloudProviderArgs:
     @pulumi.getter(name="customCloudConfig")
     def custom_cloud_config(self) -> Optional[pulumi.Input[str]]:
         """
-        Use custom_cloud_provider instead
+        (DEPRECATED) Use custom_cloud_provider instead
         """
         warnings.warn("""Use custom_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""custom_cloud_config is deprecated: Use custom_cloud_provider instead""")
@@ -720,7 +720,7 @@ class ClusterCloudProviderArgs:
     @pulumi.getter(name="openstackCloudConfig")
     def openstack_cloud_config(self) -> Optional[pulumi.Input['ClusterCloudProviderOpenstackCloudConfigArgs']]:
         """
-        Use openstack_cloud_provider instead
+        (DEPRECATED) Use openstack_cloud_provider instead
         """
         warnings.warn("""Use openstack_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""openstack_cloud_config is deprecated: Use openstack_cloud_provider instead""")
@@ -747,7 +747,7 @@ class ClusterCloudProviderArgs:
     @pulumi.getter(name="vsphereCloudConfig")
     def vsphere_cloud_config(self) -> Optional[pulumi.Input['ClusterCloudProviderVsphereCloudConfigArgs']]:
         """
-        Use vsphere_cloud_provider instead
+        (DEPRECATED) Use vsphere_cloud_provider instead
         """
         warnings.warn("""Use vsphere_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead""")
@@ -5102,7 +5102,6 @@ class ClusterNetworkAciNetworkProviderArgs:
         :param pulumi.Input[str] apic_user_name: User name for aci apic (string)
         :param pulumi.Input[str] encap_type: One of the supported encap types for aci(vlan/vxlan) (string)
         :param pulumi.Input[str] extern_dynamic: Subnet to use for dynamic external IPs on aci (string)
-               * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         :param pulumi.Input[str] infra_vlan: Vlan for infra network on aci (string)
         :param pulumi.Input[str] kube_api_vlan: Vlan for node network on aci (string)
         :param pulumi.Input[str] l3out: L3Out on aci (string)
@@ -5225,7 +5224,6 @@ class ClusterNetworkAciNetworkProviderArgs:
     def extern_dynamic(self) -> pulumi.Input[str]:
         """
         Subnet to use for dynamic external IPs on aci (string)
-        * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         """
         return pulumi.get(self, "extern_dynamic")
 

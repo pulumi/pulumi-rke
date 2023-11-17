@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterCloudProvider
     {
         /// <summary>
-        /// Use aws_cloud_provider instead
+        /// (DEPRECATED) Use aws_cloud_provider instead
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudConfig? AwsCloudConfig;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudProvider? AwsCloudProvider;
         /// <summary>
-        /// Use azure_cloud_provider instead
+        /// (DEPRECATED) Use azure_cloud_provider instead
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudConfig? AzureCloudConfig;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudProvider? AzureCloudProvider;
         /// <summary>
-        /// Use custom_cloud_provider instead
+        /// (DEPRECATED) Use custom_cloud_provider instead
         /// </summary>
         public readonly string? CustomCloudConfig;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Use openstack_cloud_provider instead
+        /// (DEPRECATED) Use openstack_cloud_provider instead
         /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfig? OpenstackCloudConfig;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudProvider? OpenstackCloudProvider;
         /// <summary>
-        /// Use vsphere_cloud_provider instead
+        /// (DEPRECATED) Use vsphere_cloud_provider instead
         /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfig? VsphereCloudConfig;
         /// <summary>

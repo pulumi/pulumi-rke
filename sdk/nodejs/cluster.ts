@@ -239,37 +239,37 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly services!: pulumi.Output<outputs.ClusterServices | undefined>;
     /**
-     * Use services.etcd instead (list maxitems:1)
+     * (DEPRECATED) Use services.etcd instead (list maxitems:1)
      *
      * @deprecated Use services.etcd instead
      */
     public readonly servicesEtcdDeprecated!: pulumi.Output<outputs.ClusterServicesEtcdDeprecated | undefined>;
     /**
-     * Use services.kube_api instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      *
      * @deprecated Use services.kube_api instead
      */
     public readonly servicesKubeApiDeprecated!: pulumi.Output<outputs.ClusterServicesKubeApiDeprecated | undefined>;
     /**
-     * Use services.kube_controller instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      *
      * @deprecated Use services.kube_controller instead
      */
     public readonly servicesKubeControllerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeControllerDeprecated | undefined>;
     /**
-     * Use services.kubeproxy instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      *
      * @deprecated Use services.kubeproxy instead
      */
     public readonly servicesKubeProxyDeprecated!: pulumi.Output<outputs.ClusterServicesKubeProxyDeprecated | undefined>;
     /**
-     * Use services.scheduler instead (list maxitems:1)
+     * (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      *
      * @deprecated Use services.scheduler instead
      */
     public readonly servicesKubeSchedulerDeprecated!: pulumi.Output<outputs.ClusterServicesKubeSchedulerDeprecated | undefined>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      *
      * @deprecated Use services.kubelet instead
      */
@@ -641,37 +641,37 @@ export interface ClusterState {
      */
     services?: pulumi.Input<inputs.ClusterServices>;
     /**
-     * Use services.etcd instead (list maxitems:1)
+     * (DEPRECATED) Use services.etcd instead (list maxitems:1)
      *
      * @deprecated Use services.etcd instead
      */
     servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
-     * Use services.kube_api instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      *
      * @deprecated Use services.kube_api instead
      */
     servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
-     * Use services.kube_controller instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      *
      * @deprecated Use services.kube_controller instead
      */
     servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
-     * Use services.kubeproxy instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      *
      * @deprecated Use services.kubeproxy instead
      */
     servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
-     * Use services.scheduler instead (list maxitems:1)
+     * (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      *
      * @deprecated Use services.scheduler instead
      */
     servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      *
      * @deprecated Use services.kubelet instead
      */
@@ -831,37 +831,37 @@ export interface ClusterArgs {
      */
     services?: pulumi.Input<inputs.ClusterServices>;
     /**
-     * Use services.etcd instead (list maxitems:1)
+     * (DEPRECATED) Use services.etcd instead (list maxitems:1)
      *
      * @deprecated Use services.etcd instead
      */
     servicesEtcdDeprecated?: pulumi.Input<inputs.ClusterServicesEtcdDeprecated>;
     /**
-     * Use services.kube_api instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      *
      * @deprecated Use services.kube_api instead
      */
     servicesKubeApiDeprecated?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecated>;
     /**
-     * Use services.kube_controller instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      *
      * @deprecated Use services.kube_controller instead
      */
     servicesKubeControllerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeControllerDeprecated>;
     /**
-     * Use services.kubeproxy instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      *
      * @deprecated Use services.kubeproxy instead
      */
     servicesKubeProxyDeprecated?: pulumi.Input<inputs.ClusterServicesKubeProxyDeprecated>;
     /**
-     * Use services.scheduler instead (list maxitems:1)
+     * (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      *
      * @deprecated Use services.scheduler instead
      */
     servicesKubeSchedulerDeprecated?: pulumi.Input<inputs.ClusterServicesKubeSchedulerDeprecated>;
     /**
-     * Use services.kubelet instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      *
      * @deprecated Use services.kubelet instead
      */

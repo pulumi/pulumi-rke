@@ -763,7 +763,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.etcd instead (list maxitems:1)
+     * (DEPRECATED) Use services.etcd instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.etcd instead
@@ -774,7 +774,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesEtcdDeprecatedArgs> servicesEtcdDeprecated;
 
     /**
-     * @return Use services.etcd instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.etcd instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.etcd instead
@@ -786,7 +786,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.kube_api instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_api instead
@@ -797,7 +797,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesKubeApiDeprecatedArgs> servicesKubeApiDeprecated;
 
     /**
-     * @return Use services.kube_api instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_api instead
@@ -809,7 +809,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.kube_controller instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_controller instead
@@ -820,7 +820,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesKubeControllerDeprecatedArgs> servicesKubeControllerDeprecated;
 
     /**
-     * @return Use services.kube_controller instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_controller instead
@@ -832,7 +832,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.kubeproxy instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubeproxy instead
@@ -843,7 +843,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesKubeProxyDeprecatedArgs> servicesKubeProxyDeprecated;
 
     /**
-     * @return Use services.kubeproxy instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubeproxy instead
@@ -855,7 +855,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.scheduler instead (list maxitems:1)
+     * (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.scheduler instead
@@ -866,7 +866,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesKubeSchedulerDeprecatedArgs> servicesKubeSchedulerDeprecated;
 
     /**
-     * @return Use services.scheduler instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.scheduler instead
@@ -878,7 +878,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use services.kubelet instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubelet instead
@@ -889,7 +889,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ClusterServicesKubeletDeprecatedArgs> servicesKubeletDeprecated;
 
     /**
-     * @return Use services.kubelet instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubelet instead
@@ -2180,7 +2180,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesEtcdDeprecated Use services.etcd instead (list maxitems:1)
+         * @param servicesEtcdDeprecated (DEPRECATED) Use services.etcd instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2195,7 +2195,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesEtcdDeprecated Use services.etcd instead (list maxitems:1)
+         * @param servicesEtcdDeprecated (DEPRECATED) Use services.etcd instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2209,7 +2209,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeApiDeprecated Use services.kube_api instead (list maxitems:1)
+         * @param servicesKubeApiDeprecated (DEPRECATED) Use services.kube_api instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2224,7 +2224,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeApiDeprecated Use services.kube_api instead (list maxitems:1)
+         * @param servicesKubeApiDeprecated (DEPRECATED) Use services.kube_api instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2238,7 +2238,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeControllerDeprecated Use services.kube_controller instead (list maxitems:1)
+         * @param servicesKubeControllerDeprecated (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2253,7 +2253,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeControllerDeprecated Use services.kube_controller instead (list maxitems:1)
+         * @param servicesKubeControllerDeprecated (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2267,7 +2267,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeProxyDeprecated Use services.kubeproxy instead (list maxitems:1)
+         * @param servicesKubeProxyDeprecated (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2282,7 +2282,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeProxyDeprecated Use services.kubeproxy instead (list maxitems:1)
+         * @param servicesKubeProxyDeprecated (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2296,7 +2296,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeSchedulerDeprecated Use services.scheduler instead (list maxitems:1)
+         * @param servicesKubeSchedulerDeprecated (DEPRECATED) Use services.scheduler instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2311,7 +2311,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeSchedulerDeprecated Use services.scheduler instead (list maxitems:1)
+         * @param servicesKubeSchedulerDeprecated (DEPRECATED) Use services.scheduler instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2325,7 +2325,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeletDeprecated Use services.kubelet instead (list maxitems:1)
+         * @param servicesKubeletDeprecated (DEPRECATED) Use services.kubelet instead (list maxitems:1)
          * 
          * @return builder
          * 
@@ -2340,7 +2340,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicesKubeletDeprecated Use services.kubelet instead (list maxitems:1)
+         * @param servicesKubeletDeprecated (DEPRECATED) Use services.kubelet instead (list maxitems:1)
          * 
          * @return builder
          * 

@@ -570,15 +570,15 @@ class ClusterCloudProvider(dict):
                  vsphere_cloud_provider: Optional['outputs.ClusterCloudProviderVsphereCloudProvider'] = None):
         """
         :param str name: Name of virtualcenter config for Vsphere Cloud Provider config (string)
-        :param 'ClusterCloudProviderAwsCloudConfigArgs' aws_cloud_config: Use aws_cloud_provider instead
+        :param 'ClusterCloudProviderAwsCloudConfigArgs' aws_cloud_config: (DEPRECATED) Use aws_cloud_provider instead
         :param 'ClusterCloudProviderAwsCloudProviderArgs' aws_cloud_provider: AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
-        :param 'ClusterCloudProviderAzureCloudConfigArgs' azure_cloud_config: Use azure_cloud_provider instead
+        :param 'ClusterCloudProviderAzureCloudConfigArgs' azure_cloud_config: (DEPRECATED) Use azure_cloud_provider instead
         :param 'ClusterCloudProviderAzureCloudProviderArgs' azure_cloud_provider: Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
-        :param str custom_cloud_config: Use custom_cloud_provider instead
+        :param str custom_cloud_config: (DEPRECATED) Use custom_cloud_provider instead
         :param str custom_cloud_provider: Custom Cloud Provider config (string)
-        :param 'ClusterCloudProviderOpenstackCloudConfigArgs' openstack_cloud_config: Use openstack_cloud_provider instead
+        :param 'ClusterCloudProviderOpenstackCloudConfigArgs' openstack_cloud_config: (DEPRECATED) Use openstack_cloud_provider instead
         :param 'ClusterCloudProviderOpenstackCloudProviderArgs' openstack_cloud_provider: Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
-        :param 'ClusterCloudProviderVsphereCloudConfigArgs' vsphere_cloud_config: Use vsphere_cloud_provider instead
+        :param 'ClusterCloudProviderVsphereCloudConfigArgs' vsphere_cloud_config: (DEPRECATED) Use vsphere_cloud_provider instead
         :param 'ClusterCloudProviderVsphereCloudProviderArgs' vsphere_cloud_provider: Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
         """
         pulumi.set(__self__, "name", name)
@@ -615,7 +615,7 @@ class ClusterCloudProvider(dict):
     @pulumi.getter(name="awsCloudConfig")
     def aws_cloud_config(self) -> Optional['outputs.ClusterCloudProviderAwsCloudConfig']:
         """
-        Use aws_cloud_provider instead
+        (DEPRECATED) Use aws_cloud_provider instead
         """
         warnings.warn("""Use aws_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""aws_cloud_config is deprecated: Use aws_cloud_provider instead""")
@@ -634,7 +634,7 @@ class ClusterCloudProvider(dict):
     @pulumi.getter(name="azureCloudConfig")
     def azure_cloud_config(self) -> Optional['outputs.ClusterCloudProviderAzureCloudConfig']:
         """
-        Use azure_cloud_provider instead
+        (DEPRECATED) Use azure_cloud_provider instead
         """
         warnings.warn("""Use azure_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""azure_cloud_config is deprecated: Use azure_cloud_provider instead""")
@@ -653,7 +653,7 @@ class ClusterCloudProvider(dict):
     @pulumi.getter(name="customCloudConfig")
     def custom_cloud_config(self) -> Optional[str]:
         """
-        Use custom_cloud_provider instead
+        (DEPRECATED) Use custom_cloud_provider instead
         """
         warnings.warn("""Use custom_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""custom_cloud_config is deprecated: Use custom_cloud_provider instead""")
@@ -672,7 +672,7 @@ class ClusterCloudProvider(dict):
     @pulumi.getter(name="openstackCloudConfig")
     def openstack_cloud_config(self) -> Optional['outputs.ClusterCloudProviderOpenstackCloudConfig']:
         """
-        Use openstack_cloud_provider instead
+        (DEPRECATED) Use openstack_cloud_provider instead
         """
         warnings.warn("""Use openstack_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""openstack_cloud_config is deprecated: Use openstack_cloud_provider instead""")
@@ -691,7 +691,7 @@ class ClusterCloudProvider(dict):
     @pulumi.getter(name="vsphereCloudConfig")
     def vsphere_cloud_config(self) -> Optional['outputs.ClusterCloudProviderVsphereCloudConfig']:
         """
-        Use vsphere_cloud_provider instead
+        (DEPRECATED) Use vsphere_cloud_provider instead
         """
         warnings.warn("""Use vsphere_cloud_provider instead""", DeprecationWarning)
         pulumi.log.warn("""vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead""")
@@ -5039,7 +5039,6 @@ class ClusterNetworkAciNetworkProvider(dict):
         :param str apic_user_name: User name for aci apic (string)
         :param str encap_type: One of the supported encap types for aci(vlan/vxlan) (string)
         :param str extern_dynamic: Subnet to use for dynamic external IPs on aci (string)
-               * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         :param str infra_vlan: Vlan for infra network on aci (string)
         :param str kube_api_vlan: Vlan for node network on aci (string)
         :param str l3out: L3Out on aci (string)
@@ -5138,7 +5137,6 @@ class ClusterNetworkAciNetworkProvider(dict):
     def extern_dynamic(self) -> str:
         """
         Subnet to use for dynamic external IPs on aci (string)
-        * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         """
         return pulumi.get(self, "extern_dynamic")
 

@@ -722,7 +722,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.services);
     }
     /**
-     * Use services.etcd instead (list maxitems:1)
+     * (DEPRECATED) Use services.etcd instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.etcd instead
@@ -733,14 +733,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesEtcdDeprecated> servicesEtcdDeprecated;
 
     /**
-     * @return Use services.etcd instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.etcd instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesEtcdDeprecated>> servicesEtcdDeprecated() {
         return Codegen.optional(this.servicesEtcdDeprecated);
     }
     /**
-     * Use services.kube_api instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_api instead
@@ -751,14 +751,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesKubeApiDeprecated> servicesKubeApiDeprecated;
 
     /**
-     * @return Use services.kube_api instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kube_api instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesKubeApiDeprecated>> servicesKubeApiDeprecated() {
         return Codegen.optional(this.servicesKubeApiDeprecated);
     }
     /**
-     * Use services.kube_controller instead (list maxitems:1)
+     * (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kube_controller instead
@@ -769,14 +769,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesKubeControllerDeprecated> servicesKubeControllerDeprecated;
 
     /**
-     * @return Use services.kube_controller instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesKubeControllerDeprecated>> servicesKubeControllerDeprecated() {
         return Codegen.optional(this.servicesKubeControllerDeprecated);
     }
     /**
-     * Use services.kubeproxy instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubeproxy instead
@@ -787,14 +787,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesKubeProxyDeprecated> servicesKubeProxyDeprecated;
 
     /**
-     * @return Use services.kubeproxy instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesKubeProxyDeprecated>> servicesKubeProxyDeprecated() {
         return Codegen.optional(this.servicesKubeProxyDeprecated);
     }
     /**
-     * Use services.scheduler instead (list maxitems:1)
+     * (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.scheduler instead
@@ -805,14 +805,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesKubeSchedulerDeprecated> servicesKubeSchedulerDeprecated;
 
     /**
-     * @return Use services.scheduler instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.scheduler instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesKubeSchedulerDeprecated>> servicesKubeSchedulerDeprecated() {
         return Codegen.optional(this.servicesKubeSchedulerDeprecated);
     }
     /**
-     * Use services.kubelet instead (list maxitems:1)
+     * (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      * 
      * @deprecated
      * Use services.kubelet instead
@@ -823,7 +823,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ClusterServicesKubeletDeprecated> servicesKubeletDeprecated;
 
     /**
-     * @return Use services.kubelet instead (list maxitems:1)
+     * @return (DEPRECATED) Use services.kubelet instead (list maxitems:1)
      * 
      */
     public Output<Optional<ClusterServicesKubeletDeprecated>> servicesKubeletDeprecated() {

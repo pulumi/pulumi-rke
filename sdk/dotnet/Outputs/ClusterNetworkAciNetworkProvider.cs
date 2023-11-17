@@ -39,7 +39,6 @@ namespace Pulumi.Rke.Outputs
         public readonly string EncapType;
         /// <summary>
         /// Subnet to use for dynamic external IPs on aci (string)
-        /// * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
         /// </summary>
         public readonly string ExternDynamic;
         public readonly string ExternStatic;

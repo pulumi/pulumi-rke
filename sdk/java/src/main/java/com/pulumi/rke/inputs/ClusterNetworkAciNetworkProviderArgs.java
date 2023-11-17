@@ -108,7 +108,6 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
 
     /**
      * Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
      * 
      */
     @Import(name="externDynamic", required=true)
@@ -116,7 +115,6 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
 
     /**
      * @return Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
      * 
      */
     public Output<String> externDynamic() {
@@ -555,7 +553,6 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
 
         /**
          * @param externDynamic Subnet to use for dynamic external IPs on aci (string)
-         * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
          * 
          * @return builder
          * 
@@ -567,7 +564,6 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
 
         /**
          * @param externDynamic Subnet to use for dynamic external IPs on aci (string)
-         * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
          * 
          * @return builder
          * 

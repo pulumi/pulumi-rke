@@ -44,7 +44,6 @@ public final class ClusterNetworkAciNetworkProvider {
     private String encapType;
     /**
      * @return Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
      * 
      */
     private String externDynamic;
@@ -175,7 +174,6 @@ public final class ClusterNetworkAciNetworkProvider {
     }
     /**
      * @return Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
      * 
      */
     public String externDynamic() {

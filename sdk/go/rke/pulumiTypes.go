@@ -968,19 +968,19 @@ func (o ClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCertifica
 }
 
 type ClusterCloudProvider struct {
-	// Use awsCloudProvider instead
+	// (DEPRECATED) Use awsCloudProvider instead
 	//
 	// Deprecated: Use aws_cloud_provider instead
 	AwsCloudConfig *ClusterCloudProviderAwsCloudConfig `pulumi:"awsCloudConfig"`
 	// AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 	AwsCloudProvider *ClusterCloudProviderAwsCloudProvider `pulumi:"awsCloudProvider"`
-	// Use azureCloudProvider instead
+	// (DEPRECATED) Use azureCloudProvider instead
 	//
 	// Deprecated: Use azure_cloud_provider instead
 	AzureCloudConfig *ClusterCloudProviderAzureCloudConfig `pulumi:"azureCloudConfig"`
 	// Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 	AzureCloudProvider *ClusterCloudProviderAzureCloudProvider `pulumi:"azureCloudProvider"`
-	// Use customCloudProvider instead
+	// (DEPRECATED) Use customCloudProvider instead
 	//
 	// Deprecated: Use custom_cloud_provider instead
 	CustomCloudConfig *string `pulumi:"customCloudConfig"`
@@ -988,13 +988,13 @@ type ClusterCloudProvider struct {
 	CustomCloudProvider *string `pulumi:"customCloudProvider"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
 	Name string `pulumi:"name"`
-	// Use openstackCloudProvider instead
+	// (DEPRECATED) Use openstackCloudProvider instead
 	//
 	// Deprecated: Use openstack_cloud_provider instead
 	OpenstackCloudConfig *ClusterCloudProviderOpenstackCloudConfig `pulumi:"openstackCloudConfig"`
 	// Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 	OpenstackCloudProvider *ClusterCloudProviderOpenstackCloudProvider `pulumi:"openstackCloudProvider"`
-	// Use vsphereCloudProvider instead
+	// (DEPRECATED) Use vsphereCloudProvider instead
 	//
 	// Deprecated: Use vsphere_cloud_provider instead
 	VsphereCloudConfig *ClusterCloudProviderVsphereCloudConfig `pulumi:"vsphereCloudConfig"`
@@ -1014,19 +1014,19 @@ type ClusterCloudProviderInput interface {
 }
 
 type ClusterCloudProviderArgs struct {
-	// Use awsCloudProvider instead
+	// (DEPRECATED) Use awsCloudProvider instead
 	//
 	// Deprecated: Use aws_cloud_provider instead
 	AwsCloudConfig ClusterCloudProviderAwsCloudConfigPtrInput `pulumi:"awsCloudConfig"`
 	// AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
 	AwsCloudProvider ClusterCloudProviderAwsCloudProviderPtrInput `pulumi:"awsCloudProvider"`
-	// Use azureCloudProvider instead
+	// (DEPRECATED) Use azureCloudProvider instead
 	//
 	// Deprecated: Use azure_cloud_provider instead
 	AzureCloudConfig ClusterCloudProviderAzureCloudConfigPtrInput `pulumi:"azureCloudConfig"`
 	// Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
 	AzureCloudProvider ClusterCloudProviderAzureCloudProviderPtrInput `pulumi:"azureCloudProvider"`
-	// Use customCloudProvider instead
+	// (DEPRECATED) Use customCloudProvider instead
 	//
 	// Deprecated: Use custom_cloud_provider instead
 	CustomCloudConfig pulumi.StringPtrInput `pulumi:"customCloudConfig"`
@@ -1034,13 +1034,13 @@ type ClusterCloudProviderArgs struct {
 	CustomCloudProvider pulumi.StringPtrInput `pulumi:"customCloudProvider"`
 	// Name of virtualcenter config for Vsphere Cloud Provider config (string)
 	Name pulumi.StringInput `pulumi:"name"`
-	// Use openstackCloudProvider instead
+	// (DEPRECATED) Use openstackCloudProvider instead
 	//
 	// Deprecated: Use openstack_cloud_provider instead
 	OpenstackCloudConfig ClusterCloudProviderOpenstackCloudConfigPtrInput `pulumi:"openstackCloudConfig"`
 	// Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
 	OpenstackCloudProvider ClusterCloudProviderOpenstackCloudProviderPtrInput `pulumi:"openstackCloudProvider"`
-	// Use vsphereCloudProvider instead
+	// (DEPRECATED) Use vsphereCloudProvider instead
 	//
 	// Deprecated: Use vsphere_cloud_provider instead
 	VsphereCloudConfig ClusterCloudProviderVsphereCloudConfigPtrInput `pulumi:"vsphereCloudConfig"`
@@ -1125,7 +1125,7 @@ func (o ClusterCloudProviderOutput) ToClusterCloudProviderPtrOutputWithContext(c
 	}).(ClusterCloudProviderPtrOutput)
 }
 
-// Use awsCloudProvider instead
+// (DEPRECATED) Use awsCloudProvider instead
 //
 // Deprecated: Use aws_cloud_provider instead
 func (o ClusterCloudProviderOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
@@ -1137,7 +1137,7 @@ func (o ClusterCloudProviderOutput) AwsCloudProvider() ClusterCloudProviderAwsCl
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAwsCloudProvider { return v.AwsCloudProvider }).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
-// Use azureCloudProvider instead
+// (DEPRECATED) Use azureCloudProvider instead
 //
 // Deprecated: Use azure_cloud_provider instead
 func (o ClusterCloudProviderOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
@@ -1149,7 +1149,7 @@ func (o ClusterCloudProviderOutput) AzureCloudProvider() ClusterCloudProviderAzu
 	return o.ApplyT(func(v ClusterCloudProvider) *ClusterCloudProviderAzureCloudProvider { return v.AzureCloudProvider }).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
-// Use customCloudProvider instead
+// (DEPRECATED) Use customCloudProvider instead
 //
 // Deprecated: Use custom_cloud_provider instead
 func (o ClusterCloudProviderOutput) CustomCloudConfig() pulumi.StringPtrOutput {
@@ -1166,7 +1166,7 @@ func (o ClusterCloudProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCloudProvider) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Use openstackCloudProvider instead
+// (DEPRECATED) Use openstackCloudProvider instead
 //
 // Deprecated: Use openstack_cloud_provider instead
 func (o ClusterCloudProviderOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
@@ -1180,7 +1180,7 @@ func (o ClusterCloudProviderOutput) OpenstackCloudProvider() ClusterCloudProvide
 	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
-// Use vsphereCloudProvider instead
+// (DEPRECATED) Use vsphereCloudProvider instead
 //
 // Deprecated: Use vsphere_cloud_provider instead
 func (o ClusterCloudProviderOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
@@ -1216,7 +1216,7 @@ func (o ClusterCloudProviderPtrOutput) Elem() ClusterCloudProviderOutput {
 	}).(ClusterCloudProviderOutput)
 }
 
-// Use awsCloudProvider instead
+// (DEPRECATED) Use awsCloudProvider instead
 //
 // Deprecated: Use aws_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) AwsCloudConfig() ClusterCloudProviderAwsCloudConfigPtrOutput {
@@ -1238,7 +1238,7 @@ func (o ClusterCloudProviderPtrOutput) AwsCloudProvider() ClusterCloudProviderAw
 	}).(ClusterCloudProviderAwsCloudProviderPtrOutput)
 }
 
-// Use azureCloudProvider instead
+// (DEPRECATED) Use azureCloudProvider instead
 //
 // Deprecated: Use azure_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) AzureCloudConfig() ClusterCloudProviderAzureCloudConfigPtrOutput {
@@ -1260,7 +1260,7 @@ func (o ClusterCloudProviderPtrOutput) AzureCloudProvider() ClusterCloudProvider
 	}).(ClusterCloudProviderAzureCloudProviderPtrOutput)
 }
 
-// Use customCloudProvider instead
+// (DEPRECATED) Use customCloudProvider instead
 //
 // Deprecated: Use custom_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) CustomCloudConfig() pulumi.StringPtrOutput {
@@ -1292,7 +1292,7 @@ func (o ClusterCloudProviderPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Use openstackCloudProvider instead
+// (DEPRECATED) Use openstackCloudProvider instead
 //
 // Deprecated: Use openstack_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) OpenstackCloudConfig() ClusterCloudProviderOpenstackCloudConfigPtrOutput {
@@ -1314,7 +1314,7 @@ func (o ClusterCloudProviderPtrOutput) OpenstackCloudProvider() ClusterCloudProv
 	}).(ClusterCloudProviderOpenstackCloudProviderPtrOutput)
 }
 
-// Use vsphereCloudProvider instead
+// (DEPRECATED) Use vsphereCloudProvider instead
 //
 // Deprecated: Use vsphere_cloud_provider instead
 func (o ClusterCloudProviderPtrOutput) VsphereCloudConfig() ClusterCloudProviderVsphereCloudConfigPtrOutput {
@@ -10393,7 +10393,6 @@ type ClusterNetworkAciNetworkProvider struct {
 	// One of the supported encap types for aci(vlan/vxlan) (string)
 	EncapType string `pulumi:"encapType"`
 	// Subnet to use for dynamic external IPs on aci (string)
-	// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
 	ExternDynamic string `pulumi:"externDynamic"`
 	ExternStatic  string `pulumi:"externStatic"`
 	// Vlan for infra network on aci (string)
@@ -10455,7 +10454,6 @@ type ClusterNetworkAciNetworkProviderArgs struct {
 	// One of the supported encap types for aci(vlan/vxlan) (string)
 	EncapType pulumi.StringInput `pulumi:"encapType"`
 	// Subnet to use for dynamic external IPs on aci (string)
-	// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
 	ExternDynamic pulumi.StringInput `pulumi:"externDynamic"`
 	ExternStatic  pulumi.StringInput `pulumi:"externStatic"`
 	// Vlan for infra network on aci (string)
@@ -10600,7 +10598,6 @@ func (o ClusterNetworkAciNetworkProviderOutput) EncapType() pulumi.StringOutput 
 }
 
 // Subnet to use for dynamic external IPs on aci (string)
-// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
 func (o ClusterNetworkAciNetworkProviderOutput) ExternDynamic() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNetworkAciNetworkProvider) string { return v.ExternDynamic }).(pulumi.StringOutput)
 }
@@ -10774,7 +10771,6 @@ func (o ClusterNetworkAciNetworkProviderPtrOutput) EncapType() pulumi.StringPtrO
 }
 
 // Subnet to use for dynamic external IPs on aci (string)
-// * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
 func (o ClusterNetworkAciNetworkProviderPtrOutput) ExternDynamic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkAciNetworkProvider) *string {
 		if v == nil {

@@ -24,7 +24,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     public static final ClusterCloudProviderArgs Empty = new ClusterCloudProviderArgs();
 
     /**
-     * Use aws_cloud_provider instead
+     * (DEPRECATED) Use aws_cloud_provider instead
      * 
      * @deprecated
      * Use aws_cloud_provider instead
@@ -35,7 +35,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderAwsCloudConfigArgs> awsCloudConfig;
 
     /**
-     * @return Use aws_cloud_provider instead
+     * @return (DEPRECATED) Use aws_cloud_provider instead
      * 
      * @deprecated
      * Use aws_cloud_provider instead
@@ -62,7 +62,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use azure_cloud_provider instead
+     * (DEPRECATED) Use azure_cloud_provider instead
      * 
      * @deprecated
      * Use azure_cloud_provider instead
@@ -73,7 +73,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderAzureCloudConfigArgs> azureCloudConfig;
 
     /**
-     * @return Use azure_cloud_provider instead
+     * @return (DEPRECATED) Use azure_cloud_provider instead
      * 
      * @deprecated
      * Use azure_cloud_provider instead
@@ -100,7 +100,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use custom_cloud_provider instead
+     * (DEPRECATED) Use custom_cloud_provider instead
      * 
      * @deprecated
      * Use custom_cloud_provider instead
@@ -111,7 +111,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> customCloudConfig;
 
     /**
-     * @return Use custom_cloud_provider instead
+     * @return (DEPRECATED) Use custom_cloud_provider instead
      * 
      * @deprecated
      * Use custom_cloud_provider instead
@@ -153,7 +153,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use openstack_cloud_provider instead
+     * (DEPRECATED) Use openstack_cloud_provider instead
      * 
      * @deprecated
      * Use openstack_cloud_provider instead
@@ -164,7 +164,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigArgs> openstackCloudConfig;
 
     /**
-     * @return Use openstack_cloud_provider instead
+     * @return (DEPRECATED) Use openstack_cloud_provider instead
      * 
      * @deprecated
      * Use openstack_cloud_provider instead
@@ -191,7 +191,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use vsphere_cloud_provider instead
+     * (DEPRECATED) Use vsphere_cloud_provider instead
      * 
      * @deprecated
      * Use vsphere_cloud_provider instead
@@ -202,7 +202,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderVsphereCloudConfigArgs> vsphereCloudConfig;
 
     /**
-     * @return Use vsphere_cloud_provider instead
+     * @return (DEPRECATED) Use vsphere_cloud_provider instead
      * 
      * @deprecated
      * Use vsphere_cloud_provider instead
@@ -263,7 +263,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudConfig Use aws_cloud_provider instead
+         * @param awsCloudConfig (DEPRECATED) Use aws_cloud_provider instead
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudConfig Use aws_cloud_provider instead
+         * @param awsCloudConfig (DEPRECATED) Use aws_cloud_provider instead
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudConfig Use azure_cloud_provider instead
+         * @param azureCloudConfig (DEPRECATED) Use azure_cloud_provider instead
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudConfig Use azure_cloud_provider instead
+         * @param azureCloudConfig (DEPRECATED) Use azure_cloud_provider instead
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudConfig Use custom_cloud_provider instead
+         * @param customCloudConfig (DEPRECATED) Use custom_cloud_provider instead
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudConfig Use custom_cloud_provider instead
+         * @param customCloudConfig (DEPRECATED) Use custom_cloud_provider instead
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param openstackCloudConfig Use openstack_cloud_provider instead
+         * @param openstackCloudConfig (DEPRECATED) Use openstack_cloud_provider instead
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param openstackCloudConfig Use openstack_cloud_provider instead
+         * @param openstackCloudConfig (DEPRECATED) Use openstack_cloud_provider instead
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudConfig Use vsphere_cloud_provider instead
+         * @param vsphereCloudConfig (DEPRECATED) Use vsphere_cloud_provider instead
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudConfig Use vsphere_cloud_provider instead
+         * @param vsphereCloudConfig (DEPRECATED) Use vsphere_cloud_provider instead
          * 
          * @return builder
          * 

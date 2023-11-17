@@ -111,7 +111,7 @@ export interface ClusterCertificate {
 
 export interface ClusterCloudProvider {
     /**
-     * Use awsCloudProvider instead
+     * (DEPRECATED) Use awsCloudProvider instead
      *
      * @deprecated Use aws_cloud_provider instead
      */
@@ -121,7 +121,7 @@ export interface ClusterCloudProvider {
      */
     awsCloudProvider?: outputs.ClusterCloudProviderAwsCloudProvider;
     /**
-     * Use azureCloudProvider instead
+     * (DEPRECATED) Use azureCloudProvider instead
      *
      * @deprecated Use azure_cloud_provider instead
      */
@@ -131,7 +131,7 @@ export interface ClusterCloudProvider {
      */
     azureCloudProvider?: outputs.ClusterCloudProviderAzureCloudProvider;
     /**
-     * Use customCloudProvider instead
+     * (DEPRECATED) Use customCloudProvider instead
      *
      * @deprecated Use custom_cloud_provider instead
      */
@@ -145,7 +145,7 @@ export interface ClusterCloudProvider {
      */
     name: string;
     /**
-     * Use openstackCloudProvider instead
+     * (DEPRECATED) Use openstackCloudProvider instead
      *
      * @deprecated Use openstack_cloud_provider instead
      */
@@ -155,7 +155,7 @@ export interface ClusterCloudProvider {
      */
     openstackCloudProvider?: outputs.ClusterCloudProviderOpenstackCloudProvider;
     /**
-     * Use vsphereCloudProvider instead
+     * (DEPRECATED) Use vsphereCloudProvider instead
      *
      * @deprecated Use vsphere_cloud_provider instead
      */
@@ -1320,7 +1320,6 @@ export interface ClusterNetworkAciNetworkProvider {
     encapType: string;
     /**
      * Subnet to use for dynamic external IPs on aci (string)
-     * * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
      */
     externDynamic: string;
     externStatic: string;

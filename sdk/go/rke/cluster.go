@@ -127,27 +127,27 @@ type Cluster struct {
 	RunningSystemImages ClusterRunningSystemImageArrayOutput `pulumi:"runningSystemImages"`
 	// RKE k8s cluster services (list maxitems:1)
 	Services ClusterServicesPtrOutput `pulumi:"services"`
-	// Use services.etcd instead (list maxitems:1)
+	// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrOutput `pulumi:"servicesEtcdDeprecated"`
-	// Use services.kube_api instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrOutput `pulumi:"servicesKubeApiDeprecated"`
-	// Use services.kube_controller instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrOutput `pulumi:"servicesKubeControllerDeprecated"`
-	// Use services.kubeproxy instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrOutput `pulumi:"servicesKubeProxyDeprecated"`
-	// Use services.scheduler instead (list maxitems:1)
+	// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 	//
 	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrOutput `pulumi:"servicesKubeSchedulerDeprecated"`
-	// Use services.kubelet instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrOutput `pulumi:"servicesKubeletDeprecated"`
@@ -308,27 +308,27 @@ type clusterState struct {
 	RunningSystemImages []ClusterRunningSystemImage `pulumi:"runningSystemImages"`
 	// RKE k8s cluster services (list maxitems:1)
 	Services *ClusterServices `pulumi:"services"`
-	// Use services.etcd instead (list maxitems:1)
+	// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
-	// Use services.kube_api instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
-	// Use services.kube_controller instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
-	// Use services.kubeproxy instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
-	// Use services.scheduler instead (list maxitems:1)
+	// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 	//
 	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
-	// Use services.kubelet instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
@@ -445,27 +445,27 @@ type ClusterState struct {
 	RunningSystemImages ClusterRunningSystemImageArrayInput
 	// RKE k8s cluster services (list maxitems:1)
 	Services ClusterServicesPtrInput
-	// Use services.etcd instead (list maxitems:1)
+	// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
-	// Use services.kube_api instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
-	// Use services.kube_controller instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
-	// Use services.kubeproxy instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
-	// Use services.scheduler instead (list maxitems:1)
+	// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 	//
 	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
-	// Use services.kubelet instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
@@ -550,27 +550,27 @@ type clusterArgs struct {
 	RotateCertificates *ClusterRotateCertificates `pulumi:"rotateCertificates"`
 	// RKE k8s cluster services (list maxitems:1)
 	Services *ClusterServices `pulumi:"services"`
-	// Use services.etcd instead (list maxitems:1)
+	// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated *ClusterServicesEtcdDeprecated `pulumi:"servicesEtcdDeprecated"`
-	// Use services.kube_api instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated *ClusterServicesKubeApiDeprecated `pulumi:"servicesKubeApiDeprecated"`
-	// Use services.kube_controller instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated *ClusterServicesKubeControllerDeprecated `pulumi:"servicesKubeControllerDeprecated"`
-	// Use services.kubeproxy instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated *ClusterServicesKubeProxyDeprecated `pulumi:"servicesKubeProxyDeprecated"`
-	// Use services.scheduler instead (list maxitems:1)
+	// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 	//
 	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated *ClusterServicesKubeSchedulerDeprecated `pulumi:"servicesKubeSchedulerDeprecated"`
-	// Use services.kubelet instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated *ClusterServicesKubeletDeprecated `pulumi:"servicesKubeletDeprecated"`
@@ -650,27 +650,27 @@ type ClusterArgs struct {
 	RotateCertificates ClusterRotateCertificatesPtrInput
 	// RKE k8s cluster services (list maxitems:1)
 	Services ClusterServicesPtrInput
-	// Use services.etcd instead (list maxitems:1)
+	// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 	//
 	// Deprecated: Use services.etcd instead
 	ServicesEtcdDeprecated ClusterServicesEtcdDeprecatedPtrInput
-	// Use services.kube_api instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_api instead
 	ServicesKubeApiDeprecated ClusterServicesKubeApiDeprecatedPtrInput
-	// Use services.kube_controller instead (list maxitems:1)
+	// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kube_controller instead
 	ServicesKubeControllerDeprecated ClusterServicesKubeControllerDeprecatedPtrInput
-	// Use services.kubeproxy instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubeproxy instead
 	ServicesKubeProxyDeprecated ClusterServicesKubeProxyDeprecatedPtrInput
-	// Use services.scheduler instead (list maxitems:1)
+	// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 	//
 	// Deprecated: Use services.scheduler instead
 	ServicesKubeSchedulerDeprecated ClusterServicesKubeSchedulerDeprecatedPtrInput
-	// Use services.kubelet instead (list maxitems:1)
+	// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 	//
 	// Deprecated: Use services.kubelet instead
 	ServicesKubeletDeprecated ClusterServicesKubeletDeprecatedPtrInput
@@ -1012,21 +1012,21 @@ func (o ClusterOutput) Services() ClusterServicesPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServicesPtrOutput { return v.Services }).(ClusterServicesPtrOutput)
 }
 
-// Use services.etcd instead (list maxitems:1)
+// (DEPRECATED) Use services.etcd instead (list maxitems:1)
 //
 // Deprecated: Use services.etcd instead
 func (o ClusterOutput) ServicesEtcdDeprecated() ClusterServicesEtcdDeprecatedPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServicesEtcdDeprecatedPtrOutput { return v.ServicesEtcdDeprecated }).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
 
-// Use services.kube_api instead (list maxitems:1)
+// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
 //
 // Deprecated: Use services.kube_api instead
 func (o ClusterOutput) ServicesKubeApiDeprecated() ClusterServicesKubeApiDeprecatedPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServicesKubeApiDeprecatedPtrOutput { return v.ServicesKubeApiDeprecated }).(ClusterServicesKubeApiDeprecatedPtrOutput)
 }
 
-// Use services.kube_controller instead (list maxitems:1)
+// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
 //
 // Deprecated: Use services.kube_controller instead
 func (o ClusterOutput) ServicesKubeControllerDeprecated() ClusterServicesKubeControllerDeprecatedPtrOutput {
@@ -1035,14 +1035,14 @@ func (o ClusterOutput) ServicesKubeControllerDeprecated() ClusterServicesKubeCon
 	}).(ClusterServicesKubeControllerDeprecatedPtrOutput)
 }
 
-// Use services.kubeproxy instead (list maxitems:1)
+// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
 //
 // Deprecated: Use services.kubeproxy instead
 func (o ClusterOutput) ServicesKubeProxyDeprecated() ClusterServicesKubeProxyDeprecatedPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServicesKubeProxyDeprecatedPtrOutput { return v.ServicesKubeProxyDeprecated }).(ClusterServicesKubeProxyDeprecatedPtrOutput)
 }
 
-// Use services.scheduler instead (list maxitems:1)
+// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
 //
 // Deprecated: Use services.scheduler instead
 func (o ClusterOutput) ServicesKubeSchedulerDeprecated() ClusterServicesKubeSchedulerDeprecatedPtrOutput {
@@ -1051,7 +1051,7 @@ func (o ClusterOutput) ServicesKubeSchedulerDeprecated() ClusterServicesKubeSche
 	}).(ClusterServicesKubeSchedulerDeprecatedPtrOutput)
 }
 
-// Use services.kubelet instead (list maxitems:1)
+// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
 //
 // Deprecated: Use services.kubelet instead
 func (o ClusterOutput) ServicesKubeletDeprecated() ClusterServicesKubeletDeprecatedPtrOutput {

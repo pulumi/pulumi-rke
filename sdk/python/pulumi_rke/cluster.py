@@ -89,12 +89,12 @@ class ClusterArgs:
         :param pulumi.Input['ClusterRestoreArgs'] restore: RKE k8s cluster restore configuration (list maxitems:1)
         :param pulumi.Input['ClusterRotateCertificatesArgs'] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input['ClusterServicesArgs'] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: (DEPRECATED) Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: (DEPRECATED) Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: (DEPRECATED) Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
@@ -572,7 +572,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesEtcdDeprecated")
     def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
         """
-        Use services.etcd instead (list maxitems:1)
+        (DEPRECATED) Use services.etcd instead (list maxitems:1)
         """
         warnings.warn("""Use services.etcd instead""", DeprecationWarning)
         pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
@@ -587,7 +587,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesKubeApiDeprecated")
     def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
         """
-        Use services.kube_api instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
@@ -602,7 +602,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesKubeControllerDeprecated")
     def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
         """
-        Use services.kube_controller instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
@@ -617,7 +617,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesKubeProxyDeprecated")
     def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
         """
-        Use services.kubeproxy instead (list maxitems:1)
+        (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
@@ -632,7 +632,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
     def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
         """
-        Use services.scheduler instead (list maxitems:1)
+        (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         """
         warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
@@ -647,7 +647,7 @@ class ClusterArgs:
     @pulumi.getter(name="servicesKubeletDeprecated")
     def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
         """
-        Use services.kubelet instead (list maxitems:1)
+        (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
         pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
@@ -842,12 +842,12 @@ class _ClusterState:
         :param pulumi.Input['ClusterRotateCertificatesArgs'] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRunningSystemImageArgs']]] running_system_images: (Computed) RKE k8s cluster running system images list (list)
         :param pulumi.Input['ClusterServicesArgs'] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesEtcdDeprecatedArgs'] services_etcd_deprecated: (DEPRECATED) Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeApiDeprecatedArgs'] services_kube_api_deprecated: (DEPRECATED) Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs'] services_kube_controller_deprecated: (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs'] services_kube_proxy_deprecated: (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs'] services_kube_scheduler_deprecated: (DEPRECATED) Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input['ClusterServicesKubeletDeprecatedArgs'] services_kubelet_deprecated: (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
@@ -1572,7 +1572,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesEtcdDeprecated")
     def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
         """
-        Use services.etcd instead (list maxitems:1)
+        (DEPRECATED) Use services.etcd instead (list maxitems:1)
         """
         warnings.warn("""Use services.etcd instead""", DeprecationWarning)
         pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
@@ -1587,7 +1587,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesKubeApiDeprecated")
     def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
         """
-        Use services.kube_api instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
@@ -1602,7 +1602,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesKubeControllerDeprecated")
     def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
         """
-        Use services.kube_controller instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
@@ -1617,7 +1617,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesKubeProxyDeprecated")
     def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
         """
-        Use services.kubeproxy instead (list maxitems:1)
+        (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
@@ -1632,7 +1632,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
     def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
         """
-        Use services.scheduler instead (list maxitems:1)
+        (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         """
         warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
@@ -1647,7 +1647,7 @@ class _ClusterState:
     @pulumi.getter(name="servicesKubeletDeprecated")
     def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
         """
-        Use services.kubelet instead (list maxitems:1)
+        (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
         pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
@@ -1836,12 +1836,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterRestoreArgs']] restore: RKE k8s cluster restore configuration (list maxitems:1)
         :param pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input[pulumi.InputType['ClusterServicesArgs']] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: (DEPRECATED) Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: (DEPRECATED) Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: (DEPRECATED) Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
@@ -2120,12 +2120,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRunningSystemImageArgs']]]] running_system_images: (Computed) RKE k8s cluster running system images list (list)
         :param pulumi.Input[pulumi.InputType['ClusterServicesArgs']] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: (DEPRECATED) Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: (DEPRECATED) Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: (DEPRECATED) Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
@@ -2583,7 +2583,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesEtcdDeprecated")
     def services_etcd_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesEtcdDeprecated']]:
         """
-        Use services.etcd instead (list maxitems:1)
+        (DEPRECATED) Use services.etcd instead (list maxitems:1)
         """
         warnings.warn("""Use services.etcd instead""", DeprecationWarning)
         pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
@@ -2594,7 +2594,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesKubeApiDeprecated")
     def services_kube_api_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeApiDeprecated']]:
         """
-        Use services.kube_api instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
@@ -2605,7 +2605,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesKubeControllerDeprecated")
     def services_kube_controller_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeControllerDeprecated']]:
         """
-        Use services.kube_controller instead (list maxitems:1)
+        (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         """
         warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
@@ -2616,7 +2616,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesKubeProxyDeprecated")
     def services_kube_proxy_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeProxyDeprecated']]:
         """
-        Use services.kubeproxy instead (list maxitems:1)
+        (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
@@ -2627,7 +2627,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
     def services_kube_scheduler_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeSchedulerDeprecated']]:
         """
-        Use services.scheduler instead (list maxitems:1)
+        (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         """
         warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
         pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
@@ -2638,7 +2638,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="servicesKubeletDeprecated")
     def services_kubelet_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeletDeprecated']]:
         """
-        Use services.kubelet instead (list maxitems:1)
+        (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         """
         warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
         pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")

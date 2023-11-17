@@ -306,37 +306,37 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterServices?> Services { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.etcd instead (list maxitems:1)
+        /// (DEPRECATED) Use services.etcd instead (list maxitems:1)
         /// </summary>
         [Output("servicesEtcdDeprecated")]
         public Output<Outputs.ClusterServicesEtcdDeprecated?> ServicesEtcdDeprecated { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.kube_api instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         /// </summary>
         [Output("servicesKubeApiDeprecated")]
         public Output<Outputs.ClusterServicesKubeApiDeprecated?> ServicesKubeApiDeprecated { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.kube_controller instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         /// </summary>
         [Output("servicesKubeControllerDeprecated")]
         public Output<Outputs.ClusterServicesKubeControllerDeprecated?> ServicesKubeControllerDeprecated { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.kubeproxy instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
         [Output("servicesKubeProxyDeprecated")]
         public Output<Outputs.ClusterServicesKubeProxyDeprecated?> ServicesKubeProxyDeprecated { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.scheduler instead (list maxitems:1)
+        /// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         /// </summary>
         [Output("servicesKubeSchedulerDeprecated")]
         public Output<Outputs.ClusterServicesKubeSchedulerDeprecated?> ServicesKubeSchedulerDeprecated { get; private set; } = null!;
 
         /// <summary>
-        /// Use services.kubelet instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         /// </summary>
         [Output("servicesKubeletDeprecated")]
         public Output<Outputs.ClusterServicesKubeletDeprecated?> ServicesKubeletDeprecated { get; private set; } = null!;
@@ -653,37 +653,37 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterServicesArgs>? Services { get; set; }
 
         /// <summary>
-        /// Use services.etcd instead (list maxitems:1)
+        /// (DEPRECATED) Use services.etcd instead (list maxitems:1)
         /// </summary>
         [Input("servicesEtcdDeprecated")]
         public Input<Inputs.ClusterServicesEtcdDeprecatedArgs>? ServicesEtcdDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kube_api instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeApiDeprecated")]
         public Input<Inputs.ClusterServicesKubeApiDeprecatedArgs>? ServicesKubeApiDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kube_controller instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeControllerDeprecated")]
         public Input<Inputs.ClusterServicesKubeControllerDeprecatedArgs>? ServicesKubeControllerDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kubeproxy instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeProxyDeprecated")]
         public Input<Inputs.ClusterServicesKubeProxyDeprecatedArgs>? ServicesKubeProxyDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.scheduler instead (list maxitems:1)
+        /// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeSchedulerDeprecated")]
         public Input<Inputs.ClusterServicesKubeSchedulerDeprecatedArgs>? ServicesKubeSchedulerDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kubelet instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeletDeprecated")]
         public Input<Inputs.ClusterServicesKubeletDeprecatedArgs>? ServicesKubeletDeprecated { get; set; }
@@ -1151,37 +1151,37 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterServicesGetArgs>? Services { get; set; }
 
         /// <summary>
-        /// Use services.etcd instead (list maxitems:1)
+        /// (DEPRECATED) Use services.etcd instead (list maxitems:1)
         /// </summary>
         [Input("servicesEtcdDeprecated")]
         public Input<Inputs.ClusterServicesEtcdDeprecatedGetArgs>? ServicesEtcdDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kube_api instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_api instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeApiDeprecated")]
         public Input<Inputs.ClusterServicesKubeApiDeprecatedGetArgs>? ServicesKubeApiDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kube_controller instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kube_controller instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeControllerDeprecated")]
         public Input<Inputs.ClusterServicesKubeControllerDeprecatedGetArgs>? ServicesKubeControllerDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kubeproxy instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubeproxy instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeProxyDeprecated")]
         public Input<Inputs.ClusterServicesKubeProxyDeprecatedGetArgs>? ServicesKubeProxyDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.scheduler instead (list maxitems:1)
+        /// (DEPRECATED) Use services.scheduler instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeSchedulerDeprecated")]
         public Input<Inputs.ClusterServicesKubeSchedulerDeprecatedGetArgs>? ServicesKubeSchedulerDeprecated { get; set; }
 
         /// <summary>
-        /// Use services.kubelet instead (list maxitems:1)
+        /// (DEPRECATED) Use services.kubelet instead (list maxitems:1)
         /// </summary>
         [Input("servicesKubeletDeprecated")]
         public Input<Inputs.ClusterServicesKubeletDeprecatedGetArgs>? ServicesKubeletDeprecated { get; set; }
