@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServicesEtcdDeprecated {
     /**
-     * @return Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+     * @return Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
      * 
      */
     private @Nullable ClusterServicesEtcdDeprecatedBackupConfig backupConfig;
@@ -58,7 +58,7 @@ public final class ClusterServicesEtcdDeprecated {
      */
     private @Nullable List<String> extraEnvs;
     /**
-     * @return Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+     * @return Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
      * 
      */
     private @Nullable Integer gid;
@@ -88,14 +88,14 @@ public final class ClusterServicesEtcdDeprecated {
      */
     private @Nullable Boolean snapshot;
     /**
-     * @return Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+     * @return Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
      * 
      */
     private @Nullable Integer uid;
 
     private ClusterServicesEtcdDeprecated() {}
     /**
-     * @return Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+     * @return Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
      * 
      */
     public Optional<ClusterServicesEtcdDeprecatedBackupConfig> backupConfig() {
@@ -151,7 +151,7 @@ public final class ClusterServicesEtcdDeprecated {
         return this.extraEnvs == null ? List.of() : this.extraEnvs;
     }
     /**
-     * @return Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+     * @return Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
      * 
      */
     public Optional<Integer> gid() {
@@ -193,7 +193,7 @@ public final class ClusterServicesEtcdDeprecated {
         return Optional.ofNullable(this.snapshot);
     }
     /**
-     * @return Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+     * @return Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
      * 
      */
     public Optional<Integer> uid() {

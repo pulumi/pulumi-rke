@@ -54,6 +54,11 @@ public final class ClusterServicesKubeApi {
      */
     private @Nullable String image;
     /**
+     * @return Built-in PodSecurityPolicy (privileged or restricted)
+     * 
+     */
+    private @Nullable String podSecurityConfiguration;
+    /**
      * @return Pod Security Policy option for kube API service (bool)
      * 
      */
@@ -125,6 +130,13 @@ public final class ClusterServicesKubeApi {
         return Optional.ofNullable(this.image);
     }
     /**
+     * @return Built-in PodSecurityPolicy (privileged or restricted)
+     * 
+     */
+    public Optional<String> podSecurityConfiguration() {
+        return Optional.ofNullable(this.podSecurityConfiguration);
+    }
+    /**
      * @return Pod Security Policy option for kube API service (bool)
      * 
      */
@@ -169,6 +181,7 @@ public final class ClusterServicesKubeApi {
         private @Nullable List<String> extraBinds;
         private @Nullable List<String> extraEnvs;
         private @Nullable String image;
+        private @Nullable String podSecurityConfiguration;
         private @Nullable Boolean podSecurityPolicy;
         private @Nullable ClusterServicesKubeApiSecretsEncryptionConfig secretsEncryptionConfig;
         private @Nullable String serviceClusterIpRange;
@@ -183,6 +196,7 @@ public final class ClusterServicesKubeApi {
     	      this.extraBinds = defaults.extraBinds;
     	      this.extraEnvs = defaults.extraEnvs;
     	      this.image = defaults.image;
+    	      this.podSecurityConfiguration = defaults.podSecurityConfiguration;
     	      this.podSecurityPolicy = defaults.podSecurityPolicy;
     	      this.secretsEncryptionConfig = defaults.secretsEncryptionConfig;
     	      this.serviceClusterIpRange = defaults.serviceClusterIpRange;
@@ -231,6 +245,11 @@ public final class ClusterServicesKubeApi {
             return this;
         }
         @CustomType.Setter
+        public Builder podSecurityConfiguration(@Nullable String podSecurityConfiguration) {
+            this.podSecurityConfiguration = podSecurityConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder podSecurityPolicy(@Nullable Boolean podSecurityPolicy) {
             this.podSecurityPolicy = podSecurityPolicy;
             return this;
@@ -259,6 +278,7 @@ public final class ClusterServicesKubeApi {
             o.extraBinds = extraBinds;
             o.extraEnvs = extraEnvs;
             o.image = image;
+            o.podSecurityConfiguration = podSecurityConfiguration;
             o.podSecurityPolicy = podSecurityPolicy;
             o.secretsEncryptionConfig = secretsEncryptionConfig;
             o.serviceClusterIpRange = serviceClusterIpRange;
