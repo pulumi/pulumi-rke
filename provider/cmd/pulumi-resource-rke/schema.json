@@ -2359,7 +2359,7 @@
             "properties": {
                 "backupConfig": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfig:ClusterServicesEtcdBackupConfig",
-                    "description": "Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)\n"
+                    "description": "Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)\n"
                 },
                 "caCert": {
                     "type": "string",
@@ -2405,7 +2405,7 @@
                 },
                 "gid": {
                     "type": "integer",
-                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)\n"
+                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)\n"
                 },
                 "image": {
                     "type": "string",
@@ -2430,7 +2430,7 @@
                 },
                 "uid": {
                     "type": "integer",
-                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)\n"
+                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)\n"
                 }
             },
             "type": "object",
@@ -2521,7 +2521,7 @@
             "properties": {
                 "backupConfig": {
                     "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfig:ClusterServicesEtcdDeprecatedBackupConfig",
-                    "description": "Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)\n"
+                    "description": "Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)\n"
                 },
                 "caCert": {
                     "type": "string",
@@ -2567,7 +2567,7 @@
                 },
                 "gid": {
                     "type": "integer",
-                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)\n"
+                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)\n"
                 },
                 "image": {
                     "type": "string",
@@ -2592,7 +2592,7 @@
                 },
                 "uid": {
                     "type": "integer",
-                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)\n"
+                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)\n"
                 }
             },
             "type": "object",
@@ -2718,6 +2718,10 @@
                     "type": "string",
                     "description": "Docker image for scheduler service (string)\n"
                 },
+                "podSecurityConfiguration": {
+                    "type": "string",
+                    "description": "Built-in PodSecurityPolicy (privileged or restricted)\n"
+                },
                 "podSecurityPolicy": {
                     "type": "boolean",
                     "description": "Pod Security Policy option for kube API service (bool)\n"
@@ -2745,6 +2749,7 @@
                         "extraBinds",
                         "extraEnvs",
                         "image",
+                        "podSecurityConfiguration",
                         "podSecurityPolicy",
                         "serviceClusterIpRange",
                         "serviceNodePortRange"
@@ -2853,6 +2858,10 @@
                     "type": "string",
                     "description": "Docker image for scheduler service (string)\n"
                 },
+                "podSecurityConfiguration": {
+                    "type": "string",
+                    "description": "Built-in PodSecurityPolicy (privileged or restricted)\n"
+                },
                 "podSecurityPolicy": {
                     "type": "boolean",
                     "description": "Pod Security Policy option for kube API service (bool)\n"
@@ -2880,6 +2889,7 @@
                         "extraBinds",
                         "extraEnvs",
                         "image",
+                        "podSecurityConfiguration",
                         "podSecurityPolicy",
                         "serviceClusterIpRange",
                         "serviceNodePortRange"
@@ -3815,7 +3825,7 @@
                 },
                 "enableCriDockerd": {
                     "type": "boolean",
-                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                    "description": "Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)\n"
                 },
                 "etcdHosts": {
                     "type": "array",
@@ -4078,7 +4088,7 @@
                 },
                 "enableCriDockerd": {
                     "type": "boolean",
-                    "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                    "description": "Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)\n"
                 },
                 "ignoreDockerVersion": {
                     "type": "boolean",
@@ -4315,7 +4325,7 @@
                     },
                     "enableCriDockerd": {
                         "type": "boolean",
-                        "description": "Enable/Disable CRI dockerd for kubelet. Default `false` (bool)\n"
+                        "description": "Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)\n"
                     },
                     "etcdHosts": {
                         "type": "array",
