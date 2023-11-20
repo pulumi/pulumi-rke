@@ -1721,7 +1721,7 @@ export interface ClusterServices {
 
 export interface ClusterServicesEtcd {
     /**
-     * Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
      */
     backupConfig: outputs.ClusterServicesEtcdBackupConfig;
     /**
@@ -1753,7 +1753,7 @@ export interface ClusterServicesEtcd {
      */
     extraEnvs: string[];
     /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
      */
     gid?: number;
     /**
@@ -1777,7 +1777,7 @@ export interface ClusterServicesEtcd {
      */
     snapshot?: boolean;
     /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
      */
     uid?: number;
 }
@@ -1842,7 +1842,7 @@ export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
 
 export interface ClusterServicesEtcdDeprecated {
     /**
-     * Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
      */
     backupConfig: outputs.ClusterServicesEtcdDeprecatedBackupConfig;
     /**
@@ -1874,7 +1874,7 @@ export interface ClusterServicesEtcdDeprecated {
      */
     extraEnvs: string[];
     /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
      */
     gid?: number;
     /**
@@ -1898,7 +1898,7 @@ export interface ClusterServicesEtcdDeprecated {
      */
     snapshot?: boolean;
     /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
      */
     uid?: number;
 }
@@ -1991,6 +1991,10 @@ export interface ClusterServicesKubeApi {
      */
     image: string;
     /**
+     * Built-in PodSecurityPolicy (privileged or restricted)
+     */
+    podSecurityConfiguration: string;
+    /**
      * Pod Security Policy option for kube API service (bool)
      */
     podSecurityPolicy: boolean;
@@ -2075,6 +2079,10 @@ export interface ClusterServicesKubeApiDeprecated {
      * Docker image for scheduler service (string)
      */
     image: string;
+    /**
+     * Built-in PodSecurityPolicy (privileged or restricted)
+     */
+    podSecurityConfiguration: string;
     /**
      * Pod Security Policy option for kube API service (bool)
      */

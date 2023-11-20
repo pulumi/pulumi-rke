@@ -426,14 +426,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dns);
     }
     /**
-     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      * 
      */
     @Export(name="enableCriDockerd", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableCriDockerd;
 
     /**
-     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * @return Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      * 
      */
     public Output<Optional<Boolean>> enableCriDockerd() {

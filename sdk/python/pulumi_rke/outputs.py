@@ -6474,7 +6474,7 @@ class ClusterServicesEtcd(dict):
                  snapshot: Optional[bool] = None,
                  uid: Optional[int] = None):
         """
-        :param 'ClusterServicesEtcdBackupConfigArgs' backup_config: Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        :param 'ClusterServicesEtcdBackupConfigArgs' backup_config: Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
         :param str ca_cert: TLS CA certificate for etcd service (string)
         :param str cert: TLS certificate for etcd service (string)
         :param str creation: Creation option for etcd service (string)
@@ -6482,13 +6482,13 @@ class ClusterServicesEtcd(dict):
         :param Mapping[str, Any] extra_args: Extra arguments for scheduler service (map)
         :param Sequence[str] extra_binds: Extra binds for scheduler service (list)
         :param Sequence[str] extra_envs: Extra environment for scheduler service (list)
-        :param int gid: Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        :param int gid: Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
         :param str image: Docker image for scheduler service (string)
         :param str key: TLS key for etcd service (string)
         :param str path: Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         :param str retention: Retention for etcd backup. Default `6` (int)
         :param bool snapshot: Snapshot option for etcd service. Default `true` (bool)
-        :param int uid: Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        :param int uid: Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         if backup_config is not None:
             pulumi.set(__self__, "backup_config", backup_config)
@@ -6525,7 +6525,7 @@ class ClusterServicesEtcd(dict):
     @pulumi.getter(name="backupConfig")
     def backup_config(self) -> Optional['outputs.ClusterServicesEtcdBackupConfig']:
         """
-        Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
         """
         return pulumi.get(self, "backup_config")
 
@@ -6589,7 +6589,7 @@ class ClusterServicesEtcd(dict):
     @pulumi.getter
     def gid(self) -> Optional[int]:
         """
-        Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         return pulumi.get(self, "gid")
 
@@ -6637,7 +6637,7 @@ class ClusterServicesEtcd(dict):
     @pulumi.getter
     def uid(self) -> Optional[int]:
         """
-        Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         return pulumi.get(self, "uid")
 
@@ -6902,7 +6902,7 @@ class ClusterServicesEtcdDeprecated(dict):
                  snapshot: Optional[bool] = None,
                  uid: Optional[int] = None):
         """
-        :param 'ClusterServicesEtcdDeprecatedBackupConfigArgs' backup_config: Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        :param 'ClusterServicesEtcdDeprecatedBackupConfigArgs' backup_config: Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
         :param str ca_cert: TLS CA certificate for etcd service (string)
         :param str cert: TLS certificate for etcd service (string)
         :param str creation: Creation option for etcd service (string)
@@ -6910,13 +6910,13 @@ class ClusterServicesEtcdDeprecated(dict):
         :param Mapping[str, Any] extra_args: Extra arguments for scheduler service (map)
         :param Sequence[str] extra_binds: Extra binds for scheduler service (list)
         :param Sequence[str] extra_envs: Extra environment for scheduler service (list)
-        :param int gid: Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        :param int gid: Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
         :param str image: Docker image for scheduler service (string)
         :param str key: TLS key for etcd service (string)
         :param str path: Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
         :param str retention: Retention for etcd backup. Default `6` (int)
         :param bool snapshot: Snapshot option for etcd service. Default `true` (bool)
-        :param int uid: Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        :param int uid: Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         if backup_config is not None:
             pulumi.set(__self__, "backup_config", backup_config)
@@ -6953,7 +6953,7 @@ class ClusterServicesEtcdDeprecated(dict):
     @pulumi.getter(name="backupConfig")
     def backup_config(self) -> Optional['outputs.ClusterServicesEtcdDeprecatedBackupConfig']:
         """
-        Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+        Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
         """
         return pulumi.get(self, "backup_config")
 
@@ -7017,7 +7017,7 @@ class ClusterServicesEtcdDeprecated(dict):
     @pulumi.getter
     def gid(self) -> Optional[int]:
         """
-        Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+        Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         return pulumi.get(self, "gid")
 
@@ -7065,7 +7065,7 @@ class ClusterServicesEtcdDeprecated(dict):
     @pulumi.getter
     def uid(self) -> Optional[int]:
         """
-        Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+        Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
         """
         return pulumi.get(self, "uid")
 
@@ -7301,6 +7301,8 @@ class ClusterServicesKubeApi(dict):
             suggest = "extra_binds"
         elif key == "extraEnvs":
             suggest = "extra_envs"
+        elif key == "podSecurityConfiguration":
+            suggest = "pod_security_configuration"
         elif key == "podSecurityPolicy":
             suggest = "pod_security_policy"
         elif key == "secretsEncryptionConfig":
@@ -7329,6 +7331,7 @@ class ClusterServicesKubeApi(dict):
                  extra_binds: Optional[Sequence[str]] = None,
                  extra_envs: Optional[Sequence[str]] = None,
                  image: Optional[str] = None,
+                 pod_security_configuration: Optional[str] = None,
                  pod_security_policy: Optional[bool] = None,
                  secrets_encryption_config: Optional['outputs.ClusterServicesKubeApiSecretsEncryptionConfig'] = None,
                  service_cluster_ip_range: Optional[str] = None,
@@ -7341,6 +7344,7 @@ class ClusterServicesKubeApi(dict):
         :param Sequence[str] extra_binds: Extra binds for scheduler service (list)
         :param Sequence[str] extra_envs: Extra environment for scheduler service (list)
         :param str image: Docker image for scheduler service (string)
+        :param str pod_security_configuration: Built-in PodSecurityPolicy (privileged or restricted)
         :param bool pod_security_policy: Pod Security Policy option for kube API service (bool)
         :param 'ClusterServicesKubeApiSecretsEncryptionConfigArgs' secrets_encryption_config: [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
         :param str service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
@@ -7360,6 +7364,8 @@ class ClusterServicesKubeApi(dict):
             pulumi.set(__self__, "extra_envs", extra_envs)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if pod_security_configuration is not None:
+            pulumi.set(__self__, "pod_security_configuration", pod_security_configuration)
         if pod_security_policy is not None:
             pulumi.set(__self__, "pod_security_policy", pod_security_policy)
         if secrets_encryption_config is not None:
@@ -7424,6 +7430,14 @@ class ClusterServicesKubeApi(dict):
         Docker image for scheduler service (string)
         """
         return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="podSecurityConfiguration")
+    def pod_security_configuration(self) -> Optional[str]:
+        """
+        Built-in PodSecurityPolicy (privileged or restricted)
+        """
+        return pulumi.get(self, "pod_security_configuration")
 
     @property
     @pulumi.getter(name="podSecurityPolicy")
@@ -7606,6 +7620,8 @@ class ClusterServicesKubeApiDeprecated(dict):
             suggest = "extra_binds"
         elif key == "extraEnvs":
             suggest = "extra_envs"
+        elif key == "podSecurityConfiguration":
+            suggest = "pod_security_configuration"
         elif key == "podSecurityPolicy":
             suggest = "pod_security_policy"
         elif key == "secretsEncryptionConfig":
@@ -7634,6 +7650,7 @@ class ClusterServicesKubeApiDeprecated(dict):
                  extra_binds: Optional[Sequence[str]] = None,
                  extra_envs: Optional[Sequence[str]] = None,
                  image: Optional[str] = None,
+                 pod_security_configuration: Optional[str] = None,
                  pod_security_policy: Optional[bool] = None,
                  secrets_encryption_config: Optional['outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig'] = None,
                  service_cluster_ip_range: Optional[str] = None,
@@ -7646,6 +7663,7 @@ class ClusterServicesKubeApiDeprecated(dict):
         :param Sequence[str] extra_binds: Extra binds for scheduler service (list)
         :param Sequence[str] extra_envs: Extra environment for scheduler service (list)
         :param str image: Docker image for scheduler service (string)
+        :param str pod_security_configuration: Built-in PodSecurityPolicy (privileged or restricted)
         :param bool pod_security_policy: Pod Security Policy option for kube API service (bool)
         :param 'ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs' secrets_encryption_config: [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
         :param str service_cluster_ip_range: Service Cluster ip Range option for kube controller service (string)
@@ -7665,6 +7683,8 @@ class ClusterServicesKubeApiDeprecated(dict):
             pulumi.set(__self__, "extra_envs", extra_envs)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if pod_security_configuration is not None:
+            pulumi.set(__self__, "pod_security_configuration", pod_security_configuration)
         if pod_security_policy is not None:
             pulumi.set(__self__, "pod_security_policy", pod_security_policy)
         if secrets_encryption_config is not None:
@@ -7729,6 +7749,14 @@ class ClusterServicesKubeApiDeprecated(dict):
         Docker image for scheduler service (string)
         """
         return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="podSecurityConfiguration")
+    def pod_security_configuration(self) -> Optional[str]:
+        """
+        Built-in PodSecurityPolicy (privileged or restricted)
+        """
+        return pulumi.get(self, "pod_security_configuration")
 
     @property
     @pulumi.getter(name="podSecurityPolicy")

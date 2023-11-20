@@ -436,14 +436,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      * 
      */
     @Import(name="enableCriDockerd")
     private @Nullable Output<Boolean> enableCriDockerd;
 
     /**
-     * @return Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * @return Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      * 
      */
     public Optional<Output<Boolean>> enableCriDockerd() {
@@ -1665,7 +1665,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
          * 
          * @return builder
          * 
@@ -1676,7 +1676,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+         * @param enableCriDockerd Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
          * 
          * @return builder
          * 

@@ -73,6 +73,12 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Image { get; set; }
 
         /// <summary>
+        /// Built-in PodSecurityPolicy (privileged or restricted)
+        /// </summary>
+        [Input("podSecurityConfiguration")]
+        public Input<string>? PodSecurityConfiguration { get; set; }
+
+        /// <summary>
         /// Pod Security Policy option for kube API service (bool)
         /// </summary>
         [Input("podSecurityPolicy")]

@@ -42,6 +42,10 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? Image;
         /// <summary>
+        /// Built-in PodSecurityPolicy (privileged or restricted)
+        /// </summary>
+        public readonly string? PodSecurityConfiguration;
+        /// <summary>
         /// Pod Security Policy option for kube API service (bool)
         /// </summary>
         public readonly bool? PodSecurityPolicy;
@@ -74,6 +78,8 @@ namespace Pulumi.Rke.Outputs
 
             string? image,
 
+            string? podSecurityConfiguration,
+
             bool? podSecurityPolicy,
 
             Outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig? secretsEncryptionConfig,
@@ -89,6 +95,7 @@ namespace Pulumi.Rke.Outputs
             ExtraBinds = extraBinds;
             ExtraEnvs = extraEnvs;
             Image = image;
+            PodSecurityConfiguration = podSecurityConfiguration;
             PodSecurityPolicy = podSecurityPolicy;
             SecretsEncryptionConfig = secretsEncryptionConfig;
             ServiceClusterIpRange = serviceClusterIpRange;

@@ -12938,7 +12938,7 @@ func (o ClusterServicesPtrOutput) Scheduler() ClusterServicesSchedulerPtrOutput 
 }
 
 type ClusterServicesEtcd struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 	BackupConfig *ClusterServicesEtcdBackupConfig `pulumi:"backupConfig"`
 	// TLS CA certificate for etcd service (string)
 	CaCert *string `pulumi:"caCert"`
@@ -12954,7 +12954,7 @@ type ClusterServicesEtcd struct {
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 	Gid *int `pulumi:"gid"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
@@ -12966,7 +12966,7 @@ type ClusterServicesEtcd struct {
 	Retention *string `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot *bool `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 	Uid *int `pulumi:"uid"`
 }
 
@@ -12982,7 +12982,7 @@ type ClusterServicesEtcdInput interface {
 }
 
 type ClusterServicesEtcdArgs struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 	BackupConfig ClusterServicesEtcdBackupConfigPtrInput `pulumi:"backupConfig"`
 	// TLS CA certificate for etcd service (string)
 	CaCert pulumi.StringPtrInput `pulumi:"caCert"`
@@ -12998,7 +12998,7 @@ type ClusterServicesEtcdArgs struct {
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 	Gid pulumi.IntPtrInput `pulumi:"gid"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -13010,7 +13010,7 @@ type ClusterServicesEtcdArgs struct {
 	Retention pulumi.StringPtrInput `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 	Uid pulumi.IntPtrInput `pulumi:"uid"`
 }
 
@@ -13091,7 +13091,7 @@ func (o ClusterServicesEtcdOutput) ToClusterServicesEtcdPtrOutputWithContext(ctx
 	}).(ClusterServicesEtcdPtrOutput)
 }
 
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 func (o ClusterServicesEtcdOutput) BackupConfig() ClusterServicesEtcdBackupConfigPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig { return v.BackupConfig }).(ClusterServicesEtcdBackupConfigPtrOutput)
 }
@@ -13131,7 +13131,7 @@ func (o ClusterServicesEtcdOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
@@ -13161,7 +13161,7 @@ func (o ClusterServicesEtcdOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcd) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
@@ -13190,7 +13190,7 @@ func (o ClusterServicesEtcdPtrOutput) Elem() ClusterServicesEtcdOutput {
 	}).(ClusterServicesEtcdOutput)
 }
 
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 func (o ClusterServicesEtcdPtrOutput) BackupConfig() ClusterServicesEtcdBackupConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *ClusterServicesEtcdBackupConfig {
 		if v == nil {
@@ -13270,7 +13270,7 @@ func (o ClusterServicesEtcdPtrOutput) ExtraEnvs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdPtrOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *int {
 		if v == nil {
@@ -13330,7 +13330,7 @@ func (o ClusterServicesEtcdPtrOutput) Snapshot() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdPtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcd) *int {
 		if v == nil {
@@ -13826,7 +13826,7 @@ func (o ClusterServicesEtcdBackupConfigS3BackupConfigPtrOutput) SecretKey() pulu
 }
 
 type ClusterServicesEtcdDeprecated struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 	BackupConfig *ClusterServicesEtcdDeprecatedBackupConfig `pulumi:"backupConfig"`
 	// TLS CA certificate for etcd service (string)
 	CaCert *string `pulumi:"caCert"`
@@ -13842,7 +13842,7 @@ type ClusterServicesEtcdDeprecated struct {
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
 	ExtraEnvs []string `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 	Gid *int `pulumi:"gid"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
@@ -13854,7 +13854,7 @@ type ClusterServicesEtcdDeprecated struct {
 	Retention *string `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot *bool `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 	Uid *int `pulumi:"uid"`
 }
 
@@ -13870,7 +13870,7 @@ type ClusterServicesEtcdDeprecatedInput interface {
 }
 
 type ClusterServicesEtcdDeprecatedArgs struct {
-	// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+	// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 	BackupConfig ClusterServicesEtcdDeprecatedBackupConfigPtrInput `pulumi:"backupConfig"`
 	// TLS CA certificate for etcd service (string)
 	CaCert pulumi.StringPtrInput `pulumi:"caCert"`
@@ -13886,7 +13886,7 @@ type ClusterServicesEtcdDeprecatedArgs struct {
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
-	// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 	Gid pulumi.IntPtrInput `pulumi:"gid"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -13898,7 +13898,7 @@ type ClusterServicesEtcdDeprecatedArgs struct {
 	Retention pulumi.StringPtrInput `pulumi:"retention"`
 	// Snapshot option for etcd service. Default `true` (bool)
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
-	// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+	// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 	Uid pulumi.IntPtrInput `pulumi:"uid"`
 }
 
@@ -13979,7 +13979,7 @@ func (o ClusterServicesEtcdDeprecatedOutput) ToClusterServicesEtcdDeprecatedPtrO
 	}).(ClusterServicesEtcdDeprecatedPtrOutput)
 }
 
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig {
 		return v.BackupConfig
@@ -14021,7 +14021,7 @@ func (o ClusterServicesEtcdDeprecatedOutput) ExtraEnvs() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) []string { return v.ExtraEnvs }).(pulumi.StringArrayOutput)
 }
 
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdDeprecatedOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
@@ -14051,7 +14051,7 @@ func (o ClusterServicesEtcdDeprecatedOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdDeprecatedOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
@@ -14080,7 +14080,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Elem() ClusterServicesEtcdDeprec
 	}).(ClusterServicesEtcdDeprecatedOutput)
 }
 
-// Backup options for etcd service. Just for Rancher v2.2.x (list maxitems:1)
+// Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) BackupConfig() ClusterServicesEtcdDeprecatedBackupConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *ClusterServicesEtcdDeprecatedBackupConfig {
 		if v == nil {
@@ -14160,7 +14160,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraEnvs() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Etcd service GID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *int {
 		if v == nil {
@@ -14220,7 +14220,7 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) Snapshot() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Etcd service UID. Default: `0`. For Rancher v2.3.x or above (int)
+// Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
 func (o ClusterServicesEtcdDeprecatedPtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) *int {
 		if v == nil {
@@ -14730,6 +14730,8 @@ type ClusterServicesKubeApi struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
+	// Built-in PodSecurityPolicy (privileged or restricted)
+	PodSecurityConfiguration *string `pulumi:"podSecurityConfiguration"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
@@ -14766,6 +14768,8 @@ type ClusterServicesKubeApiArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Built-in PodSecurityPolicy (privileged or restricted)
+	PodSecurityConfiguration pulumi.StringPtrInput `pulumi:"podSecurityConfiguration"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
@@ -14888,6 +14892,11 @@ func (o ClusterServicesKubeApiOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
+// Built-in PodSecurityPolicy (privileged or restricted)
+func (o ClusterServicesKubeApiOutput) PodSecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApi) *string { return v.PodSecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
 // Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApi) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
@@ -15001,6 +15010,16 @@ func (o ClusterServicesKubeApiPtrOutput) Image() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// Built-in PodSecurityPolicy (privileged or restricted)
+func (o ClusterServicesKubeApiPtrOutput) PodSecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApi) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PodSecurityConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15449,6 +15468,8 @@ type ClusterServicesKubeApiDeprecated struct {
 	ExtraEnvs []string `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image *string `pulumi:"image"`
+	// Built-in PodSecurityPolicy (privileged or restricted)
+	PodSecurityConfiguration *string `pulumi:"podSecurityConfiguration"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy *bool `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
@@ -15485,6 +15506,8 @@ type ClusterServicesKubeApiDeprecatedArgs struct {
 	ExtraEnvs pulumi.StringArrayInput `pulumi:"extraEnvs"`
 	// Docker image for scheduler service (string)
 	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Built-in PodSecurityPolicy (privileged or restricted)
+	PodSecurityConfiguration pulumi.StringPtrInput `pulumi:"podSecurityConfiguration"`
 	// Pod Security Policy option for kube API service (bool)
 	PodSecurityPolicy pulumi.BoolPtrInput `pulumi:"podSecurityPolicy"`
 	// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
@@ -15609,6 +15632,11 @@ func (o ClusterServicesKubeApiDeprecatedOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
+// Built-in PodSecurityPolicy (privileged or restricted)
+func (o ClusterServicesKubeApiDeprecatedOutput) PodSecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *string { return v.PodSecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
 // Pod Security Policy option for kube API service (bool)
 func (o ClusterServicesKubeApiDeprecatedOutput) PodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) *bool { return v.PodSecurityPolicy }).(pulumi.BoolPtrOutput)
@@ -15722,6 +15750,16 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) Image() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// Built-in PodSecurityPolicy (privileged or restricted)
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) PodSecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PodSecurityConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 
