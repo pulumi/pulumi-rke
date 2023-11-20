@@ -153,7 +153,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dns!: pulumi.Output<outputs.ClusterDns | undefined>;
     /**
-     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      */
     public readonly enableCriDockerd!: pulumi.Output<boolean | undefined>;
     /**
@@ -555,7 +555,7 @@ export interface ClusterState {
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
     /**
-     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      */
     enableCriDockerd?: pulumi.Input<boolean>;
     /**
@@ -779,7 +779,7 @@ export interface ClusterArgs {
      */
     dns?: pulumi.Input<inputs.ClusterDns>;
     /**
-     * Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+     * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      */
     enableCriDockerd?: pulumi.Input<boolean>;
     /**

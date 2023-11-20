@@ -128,6 +128,21 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
     }
 
     /**
+     * Built-in PodSecurityPolicy (privileged or restricted)
+     * 
+     */
+    @Import(name="podSecurityConfiguration")
+    private @Nullable Output<String> podSecurityConfiguration;
+
+    /**
+     * @return Built-in PodSecurityPolicy (privileged or restricted)
+     * 
+     */
+    public Optional<Output<String>> podSecurityConfiguration() {
+        return Optional.ofNullable(this.podSecurityConfiguration);
+    }
+
+    /**
      * Pod Security Policy option for kube API service (bool)
      * 
      */
@@ -197,6 +212,7 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
         this.extraBinds = $.extraBinds;
         this.extraEnvs = $.extraEnvs;
         this.image = $.image;
+        this.podSecurityConfiguration = $.podSecurityConfiguration;
         this.podSecurityPolicy = $.podSecurityPolicy;
         this.secretsEncryptionConfig = $.secretsEncryptionConfig;
         this.serviceClusterIpRange = $.serviceClusterIpRange;
@@ -386,6 +402,27 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
          */
         public Builder image(String image) {
             return image(Output.of(image));
+        }
+
+        /**
+         * @param podSecurityConfiguration Built-in PodSecurityPolicy (privileged or restricted)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podSecurityConfiguration(@Nullable Output<String> podSecurityConfiguration) {
+            $.podSecurityConfiguration = podSecurityConfiguration;
+            return this;
+        }
+
+        /**
+         * @param podSecurityConfiguration Built-in PodSecurityPolicy (privileged or restricted)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podSecurityConfiguration(String podSecurityConfiguration) {
+            return podSecurityConfiguration(Output.of(podSecurityConfiguration));
         }
 
         /**

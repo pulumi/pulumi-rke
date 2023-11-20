@@ -83,7 +83,7 @@ type Cluster struct {
 	DisablePortCheck pulumi.BoolPtrOutput `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrOutput `pulumi:"dns"`
-	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 	EnableCriDockerd pulumi.BoolPtrOutput `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayOutput `pulumi:"etcdHosts"`
@@ -264,7 +264,7 @@ type clusterState struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
-	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts []ClusterEtcdHost `pulumi:"etcdHosts"`
@@ -401,7 +401,7 @@ type ClusterState struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
-	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 	EnableCriDockerd pulumi.BoolPtrInput
 	// (Computed) RKE k8s cluster etcd nodes (list)
 	EtcdHosts ClusterEtcdHostArrayInput
@@ -524,7 +524,7 @@ type clusterArgs struct {
 	DisablePortCheck *bool `pulumi:"disablePortCheck"`
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns *ClusterDns `pulumi:"dns"`
-	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 	EnableCriDockerd *bool `pulumi:"enableCriDockerd"`
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion *bool `pulumi:"ignoreDockerVersion"`
@@ -624,7 +624,7 @@ type ClusterArgs struct {
 	DisablePortCheck pulumi.BoolPtrInput
 	// RKE k8s cluster DNS Config (list maxitems:1)
 	Dns ClusterDnsPtrInput
-	// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+	// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 	EnableCriDockerd pulumi.BoolPtrInput
 	// Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
 	IgnoreDockerVersion pulumi.BoolPtrInput
@@ -905,7 +905,7 @@ func (o ClusterOutput) Dns() ClusterDnsPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterDnsPtrOutput { return v.Dns }).(ClusterDnsPtrOutput)
 }
 
-// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
 func (o ClusterOutput) EnableCriDockerd() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableCriDockerd }).(pulumi.BoolPtrOutput)
 }

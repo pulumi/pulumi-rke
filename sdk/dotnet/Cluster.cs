@@ -183,7 +183,7 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterDns?> Dns { get; private set; } = null!;
 
         /// <summary>
-        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
         /// </summary>
         [Output("enableCriDockerd")]
         public Output<bool?> EnableCriDockerd { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterDnsArgs>? Dns { get; set; }
 
         /// <summary>
-        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
         /// </summary>
         [Input("enableCriDockerd")]
         public Input<bool>? EnableCriDockerd { get; set; }
@@ -951,7 +951,7 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterDnsGetArgs>? Dns { get; set; }
 
         /// <summary>
-        /// Enable/Disable CRI dockerd for kubelet. Default `false` (bool)
+        /// Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
         /// </summary>
         [Input("enableCriDockerd")]
         public Input<bool>? EnableCriDockerd { get; set; }
