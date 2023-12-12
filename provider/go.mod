@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-rke/provider/v3
 go 1.21
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.1-0.20231212210504-7a439ad045c6
 	github.com/pulumi/pulumi/sdk/v3 v3.96.2
 	github.com/rancher/terraform-provider-rke v1.4.3
 )
@@ -95,7 +95,7 @@ require (
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/evanphx/json-patch v4.12.0+incompatible // indirect
 	github.com/exponent-io/jsonpath v0.0.0-20151013193312-d6023ce2651d // indirect
-	github.com/fatih/color v1.13.0 // indirect
+	github.com/fatih/color v1.15.0 // indirect
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
@@ -170,7 +170,7 @@ require (
 	github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-localereader v0.0.1 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
