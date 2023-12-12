@@ -48,9 +48,9 @@ public final class ClusterNetworkCalicoNetworkProvider {
             return this;
         }
         public ClusterNetworkCalicoNetworkProvider build() {
-            final var o = new ClusterNetworkCalicoNetworkProvider();
-            o.cloudProvider = cloudProvider;
-            return o;
+            final var _resultValue = new ClusterNetworkCalicoNetworkProvider();
+            _resultValue.cloudProvider = cloudProvider;
+            return _resultValue;
         }
     }
 }

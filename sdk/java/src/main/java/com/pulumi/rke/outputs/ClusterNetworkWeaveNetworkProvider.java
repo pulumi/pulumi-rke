@@ -46,9 +46,9 @@ public final class ClusterNetworkWeaveNetworkProvider {
             return this;
         }
         public ClusterNetworkWeaveNetworkProvider build() {
-            final var o = new ClusterNetworkWeaveNetworkProvider();
-            o.password = password;
-            return o;
+            final var _resultValue = new ClusterNetworkWeaveNetworkProvider();
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

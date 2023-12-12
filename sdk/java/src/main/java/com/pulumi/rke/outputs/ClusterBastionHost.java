@@ -201,17 +201,17 @@ public final class ClusterBastionHost {
             return this;
         }
         public ClusterBastionHost build() {
-            final var o = new ClusterBastionHost();
-            o.address = address;
-            o.ignoreProxyEnvVars = ignoreProxyEnvVars;
-            o.port = port;
-            o.sshAgentAuth = sshAgentAuth;
-            o.sshCert = sshCert;
-            o.sshCertPath = sshCertPath;
-            o.sshKey = sshKey;
-            o.sshKeyPath = sshKeyPath;
-            o.user = user;
-            return o;
+            final var _resultValue = new ClusterBastionHost();
+            _resultValue.address = address;
+            _resultValue.ignoreProxyEnvVars = ignoreProxyEnvVars;
+            _resultValue.port = port;
+            _resultValue.sshAgentAuth = sshAgentAuth;
+            _resultValue.sshCert = sshCert;
+            _resultValue.sshCertPath = sshCertPath;
+            _resultValue.sshKey = sshKey;
+            _resultValue.sshKeyPath = sshKeyPath;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

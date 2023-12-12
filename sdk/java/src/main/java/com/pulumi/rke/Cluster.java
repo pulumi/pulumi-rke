@@ -65,7 +65,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster addon deployment timeout in seconds for status check (int)
      * 
      */
-    @Export(name="addonJobTimeout", type=Integer.class, parameters={})
+    @Export(name="addonJobTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> addonJobTimeout;
 
     /**
@@ -79,7 +79,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster user addons YAML manifest to be deployed (string)
      * 
      */
-    @Export(name="addons", type=String.class, parameters={})
+    @Export(name="addons", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> addons;
 
     /**
@@ -93,7 +93,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
      * 
      */
-    @Export(name="addonsIncludes", type=List.class, parameters={String.class})
+    @Export(name="addonsIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> addonsIncludes;
 
     /**
@@ -107,7 +107,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster api server url (string)
      * 
      */
-    @Export(name="apiServerUrl", type=String.class, parameters={})
+    @Export(name="apiServerUrl", refs={String.class}, tree="[0]")
     private Output<String> apiServerUrl;
 
     /**
@@ -121,7 +121,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster authentication configuration (list maxitems:1)
      * 
      */
-    @Export(name="authentication", type=ClusterAuthentication.class, parameters={})
+    @Export(name="authentication", refs={ClusterAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ClusterAuthentication> authentication;
 
     /**
@@ -135,7 +135,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster authorization mode configuration (list maxitems:1)
      * 
      */
-    @Export(name="authorization", type=ClusterAuthorization.class, parameters={})
+    @Export(name="authorization", refs={ClusterAuthorization.class}, tree="[0]")
     private Output</* @Nullable */ ClusterAuthorization> authorization;
 
     /**
@@ -149,7 +149,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster bastion Host configuration (list maxitems:1)
      * 
      */
-    @Export(name="bastionHost", type=ClusterBastionHost.class, parameters={})
+    @Export(name="bastionHost", refs={ClusterBastionHost.class}, tree="[0]")
     private Output</* @Nullable */ ClusterBastionHost> bastionHost;
 
     /**
@@ -163,7 +163,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster CA certificate (string)
      * 
      */
-    @Export(name="caCrt", type=String.class, parameters={})
+    @Export(name="caCrt", refs={String.class}, tree="[0]")
     private Output<String> caCrt;
 
     /**
@@ -177,7 +177,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specify a certificate dir path (string)
      * 
      */
-    @Export(name="certDir", type=String.class, parameters={})
+    @Export(name="certDir", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certDir;
 
     /**
@@ -191,7 +191,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster certificates (string)
      * 
      */
-    @Export(name="certificates", type=List.class, parameters={ClusterCertificate.class})
+    @Export(name="certificates", refs={List.class,ClusterCertificate.class}, tree="[0,1]")
     private Output<List<ClusterCertificate>> certificates;
 
     /**
@@ -205,7 +205,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster client certificate (string)
      * 
      */
-    @Export(name="clientCert", type=String.class, parameters={})
+    @Export(name="clientCert", refs={String.class}, tree="[0]")
     private Output<String> clientCert;
 
     /**
@@ -219,7 +219,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster client key (string)
      * 
      */
-    @Export(name="clientKey", type=String.class, parameters={})
+    @Export(name="clientKey", refs={String.class}, tree="[0]")
     private Output<String> clientKey;
 
     /**
@@ -233,7 +233,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
      * 
      */
-    @Export(name="cloudProvider", type=ClusterCloudProvider.class, parameters={})
+    @Export(name="cloudProvider", refs={ClusterCloudProvider.class}, tree="[0]")
     private Output</* @Nullable */ ClusterCloudProvider> cloudProvider;
 
     /**
@@ -247,7 +247,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Cluster CIDR option for kube controller service (string)
      * 
      */
-    @Export(name="clusterCidr", type=String.class, parameters={})
+    @Export(name="clusterCidr", refs={String.class}, tree="[0]")
     private Output<String> clusterCidr;
 
     /**
@@ -261,7 +261,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Cluster DNS Server option for kubelet service (string)
      * 
      */
-    @Export(name="clusterDnsServer", type=String.class, parameters={})
+    @Export(name="clusterDnsServer", refs={String.class}, tree="[0]")
     private Output<String> clusterDnsServer;
 
     /**
@@ -275,7 +275,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Cluster Domain option for kubelet service. Default `cluster.local` (string)
      * 
      */
-    @Export(name="clusterDomain", type=String.class, parameters={})
+    @Export(name="clusterDomain", refs={String.class}, tree="[0]")
     private Output<String> clusterDomain;
 
     /**
@@ -289,7 +289,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster name used in the kube config (string)
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterName;
 
     /**
@@ -303,7 +303,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
      * 
      */
-    @Export(name="clusterYaml", type=String.class, parameters={})
+    @Export(name="clusterYaml", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterYaml;
 
     /**
@@ -317,7 +317,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster control plane nodes (list)
      * 
      */
-    @Export(name="controlPlaneHosts", type=List.class, parameters={ClusterControlPlaneHost.class})
+    @Export(name="controlPlaneHosts", refs={List.class,ClusterControlPlaneHost.class}, tree="[0,1]")
     private Output<List<ClusterControlPlaneHost>> controlPlaneHosts;
 
     /**
@@ -331,7 +331,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Use custom certificates from a cert dir (string)
      * 
      */
-    @Export(name="customCerts", type=Boolean.class, parameters={})
+    @Export(name="customCerts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customCerts;
 
     /**
@@ -345,7 +345,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster delay on creation (int)
      * 
      */
-    @Export(name="delayOnCreation", type=Integer.class, parameters={})
+    @Export(name="delayOnCreation", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> delayOnCreation;
 
     /**
@@ -359,7 +359,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Deploy RKE cluster on a dind environment. Default: `false` (bool)
      * 
      */
-    @Export(name="dind", type=Boolean.class, parameters={})
+    @Export(name="dind", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dind;
 
     /**
@@ -373,7 +373,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * DinD RKE cluster dns (string)
      * 
      */
-    @Export(name="dindDnsServer", type=String.class, parameters={})
+    @Export(name="dindDnsServer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dindDnsServer;
 
     /**
@@ -387,7 +387,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * DinD RKE cluster storage driver (string)
      * 
      */
-    @Export(name="dindStorageDriver", type=String.class, parameters={})
+    @Export(name="dindStorageDriver", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dindStorageDriver;
 
     /**
@@ -401,7 +401,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
      * 
      */
-    @Export(name="disablePortCheck", type=Boolean.class, parameters={})
+    @Export(name="disablePortCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disablePortCheck;
 
     /**
@@ -415,7 +415,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster DNS Config (list maxitems:1)
      * 
      */
-    @Export(name="dns", type=ClusterDns.class, parameters={})
+    @Export(name="dns", refs={ClusterDns.class}, tree="[0]")
     private Output</* @Nullable */ ClusterDns> dns;
 
     /**
@@ -429,7 +429,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
      * 
      */
-    @Export(name="enableCriDockerd", type=Boolean.class, parameters={})
+    @Export(name="enableCriDockerd", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCriDockerd;
 
     /**
@@ -443,7 +443,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster etcd nodes (list)
      * 
      */
-    @Export(name="etcdHosts", type=List.class, parameters={ClusterEtcdHost.class})
+    @Export(name="etcdHosts", refs={List.class,ClusterEtcdHost.class}, tree="[0,1]")
     private Output<List<ClusterEtcdHost>> etcdHosts;
 
     /**
@@ -457,7 +457,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
      * 
      */
-    @Export(name="ignoreDockerVersion", type=Boolean.class, parameters={})
+    @Export(name="ignoreDockerVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreDockerVersion;
 
     /**
@@ -471,7 +471,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster inactive nodes (list)
      * 
      */
-    @Export(name="inactiveHosts", type=List.class, parameters={ClusterInactiveHost.class})
+    @Export(name="inactiveHosts", refs={List.class,ClusterInactiveHost.class}, tree="[0,1]")
     private Output<List<ClusterInactiveHost>> inactiveHosts;
 
     /**
@@ -485,7 +485,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
-    @Export(name="ingress", type=ClusterIngress.class, parameters={})
+    @Export(name="ingress", refs={ClusterIngress.class}, tree="[0]")
     private Output</* @Nullable */ ClusterIngress> ingress;
 
     /**
@@ -503,7 +503,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use kube_config_yaml instead */
-    @Export(name="internalKubeConfigYaml", type=String.class, parameters={})
+    @Export(name="internalKubeConfigYaml", refs={String.class}, tree="[0]")
     private Output<String> internalKubeConfigYaml;
 
     /**
@@ -517,7 +517,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster admin user (string)
      * 
      */
-    @Export(name="kubeAdminUser", type=String.class, parameters={})
+    @Export(name="kubeAdminUser", refs={String.class}, tree="[0]")
     private Output<String> kubeAdminUser;
 
     /**
@@ -531,7 +531,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
      * 
      */
-    @Export(name="kubeConfigYaml", type=String.class, parameters={})
+    @Export(name="kubeConfigYaml", refs={String.class}, tree="[0]")
     private Output<String> kubeConfigYaml;
 
     /**
@@ -545,7 +545,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
      * 
      */
-    @Export(name="kubernetesVersion", type=String.class, parameters={})
+    @Export(name="kubernetesVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kubernetesVersion;
 
     /**
@@ -559,7 +559,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster monitoring Config (list maxitems:1)
      * 
      */
-    @Export(name="monitoring", type=ClusterMonitoring.class, parameters={})
+    @Export(name="monitoring", refs={ClusterMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ ClusterMonitoring> monitoring;
 
     /**
@@ -573,7 +573,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
-    @Export(name="network", type=ClusterNetwork.class, parameters={})
+    @Export(name="network", refs={ClusterNetwork.class}, tree="[0]")
     private Output</* @Nullable */ ClusterNetwork> network;
 
     /**
@@ -587,7 +587,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster nodes (list)
      * 
      */
-    @Export(name="nodes", type=List.class, parameters={ClusterNode.class})
+    @Export(name="nodes", refs={List.class,ClusterNode.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterNode>> nodes;
 
     /**
@@ -603,7 +603,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use cluster_yaml instead */
-    @Export(name="nodesConfs", type=List.class, parameters={String.class})
+    @Export(name="nodesConfs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> nodesConfs;
 
     public Output<Optional<List<String>>> nodesConfs() {
@@ -613,7 +613,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s directory path (string)
      * 
      */
-    @Export(name="prefixPath", type=String.class, parameters={})
+    @Export(name="prefixPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefixPath;
 
     /**
@@ -627,7 +627,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster private docker registries (list)
      * 
      */
-    @Export(name="privateRegistries", type=List.class, parameters={ClusterPrivateRegistry.class})
+    @Export(name="privateRegistries", refs={List.class,ClusterPrivateRegistry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterPrivateRegistry>> privateRegistries;
 
     /**
@@ -641,7 +641,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster restore configuration (list maxitems:1)
      * 
      */
-    @Export(name="restore", type=ClusterRestore.class, parameters={})
+    @Export(name="restore", refs={ClusterRestore.class}, tree="[0]")
     private Output</* @Nullable */ ClusterRestore> restore;
 
     /**
@@ -655,7 +655,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster config yaml (string)
      * 
      */
-    @Export(name="rkeClusterYaml", type=String.class, parameters={})
+    @Export(name="rkeClusterYaml", refs={String.class}, tree="[0]")
     private Output<String> rkeClusterYaml;
 
     /**
@@ -669,7 +669,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed/Sensitive) RKE k8s cluster state (string)
      * 
      */
-    @Export(name="rkeState", type=String.class, parameters={})
+    @Export(name="rkeState", refs={String.class}, tree="[0]")
     private Output<String> rkeState;
 
     /**
@@ -683,7 +683,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster rotate certificates configuration (list maxitems:1)
      * 
      */
-    @Export(name="rotateCertificates", type=ClusterRotateCertificates.class, parameters={})
+    @Export(name="rotateCertificates", refs={ClusterRotateCertificates.class}, tree="[0]")
     private Output</* @Nullable */ ClusterRotateCertificates> rotateCertificates;
 
     /**
@@ -697,7 +697,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster running system images list (list)
      * 
      */
-    @Export(name="runningSystemImages", type=List.class, parameters={ClusterRunningSystemImage.class})
+    @Export(name="runningSystemImages", refs={List.class,ClusterRunningSystemImage.class}, tree="[0,1]")
     private Output<List<ClusterRunningSystemImage>> runningSystemImages;
 
     /**
@@ -711,7 +711,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster services (list maxitems:1)
      * 
      */
-    @Export(name="services", type=ClusterServices.class, parameters={})
+    @Export(name="services", refs={ClusterServices.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServices> services;
 
     /**
@@ -729,7 +729,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.etcd instead */
-    @Export(name="servicesEtcdDeprecated", type=ClusterServicesEtcdDeprecated.class, parameters={})
+    @Export(name="servicesEtcdDeprecated", refs={ClusterServicesEtcdDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesEtcdDeprecated> servicesEtcdDeprecated;
 
     /**
@@ -747,7 +747,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.kube_api instead */
-    @Export(name="servicesKubeApiDeprecated", type=ClusterServicesKubeApiDeprecated.class, parameters={})
+    @Export(name="servicesKubeApiDeprecated", refs={ClusterServicesKubeApiDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesKubeApiDeprecated> servicesKubeApiDeprecated;
 
     /**
@@ -765,7 +765,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.kube_controller instead */
-    @Export(name="servicesKubeControllerDeprecated", type=ClusterServicesKubeControllerDeprecated.class, parameters={})
+    @Export(name="servicesKubeControllerDeprecated", refs={ClusterServicesKubeControllerDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesKubeControllerDeprecated> servicesKubeControllerDeprecated;
 
     /**
@@ -783,7 +783,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.kubeproxy instead */
-    @Export(name="servicesKubeProxyDeprecated", type=ClusterServicesKubeProxyDeprecated.class, parameters={})
+    @Export(name="servicesKubeProxyDeprecated", refs={ClusterServicesKubeProxyDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesKubeProxyDeprecated> servicesKubeProxyDeprecated;
 
     /**
@@ -801,7 +801,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.scheduler instead */
-    @Export(name="servicesKubeSchedulerDeprecated", type=ClusterServicesKubeSchedulerDeprecated.class, parameters={})
+    @Export(name="servicesKubeSchedulerDeprecated", refs={ClusterServicesKubeSchedulerDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesKubeSchedulerDeprecated> servicesKubeSchedulerDeprecated;
 
     /**
@@ -819,7 +819,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use services.kubelet instead */
-    @Export(name="servicesKubeletDeprecated", type=ClusterServicesKubeletDeprecated.class, parameters={})
+    @Export(name="servicesKubeletDeprecated", refs={ClusterServicesKubeletDeprecated.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServicesKubeletDeprecated> servicesKubeletDeprecated;
 
     /**
@@ -833,7 +833,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * SSH Agent Auth enable (bool)
      * 
      */
-    @Export(name="sshAgentAuth", type=Boolean.class, parameters={})
+    @Export(name="sshAgentAuth", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> sshAgentAuth;
 
     /**
@@ -847,7 +847,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * SSH Certificate Path (string)
      * 
      */
-    @Export(name="sshCertPath", type=String.class, parameters={})
+    @Export(name="sshCertPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sshCertPath;
 
     /**
@@ -861,7 +861,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * SSH Private Key Path (string)
      * 
      */
-    @Export(name="sshKeyPath", type=String.class, parameters={})
+    @Export(name="sshKeyPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sshKeyPath;
 
     /**
@@ -875,7 +875,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster system images list (list maxitems:1)
      * 
      */
-    @Export(name="systemImages", type=ClusterSystemImages.class, parameters={})
+    @Export(name="systemImages", refs={ClusterSystemImages.class}, tree="[0]")
     private Output</* @Nullable */ ClusterSystemImages> systemImages;
 
     /**
@@ -889,7 +889,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Skip idempotent deployment of control and etcd plane. Default `false` (bool)
      * 
      */
-    @Export(name="updateOnly", type=Boolean.class, parameters={})
+    @Export(name="updateOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> updateOnly;
 
     /**
@@ -903,7 +903,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * RKE k8s cluster upgrade strategy (list maxitems:1)
      * 
      */
-    @Export(name="upgradeStrategy", type=ClusterUpgradeStrategy.class, parameters={})
+    @Export(name="upgradeStrategy", refs={ClusterUpgradeStrategy.class}, tree="[0]")
     private Output</* @Nullable */ ClusterUpgradeStrategy> upgradeStrategy;
 
     /**
@@ -917,7 +917,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * (Computed) RKE k8s cluster worker nodes (list)
      * 
      */
-    @Export(name="workerHosts", type=List.class, parameters={ClusterWorkerHost.class})
+    @Export(name="workerHosts", refs={List.class,ClusterWorkerHost.class}, tree="[0,1]")
     private Output<List<ClusterWorkerHost>> workerHosts;
 
     /**

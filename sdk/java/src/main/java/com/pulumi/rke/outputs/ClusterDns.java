@@ -134,13 +134,13 @@ public final class ClusterDns {
             return upstreamNameservers(List.of(upstreamNameservers));
         }
         public ClusterDns build() {
-            final var o = new ClusterDns();
-            o.nodeSelector = nodeSelector;
-            o.nodelocal = nodelocal;
-            o.provider = provider;
-            o.reverseCidrs = reverseCidrs;
-            o.upstreamNameservers = upstreamNameservers;
-            return o;
+            final var _resultValue = new ClusterDns();
+            _resultValue.nodeSelector = nodeSelector;
+            _resultValue.nodelocal = nodelocal;
+            _resultValue.provider = provider;
+            _resultValue.reverseCidrs = reverseCidrs;
+            _resultValue.upstreamNameservers = upstreamNameservers;
+            return _resultValue;
         }
     }
 }

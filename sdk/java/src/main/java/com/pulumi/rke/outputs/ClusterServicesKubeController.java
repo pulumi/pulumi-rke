@@ -152,14 +152,14 @@ public final class ClusterServicesKubeController {
             return this;
         }
         public ClusterServicesKubeController build() {
-            final var o = new ClusterServicesKubeController();
-            o.clusterCidr = clusterCidr;
-            o.extraArgs = extraArgs;
-            o.extraBinds = extraBinds;
-            o.extraEnvs = extraEnvs;
-            o.image = image;
-            o.serviceClusterIpRange = serviceClusterIpRange;
-            return o;
+            final var _resultValue = new ClusterServicesKubeController();
+            _resultValue.clusterCidr = clusterCidr;
+            _resultValue.extraArgs = extraArgs;
+            _resultValue.extraBinds = extraBinds;
+            _resultValue.extraEnvs = extraEnvs;
+            _resultValue.image = image;
+            _resultValue.serviceClusterIpRange = serviceClusterIpRange;
+            return _resultValue;
         }
     }
 }

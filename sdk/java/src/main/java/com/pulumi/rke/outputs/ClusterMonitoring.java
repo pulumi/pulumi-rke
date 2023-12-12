@@ -88,11 +88,11 @@ public final class ClusterMonitoring {
             return this;
         }
         public ClusterMonitoring build() {
-            final var o = new ClusterMonitoring();
-            o.nodeSelector = nodeSelector;
-            o.options = options;
-            o.provider = provider;
-            return o;
+            final var _resultValue = new ClusterMonitoring();
+            _resultValue.nodeSelector = nodeSelector;
+            _resultValue.options = options;
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

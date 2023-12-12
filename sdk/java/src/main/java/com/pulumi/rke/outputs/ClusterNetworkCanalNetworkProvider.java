@@ -48,9 +48,9 @@ public final class ClusterNetworkCanalNetworkProvider {
             return this;
         }
         public ClusterNetworkCanalNetworkProvider build() {
-            final var o = new ClusterNetworkCanalNetworkProvider();
-            o.iface = iface;
-            return o;
+            final var _resultValue = new ClusterNetworkCanalNetworkProvider();
+            _resultValue.iface = iface;
+            return _resultValue;
         }
     }
 }

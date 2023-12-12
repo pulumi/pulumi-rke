@@ -69,10 +69,10 @@ public final class ClusterAuthorization {
             return this;
         }
         public ClusterAuthorization build() {
-            final var o = new ClusterAuthorization();
-            o.mode = mode;
-            o.options = options;
-            return o;
+            final var _resultValue = new ClusterAuthorization();
+            _resultValue.mode = mode;
+            _resultValue.options = options;
+            return _resultValue;
         }
     }
 }

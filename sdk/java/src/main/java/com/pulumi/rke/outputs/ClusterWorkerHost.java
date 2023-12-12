@@ -67,10 +67,10 @@ public final class ClusterWorkerHost {
             return this;
         }
         public ClusterWorkerHost build() {
-            final var o = new ClusterWorkerHost();
-            o.address = address;
-            o.nodeName = nodeName;
-            return o;
+            final var _resultValue = new ClusterWorkerHost();
+            _resultValue.address = address;
+            _resultValue.nodeName = nodeName;
+            return _resultValue;
         }
     }
 }

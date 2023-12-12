@@ -48,9 +48,9 @@ public final class ClusterCloudProviderVsphereCloudProviderDisk {
             return this;
         }
         public ClusterCloudProviderVsphereCloudProviderDisk build() {
-            final var o = new ClusterCloudProviderVsphereCloudProviderDisk();
-            o.scsiControllerType = scsiControllerType;
-            return o;
+            final var _resultValue = new ClusterCloudProviderVsphereCloudProviderDisk();
+            _resultValue.scsiControllerType = scsiControllerType;
+            return _resultValue;
         }
     }
 }

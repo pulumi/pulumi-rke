@@ -68,10 +68,10 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
             return this;
         }
         public ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig build() {
-            final var o = new ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig();
-            o.customConfig = customConfig;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig();
+            _resultValue.customConfig = customConfig;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

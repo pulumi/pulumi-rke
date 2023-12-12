@@ -68,10 +68,10 @@ public final class ClusterServicesKubeApiDeprecatedEventRateLimit {
             return this;
         }
         public ClusterServicesKubeApiDeprecatedEventRateLimit build() {
-            final var o = new ClusterServicesKubeApiDeprecatedEventRateLimit();
-            o.configuration = configuration;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterServicesKubeApiDeprecatedEventRateLimit();
+            _resultValue.configuration = configuration;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

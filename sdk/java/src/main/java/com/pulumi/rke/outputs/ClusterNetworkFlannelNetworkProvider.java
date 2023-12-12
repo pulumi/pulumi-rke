@@ -48,9 +48,9 @@ public final class ClusterNetworkFlannelNetworkProvider {
             return this;
         }
         public ClusterNetworkFlannelNetworkProvider build() {
-            final var o = new ClusterNetworkFlannelNetworkProvider();
-            o.iface = iface;
-            return o;
+            final var _resultValue = new ClusterNetworkFlannelNetworkProvider();
+            _resultValue.iface = iface;
+            return _resultValue;
         }
     }
 }

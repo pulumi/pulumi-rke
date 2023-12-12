@@ -67,10 +67,10 @@ public final class ClusterAuthenticationWebhook {
             return this;
         }
         public ClusterAuthenticationWebhook build() {
-            final var o = new ClusterAuthenticationWebhook();
-            o.cacheTimeout = cacheTimeout;
-            o.configFile = configFile;
-            return o;
+            final var _resultValue = new ClusterAuthenticationWebhook();
+            _resultValue.cacheTimeout = cacheTimeout;
+            _resultValue.configFile = configFile;
+            return _resultValue;
         }
     }
 }

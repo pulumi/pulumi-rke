@@ -72,10 +72,10 @@ public final class ClusterCloudProviderAwsCloudProvider {
             return serviceOverrides(List.of(serviceOverrides));
         }
         public ClusterCloudProviderAwsCloudProvider build() {
-            final var o = new ClusterCloudProviderAwsCloudProvider();
-            o.global = global;
-            o.serviceOverrides = serviceOverrides;
-            return o;
+            final var _resultValue = new ClusterCloudProviderAwsCloudProvider();
+            _resultValue.global = global;
+            _resultValue.serviceOverrides = serviceOverrides;
+            return _resultValue;
         }
     }
 }

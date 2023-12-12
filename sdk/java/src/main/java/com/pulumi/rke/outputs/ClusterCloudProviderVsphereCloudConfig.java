@@ -132,13 +132,13 @@ public final class ClusterCloudProviderVsphereCloudConfig {
             return this;
         }
         public ClusterCloudProviderVsphereCloudConfig build() {
-            final var o = new ClusterCloudProviderVsphereCloudConfig();
-            o.disk = disk;
-            o.global = global;
-            o.network = network;
-            o.virtualCenters = virtualCenters;
-            o.workspace = workspace;
-            return o;
+            final var _resultValue = new ClusterCloudProviderVsphereCloudConfig();
+            _resultValue.disk = disk;
+            _resultValue.global = global;
+            _resultValue.network = network;
+            _resultValue.virtualCenters = virtualCenters;
+            _resultValue.workspace = workspace;
+            return _resultValue;
         }
     }
 }

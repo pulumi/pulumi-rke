@@ -114,12 +114,12 @@ public final class ClusterServicesScheduler {
             return this;
         }
         public ClusterServicesScheduler build() {
-            final var o = new ClusterServicesScheduler();
-            o.extraArgs = extraArgs;
-            o.extraBinds = extraBinds;
-            o.extraEnvs = extraEnvs;
-            o.image = image;
-            return o;
+            final var _resultValue = new ClusterServicesScheduler();
+            _resultValue.extraArgs = extraArgs;
+            _resultValue.extraBinds = extraBinds;
+            _resultValue.extraEnvs = extraEnvs;
+            _resultValue.image = image;
+            return _resultValue;
         }
     }
 }

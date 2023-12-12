@@ -69,10 +69,10 @@ public final class ClusterDnsNodelocal {
             return this;
         }
         public ClusterDnsNodelocal build() {
-            final var o = new ClusterDnsNodelocal();
-            o.ipAddress = ipAddress;
-            o.nodeSelector = nodeSelector;
-            return o;
+            final var _resultValue = new ClusterDnsNodelocal();
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.nodeSelector = nodeSelector;
+            return _resultValue;
         }
     }
 }
