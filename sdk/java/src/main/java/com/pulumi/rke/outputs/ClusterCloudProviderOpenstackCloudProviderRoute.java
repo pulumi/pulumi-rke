@@ -48,9 +48,9 @@ public final class ClusterCloudProviderOpenstackCloudProviderRoute {
             return this;
         }
         public ClusterCloudProviderOpenstackCloudProviderRoute build() {
-            final var o = new ClusterCloudProviderOpenstackCloudProviderRoute();
-            o.routerId = routerId;
-            return o;
+            final var _resultValue = new ClusterCloudProviderOpenstackCloudProviderRoute();
+            _resultValue.routerId = routerId;
+            return _resultValue;
         }
     }
 }

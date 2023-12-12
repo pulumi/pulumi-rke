@@ -204,21 +204,21 @@ public final class ClusterCertificate {
             return this;
         }
         public ClusterCertificate build() {
-            final var o = new ClusterCertificate();
-            o.certificate = certificate;
-            o.commonName = commonName;
-            o.config = config;
-            o.configEnvName = configEnvName;
-            o.configPath = configPath;
-            o.envName = envName;
-            o.id = id;
-            o.key = key;
-            o.keyEnvName = keyEnvName;
-            o.keyPath = keyPath;
-            o.name = name;
-            o.ouName = ouName;
-            o.path = path;
-            return o;
+            final var _resultValue = new ClusterCertificate();
+            _resultValue.certificate = certificate;
+            _resultValue.commonName = commonName;
+            _resultValue.config = config;
+            _resultValue.configEnvName = configEnvName;
+            _resultValue.configPath = configPath;
+            _resultValue.envName = envName;
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyEnvName = keyEnvName;
+            _resultValue.keyPath = keyPath;
+            _resultValue.name = name;
+            _resultValue.ouName = ouName;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

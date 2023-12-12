@@ -107,12 +107,12 @@ public final class ClusterUpgradeStrategy {
             return this;
         }
         public ClusterUpgradeStrategy build() {
-            final var o = new ClusterUpgradeStrategy();
-            o.drain = drain;
-            o.drainInput = drainInput;
-            o.maxUnavailableControlplane = maxUnavailableControlplane;
-            o.maxUnavailableWorker = maxUnavailableWorker;
-            return o;
+            final var _resultValue = new ClusterUpgradeStrategy();
+            _resultValue.drain = drain;
+            _resultValue.drainInput = drainInput;
+            _resultValue.maxUnavailableControlplane = maxUnavailableControlplane;
+            _resultValue.maxUnavailableWorker = maxUnavailableWorker;
+            return _resultValue;
         }
     }
 }

@@ -148,14 +148,14 @@ public final class ClusterServices {
             return this;
         }
         public ClusterServices build() {
-            final var o = new ClusterServices();
-            o.etcd = etcd;
-            o.kubeApi = kubeApi;
-            o.kubeController = kubeController;
-            o.kubelet = kubelet;
-            o.kubeproxy = kubeproxy;
-            o.scheduler = scheduler;
-            return o;
+            final var _resultValue = new ClusterServices();
+            _resultValue.etcd = etcd;
+            _resultValue.kubeApi = kubeApi;
+            _resultValue.kubeController = kubeController;
+            _resultValue.kubelet = kubelet;
+            _resultValue.kubeproxy = kubeproxy;
+            _resultValue.scheduler = scheduler;
+            return _resultValue;
         }
     }
 }

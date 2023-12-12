@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:rke")
 public class Provider extends com.pulumi.resources.ProviderResource {
-    @Export(name="logFile", type=String.class, parameters={})
+    @Export(name="logFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logFile;
 
     public Output<Optional<String>> logFile() {

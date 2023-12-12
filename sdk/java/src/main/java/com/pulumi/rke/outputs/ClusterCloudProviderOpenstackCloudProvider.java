@@ -128,13 +128,13 @@ public final class ClusterCloudProviderOpenstackCloudProvider {
             return this;
         }
         public ClusterCloudProviderOpenstackCloudProvider build() {
-            final var o = new ClusterCloudProviderOpenstackCloudProvider();
-            o.blockStorage = blockStorage;
-            o.global = global;
-            o.loadBalancer = loadBalancer;
-            o.metadata = metadata;
-            o.route = route;
-            return o;
+            final var _resultValue = new ClusterCloudProviderOpenstackCloudProvider();
+            _resultValue.blockStorage = blockStorage;
+            _resultValue.global = global;
+            _resultValue.loadBalancer = loadBalancer;
+            _resultValue.metadata = metadata;
+            _resultValue.route = route;
+            return _resultValue;
         }
     }
 }

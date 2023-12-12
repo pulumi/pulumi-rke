@@ -67,10 +67,10 @@ public final class ClusterInactiveHost {
             return this;
         }
         public ClusterInactiveHost build() {
-            final var o = new ClusterInactiveHost();
-            o.address = address;
-            o.nodeName = nodeName;
-            return o;
+            final var _resultValue = new ClusterInactiveHost();
+            _resultValue.address = address;
+            _resultValue.nodeName = nodeName;
+            return _resultValue;
         }
     }
 }

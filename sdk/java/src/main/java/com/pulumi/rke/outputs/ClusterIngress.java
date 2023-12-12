@@ -196,17 +196,17 @@ public final class ClusterIngress {
             return this;
         }
         public ClusterIngress build() {
-            final var o = new ClusterIngress();
-            o.defaultBackend = defaultBackend;
-            o.dnsPolicy = dnsPolicy;
-            o.extraArgs = extraArgs;
-            o.httpPort = httpPort;
-            o.httpsPort = httpsPort;
-            o.networkMode = networkMode;
-            o.nodeSelector = nodeSelector;
-            o.options = options;
-            o.provider = provider;
-            return o;
+            final var _resultValue = new ClusterIngress();
+            _resultValue.defaultBackend = defaultBackend;
+            _resultValue.dnsPolicy = dnsPolicy;
+            _resultValue.extraArgs = extraArgs;
+            _resultValue.httpPort = httpPort;
+            _resultValue.httpsPort = httpsPort;
+            _resultValue.networkMode = networkMode;
+            _resultValue.nodeSelector = nodeSelector;
+            _resultValue.options = options;
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

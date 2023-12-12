@@ -72,10 +72,10 @@ public final class ClusterRotateCertificates {
             return services(List.of(services));
         }
         public ClusterRotateCertificates build() {
-            final var o = new ClusterRotateCertificates();
-            o.caCertificates = caCertificates;
-            o.services = services;
-            return o;
+            final var _resultValue = new ClusterRotateCertificates();
+            _resultValue.caCertificates = caCertificates;
+            _resultValue.services = services;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class ClusterAuthentication {
             return this;
         }
         public ClusterAuthentication build() {
-            final var o = new ClusterAuthentication();
-            o.sans = sans;
-            o.strategy = strategy;
-            o.webhook = webhook;
-            return o;
+            final var _resultValue = new ClusterAuthentication();
+            _resultValue.sans = sans;
+            _resultValue.strategy = strategy;
+            _resultValue.webhook = webhook;
+            return _resultValue;
         }
     }
 }

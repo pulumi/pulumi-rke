@@ -270,20 +270,20 @@ public final class ClusterServicesKubeApiDeprecated {
             return this;
         }
         public ClusterServicesKubeApiDeprecated build() {
-            final var o = new ClusterServicesKubeApiDeprecated();
-            o.alwaysPullImages = alwaysPullImages;
-            o.auditLog = auditLog;
-            o.eventRateLimit = eventRateLimit;
-            o.extraArgs = extraArgs;
-            o.extraBinds = extraBinds;
-            o.extraEnvs = extraEnvs;
-            o.image = image;
-            o.podSecurityConfiguration = podSecurityConfiguration;
-            o.podSecurityPolicy = podSecurityPolicy;
-            o.secretsEncryptionConfig = secretsEncryptionConfig;
-            o.serviceClusterIpRange = serviceClusterIpRange;
-            o.serviceNodePortRange = serviceNodePortRange;
-            return o;
+            final var _resultValue = new ClusterServicesKubeApiDeprecated();
+            _resultValue.alwaysPullImages = alwaysPullImages;
+            _resultValue.auditLog = auditLog;
+            _resultValue.eventRateLimit = eventRateLimit;
+            _resultValue.extraArgs = extraArgs;
+            _resultValue.extraBinds = extraBinds;
+            _resultValue.extraEnvs = extraEnvs;
+            _resultValue.image = image;
+            _resultValue.podSecurityConfiguration = podSecurityConfiguration;
+            _resultValue.podSecurityPolicy = podSecurityPolicy;
+            _resultValue.secretsEncryptionConfig = secretsEncryptionConfig;
+            _resultValue.serviceClusterIpRange = serviceClusterIpRange;
+            _resultValue.serviceNodePortRange = serviceNodePortRange;
+            return _resultValue;
         }
     }
 }

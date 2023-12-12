@@ -87,11 +87,11 @@ public final class ClusterCloudProviderOpenstackCloudConfigBlockStorage {
             return this;
         }
         public ClusterCloudProviderOpenstackCloudConfigBlockStorage build() {
-            final var o = new ClusterCloudProviderOpenstackCloudConfigBlockStorage();
-            o.bsVersion = bsVersion;
-            o.ignoreVolumeAz = ignoreVolumeAz;
-            o.trustDevicePath = trustDevicePath;
-            return o;
+            final var _resultValue = new ClusterCloudProviderOpenstackCloudConfigBlockStorage();
+            _resultValue.bsVersion = bsVersion;
+            _resultValue.ignoreVolumeAz = ignoreVolumeAz;
+            _resultValue.trustDevicePath = trustDevicePath;
+            return _resultValue;
         }
     }
 }

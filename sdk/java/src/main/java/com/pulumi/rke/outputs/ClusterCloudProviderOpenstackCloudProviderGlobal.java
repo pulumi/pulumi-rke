@@ -238,19 +238,19 @@ public final class ClusterCloudProviderOpenstackCloudProviderGlobal {
             return this;
         }
         public ClusterCloudProviderOpenstackCloudProviderGlobal build() {
-            final var o = new ClusterCloudProviderOpenstackCloudProviderGlobal();
-            o.authUrl = authUrl;
-            o.caFile = caFile;
-            o.domainId = domainId;
-            o.domainName = domainName;
-            o.password = password;
-            o.region = region;
-            o.tenantId = tenantId;
-            o.tenantName = tenantName;
-            o.trustId = trustId;
-            o.userId = userId;
-            o.username = username;
-            return o;
+            final var _resultValue = new ClusterCloudProviderOpenstackCloudProviderGlobal();
+            _resultValue.authUrl = authUrl;
+            _resultValue.caFile = caFile;
+            _resultValue.domainId = domainId;
+            _resultValue.domainName = domainName;
+            _resultValue.password = password;
+            _resultValue.region = region;
+            _resultValue.tenantId = tenantId;
+            _resultValue.tenantName = tenantName;
+            _resultValue.trustId = trustId;
+            _resultValue.userId = userId;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -114,12 +114,12 @@ public final class ClusterServicesKubeSchedulerDeprecated {
             return this;
         }
         public ClusterServicesKubeSchedulerDeprecated build() {
-            final var o = new ClusterServicesKubeSchedulerDeprecated();
-            o.extraArgs = extraArgs;
-            o.extraBinds = extraBinds;
-            o.extraEnvs = extraEnvs;
-            o.image = image;
-            return o;
+            final var _resultValue = new ClusterServicesKubeSchedulerDeprecated();
+            _resultValue.extraArgs = extraArgs;
+            _resultValue.extraBinds = extraBinds;
+            _resultValue.extraEnvs = extraEnvs;
+            _resultValue.image = image;
+            return _resultValue;
         }
     }
 }

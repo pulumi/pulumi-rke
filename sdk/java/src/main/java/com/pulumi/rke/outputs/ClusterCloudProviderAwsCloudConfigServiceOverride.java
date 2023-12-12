@@ -170,15 +170,15 @@ public final class ClusterCloudProviderAwsCloudConfigServiceOverride {
             return this;
         }
         public ClusterCloudProviderAwsCloudConfigServiceOverride build() {
-            final var o = new ClusterCloudProviderAwsCloudConfigServiceOverride();
-            o.key = key;
-            o.region = region;
-            o.service = service;
-            o.signingMethod = signingMethod;
-            o.signingName = signingName;
-            o.signingRegion = signingRegion;
-            o.url = url;
-            return o;
+            final var _resultValue = new ClusterCloudProviderAwsCloudConfigServiceOverride();
+            _resultValue.key = key;
+            _resultValue.region = region;
+            _resultValue.service = service;
+            _resultValue.signingMethod = signingMethod;
+            _resultValue.signingName = signingName;
+            _resultValue.signingRegion = signingRegion;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

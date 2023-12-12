@@ -486,32 +486,32 @@ public final class ClusterNetworkAciNetworkProvider {
             return this;
         }
         public ClusterNetworkAciNetworkProvider build() {
-            final var o = new ClusterNetworkAciNetworkProvider();
-            o.aep = aep;
-            o.apicHosts = apicHosts;
-            o.apicUserCrt = apicUserCrt;
-            o.apicUserKey = apicUserKey;
-            o.apicUserName = apicUserName;
-            o.encapType = encapType;
-            o.externDynamic = externDynamic;
-            o.externStatic = externStatic;
-            o.infraVlan = infraVlan;
-            o.kubeApiVlan = kubeApiVlan;
-            o.l3out = l3out;
-            o.l3outExternalNetworks = l3outExternalNetworks;
-            o.mcastRangeEnd = mcastRangeEnd;
-            o.mcastRangeStart = mcastRangeStart;
-            o.nodeSubnet = nodeSubnet;
-            o.nodeSvcSubnet = nodeSvcSubnet;
-            o.serviceVlan = serviceVlan;
-            o.snatPortRangeEnd = snatPortRangeEnd;
-            o.snatPortRangeStart = snatPortRangeStart;
-            o.snatPortsPerNode = snatPortsPerNode;
-            o.systemId = systemId;
-            o.token = token;
-            o.vrfName = vrfName;
-            o.vrfTenant = vrfTenant;
-            return o;
+            final var _resultValue = new ClusterNetworkAciNetworkProvider();
+            _resultValue.aep = aep;
+            _resultValue.apicHosts = apicHosts;
+            _resultValue.apicUserCrt = apicUserCrt;
+            _resultValue.apicUserKey = apicUserKey;
+            _resultValue.apicUserName = apicUserName;
+            _resultValue.encapType = encapType;
+            _resultValue.externDynamic = externDynamic;
+            _resultValue.externStatic = externStatic;
+            _resultValue.infraVlan = infraVlan;
+            _resultValue.kubeApiVlan = kubeApiVlan;
+            _resultValue.l3out = l3out;
+            _resultValue.l3outExternalNetworks = l3outExternalNetworks;
+            _resultValue.mcastRangeEnd = mcastRangeEnd;
+            _resultValue.mcastRangeStart = mcastRangeStart;
+            _resultValue.nodeSubnet = nodeSubnet;
+            _resultValue.nodeSvcSubnet = nodeSvcSubnet;
+            _resultValue.serviceVlan = serviceVlan;
+            _resultValue.snatPortRangeEnd = snatPortRangeEnd;
+            _resultValue.snatPortRangeStart = snatPortRangeStart;
+            _resultValue.snatPortsPerNode = snatPortsPerNode;
+            _resultValue.systemId = systemId;
+            _resultValue.token = token;
+            _resultValue.vrfName = vrfName;
+            _resultValue.vrfTenant = vrfTenant;
+            return _resultValue;
         }
     }
 }

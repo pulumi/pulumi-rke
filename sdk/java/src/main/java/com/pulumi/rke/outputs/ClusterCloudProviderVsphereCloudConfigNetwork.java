@@ -48,9 +48,9 @@ public final class ClusterCloudProviderVsphereCloudConfigNetwork {
             return this;
         }
         public ClusterCloudProviderVsphereCloudConfigNetwork build() {
-            final var o = new ClusterCloudProviderVsphereCloudConfigNetwork();
-            o.publicNetwork = publicNetwork;
-            return o;
+            final var _resultValue = new ClusterCloudProviderVsphereCloudConfigNetwork();
+            _resultValue.publicNetwork = publicNetwork;
+            return _resultValue;
         }
     }
 }

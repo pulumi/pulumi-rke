@@ -189,16 +189,16 @@ public final class ClusterNetwork {
             return this;
         }
         public ClusterNetwork build() {
-            final var o = new ClusterNetwork();
-            o.aciNetworkProvider = aciNetworkProvider;
-            o.calicoNetworkProvider = calicoNetworkProvider;
-            o.canalNetworkProvider = canalNetworkProvider;
-            o.flannelNetworkProvider = flannelNetworkProvider;
-            o.mtu = mtu;
-            o.options = options;
-            o.plugin = plugin;
-            o.weaveNetworkProvider = weaveNetworkProvider;
-            return o;
+            final var _resultValue = new ClusterNetwork();
+            _resultValue.aciNetworkProvider = aciNetworkProvider;
+            _resultValue.calicoNetworkProvider = calicoNetworkProvider;
+            _resultValue.canalNetworkProvider = canalNetworkProvider;
+            _resultValue.flannelNetworkProvider = flannelNetworkProvider;
+            _resultValue.mtu = mtu;
+            _resultValue.options = options;
+            _resultValue.plugin = plugin;
+            _resultValue.weaveNetworkProvider = weaveNetworkProvider;
+            return _resultValue;
         }
     }
 }

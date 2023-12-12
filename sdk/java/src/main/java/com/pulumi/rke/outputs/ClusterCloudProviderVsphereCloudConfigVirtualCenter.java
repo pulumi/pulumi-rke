@@ -144,14 +144,14 @@ public final class ClusterCloudProviderVsphereCloudConfigVirtualCenter {
             return this;
         }
         public ClusterCloudProviderVsphereCloudConfigVirtualCenter build() {
-            final var o = new ClusterCloudProviderVsphereCloudConfigVirtualCenter();
-            o.datacenters = datacenters;
-            o.name = name;
-            o.password = password;
-            o.port = port;
-            o.soapRoundtripCount = soapRoundtripCount;
-            o.user = user;
-            return o;
+            final var _resultValue = new ClusterCloudProviderVsphereCloudConfigVirtualCenter();
+            _resultValue.datacenters = datacenters;
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.port = port;
+            _resultValue.soapRoundtripCount = soapRoundtripCount;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

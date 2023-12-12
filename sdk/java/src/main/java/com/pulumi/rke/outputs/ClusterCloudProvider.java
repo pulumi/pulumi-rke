@@ -286,19 +286,19 @@ public final class ClusterCloudProvider {
             return this;
         }
         public ClusterCloudProvider build() {
-            final var o = new ClusterCloudProvider();
-            o.awsCloudConfig = awsCloudConfig;
-            o.awsCloudProvider = awsCloudProvider;
-            o.azureCloudConfig = azureCloudConfig;
-            o.azureCloudProvider = azureCloudProvider;
-            o.customCloudConfig = customCloudConfig;
-            o.customCloudProvider = customCloudProvider;
-            o.name = name;
-            o.openstackCloudConfig = openstackCloudConfig;
-            o.openstackCloudProvider = openstackCloudProvider;
-            o.vsphereCloudConfig = vsphereCloudConfig;
-            o.vsphereCloudProvider = vsphereCloudProvider;
-            return o;
+            final var _resultValue = new ClusterCloudProvider();
+            _resultValue.awsCloudConfig = awsCloudConfig;
+            _resultValue.awsCloudProvider = awsCloudProvider;
+            _resultValue.azureCloudConfig = azureCloudConfig;
+            _resultValue.azureCloudProvider = azureCloudProvider;
+            _resultValue.customCloudConfig = customCloudConfig;
+            _resultValue.customCloudProvider = customCloudProvider;
+            _resultValue.name = name;
+            _resultValue.openstackCloudConfig = openstackCloudConfig;
+            _resultValue.openstackCloudProvider = openstackCloudProvider;
+            _resultValue.vsphereCloudConfig = vsphereCloudConfig;
+            _resultValue.vsphereCloudProvider = vsphereCloudProvider;
+            return _resultValue;
         }
     }
 }

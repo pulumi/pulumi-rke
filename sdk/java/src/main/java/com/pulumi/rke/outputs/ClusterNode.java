@@ -348,24 +348,24 @@ public final class ClusterNode {
             return this;
         }
         public ClusterNode build() {
-            final var o = new ClusterNode();
-            o.address = address;
-            o.dockerSocket = dockerSocket;
-            o.hostnameOverride = hostnameOverride;
-            o.internalAddress = internalAddress;
-            o.labels = labels;
-            o.nodeName = nodeName;
-            o.port = port;
-            o.roles = roles;
-            o.rolesDeprecated = rolesDeprecated;
-            o.sshAgentAuth = sshAgentAuth;
-            o.sshCert = sshCert;
-            o.sshCertPath = sshCertPath;
-            o.sshKey = sshKey;
-            o.sshKeyPath = sshKeyPath;
-            o.taints = taints;
-            o.user = user;
-            return o;
+            final var _resultValue = new ClusterNode();
+            _resultValue.address = address;
+            _resultValue.dockerSocket = dockerSocket;
+            _resultValue.hostnameOverride = hostnameOverride;
+            _resultValue.internalAddress = internalAddress;
+            _resultValue.labels = labels;
+            _resultValue.nodeName = nodeName;
+            _resultValue.port = port;
+            _resultValue.roles = roles;
+            _resultValue.rolesDeprecated = rolesDeprecated;
+            _resultValue.sshAgentAuth = sshAgentAuth;
+            _resultValue.sshCert = sshCert;
+            _resultValue.sshCertPath = sshCertPath;
+            _resultValue.sshKey = sshKey;
+            _resultValue.sshKeyPath = sshKeyPath;
+            _resultValue.taints = taints;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

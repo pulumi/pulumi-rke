@@ -106,12 +106,12 @@ public final class ClusterPrivateRegistry {
             return this;
         }
         public ClusterPrivateRegistry build() {
-            final var o = new ClusterPrivateRegistry();
-            o.isDefault = isDefault;
-            o.password = password;
-            o.url = url;
-            o.user = user;
-            return o;
+            final var _resultValue = new ClusterPrivateRegistry();
+            _resultValue.isDefault = isDefault;
+            _resultValue.password = password;
+            _resultValue.url = url;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ClusterServicesKubeApiDeprecatedAuditLog {
             return this;
         }
         public ClusterServicesKubeApiDeprecatedAuditLog build() {
-            final var o = new ClusterServicesKubeApiDeprecatedAuditLog();
-            o.configuration = configuration;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterServicesKubeApiDeprecatedAuditLog();
+            _resultValue.configuration = configuration;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

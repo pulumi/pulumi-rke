@@ -240,19 +240,19 @@ public final class ClusterCloudProviderVsphereCloudConfigGlobal {
             return this;
         }
         public ClusterCloudProviderVsphereCloudConfigGlobal build() {
-            final var o = new ClusterCloudProviderVsphereCloudConfigGlobal();
-            o.datacenter = datacenter;
-            o.datacenters = datacenters;
-            o.datastore = datastore;
-            o.insecureFlag = insecureFlag;
-            o.password = password;
-            o.port = port;
-            o.soapRoundtripCount = soapRoundtripCount;
-            o.user = user;
-            o.vmName = vmName;
-            o.vmUuid = vmUuid;
-            o.workingDir = workingDir;
-            return o;
+            final var _resultValue = new ClusterCloudProviderVsphereCloudConfigGlobal();
+            _resultValue.datacenter = datacenter;
+            _resultValue.datacenters = datacenters;
+            _resultValue.datastore = datastore;
+            _resultValue.insecureFlag = insecureFlag;
+            _resultValue.password = password;
+            _resultValue.port = port;
+            _resultValue.soapRoundtripCount = soapRoundtripCount;
+            _resultValue.user = user;
+            _resultValue.vmName = vmName;
+            _resultValue.vmUuid = vmUuid;
+            _resultValue.workingDir = workingDir;
+            return _resultValue;
         }
     }
 }

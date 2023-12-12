@@ -68,10 +68,10 @@ public final class ClusterRestore {
             return this;
         }
         public ClusterRestore build() {
-            final var o = new ClusterRestore();
-            o.restore = restore;
-            o.snapshotName = snapshotName;
-            return o;
+            final var _resultValue = new ClusterRestore();
+            _resultValue.restore = restore;
+            _resultValue.snapshotName = snapshotName;
+            return _resultValue;
         }
     }
 }

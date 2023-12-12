@@ -67,10 +67,10 @@ public final class ClusterControlPlaneHost {
             return this;
         }
         public ClusterControlPlaneHost build() {
-            final var o = new ClusterControlPlaneHost();
-            o.address = address;
-            o.nodeName = nodeName;
-            return o;
+            final var _resultValue = new ClusterControlPlaneHost();
+            _resultValue.address = address;
+            _resultValue.nodeName = nodeName;
+            return _resultValue;
         }
     }
 }

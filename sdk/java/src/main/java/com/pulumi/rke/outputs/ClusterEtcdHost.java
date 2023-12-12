@@ -67,10 +67,10 @@ public final class ClusterEtcdHost {
             return this;
         }
         public ClusterEtcdHost build() {
-            final var o = new ClusterEtcdHost();
-            o.address = address;
-            o.nodeName = nodeName;
-            return o;
+            final var _resultValue = new ClusterEtcdHost();
+            _resultValue.address = address;
+            _resultValue.nodeName = nodeName;
+            return _resultValue;
         }
     }
 }
