@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.outputs.ClusterCloudProviderAwsCloudConfig;
 import com.pulumi.rke.outputs.ClusterCloudProviderAwsCloudProvider;
 import com.pulumi.rke.outputs.ClusterCloudProviderAzureCloudConfig;
@@ -232,56 +233,69 @@ public final class ClusterCloudProvider {
 
         @CustomType.Setter
         public Builder awsCloudConfig(@Nullable ClusterCloudProviderAwsCloudConfig awsCloudConfig) {
+
             this.awsCloudConfig = awsCloudConfig;
             return this;
         }
         @CustomType.Setter
         public Builder awsCloudProvider(@Nullable ClusterCloudProviderAwsCloudProvider awsCloudProvider) {
+
             this.awsCloudProvider = awsCloudProvider;
             return this;
         }
         @CustomType.Setter
         public Builder azureCloudConfig(@Nullable ClusterCloudProviderAzureCloudConfig azureCloudConfig) {
+
             this.azureCloudConfig = azureCloudConfig;
             return this;
         }
         @CustomType.Setter
         public Builder azureCloudProvider(@Nullable ClusterCloudProviderAzureCloudProvider azureCloudProvider) {
+
             this.azureCloudProvider = azureCloudProvider;
             return this;
         }
         @CustomType.Setter
         public Builder customCloudConfig(@Nullable String customCloudConfig) {
+
             this.customCloudConfig = customCloudConfig;
             return this;
         }
         @CustomType.Setter
         public Builder customCloudProvider(@Nullable String customCloudProvider) {
+
             this.customCloudProvider = customCloudProvider;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProvider", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder openstackCloudConfig(@Nullable ClusterCloudProviderOpenstackCloudConfig openstackCloudConfig) {
+
             this.openstackCloudConfig = openstackCloudConfig;
             return this;
         }
         @CustomType.Setter
         public Builder openstackCloudProvider(@Nullable ClusterCloudProviderOpenstackCloudProvider openstackCloudProvider) {
+
             this.openstackCloudProvider = openstackCloudProvider;
             return this;
         }
         @CustomType.Setter
         public Builder vsphereCloudConfig(@Nullable ClusterCloudProviderVsphereCloudConfig vsphereCloudConfig) {
+
             this.vsphereCloudConfig = vsphereCloudConfig;
             return this;
         }
         @CustomType.Setter
         public Builder vsphereCloudProvider(@Nullable ClusterCloudProviderVsphereCloudProvider vsphereCloudProvider) {
+
             this.vsphereCloudProvider = vsphereCloudProvider;
             return this;
         }

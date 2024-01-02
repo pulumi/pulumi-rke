@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudProviderDisk;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudProviderGlobal;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudProviderNetwork;
@@ -105,22 +106,28 @@ public final class ClusterCloudProviderVsphereCloudProvider {
 
         @CustomType.Setter
         public Builder disk(@Nullable ClusterCloudProviderVsphereCloudProviderDisk disk) {
+
             this.disk = disk;
             return this;
         }
         @CustomType.Setter
         public Builder global(@Nullable ClusterCloudProviderVsphereCloudProviderGlobal global) {
+
             this.global = global;
             return this;
         }
         @CustomType.Setter
         public Builder network(@Nullable ClusterCloudProviderVsphereCloudProviderNetwork network) {
+
             this.network = network;
             return this;
         }
         @CustomType.Setter
         public Builder virtualCenters(List<ClusterCloudProviderVsphereCloudProviderVirtualCenter> virtualCenters) {
-            this.virtualCenters = Objects.requireNonNull(virtualCenters);
+            if (virtualCenters == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProvider", "virtualCenters");
+            }
+            this.virtualCenters = virtualCenters;
             return this;
         }
         public Builder virtualCenters(ClusterCloudProviderVsphereCloudProviderVirtualCenter... virtualCenters) {
@@ -128,7 +135,10 @@ public final class ClusterCloudProviderVsphereCloudProvider {
         }
         @CustomType.Setter
         public Builder workspace(ClusterCloudProviderVsphereCloudProviderWorkspace workspace) {
-            this.workspace = Objects.requireNonNull(workspace);
+            if (workspace == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProvider", "workspace");
+            }
+            this.workspace = workspace;
             return this;
         }
         public ClusterCloudProviderVsphereCloudProvider build() {

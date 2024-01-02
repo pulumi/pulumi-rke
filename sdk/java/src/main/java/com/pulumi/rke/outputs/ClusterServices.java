@@ -119,31 +119,37 @@ public final class ClusterServices {
 
         @CustomType.Setter
         public Builder etcd(@Nullable ClusterServicesEtcd etcd) {
+
             this.etcd = etcd;
             return this;
         }
         @CustomType.Setter
         public Builder kubeApi(@Nullable ClusterServicesKubeApi kubeApi) {
+
             this.kubeApi = kubeApi;
             return this;
         }
         @CustomType.Setter
         public Builder kubeController(@Nullable ClusterServicesKubeController kubeController) {
+
             this.kubeController = kubeController;
             return this;
         }
         @CustomType.Setter
         public Builder kubelet(@Nullable ClusterServicesKubelet kubelet) {
+
             this.kubelet = kubelet;
             return this;
         }
         @CustomType.Setter
         public Builder kubeproxy(@Nullable ClusterServicesKubeproxy kubeproxy) {
+
             this.kubeproxy = kubeproxy;
             return this;
         }
         @CustomType.Setter
         public Builder scheduler(@Nullable ClusterServicesScheduler scheduler) {
+
             this.scheduler = scheduler;
             return this;
         }

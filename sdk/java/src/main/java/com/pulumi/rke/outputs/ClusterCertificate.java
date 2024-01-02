@@ -140,66 +140,79 @@ public final class ClusterCertificate {
 
         @CustomType.Setter
         public Builder certificate(@Nullable String certificate) {
+
             this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder commonName(@Nullable String commonName) {
+
             this.commonName = commonName;
             return this;
         }
         @CustomType.Setter
         public Builder config(@Nullable String config) {
+
             this.config = config;
             return this;
         }
         @CustomType.Setter
         public Builder configEnvName(@Nullable String configEnvName) {
+
             this.configEnvName = configEnvName;
             return this;
         }
         @CustomType.Setter
         public Builder configPath(@Nullable String configPath) {
+
             this.configPath = configPath;
             return this;
         }
         @CustomType.Setter
         public Builder envName(@Nullable String envName) {
+
             this.envName = envName;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder keyEnvName(@Nullable String keyEnvName) {
+
             this.keyEnvName = keyEnvName;
             return this;
         }
         @CustomType.Setter
         public Builder keyPath(@Nullable String keyPath) {
+
             this.keyPath = keyPath;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ouName(@Nullable String ouName) {
+
             this.ouName = ouName;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }

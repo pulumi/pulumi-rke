@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.outputs.ClusterNodeTaint;
 import java.lang.Boolean;
 import java.lang.Object;
@@ -263,42 +264,54 @@ public final class ClusterNode {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("ClusterNode", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder dockerSocket(@Nullable String dockerSocket) {
+
             this.dockerSocket = dockerSocket;
             return this;
         }
         @CustomType.Setter
         public Builder hostnameOverride(@Nullable String hostnameOverride) {
+
             this.hostnameOverride = hostnameOverride;
             return this;
         }
         @CustomType.Setter
         public Builder internalAddress(@Nullable String internalAddress) {
+
             this.internalAddress = internalAddress;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,Object> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder nodeName(@Nullable String nodeName) {
+
             this.nodeName = nodeName;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable String port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder roles(List<String> roles) {
-            this.roles = Objects.requireNonNull(roles);
+            if (roles == null) {
+              throw new MissingRequiredPropertyException("ClusterNode", "roles");
+            }
+            this.roles = roles;
             return this;
         }
         public Builder roles(String... roles) {
@@ -306,36 +319,43 @@ public final class ClusterNode {
         }
         @CustomType.Setter
         public Builder rolesDeprecated(@Nullable String rolesDeprecated) {
+
             this.rolesDeprecated = rolesDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder sshAgentAuth(@Nullable Boolean sshAgentAuth) {
+
             this.sshAgentAuth = sshAgentAuth;
             return this;
         }
         @CustomType.Setter
         public Builder sshCert(@Nullable String sshCert) {
+
             this.sshCert = sshCert;
             return this;
         }
         @CustomType.Setter
         public Builder sshCertPath(@Nullable String sshCertPath) {
+
             this.sshCertPath = sshCertPath;
             return this;
         }
         @CustomType.Setter
         public Builder sshKey(@Nullable String sshKey) {
+
             this.sshKey = sshKey;
             return this;
         }
         @CustomType.Setter
         public Builder sshKeyPath(@Nullable String sshKeyPath) {
+
             this.sshKeyPath = sshKeyPath;
             return this;
         }
         @CustomType.Setter
         public Builder taints(@Nullable List<ClusterNodeTaint> taints) {
+
             this.taints = taints;
             return this;
         }
@@ -344,7 +364,10 @@ public final class ClusterNode {
         }
         @CustomType.Setter
         public Builder user(String user) {
-            this.user = Objects.requireNonNull(user);
+            if (user == null) {
+              throw new MissingRequiredPropertyException("ClusterNode", "user");
+            }
+            this.user = user;
             return this;
         }
         public ClusterNode build() {

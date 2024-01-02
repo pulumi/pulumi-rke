@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,10 +263,18 @@ public final class ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs ext
         }
 
         public ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs build() {
-            $.datacenters = Objects.requireNonNull($.datacenters, "expected parameter 'datacenters' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.datacenters == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs", "datacenters");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs", "name");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs", "password");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs", "user");
+            }
             return $;
         }
     }

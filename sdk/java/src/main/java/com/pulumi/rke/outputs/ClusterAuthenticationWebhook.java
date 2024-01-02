@@ -58,11 +58,13 @@ public final class ClusterAuthenticationWebhook {
 
         @CustomType.Setter
         public Builder cacheTimeout(@Nullable String cacheTimeout) {
+
             this.cacheTimeout = cacheTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder configFile(@Nullable String configFile) {
+
             this.configFile = configFile;
             return this;
         }

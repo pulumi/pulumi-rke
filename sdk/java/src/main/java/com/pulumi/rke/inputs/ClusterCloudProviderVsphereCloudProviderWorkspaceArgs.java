@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ClusterCloudProviderVsphereCloudProviderWorkspaceArgs extends
         }
 
         public ClusterCloudProviderVsphereCloudProviderWorkspaceArgs build() {
-            $.datacenter = Objects.requireNonNull($.datacenter, "expected parameter 'datacenter' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
+            if ($.datacenter == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderWorkspaceArgs", "datacenter");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderWorkspaceArgs", "server");
+            }
             return $;
         }
     }
