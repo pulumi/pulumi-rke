@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.inputs.ClusterCloudProviderOpenstackCloudProviderBlockStorageArgs;
 import com.pulumi.rke.inputs.ClusterCloudProviderOpenstackCloudProviderGlobalArgs;
 import com.pulumi.rke.inputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancerArgs;
@@ -228,7 +229,9 @@ public final class ClusterCloudProviderOpenstackCloudProviderArgs extends com.pu
         }
 
         public ClusterCloudProviderOpenstackCloudProviderArgs build() {
-            $.global = Objects.requireNonNull($.global, "expected parameter 'global' to be non-null");
+            if ($.global == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderOpenstackCloudProviderArgs", "global");
+            }
             return $;
         }
     }

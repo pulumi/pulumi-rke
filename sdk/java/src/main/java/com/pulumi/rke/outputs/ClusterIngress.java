@@ -152,46 +152,55 @@ public final class ClusterIngress {
 
         @CustomType.Setter
         public Builder defaultBackend(@Nullable Boolean defaultBackend) {
+
             this.defaultBackend = defaultBackend;
             return this;
         }
         @CustomType.Setter
         public Builder dnsPolicy(@Nullable String dnsPolicy) {
+
             this.dnsPolicy = dnsPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder extraArgs(@Nullable Map<String,Object> extraArgs) {
+
             this.extraArgs = extraArgs;
             return this;
         }
         @CustomType.Setter
         public Builder httpPort(@Nullable Integer httpPort) {
+
             this.httpPort = httpPort;
             return this;
         }
         @CustomType.Setter
         public Builder httpsPort(@Nullable Integer httpsPort) {
+
             this.httpsPort = httpsPort;
             return this;
         }
         @CustomType.Setter
         public Builder networkMode(@Nullable String networkMode) {
+
             this.networkMode = networkMode;
             return this;
         }
         @CustomType.Setter
         public Builder nodeSelector(@Nullable Map<String,Object> nodeSelector) {
+
             this.nodeSelector = nodeSelector;
             return this;
         }
         @CustomType.Setter
         public Builder options(@Nullable Map<String,Object> options) {
+
             this.options = options;
             return this;
         }
         @CustomType.Setter
         public Builder provider(@Nullable String provider) {
+
             this.provider = provider;
             return this;
         }

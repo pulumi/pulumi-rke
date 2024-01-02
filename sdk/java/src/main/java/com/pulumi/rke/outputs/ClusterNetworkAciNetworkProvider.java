@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -361,12 +362,18 @@ public final class ClusterNetworkAciNetworkProvider {
 
         @CustomType.Setter
         public Builder aep(String aep) {
-            this.aep = Objects.requireNonNull(aep);
+            if (aep == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "aep");
+            }
+            this.aep = aep;
             return this;
         }
         @CustomType.Setter
         public Builder apicHosts(List<String> apicHosts) {
-            this.apicHosts = Objects.requireNonNull(apicHosts);
+            if (apicHosts == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "apicHosts");
+            }
+            this.apicHosts = apicHosts;
             return this;
         }
         public Builder apicHosts(String... apicHosts) {
@@ -374,52 +381,82 @@ public final class ClusterNetworkAciNetworkProvider {
         }
         @CustomType.Setter
         public Builder apicUserCrt(String apicUserCrt) {
-            this.apicUserCrt = Objects.requireNonNull(apicUserCrt);
+            if (apicUserCrt == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "apicUserCrt");
+            }
+            this.apicUserCrt = apicUserCrt;
             return this;
         }
         @CustomType.Setter
         public Builder apicUserKey(String apicUserKey) {
-            this.apicUserKey = Objects.requireNonNull(apicUserKey);
+            if (apicUserKey == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "apicUserKey");
+            }
+            this.apicUserKey = apicUserKey;
             return this;
         }
         @CustomType.Setter
         public Builder apicUserName(String apicUserName) {
-            this.apicUserName = Objects.requireNonNull(apicUserName);
+            if (apicUserName == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "apicUserName");
+            }
+            this.apicUserName = apicUserName;
             return this;
         }
         @CustomType.Setter
         public Builder encapType(String encapType) {
-            this.encapType = Objects.requireNonNull(encapType);
+            if (encapType == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "encapType");
+            }
+            this.encapType = encapType;
             return this;
         }
         @CustomType.Setter
         public Builder externDynamic(String externDynamic) {
-            this.externDynamic = Objects.requireNonNull(externDynamic);
+            if (externDynamic == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "externDynamic");
+            }
+            this.externDynamic = externDynamic;
             return this;
         }
         @CustomType.Setter
         public Builder externStatic(String externStatic) {
-            this.externStatic = Objects.requireNonNull(externStatic);
+            if (externStatic == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "externStatic");
+            }
+            this.externStatic = externStatic;
             return this;
         }
         @CustomType.Setter
         public Builder infraVlan(String infraVlan) {
-            this.infraVlan = Objects.requireNonNull(infraVlan);
+            if (infraVlan == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "infraVlan");
+            }
+            this.infraVlan = infraVlan;
             return this;
         }
         @CustomType.Setter
         public Builder kubeApiVlan(String kubeApiVlan) {
-            this.kubeApiVlan = Objects.requireNonNull(kubeApiVlan);
+            if (kubeApiVlan == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "kubeApiVlan");
+            }
+            this.kubeApiVlan = kubeApiVlan;
             return this;
         }
         @CustomType.Setter
         public Builder l3out(String l3out) {
-            this.l3out = Objects.requireNonNull(l3out);
+            if (l3out == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "l3out");
+            }
+            this.l3out = l3out;
             return this;
         }
         @CustomType.Setter
         public Builder l3outExternalNetworks(List<String> l3outExternalNetworks) {
-            this.l3outExternalNetworks = Objects.requireNonNull(l3outExternalNetworks);
+            if (l3outExternalNetworks == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "l3outExternalNetworks");
+            }
+            this.l3outExternalNetworks = l3outExternalNetworks;
             return this;
         }
         public Builder l3outExternalNetworks(String... l3outExternalNetworks) {
@@ -427,62 +464,92 @@ public final class ClusterNetworkAciNetworkProvider {
         }
         @CustomType.Setter
         public Builder mcastRangeEnd(String mcastRangeEnd) {
-            this.mcastRangeEnd = Objects.requireNonNull(mcastRangeEnd);
+            if (mcastRangeEnd == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "mcastRangeEnd");
+            }
+            this.mcastRangeEnd = mcastRangeEnd;
             return this;
         }
         @CustomType.Setter
         public Builder mcastRangeStart(String mcastRangeStart) {
-            this.mcastRangeStart = Objects.requireNonNull(mcastRangeStart);
+            if (mcastRangeStart == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "mcastRangeStart");
+            }
+            this.mcastRangeStart = mcastRangeStart;
             return this;
         }
         @CustomType.Setter
         public Builder nodeSubnet(String nodeSubnet) {
-            this.nodeSubnet = Objects.requireNonNull(nodeSubnet);
+            if (nodeSubnet == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "nodeSubnet");
+            }
+            this.nodeSubnet = nodeSubnet;
             return this;
         }
         @CustomType.Setter
         public Builder nodeSvcSubnet(String nodeSvcSubnet) {
-            this.nodeSvcSubnet = Objects.requireNonNull(nodeSvcSubnet);
+            if (nodeSvcSubnet == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "nodeSvcSubnet");
+            }
+            this.nodeSvcSubnet = nodeSvcSubnet;
             return this;
         }
         @CustomType.Setter
         public Builder serviceVlan(String serviceVlan) {
-            this.serviceVlan = Objects.requireNonNull(serviceVlan);
+            if (serviceVlan == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "serviceVlan");
+            }
+            this.serviceVlan = serviceVlan;
             return this;
         }
         @CustomType.Setter
         public Builder snatPortRangeEnd(@Nullable String snatPortRangeEnd) {
+
             this.snatPortRangeEnd = snatPortRangeEnd;
             return this;
         }
         @CustomType.Setter
         public Builder snatPortRangeStart(@Nullable String snatPortRangeStart) {
+
             this.snatPortRangeStart = snatPortRangeStart;
             return this;
         }
         @CustomType.Setter
         public Builder snatPortsPerNode(@Nullable String snatPortsPerNode) {
+
             this.snatPortsPerNode = snatPortsPerNode;
             return this;
         }
         @CustomType.Setter
         public Builder systemId(String systemId) {
-            this.systemId = Objects.requireNonNull(systemId);
+            if (systemId == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "systemId");
+            }
+            this.systemId = systemId;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "token");
+            }
+            this.token = token;
             return this;
         }
         @CustomType.Setter
         public Builder vrfName(String vrfName) {
-            this.vrfName = Objects.requireNonNull(vrfName);
+            if (vrfName == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "vrfName");
+            }
+            this.vrfName = vrfName;
             return this;
         }
         @CustomType.Setter
         public Builder vrfTenant(String vrfTenant) {
-            this.vrfTenant = Objects.requireNonNull(vrfTenant);
+            if (vrfTenant == null) {
+              throw new MissingRequiredPropertyException("ClusterNetworkAciNetworkProvider", "vrfTenant");
+            }
+            this.vrfTenant = vrfTenant;
             return this;
         }
         public ClusterNetworkAciNetworkProvider build() {

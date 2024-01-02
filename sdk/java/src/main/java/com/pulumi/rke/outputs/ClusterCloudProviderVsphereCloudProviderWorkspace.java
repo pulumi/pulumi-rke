@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,36 @@ public final class ClusterCloudProviderVsphereCloudProviderWorkspace {
 
         @CustomType.Setter
         public Builder datacenter(String datacenter) {
-            this.datacenter = Objects.requireNonNull(datacenter);
+            if (datacenter == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderWorkspace", "datacenter");
+            }
+            this.datacenter = datacenter;
             return this;
         }
         @CustomType.Setter
         public Builder defaultDatastore(@Nullable String defaultDatastore) {
+
             this.defaultDatastore = defaultDatastore;
             return this;
         }
         @CustomType.Setter
         public Builder folder(@Nullable String folder) {
+
             this.folder = folder;
             return this;
         }
         @CustomType.Setter
         public Builder resourcepoolPath(@Nullable String resourcepoolPath) {
+
             this.resourcepoolPath = resourcepoolPath;
             return this;
         }
         @CustomType.Setter
         public Builder server(String server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudProviderWorkspace", "server");
+            }
+            this.server = server;
             return this;
         }
         public ClusterCloudProviderVsphereCloudProviderWorkspace build() {

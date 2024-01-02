@@ -44,6 +44,7 @@ public final class ClusterCloudProviderOpenstackCloudProviderRoute {
 
         @CustomType.Setter
         public Builder routerId(@Nullable String routerId) {
+
             this.routerId = routerId;
             return this;
         }

@@ -60,11 +60,13 @@ public final class ClusterCloudProviderAwsCloudConfig {
 
         @CustomType.Setter
         public Builder global(@Nullable ClusterCloudProviderAwsCloudConfigGlobal global) {
+
             this.global = global;
             return this;
         }
         @CustomType.Setter
         public Builder serviceOverrides(@Nullable List<ClusterCloudProviderAwsCloudConfigServiceOverride> serviceOverrides) {
+
             this.serviceOverrides = serviceOverrides;
             return this;
         }

@@ -150,41 +150,49 @@ public final class ClusterNetwork {
 
         @CustomType.Setter
         public Builder aciNetworkProvider(@Nullable ClusterNetworkAciNetworkProvider aciNetworkProvider) {
+
             this.aciNetworkProvider = aciNetworkProvider;
             return this;
         }
         @CustomType.Setter
         public Builder calicoNetworkProvider(@Nullable ClusterNetworkCalicoNetworkProvider calicoNetworkProvider) {
+
             this.calicoNetworkProvider = calicoNetworkProvider;
             return this;
         }
         @CustomType.Setter
         public Builder canalNetworkProvider(@Nullable ClusterNetworkCanalNetworkProvider canalNetworkProvider) {
+
             this.canalNetworkProvider = canalNetworkProvider;
             return this;
         }
         @CustomType.Setter
         public Builder flannelNetworkProvider(@Nullable ClusterNetworkFlannelNetworkProvider flannelNetworkProvider) {
+
             this.flannelNetworkProvider = flannelNetworkProvider;
             return this;
         }
         @CustomType.Setter
         public Builder mtu(@Nullable Integer mtu) {
+
             this.mtu = mtu;
             return this;
         }
         @CustomType.Setter
         public Builder options(@Nullable Map<String,Object> options) {
+
             this.options = options;
             return this;
         }
         @CustomType.Setter
         public Builder plugin(@Nullable String plugin) {
+
             this.plugin = plugin;
             return this;
         }
         @CustomType.Setter
         public Builder weaveNetworkProvider(@Nullable ClusterNetworkWeaveNetworkProvider weaveNetworkProvider) {
+
             this.weaveNetworkProvider = weaveNetworkProvider;
             return this;
         }

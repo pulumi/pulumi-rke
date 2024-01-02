@@ -44,6 +44,7 @@ public final class ClusterNetworkCalicoNetworkProvider {
 
         @CustomType.Setter
         public Builder cloudProvider(@Nullable String cloudProvider) {
+
             this.cloudProvider = cloudProvider;
             return this;
         }
