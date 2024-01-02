@@ -186,56 +186,67 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobal {
 
         @CustomType.Setter
         public Builder datacenter(@Nullable String datacenter) {
+
             this.datacenter = datacenter;
             return this;
         }
         @CustomType.Setter
         public Builder datacenters(@Nullable String datacenters) {
+
             this.datacenters = datacenters;
             return this;
         }
         @CustomType.Setter
         public Builder datastore(@Nullable String datastore) {
+
             this.datastore = datastore;
             return this;
         }
         @CustomType.Setter
         public Builder insecureFlag(@Nullable Boolean insecureFlag) {
+
             this.insecureFlag = insecureFlag;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable String port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder soapRoundtripCount(@Nullable Integer soapRoundtripCount) {
+
             this.soapRoundtripCount = soapRoundtripCount;
             return this;
         }
         @CustomType.Setter
         public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }
         @CustomType.Setter
         public Builder vmName(@Nullable String vmName) {
+
             this.vmName = vmName;
             return this;
         }
         @CustomType.Setter
         public Builder vmUuid(@Nullable String vmUuid) {
+
             this.vmUuid = vmUuid;
             return this;
         }
         @CustomType.Setter
         public Builder workingDir(@Nullable String workingDir) {
+
             this.workingDir = workingDir;
             return this;
         }

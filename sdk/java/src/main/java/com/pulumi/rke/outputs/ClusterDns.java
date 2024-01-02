@@ -104,21 +104,25 @@ public final class ClusterDns {
 
         @CustomType.Setter
         public Builder nodeSelector(@Nullable Map<String,Object> nodeSelector) {
+
             this.nodeSelector = nodeSelector;
             return this;
         }
         @CustomType.Setter
         public Builder nodelocal(@Nullable ClusterDnsNodelocal nodelocal) {
+
             this.nodelocal = nodelocal;
             return this;
         }
         @CustomType.Setter
         public Builder provider(@Nullable String provider) {
+
             this.provider = provider;
             return this;
         }
         @CustomType.Setter
         public Builder reverseCidrs(@Nullable List<String> reverseCidrs) {
+
             this.reverseCidrs = reverseCidrs;
             return this;
         }
@@ -127,6 +131,7 @@ public final class ClusterDns {
         }
         @CustomType.Setter
         public Builder upstreamNameservers(@Nullable List<String> upstreamNameservers) {
+
             this.upstreamNameservers = upstreamNameservers;
             return this;
         }

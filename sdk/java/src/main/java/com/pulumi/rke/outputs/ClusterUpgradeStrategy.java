@@ -88,21 +88,25 @@ public final class ClusterUpgradeStrategy {
 
         @CustomType.Setter
         public Builder drain(@Nullable Boolean drain) {
+
             this.drain = drain;
             return this;
         }
         @CustomType.Setter
         public Builder drainInput(@Nullable ClusterUpgradeStrategyDrainInput drainInput) {
+
             this.drainInput = drainInput;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnavailableControlplane(@Nullable String maxUnavailableControlplane) {
+
             this.maxUnavailableControlplane = maxUnavailableControlplane;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnavailableWorker(@Nullable String maxUnavailableWorker) {
+
             this.maxUnavailableWorker = maxUnavailableWorker;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -446,8 +447,12 @@ public final class ClusterCloudProviderOpenstackCloudConfigGlobalArgs extends co
         }
 
         public ClusterCloudProviderOpenstackCloudConfigGlobalArgs build() {
-            $.authUrl = Objects.requireNonNull($.authUrl, "expected parameter 'authUrl' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
+            if ($.authUrl == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderOpenstackCloudConfigGlobalArgs", "authUrl");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderOpenstackCloudConfigGlobalArgs", "password");
+            }
             return $;
         }
     }

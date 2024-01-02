@@ -74,6 +74,7 @@ public final class ClusterAuthentication {
 
         @CustomType.Setter
         public Builder sans(@Nullable List<String> sans) {
+
             this.sans = sans;
             return this;
         }
@@ -82,11 +83,13 @@ public final class ClusterAuthentication {
         }
         @CustomType.Setter
         public Builder strategy(@Nullable String strategy) {
+
             this.strategy = strategy;
             return this;
         }
         @CustomType.Setter
         public Builder webhook(@Nullable ClusterAuthenticationWebhook webhook) {
+
             this.webhook = webhook;
             return this;
         }

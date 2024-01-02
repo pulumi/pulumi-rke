@@ -4,6 +4,7 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudConfigDisk;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudConfigGlobal;
 import com.pulumi.rke.outputs.ClusterCloudProviderVsphereCloudConfigNetwork;
@@ -105,22 +106,28 @@ public final class ClusterCloudProviderVsphereCloudConfig {
 
         @CustomType.Setter
         public Builder disk(@Nullable ClusterCloudProviderVsphereCloudConfigDisk disk) {
+
             this.disk = disk;
             return this;
         }
         @CustomType.Setter
         public Builder global(@Nullable ClusterCloudProviderVsphereCloudConfigGlobal global) {
+
             this.global = global;
             return this;
         }
         @CustomType.Setter
         public Builder network(@Nullable ClusterCloudProviderVsphereCloudConfigNetwork network) {
+
             this.network = network;
             return this;
         }
         @CustomType.Setter
         public Builder virtualCenters(List<ClusterCloudProviderVsphereCloudConfigVirtualCenter> virtualCenters) {
-            this.virtualCenters = Objects.requireNonNull(virtualCenters);
+            if (virtualCenters == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudConfig", "virtualCenters");
+            }
+            this.virtualCenters = virtualCenters;
             return this;
         }
         public Builder virtualCenters(ClusterCloudProviderVsphereCloudConfigVirtualCenter... virtualCenters) {
@@ -128,7 +135,10 @@ public final class ClusterCloudProviderVsphereCloudConfig {
         }
         @CustomType.Setter
         public Builder workspace(ClusterCloudProviderVsphereCloudConfigWorkspace workspace) {
-            this.workspace = Objects.requireNonNull(workspace);
+            if (workspace == null) {
+              throw new MissingRequiredPropertyException("ClusterCloudProviderVsphereCloudConfig", "workspace");
+            }
+            this.workspace = workspace;
             return this;
         }
         public ClusterCloudProviderVsphereCloudConfig build() {

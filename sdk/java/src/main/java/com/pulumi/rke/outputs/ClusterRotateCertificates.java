@@ -60,11 +60,13 @@ public final class ClusterRotateCertificates {
 
         @CustomType.Setter
         public Builder caCertificates(@Nullable Boolean caCertificates) {
+
             this.caCertificates = caCertificates;
             return this;
         }
         @CustomType.Setter
         public Builder services(@Nullable List<String> services) {
+
             this.services = services;
             return this;
         }

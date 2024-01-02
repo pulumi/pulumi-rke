@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1094,10 +1095,18 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         public ClusterCloudProviderAzureCloudProviderArgs build() {
-            $.aadClientId = Objects.requireNonNull($.aadClientId, "expected parameter 'aadClientId' to be non-null");
-            $.aadClientSecret = Objects.requireNonNull($.aadClientSecret, "expected parameter 'aadClientSecret' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.aadClientId == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderAzureCloudProviderArgs", "aadClientId");
+            }
+            if ($.aadClientSecret == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderAzureCloudProviderArgs", "aadClientSecret");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderAzureCloudProviderArgs", "subscriptionId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderAzureCloudProviderArgs", "tenantId");
+            }
             return $;
         }
     }

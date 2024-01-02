@@ -59,11 +59,13 @@ public final class ClusterServicesKubeApiAuditLog {
 
         @CustomType.Setter
         public Builder configuration(@Nullable ClusterServicesKubeApiAuditLogConfiguration configuration) {
+
             this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }

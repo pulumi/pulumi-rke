@@ -548,186 +548,223 @@ public final class ClusterSystemImages {
 
         @CustomType.Setter
         public Builder aciCniDeployContainer(@Nullable String aciCniDeployContainer) {
+
             this.aciCniDeployContainer = aciCniDeployContainer;
             return this;
         }
         @CustomType.Setter
         public Builder aciControllerContainer(@Nullable String aciControllerContainer) {
+
             this.aciControllerContainer = aciControllerContainer;
             return this;
         }
         @CustomType.Setter
         public Builder aciHostContainer(@Nullable String aciHostContainer) {
+
             this.aciHostContainer = aciHostContainer;
             return this;
         }
         @CustomType.Setter
         public Builder aciMcastContainer(@Nullable String aciMcastContainer) {
+
             this.aciMcastContainer = aciMcastContainer;
             return this;
         }
         @CustomType.Setter
         public Builder aciOpflexContainer(@Nullable String aciOpflexContainer) {
+
             this.aciOpflexContainer = aciOpflexContainer;
             return this;
         }
         @CustomType.Setter
         public Builder aciOvsContainer(@Nullable String aciOvsContainer) {
+
             this.aciOvsContainer = aciOvsContainer;
             return this;
         }
         @CustomType.Setter
         public Builder alpine(@Nullable String alpine) {
+
             this.alpine = alpine;
             return this;
         }
         @CustomType.Setter
         public Builder calicoCni(@Nullable String calicoCni) {
+
             this.calicoCni = calicoCni;
             return this;
         }
         @CustomType.Setter
         public Builder calicoControllers(@Nullable String calicoControllers) {
+
             this.calicoControllers = calicoControllers;
             return this;
         }
         @CustomType.Setter
         public Builder calicoCtl(@Nullable String calicoCtl) {
+
             this.calicoCtl = calicoCtl;
             return this;
         }
         @CustomType.Setter
         public Builder calicoFlexVol(@Nullable String calicoFlexVol) {
+
             this.calicoFlexVol = calicoFlexVol;
             return this;
         }
         @CustomType.Setter
         public Builder calicoNode(@Nullable String calicoNode) {
+
             this.calicoNode = calicoNode;
             return this;
         }
         @CustomType.Setter
         public Builder canalCni(@Nullable String canalCni) {
+
             this.canalCni = canalCni;
             return this;
         }
         @CustomType.Setter
         public Builder canalFlannel(@Nullable String canalFlannel) {
+
             this.canalFlannel = canalFlannel;
             return this;
         }
         @CustomType.Setter
         public Builder canalFlexVol(@Nullable String canalFlexVol) {
+
             this.canalFlexVol = canalFlexVol;
             return this;
         }
         @CustomType.Setter
         public Builder canalNode(@Nullable String canalNode) {
+
             this.canalNode = canalNode;
             return this;
         }
         @CustomType.Setter
         public Builder certDownloader(@Nullable String certDownloader) {
+
             this.certDownloader = certDownloader;
             return this;
         }
         @CustomType.Setter
         public Builder coredns(@Nullable String coredns) {
+
             this.coredns = coredns;
             return this;
         }
         @CustomType.Setter
         public Builder corednsAutoscaler(@Nullable String corednsAutoscaler) {
+
             this.corednsAutoscaler = corednsAutoscaler;
             return this;
         }
         @CustomType.Setter
         public Builder dnsmasq(@Nullable String dnsmasq) {
+
             this.dnsmasq = dnsmasq;
             return this;
         }
         @CustomType.Setter
         public Builder etcd(@Nullable String etcd) {
+
             this.etcd = etcd;
             return this;
         }
         @CustomType.Setter
         public Builder flannel(@Nullable String flannel) {
+
             this.flannel = flannel;
             return this;
         }
         @CustomType.Setter
         public Builder flannelCni(@Nullable String flannelCni) {
+
             this.flannelCni = flannelCni;
             return this;
         }
         @CustomType.Setter
         public Builder ingress(@Nullable String ingress) {
+
             this.ingress = ingress;
             return this;
         }
         @CustomType.Setter
         public Builder ingressBackend(@Nullable String ingressBackend) {
+
             this.ingressBackend = ingressBackend;
             return this;
         }
         @CustomType.Setter
         public Builder kubeDns(@Nullable String kubeDns) {
+
             this.kubeDns = kubeDns;
             return this;
         }
         @CustomType.Setter
         public Builder kubeDnsAutoscaler(@Nullable String kubeDnsAutoscaler) {
+
             this.kubeDnsAutoscaler = kubeDnsAutoscaler;
             return this;
         }
         @CustomType.Setter
         public Builder kubeDnsSidecar(@Nullable String kubeDnsSidecar) {
+
             this.kubeDnsSidecar = kubeDnsSidecar;
             return this;
         }
         @CustomType.Setter
         public Builder kubernetes(@Nullable String kubernetes) {
+
             this.kubernetes = kubernetes;
             return this;
         }
         @CustomType.Setter
         public Builder kubernetesServicesSidecar(@Nullable String kubernetesServicesSidecar) {
+
             this.kubernetesServicesSidecar = kubernetesServicesSidecar;
             return this;
         }
         @CustomType.Setter
         public Builder metricsServer(@Nullable String metricsServer) {
+
             this.metricsServer = metricsServer;
             return this;
         }
         @CustomType.Setter
         public Builder nginxProxy(@Nullable String nginxProxy) {
+
             this.nginxProxy = nginxProxy;
             return this;
         }
         @CustomType.Setter
         public Builder nodelocal(@Nullable String nodelocal) {
+
             this.nodelocal = nodelocal;
             return this;
         }
         @CustomType.Setter
         public Builder podInfraContainer(@Nullable String podInfraContainer) {
+
             this.podInfraContainer = podInfraContainer;
             return this;
         }
         @CustomType.Setter
         public Builder weaveCni(@Nullable String weaveCni) {
+
             this.weaveCni = weaveCni;
             return this;
         }
         @CustomType.Setter
         public Builder weaveNode(@Nullable String weaveNode) {
+
             this.weaveNode = weaveNode;
             return this;
         }
         @CustomType.Setter
         public Builder windowsPodInfraContainer(@Nullable String windowsPodInfraContainer) {
+
             this.windowsPodInfraContainer = windowsPodInfraContainer;
             return this;
         }

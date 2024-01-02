@@ -44,6 +44,7 @@ public final class ClusterCloudProviderVsphereCloudProviderNetwork {
 
         @CustomType.Setter
         public Builder publicNetwork(@Nullable String publicNetwork) {
+
             this.publicNetwork = publicNetwork;
             return this;
         }

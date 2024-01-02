@@ -5,6 +5,7 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.rke.inputs.ClusterCloudProviderAwsCloudConfigArgs;
 import com.pulumi.rke.inputs.ClusterCloudProviderAwsCloudProviderArgs;
 import com.pulumi.rke.inputs.ClusterCloudProviderAzureCloudConfigArgs;
@@ -534,7 +535,9 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         public ClusterCloudProviderArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ClusterCloudProviderArgs", "name");
+            }
             return $;
         }
     }

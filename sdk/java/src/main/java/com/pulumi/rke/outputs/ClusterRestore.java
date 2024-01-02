@@ -59,11 +59,13 @@ public final class ClusterRestore {
 
         @CustomType.Setter
         public Builder restore(@Nullable Boolean restore) {
+
             this.restore = restore;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotName(@Nullable String snapshotName) {
+
             this.snapshotName = snapshotName;
             return this;
         }
