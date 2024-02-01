@@ -72,6 +72,9 @@ namespace Pulumi.Rke.Inputs
             set => _roles = value;
         }
 
+        /// <summary>
+        /// Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+        /// </summary>
         [Input("rolesDeprecated")]
         public Input<string>? RolesDeprecated { get; set; }
 

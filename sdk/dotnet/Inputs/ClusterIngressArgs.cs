@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterIngressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Ingress Default Backend
+        /// </summary>
         [Input("defaultBackend")]
         public Input<bool>? DefaultBackend { get; set; }
 

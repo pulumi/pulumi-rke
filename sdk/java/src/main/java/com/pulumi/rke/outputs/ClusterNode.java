@@ -58,6 +58,8 @@ public final class ClusterNode {
      */
     private List<String> roles;
     /**
+     * @return Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+     * 
      * @deprecated
      * Use role instead
      * 
@@ -158,6 +160,8 @@ public final class ClusterNode {
         return this.roles;
     }
     /**
+     * @return Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+     * 
      * @deprecated
      * Use role instead
      * 

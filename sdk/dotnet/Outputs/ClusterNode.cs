@@ -45,6 +45,9 @@ namespace Pulumi.Rke.Outputs
         /// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
         /// </summary>
         public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+        /// </summary>
         public readonly string? RolesDeprecated;
         /// <summary>
         /// SSH Agent Auth enable (bool)

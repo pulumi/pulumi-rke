@@ -142,6 +142,8 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+     * 
      * @deprecated
      * Use role instead
      * 
@@ -151,6 +153,8 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> rolesDeprecated;
 
     /**
+     * @return Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+     * 
      * @deprecated
      * Use role instead
      * 
@@ -483,6 +487,8 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param rolesDeprecated Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+         * 
          * @return builder
          * 
          * @deprecated
@@ -496,6 +502,8 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param rolesDeprecated Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+         * 
          * @return builder
          * 
          * @deprecated

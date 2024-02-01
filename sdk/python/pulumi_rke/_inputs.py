@@ -1479,6 +1479,7 @@ class ClusterCloudProviderAzureCloudConfigArgs:
         :param pulumi.Input[bool] cloud_provider_rate_limit: (bool)
         :param pulumi.Input[int] cloud_provider_rate_limit_bucket: (int)
         :param pulumi.Input[int] cloud_provider_rate_limit_qps: (int)
+        :param pulumi.Input[str] load_balancer_sku: Load balancer type (basic | standard). Must be standard for auto-scaling
         :param pulumi.Input[str] location: (string)
         :param pulumi.Input[int] maximum_load_balancer_rule_count: (int)
         :param pulumi.Input[str] primary_availability_set_name: (string)
@@ -1731,6 +1732,9 @@ class ClusterCloudProviderAzureCloudConfigArgs:
     @property
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Load balancer type (basic | standard). Must be standard for auto-scaling
+        """
         return pulumi.get(self, "load_balancer_sku")
 
     @load_balancer_sku.setter
@@ -1942,6 +1946,7 @@ class ClusterCloudProviderAzureCloudProviderArgs:
         :param pulumi.Input[bool] cloud_provider_rate_limit: (bool)
         :param pulumi.Input[int] cloud_provider_rate_limit_bucket: (int)
         :param pulumi.Input[int] cloud_provider_rate_limit_qps: (int)
+        :param pulumi.Input[str] load_balancer_sku: Load balancer type (basic | standard). Must be standard for auto-scaling
         :param pulumi.Input[str] location: (string)
         :param pulumi.Input[int] maximum_load_balancer_rule_count: (int)
         :param pulumi.Input[str] primary_availability_set_name: (string)
@@ -2194,6 +2199,9 @@ class ClusterCloudProviderAzureCloudProviderArgs:
     @property
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Load balancer type (basic | standard). Must be standard for auto-scaling
+        """
         return pulumi.get(self, "load_balancer_sku")
 
     @load_balancer_sku.setter
@@ -4743,6 +4751,7 @@ class ClusterIngressArgs:
                  options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  provider: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] default_backend: Ingress Default Backend
         :param pulumi.Input[str] dns_policy: Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
         :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments for scheduler service (map)
         :param pulumi.Input[int] http_port: Ingress controller http port (int)
@@ -4774,6 +4783,9 @@ class ClusterIngressArgs:
     @property
     @pulumi.getter(name="defaultBackend")
     def default_backend(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ingress Default Backend
+        """
         return pulumi.get(self, "default_backend")
 
     @default_backend.setter
@@ -5555,6 +5567,7 @@ class ClusterNodeArgs:
         :param pulumi.Input[Mapping[str, Any]] labels: Node labels (map)
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine (string)
         :param pulumi.Input[str] port: Port used for SSH communication (string)
+        :param pulumi.Input[str] roles_deprecated: Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert: SSH Certificate (string)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
@@ -5706,6 +5719,9 @@ class ClusterNodeArgs:
     @property
     @pulumi.getter(name="rolesDeprecated")
     def roles_deprecated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+        """
         warnings.warn("""Use role instead""", DeprecationWarning)
         pulumi.log.warn("""roles_deprecated is deprecated: Use role instead""")
 
