@@ -587,7 +587,8 @@
                     "description": "(int)\n"
                 },
                 "loadBalancerSku": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Load balancer type (basic | standard). Must be standard for auto-scaling\n"
                 },
                 "location": {
                     "type": "string",
@@ -729,7 +730,8 @@
                     "description": "(int)\n"
                 },
                 "loadBalancerSku": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Load balancer type (basic | standard). Must be standard for auto-scaling\n"
                 },
                 "location": {
                     "type": "string",
@@ -1669,7 +1671,8 @@
         "rke:index/ClusterIngress:ClusterIngress": {
             "properties": {
                 "defaultBackend": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Ingress Default Backend\n"
                 },
                 "dnsPolicy": {
                     "type": "string",
@@ -2026,6 +2029,7 @@
                 },
                 "rolesDeprecated": {
                     "type": "string",
+                    "description": "Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string\n",
                     "deprecationMessage": "Use role instead",
                     "language": {
                         "csharp": {
