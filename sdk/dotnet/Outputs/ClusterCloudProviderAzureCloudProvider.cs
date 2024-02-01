@@ -65,6 +65,9 @@ namespace Pulumi.Rke.Outputs
         /// (int)
         /// </summary>
         public readonly int? CloudProviderRateLimitQps;
+        /// <summary>
+        /// Load balancer type (basic | standard). Must be standard for auto-scaling
+        /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
         /// (string)
