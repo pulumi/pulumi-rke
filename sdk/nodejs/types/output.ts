@@ -393,6 +393,9 @@ export interface ClusterCloudProviderAzureCloudConfig {
      * (int)
      */
     cloudProviderRateLimitQps?: number;
+    /**
+     * Load balancer type (basic | standard). Must be standard for auto-scaling
+     */
     loadBalancerSku?: string;
     /**
      * (string)
@@ -509,6 +512,9 @@ export interface ClusterCloudProviderAzureCloudProvider {
      * (int)
      */
     cloudProviderRateLimitQps?: number;
+    /**
+     * Load balancer type (basic | standard). Must be standard for auto-scaling
+     */
     loadBalancerSku?: string;
     /**
      * (string)
@@ -1208,6 +1214,9 @@ export interface ClusterInactiveHost {
 }
 
 export interface ClusterIngress {
+    /**
+     * Ingress Default Backend
+     */
     defaultBackend?: boolean;
     /**
      * Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
@@ -1452,6 +1461,8 @@ export interface ClusterNode {
      */
     roles: string[];
     /**
+     * Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+     *
      * @deprecated Use role instead
      */
     rolesDeprecated?: string;

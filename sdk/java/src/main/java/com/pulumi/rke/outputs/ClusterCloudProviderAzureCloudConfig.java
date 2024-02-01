@@ -79,6 +79,10 @@ public final class ClusterCloudProviderAzureCloudConfig {
      * 
      */
     private @Nullable Integer cloudProviderRateLimitQps;
+    /**
+     * @return Load balancer type (basic | standard). Must be standard for auto-scaling
+     * 
+     */
     private @Nullable String loadBalancerSku;
     /**
      * @return (string)
@@ -248,6 +252,10 @@ public final class ClusterCloudProviderAzureCloudConfig {
     public Optional<Integer> cloudProviderRateLimitQps() {
         return Optional.ofNullable(this.cloudProviderRateLimitQps);
     }
+    /**
+     * @return Load balancer type (basic | standard). Must be standard for auto-scaling
+     * 
+     */
     public Optional<String> loadBalancerSku() {
         return Optional.ofNullable(this.loadBalancerSku);
     }

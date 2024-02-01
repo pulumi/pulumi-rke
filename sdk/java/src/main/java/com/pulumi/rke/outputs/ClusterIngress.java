@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterIngress {
+    /**
+     * @return Ingress Default Backend
+     * 
+     */
     private @Nullable Boolean defaultBackend;
     /**
      * @return Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
@@ -58,6 +62,10 @@ public final class ClusterIngress {
     private @Nullable String provider;
 
     private ClusterIngress() {}
+    /**
+     * @return Ingress Default Backend
+     * 
+     */
     public Optional<Boolean> defaultBackend() {
         return Optional.ofNullable(this.defaultBackend);
     }
