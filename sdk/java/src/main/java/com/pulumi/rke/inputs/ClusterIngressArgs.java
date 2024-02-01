@@ -19,9 +19,17 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ClusterIngressArgs Empty = new ClusterIngressArgs();
 
+    /**
+     * Ingress Default Backend
+     * 
+     */
     @Import(name="defaultBackend")
     private @Nullable Output<Boolean> defaultBackend;
 
+    /**
+     * @return Ingress Default Backend
+     * 
+     */
     public Optional<Output<Boolean>> defaultBackend() {
         return Optional.ofNullable(this.defaultBackend);
     }
@@ -178,11 +186,23 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ClusterIngressArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultBackend Ingress Default Backend
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultBackend(@Nullable Output<Boolean> defaultBackend) {
             $.defaultBackend = defaultBackend;
             return this;
         }
 
+        /**
+         * @param defaultBackend Ingress Default Backend
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultBackend(Boolean defaultBackend) {
             return defaultBackend(Output.of(defaultBackend));
         }

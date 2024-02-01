@@ -2610,8 +2610,9 @@ type ClusterCloudProviderAzureCloudConfig struct {
 	// (int)
 	CloudProviderRateLimitBucket *int `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps *int    `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku           *string `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps *int `pulumi:"cloudProviderRateLimitQps"`
+	// Load balancer type (basic | standard). Must be standard for auto-scaling
+	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
 	// (string)
 	Location *string `pulumi:"location"`
 	// (int)
@@ -2681,8 +2682,9 @@ type ClusterCloudProviderAzureCloudConfigArgs struct {
 	// (int)
 	CloudProviderRateLimitBucket pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps pulumi.IntPtrInput    `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku           pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitQps"`
+	// Load balancer type (basic | standard). Must be standard for auto-scaling
+	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// (string)
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// (int)
@@ -2857,6 +2859,7 @@ func (o ClusterCloudProviderAzureCloudConfigOutput) CloudProviderRateLimitQps() 
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
+// Load balancer type (basic | standard). Must be standard for auto-scaling
 func (o ClusterCloudProviderAzureCloudConfigOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudConfig) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
@@ -3090,6 +3093,7 @@ func (o ClusterCloudProviderAzureCloudConfigPtrOutput) CloudProviderRateLimitQps
 	}).(pulumi.IntPtrOutput)
 }
 
+// Load balancer type (basic | standard). Must be standard for auto-scaling
 func (o ClusterCloudProviderAzureCloudConfigPtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudConfig) *string {
 		if v == nil {
@@ -3275,8 +3279,9 @@ type ClusterCloudProviderAzureCloudProvider struct {
 	// (int)
 	CloudProviderRateLimitBucket *int `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps *int    `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku           *string `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps *int `pulumi:"cloudProviderRateLimitQps"`
+	// Load balancer type (basic | standard). Must be standard for auto-scaling
+	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
 	// (string)
 	Location *string `pulumi:"location"`
 	// (int)
@@ -3346,8 +3351,9 @@ type ClusterCloudProviderAzureCloudProviderArgs struct {
 	// (int)
 	CloudProviderRateLimitBucket pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitBucket"`
 	// (int)
-	CloudProviderRateLimitQps pulumi.IntPtrInput    `pulumi:"cloudProviderRateLimitQps"`
-	LoadBalancerSku           pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	CloudProviderRateLimitQps pulumi.IntPtrInput `pulumi:"cloudProviderRateLimitQps"`
+	// Load balancer type (basic | standard). Must be standard for auto-scaling
+	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// (string)
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// (int)
@@ -3522,6 +3528,7 @@ func (o ClusterCloudProviderAzureCloudProviderOutput) CloudProviderRateLimitQps(
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *int { return v.CloudProviderRateLimitQps }).(pulumi.IntPtrOutput)
 }
 
+// Load balancer type (basic | standard). Must be standard for auto-scaling
 func (o ClusterCloudProviderAzureCloudProviderOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudProviderAzureCloudProvider) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
@@ -3755,6 +3762,7 @@ func (o ClusterCloudProviderAzureCloudProviderPtrOutput) CloudProviderRateLimitQ
 	}).(pulumi.IntPtrOutput)
 }
 
+// Load balancer type (basic | standard). Must be standard for auto-scaling
 func (o ClusterCloudProviderAzureCloudProviderPtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCloudProviderAzureCloudProvider) *string {
 		if v == nil {
@@ -9650,6 +9658,7 @@ func (o ClusterInactiveHostArrayOutput) Index(i pulumi.IntInput) ClusterInactive
 }
 
 type ClusterIngress struct {
+	// Ingress Default Backend
 	DefaultBackend *bool `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy *string `pulumi:"dnsPolicy"`
@@ -9681,6 +9690,7 @@ type ClusterIngressInput interface {
 }
 
 type ClusterIngressArgs struct {
+	// Ingress Default Backend
 	DefaultBackend pulumi.BoolPtrInput `pulumi:"defaultBackend"`
 	// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
 	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
@@ -9777,6 +9787,7 @@ func (o ClusterIngressOutput) ToClusterIngressPtrOutputWithContext(ctx context.C
 	}).(ClusterIngressPtrOutput)
 }
 
+// Ingress Default Backend
 func (o ClusterIngressOutput) DefaultBackend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterIngress) *bool { return v.DefaultBackend }).(pulumi.BoolPtrOutput)
 }
@@ -9845,6 +9856,7 @@ func (o ClusterIngressPtrOutput) Elem() ClusterIngressOutput {
 	}).(ClusterIngressOutput)
 }
 
+// Ingress Default Backend
 func (o ClusterIngressPtrOutput) DefaultBackend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterIngress) *bool {
 		if v == nil {
@@ -11518,6 +11530,8 @@ type ClusterNode struct {
 	Port *string `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles []string `pulumi:"roles"`
+	// Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+	//
 	// Deprecated: Use role instead
 	RolesDeprecated *string `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
@@ -11564,6 +11578,8 @@ type ClusterNodeArgs struct {
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+	//
 	// Deprecated: Use role instead
 	RolesDeprecated pulumi.StringPtrInput `pulumi:"rolesDeprecated"`
 	// SSH Agent Auth enable (bool)
@@ -11673,6 +11689,8 @@ func (o ClusterNodeOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterNode) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+//
 // Deprecated: Use role instead
 func (o ClusterNodeOutput) RolesDeprecated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.RolesDeprecated }).(pulumi.StringPtrOutput)

@@ -213,9 +213,17 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         return Optional.ofNullable(this.cloudProviderRateLimitQps);
     }
 
+    /**
+     * Load balancer type (basic | standard). Must be standard for auto-scaling
+     * 
+     */
     @Import(name="loadBalancerSku")
     private @Nullable Output<String> loadBalancerSku;
 
+    /**
+     * @return Load balancer type (basic | standard). Must be standard for auto-scaling
+     * 
+     */
     public Optional<Output<String>> loadBalancerSku() {
         return Optional.ofNullable(this.loadBalancerSku);
     }
@@ -770,11 +778,23 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
             return cloudProviderRateLimitQps(Output.of(cloudProviderRateLimitQps));
         }
 
+        /**
+         * @param loadBalancerSku Load balancer type (basic | standard). Must be standard for auto-scaling
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerSku(@Nullable Output<String> loadBalancerSku) {
             $.loadBalancerSku = loadBalancerSku;
             return this;
         }
 
+        /**
+         * @param loadBalancerSku Load balancer type (basic | standard). Must be standard for auto-scaling
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerSku(String loadBalancerSku) {
             return loadBalancerSku(Output.of(loadBalancerSku));
         }

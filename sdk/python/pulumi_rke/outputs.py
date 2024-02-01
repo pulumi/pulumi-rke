@@ -1468,6 +1468,7 @@ class ClusterCloudProviderAzureCloudConfig(dict):
         :param bool cloud_provider_rate_limit: (bool)
         :param int cloud_provider_rate_limit_bucket: (int)
         :param int cloud_provider_rate_limit_qps: (int)
+        :param str load_balancer_sku: Load balancer type (basic | standard). Must be standard for auto-scaling
         :param str location: (string)
         :param int maximum_load_balancer_rule_count: (int)
         :param str primary_availability_set_name: (string)
@@ -1660,6 +1661,9 @@ class ClusterCloudProviderAzureCloudConfig(dict):
     @property
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[str]:
+        """
+        Load balancer type (basic | standard). Must be standard for auto-scaling
+        """
         return pulumi.get(self, "load_balancer_sku")
 
     @property
@@ -1884,6 +1888,7 @@ class ClusterCloudProviderAzureCloudProvider(dict):
         :param bool cloud_provider_rate_limit: (bool)
         :param int cloud_provider_rate_limit_bucket: (int)
         :param int cloud_provider_rate_limit_qps: (int)
+        :param str load_balancer_sku: Load balancer type (basic | standard). Must be standard for auto-scaling
         :param str location: (string)
         :param int maximum_load_balancer_rule_count: (int)
         :param str primary_availability_set_name: (string)
@@ -2076,6 +2081,9 @@ class ClusterCloudProviderAzureCloudProvider(dict):
     @property
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[str]:
+        """
+        Load balancer type (basic | standard). Must be standard for auto-scaling
+        """
         return pulumi.get(self, "load_balancer_sku")
 
     @property
@@ -4661,6 +4669,7 @@ class ClusterIngress(dict):
                  options: Optional[Mapping[str, Any]] = None,
                  provider: Optional[str] = None):
         """
+        :param bool default_backend: Ingress Default Backend
         :param str dns_policy: Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
         :param Mapping[str, Any] extra_args: Extra arguments for scheduler service (map)
         :param int http_port: Ingress controller http port (int)
@@ -4692,6 +4701,9 @@ class ClusterIngress(dict):
     @property
     @pulumi.getter(name="defaultBackend")
     def default_backend(self) -> Optional[bool]:
+        """
+        Ingress Default Backend
+        """
         return pulumi.get(self, "default_backend")
 
     @property
@@ -5432,6 +5444,7 @@ class ClusterNode(dict):
         :param Mapping[str, Any] labels: Node labels (map)
         :param str node_name: Name of the host provisioned via docker machine (string)
         :param str port: Port used for SSH communication (string)
+        :param str roles_deprecated: Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
         :param bool ssh_agent_auth: SSH Agent Auth enable (bool)
         :param str ssh_cert: SSH Certificate (string)
         :param str ssh_cert_path: SSH Certificate Path (string)
@@ -5544,6 +5557,9 @@ class ClusterNode(dict):
     @property
     @pulumi.getter(name="rolesDeprecated")
     def roles_deprecated(self) -> Optional[str]:
+        """
+        Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
+        """
         warnings.warn("""Use role instead""", DeprecationWarning)
         pulumi.log.warn("""roles_deprecated is deprecated: Use role instead""")
 
