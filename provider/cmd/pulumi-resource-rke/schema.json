@@ -3707,7 +3707,7 @@
     },
     "resources": {
         "rke:index/cluster:Cluster": {
-            "description": "\n\n\n## Import\n\nrke_cluster can be imported using the RKE cluster config and state files as ID in the format `\u003ccluster_config_file\u003e:\u003crke_state_file\u003e`\n\n```sh\n $ pulumi import rke:index/cluster:Cluster foo \u0026lt;cluster_config_file\u0026gt;:\u0026lt;rke_state_file\u0026gt;\n```\n As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `\u003ccluster_config_file\u003e:\u003crke_state_file\u003e:dind`\n\n```sh\n $ pulumi import rke:index/cluster:Cluster foo \u0026lt;cluster_config_file\u0026gt;:\u0026lt;rke_state_file\u0026gt;:dind\n```\n ",
+            "description": "\n\n## Import\n\nrke_cluster can be imported using the RKE cluster config and state files as ID in the format `\u003ccluster_config_file\u003e:\u003crke_state_file\u003e`\n\n```sh\n$ pulumi import rke:index/cluster:Cluster foo \u0026lt;cluster_config_file\u0026gt;:\u0026lt;rke_state_file\u0026gt;\n```\nAs experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `\u003ccluster_config_file\u003e:\u003crke_state_file\u003e:dind`\n\n```sh\n$ pulumi import rke:index/cluster:Cluster foo \u0026lt;cluster_config_file\u0026gt;:\u0026lt;rke_state_file\u0026gt;:dind\n```\n",
             "properties": {
                 "addonJobTimeout": {
                     "type": "integer",
