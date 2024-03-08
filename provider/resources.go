@@ -57,19 +57,7 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }
 
-// preConfigureCallback is called before the providerConfigure function of the underlying provider.
-// It should validate that the provider can be configured, and provide actionable errors in the case
-// it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
-// for example `stringValue(vars, "accessKey")`.
-/*
-func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
-	return nil
-}
-*/
-
-func refProviderLicense(license tfbridge.TFProviderLicense) *tfbridge.TFProviderLicense {
-	return &license
-}
+func ref[T any](t T) *T { return &t }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 // var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
@@ -86,11 +74,12 @@ func Provider() tfbridge.ProviderInfo {
 		DisplayName:       "Rancher Kubernetes Engine (RKE)",
 		Description:       "A Pulumi package for creating and managing rke cloud resources.",
 		Keywords:          []string{"pulumi", "rke"},
-		TFProviderLicense: refProviderLicense(tfbridge.MITLicenseType),
+		TFProviderLicense: ref(tfbridge.MITLicenseType),
 		License:           "Apache-2.0",
 		Homepage:          "https://pulumi.io",
 		Repository:        "https://github.com/pulumi/pulumi-rke",
 		GitHubOrg:         "rancher",
+		Version:           version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"log_file": {
 				Default: &tfbridge.DefaultInfo{
@@ -111,10 +100,12 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"nodes": {
 						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"roles": {
-									Name:       "rolesDeprecated",
-									CSharpName: "RolesDeprecated",
+							Elem: &tfbridge.SchemaInfo{
+								Fields: map[string]*tfbridge.SchemaInfo{
+									"roles": {
+										Name:       "rolesDeprecated",
+										CSharpName: "RolesDeprecated",
+									},
 								},
 							},
 						},
@@ -151,16 +142,12 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/mime": "^2.0.0",
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				}}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
