@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * rke_cluster can be imported using the RKE cluster config and state files as ID in the format `&lt;cluster_config_file&gt;:&lt;rke_state_file&gt;`
  * 
  * ```sh
- *  $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;
+ * $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;
  * ```
- *  As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `&lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind`
+ * As experimental feature, dind rke_cluster can be also imported adding `dind` as 3rd import parameter `&lt;cluster_config_file&gt;:&lt;rke_state_file&gt;:dind`
  * 
  * ```sh
- *  $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;:dind
+ * $ pulumi import rke:index/cluster:Cluster foo &amp;lt;cluster_config_file&amp;gt;:&amp;lt;rke_state_file&amp;gt;:dind
  * ```
  * 
  */
