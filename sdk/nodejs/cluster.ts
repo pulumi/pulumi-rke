@@ -175,7 +175,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
      *
-     * @deprecated Use kube_config_yaml instead
+     * @deprecated Use kubeConfigYaml instead
      */
     public /*out*/ readonly internalKubeConfigYaml!: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly nodes!: pulumi.Output<outputs.ClusterNode[] | undefined>;
     /**
-     * @deprecated Use cluster_yaml instead
+     * @deprecated Use clusterYaml instead
      */
     public readonly nodesConfs!: pulumi.Output<string[] | undefined>;
     /**
@@ -577,7 +577,7 @@ export interface ClusterState {
     /**
      * (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
      *
-     * @deprecated Use kube_config_yaml instead
+     * @deprecated Use kubeConfigYaml instead
      */
     internalKubeConfigYaml?: pulumi.Input<string>;
     /**
@@ -605,7 +605,7 @@ export interface ClusterState {
      */
     nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
     /**
-     * @deprecated Use cluster_yaml instead
+     * @deprecated Use clusterYaml instead
      */
     nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -807,7 +807,7 @@ export interface ClusterArgs {
      */
     nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
     /**
-     * @deprecated Use cluster_yaml instead
+     * @deprecated Use clusterYaml instead
      */
     nodesConfs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
