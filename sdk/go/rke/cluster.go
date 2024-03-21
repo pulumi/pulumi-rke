@@ -90,7 +90,7 @@ type Cluster struct {
 	Ingress ClusterIngressPtrOutput `pulumi:"ingress"`
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
 	//
-	// Deprecated: Use kube_config_yaml instead
+	// Deprecated: Use kubeConfigYaml instead
 	InternalKubeConfigYaml pulumi.StringOutput `pulumi:"internalKubeConfigYaml"`
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser pulumi.StringOutput `pulumi:"kubeAdminUser"`
@@ -104,7 +104,7 @@ type Cluster struct {
 	Network ClusterNetworkPtrOutput `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
 	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
-	// Deprecated: Use cluster_yaml instead
+	// Deprecated: Use clusterYaml instead
 	NodesConfs pulumi.StringArrayOutput `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrOutput `pulumi:"prefixPath"`
@@ -271,7 +271,7 @@ type clusterState struct {
 	Ingress *ClusterIngress `pulumi:"ingress"`
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
 	//
-	// Deprecated: Use kube_config_yaml instead
+	// Deprecated: Use kubeConfigYaml instead
 	InternalKubeConfigYaml *string `pulumi:"internalKubeConfigYaml"`
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser *string `pulumi:"kubeAdminUser"`
@@ -285,7 +285,7 @@ type clusterState struct {
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
 	Nodes []ClusterNode `pulumi:"nodes"`
-	// Deprecated: Use cluster_yaml instead
+	// Deprecated: Use clusterYaml instead
 	NodesConfs []string `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
@@ -408,7 +408,7 @@ type ClusterState struct {
 	Ingress ClusterIngressPtrInput
 	// (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
 	//
-	// Deprecated: Use kube_config_yaml instead
+	// Deprecated: Use kubeConfigYaml instead
 	InternalKubeConfigYaml pulumi.StringPtrInput
 	// (Computed) RKE k8s cluster admin user (string)
 	KubeAdminUser pulumi.StringPtrInput
@@ -422,7 +422,7 @@ type ClusterState struct {
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
 	Nodes ClusterNodeArrayInput
-	// Deprecated: Use cluster_yaml instead
+	// Deprecated: Use clusterYaml instead
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -533,7 +533,7 @@ type clusterArgs struct {
 	Network *ClusterNetwork `pulumi:"network"`
 	// RKE k8s cluster nodes (list)
 	Nodes []ClusterNode `pulumi:"nodes"`
-	// Deprecated: Use cluster_yaml instead
+	// Deprecated: Use clusterYaml instead
 	NodesConfs []string `pulumi:"nodesConfs"`
 	// RKE k8s directory path (string)
 	PrefixPath *string `pulumi:"prefixPath"`
@@ -633,7 +633,7 @@ type ClusterArgs struct {
 	Network ClusterNetworkPtrInput
 	// RKE k8s cluster nodes (list)
 	Nodes ClusterNodeArrayInput
-	// Deprecated: Use cluster_yaml instead
+	// Deprecated: Use clusterYaml instead
 	NodesConfs pulumi.StringArrayInput
 	// RKE k8s directory path (string)
 	PrefixPath pulumi.StringPtrInput
@@ -927,7 +927,7 @@ func (o ClusterOutput) Ingress() ClusterIngressPtrOutput {
 
 // (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
 //
-// Deprecated: Use kube_config_yaml instead
+// Deprecated: Use kubeConfigYaml instead
 func (o ClusterOutput) InternalKubeConfigYaml() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.InternalKubeConfigYaml }).(pulumi.StringOutput)
 }
@@ -962,7 +962,7 @@ func (o ClusterOutput) Nodes() ClusterNodeArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNodeArrayOutput { return v.Nodes }).(ClusterNodeArrayOutput)
 }
 
-// Deprecated: Use cluster_yaml instead
+// Deprecated: Use clusterYaml instead
 func (o ClusterOutput) NodesConfs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.NodesConfs }).(pulumi.StringArrayOutput)
 }
