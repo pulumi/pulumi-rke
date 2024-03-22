@@ -79,7 +79,7 @@ const rkeInstance = new aws.ec2.Instance("rke-node", {
 
 const cluster = new rke.Cluster(`actions`, {
     cloudProvider: {
-        name: "aws"
+        name: "external",
     },
     // This is likely related to https://github.com/rancher/terraform-provider-rke/issues/370 and/or
     // https://github.com/rancher/terraform-provider-rke/issues/404 from the upstream provider.
