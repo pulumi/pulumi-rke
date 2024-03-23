@@ -98,7 +98,7 @@ def wait_for_ready(private_ip):
     time.sleep(180)
     return private_ip
 
-rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs(name="aws"),
+rke_cluster = rke.Cluster("actions", cloud_provider=rke.ClusterCloudProviderArgs(name="external"),
                           nodes=[
                               rke.ClusterNodeArgs(address=rke_instance.public_ip,
                                                   internal_address=rke_instance.private_ip.apply(lambda ip: wait_for_ready(ip)),
