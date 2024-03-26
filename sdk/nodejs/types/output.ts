@@ -113,7 +113,7 @@ export interface ClusterCloudProvider {
     /**
      * Use awsCloudProvider instead
      *
-     * @deprecated Use awsCloudProvider instead
+     * @deprecated Use aws_cloud_provider instead
      */
     awsCloudConfig?: outputs.ClusterCloudProviderAwsCloudConfig;
     /**
@@ -123,7 +123,7 @@ export interface ClusterCloudProvider {
     /**
      * Use azureCloudProvider instead
      *
-     * @deprecated Use azureCloudProvider instead
+     * @deprecated Use azure_cloud_provider instead
      */
     azureCloudConfig?: outputs.ClusterCloudProviderAzureCloudConfig;
     /**
@@ -133,7 +133,7 @@ export interface ClusterCloudProvider {
     /**
      * Use customCloudProvider instead
      *
-     * @deprecated Use customCloudProvider instead
+     * @deprecated Use custom_cloud_provider instead
      */
     customCloudConfig?: string;
     /**
@@ -147,7 +147,7 @@ export interface ClusterCloudProvider {
     /**
      * Use openstackCloudProvider instead
      *
-     * @deprecated Use openstackCloudProvider instead
+     * @deprecated Use openstack_cloud_provider instead
      */
     openstackCloudConfig?: outputs.ClusterCloudProviderOpenstackCloudConfig;
     /**
@@ -157,7 +157,7 @@ export interface ClusterCloudProvider {
     /**
      * Use vsphereCloudProvider instead
      *
-     * @deprecated Use vsphereCloudProvider instead
+     * @deprecated Use vsphere_cloud_provider instead
      */
     vsphereCloudConfig?: outputs.ClusterCloudProviderVsphereCloudConfig;
     /**
