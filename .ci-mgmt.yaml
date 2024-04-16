@@ -5,3 +5,8 @@ env:
   AWS_REGION: us-west-2
 makeTemplate: bridged
 team: ecosystem
+pulumiConvert: 1
+plugins:
+  - name: terraform
+    version: "1.0.16"
+    kind: converter
