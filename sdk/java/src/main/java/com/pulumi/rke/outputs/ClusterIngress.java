@@ -21,42 +21,42 @@ public final class ClusterIngress {
      */
     private @Nullable Boolean defaultBackend;
     /**
-     * @return Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * @return Ingress controller dns policy
      * 
      */
     private @Nullable String dnsPolicy;
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments for the ingress controller
      * 
      */
     private @Nullable Map<String,Object> extraArgs;
     /**
-     * @return Ingress controller http port (int)
+     * @return Ingress controller http port
      * 
      */
     private @Nullable Integer httpPort;
     /**
-     * @return Ingress controller https port (int)
+     * @return Ingress controller https port
      * 
      */
     private @Nullable Integer httpsPort;
     /**
-     * @return Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * @return Ingress controller network mode
      * 
      */
     private @Nullable String networkMode;
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return Network provider options (map)
+     * @return Ingress controller options
      * 
      */
     private @Nullable Map<String,Object> options;
     /**
-     * @return Monitoring provider (string)
+     * @return Ingress controller provider
      * 
      */
     private @Nullable String provider;
@@ -70,56 +70,56 @@ public final class ClusterIngress {
         return Optional.ofNullable(this.defaultBackend);
     }
     /**
-     * @return Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * @return Ingress controller dns policy
      * 
      */
     public Optional<String> dnsPolicy() {
         return Optional.ofNullable(this.dnsPolicy);
     }
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments for the ingress controller
      * 
      */
     public Map<String,Object> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
-     * @return Ingress controller http port (int)
+     * @return Ingress controller http port
      * 
      */
     public Optional<Integer> httpPort() {
         return Optional.ofNullable(this.httpPort);
     }
     /**
-     * @return Ingress controller https port (int)
+     * @return Ingress controller https port
      * 
      */
     public Optional<Integer> httpsPort() {
         return Optional.ofNullable(this.httpsPort);
     }
     /**
-     * @return Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * @return Ingress controller network mode
      * 
      */
     public Optional<String> networkMode() {
         return Optional.ofNullable(this.networkMode);
     }
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     public Map<String,Object> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return Network provider options (map)
+     * @return Ingress controller options
      * 
      */
     public Map<String,Object> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return Monitoring provider (string)
+     * @return Ingress controller provider
      * 
      */
     public Optional<String> provider() {

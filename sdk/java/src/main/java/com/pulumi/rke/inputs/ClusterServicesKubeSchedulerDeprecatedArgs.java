@@ -19,14 +19,14 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
     public static final ClusterServicesKubeSchedulerDeprecatedArgs Empty = new ClusterServicesKubeSchedulerDeprecatedArgs();
 
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the scheduler services
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the scheduler services
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -34,14 +34,14 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
     }
 
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      * 
      */
     @Import(name="extraBinds")
     private @Nullable Output<List<String>> extraBinds;
 
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraBinds() {
@@ -49,14 +49,14 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
     }
 
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      * 
      */
     @Import(name="extraEnvs")
     private @Nullable Output<List<String>> extraEnvs;
 
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraEnvs() {
@@ -64,14 +64,14 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
     }
 
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the scheduler service
      * 
      */
     @Import(name="image")
     private @Nullable Output<String> image;
 
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the scheduler service
      * 
      */
     public Optional<Output<String>> image() {
@@ -106,7 +106,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the scheduler services
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the scheduler services
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the scheduler service
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ClusterServicesKubeSchedulerDeprecatedArgs extends com.pulumi
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the scheduler service
          * 
          * @return builder
          * 

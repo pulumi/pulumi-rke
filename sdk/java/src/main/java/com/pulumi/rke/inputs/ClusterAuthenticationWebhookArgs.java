@@ -16,14 +16,14 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
     public static final ClusterAuthenticationWebhookArgs Empty = new ClusterAuthenticationWebhookArgs();
 
     /**
-     * Controls how long to cache authentication decisions (string)
+     * Controls how long to cache authentication decisions
      * 
      */
     @Import(name="cacheTimeout")
     private @Nullable Output<String> cacheTimeout;
 
     /**
-     * @return Controls how long to cache authentication decisions (string)
+     * @return Controls how long to cache authentication decisions
      * 
      */
     public Optional<Output<String>> cacheTimeout() {
@@ -31,14 +31,14 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
     }
 
     /**
-     * Multiline string that represent a custom webhook config file (string)
+     * Multiline string that represent a custom webhook config file
      * 
      */
     @Import(name="configFile")
     private @Nullable Output<String> configFile;
 
     /**
-     * @return Multiline string that represent a custom webhook config file (string)
+     * @return Multiline string that represent a custom webhook config file
      * 
      */
     public Optional<Output<String>> configFile() {
@@ -71,7 +71,7 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cacheTimeout Controls how long to cache authentication decisions (string)
+         * @param cacheTimeout Controls how long to cache authentication decisions
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cacheTimeout Controls how long to cache authentication decisions (string)
+         * @param cacheTimeout Controls how long to cache authentication decisions
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
         }
 
         /**
-         * @param configFile Multiline string that represent a custom webhook config file (string)
+         * @param configFile Multiline string that represent a custom webhook config file
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClusterAuthenticationWebhookArgs extends com.pulumi.resources
         }
 
         /**
-         * @param configFile Multiline string that represent a custom webhook config file (string)
+         * @param configFile Multiline string that represent a custom webhook config file
          * 
          * @return builder
          * 

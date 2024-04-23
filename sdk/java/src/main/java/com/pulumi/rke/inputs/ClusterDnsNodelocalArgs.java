@@ -17,30 +17,22 @@ public final class ClusterDnsNodelocalArgs extends com.pulumi.resources.Resource
 
     public static final ClusterDnsNodelocalArgs Empty = new ClusterDnsNodelocalArgs();
 
-    /**
-     * Nodelocal dns ip address (string)
-     * 
-     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
-    /**
-     * @return Nodelocal dns ip address (string)
-     * 
-     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      * 
      */
     @Import(name="nodeSelector")
     private @Nullable Output<Map<String,Object>> nodeSelector;
 
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     public Optional<Output<Map<String,Object>>> nodeSelector() {
@@ -72,29 +64,17 @@ public final class ClusterDnsNodelocalArgs extends com.pulumi.resources.Resource
             $ = new ClusterDnsNodelocalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAddress Nodelocal dns ip address (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
-        /**
-         * @param ipAddress Nodelocal dns ip address (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 
@@ -105,7 +85,7 @@ public final class ClusterDnsNodelocalArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 

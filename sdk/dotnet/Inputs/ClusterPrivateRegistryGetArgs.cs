@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterPrivateRegistryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set as default registry. Default `false` (bool)
+        /// Set as default registry
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Registry password (string)
+        /// Registry password
         /// </summary>
         public Input<string>? Password
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Registry URL (string)
+        /// Registry URL
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _user;
 
         /// <summary>
-        /// Registry user (string)
+        /// Registry user
         /// </summary>
         public Input<string>? User
         {

@@ -32,14 +32,14 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Snapshot name (string)
+     * Snapshot name
      * 
      */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
     /**
-     * @return Snapshot name (string)
+     * @return Snapshot name
      * 
      */
     public Optional<Output<String>> snapshotName() {
@@ -93,7 +93,7 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snapshotName Snapshot name (string)
+         * @param snapshotName Snapshot name
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snapshotName Snapshot name (string)
+         * @param snapshotName Snapshot name
          * 
          * @return builder
          * 

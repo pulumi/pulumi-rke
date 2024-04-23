@@ -13,13 +13,7 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig
     {
-        /// <summary>
-        /// Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
-        /// </summary>
         public readonly string? CustomConfig;
-        /// <summary>
-        /// Enable secrets encryption (bool)
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

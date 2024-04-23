@@ -7,52 +7,49 @@ import * as outputs from "../types/output";
 
 export interface ClusterAuthentication {
     /**
-     * List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * List of additional hostnames and IPs to include in the api server PKI cert
      */
     sans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * Authentication strategy that will be used in RKE k8s cluster
      */
     strategy?: pulumi.Input<string>;
     /**
-     * Webhook configuration options (list maxitem: 1)
+     * Webhook configuration options
      */
     webhook?: pulumi.Input<inputs.ClusterAuthenticationWebhook>;
 }
 
 export interface ClusterAuthenticationWebhook {
     /**
-     * Controls how long to cache authentication decisions (string)
+     * Controls how long to cache authentication decisions
      */
     cacheTimeout?: pulumi.Input<string>;
     /**
-     * Multiline string that represent a custom webhook config file (string)
+     * Multiline string that represent a custom webhook config file
      */
     configFile?: pulumi.Input<string>;
 }
 
 export interface ClusterAuthorization {
-    /**
-     * RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
-     */
     mode?: pulumi.Input<string>;
     /**
-     * Network provider options (map)
+     * Authorization mode options
      */
     options?: pulumi.Input<{[key: string]: any}>;
 }
 
 export interface ClusterBastionHost {
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host
      */
     address: pulumi.Input<string>;
     /**
-     * Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * Ignore proxy env vars at Bastion Host?
      */
     ignoreProxyEnvVars?: pulumi.Input<boolean>;
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host
      */
     port?: pulumi.Input<string>;
     /**
@@ -60,7 +57,7 @@ export interface ClusterBastionHost {
      */
     sshAgentAuth?: pulumi.Input<boolean>;
     /**
-     * SSH Certificate (string)
+     * SSH Certificate Key
      */
     sshCert?: pulumi.Input<string>;
     /**
@@ -68,7 +65,7 @@ export interface ClusterBastionHost {
      */
     sshCertPath?: pulumi.Input<string>;
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      */
     sshKey?: pulumi.Input<string>;
     /**
@@ -76,7 +73,7 @@ export interface ClusterBastionHost {
      */
     sshKeyPath?: pulumi.Input<string>;
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host
      */
     user: pulumi.Input<string>;
 }
@@ -92,305 +89,228 @@ export interface ClusterCertificate {
      * (Computed) The ID of the resource (string)
      */
     id?: pulumi.Input<string>;
-    /**
-     * TLS key for etcd service (string)
-     */
     key?: pulumi.Input<string>;
     keyEnvName?: pulumi.Input<string>;
     keyPath?: pulumi.Input<string>;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name?: pulumi.Input<string>;
     ouName?: pulumi.Input<string>;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProvider {
     /**
-     * Use awsCloudProvider instead
-     *
      * @deprecated Use awsCloudProvider instead
      */
     awsCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudConfig>;
     /**
-     * AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * AWS Cloud Provider config
      */
     awsCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudProvider>;
     /**
-     * Use azureCloudProvider instead
-     *
      * @deprecated Use azureCloudProvider instead
      */
     azureCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderAzureCloudConfig>;
     /**
-     * Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * Azure Cloud Provider config
      */
     azureCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderAzureCloudProvider>;
     /**
-     * Use customCloudProvider instead
-     *
      * @deprecated Use customCloudProvider instead
      */
     customCloudConfig?: pulumi.Input<string>;
     /**
-     * Custom Cloud Provider config (string)
+     * Custom Cloud Provider config
      */
     customCloudProvider?: pulumi.Input<string>;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: pulumi.Input<string>;
     /**
-     * Use openstackCloudProvider instead
-     *
      * @deprecated Use openstackCloudProvider instead
      */
     openstackCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfig>;
     /**
-     * Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * Openstack Cloud Provider config
      */
     openstackCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProvider>;
     /**
-     * Use vsphereCloudProvider instead
-     *
      * @deprecated Use vsphereCloudProvider instead
      */
     vsphereCloudConfig?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfig>;
     /**
-     * Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
+     * Vsphere Cloud Provider config
      */
     vsphereCloudProvider?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProvider>;
 }
 
 export interface ClusterCloudProviderAwsCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     global?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudConfigGlobal>;
-    /**
-     * (list)
-     */
     serviceOverrides?: pulumi.Input<pulumi.Input<inputs.ClusterCloudProviderAwsCloudConfigServiceOverride>[]>;
 }
 
 export interface ClusterCloudProviderAwsCloudConfigGlobal {
     /**
-     * Disables the automatic ingress creation. Default `false` (bool)
+     * Disables the automatic ingress creation
      */
     disableSecurityGroupIngress?: pulumi.Input<boolean>;
     /**
-     * Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * Setting this to true will disable the check and provide a warning that the check was skipped
      */
     disableStrictZoneCheck?: pulumi.Input<boolean>;
     /**
-     * Use these ELB security groups instead create new (string)
+     * Use these ELB security groups instead create new
      */
     elbSecurityGroup?: pulumi.Input<string>;
     /**
-     * The cluster id we'll use to identify our cluster resources (string)
+     * The cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * Legacy cluster id we'll use to identify our cluster resources (string)
+     * Legacy cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterTag?: pulumi.Input<string>;
     /**
-     * IAM role to assume when interaction with AWS APIs (string)
+     * IAM role to assume when interaction with AWS APIs
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * Enables using a specific RouteTable (string)
+     * Enables using a specific RouteTable
      */
     routeTableId?: pulumi.Input<string>;
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB's
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      */
     vpc?: pulumi.Input<string>;
     /**
-     * The AWS zone (string)
+     * The AWS zone
      */
     zone?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
-     * TLS key for etcd service (string)
-     *
      * @deprecated Use service instead
      */
     key?: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     service: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingMethod?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingRegion?: pulumi.Input<string>;
-    /**
-     * Registry URL (string)
-     */
     url?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderAwsCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     global?: pulumi.Input<inputs.ClusterCloudProviderAwsCloudProviderGlobal>;
-    /**
-     * (list)
-     */
     serviceOverrides?: pulumi.Input<pulumi.Input<inputs.ClusterCloudProviderAwsCloudProviderServiceOverride>[]>;
 }
 
 export interface ClusterCloudProviderAwsCloudProviderGlobal {
     /**
-     * Disables the automatic ingress creation. Default `false` (bool)
+     * Disables the automatic ingress creation
      */
     disableSecurityGroupIngress?: pulumi.Input<boolean>;
     /**
-     * Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * Setting this to true will disable the check and provide a warning that the check was skipped
      */
     disableStrictZoneCheck?: pulumi.Input<boolean>;
     /**
-     * Use these ELB security groups instead create new (string)
+     * Use these ELB security groups instead create new
      */
     elbSecurityGroup?: pulumi.Input<string>;
     /**
-     * The cluster id we'll use to identify our cluster resources (string)
+     * The cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * Legacy cluster id we'll use to identify our cluster resources (string)
+     * Legacy cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterTag?: pulumi.Input<string>;
     /**
-     * IAM role to assume when interaction with AWS APIs (string)
+     * IAM role to assume when interaction with AWS APIs
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * Enables using a specific RouteTable (string)
+     * Enables using a specific RouteTable
      */
     routeTableId?: pulumi.Input<string>;
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB's
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      */
     vpc?: pulumi.Input<string>;
     /**
-     * The AWS zone (string)
+     * The AWS zone
      */
     zone?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
-     * TLS key for etcd service (string)
-     *
      * @deprecated Use service instead
      */
     key?: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     service: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingMethod?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     signingRegion?: pulumi.Input<string>;
-    /**
-     * Registry URL (string)
-     */
     url?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderAzureCloudConfig {
     /**
-     * (string)
+     * The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPassword?: pulumi.Input<string>;
     /**
-     * (string)
+     * The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPath?: pulumi.Input<string>;
     /**
-     * (string)
+     * The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientId: pulumi.Input<string>;
     /**
-     * (string)
+     * The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientSecret: pulumi.Input<string>;
     /**
-     * (string)
+     * The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      */
     cloud?: pulumi.Input<string>;
     /**
-     * (bool)
+     * Enable exponential backoff to manage resource request retries
      */
     cloudProviderBackoff?: pulumi.Input<boolean>;
     /**
-     * (int)
+     * Backoff duration
      */
     cloudProviderBackoffDuration?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff exponent
      */
     cloudProviderBackoffExponent?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff jitter
      */
     cloudProviderBackoffJitter?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff retry limit
      */
     cloudProviderBackoffRetries?: pulumi.Input<number>;
     /**
-     * (bool)
+     * Enable rate limiting
      */
     cloudProviderRateLimit?: pulumi.Input<boolean>;
-    /**
-     * (int)
-     */
     cloudProviderRateLimitBucket?: pulumi.Input<number>;
     /**
-     * (int)
+     * Rate limit QPS
      */
     cloudProviderRateLimitQps?: pulumi.Input<number>;
     /**
@@ -398,118 +318,115 @@ export interface ClusterCloudProviderAzureCloudConfig {
      */
     loadBalancerSku?: pulumi.Input<string>;
     /**
-     * (string)
+     * The location of the resource group that the cluster is deployed in
      */
     location?: pulumi.Input<string>;
     /**
-     * (int)
+     * Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      */
     maximumLoadBalancerRuleCount?: pulumi.Input<number>;
     /**
-     * (string)
+     * The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      */
     primaryAvailabilitySetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      */
     primaryScaleSetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the resource group that the cluster is deployed in
      */
     resourceGroup?: pulumi.Input<string>;
     /**
-     * (string)
+     * (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      */
     routeTableName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the security group attached to the cluster's subnet
      */
     securityGroupName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the Subnet that the cluster is deployed in
      */
     subnetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The ID of the Azure Subscription that the cluster is deployed in
      */
     subscriptionId: pulumi.Input<string>;
     /**
-     * Required if `tenantName` not provided. (string)
+     * The AAD Tenant ID for the Subscription that the cluster is deployed in
      */
     tenantId: pulumi.Input<string>;
     /**
-     * (bool)
+     * Use instance metadata service where possible
      */
     useInstanceMetadata?: pulumi.Input<boolean>;
     /**
-     * (bool)
+     * Use managed service identity for the virtual machine to access Azure ARM APIs
      */
     useManagedIdentityExtension?: pulumi.Input<boolean>;
     /**
-     * (string)
+     * The type of azure nodes. If not set, it will be default to standard.
      */
     vmType?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the VNet that the cluster is deployed in
      */
     vnetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the resource group that the Vnet is deployed in
      */
     vnetResourceGroup?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderAzureCloudProvider {
     /**
-     * (string)
+     * The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPassword?: pulumi.Input<string>;
     /**
-     * (string)
+     * The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPath?: pulumi.Input<string>;
     /**
-     * (string)
+     * The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientId: pulumi.Input<string>;
     /**
-     * (string)
+     * The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientSecret: pulumi.Input<string>;
     /**
-     * (string)
+     * The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      */
     cloud?: pulumi.Input<string>;
     /**
-     * (bool)
+     * Enable exponential backoff to manage resource request retries
      */
     cloudProviderBackoff?: pulumi.Input<boolean>;
     /**
-     * (int)
+     * Backoff duration
      */
     cloudProviderBackoffDuration?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff exponent
      */
     cloudProviderBackoffExponent?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff jitter
      */
     cloudProviderBackoffJitter?: pulumi.Input<number>;
     /**
-     * (int)
+     * Backoff retry limit
      */
     cloudProviderBackoffRetries?: pulumi.Input<number>;
     /**
-     * (bool)
+     * Enable rate limiting
      */
     cloudProviderRateLimit?: pulumi.Input<boolean>;
-    /**
-     * (int)
-     */
     cloudProviderRateLimitBucket?: pulumi.Input<number>;
     /**
-     * (int)
+     * Rate limit QPS
      */
     cloudProviderRateLimitQps?: pulumi.Input<number>;
     /**
@@ -517,699 +434,312 @@ export interface ClusterCloudProviderAzureCloudProvider {
      */
     loadBalancerSku?: pulumi.Input<string>;
     /**
-     * (string)
+     * The location of the resource group that the cluster is deployed in
      */
     location?: pulumi.Input<string>;
     /**
-     * (int)
+     * Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      */
     maximumLoadBalancerRuleCount?: pulumi.Input<number>;
     /**
-     * (string)
+     * The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      */
     primaryAvailabilitySetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      */
     primaryScaleSetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the resource group that the cluster is deployed in
      */
     resourceGroup?: pulumi.Input<string>;
     /**
-     * (string)
+     * (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      */
     routeTableName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the security group attached to the cluster's subnet
      */
     securityGroupName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the Subnet that the cluster is deployed in
      */
     subnetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The ID of the Azure Subscription that the cluster is deployed in
      */
     subscriptionId: pulumi.Input<string>;
     /**
-     * Required if `tenantName` not provided. (string)
+     * The AAD Tenant ID for the Subscription that the cluster is deployed in
      */
     tenantId: pulumi.Input<string>;
     /**
-     * (bool)
+     * Use instance metadata service where possible
      */
     useInstanceMetadata?: pulumi.Input<boolean>;
     /**
-     * (bool)
+     * Use managed service identity for the virtual machine to access Azure ARM APIs
      */
     useManagedIdentityExtension?: pulumi.Input<boolean>;
     /**
-     * (string)
+     * The type of azure nodes. If not set, it will be default to standard.
      */
     vmType?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the VNet that the cluster is deployed in
      */
     vnetName?: pulumi.Input<string>;
     /**
-     * (string)
+     * The name of the resource group that the Vnet is deployed in
      */
     vnetResourceGroup?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     blockStorage?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage>;
-    /**
-     * (list maxitems:1)
-     */
     global: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfigGlobal>;
-    /**
-     * (list maxitems:1)
-     */
     loadBalancer?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer>;
-    /**
-     * (list maxitems:1)
-     */
     metadata?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfigMetadata>;
-    /**
-     * (list maxitems:1)
-     */
     route?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudConfigRoute>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigBlockStorage {
-    /**
-     * (string)
-     */
     bsVersion?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     ignoreVolumeAz?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     trustDevicePath?: pulumi.Input<boolean>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigGlobal {
-    /**
-     * (string)
-     */
     authUrl: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     caFile?: pulumi.Input<string>;
-    /**
-     * Required if `domainName` not provided. (string)
-     */
     domainId?: pulumi.Input<string>;
-    /**
-     * Required if `domainId` not provided. (string)
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Registry password (string)
-     */
     password: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Required if `tenantName` not provided. (string)
-     */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Required if `tenantId` not provided. (string)
-     */
     tenantName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     trustId?: pulumi.Input<string>;
-    /**
-     * Required if `username` not provided. (string)
-     */
     userId?: pulumi.Input<string>;
-    /**
-     * Required if `userId` not provided. (string)
-     */
     username?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
-    /**
-     * (bool)
-     */
     createMonitor?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     floatingNetworkId?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbMethod?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbProvider?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbVersion?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     manageSecurityGroups?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     monitorDelay?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     monitorMaxRetries?: pulumi.Input<number>;
-    /**
-     * (string)
-     */
     monitorTimeout?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     useOctavia?: pulumi.Input<boolean>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigMetadata {
-    /**
-     * (int)
-     */
     requestTimeout?: pulumi.Input<number>;
-    /**
-     * (string)
-     */
     searchOrder?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigRoute {
-    /**
-     * (string)
-     */
     routerId?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     blockStorage?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage>;
-    /**
-     * (list maxitems:1)
-     */
     global: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProviderGlobal>;
-    /**
-     * (list maxitems:1)
-     */
     loadBalancer?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancer>;
-    /**
-     * (list maxitems:1)
-     */
     metadata?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProviderMetadata>;
-    /**
-     * (list maxitems:1)
-     */
     route?: pulumi.Input<inputs.ClusterCloudProviderOpenstackCloudProviderRoute>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderBlockStorage {
-    /**
-     * (string)
-     */
     bsVersion?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     ignoreVolumeAz?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     trustDevicePath?: pulumi.Input<boolean>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderGlobal {
-    /**
-     * (string)
-     */
     authUrl: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     caFile?: pulumi.Input<string>;
-    /**
-     * Required if `domainName` not provided. (string)
-     */
     domainId?: pulumi.Input<string>;
-    /**
-     * Required if `domainId` not provided. (string)
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Registry password (string)
-     */
     password: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Required if `tenantName` not provided. (string)
-     */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Required if `tenantId` not provided. (string)
-     */
     tenantName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     trustId?: pulumi.Input<string>;
-    /**
-     * Required if `username` not provided. (string)
-     */
     userId?: pulumi.Input<string>;
-    /**
-     * Required if `userId` not provided. (string)
-     */
     username?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
-    /**
-     * (bool)
-     */
     createMonitor?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     floatingNetworkId?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbMethod?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbProvider?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     lbVersion?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     manageSecurityGroups?: pulumi.Input<boolean>;
-    /**
-     * (string)
-     */
     monitorDelay?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     monitorMaxRetries?: pulumi.Input<number>;
-    /**
-     * (string)
-     */
     monitorTimeout?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     useOctavia?: pulumi.Input<boolean>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderMetadata {
-    /**
-     * (int)
-     */
     requestTimeout?: pulumi.Input<number>;
-    /**
-     * (string)
-     */
     searchOrder?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderRoute {
-    /**
-     * (string)
-     */
     routerId?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     disk?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfigDisk>;
-    /**
-     * (list maxitems:1)
-     */
     global?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfigGlobal>;
     /**
      * RKE k8s cluster network configuration (list maxitems:1)
      */
     network?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfigNetwork>;
-    /**
-     * (List)
-     */
     virtualCenters: pulumi.Input<pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter>[]>;
-    /**
-     * (list maxitems:1)
-     */
     workspace: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudConfigWorkspace>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigDisk {
-    /**
-     * (string)
-     */
     scsiControllerType?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigGlobal {
-    /**
-     * (string)
-     */
     datacenter?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     datacenters?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     datastore?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     insecureFlag?: pulumi.Input<boolean>;
-    /**
-     * Registry password (string)
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: pulumi.Input<number>;
-    /**
-     * Registry user (string)
-     */
     user?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     vmName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     vmUuid?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     workingDir?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigNetwork {
-    /**
-     * (string)
-     */
     publicNetwork?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
-    /**
-     * (string)
-     */
     datacenters: pulumi.Input<string>;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: pulumi.Input<string>;
-    /**
-     * Registry password (string)
-     */
     password: pulumi.Input<string>;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: pulumi.Input<number>;
-    /**
-     * Registry user (string)
-     */
     user: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigWorkspace {
-    /**
-     * (string)
-     */
     datacenter: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     defaultDatastore?: pulumi.Input<string>;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     resourcepoolPath?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     server: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     disk?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProviderDisk>;
-    /**
-     * (list maxitems:1)
-     */
     global?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProviderGlobal>;
     /**
      * RKE k8s cluster network configuration (list maxitems:1)
      */
     network?: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProviderNetwork>;
-    /**
-     * (List)
-     */
     virtualCenters: pulumi.Input<pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProviderVirtualCenter>[]>;
-    /**
-     * (list maxitems:1)
-     */
     workspace: pulumi.Input<inputs.ClusterCloudProviderVsphereCloudProviderWorkspace>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderDisk {
-    /**
-     * (string)
-     */
     scsiControllerType?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderGlobal {
-    /**
-     * (string)
-     */
     datacenter?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     datacenters?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     datastore?: pulumi.Input<string>;
-    /**
-     * (bool)
-     */
     insecureFlag?: pulumi.Input<boolean>;
-    /**
-     * Registry password (string)
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: pulumi.Input<number>;
-    /**
-     * Registry user (string)
-     */
     user?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     vmName?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     vmUuid?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     workingDir?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderNetwork {
-    /**
-     * (string)
-     */
     publicNetwork?: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
-    /**
-     * (string)
-     */
     datacenters: pulumi.Input<string>;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: pulumi.Input<string>;
-    /**
-     * Registry password (string)
-     */
     password: pulumi.Input<string>;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: pulumi.Input<string>;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: pulumi.Input<number>;
-    /**
-     * Registry user (string)
-     */
     user: pulumi.Input<string>;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderWorkspace {
-    /**
-     * (string)
-     */
     datacenter: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     defaultDatastore?: pulumi.Input<string>;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     resourcepoolPath?: pulumi.Input<string>;
-    /**
-     * (string)
-     */
     server: pulumi.Input<string>;
 }
 
 export interface ClusterControlPlaneHost {
-    /**
-     * Address ip for node (string)
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName?: pulumi.Input<string>;
 }
 
 export interface ClusterDns {
     /**
-     * Node selector key pair (map)
+     * NodeSelector key pair
      */
     nodeSelector?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns
      */
     nodelocal?: pulumi.Input<inputs.ClusterDnsNodelocal>;
     /**
-     * Monitoring provider (string)
+     * DNS provider
      */
     provider?: pulumi.Input<string>;
     /**
-     * Reverse CIDRs  (list)
+     * ReverseCIDRs
      */
     reverseCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Upstream nameservers  (list)
+     * Upstream nameservers
      */
     upstreamNameservers?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ClusterDnsNodelocal {
-    /**
-     * Nodelocal dns ip address (string)
-     */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: pulumi.Input<{[key: string]: any}>;
 }
 
 export interface ClusterEtcdHost {
-    /**
-     * Address ip for node (string)
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName?: pulumi.Input<string>;
 }
 
 export interface ClusterInactiveHost {
-    /**
-     * Address ip for node (string)
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName?: pulumi.Input<string>;
 }
 
@@ -1219,183 +749,113 @@ export interface ClusterIngress {
      */
     defaultBackend?: pulumi.Input<boolean>;
     /**
-     * Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * Ingress controller dns policy
      */
     dnsPolicy?: pulumi.Input<string>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments for the ingress controller
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Ingress controller http port (int)
+     * Ingress controller http port
      */
     httpPort?: pulumi.Input<number>;
     /**
-     * Ingress controller https port (int)
+     * Ingress controller https port
      */
     httpsPort?: pulumi.Input<number>;
     /**
-     * Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * Ingress controller network mode
      */
     networkMode?: pulumi.Input<string>;
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Network provider options (map)
+     * Ingress controller options
      */
     options?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Monitoring provider (string)
+     * Ingress controller provider
      */
     provider?: pulumi.Input<string>;
 }
 
 export interface ClusterMonitoring {
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Network provider options (map)
+     * Monitoring options
      */
     options?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Monitoring provider (string)
+     * Monitoring provider
      */
     provider?: pulumi.Input<string>;
 }
 
 export interface ClusterNetwork {
     /**
-     * Aci network provider config (list maxitems:1)
+     * Aci network provider config
      */
     aciNetworkProvider?: pulumi.Input<inputs.ClusterNetworkAciNetworkProvider>;
     /**
-     * Calico network provider config (list maxitems:1)
+     * Calico network provider config
      */
     calicoNetworkProvider?: pulumi.Input<inputs.ClusterNetworkCalicoNetworkProvider>;
     /**
-     * Canal network provider config (list maxitems:1)
+     * Canal network provider config
      */
     canalNetworkProvider?: pulumi.Input<inputs.ClusterNetworkCanalNetworkProvider>;
     /**
-     * Flannel network provider config (list maxitems:1)
+     * Flannel network provider config
      */
     flannelNetworkProvider?: pulumi.Input<inputs.ClusterNetworkFlannelNetworkProvider>;
     /**
-     * Network provider MTU. Default `0` (int)
+     * Network provider MTU
      */
     mtu?: pulumi.Input<number>;
     /**
-     * Network provider options (map)
+     * Network provider options
      */
     options?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * Network provider plugin
      */
     plugin?: pulumi.Input<string>;
     /**
-     * Weave network provider config (list maxitems:1)
+     * Weave network provider config
      */
     weaveNetworkProvider?: pulumi.Input<inputs.ClusterNetworkWeaveNetworkProvider>;
 }
 
 export interface ClusterNetworkAciNetworkProvider {
-    /**
-     * Attachment entity profile name on aci (string)
-     */
     aep: pulumi.Input<string>;
-    /**
-     * Ip address for apic hosts (list)
-     */
     apicHosts: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Base64 encoded certificate for aci apic user (string)
-     */
     apicUserCrt: pulumi.Input<string>;
-    /**
-     * Base64 encoded private key for aci apic user (string)
-     */
     apicUserKey: pulumi.Input<string>;
-    /**
-     * User name for aci apic (string)
-     */
     apicUserName: pulumi.Input<string>;
-    /**
-     * One of the supported encap types for aci(vlan/vxlan) (string)
-     */
     encapType: pulumi.Input<string>;
-    /**
-     * Subnet to use for dynamic external IPs on aci (string)
-     * * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
-     */
     externDynamic: pulumi.Input<string>;
     externStatic: pulumi.Input<string>;
-    /**
-     * Vlan for infra network on aci (string)
-     */
     infraVlan: pulumi.Input<string>;
-    /**
-     * Vlan for node network on aci (string)
-     */
     kubeApiVlan: pulumi.Input<string>;
-    /**
-     * L3Out on aci (string)
-     */
     l3out: pulumi.Input<string>;
-    /**
-     * L3out external networks on aci (list)
-     */
     l3outExternalNetworks: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Mcast range end address for endpoint groups on aci (string)
-     */
     mcastRangeEnd: pulumi.Input<string>;
-    /**
-     * Mcast range start address for endpoint groups on aci (string)
-     */
     mcastRangeStart: pulumi.Input<string>;
-    /**
-     * Kubernetes node address subnet (string)
-     */
     nodeSubnet: pulumi.Input<string>;
-    /**
-     * Subnet to use for service graph endpoints on aci (string)
-     */
     nodeSvcSubnet: pulumi.Input<string>;
-    /**
-     * Vlan for service graph nodes on aci (string)
-     */
     serviceVlan: pulumi.Input<string>;
-    /**
-     * Port end range for Source Network Address Translation on aci (string)
-     */
     snatPortRangeEnd?: pulumi.Input<string>;
-    /**
-     * Port start range for Source Network Address Translation on aci (string)
-     */
     snatPortRangeStart?: pulumi.Input<string>;
-    /**
-     * Ports per node for Source Network Address Translation on aci (string)
-     */
     snatPortsPerNode?: pulumi.Input<string>;
-    /**
-     * Unique suffix for all cluster related objects in aci (string)
-     */
     systemId: pulumi.Input<string>;
-    /**
-     * UUID for this version of the input configuration (string)
-     */
     token: pulumi.Input<string>;
-    /**
-     * VRF Name on aci (string)
-     */
     vrfName: pulumi.Input<string>;
-    /**
-     * Tenant for VRF on aci (string)
-     */
     vrfTenant: pulumi.Input<string>;
 }
 
@@ -1407,57 +867,48 @@ export interface ClusterNetworkCalicoNetworkProvider {
 }
 
 export interface ClusterNetworkCanalNetworkProvider {
-    /**
-     * Flannel network interface (string)
-     */
     iface?: pulumi.Input<string>;
 }
 
 export interface ClusterNetworkFlannelNetworkProvider {
-    /**
-     * Flannel network interface (string)
-     */
     iface?: pulumi.Input<string>;
 }
 
 export interface ClusterNetworkWeaveNetworkProvider {
-    /**
-     * Registry password (string)
-     */
     password: pulumi.Input<string>;
 }
 
 export interface ClusterNode {
     /**
-     * Address ip for node (string)
+     * IP or FQDN that is fully resolvable and used for SSH communication
      */
     address: pulumi.Input<string>;
     /**
-     * Docker socket on the node that will be used in tunneling (string)
+     * Docker socket on the node that will be used in tunneling
      */
     dockerSocket?: pulumi.Input<string>;
     /**
-     * Hostname override for node (string)
+     * Hostname override
      */
     hostnameOverride?: pulumi.Input<string>;
     /**
-     * Internal address that will be used for components communication (string)
+     * Internal address that will be used for components communication
      */
     internalAddress?: pulumi.Input<string>;
     /**
-     * Node labels (map)
+     * Node Labels
      */
     labels?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Name of the host provisioned via docker machine (string)
+     * Name of the host provisioned via docker machine
      */
     nodeName?: pulumi.Input<string>;
     /**
-     * Port used for SSH communication (string)
+     * Port used for SSH communication
      */
     port?: pulumi.Input<string>;
     /**
-     * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * Node roles in k8s cluster [controlplane/worker/etcd])
      */
     roles: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1471,7 +922,7 @@ export interface ClusterNode {
      */
     sshAgentAuth?: pulumi.Input<boolean>;
     /**
-     * SSH Certificate (string)
+     * SSH Certificate
      */
     sshCert?: pulumi.Input<string>;
     /**
@@ -1479,7 +930,7 @@ export interface ClusterNode {
      */
     sshCertPath?: pulumi.Input<string>;
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      */
     sshKey?: pulumi.Input<string>;
     /**
@@ -1487,45 +938,36 @@ export interface ClusterNode {
      */
     sshKeyPath?: pulumi.Input<string>;
     /**
-     * Node taints (list)
+     * Node taints
      */
     taints?: pulumi.Input<pulumi.Input<inputs.ClusterNodeTaint>[]>;
     /**
-     * Registry user (string)
+     * SSH user that will be used by RKE
      */
     user: pulumi.Input<string>;
 }
 
 export interface ClusterNodeTaint {
-    /**
-     * Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
-     */
     effect?: pulumi.Input<string>;
-    /**
-     * TLS key for etcd service (string)
-     */
     key: pulumi.Input<string>;
-    /**
-     * Taint value (string)
-     */
     value: pulumi.Input<string>;
 }
 
 export interface ClusterPrivateRegistry {
     /**
-     * Set as default registry. Default `false` (bool)
+     * Set as default registry
      */
     isDefault?: pulumi.Input<boolean>;
     /**
-     * Registry password (string)
+     * Registry password
      */
     password?: pulumi.Input<string>;
     /**
-     * Registry URL (string)
+     * Registry URL
      */
     url: pulumi.Input<string>;
     /**
-     * Registry user (string)
+     * Registry user
      */
     user?: pulumi.Input<string>;
 }
@@ -1536,14 +978,14 @@ export interface ClusterRestore {
      */
     restore?: pulumi.Input<boolean>;
     /**
-     * Snapshot name (string)
+     * Snapshot name
      */
     snapshotName?: pulumi.Input<string>;
 }
 
 export interface ClusterRotateCertificates {
     /**
-     * Rotate CA Certificates. Default `false` (bool)
+     * Rotate CA Certificates
      */
     caCertificates?: pulumi.Input<boolean>;
     /**
@@ -1553,1055 +995,518 @@ export interface ClusterRotateCertificates {
 }
 
 export interface ClusterRunningSystemImage {
-    /**
-     * Docker image for aciCniDeployContainer (string)
-     */
     aciCniDeployContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciControllerContainer (string)
-     */
     aciControllerContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciHostContainer (string)
-     */
     aciHostContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciMcastContainer (string)
-     */
     aciMcastContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciOpflexContainer (string)
-     */
     aciOpflexContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciOvsContainer (string)
-     */
     aciOvsContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for alpine (string)
-     */
     alpine?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoCni (string)
-     */
     calicoCni?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoControllers (string)
-     */
     calicoControllers?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoCtl (string)
-     */
     calicoCtl?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoFlexVol (string)
-     */
     calicoFlexVol?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoNode (string)
-     */
     calicoNode?: pulumi.Input<string>;
-    /**
-     * Docker image for canalCni (string)
-     */
     canalCni?: pulumi.Input<string>;
-    /**
-     * Docker image for canalFlannel (string)
-     */
     canalFlannel?: pulumi.Input<string>;
-    /**
-     * Docker image for canalFlexVol (string)
-     */
     canalFlexVol?: pulumi.Input<string>;
-    /**
-     * Docker image for canalNode (string)
-     */
     canalNode?: pulumi.Input<string>;
-    /**
-     * Docker image for certDownloader (string)
-     */
     certDownloader?: pulumi.Input<string>;
-    /**
-     * Docker image for coredns (string)
-     */
     coredns?: pulumi.Input<string>;
-    /**
-     * Docker image for corednsAutoscaler (string)
-     */
     corednsAutoscaler?: pulumi.Input<string>;
-    /**
-     * Docker image for dnsmasq (string)
-     */
     dnsmasq?: pulumi.Input<string>;
-    /**
-     * Docker image for etcd (string)
-     */
     etcd?: pulumi.Input<string>;
-    /**
-     * Docker image for flannel (string)
-     */
     flannel?: pulumi.Input<string>;
-    /**
-     * Docker image for flannelCni (string)
-     */
     flannelCni?: pulumi.Input<string>;
     /**
      * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: pulumi.Input<string>;
-    /**
-     * Docker image for ingressBackend (string)
-     */
     ingressBackend?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDns (string)
-     */
     kubeDns?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDnsAutoscaler (string)
-     */
     kubeDnsAutoscaler?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDnsSidecar (string)
-     */
     kubeDnsSidecar?: pulumi.Input<string>;
-    /**
-     * Docker image for kubernetes (string)
-     */
     kubernetes?: pulumi.Input<string>;
-    /**
-     * Docker image for kubernetesServicesSidecar (string)
-     */
     kubernetesServicesSidecar?: pulumi.Input<string>;
-    /**
-     * Docker image for metricsServer (string)
-     */
     metricsServer?: pulumi.Input<string>;
-    /**
-     * Docker image for nginxProxy (string)
-     */
     nginxProxy?: pulumi.Input<string>;
-    /**
-     * Docker image for nodelocal (string)
-     */
     nodelocal?: pulumi.Input<string>;
-    /**
-     * Docker image for podInfraContainer (string)
-     */
     podInfraContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for weaveCni (string)
-     */
     weaveCni?: pulumi.Input<string>;
-    /**
-     * Docker image for weaveNode (string)
-     */
     weaveNode?: pulumi.Input<string>;
-    /**
-     * Docker image for windowsPodInfraContainer (string)
-     */
     windowsPodInfraContainer?: pulumi.Input<string>;
 }
 
 export interface ClusterServices {
-    /**
-     * Docker image for etcd (string)
-     */
     etcd?: pulumi.Input<inputs.ClusterServicesEtcd>;
-    /**
-     * Kube API options for RKE services (list maxitems:1)
-     */
     kubeApi?: pulumi.Input<inputs.ClusterServicesKubeApi>;
-    /**
-     * Kube Controller options for RKE services (list maxitems:1)
-     */
     kubeController?: pulumi.Input<inputs.ClusterServicesKubeController>;
-    /**
-     * Kubelet options for RKE services (list maxitems:1)
-     */
     kubelet?: pulumi.Input<inputs.ClusterServicesKubelet>;
-    /**
-     * Kubeproxy options for RKE services (list maxitems:1)
-     */
     kubeproxy?: pulumi.Input<inputs.ClusterServicesKubeproxy>;
-    /**
-     * Scheduler options for RKE services (list maxitems:1)
-     */
     scheduler?: pulumi.Input<inputs.ClusterServicesScheduler>;
 }
 
 export interface ClusterServicesEtcd {
-    /**
-     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
-     */
     backupConfig?: pulumi.Input<inputs.ClusterServicesEtcdBackupConfig>;
-    /**
-     * TLS CA certificate for etcd service (string)
-     */
     caCert?: pulumi.Input<string>;
-    /**
-     * TLS certificate for etcd service (string)
-     */
     cert?: pulumi.Input<string>;
-    /**
-     * Creation option for etcd service (string)
-     */
     creation?: pulumi.Input<string>;
-    /**
-     * External urls for etcd service (list)
-     */
     externalUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Extra arguments for scheduler service (map)
-     */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Extra binds for scheduler service (list)
-     */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Extra environment for scheduler service (list)
-     */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     gid?: pulumi.Input<number>;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image?: pulumi.Input<string>;
-    /**
-     * TLS key for etcd service (string)
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path?: pulumi.Input<string>;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: pulumi.Input<string>;
-    /**
-     * Snapshot option for etcd service. Default `true` (bool)
-     */
     snapshot?: pulumi.Input<boolean>;
-    /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     uid?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdBackupConfig {
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Interval hours for etcd backup. Default `12` (int)
-     */
     intervalHours?: pulumi.Input<number>;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: pulumi.Input<number>;
-    /**
-     * S3 config options for etcd backup (list maxitems:1)
-     */
     s3BackupConfig?: pulumi.Input<inputs.ClusterServicesEtcdBackupConfigS3BackupConfig>;
-    /**
-     * Safe timestamp for etcd backup. Default: `false` (bool)
-     */
     safeTimestamp?: pulumi.Input<boolean>;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
-    /**
-     * Access key for S3 service (string)
-     */
     accessKey?: pulumi.Input<string>;
-    /**
-     * Bucket name for S3 service (string)
-     */
     bucketName?: pulumi.Input<string>;
-    /**
-     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-     */
     customCa?: pulumi.Input<string>;
-    /**
-     * Endpoint for S3 service (string)
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Secret key for S3 service (string)
-     */
     secretKey?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesEtcdDeprecated {
-    /**
-     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
-     */
     backupConfig?: pulumi.Input<inputs.ClusterServicesEtcdDeprecatedBackupConfig>;
-    /**
-     * TLS CA certificate for etcd service (string)
-     */
     caCert?: pulumi.Input<string>;
-    /**
-     * TLS certificate for etcd service (string)
-     */
     cert?: pulumi.Input<string>;
-    /**
-     * Creation option for etcd service (string)
-     */
     creation?: pulumi.Input<string>;
-    /**
-     * External urls for etcd service (list)
-     */
     externalUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Extra arguments for scheduler service (map)
-     */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Extra binds for scheduler service (list)
-     */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Extra environment for scheduler service (list)
-     */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     gid?: pulumi.Input<number>;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image?: pulumi.Input<string>;
-    /**
-     * TLS key for etcd service (string)
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path?: pulumi.Input<string>;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: pulumi.Input<string>;
-    /**
-     * Snapshot option for etcd service. Default `true` (bool)
-     */
     snapshot?: pulumi.Input<boolean>;
-    /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     uid?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfig {
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Interval hours for etcd backup. Default `12` (int)
-     */
     intervalHours?: pulumi.Input<number>;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: pulumi.Input<number>;
-    /**
-     * S3 config options for etcd backup (list maxitems:1)
-     */
     s3BackupConfig?: pulumi.Input<inputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig>;
-    /**
-     * Safe timestamp for etcd backup. Default: `false` (bool)
-     */
     safeTimestamp?: pulumi.Input<boolean>;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout?: pulumi.Input<number>;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
-    /**
-     * Access key for S3 service (string)
-     */
     accessKey?: pulumi.Input<string>;
-    /**
-     * Bucket name for S3 service (string)
-     */
     bucketName?: pulumi.Input<string>;
-    /**
-     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-     */
     customCa?: pulumi.Input<string>;
-    /**
-     * Endpoint for S3 service (string)
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: pulumi.Input<string>;
-    /**
-     * Region for S3 service (string)
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Secret key for S3 service (string)
-     */
     secretKey?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeApi {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * Enable/Disable AlwaysPullImages admissions plugin
      */
     alwaysPullImages?: pulumi.Input<boolean>;
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     */
     auditLog?: pulumi.Input<inputs.ClusterServicesKubeApiAuditLog>;
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     */
     eventRateLimit?: pulumi.Input<inputs.ClusterServicesKubeApiEventRateLimit>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-api services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image?: pulumi.Input<string>;
     /**
      * Built-in PodSecurityPolicy (privileged or restricted)
      */
     podSecurityConfiguration?: pulumi.Input<string>;
     /**
-     * Pod Security Policy option for kube API service (bool)
+     * Enabled/Disable PodSecurityPolicy
      */
     podSecurityPolicy?: pulumi.Input<boolean>;
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     */
     secretsEncryptionConfig?: pulumi.Input<inputs.ClusterServicesKubeApiSecretsEncryptionConfig>;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange?: pulumi.Input<string>;
     /**
-     * Service Node Port Range option for kube API service (string)
+     * Port range for services defined with NodePort type
      */
     serviceNodePortRange?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeApiAuditLog {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration?: pulumi.Input<inputs.ClusterServicesKubeApiAuditLogConfiguration>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiAuditLogConfiguration {
-    /**
-     * Audit log format (string)
-     */
     format?: pulumi.Input<string>;
-    /**
-     * Audit log max age (int)
-     */
     maxAge?: pulumi.Input<number>;
-    /**
-     * Audit log max backup. Default: `10` (int)
-     */
     maxBackup?: pulumi.Input<number>;
-    /**
-     * Audit log max size. Default: `100` (int)
-     */
     maxSize?: pulumi.Input<number>;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path?: pulumi.Input<string>;
-    /**
-     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-     */
     policy?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeApiDeprecated {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * Enable/Disable AlwaysPullImages admissions plugin
      */
     alwaysPullImages?: pulumi.Input<boolean>;
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     */
     auditLog?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecatedAuditLog>;
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     */
     eventRateLimit?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecatedEventRateLimit>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-api services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image?: pulumi.Input<string>;
     /**
      * Built-in PodSecurityPolicy (privileged or restricted)
      */
     podSecurityConfiguration?: pulumi.Input<string>;
     /**
-     * Pod Security Policy option for kube API service (bool)
+     * Enabled/Disable PodSecurityPolicy
      */
     podSecurityPolicy?: pulumi.Input<boolean>;
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     */
     secretsEncryptionConfig?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig>;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange?: pulumi.Input<string>;
     /**
-     * Service Node Port Range option for kube API service (string)
+     * Port range for services defined with NodePort type
      */
     serviceNodePortRange?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLog {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration?: pulumi.Input<inputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
-    /**
-     * Audit log format (string)
-     */
     format?: pulumi.Input<string>;
-    /**
-     * Audit log max age (int)
-     */
     maxAge?: pulumi.Input<number>;
-    /**
-     * Audit log max backup. Default: `10` (int)
-     */
     maxBackup?: pulumi.Input<number>;
-    /**
-     * Audit log max size. Default: `100` (int)
-     */
     maxSize?: pulumi.Input<number>;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path?: pulumi.Input<string>;
-    /**
-     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-     */
     policy?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration?: pulumi.Input<string>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
-    /**
-     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
-     */
     customConfig?: pulumi.Input<string>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiEventRateLimit {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration?: pulumi.Input<string>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeApiSecretsEncryptionConfig {
-    /**
-     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
-     */
     customConfig?: pulumi.Input<string>;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ClusterServicesKubeController {
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     clusterCidr?: pulumi.Input<string>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-controller service
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kube-controller service
      */
     image?: pulumi.Input<string>;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeControllerDeprecated {
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     clusterCidr?: pulumi.Input<string>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-controller service
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kube-controller service
      */
     image?: pulumi.Input<string>;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeProxyDeprecated {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubeproxy services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the worker nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubeproxy service
      */
     image?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeSchedulerDeprecated {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the scheduler services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the scheduler service
      */
     image?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubelet {
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     clusterDnsServer?: pulumi.Input<string>;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     clusterDomain?: pulumi.Input<string>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubelet services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Enable or disable failing when swap on is not supported (bool)
+     * Fail if swap is enabled
      */
     failSwapOn?: pulumi.Input<boolean>;
-    /**
-     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     */
     generateServingCertificate?: pulumi.Input<boolean>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubelet service
      */
     image?: pulumi.Input<string>;
     /**
-     * Infra container image for kubelet service (string)
+     * The image whose network/ipc namespaces containers in each pod will use
      */
     infraContainerImage?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeletDeprecated {
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     clusterDnsServer?: pulumi.Input<string>;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     clusterDomain?: pulumi.Input<string>;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubelet services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Enable or disable failing when swap on is not supported (bool)
+     * Fail if swap is enabled
      */
     failSwapOn?: pulumi.Input<boolean>;
-    /**
-     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     */
     generateServingCertificate?: pulumi.Input<boolean>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubelet service
      */
     image?: pulumi.Input<string>;
     /**
-     * Infra container image for kubelet service (string)
+     * The image whose network/ipc namespaces containers in each pod will use
      */
     infraContainerImage?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesKubeproxy {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubeproxy services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the worker nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubeproxy service
      */
     image?: pulumi.Input<string>;
 }
 
 export interface ClusterServicesScheduler {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the scheduler services
      */
     extraArgs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the scheduler service
      */
     image?: pulumi.Input<string>;
 }
 
 export interface ClusterSystemImages {
-    /**
-     * Docker image for aciCniDeployContainer (string)
-     */
     aciCniDeployContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciControllerContainer (string)
-     */
     aciControllerContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciHostContainer (string)
-     */
     aciHostContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciMcastContainer (string)
-     */
     aciMcastContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciOpflexContainer (string)
-     */
     aciOpflexContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for aciOvsContainer (string)
-     */
     aciOvsContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for alpine (string)
-     */
     alpine?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoCni (string)
-     */
     calicoCni?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoControllers (string)
-     */
     calicoControllers?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoCtl (string)
-     */
     calicoCtl?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoFlexVol (string)
-     */
     calicoFlexVol?: pulumi.Input<string>;
-    /**
-     * Docker image for calicoNode (string)
-     */
     calicoNode?: pulumi.Input<string>;
-    /**
-     * Docker image for canalCni (string)
-     */
     canalCni?: pulumi.Input<string>;
-    /**
-     * Docker image for canalFlannel (string)
-     */
     canalFlannel?: pulumi.Input<string>;
-    /**
-     * Docker image for canalFlexVol (string)
-     */
     canalFlexVol?: pulumi.Input<string>;
-    /**
-     * Docker image for canalNode (string)
-     */
     canalNode?: pulumi.Input<string>;
-    /**
-     * Docker image for certDownloader (string)
-     */
     certDownloader?: pulumi.Input<string>;
-    /**
-     * Docker image for coredns (string)
-     */
     coredns?: pulumi.Input<string>;
-    /**
-     * Docker image for corednsAutoscaler (string)
-     */
     corednsAutoscaler?: pulumi.Input<string>;
-    /**
-     * Docker image for dnsmasq (string)
-     */
     dnsmasq?: pulumi.Input<string>;
-    /**
-     * Docker image for etcd (string)
-     */
     etcd?: pulumi.Input<string>;
-    /**
-     * Docker image for flannel (string)
-     */
     flannel?: pulumi.Input<string>;
-    /**
-     * Docker image for flannelCni (string)
-     */
     flannelCni?: pulumi.Input<string>;
     /**
      * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: pulumi.Input<string>;
-    /**
-     * Docker image for ingressBackend (string)
-     */
     ingressBackend?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDns (string)
-     */
     kubeDns?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDnsAutoscaler (string)
-     */
     kubeDnsAutoscaler?: pulumi.Input<string>;
-    /**
-     * Docker image for kubeDnsSidecar (string)
-     */
     kubeDnsSidecar?: pulumi.Input<string>;
-    /**
-     * Docker image for kubernetes (string)
-     */
     kubernetes?: pulumi.Input<string>;
-    /**
-     * Docker image for kubernetesServicesSidecar (string)
-     */
     kubernetesServicesSidecar?: pulumi.Input<string>;
-    /**
-     * Docker image for metricsServer (string)
-     */
     metricsServer?: pulumi.Input<string>;
-    /**
-     * Docker image for nginxProxy (string)
-     */
     nginxProxy?: pulumi.Input<string>;
-    /**
-     * Docker image for nodelocal (string)
-     */
     nodelocal?: pulumi.Input<string>;
-    /**
-     * Docker image for podInfraContainer (string)
-     */
     podInfraContainer?: pulumi.Input<string>;
-    /**
-     * Docker image for weaveCni (string)
-     */
     weaveCni?: pulumi.Input<string>;
-    /**
-     * Docker image for weaveNode (string)
-     */
     weaveNode?: pulumi.Input<string>;
-    /**
-     * Docker image for windowsPodInfraContainer (string)
-     */
     windowsPodInfraContainer?: pulumi.Input<string>;
 }
 
 export interface ClusterUpgradeStrategy {
-    /**
-     * RKE drain nodes (bool)
-     */
     drain?: pulumi.Input<boolean>;
-    /**
-     * RKE drain node input (list Maxitems: 1)
-     */
     drainInput?: pulumi.Input<inputs.ClusterUpgradeStrategyDrainInput>;
-    /**
-     * RKE max unavailable controlplane nodes (string)
-     */
     maxUnavailableControlplane?: pulumi.Input<string>;
-    /**
-     * RKE max unavailable worker nodes (string)
-     */
     maxUnavailableWorker?: pulumi.Input<string>;
 }
 
 export interface ClusterUpgradeStrategyDrainInput {
-    /**
-     * Delete RKE node local data (bool)
-     */
     deleteLocalData?: pulumi.Input<boolean>;
-    /**
-     * Force RKE node drain (bool)
-     */
     force?: pulumi.Input<boolean>;
-    /**
-     * RKE node drain grace period (int)
-     */
     gracePeriod?: pulumi.Input<number>;
-    /**
-     * Ignore RKE daemon sets (bool)
-     */
     ignoreDaemonSets?: pulumi.Input<boolean>;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout?: pulumi.Input<number>;
 }
 
 export interface ClusterWorkerHost {
-    /**
-     * Address ip for node (string)
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName?: pulumi.Input<string>;
 }

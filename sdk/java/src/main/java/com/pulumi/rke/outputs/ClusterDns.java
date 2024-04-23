@@ -16,62 +16,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterDns {
     /**
-     * @return Node selector key pair (map)
+     * @return NodeSelector key pair
      * 
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns
      * 
      */
     private @Nullable ClusterDnsNodelocal nodelocal;
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider
      * 
      */
     private @Nullable String provider;
     /**
-     * @return Reverse CIDRs  (list)
+     * @return ReverseCIDRs
      * 
      */
     private @Nullable List<String> reverseCidrs;
     /**
-     * @return Upstream nameservers  (list)
+     * @return Upstream nameservers
      * 
      */
     private @Nullable List<String> upstreamNameservers;
 
     private ClusterDns() {}
     /**
-     * @return Node selector key pair (map)
+     * @return NodeSelector key pair
      * 
      */
     public Map<String,Object> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns
      * 
      */
     public Optional<ClusterDnsNodelocal> nodelocal() {
         return Optional.ofNullable(this.nodelocal);
     }
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider
      * 
      */
     public Optional<String> provider() {
         return Optional.ofNullable(this.provider);
     }
     /**
-     * @return Reverse CIDRs  (list)
+     * @return ReverseCIDRs
      * 
      */
     public List<String> reverseCidrs() {
         return this.reverseCidrs == null ? List.of() : this.reverseCidrs;
     }
     /**
-     * @return Upstream nameservers  (list)
+     * @return Upstream nameservers
      * 
      */
     public List<String> upstreamNameservers() {

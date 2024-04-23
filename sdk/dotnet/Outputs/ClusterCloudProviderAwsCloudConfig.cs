@@ -13,13 +13,7 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderAwsCloudConfig
     {
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudConfigGlobal? Global;
-        /// <summary>
-        /// (list)
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCloudProviderAwsCloudConfigServiceOverride> ServiceOverrides;
 
         [OutputConstructor]

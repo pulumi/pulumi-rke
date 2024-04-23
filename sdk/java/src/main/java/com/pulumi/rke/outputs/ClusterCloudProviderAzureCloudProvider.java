@@ -15,67 +15,63 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProviderAzureCloudProvider {
     /**
-     * @return (string)
+     * @return The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     private @Nullable String aadClientCertPassword;
     /**
-     * @return (string)
+     * @return The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     private @Nullable String aadClientCertPath;
     /**
-     * @return (string)
+     * @return The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     private String aadClientId;
     /**
-     * @return (string)
+     * @return The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     private String aadClientSecret;
     /**
-     * @return (string)
+     * @return The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      * 
      */
     private @Nullable String cloud;
     /**
-     * @return (bool)
+     * @return Enable exponential backoff to manage resource request retries
      * 
      */
     private @Nullable Boolean cloudProviderBackoff;
     /**
-     * @return (int)
+     * @return Backoff duration
      * 
      */
     private @Nullable Integer cloudProviderBackoffDuration;
     /**
-     * @return (int)
+     * @return Backoff exponent
      * 
      */
     private @Nullable Integer cloudProviderBackoffExponent;
     /**
-     * @return (int)
+     * @return Backoff jitter
      * 
      */
     private @Nullable Integer cloudProviderBackoffJitter;
     /**
-     * @return (int)
+     * @return Backoff retry limit
      * 
      */
     private @Nullable Integer cloudProviderBackoffRetries;
     /**
-     * @return (bool)
+     * @return Enable rate limiting
      * 
      */
     private @Nullable Boolean cloudProviderRateLimit;
-    /**
-     * @return (int)
-     * 
-     */
     private @Nullable Integer cloudProviderRateLimitBucket;
     /**
-     * @return (int)
+     * @return Rate limit QPS
      * 
      */
     private @Nullable Integer cloudProviderRateLimitQps;
@@ -85,168 +81,164 @@ public final class ClusterCloudProviderAzureCloudProvider {
      */
     private @Nullable String loadBalancerSku;
     /**
-     * @return (string)
+     * @return The location of the resource group that the cluster is deployed in
      * 
      */
     private @Nullable String location;
     /**
-     * @return (int)
+     * @return Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      * 
      */
     private @Nullable Integer maximumLoadBalancerRuleCount;
     /**
-     * @return (string)
+     * @return The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      * 
      */
     private @Nullable String primaryAvailabilitySetName;
     /**
-     * @return (string)
+     * @return The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      * 
      */
     private @Nullable String primaryScaleSetName;
     /**
-     * @return (string)
+     * @return The name of the resource group that the cluster is deployed in
      * 
      */
     private @Nullable String resourceGroup;
     /**
-     * @return (string)
+     * @return (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      * 
      */
     private @Nullable String routeTableName;
     /**
-     * @return (string)
+     * @return The name of the security group attached to the cluster&#39;s subnet
      * 
      */
     private @Nullable String securityGroupName;
     /**
-     * @return (string)
+     * @return The name of the Subnet that the cluster is deployed in
      * 
      */
     private @Nullable String subnetName;
     /**
-     * @return (string)
+     * @return The ID of the Azure Subscription that the cluster is deployed in
      * 
      */
     private String subscriptionId;
     /**
-     * @return Required if `tenant_name` not provided. (string)
+     * @return The AAD Tenant ID for the Subscription that the cluster is deployed in
      * 
      */
     private String tenantId;
     /**
-     * @return (bool)
+     * @return Use instance metadata service where possible
      * 
      */
     private @Nullable Boolean useInstanceMetadata;
     /**
-     * @return (bool)
+     * @return Use managed service identity for the virtual machine to access Azure ARM APIs
      * 
      */
     private @Nullable Boolean useManagedIdentityExtension;
     /**
-     * @return (string)
+     * @return The type of azure nodes. If not set, it will be default to standard.
      * 
      */
     private @Nullable String vmType;
     /**
-     * @return (string)
+     * @return The name of the VNet that the cluster is deployed in
      * 
      */
     private @Nullable String vnetName;
     /**
-     * @return (string)
+     * @return The name of the resource group that the Vnet is deployed in
      * 
      */
     private @Nullable String vnetResourceGroup;
 
     private ClusterCloudProviderAzureCloudProvider() {}
     /**
-     * @return (string)
+     * @return The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Optional<String> aadClientCertPassword() {
         return Optional.ofNullable(this.aadClientCertPassword);
     }
     /**
-     * @return (string)
+     * @return The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Optional<String> aadClientCertPath() {
         return Optional.ofNullable(this.aadClientCertPath);
     }
     /**
-     * @return (string)
+     * @return The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public String aadClientId() {
         return this.aadClientId;
     }
     /**
-     * @return (string)
+     * @return The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public String aadClientSecret() {
         return this.aadClientSecret;
     }
     /**
-     * @return (string)
+     * @return The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      * 
      */
     public Optional<String> cloud() {
         return Optional.ofNullable(this.cloud);
     }
     /**
-     * @return (bool)
+     * @return Enable exponential backoff to manage resource request retries
      * 
      */
     public Optional<Boolean> cloudProviderBackoff() {
         return Optional.ofNullable(this.cloudProviderBackoff);
     }
     /**
-     * @return (int)
+     * @return Backoff duration
      * 
      */
     public Optional<Integer> cloudProviderBackoffDuration() {
         return Optional.ofNullable(this.cloudProviderBackoffDuration);
     }
     /**
-     * @return (int)
+     * @return Backoff exponent
      * 
      */
     public Optional<Integer> cloudProviderBackoffExponent() {
         return Optional.ofNullable(this.cloudProviderBackoffExponent);
     }
     /**
-     * @return (int)
+     * @return Backoff jitter
      * 
      */
     public Optional<Integer> cloudProviderBackoffJitter() {
         return Optional.ofNullable(this.cloudProviderBackoffJitter);
     }
     /**
-     * @return (int)
+     * @return Backoff retry limit
      * 
      */
     public Optional<Integer> cloudProviderBackoffRetries() {
         return Optional.ofNullable(this.cloudProviderBackoffRetries);
     }
     /**
-     * @return (bool)
+     * @return Enable rate limiting
      * 
      */
     public Optional<Boolean> cloudProviderRateLimit() {
         return Optional.ofNullable(this.cloudProviderRateLimit);
     }
-    /**
-     * @return (int)
-     * 
-     */
     public Optional<Integer> cloudProviderRateLimitBucket() {
         return Optional.ofNullable(this.cloudProviderRateLimitBucket);
     }
     /**
-     * @return (int)
+     * @return Rate limit QPS
      * 
      */
     public Optional<Integer> cloudProviderRateLimitQps() {
@@ -260,105 +252,105 @@ public final class ClusterCloudProviderAzureCloudProvider {
         return Optional.ofNullable(this.loadBalancerSku);
     }
     /**
-     * @return (string)
+     * @return The location of the resource group that the cluster is deployed in
      * 
      */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return (int)
+     * @return Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      * 
      */
     public Optional<Integer> maximumLoadBalancerRuleCount() {
         return Optional.ofNullable(this.maximumLoadBalancerRuleCount);
     }
     /**
-     * @return (string)
+     * @return The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      * 
      */
     public Optional<String> primaryAvailabilitySetName() {
         return Optional.ofNullable(this.primaryAvailabilitySetName);
     }
     /**
-     * @return (string)
+     * @return The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      * 
      */
     public Optional<String> primaryScaleSetName() {
         return Optional.ofNullable(this.primaryScaleSetName);
     }
     /**
-     * @return (string)
+     * @return The name of the resource group that the cluster is deployed in
      * 
      */
     public Optional<String> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
     }
     /**
-     * @return (string)
+     * @return (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      * 
      */
     public Optional<String> routeTableName() {
         return Optional.ofNullable(this.routeTableName);
     }
     /**
-     * @return (string)
+     * @return The name of the security group attached to the cluster&#39;s subnet
      * 
      */
     public Optional<String> securityGroupName() {
         return Optional.ofNullable(this.securityGroupName);
     }
     /**
-     * @return (string)
+     * @return The name of the Subnet that the cluster is deployed in
      * 
      */
     public Optional<String> subnetName() {
         return Optional.ofNullable(this.subnetName);
     }
     /**
-     * @return (string)
+     * @return The ID of the Azure Subscription that the cluster is deployed in
      * 
      */
     public String subscriptionId() {
         return this.subscriptionId;
     }
     /**
-     * @return Required if `tenant_name` not provided. (string)
+     * @return The AAD Tenant ID for the Subscription that the cluster is deployed in
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return (bool)
+     * @return Use instance metadata service where possible
      * 
      */
     public Optional<Boolean> useInstanceMetadata() {
         return Optional.ofNullable(this.useInstanceMetadata);
     }
     /**
-     * @return (bool)
+     * @return Use managed service identity for the virtual machine to access Azure ARM APIs
      * 
      */
     public Optional<Boolean> useManagedIdentityExtension() {
         return Optional.ofNullable(this.useManagedIdentityExtension);
     }
     /**
-     * @return (string)
+     * @return The type of azure nodes. If not set, it will be default to standard.
      * 
      */
     public Optional<String> vmType() {
         return Optional.ofNullable(this.vmType);
     }
     /**
-     * @return (string)
+     * @return The name of the VNet that the cluster is deployed in
      * 
      */
     public Optional<String> vnetName() {
         return Optional.ofNullable(this.vnetName);
     }
     /**
-     * @return (string)
+     * @return The name of the resource group that the Vnet is deployed in
      * 
      */
     public Optional<String> vnetResourceGroup() {

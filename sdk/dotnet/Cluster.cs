@@ -105,19 +105,19 @@ namespace Pulumi.Rke
         public Output<Outputs.ClusterCloudProvider?> CloudProvider { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
+        /// (Computed) RKE k8s cluster cidr (string)
         /// </summary>
         [Output("clusterCidr")]
         public Output<string> ClusterCidr { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
+        /// (Computed) RKE k8s cluster dns server (string)
         /// </summary>
         [Output("clusterDnsServer")]
         public Output<string> ClusterDnsServer { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// (Computed) RKE k8s cluster domain (string)
         /// </summary>
         [Output("clusterDomain")]
         public Output<string> ClusterDomain { get; private set; } = null!;
@@ -857,19 +857,19 @@ namespace Pulumi.Rke
         public Input<Inputs.ClusterCloudProviderGetArgs>? CloudProvider { get; set; }
 
         /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
+        /// (Computed) RKE k8s cluster cidr (string)
         /// </summary>
         [Input("clusterCidr")]
         public Input<string>? ClusterCidr { get; set; }
 
         /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
+        /// (Computed) RKE k8s cluster dns server (string)
         /// </summary>
         [Input("clusterDnsServer")]
         public Input<string>? ClusterDnsServer { get; set; }
 
         /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// (Computed) RKE k8s cluster domain (string)
         /// </summary>
         [Input("clusterDomain")]
         public Input<string>? ClusterDomain { get; set; }

@@ -18,7 +18,7 @@ public final class ClusterRestore {
      */
     private @Nullable Boolean restore;
     /**
-     * @return Snapshot name (string)
+     * @return Snapshot name
      * 
      */
     private @Nullable String snapshotName;
@@ -32,7 +32,7 @@ public final class ClusterRestore {
         return Optional.ofNullable(this.restore);
     }
     /**
-     * @return Snapshot name (string)
+     * @return Snapshot name
      * 
      */
     public Optional<String> snapshotName() {

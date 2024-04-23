@@ -13,19 +13,19 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterBastionHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// Address of Bastion Host
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+        /// Ignore proxy env vars at Bastion Host?
         /// </summary>
         [Input("ignoreProxyEnvVars")]
         public Input<bool>? IgnoreProxyEnvVars { get; set; }
 
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _sshCert;
 
         /// <summary>
-        /// SSH Certificate (string)
+        /// SSH Certificate Key
         /// </summary>
         public Input<string>? SshCert
         {
@@ -62,7 +62,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _sshKey;
 
         /// <summary>
-        /// SSH Private Key (string)
+        /// SSH Private Key
         /// </summary>
         public Input<string>? SshKey
         {
@@ -81,7 +81,7 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? SshKeyPath { get; set; }
 
         /// <summary>
-        /// Registry user (string)
+        /// SSH User to Bastion Host
         /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;

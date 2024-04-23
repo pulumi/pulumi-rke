@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterRotateCertificates {
     /**
-     * @return Rotate CA Certificates. Default `false` (bool)
+     * @return Rotate CA Certificates
      * 
      */
     private @Nullable Boolean caCertificates;
@@ -26,7 +26,7 @@ public final class ClusterRotateCertificates {
 
     private ClusterRotateCertificates() {}
     /**
-     * @return Rotate CA Certificates. Default `false` (bool)
+     * @return Rotate CA Certificates
      * 
      */
     public Optional<Boolean> caCertificates() {

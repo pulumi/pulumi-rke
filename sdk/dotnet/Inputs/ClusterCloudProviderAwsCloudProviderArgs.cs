@@ -12,18 +12,11 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderAwsCloudProviderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("global")]
         public Input<Inputs.ClusterCloudProviderAwsCloudProviderGlobalArgs>? Global { get; set; }
 
         [Input("serviceOverrides")]
         private InputList<Inputs.ClusterCloudProviderAwsCloudProviderServiceOverrideArgs>? _serviceOverrides;
-
-        /// <summary>
-        /// (list)
-        /// </summary>
         public InputList<Inputs.ClusterCloudProviderAwsCloudProviderServiceOverrideArgs> ServiceOverrides
         {
             get => _serviceOverrides ?? (_serviceOverrides = new InputList<Inputs.ClusterCloudProviderAwsCloudProviderServiceOverrideArgs>());

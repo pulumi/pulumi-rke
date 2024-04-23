@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterAuthentication {
     /**
-     * @return List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * @return List of additional hostnames and IPs to include in the api server PKI cert
      * 
      */
     private @Nullable List<String> sans;
     /**
-     * @return Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * @return Authentication strategy that will be used in RKE k8s cluster
      * 
      */
     private @Nullable String strategy;
     /**
-     * @return Webhook configuration options (list maxitem: 1)
+     * @return Webhook configuration options
      * 
      */
     private @Nullable ClusterAuthenticationWebhook webhook;
 
     private ClusterAuthentication() {}
     /**
-     * @return List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * @return List of additional hostnames and IPs to include in the api server PKI cert
      * 
      */
     public List<String> sans() {
         return this.sans == null ? List.of() : this.sans;
     }
     /**
-     * @return Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * @return Authentication strategy that will be used in RKE k8s cluster
      * 
      */
     public Optional<String> strategy() {
         return Optional.ofNullable(this.strategy);
     }
     /**
-     * @return Webhook configuration options (list maxitem: 1)
+     * @return Webhook configuration options
      * 
      */
     public Optional<ClusterAuthenticationWebhook> webhook() {

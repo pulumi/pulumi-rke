@@ -14,15 +14,15 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterMonitoring
     {
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// Network provider options (map)
+        /// Monitoring options
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>
-        /// Monitoring provider (string)
+        /// Monitoring provider
         /// </summary>
         public readonly string? Provider;
 

@@ -14,15 +14,15 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterBastionHost
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// Address of Bastion Host
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+        /// Ignore proxy env vars at Bastion Host?
         /// </summary>
         public readonly bool? IgnoreProxyEnvVars;
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// SSH Port of Bastion Host
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? SshAgentAuth;
         /// <summary>
-        /// SSH Certificate (string)
+        /// SSH Certificate Key
         /// </summary>
         public readonly string? SshCert;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SshCertPath;
         /// <summary>
-        /// SSH Private Key (string)
+        /// SSH Private Key
         /// </summary>
         public readonly string? SshKey;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SshKeyPath;
         /// <summary>
-        /// Registry user (string)
+        /// SSH User to Bastion Host
         /// </summary>
         public readonly string User;
 

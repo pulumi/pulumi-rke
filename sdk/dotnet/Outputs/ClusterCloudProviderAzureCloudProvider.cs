@@ -14,55 +14,52 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterCloudProviderAzureCloudProvider
     {
         /// <summary>
-        /// (string)
+        /// The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public readonly string? AadClientCertPassword;
         /// <summary>
-        /// (string)
+        /// The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public readonly string? AadClientCertPath;
         /// <summary>
-        /// (string)
+        /// The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public readonly string AadClientId;
         /// <summary>
-        /// (string)
+        /// The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public readonly string AadClientSecret;
         /// <summary>
-        /// (string)
+        /// The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
         /// </summary>
         public readonly string? Cloud;
         /// <summary>
-        /// (bool)
+        /// Enable exponential backoff to manage resource request retries
         /// </summary>
         public readonly bool? CloudProviderBackoff;
         /// <summary>
-        /// (int)
+        /// Backoff duration
         /// </summary>
         public readonly int? CloudProviderBackoffDuration;
         /// <summary>
-        /// (int)
+        /// Backoff exponent
         /// </summary>
         public readonly int? CloudProviderBackoffExponent;
         /// <summary>
-        /// (int)
+        /// Backoff jitter
         /// </summary>
         public readonly int? CloudProviderBackoffJitter;
         /// <summary>
-        /// (int)
+        /// Backoff retry limit
         /// </summary>
         public readonly int? CloudProviderBackoffRetries;
         /// <summary>
-        /// (bool)
+        /// Enable rate limiting
         /// </summary>
         public readonly bool? CloudProviderRateLimit;
-        /// <summary>
-        /// (int)
-        /// </summary>
         public readonly int? CloudProviderRateLimitBucket;
         /// <summary>
-        /// (int)
+        /// Rate limit QPS
         /// </summary>
         public readonly int? CloudProviderRateLimitQps;
         /// <summary>
@@ -70,63 +67,63 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
-        /// (string)
+        /// The location of the resource group that the cluster is deployed in
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// (int)
+        /// Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
         /// </summary>
         public readonly int? MaximumLoadBalancerRuleCount;
         /// <summary>
-        /// (string)
+        /// The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
         /// </summary>
         public readonly string? PrimaryAvailabilitySetName;
         /// <summary>
-        /// (string)
+        /// The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
         /// </summary>
         public readonly string? PrimaryScaleSetName;
         /// <summary>
-        /// (string)
+        /// The name of the resource group that the cluster is deployed in
         /// </summary>
         public readonly string? ResourceGroup;
         /// <summary>
-        /// (string)
+        /// (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
         /// </summary>
         public readonly string? RouteTableName;
         /// <summary>
-        /// (string)
+        /// The name of the security group attached to the cluster's subnet
         /// </summary>
         public readonly string? SecurityGroupName;
         /// <summary>
-        /// (string)
+        /// The name of the Subnet that the cluster is deployed in
         /// </summary>
         public readonly string? SubnetName;
         /// <summary>
-        /// (string)
+        /// The ID of the Azure Subscription that the cluster is deployed in
         /// </summary>
         public readonly string SubscriptionId;
         /// <summary>
-        /// Required if `tenant_name` not provided. (string)
+        /// The AAD Tenant ID for the Subscription that the cluster is deployed in
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// (bool)
+        /// Use instance metadata service where possible
         /// </summary>
         public readonly bool? UseInstanceMetadata;
         /// <summary>
-        /// (bool)
+        /// Use managed service identity for the virtual machine to access Azure ARM APIs
         /// </summary>
         public readonly bool? UseManagedIdentityExtension;
         /// <summary>
-        /// (string)
+        /// The type of azure nodes. If not set, it will be default to standard.
         /// </summary>
         public readonly string? VmType;
         /// <summary>
-        /// (string)
+        /// The name of the VNet that the cluster is deployed in
         /// </summary>
         public readonly string? VnetName;
         /// <summary>
-        /// (string)
+        /// The name of the resource group that the Vnet is deployed in
         /// </summary>
         public readonly string? VnetResourceGroup;
 

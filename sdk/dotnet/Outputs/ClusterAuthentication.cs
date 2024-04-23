@@ -14,15 +14,15 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterAuthentication
     {
         /// <summary>
-        /// List of additional hostnames and IPs to include in the api server PKI cert (list)
+        /// List of additional hostnames and IPs to include in the api server PKI cert
         /// </summary>
         public readonly ImmutableArray<string> Sans;
         /// <summary>
-        /// Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+        /// Authentication strategy that will be used in RKE k8s cluster
         /// </summary>
         public readonly string? Strategy;
         /// <summary>
-        /// Webhook configuration options (list maxitem: 1)
+        /// Webhook configuration options
         /// </summary>
         public readonly Outputs.ClusterAuthenticationWebhook? Webhook;
 
