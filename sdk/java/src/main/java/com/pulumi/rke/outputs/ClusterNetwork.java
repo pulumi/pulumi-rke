@@ -20,98 +20,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNetwork {
     /**
-     * @return Aci network provider config (list maxitems:1)
+     * @return Aci network provider config
      * 
      */
     private @Nullable ClusterNetworkAciNetworkProvider aciNetworkProvider;
     /**
-     * @return Calico network provider config (list maxitems:1)
+     * @return Calico network provider config
      * 
      */
     private @Nullable ClusterNetworkCalicoNetworkProvider calicoNetworkProvider;
     /**
-     * @return Canal network provider config (list maxitems:1)
+     * @return Canal network provider config
      * 
      */
     private @Nullable ClusterNetworkCanalNetworkProvider canalNetworkProvider;
     /**
-     * @return Flannel network provider config (list maxitems:1)
+     * @return Flannel network provider config
      * 
      */
     private @Nullable ClusterNetworkFlannelNetworkProvider flannelNetworkProvider;
     /**
-     * @return Network provider MTU. Default `0` (int)
+     * @return Network provider MTU
      * 
      */
     private @Nullable Integer mtu;
     /**
-     * @return Network provider options (map)
+     * @return Network provider options
      * 
      */
     private @Nullable Map<String,Object> options;
     /**
-     * @return Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * @return Network provider plugin
      * 
      */
     private @Nullable String plugin;
     /**
-     * @return Weave network provider config (list maxitems:1)
+     * @return Weave network provider config
      * 
      */
     private @Nullable ClusterNetworkWeaveNetworkProvider weaveNetworkProvider;
 
     private ClusterNetwork() {}
     /**
-     * @return Aci network provider config (list maxitems:1)
+     * @return Aci network provider config
      * 
      */
     public Optional<ClusterNetworkAciNetworkProvider> aciNetworkProvider() {
         return Optional.ofNullable(this.aciNetworkProvider);
     }
     /**
-     * @return Calico network provider config (list maxitems:1)
+     * @return Calico network provider config
      * 
      */
     public Optional<ClusterNetworkCalicoNetworkProvider> calicoNetworkProvider() {
         return Optional.ofNullable(this.calicoNetworkProvider);
     }
     /**
-     * @return Canal network provider config (list maxitems:1)
+     * @return Canal network provider config
      * 
      */
     public Optional<ClusterNetworkCanalNetworkProvider> canalNetworkProvider() {
         return Optional.ofNullable(this.canalNetworkProvider);
     }
     /**
-     * @return Flannel network provider config (list maxitems:1)
+     * @return Flannel network provider config
      * 
      */
     public Optional<ClusterNetworkFlannelNetworkProvider> flannelNetworkProvider() {
         return Optional.ofNullable(this.flannelNetworkProvider);
     }
     /**
-     * @return Network provider MTU. Default `0` (int)
+     * @return Network provider MTU
      * 
      */
     public Optional<Integer> mtu() {
         return Optional.ofNullable(this.mtu);
     }
     /**
-     * @return Network provider options (map)
+     * @return Network provider options
      * 
      */
     public Map<String,Object> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * @return Network provider plugin
      * 
      */
     public Optional<String> plugin() {
         return Optional.ofNullable(this.plugin);
     }
     /**
-     * @return Weave network provider config (list maxitems:1)
+     * @return Weave network provider config
      * 
      */
     public Optional<ClusterNetworkWeaveNetworkProvider> weaveNetworkProvider() {

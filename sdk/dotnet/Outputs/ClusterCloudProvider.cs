@@ -13,48 +13,30 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProvider
     {
-        /// <summary>
-        /// Use aws_cloud_provider instead
-        /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudConfig? AwsCloudConfig;
         /// <summary>
-        /// AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+        /// AWS Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudProvider? AwsCloudProvider;
-        /// <summary>
-        /// Use azure_cloud_provider instead
-        /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudConfig? AzureCloudConfig;
         /// <summary>
-        /// Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+        /// Azure Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudProvider? AzureCloudProvider;
-        /// <summary>
-        /// Use custom_cloud_provider instead
-        /// </summary>
         public readonly string? CustomCloudConfig;
         /// <summary>
-        /// Custom Cloud Provider config (string)
+        /// Custom Cloud Provider config
         /// </summary>
         public readonly string? CustomCloudProvider;
-        /// <summary>
-        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Use openstack_cloud_provider instead
-        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfig? OpenstackCloudConfig;
         /// <summary>
-        /// Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+        /// Openstack Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudProvider? OpenstackCloudProvider;
-        /// <summary>
-        /// Use vsphere_cloud_provider instead
-        /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfig? VsphereCloudConfig;
         /// <summary>
-        /// Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+        /// Vsphere Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudProvider? VsphereCloudProvider;
 

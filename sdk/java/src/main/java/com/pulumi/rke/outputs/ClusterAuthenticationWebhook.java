@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterAuthenticationWebhook {
     /**
-     * @return Controls how long to cache authentication decisions (string)
+     * @return Controls how long to cache authentication decisions
      * 
      */
     private @Nullable String cacheTimeout;
     /**
-     * @return Multiline string that represent a custom webhook config file (string)
+     * @return Multiline string that represent a custom webhook config file
      * 
      */
     private @Nullable String configFile;
 
     private ClusterAuthenticationWebhook() {}
     /**
-     * @return Controls how long to cache authentication decisions (string)
+     * @return Controls how long to cache authentication decisions
      * 
      */
     public Optional<String> cacheTimeout() {
         return Optional.ofNullable(this.cacheTimeout);
     }
     /**
-     * @return Multiline string that represent a custom webhook config file (string)
+     * @return Multiline string that represent a custom webhook config file
      * 
      */
     public Optional<String> configFile() {

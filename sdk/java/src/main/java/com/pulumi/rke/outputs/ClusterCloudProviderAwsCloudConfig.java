@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderAwsCloudConfig {
-    /**
-     * @return (list maxitems:1)
-     * 
-     */
     private @Nullable ClusterCloudProviderAwsCloudConfigGlobal global;
-    /**
-     * @return (list)
-     * 
-     */
     private @Nullable List<ClusterCloudProviderAwsCloudConfigServiceOverride> serviceOverrides;
 
     private ClusterCloudProviderAwsCloudConfig() {}
-    /**
-     * @return (list maxitems:1)
-     * 
-     */
     public Optional<ClusterCloudProviderAwsCloudConfigGlobal> global() {
         return Optional.ofNullable(this.global);
     }
-    /**
-     * @return (list)
-     * 
-     */
     public List<ClusterCloudProviderAwsCloudConfigServiceOverride> serviceOverrides() {
         return this.serviceOverrides == null ? List.of() : this.serviceOverrides;
     }

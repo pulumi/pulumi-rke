@@ -13,122 +13,122 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProviderAwsCloudProviderGlobal {
     /**
-     * @return Disables the automatic ingress creation. Default `false` (bool)
+     * @return Disables the automatic ingress creation
      * 
      */
     private @Nullable Boolean disableSecurityGroupIngress;
     /**
-     * @return Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * @return Setting this to true will disable the check and provide a warning that the check was skipped
      * 
      */
     private @Nullable Boolean disableStrictZoneCheck;
     /**
-     * @return Use these ELB security groups instead create new (string)
+     * @return Use these ELB security groups instead create new
      * 
      */
     private @Nullable String elbSecurityGroup;
     /**
-     * @return The cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return The cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     private @Nullable String kubernetesClusterId;
     /**
-     * @return Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return Legacy cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     private @Nullable String kubernetesClusterTag;
     /**
-     * @return IAM role to assume when interaction with AWS APIs (string)
+     * @return IAM role to assume when interaction with AWS APIs
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return Enables using a specific RouteTable (string)
+     * @return Enables using a specific RouteTable
      * 
      */
     private @Nullable String routeTableId;
     /**
-     * @return (string)
+     * @return Enables using a specific subnet to use for ELB&#39;s
      * 
      */
     private @Nullable String subnetId;
     /**
-     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      * 
      */
     private @Nullable String vpc;
     /**
-     * @return The AWS zone (string)
+     * @return The AWS zone
      * 
      */
     private @Nullable String zone;
 
     private ClusterCloudProviderAwsCloudProviderGlobal() {}
     /**
-     * @return Disables the automatic ingress creation. Default `false` (bool)
+     * @return Disables the automatic ingress creation
      * 
      */
     public Optional<Boolean> disableSecurityGroupIngress() {
         return Optional.ofNullable(this.disableSecurityGroupIngress);
     }
     /**
-     * @return Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * @return Setting this to true will disable the check and provide a warning that the check was skipped
      * 
      */
     public Optional<Boolean> disableStrictZoneCheck() {
         return Optional.ofNullable(this.disableStrictZoneCheck);
     }
     /**
-     * @return Use these ELB security groups instead create new (string)
+     * @return Use these ELB security groups instead create new
      * 
      */
     public Optional<String> elbSecurityGroup() {
         return Optional.ofNullable(this.elbSecurityGroup);
     }
     /**
-     * @return The cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return The cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     public Optional<String> kubernetesClusterId() {
         return Optional.ofNullable(this.kubernetesClusterId);
     }
     /**
-     * @return Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return Legacy cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     public Optional<String> kubernetesClusterTag() {
         return Optional.ofNullable(this.kubernetesClusterTag);
     }
     /**
-     * @return IAM role to assume when interaction with AWS APIs (string)
+     * @return IAM role to assume when interaction with AWS APIs
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return Enables using a specific RouteTable (string)
+     * @return Enables using a specific RouteTable
      * 
      */
     public Optional<String> routeTableId() {
         return Optional.ofNullable(this.routeTableId);
     }
     /**
-     * @return (string)
+     * @return Enables using a specific subnet to use for ELB&#39;s
      * 
      */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
     /**
-     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      * 
      */
     public Optional<String> vpc() {
         return Optional.ofNullable(this.vpc);
     }
     /**
-     * @return The AWS zone (string)
+     * @return The AWS zone
      * 
      */
     public Optional<String> zone() {

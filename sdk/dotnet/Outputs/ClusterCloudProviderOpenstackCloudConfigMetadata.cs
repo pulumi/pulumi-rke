@@ -13,13 +13,7 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderOpenstackCloudConfigMetadata
     {
-        /// <summary>
-        /// (int)
-        /// </summary>
         public readonly int? RequestTimeout;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? SearchOrder;
 
         [OutputConstructor]

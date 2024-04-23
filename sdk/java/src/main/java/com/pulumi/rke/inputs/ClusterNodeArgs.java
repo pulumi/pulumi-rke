@@ -22,14 +22,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterNodeArgs Empty = new ClusterNodeArgs();
 
     /**
-     * Address ip for node (string)
+     * IP or FQDN that is fully resolvable and used for SSH communication
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return Address ip for node (string)
+     * @return IP or FQDN that is fully resolvable and used for SSH communication
      * 
      */
     public Output<String> address() {
@@ -37,14 +37,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Docker socket on the node that will be used in tunneling (string)
+     * Docker socket on the node that will be used in tunneling
      * 
      */
     @Import(name="dockerSocket")
     private @Nullable Output<String> dockerSocket;
 
     /**
-     * @return Docker socket on the node that will be used in tunneling (string)
+     * @return Docker socket on the node that will be used in tunneling
      * 
      */
     public Optional<Output<String>> dockerSocket() {
@@ -52,14 +52,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Hostname override for node (string)
+     * Hostname override
      * 
      */
     @Import(name="hostnameOverride")
     private @Nullable Output<String> hostnameOverride;
 
     /**
-     * @return Hostname override for node (string)
+     * @return Hostname override
      * 
      */
     public Optional<Output<String>> hostnameOverride() {
@@ -67,14 +67,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Internal address that will be used for components communication (string)
+     * Internal address that will be used for components communication
      * 
      */
     @Import(name="internalAddress")
     private @Nullable Output<String> internalAddress;
 
     /**
-     * @return Internal address that will be used for components communication (string)
+     * @return Internal address that will be used for components communication
      * 
      */
     public Optional<Output<String>> internalAddress() {
@@ -82,14 +82,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Node labels (map)
+     * Node Labels
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,Object>> labels;
 
     /**
-     * @return Node labels (map)
+     * @return Node Labels
      * 
      */
     public Optional<Output<Map<String,Object>>> labels() {
@@ -97,14 +97,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the host provisioned via docker machine (string)
+     * Name of the host provisioned via docker machine
      * 
      */
     @Import(name="nodeName")
     private @Nullable Output<String> nodeName;
 
     /**
-     * @return Name of the host provisioned via docker machine (string)
+     * @return Name of the host provisioned via docker machine
      * 
      */
     public Optional<Output<String>> nodeName() {
@@ -112,14 +112,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port used for SSH communication (string)
+     * Port used for SSH communication
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port used for SSH communication (string)
+     * @return Port used for SSH communication
      * 
      */
     public Optional<Output<String>> port() {
@@ -127,14 +127,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * Node roles in k8s cluster [controlplane/worker/etcd])
      * 
      */
     @Import(name="roles", required=true)
     private Output<List<String>> roles;
 
     /**
-     * @return Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * @return Node roles in k8s cluster [controlplane/worker/etcd])
      * 
      */
     public Output<List<String>> roles() {
@@ -180,14 +180,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Certificate (string)
+     * SSH Certificate
      * 
      */
     @Import(name="sshCert")
     private @Nullable Output<String> sshCert;
 
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate
      * 
      */
     public Optional<Output<String>> sshCert() {
@@ -210,14 +210,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      * 
      */
     @Import(name="sshKey")
     private @Nullable Output<String> sshKey;
 
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     public Optional<Output<String>> sshKey() {
@@ -240,14 +240,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Node taints (list)
+     * Node taints
      * 
      */
     @Import(name="taints")
     private @Nullable Output<List<ClusterNodeTaintArgs>> taints;
 
     /**
-     * @return Node taints (list)
+     * @return Node taints
      * 
      */
     public Optional<Output<List<ClusterNodeTaintArgs>>> taints() {
@@ -255,14 +255,14 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Registry user (string)
+     * SSH user that will be used by RKE
      * 
      */
     @Import(name="user", required=true)
     private Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return SSH user that will be used by RKE
      * 
      */
     public Output<String> user() {
@@ -309,7 +309,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address IP or FQDN that is fully resolvable and used for SSH communication
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address IP or FQDN that is fully resolvable and used for SSH communication
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dockerSocket Docker socket on the node that will be used in tunneling (string)
+         * @param dockerSocket Docker socket on the node that will be used in tunneling
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dockerSocket Docker socket on the node that will be used in tunneling (string)
+         * @param dockerSocket Docker socket on the node that will be used in tunneling
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostnameOverride Hostname override for node (string)
+         * @param hostnameOverride Hostname override
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostnameOverride Hostname override for node (string)
+         * @param hostnameOverride Hostname override
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalAddress Internal address that will be used for components communication (string)
+         * @param internalAddress Internal address that will be used for components communication
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalAddress Internal address that will be used for components communication (string)
+         * @param internalAddress Internal address that will be used for components communication
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Node labels (map)
+         * @param labels Node Labels
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param labels Node labels (map)
+         * @param labels Node Labels
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeName Name of the host provisioned via docker machine (string)
+         * @param nodeName Name of the host provisioned via docker machine
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeName Name of the host provisioned via docker machine (string)
+         * @param nodeName Name of the host provisioned via docker machine
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port Port used for SSH communication
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port Port used for SSH communication
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+         * @param roles Node roles in k8s cluster [controlplane/worker/etcd])
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+         * @param roles Node roles in k8s cluster [controlplane/worker/etcd])
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+         * @param roles Node roles in k8s cluster [controlplane/worker/etcd])
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKey SSH Private Key (string)
+         * @param sshKey SSH Private Key
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshKey SSH Private Key (string)
+         * @param sshKey SSH Private Key
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints Node taints (list)
+         * @param taints Node taints
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints Node taints (list)
+         * @param taints Node taints
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints Node taints (list)
+         * @param taints Node taints
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH user that will be used by RKE
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH user that will be used by RKE
          * 
          * @return builder
          * 

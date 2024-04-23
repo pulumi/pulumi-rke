@@ -14,19 +14,19 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterPrivateRegistry
     {
         /// <summary>
-        /// Set as default registry. Default `false` (bool)
+        /// Set as default registry
         /// </summary>
         public readonly bool? IsDefault;
         /// <summary>
-        /// Registry password (string)
+        /// Registry password
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// Registry URL (string)
+        /// Registry URL
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// Registry user (string)
+        /// Registry user
         /// </summary>
         public readonly string? User;
 

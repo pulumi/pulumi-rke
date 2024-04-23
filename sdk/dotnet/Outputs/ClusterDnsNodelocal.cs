@@ -13,12 +13,9 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterDnsNodelocal
     {
-        /// <summary>
-        /// Nodelocal dns ip address (string)
-        /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
 

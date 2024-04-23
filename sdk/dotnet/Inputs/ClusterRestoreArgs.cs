@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? Restore { get; set; }
 
         /// <summary>
-        /// Snapshot name (string)
+        /// Snapshot name
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }

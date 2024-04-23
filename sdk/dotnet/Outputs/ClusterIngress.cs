@@ -18,35 +18,35 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? DefaultBackend;
         /// <summary>
-        /// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+        /// Ingress controller dns policy
         /// </summary>
         public readonly string? DnsPolicy;
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Ingress controller http port (int)
+        /// Ingress controller http port
         /// </summary>
         public readonly int? HttpPort;
         /// <summary>
-        /// Ingress controller https port (int)
+        /// Ingress controller https port
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+        /// Ingress controller network mode
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// Network provider options (map)
+        /// Ingress controller options
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>
-        /// Monitoring provider (string)
+        /// Ingress controller provider
         /// </summary>
         public readonly string? Provider;
 

@@ -35,14 +35,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * Ingress controller dns policy
      * 
      */
     @Import(name="dnsPolicy")
     private @Nullable Output<String> dnsPolicy;
 
     /**
-     * @return Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * @return Ingress controller dns policy
      * 
      */
     public Optional<Output<String>> dnsPolicy() {
@@ -50,14 +50,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments for the ingress controller
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments for the ingress controller
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -65,14 +65,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Ingress controller http port (int)
+     * Ingress controller http port
      * 
      */
     @Import(name="httpPort")
     private @Nullable Output<Integer> httpPort;
 
     /**
-     * @return Ingress controller http port (int)
+     * @return Ingress controller http port
      * 
      */
     public Optional<Output<Integer>> httpPort() {
@@ -80,14 +80,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Ingress controller https port (int)
+     * Ingress controller https port
      * 
      */
     @Import(name="httpsPort")
     private @Nullable Output<Integer> httpsPort;
 
     /**
-     * @return Ingress controller https port (int)
+     * @return Ingress controller https port
      * 
      */
     public Optional<Output<Integer>> httpsPort() {
@@ -95,14 +95,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * Ingress controller network mode
      * 
      */
     @Import(name="networkMode")
     private @Nullable Output<String> networkMode;
 
     /**
-     * @return Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * @return Ingress controller network mode
      * 
      */
     public Optional<Output<String>> networkMode() {
@@ -110,14 +110,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      * 
      */
     @Import(name="nodeSelector")
     private @Nullable Output<Map<String,Object>> nodeSelector;
 
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     public Optional<Output<Map<String,Object>>> nodeSelector() {
@@ -125,14 +125,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Network provider options (map)
+     * Ingress controller options
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return Network provider options (map)
+     * @return Ingress controller options
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -140,14 +140,14 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Monitoring provider (string)
+     * Ingress controller provider
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return Monitoring provider (string)
+     * @return Ingress controller provider
      * 
      */
     public Optional<Output<String>> provider() {
@@ -208,7 +208,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dnsPolicy Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+         * @param dnsPolicy Ingress controller dns policy
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dnsPolicy Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+         * @param dnsPolicy Ingress controller dns policy
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments for the ingress controller
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments for the ingress controller
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpPort Ingress controller http port (int)
+         * @param httpPort Ingress controller http port
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpPort Ingress controller http port (int)
+         * @param httpPort Ingress controller http port
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpsPort Ingress controller https port (int)
+         * @param httpsPort Ingress controller https port
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpsPort Ingress controller https port (int)
+         * @param httpsPort Ingress controller https port
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkMode Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+         * @param networkMode Ingress controller network mode
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkMode Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+         * @param networkMode Ingress controller network mode
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Ingress controller options
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Ingress controller options
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider Ingress controller provider
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider Ingress controller provider
          * 
          * @return builder
          * 

@@ -13,25 +13,25 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// IP or FQDN that is fully resolvable and used for SSH communication
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// Docker socket on the node that will be used in tunneling (string)
+        /// Docker socket on the node that will be used in tunneling
         /// </summary>
         [Input("dockerSocket")]
         public Input<string>? DockerSocket { get; set; }
 
         /// <summary>
-        /// Hostname override for node (string)
+        /// Hostname override
         /// </summary>
         [Input("hostnameOverride")]
         public Input<string>? HostnameOverride { get; set; }
 
         /// <summary>
-        /// Internal address that will be used for components communication (string)
+        /// Internal address that will be used for components communication
         /// </summary>
         [Input("internalAddress")]
         public Input<string>? InternalAddress { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _labels;
 
         /// <summary>
-        /// Node labels (map)
+        /// Node Labels
         /// </summary>
         public InputMap<object> Labels
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Name of the host provisioned via docker machine (string)
+        /// Name of the host provisioned via docker machine
         /// </summary>
         [Input("nodeName")]
         public Input<string>? NodeName { get; set; }
 
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// Port used for SSH communication
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _roles;
 
         /// <summary>
-        /// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+        /// Node roles in k8s cluster [controlplane/worker/etcd])
         /// </summary>
         public InputList<string> Roles
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _sshCert;
 
         /// <summary>
-        /// SSH Certificate (string)
+        /// SSH Certificate
         /// </summary>
         public Input<string>? SshCert
         {
@@ -110,7 +110,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _sshKey;
 
         /// <summary>
-        /// SSH Private Key (string)
+        /// SSH Private Key
         /// </summary>
         public Input<string>? SshKey
         {
@@ -132,7 +132,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<Inputs.ClusterNodeTaintArgs>? _taints;
 
         /// <summary>
-        /// Node taints (list)
+        /// Node taints
         /// </summary>
         public InputList<Inputs.ClusterNodeTaintArgs> Taints
         {
@@ -144,7 +144,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _user;
 
         /// <summary>
-        /// Registry user (string)
+        /// SSH user that will be used by RKE
         /// </summary>
         public Input<string>? User
         {

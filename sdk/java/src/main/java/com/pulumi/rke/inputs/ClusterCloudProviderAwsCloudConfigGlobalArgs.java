@@ -17,14 +17,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     public static final ClusterCloudProviderAwsCloudConfigGlobalArgs Empty = new ClusterCloudProviderAwsCloudConfigGlobalArgs();
 
     /**
-     * Disables the automatic ingress creation. Default `false` (bool)
+     * Disables the automatic ingress creation
      * 
      */
     @Import(name="disableSecurityGroupIngress")
     private @Nullable Output<Boolean> disableSecurityGroupIngress;
 
     /**
-     * @return Disables the automatic ingress creation. Default `false` (bool)
+     * @return Disables the automatic ingress creation
      * 
      */
     public Optional<Output<Boolean>> disableSecurityGroupIngress() {
@@ -32,14 +32,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * Setting this to true will disable the check and provide a warning that the check was skipped
      * 
      */
     @Import(name="disableStrictZoneCheck")
     private @Nullable Output<Boolean> disableStrictZoneCheck;
 
     /**
-     * @return Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * @return Setting this to true will disable the check and provide a warning that the check was skipped
      * 
      */
     public Optional<Output<Boolean>> disableStrictZoneCheck() {
@@ -47,14 +47,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * Use these ELB security groups instead create new (string)
+     * Use these ELB security groups instead create new
      * 
      */
     @Import(name="elbSecurityGroup")
     private @Nullable Output<String> elbSecurityGroup;
 
     /**
-     * @return Use these ELB security groups instead create new (string)
+     * @return Use these ELB security groups instead create new
      * 
      */
     public Optional<Output<String>> elbSecurityGroup() {
@@ -62,14 +62,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * The cluster id we&#39;ll use to identify our cluster resources (string)
+     * The cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     @Import(name="kubernetesClusterId")
     private @Nullable Output<String> kubernetesClusterId;
 
     /**
-     * @return The cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return The cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     public Optional<Output<String>> kubernetesClusterId() {
@@ -77,14 +77,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+     * Legacy cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     @Import(name="kubernetesClusterTag")
     private @Nullable Output<String> kubernetesClusterTag;
 
     /**
-     * @return Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+     * @return Legacy cluster id we&#39;ll use to identify our cluster resources
      * 
      */
     public Optional<Output<String>> kubernetesClusterTag() {
@@ -92,14 +92,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * IAM role to assume when interaction with AWS APIs (string)
+     * IAM role to assume when interaction with AWS APIs
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return IAM role to assume when interaction with AWS APIs (string)
+     * @return IAM role to assume when interaction with AWS APIs
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -107,14 +107,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * Enables using a specific RouteTable (string)
+     * Enables using a specific RouteTable
      * 
      */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
     /**
-     * @return Enables using a specific RouteTable (string)
+     * @return Enables using a specific RouteTable
      * 
      */
     public Optional<Output<String>> routeTableId() {
@@ -122,14 +122,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB&#39;s
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return (string)
+     * @return Enables using a specific subnet to use for ELB&#39;s
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -137,14 +137,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<String> vpc;
 
     /**
-     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * @return The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      * 
      */
     public Optional<Output<String>> vpc() {
@@ -152,14 +152,14 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
     }
 
     /**
-     * The AWS zone (string)
+     * The AWS zone
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return The AWS zone (string)
+     * @return The AWS zone
      * 
      */
     public Optional<Output<String>> zone() {
@@ -200,7 +200,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param disableSecurityGroupIngress Disables the automatic ingress creation. Default `false` (bool)
+         * @param disableSecurityGroupIngress Disables the automatic ingress creation
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param disableSecurityGroupIngress Disables the automatic ingress creation. Default `false` (bool)
+         * @param disableSecurityGroupIngress Disables the automatic ingress creation
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param disableStrictZoneCheck Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+         * @param disableStrictZoneCheck Setting this to true will disable the check and provide a warning that the check was skipped
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param disableStrictZoneCheck Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+         * @param disableStrictZoneCheck Setting this to true will disable the check and provide a warning that the check was skipped
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param elbSecurityGroup Use these ELB security groups instead create new (string)
+         * @param elbSecurityGroup Use these ELB security groups instead create new
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param elbSecurityGroup Use these ELB security groups instead create new (string)
+         * @param elbSecurityGroup Use these ELB security groups instead create new
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param kubernetesClusterId The cluster id we&#39;ll use to identify our cluster resources (string)
+         * @param kubernetesClusterId The cluster id we&#39;ll use to identify our cluster resources
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param kubernetesClusterId The cluster id we&#39;ll use to identify our cluster resources (string)
+         * @param kubernetesClusterId The cluster id we&#39;ll use to identify our cluster resources
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param kubernetesClusterTag Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+         * @param kubernetesClusterTag Legacy cluster id we&#39;ll use to identify our cluster resources
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param kubernetesClusterTag Legacy cluster id we&#39;ll use to identify our cluster resources (string)
+         * @param kubernetesClusterTag Legacy cluster id we&#39;ll use to identify our cluster resources
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param roleArn IAM role to assume when interaction with AWS APIs (string)
+         * @param roleArn IAM role to assume when interaction with AWS APIs
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param roleArn IAM role to assume when interaction with AWS APIs (string)
+         * @param roleArn IAM role to assume when interaction with AWS APIs
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param routeTableId Enables using a specific RouteTable (string)
+         * @param routeTableId Enables using a specific RouteTable
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param routeTableId Enables using a specific RouteTable (string)
+         * @param routeTableId Enables using a specific RouteTable
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param subnetId (string)
+         * @param subnetId Enables using a specific subnet to use for ELB&#39;s
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param subnetId (string)
+         * @param subnetId Enables using a specific subnet to use for ELB&#39;s
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param vpc The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+         * @param vpc The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param vpc The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+         * @param vpc The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param zone The AWS zone (string)
+         * @param zone The AWS zone
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class ClusterCloudProviderAwsCloudConfigGlobalArgs extends com.pulu
         }
 
         /**
-         * @param zone The AWS zone (string)
+         * @param zone The AWS zone
          * 
          * @return builder
          * 

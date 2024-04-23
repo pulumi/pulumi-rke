@@ -809,9 +809,9 @@ class _ClusterState:
         :param pulumi.Input[str] client_cert: (Computed/Sensitive) RKE k8s cluster client certificate (string)
         :param pulumi.Input[str] client_key: (Computed/Sensitive) RKE k8s cluster client key (string)
         :param pulumi.Input['ClusterCloudProviderArgs'] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
-        :param pulumi.Input[str] cluster_cidr: Cluster CIDR option for kube controller service (string)
-        :param pulumi.Input[str] cluster_dns_server: Cluster DNS Server option for kubelet service (string)
-        :param pulumi.Input[str] cluster_domain: Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        :param pulumi.Input[str] cluster_cidr: (Computed) RKE k8s cluster cidr (string)
+        :param pulumi.Input[str] cluster_dns_server: (Computed) RKE k8s cluster dns server (string)
+        :param pulumi.Input[str] cluster_domain: (Computed) RKE k8s cluster domain (string)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
         :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterControlPlaneHostArgs']]] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
@@ -1161,7 +1161,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterCidr")
     def cluster_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        Cluster CIDR option for kube controller service (string)
+        (Computed) RKE k8s cluster cidr (string)
         """
         return pulumi.get(self, "cluster_cidr")
 
@@ -1173,7 +1173,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterDnsServer")
     def cluster_dns_server(self) -> Optional[pulumi.Input[str]]:
         """
-        Cluster DNS Server option for kubelet service (string)
+        (Computed) RKE k8s cluster dns server (string)
         """
         return pulumi.get(self, "cluster_dns_server")
 
@@ -1185,7 +1185,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterDomain")
     def cluster_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        (Computed) RKE k8s cluster domain (string)
         """
         return pulumi.get(self, "cluster_domain")
 
@@ -2087,9 +2087,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] client_cert: (Computed/Sensitive) RKE k8s cluster client certificate (string)
         :param pulumi.Input[str] client_key: (Computed/Sensitive) RKE k8s cluster client key (string)
         :param pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
-        :param pulumi.Input[str] cluster_cidr: Cluster CIDR option for kube controller service (string)
-        :param pulumi.Input[str] cluster_dns_server: Cluster DNS Server option for kubelet service (string)
-        :param pulumi.Input[str] cluster_domain: Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        :param pulumi.Input[str] cluster_cidr: (Computed) RKE k8s cluster cidr (string)
+        :param pulumi.Input[str] cluster_dns_server: (Computed) RKE k8s cluster dns server (string)
+        :param pulumi.Input[str] cluster_domain: (Computed) RKE k8s cluster domain (string)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
         :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterControlPlaneHostArgs']]]] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
@@ -2308,7 +2308,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterCidr")
     def cluster_cidr(self) -> pulumi.Output[str]:
         """
-        Cluster CIDR option for kube controller service (string)
+        (Computed) RKE k8s cluster cidr (string)
         """
         return pulumi.get(self, "cluster_cidr")
 
@@ -2316,7 +2316,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterDnsServer")
     def cluster_dns_server(self) -> pulumi.Output[str]:
         """
-        Cluster DNS Server option for kubelet service (string)
+        (Computed) RKE k8s cluster dns server (string)
         """
         return pulumi.get(self, "cluster_dns_server")
 
@@ -2324,7 +2324,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterDomain")
     def cluster_domain(self) -> pulumi.Output[str]:
         """
-        Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        (Computed) RKE k8s cluster domain (string)
         """
         return pulumi.get(self, "cluster_domain")
 

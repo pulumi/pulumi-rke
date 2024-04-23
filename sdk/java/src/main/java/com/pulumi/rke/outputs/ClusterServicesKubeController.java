@@ -15,74 +15,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServicesKubeController {
     /**
-     * @return Cluster CIDR option for kube controller service (string)
+     * @return (Computed) RKE k8s cluster cidr (string)
      * 
      */
     private @Nullable String clusterCidr;
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kube-controller service
      * 
      */
     private @Nullable Map<String,Object> extraArgs;
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     private @Nullable List<String> extraBinds;
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     private @Nullable List<String> extraEnvs;
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kube-controller service
      * 
      */
     private @Nullable String image;
     /**
-     * @return Service Cluster ip Range option for kube controller service (string)
+     * @return Virtual IP range that will be used by Kubernetes services
      * 
      */
     private @Nullable String serviceClusterIpRange;
 
     private ClusterServicesKubeController() {}
     /**
-     * @return Cluster CIDR option for kube controller service (string)
+     * @return (Computed) RKE k8s cluster cidr (string)
      * 
      */
     public Optional<String> clusterCidr() {
         return Optional.ofNullable(this.clusterCidr);
     }
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kube-controller service
      * 
      */
     public Map<String,Object> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     public List<String> extraBinds() {
         return this.extraBinds == null ? List.of() : this.extraBinds;
     }
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     public List<String> extraEnvs() {
         return this.extraEnvs == null ? List.of() : this.extraEnvs;
     }
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kube-controller service
      * 
      */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
     /**
-     * @return Service Cluster ip Range option for kube controller service (string)
+     * @return Virtual IP range that will be used by Kubernetes services
      * 
      */
     public Optional<String> serviceClusterIpRange() {

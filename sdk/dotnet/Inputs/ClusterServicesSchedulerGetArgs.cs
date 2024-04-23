@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the scheduler services
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the controlplane nodes
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the controlplane nodes
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image of the scheduler service
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }

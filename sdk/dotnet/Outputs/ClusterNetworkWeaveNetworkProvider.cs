@@ -13,9 +13,6 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterNetworkWeaveNetworkProvider
     {
-        /// <summary>
-        /// Registry password (string)
-        /// </summary>
         public readonly string Password;
 
         [OutputConstructor]

@@ -14,27 +14,27 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeControllerDeprecated
     {
         /// <summary>
-        /// Cluster CIDR option for kube controller service (string)
+        /// (Computed) RKE k8s cluster cidr (string)
         /// </summary>
         public readonly string? ClusterCidr;
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the kube-controller service
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the controlplane nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraBinds;
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the controlplane nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraEnvs;
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image of the kube-controller service
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
+        /// Virtual IP range that will be used by Kubernetes services
         /// </summary>
         public readonly string? ServiceClusterIpRange;
 

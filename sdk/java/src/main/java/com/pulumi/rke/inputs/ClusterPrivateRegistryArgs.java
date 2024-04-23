@@ -18,14 +18,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     public static final ClusterPrivateRegistryArgs Empty = new ClusterPrivateRegistryArgs();
 
     /**
-     * Set as default registry. Default `false` (bool)
+     * Set as default registry
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return Set as default registry. Default `false` (bool)
+     * @return Set as default registry
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -33,14 +33,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Registry password (string)
+     * Registry password
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Registry password (string)
+     * @return Registry password
      * 
      */
     public Optional<Output<String>> password() {
@@ -48,14 +48,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Registry URL (string)
+     * Registry URL
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return Registry URL (string)
+     * @return Registry URL
      * 
      */
     public Output<String> url() {
@@ -63,14 +63,14 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Registry user (string)
+     * Registry user
      * 
      */
     @Import(name="user")
     private @Nullable Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return Registry user
      * 
      */
     public Optional<Output<String>> user() {
@@ -105,7 +105,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param isDefault Set as default registry. Default `false` (bool)
+         * @param isDefault Set as default registry
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param isDefault Set as default registry. Default `false` (bool)
+         * @param isDefault Set as default registry
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password Registry password
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param password Registry password (string)
+         * @param password Registry password
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param url Registry URL (string)
+         * @param url Registry URL
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param url Registry URL (string)
+         * @param url Registry URL
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user Registry user
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterPrivateRegistryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user Registry user
          * 
          * @return builder
          * 

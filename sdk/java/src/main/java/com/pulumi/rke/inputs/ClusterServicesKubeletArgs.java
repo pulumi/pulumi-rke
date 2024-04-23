@@ -20,14 +20,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     public static final ClusterServicesKubeletArgs Empty = new ClusterServicesKubeletArgs();
 
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      * 
      */
     @Import(name="clusterDnsServer")
     private @Nullable Output<String> clusterDnsServer;
 
     /**
-     * @return Cluster DNS Server option for kubelet service (string)
+     * @return (Computed) RKE k8s cluster dns server (string)
      * 
      */
     public Optional<Output<String>> clusterDnsServer() {
@@ -35,14 +35,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      * 
      */
     @Import(name="clusterDomain")
     private @Nullable Output<String> clusterDomain;
 
     /**
-     * @return Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * @return (Computed) RKE k8s cluster domain (string)
      * 
      */
     public Optional<Output<String>> clusterDomain() {
@@ -50,14 +50,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubelet services
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kubelet services
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -65,14 +65,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      * 
      */
     @Import(name="extraBinds")
     private @Nullable Output<List<String>> extraBinds;
 
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the worker nodes
      * 
      */
     public Optional<Output<List<String>>> extraBinds() {
@@ -80,14 +80,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the nodes
      * 
      */
     @Import(name="extraEnvs")
     private @Nullable Output<List<String>> extraEnvs;
 
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the nodes
      * 
      */
     public Optional<Output<List<String>>> extraEnvs() {
@@ -95,44 +95,36 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enable or disable failing when swap on is not supported (bool)
+     * Fail if swap is enabled
      * 
      */
     @Import(name="failSwapOn")
     private @Nullable Output<Boolean> failSwapOn;
 
     /**
-     * @return Enable or disable failing when swap on is not supported (bool)
+     * @return Fail if swap is enabled
      * 
      */
     public Optional<Output<Boolean>> failSwapOn() {
         return Optional.ofNullable(this.failSwapOn);
     }
 
-    /**
-     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     * 
-     */
     @Import(name="generateServingCertificate")
     private @Nullable Output<Boolean> generateServingCertificate;
 
-    /**
-     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     * 
-     */
     public Optional<Output<Boolean>> generateServingCertificate() {
         return Optional.ofNullable(this.generateServingCertificate);
     }
 
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubelet service
      * 
      */
     @Import(name="image")
     private @Nullable Output<String> image;
 
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kubelet service
      * 
      */
     public Optional<Output<String>> image() {
@@ -140,14 +132,14 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Infra container image for kubelet service (string)
+     * The image whose network/ipc namespaces containers in each pod will use
      * 
      */
     @Import(name="infraContainerImage")
     private @Nullable Output<String> infraContainerImage;
 
     /**
-     * @return Infra container image for kubelet service (string)
+     * @return The image whose network/ipc namespaces containers in each pod will use
      * 
      */
     public Optional<Output<String>> infraContainerImage() {
@@ -187,7 +179,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterDnsServer Cluster DNS Server option for kubelet service (string)
+         * @param clusterDnsServer (Computed) RKE k8s cluster dns server (string)
          * 
          * @return builder
          * 
@@ -198,7 +190,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterDnsServer Cluster DNS Server option for kubelet service (string)
+         * @param clusterDnsServer (Computed) RKE k8s cluster dns server (string)
          * 
          * @return builder
          * 
@@ -208,7 +200,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterDomain Cluster Domain option for kubelet service. Default `cluster.local` (string)
+         * @param clusterDomain (Computed) RKE k8s cluster domain (string)
          * 
          * @return builder
          * 
@@ -219,7 +211,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterDomain Cluster Domain option for kubelet service. Default `cluster.local` (string)
+         * @param clusterDomain (Computed) RKE k8s cluster domain (string)
          * 
          * @return builder
          * 
@@ -229,7 +221,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kubelet services
          * 
          * @return builder
          * 
@@ -240,7 +232,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kubelet services
          * 
          * @return builder
          * 
@@ -250,7 +242,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the worker nodes
          * 
          * @return builder
          * 
@@ -261,7 +253,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the worker nodes
          * 
          * @return builder
          * 
@@ -271,7 +263,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the worker nodes
          * 
          * @return builder
          * 
@@ -281,7 +273,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the nodes
          * 
          * @return builder
          * 
@@ -292,7 +284,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the nodes
          * 
          * @return builder
          * 
@@ -302,7 +294,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the nodes
          * 
          * @return builder
          * 
@@ -312,7 +304,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param failSwapOn Enable or disable failing when swap on is not supported (bool)
+         * @param failSwapOn Fail if swap is enabled
          * 
          * @return builder
          * 
@@ -323,7 +315,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param failSwapOn Enable or disable failing when swap on is not supported (bool)
+         * @param failSwapOn Fail if swap is enabled
          * 
          * @return builder
          * 
@@ -332,29 +324,17 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
             return failSwapOn(Output.of(failSwapOn));
         }
 
-        /**
-         * @param generateServingCertificate [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-         * 
-         * @return builder
-         * 
-         */
         public Builder generateServingCertificate(@Nullable Output<Boolean> generateServingCertificate) {
             $.generateServingCertificate = generateServingCertificate;
             return this;
         }
 
-        /**
-         * @param generateServingCertificate [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-         * 
-         * @return builder
-         * 
-         */
         public Builder generateServingCertificate(Boolean generateServingCertificate) {
             return generateServingCertificate(Output.of(generateServingCertificate));
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the kubelet service
          * 
          * @return builder
          * 
@@ -365,7 +345,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the kubelet service
          * 
          * @return builder
          * 
@@ -375,7 +355,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param infraContainerImage Infra container image for kubelet service (string)
+         * @param infraContainerImage The image whose network/ipc namespaces containers in each pod will use
          * 
          * @return builder
          * 
@@ -386,7 +366,7 @@ public final class ClusterServicesKubeletArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param infraContainerImage Infra container image for kubelet service (string)
+         * @param infraContainerImage The image whose network/ipc namespaces containers in each pod will use
          * 
          * @return builder
          * 

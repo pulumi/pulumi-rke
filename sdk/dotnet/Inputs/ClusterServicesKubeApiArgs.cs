@@ -13,20 +13,14 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesKubeApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+        /// Enable/Disable AlwaysPullImages admissions plugin
         /// </summary>
         [Input("alwaysPullImages")]
         public Input<bool>? AlwaysPullImages { get; set; }
 
-        /// <summary>
-        /// K8s audit log configuration. (list maxitem: 1)
-        /// </summary>
         [Input("auditLog")]
         public Input<Inputs.ClusterServicesKubeApiAuditLogArgs>? AuditLog { get; set; }
 
-        /// <summary>
-        /// K8s event rate limit configuration. (list maxitem: 1)
-        /// </summary>
         [Input("eventRateLimit")]
         public Input<Inputs.ClusterServicesKubeApiEventRateLimitArgs>? EventRateLimit { get; set; }
 
@@ -34,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the kube-api services
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -46,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the controlplane nodes
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -58,7 +52,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the controlplane nodes
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -66,9 +60,6 @@ namespace Pulumi.Rke.Inputs
             set => _extraEnvs = value;
         }
 
-        /// <summary>
-        /// Docker image for scheduler service (string)
-        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
@@ -79,25 +70,22 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? PodSecurityConfiguration { get; set; }
 
         /// <summary>
-        /// Pod Security Policy option for kube API service (bool)
+        /// Enabled/Disable PodSecurityPolicy
         /// </summary>
         [Input("podSecurityPolicy")]
         public Input<bool>? PodSecurityPolicy { get; set; }
 
-        /// <summary>
-        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-        /// </summary>
         [Input("secretsEncryptionConfig")]
         public Input<Inputs.ClusterServicesKubeApiSecretsEncryptionConfigArgs>? SecretsEncryptionConfig { get; set; }
 
         /// <summary>
-        /// Service Cluster ip Range option for kube controller service (string)
+        /// Virtual IP range that will be used by Kubernetes services
         /// </summary>
         [Input("serviceClusterIpRange")]
         public Input<string>? ServiceClusterIpRange { get; set; }
 
         /// <summary>
-        /// Service Node Port Range option for kube API service (string)
+        /// Port range for services defined with NodePort type
         /// </summary>
         [Input("serviceNodePortRange")]
         public Input<string>? ServiceNodePortRange { get; set; }

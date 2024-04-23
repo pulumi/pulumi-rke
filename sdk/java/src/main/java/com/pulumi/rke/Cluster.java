@@ -244,42 +244,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudProvider);
     }
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      * 
      */
     @Export(name="clusterCidr", refs={String.class}, tree="[0]")
     private Output<String> clusterCidr;
 
     /**
-     * @return Cluster CIDR option for kube controller service (string)
+     * @return (Computed) RKE k8s cluster cidr (string)
      * 
      */
     public Output<String> clusterCidr() {
         return this.clusterCidr;
     }
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      * 
      */
     @Export(name="clusterDnsServer", refs={String.class}, tree="[0]")
     private Output<String> clusterDnsServer;
 
     /**
-     * @return Cluster DNS Server option for kubelet service (string)
+     * @return (Computed) RKE k8s cluster dns server (string)
      * 
      */
     public Output<String> clusterDnsServer() {
         return this.clusterDnsServer;
     }
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      * 
      */
     @Export(name="clusterDomain", refs={String.class}, tree="[0]")
     private Output<String> clusterDomain;
 
     /**
-     * @return Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * @return (Computed) RKE k8s cluster domain (string)
      * 
      */
     public Output<String> clusterDomain() {

@@ -20,14 +20,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterDnsArgs Empty = new ClusterDnsArgs();
 
     /**
-     * Node selector key pair (map)
+     * NodeSelector key pair
      * 
      */
     @Import(name="nodeSelector")
     private @Nullable Output<Map<String,Object>> nodeSelector;
 
     /**
-     * @return Node selector key pair (map)
+     * @return NodeSelector key pair
      * 
      */
     public Optional<Output<Map<String,Object>>> nodeSelector() {
@@ -35,14 +35,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns
      * 
      */
     @Import(name="nodelocal")
     private @Nullable Output<ClusterDnsNodelocalArgs> nodelocal;
 
     /**
-     * @return Docker image for nodelocal (string)
+     * @return Nodelocal dns
      * 
      */
     public Optional<Output<ClusterDnsNodelocalArgs>> nodelocal() {
@@ -50,14 +50,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Monitoring provider (string)
+     * DNS provider
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return Monitoring provider (string)
+     * @return DNS provider
      * 
      */
     public Optional<Output<String>> provider() {
@@ -65,14 +65,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Reverse CIDRs  (list)
+     * ReverseCIDRs
      * 
      */
     @Import(name="reverseCidrs")
     private @Nullable Output<List<String>> reverseCidrs;
 
     /**
-     * @return Reverse CIDRs  (list)
+     * @return ReverseCIDRs
      * 
      */
     public Optional<Output<List<String>>> reverseCidrs() {
@@ -80,14 +80,14 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Upstream nameservers  (list)
+     * Upstream nameservers
      * 
      */
     @Import(name="upstreamNameservers")
     private @Nullable Output<List<String>> upstreamNameservers;
 
     /**
-     * @return Upstream nameservers  (list)
+     * @return Upstream nameservers
      * 
      */
     public Optional<Output<List<String>>> upstreamNameservers() {
@@ -123,7 +123,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector NodeSelector key pair
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector NodeSelector key pair
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodelocal Docker image for nodelocal (string)
+         * @param nodelocal Nodelocal dns
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider DNS provider
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider DNS provider
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseCidrs Reverse CIDRs  (list)
+         * @param reverseCidrs ReverseCIDRs
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseCidrs Reverse CIDRs  (list)
+         * @param reverseCidrs ReverseCIDRs
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseCidrs Reverse CIDRs  (list)
+         * @param reverseCidrs ReverseCIDRs
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamNameservers Upstream nameservers  (list)
+         * @param upstreamNameservers Upstream nameservers
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamNameservers Upstream nameservers  (list)
+         * @param upstreamNameservers Upstream nameservers
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamNameservers Upstream nameservers  (list)
+         * @param upstreamNameservers Upstream nameservers
          * 
          * @return builder
          * 

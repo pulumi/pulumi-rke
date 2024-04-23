@@ -21,8 +21,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProvider {
     /**
-     * @return Use aws_cloud_provider instead
-     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -30,13 +28,11 @@ public final class ClusterCloudProvider {
     @Deprecated /* Use aws_cloud_provider instead */
     private @Nullable ClusterCloudProviderAwsCloudConfig awsCloudConfig;
     /**
-     * @return AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * @return AWS Cloud Provider config
      * 
      */
     private @Nullable ClusterCloudProviderAwsCloudProvider awsCloudProvider;
     /**
-     * @return Use azure_cloud_provider instead
-     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -44,13 +40,11 @@ public final class ClusterCloudProvider {
     @Deprecated /* Use azure_cloud_provider instead */
     private @Nullable ClusterCloudProviderAzureCloudConfig azureCloudConfig;
     /**
-     * @return Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * @return Azure Cloud Provider config
      * 
      */
     private @Nullable ClusterCloudProviderAzureCloudProvider azureCloudProvider;
     /**
-     * @return Use custom_cloud_provider instead
-     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -58,18 +52,12 @@ public final class ClusterCloudProvider {
     @Deprecated /* Use custom_cloud_provider instead */
     private @Nullable String customCloudConfig;
     /**
-     * @return Custom Cloud Provider config (string)
+     * @return Custom Cloud Provider config
      * 
      */
     private @Nullable String customCloudProvider;
-    /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     private String name;
     /**
-     * @return Use openstack_cloud_provider instead
-     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -77,13 +65,11 @@ public final class ClusterCloudProvider {
     @Deprecated /* Use openstack_cloud_provider instead */
     private @Nullable ClusterCloudProviderOpenstackCloudConfig openstackCloudConfig;
     /**
-     * @return Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * @return Openstack Cloud Provider config
      * 
      */
     private @Nullable ClusterCloudProviderOpenstackCloudProvider openstackCloudProvider;
     /**
-     * @return Use vsphere_cloud_provider instead
-     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 
@@ -91,15 +77,13 @@ public final class ClusterCloudProvider {
     @Deprecated /* Use vsphere_cloud_provider instead */
     private @Nullable ClusterCloudProviderVsphereCloudConfig vsphereCloudConfig;
     /**
-     * @return Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+     * @return Vsphere Cloud Provider config
      * 
      */
     private @Nullable ClusterCloudProviderVsphereCloudProvider vsphereCloudProvider;
 
     private ClusterCloudProvider() {}
     /**
-     * @return Use aws_cloud_provider instead
-     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -109,15 +93,13 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.awsCloudConfig);
     }
     /**
-     * @return AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * @return AWS Cloud Provider config
      * 
      */
     public Optional<ClusterCloudProviderAwsCloudProvider> awsCloudProvider() {
         return Optional.ofNullable(this.awsCloudProvider);
     }
     /**
-     * @return Use azure_cloud_provider instead
-     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -127,15 +109,13 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.azureCloudConfig);
     }
     /**
-     * @return Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * @return Azure Cloud Provider config
      * 
      */
     public Optional<ClusterCloudProviderAzureCloudProvider> azureCloudProvider() {
         return Optional.ofNullable(this.azureCloudProvider);
     }
     /**
-     * @return Use custom_cloud_provider instead
-     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -145,22 +125,16 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.customCloudConfig);
     }
     /**
-     * @return Custom Cloud Provider config (string)
+     * @return Custom Cloud Provider config
      * 
      */
     public Optional<String> customCloudProvider() {
         return Optional.ofNullable(this.customCloudProvider);
     }
-    /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     public String name() {
         return this.name;
     }
     /**
-     * @return Use openstack_cloud_provider instead
-     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -170,15 +144,13 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.openstackCloudConfig);
     }
     /**
-     * @return Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * @return Openstack Cloud Provider config
      * 
      */
     public Optional<ClusterCloudProviderOpenstackCloudProvider> openstackCloudProvider() {
         return Optional.ofNullable(this.openstackCloudProvider);
     }
     /**
-     * @return Use vsphere_cloud_provider instead
-     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 
@@ -188,7 +160,7 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.vsphereCloudConfig);
     }
     /**
-     * @return Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+     * @return Vsphere Cloud Provider config
      * 
      */
     public Optional<ClusterCloudProviderVsphereCloudProvider> vsphereCloudProvider() {

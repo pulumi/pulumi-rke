@@ -12,39 +12,21 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterServicesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Docker image for etcd (string)
-        /// </summary>
         [Input("etcd")]
         public Input<Inputs.ClusterServicesEtcdGetArgs>? Etcd { get; set; }
 
-        /// <summary>
-        /// Kube API options for RKE services (list maxitems:1)
-        /// </summary>
         [Input("kubeApi")]
         public Input<Inputs.ClusterServicesKubeApiGetArgs>? KubeApi { get; set; }
 
-        /// <summary>
-        /// Kube Controller options for RKE services (list maxitems:1)
-        /// </summary>
         [Input("kubeController")]
         public Input<Inputs.ClusterServicesKubeControllerGetArgs>? KubeController { get; set; }
 
-        /// <summary>
-        /// Kubelet options for RKE services (list maxitems:1)
-        /// </summary>
         [Input("kubelet")]
         public Input<Inputs.ClusterServicesKubeletGetArgs>? Kubelet { get; set; }
 
-        /// <summary>
-        /// Kubeproxy options for RKE services (list maxitems:1)
-        /// </summary>
         [Input("kubeproxy")]
         public Input<Inputs.ClusterServicesKubeproxyGetArgs>? Kubeproxy { get; set; }
 
-        /// <summary>
-        /// Scheduler options for RKE services (list maxitems:1)
-        /// </summary>
         [Input("scheduler")]
         public Input<Inputs.ClusterServicesSchedulerGetArgs>? Scheduler { get; set; }
 

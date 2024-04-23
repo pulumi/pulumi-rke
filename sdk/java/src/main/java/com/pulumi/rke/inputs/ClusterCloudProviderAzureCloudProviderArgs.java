@@ -19,14 +19,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     public static final ClusterCloudProviderAzureCloudProviderArgs Empty = new ClusterCloudProviderAzureCloudProviderArgs();
 
     /**
-     * (string)
+     * The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     @Import(name="aadClientCertPassword")
     private @Nullable Output<String> aadClientCertPassword;
 
     /**
-     * @return (string)
+     * @return The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Optional<Output<String>> aadClientCertPassword() {
@@ -34,14 +34,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     @Import(name="aadClientCertPath")
     private @Nullable Output<String> aadClientCertPath;
 
     /**
-     * @return (string)
+     * @return The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Optional<Output<String>> aadClientCertPath() {
@@ -49,14 +49,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     @Import(name="aadClientId", required=true)
     private Output<String> aadClientId;
 
     /**
-     * @return (string)
+     * @return The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Output<String> aadClientId() {
@@ -64,14 +64,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     @Import(name="aadClientSecret", required=true)
     private Output<String> aadClientSecret;
 
     /**
-     * @return (string)
+     * @return The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      * 
      */
     public Output<String> aadClientSecret() {
@@ -79,14 +79,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      * 
      */
     @Import(name="cloud")
     private @Nullable Output<String> cloud;
 
     /**
-     * @return (string)
+     * @return The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      * 
      */
     public Optional<Output<String>> cloud() {
@@ -94,14 +94,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (bool)
+     * Enable exponential backoff to manage resource request retries
      * 
      */
     @Import(name="cloudProviderBackoff")
     private @Nullable Output<Boolean> cloudProviderBackoff;
 
     /**
-     * @return (bool)
+     * @return Enable exponential backoff to manage resource request retries
      * 
      */
     public Optional<Output<Boolean>> cloudProviderBackoff() {
@@ -109,14 +109,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (int)
+     * Backoff duration
      * 
      */
     @Import(name="cloudProviderBackoffDuration")
     private @Nullable Output<Integer> cloudProviderBackoffDuration;
 
     /**
-     * @return (int)
+     * @return Backoff duration
      * 
      */
     public Optional<Output<Integer>> cloudProviderBackoffDuration() {
@@ -124,14 +124,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (int)
+     * Backoff exponent
      * 
      */
     @Import(name="cloudProviderBackoffExponent")
     private @Nullable Output<Integer> cloudProviderBackoffExponent;
 
     /**
-     * @return (int)
+     * @return Backoff exponent
      * 
      */
     public Optional<Output<Integer>> cloudProviderBackoffExponent() {
@@ -139,14 +139,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (int)
+     * Backoff jitter
      * 
      */
     @Import(name="cloudProviderBackoffJitter")
     private @Nullable Output<Integer> cloudProviderBackoffJitter;
 
     /**
-     * @return (int)
+     * @return Backoff jitter
      * 
      */
     public Optional<Output<Integer>> cloudProviderBackoffJitter() {
@@ -154,14 +154,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (int)
+     * Backoff retry limit
      * 
      */
     @Import(name="cloudProviderBackoffRetries")
     private @Nullable Output<Integer> cloudProviderBackoffRetries;
 
     /**
-     * @return (int)
+     * @return Backoff retry limit
      * 
      */
     public Optional<Output<Integer>> cloudProviderBackoffRetries() {
@@ -169,44 +169,36 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (bool)
+     * Enable rate limiting
      * 
      */
     @Import(name="cloudProviderRateLimit")
     private @Nullable Output<Boolean> cloudProviderRateLimit;
 
     /**
-     * @return (bool)
+     * @return Enable rate limiting
      * 
      */
     public Optional<Output<Boolean>> cloudProviderRateLimit() {
         return Optional.ofNullable(this.cloudProviderRateLimit);
     }
 
-    /**
-     * (int)
-     * 
-     */
     @Import(name="cloudProviderRateLimitBucket")
     private @Nullable Output<Integer> cloudProviderRateLimitBucket;
 
-    /**
-     * @return (int)
-     * 
-     */
     public Optional<Output<Integer>> cloudProviderRateLimitBucket() {
         return Optional.ofNullable(this.cloudProviderRateLimitBucket);
     }
 
     /**
-     * (int)
+     * Rate limit QPS
      * 
      */
     @Import(name="cloudProviderRateLimitQps")
     private @Nullable Output<Integer> cloudProviderRateLimitQps;
 
     /**
-     * @return (int)
+     * @return Rate limit QPS
      * 
      */
     public Optional<Output<Integer>> cloudProviderRateLimitQps() {
@@ -229,14 +221,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The location of the resource group that the cluster is deployed in
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return (string)
+     * @return The location of the resource group that the cluster is deployed in
      * 
      */
     public Optional<Output<String>> location() {
@@ -244,14 +236,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (int)
+     * Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      * 
      */
     @Import(name="maximumLoadBalancerRuleCount")
     private @Nullable Output<Integer> maximumLoadBalancerRuleCount;
 
     /**
-     * @return (int)
+     * @return Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      * 
      */
     public Optional<Output<Integer>> maximumLoadBalancerRuleCount() {
@@ -259,14 +251,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      * 
      */
     @Import(name="primaryAvailabilitySetName")
     private @Nullable Output<String> primaryAvailabilitySetName;
 
     /**
-     * @return (string)
+     * @return The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      * 
      */
     public Optional<Output<String>> primaryAvailabilitySetName() {
@@ -274,14 +266,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      * 
      */
     @Import(name="primaryScaleSetName")
     private @Nullable Output<String> primaryScaleSetName;
 
     /**
-     * @return (string)
+     * @return The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      * 
      */
     public Optional<Output<String>> primaryScaleSetName() {
@@ -289,14 +281,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the resource group that the cluster is deployed in
      * 
      */
     @Import(name="resourceGroup")
     private @Nullable Output<String> resourceGroup;
 
     /**
-     * @return (string)
+     * @return The name of the resource group that the cluster is deployed in
      * 
      */
     public Optional<Output<String>> resourceGroup() {
@@ -304,14 +296,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      * 
      */
     @Import(name="routeTableName")
     private @Nullable Output<String> routeTableName;
 
     /**
-     * @return (string)
+     * @return (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      * 
      */
     public Optional<Output<String>> routeTableName() {
@@ -319,14 +311,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the security group attached to the cluster&#39;s subnet
      * 
      */
     @Import(name="securityGroupName")
     private @Nullable Output<String> securityGroupName;
 
     /**
-     * @return (string)
+     * @return The name of the security group attached to the cluster&#39;s subnet
      * 
      */
     public Optional<Output<String>> securityGroupName() {
@@ -334,14 +326,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the Subnet that the cluster is deployed in
      * 
      */
     @Import(name="subnetName")
     private @Nullable Output<String> subnetName;
 
     /**
-     * @return (string)
+     * @return The name of the Subnet that the cluster is deployed in
      * 
      */
     public Optional<Output<String>> subnetName() {
@@ -349,14 +341,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The ID of the Azure Subscription that the cluster is deployed in
      * 
      */
     @Import(name="subscriptionId", required=true)
     private Output<String> subscriptionId;
 
     /**
-     * @return (string)
+     * @return The ID of the Azure Subscription that the cluster is deployed in
      * 
      */
     public Output<String> subscriptionId() {
@@ -364,14 +356,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * Required if `tenant_name` not provided. (string)
+     * The AAD Tenant ID for the Subscription that the cluster is deployed in
      * 
      */
     @Import(name="tenantId", required=true)
     private Output<String> tenantId;
 
     /**
-     * @return Required if `tenant_name` not provided. (string)
+     * @return The AAD Tenant ID for the Subscription that the cluster is deployed in
      * 
      */
     public Output<String> tenantId() {
@@ -379,14 +371,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (bool)
+     * Use instance metadata service where possible
      * 
      */
     @Import(name="useInstanceMetadata")
     private @Nullable Output<Boolean> useInstanceMetadata;
 
     /**
-     * @return (bool)
+     * @return Use instance metadata service where possible
      * 
      */
     public Optional<Output<Boolean>> useInstanceMetadata() {
@@ -394,14 +386,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (bool)
+     * Use managed service identity for the virtual machine to access Azure ARM APIs
      * 
      */
     @Import(name="useManagedIdentityExtension")
     private @Nullable Output<Boolean> useManagedIdentityExtension;
 
     /**
-     * @return (bool)
+     * @return Use managed service identity for the virtual machine to access Azure ARM APIs
      * 
      */
     public Optional<Output<Boolean>> useManagedIdentityExtension() {
@@ -409,14 +401,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The type of azure nodes. If not set, it will be default to standard.
      * 
      */
     @Import(name="vmType")
     private @Nullable Output<String> vmType;
 
     /**
-     * @return (string)
+     * @return The type of azure nodes. If not set, it will be default to standard.
      * 
      */
     public Optional<Output<String>> vmType() {
@@ -424,14 +416,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the VNet that the cluster is deployed in
      * 
      */
     @Import(name="vnetName")
     private @Nullable Output<String> vnetName;
 
     /**
-     * @return (string)
+     * @return The name of the VNet that the cluster is deployed in
      * 
      */
     public Optional<Output<String>> vnetName() {
@@ -439,14 +431,14 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
     }
 
     /**
-     * (string)
+     * The name of the resource group that the Vnet is deployed in
      * 
      */
     @Import(name="vnetResourceGroup")
     private @Nullable Output<String> vnetResourceGroup;
 
     /**
-     * @return (string)
+     * @return The name of the resource group that the Vnet is deployed in
      * 
      */
     public Optional<Output<String>> vnetResourceGroup() {
@@ -506,7 +498,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientCertPassword (string)
+         * @param aadClientCertPassword The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -517,7 +509,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientCertPassword (string)
+         * @param aadClientCertPassword The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -527,7 +519,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientCertPath (string)
+         * @param aadClientCertPath The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -538,7 +530,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientCertPath (string)
+         * @param aadClientCertPath The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -548,7 +540,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientId (string)
+         * @param aadClientId The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -559,7 +551,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientId (string)
+         * @param aadClientId The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -569,7 +561,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientSecret (string)
+         * @param aadClientSecret The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -580,7 +572,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param aadClientSecret (string)
+         * @param aadClientSecret The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
          * 
          * @return builder
          * 
@@ -590,7 +582,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloud (string)
+         * @param cloud The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
          * 
          * @return builder
          * 
@@ -601,7 +593,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloud (string)
+         * @param cloud The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
          * 
          * @return builder
          * 
@@ -611,7 +603,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoff (bool)
+         * @param cloudProviderBackoff Enable exponential backoff to manage resource request retries
          * 
          * @return builder
          * 
@@ -622,7 +614,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoff (bool)
+         * @param cloudProviderBackoff Enable exponential backoff to manage resource request retries
          * 
          * @return builder
          * 
@@ -632,7 +624,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffDuration (int)
+         * @param cloudProviderBackoffDuration Backoff duration
          * 
          * @return builder
          * 
@@ -643,7 +635,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffDuration (int)
+         * @param cloudProviderBackoffDuration Backoff duration
          * 
          * @return builder
          * 
@@ -653,7 +645,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffExponent (int)
+         * @param cloudProviderBackoffExponent Backoff exponent
          * 
          * @return builder
          * 
@@ -664,7 +656,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffExponent (int)
+         * @param cloudProviderBackoffExponent Backoff exponent
          * 
          * @return builder
          * 
@@ -674,7 +666,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffJitter (int)
+         * @param cloudProviderBackoffJitter Backoff jitter
          * 
          * @return builder
          * 
@@ -685,7 +677,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffJitter (int)
+         * @param cloudProviderBackoffJitter Backoff jitter
          * 
          * @return builder
          * 
@@ -695,7 +687,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffRetries (int)
+         * @param cloudProviderBackoffRetries Backoff retry limit
          * 
          * @return builder
          * 
@@ -706,7 +698,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderBackoffRetries (int)
+         * @param cloudProviderBackoffRetries Backoff retry limit
          * 
          * @return builder
          * 
@@ -716,7 +708,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderRateLimit (bool)
+         * @param cloudProviderRateLimit Enable rate limiting
          * 
          * @return builder
          * 
@@ -727,7 +719,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderRateLimit (bool)
+         * @param cloudProviderRateLimit Enable rate limiting
          * 
          * @return builder
          * 
@@ -736,29 +728,17 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
             return cloudProviderRateLimit(Output.of(cloudProviderRateLimit));
         }
 
-        /**
-         * @param cloudProviderRateLimitBucket (int)
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudProviderRateLimitBucket(@Nullable Output<Integer> cloudProviderRateLimitBucket) {
             $.cloudProviderRateLimitBucket = cloudProviderRateLimitBucket;
             return this;
         }
 
-        /**
-         * @param cloudProviderRateLimitBucket (int)
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudProviderRateLimitBucket(Integer cloudProviderRateLimitBucket) {
             return cloudProviderRateLimitBucket(Output.of(cloudProviderRateLimitBucket));
         }
 
         /**
-         * @param cloudProviderRateLimitQps (int)
+         * @param cloudProviderRateLimitQps Rate limit QPS
          * 
          * @return builder
          * 
@@ -769,7 +749,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param cloudProviderRateLimitQps (int)
+         * @param cloudProviderRateLimitQps Rate limit QPS
          * 
          * @return builder
          * 
@@ -800,7 +780,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param location (string)
+         * @param location The location of the resource group that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -811,7 +791,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param location (string)
+         * @param location The location of the resource group that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -821,7 +801,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param maximumLoadBalancerRuleCount (int)
+         * @param maximumLoadBalancerRuleCount Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
          * 
          * @return builder
          * 
@@ -832,7 +812,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param maximumLoadBalancerRuleCount (int)
+         * @param maximumLoadBalancerRuleCount Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
          * 
          * @return builder
          * 
@@ -842,7 +822,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param primaryAvailabilitySetName (string)
+         * @param primaryAvailabilitySetName The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
          * 
          * @return builder
          * 
@@ -853,7 +833,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param primaryAvailabilitySetName (string)
+         * @param primaryAvailabilitySetName The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
          * 
          * @return builder
          * 
@@ -863,7 +843,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param primaryScaleSetName (string)
+         * @param primaryScaleSetName The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
          * 
          * @return builder
          * 
@@ -874,7 +854,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param primaryScaleSetName (string)
+         * @param primaryScaleSetName The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
          * 
          * @return builder
          * 
@@ -884,7 +864,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param resourceGroup (string)
+         * @param resourceGroup The name of the resource group that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -895,7 +875,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param resourceGroup (string)
+         * @param resourceGroup The name of the resource group that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -905,7 +885,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param routeTableName (string)
+         * @param routeTableName (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -916,7 +896,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param routeTableName (string)
+         * @param routeTableName (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -926,7 +906,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param securityGroupName (string)
+         * @param securityGroupName The name of the security group attached to the cluster&#39;s subnet
          * 
          * @return builder
          * 
@@ -937,7 +917,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param securityGroupName (string)
+         * @param securityGroupName The name of the security group attached to the cluster&#39;s subnet
          * 
          * @return builder
          * 
@@ -947,7 +927,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param subnetName (string)
+         * @param subnetName The name of the Subnet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -958,7 +938,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param subnetName (string)
+         * @param subnetName The name of the Subnet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -968,7 +948,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param subscriptionId (string)
+         * @param subscriptionId The ID of the Azure Subscription that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -979,7 +959,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param subscriptionId (string)
+         * @param subscriptionId The ID of the Azure Subscription that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -989,7 +969,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId Required if `tenant_name` not provided. (string)
+         * @param tenantId The AAD Tenant ID for the Subscription that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -1000,7 +980,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId Required if `tenant_name` not provided. (string)
+         * @param tenantId The AAD Tenant ID for the Subscription that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -1010,7 +990,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param useInstanceMetadata (bool)
+         * @param useInstanceMetadata Use instance metadata service where possible
          * 
          * @return builder
          * 
@@ -1021,7 +1001,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param useInstanceMetadata (bool)
+         * @param useInstanceMetadata Use instance metadata service where possible
          * 
          * @return builder
          * 
@@ -1031,7 +1011,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param useManagedIdentityExtension (bool)
+         * @param useManagedIdentityExtension Use managed service identity for the virtual machine to access Azure ARM APIs
          * 
          * @return builder
          * 
@@ -1042,7 +1022,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param useManagedIdentityExtension (bool)
+         * @param useManagedIdentityExtension Use managed service identity for the virtual machine to access Azure ARM APIs
          * 
          * @return builder
          * 
@@ -1052,7 +1032,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vmType (string)
+         * @param vmType The type of azure nodes. If not set, it will be default to standard.
          * 
          * @return builder
          * 
@@ -1063,7 +1043,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vmType (string)
+         * @param vmType The type of azure nodes. If not set, it will be default to standard.
          * 
          * @return builder
          * 
@@ -1073,7 +1053,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vnetName (string)
+         * @param vnetName The name of the VNet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -1084,7 +1064,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vnetName (string)
+         * @param vnetName The name of the VNet that the cluster is deployed in
          * 
          * @return builder
          * 
@@ -1094,7 +1074,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vnetResourceGroup (string)
+         * @param vnetResourceGroup The name of the resource group that the Vnet is deployed in
          * 
          * @return builder
          * 
@@ -1105,7 +1085,7 @@ public final class ClusterCloudProviderAzureCloudProviderArgs extends com.pulumi
         }
 
         /**
-         * @param vnetResourceGroup (string)
+         * @param vnetResourceGroup The name of the resource group that the Vnet is deployed in
          * 
          * @return builder
          * 

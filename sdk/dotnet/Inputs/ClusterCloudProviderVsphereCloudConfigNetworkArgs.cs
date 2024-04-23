@@ -12,9 +12,6 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderVsphereCloudConfigNetworkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("publicNetwork")]
         public Input<string>? PublicNetwork { get; set; }
 

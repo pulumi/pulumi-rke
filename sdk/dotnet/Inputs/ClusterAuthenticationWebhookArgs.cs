@@ -13,13 +13,13 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterAuthenticationWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls how long to cache authentication decisions (string)
+        /// Controls how long to cache authentication decisions
         /// </summary>
         [Input("cacheTimeout")]
         public Input<string>? CacheTimeout { get; set; }
 
         /// <summary>
-        /// Multiline string that represent a custom webhook config file (string)
+        /// Multiline string that represent a custom webhook config file
         /// </summary>
         [Input("configFile")]
         public Input<string>? ConfigFile { get; set; }

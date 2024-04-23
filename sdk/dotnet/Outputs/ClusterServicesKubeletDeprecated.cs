@@ -14,39 +14,36 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeletDeprecated
     {
         /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
+        /// (Computed) RKE k8s cluster dns server (string)
         /// </summary>
         public readonly string? ClusterDnsServer;
         /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// (Computed) RKE k8s cluster domain (string)
         /// </summary>
         public readonly string? ClusterDomain;
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the kubelet services
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the worker nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraBinds;
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraEnvs;
         /// <summary>
-        /// Enable or disable failing when swap on is not supported (bool)
+        /// Fail if swap is enabled
         /// </summary>
         public readonly bool? FailSwapOn;
-        /// <summary>
-        /// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        /// </summary>
         public readonly bool? GenerateServingCertificate;
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image of the kubelet service
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Infra container image for kubelet service (string)
+        /// The image whose network/ipc namespaces containers in each pod will use
         /// </summary>
         public readonly string? InfraContainerImage;
 

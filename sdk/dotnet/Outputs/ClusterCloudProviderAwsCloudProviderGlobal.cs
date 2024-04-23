@@ -14,43 +14,43 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterCloudProviderAwsCloudProviderGlobal
     {
         /// <summary>
-        /// Disables the automatic ingress creation. Default `false` (bool)
+        /// Disables the automatic ingress creation
         /// </summary>
         public readonly bool? DisableSecurityGroupIngress;
         /// <summary>
-        /// Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+        /// Setting this to true will disable the check and provide a warning that the check was skipped
         /// </summary>
         public readonly bool? DisableStrictZoneCheck;
         /// <summary>
-        /// Use these ELB security groups instead create new (string)
+        /// Use these ELB security groups instead create new
         /// </summary>
         public readonly string? ElbSecurityGroup;
         /// <summary>
-        /// The cluster id we'll use to identify our cluster resources (string)
+        /// The cluster id we'll use to identify our cluster resources
         /// </summary>
         public readonly string? KubernetesClusterId;
         /// <summary>
-        /// Legacy cluster id we'll use to identify our cluster resources (string)
+        /// Legacy cluster id we'll use to identify our cluster resources
         /// </summary>
         public readonly string? KubernetesClusterTag;
         /// <summary>
-        /// IAM role to assume when interaction with AWS APIs (string)
+        /// IAM role to assume when interaction with AWS APIs
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// Enables using a specific RouteTable (string)
+        /// Enables using a specific RouteTable
         /// </summary>
         public readonly string? RouteTableId;
         /// <summary>
-        /// (string)
+        /// Enables using a specific subnet to use for ELB's
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+        /// The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
         /// </summary>
         public readonly string? Vpc;
         /// <summary>
-        /// The AWS zone (string)
+        /// The AWS zone
         /// </summary>
         public readonly string? Zone;
 

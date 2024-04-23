@@ -241,14 +241,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      * 
      */
     @Import(name="clusterCidr")
     private @Nullable Output<String> clusterCidr;
 
     /**
-     * @return Cluster CIDR option for kube controller service (string)
+     * @return (Computed) RKE k8s cluster cidr (string)
      * 
      */
     public Optional<Output<String>> clusterCidr() {
@@ -256,14 +256,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      * 
      */
     @Import(name="clusterDnsServer")
     private @Nullable Output<String> clusterDnsServer;
 
     /**
-     * @return Cluster DNS Server option for kubelet service (string)
+     * @return (Computed) RKE k8s cluster dns server (string)
      * 
      */
     public Optional<Output<String>> clusterDnsServer() {
@@ -271,14 +271,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      * 
      */
     @Import(name="clusterDomain")
     private @Nullable Output<String> clusterDomain;
 
     /**
-     * @return Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * @return (Computed) RKE k8s cluster domain (string)
      * 
      */
     public Optional<Output<String>> clusterDomain() {
@@ -1382,7 +1382,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterCidr Cluster CIDR option for kube controller service (string)
+         * @param clusterCidr (Computed) RKE k8s cluster cidr (string)
          * 
          * @return builder
          * 
@@ -1393,7 +1393,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterCidr Cluster CIDR option for kube controller service (string)
+         * @param clusterCidr (Computed) RKE k8s cluster cidr (string)
          * 
          * @return builder
          * 
@@ -1403,7 +1403,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterDnsServer Cluster DNS Server option for kubelet service (string)
+         * @param clusterDnsServer (Computed) RKE k8s cluster dns server (string)
          * 
          * @return builder
          * 
@@ -1414,7 +1414,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterDnsServer Cluster DNS Server option for kubelet service (string)
+         * @param clusterDnsServer (Computed) RKE k8s cluster dns server (string)
          * 
          * @return builder
          * 
@@ -1424,7 +1424,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterDomain Cluster Domain option for kubelet service. Default `cluster.local` (string)
+         * @param clusterDomain (Computed) RKE k8s cluster domain (string)
          * 
          * @return builder
          * 
@@ -1435,7 +1435,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterDomain Cluster Domain option for kubelet service. Default `cluster.local` (string)
+         * @param clusterDomain (Computed) RKE k8s cluster domain (string)
          * 
          * @return builder
          * 

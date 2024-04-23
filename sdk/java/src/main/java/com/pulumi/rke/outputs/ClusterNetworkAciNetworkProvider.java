@@ -13,287 +13,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterNetworkAciNetworkProvider {
-    /**
-     * @return Attachment entity profile name on aci (string)
-     * 
-     */
     private String aep;
-    /**
-     * @return Ip address for apic hosts (list)
-     * 
-     */
     private List<String> apicHosts;
-    /**
-     * @return Base64 encoded certificate for aci apic user (string)
-     * 
-     */
     private String apicUserCrt;
-    /**
-     * @return Base64 encoded private key for aci apic user (string)
-     * 
-     */
     private String apicUserKey;
-    /**
-     * @return User name for aci apic (string)
-     * 
-     */
     private String apicUserName;
-    /**
-     * @return One of the supported encap types for aci(vlan/vxlan) (string)
-     * 
-     */
     private String encapType;
-    /**
-     * @return Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
-     * 
-     */
     private String externDynamic;
     private String externStatic;
-    /**
-     * @return Vlan for infra network on aci (string)
-     * 
-     */
     private String infraVlan;
-    /**
-     * @return Vlan for node network on aci (string)
-     * 
-     */
     private String kubeApiVlan;
-    /**
-     * @return L3Out on aci (string)
-     * 
-     */
     private String l3out;
-    /**
-     * @return L3out external networks on aci (list)
-     * 
-     */
     private List<String> l3outExternalNetworks;
-    /**
-     * @return Mcast range end address for endpoint groups on aci (string)
-     * 
-     */
     private String mcastRangeEnd;
-    /**
-     * @return Mcast range start address for endpoint groups on aci (string)
-     * 
-     */
     private String mcastRangeStart;
-    /**
-     * @return Kubernetes node address subnet (string)
-     * 
-     */
     private String nodeSubnet;
-    /**
-     * @return Subnet to use for service graph endpoints on aci (string)
-     * 
-     */
     private String nodeSvcSubnet;
-    /**
-     * @return Vlan for service graph nodes on aci (string)
-     * 
-     */
     private String serviceVlan;
-    /**
-     * @return Port end range for Source Network Address Translation on aci (string)
-     * 
-     */
     private @Nullable String snatPortRangeEnd;
-    /**
-     * @return Port start range for Source Network Address Translation on aci (string)
-     * 
-     */
     private @Nullable String snatPortRangeStart;
-    /**
-     * @return Ports per node for Source Network Address Translation on aci (string)
-     * 
-     */
     private @Nullable String snatPortsPerNode;
-    /**
-     * @return Unique suffix for all cluster related objects in aci (string)
-     * 
-     */
     private String systemId;
-    /**
-     * @return UUID for this version of the input configuration (string)
-     * 
-     */
     private String token;
-    /**
-     * @return VRF Name on aci (string)
-     * 
-     */
     private String vrfName;
-    /**
-     * @return Tenant for VRF on aci (string)
-     * 
-     */
     private String vrfTenant;
 
     private ClusterNetworkAciNetworkProvider() {}
-    /**
-     * @return Attachment entity profile name on aci (string)
-     * 
-     */
     public String aep() {
         return this.aep;
     }
-    /**
-     * @return Ip address for apic hosts (list)
-     * 
-     */
     public List<String> apicHosts() {
         return this.apicHosts;
     }
-    /**
-     * @return Base64 encoded certificate for aci apic user (string)
-     * 
-     */
     public String apicUserCrt() {
         return this.apicUserCrt;
     }
-    /**
-     * @return Base64 encoded private key for aci apic user (string)
-     * 
-     */
     public String apicUserKey() {
         return this.apicUserKey;
     }
-    /**
-     * @return User name for aci apic (string)
-     * 
-     */
     public String apicUserName() {
         return this.apicUserName;
     }
-    /**
-     * @return One of the supported encap types for aci(vlan/vxlan) (string)
-     * 
-     */
     public String encapType() {
         return this.encapType;
     }
-    /**
-     * @return Subnet to use for dynamic external IPs on aci (string)
-     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
-     * 
-     */
     public String externDynamic() {
         return this.externDynamic;
     }
     public String externStatic() {
         return this.externStatic;
     }
-    /**
-     * @return Vlan for infra network on aci (string)
-     * 
-     */
     public String infraVlan() {
         return this.infraVlan;
     }
-    /**
-     * @return Vlan for node network on aci (string)
-     * 
-     */
     public String kubeApiVlan() {
         return this.kubeApiVlan;
     }
-    /**
-     * @return L3Out on aci (string)
-     * 
-     */
     public String l3out() {
         return this.l3out;
     }
-    /**
-     * @return L3out external networks on aci (list)
-     * 
-     */
     public List<String> l3outExternalNetworks() {
         return this.l3outExternalNetworks;
     }
-    /**
-     * @return Mcast range end address for endpoint groups on aci (string)
-     * 
-     */
     public String mcastRangeEnd() {
         return this.mcastRangeEnd;
     }
-    /**
-     * @return Mcast range start address for endpoint groups on aci (string)
-     * 
-     */
     public String mcastRangeStart() {
         return this.mcastRangeStart;
     }
-    /**
-     * @return Kubernetes node address subnet (string)
-     * 
-     */
     public String nodeSubnet() {
         return this.nodeSubnet;
     }
-    /**
-     * @return Subnet to use for service graph endpoints on aci (string)
-     * 
-     */
     public String nodeSvcSubnet() {
         return this.nodeSvcSubnet;
     }
-    /**
-     * @return Vlan for service graph nodes on aci (string)
-     * 
-     */
     public String serviceVlan() {
         return this.serviceVlan;
     }
-    /**
-     * @return Port end range for Source Network Address Translation on aci (string)
-     * 
-     */
     public Optional<String> snatPortRangeEnd() {
         return Optional.ofNullable(this.snatPortRangeEnd);
     }
-    /**
-     * @return Port start range for Source Network Address Translation on aci (string)
-     * 
-     */
     public Optional<String> snatPortRangeStart() {
         return Optional.ofNullable(this.snatPortRangeStart);
     }
-    /**
-     * @return Ports per node for Source Network Address Translation on aci (string)
-     * 
-     */
     public Optional<String> snatPortsPerNode() {
         return Optional.ofNullable(this.snatPortsPerNode);
     }
-    /**
-     * @return Unique suffix for all cluster related objects in aci (string)
-     * 
-     */
     public String systemId() {
         return this.systemId;
     }
-    /**
-     * @return UUID for this version of the input configuration (string)
-     * 
-     */
     public String token() {
         return this.token;
     }
-    /**
-     * @return VRF Name on aci (string)
-     * 
-     */
     public String vrfName() {
         return this.vrfName;
     }
-    /**
-     * @return Tenant for VRF on aci (string)
-     * 
-     */
     public String vrfTenant() {
         return this.vrfTenant;
     }

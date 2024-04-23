@@ -18,14 +18,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     public static final ClusterBastionHostArgs Empty = new ClusterBastionHostArgs();
 
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host
      * 
      */
     public Output<String> address() {
@@ -33,14 +33,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * Ignore proxy env vars at Bastion Host?
      * 
      */
     @Import(name="ignoreProxyEnvVars")
     private @Nullable Output<Boolean> ignoreProxyEnvVars;
 
     /**
-     * @return Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * @return Ignore proxy env vars at Bastion Host?
      * 
      */
     public Optional<Output<Boolean>> ignoreProxyEnvVars() {
@@ -48,14 +48,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host
      * 
      */
     public Optional<Output<String>> port() {
@@ -78,14 +78,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SSH Certificate (string)
+     * SSH Certificate Key
      * 
      */
     @Import(name="sshCert")
     private @Nullable Output<String> sshCert;
 
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key
      * 
      */
     public Optional<Output<String>> sshCert() {
@@ -108,14 +108,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      * 
      */
     @Import(name="sshKey")
     private @Nullable Output<String> sshKey;
 
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     public Optional<Output<String>> sshKey() {
@@ -138,14 +138,14 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host
      * 
      */
     @Import(name="user", required=true)
     private Output<String> user;
 
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host
      * 
      */
     public Output<String> user() {
@@ -185,7 +185,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param address Address ip for node (string)
+         * @param address Address of Bastion Host
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreProxyEnvVars Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+         * @param ignoreProxyEnvVars Ignore proxy env vars at Bastion Host?
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreProxyEnvVars Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+         * @param ignoreProxyEnvVars Ignore proxy env vars at Bastion Host?
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param port Port used for SSH communication (string)
+         * @param port SSH Port of Bastion Host
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate Key
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshCert SSH Certificate (string)
+         * @param sshCert SSH Certificate Key
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshKey SSH Private Key (string)
+         * @param sshKey SSH Private Key
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sshKey SSH Private Key (string)
+         * @param sshKey SSH Private Key
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class ClusterBastionHostArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param user Registry user (string)
+         * @param user SSH User to Bastion Host
          * 
          * @return builder
          * 

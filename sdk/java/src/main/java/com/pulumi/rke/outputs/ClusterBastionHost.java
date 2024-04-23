@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBastionHost {
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host
      * 
      */
     private String address;
     /**
-     * @return Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * @return Ignore proxy env vars at Bastion Host?
      * 
      */
     private @Nullable Boolean ignoreProxyEnvVars;
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host
      * 
      */
     private @Nullable String port;
@@ -34,7 +34,7 @@ public final class ClusterBastionHost {
      */
     private @Nullable Boolean sshAgentAuth;
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key
      * 
      */
     private @Nullable String sshCert;
@@ -44,7 +44,7 @@ public final class ClusterBastionHost {
      */
     private @Nullable String sshCertPath;
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     private @Nullable String sshKey;
@@ -54,28 +54,28 @@ public final class ClusterBastionHost {
      */
     private @Nullable String sshKeyPath;
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host
      * 
      */
     private String user;
 
     private ClusterBastionHost() {}
     /**
-     * @return Address ip for node (string)
+     * @return Address of Bastion Host
      * 
      */
     public String address() {
         return this.address;
     }
     /**
-     * @return Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * @return Ignore proxy env vars at Bastion Host?
      * 
      */
     public Optional<Boolean> ignoreProxyEnvVars() {
         return Optional.ofNullable(this.ignoreProxyEnvVars);
     }
     /**
-     * @return Port used for SSH communication (string)
+     * @return SSH Port of Bastion Host
      * 
      */
     public Optional<String> port() {
@@ -89,7 +89,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.sshAgentAuth);
     }
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate Key
      * 
      */
     public Optional<String> sshCert() {
@@ -103,7 +103,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.sshCertPath);
     }
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     public Optional<String> sshKey() {
@@ -117,7 +117,7 @@ public final class ClusterBastionHost {
         return Optional.ofNullable(this.sshKeyPath);
     }
     /**
-     * @return Registry user (string)
+     * @return SSH User to Bastion Host
      * 
      */
     public String user() {

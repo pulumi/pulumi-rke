@@ -52,11 +52,11 @@ type Cluster struct {
 	ClientKey pulumi.StringOutput `pulumi:"clientKey"`
 	// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 	CloudProvider ClusterCloudProviderPtrOutput `pulumi:"cloudProvider"`
-	// Cluster CIDR option for kube controller service (string)
+	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr pulumi.StringOutput `pulumi:"clusterCidr"`
-	// Cluster DNS Server option for kubelet service (string)
+	// (Computed) RKE k8s cluster dns server (string)
 	ClusterDnsServer pulumi.StringOutput `pulumi:"clusterDnsServer"`
-	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain pulumi.StringOutput `pulumi:"clusterDomain"`
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
@@ -233,11 +233,11 @@ type clusterState struct {
 	ClientKey *string `pulumi:"clientKey"`
 	// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 	CloudProvider *ClusterCloudProvider `pulumi:"cloudProvider"`
-	// Cluster CIDR option for kube controller service (string)
+	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr *string `pulumi:"clusterCidr"`
-	// Cluster DNS Server option for kubelet service (string)
+	// (Computed) RKE k8s cluster dns server (string)
 	ClusterDnsServer *string `pulumi:"clusterDnsServer"`
-	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain *string `pulumi:"clusterDomain"`
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName *string `pulumi:"clusterName"`
@@ -370,11 +370,11 @@ type ClusterState struct {
 	ClientKey pulumi.StringPtrInput
 	// RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
 	CloudProvider ClusterCloudProviderPtrInput
-	// Cluster CIDR option for kube controller service (string)
+	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr pulumi.StringPtrInput
-	// Cluster DNS Server option for kubelet service (string)
+	// (Computed) RKE k8s cluster dns server (string)
 	ClusterDnsServer pulumi.StringPtrInput
-	// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain pulumi.StringPtrInput
 	// RKE k8s cluster name used in the kube config (string)
 	ClusterName pulumi.StringPtrInput
@@ -835,17 +835,17 @@ func (o ClusterOutput) CloudProvider() ClusterCloudProviderPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterCloudProviderPtrOutput { return v.CloudProvider }).(ClusterCloudProviderPtrOutput)
 }
 
-// Cluster CIDR option for kube controller service (string)
+// (Computed) RKE k8s cluster cidr (string)
 func (o ClusterOutput) ClusterCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterCidr }).(pulumi.StringOutput)
 }
 
-// Cluster DNS Server option for kubelet service (string)
+// (Computed) RKE k8s cluster dns server (string)
 func (o ClusterOutput) ClusterDnsServer() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDnsServer }).(pulumi.StringOutput)
 }
 
-// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+// (Computed) RKE k8s cluster domain (string)
 func (o ClusterOutput) ClusterDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDomain }).(pulumi.StringOutput)
 }

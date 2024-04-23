@@ -14,11 +14,11 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterAuthenticationWebhook
     {
         /// <summary>
-        /// Controls how long to cache authentication decisions (string)
+        /// Controls how long to cache authentication decisions
         /// </summary>
         public readonly string? CacheTimeout;
         /// <summary>
-        /// Multiline string that represent a custom webhook config file (string)
+        /// Multiline string that represent a custom webhook config file
         /// </summary>
         public readonly string? ConfigFile;
 

@@ -12,137 +12,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderOpenstackCloudProviderGlobal {
-    /**
-     * @return (string)
-     * 
-     */
     private String authUrl;
-    /**
-     * @return (string)
-     * 
-     */
     private @Nullable String caFile;
-    /**
-     * @return Required if `domain_name` not provided. (string)
-     * 
-     */
     private @Nullable String domainId;
-    /**
-     * @return Required if `domain_id` not provided. (string)
-     * 
-     */
     private @Nullable String domainName;
-    /**
-     * @return Registry password (string)
-     * 
-     */
     private String password;
-    /**
-     * @return Region for S3 service (string)
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return Required if `tenant_name` not provided. (string)
-     * 
-     */
     private @Nullable String tenantId;
-    /**
-     * @return Required if `tenant_id` not provided. (string)
-     * 
-     */
     private @Nullable String tenantName;
-    /**
-     * @return (string)
-     * 
-     */
     private @Nullable String trustId;
-    /**
-     * @return Required if `username` not provided. (string)
-     * 
-     */
     private @Nullable String userId;
-    /**
-     * @return Required if `user_id` not provided. (string)
-     * 
-     */
     private @Nullable String username;
 
     private ClusterCloudProviderOpenstackCloudProviderGlobal() {}
-    /**
-     * @return (string)
-     * 
-     */
     public String authUrl() {
         return this.authUrl;
     }
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<String> caFile() {
         return Optional.ofNullable(this.caFile);
     }
-    /**
-     * @return Required if `domain_name` not provided. (string)
-     * 
-     */
     public Optional<String> domainId() {
         return Optional.ofNullable(this.domainId);
     }
-    /**
-     * @return Required if `domain_id` not provided. (string)
-     * 
-     */
     public Optional<String> domainName() {
         return Optional.ofNullable(this.domainName);
     }
-    /**
-     * @return Registry password (string)
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Region for S3 service (string)
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return Required if `tenant_name` not provided. (string)
-     * 
-     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
-    /**
-     * @return Required if `tenant_id` not provided. (string)
-     * 
-     */
     public Optional<String> tenantName() {
         return Optional.ofNullable(this.tenantName);
     }
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<String> trustId() {
         return Optional.ofNullable(this.trustId);
     }
-    /**
-     * @return Required if `username` not provided. (string)
-     * 
-     */
     public Optional<String> userId() {
         return Optional.ofNullable(this.userId);
     }
-    /**
-     * @return Required if `user_id` not provided. (string)
-     * 
-     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

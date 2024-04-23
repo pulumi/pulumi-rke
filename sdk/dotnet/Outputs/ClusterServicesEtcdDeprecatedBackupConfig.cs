@@ -13,29 +13,11 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterServicesEtcdDeprecatedBackupConfig
     {
-        /// <summary>
-        /// Enable secrets encryption (bool)
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Interval hours for etcd backup. Default `12` (int)
-        /// </summary>
         public readonly int? IntervalHours;
-        /// <summary>
-        /// Retention for etcd backup. Default `6` (int)
-        /// </summary>
         public readonly int? Retention;
-        /// <summary>
-        /// S3 config options for etcd backup (list maxitems:1)
-        /// </summary>
         public readonly Outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig? S3BackupConfig;
-        /// <summary>
-        /// Safe timestamp for etcd backup. Default: `false` (bool)
-        /// </summary>
         public readonly bool? SafeTimestamp;
-        /// <summary>
-        /// RKE node drain timeout (int)
-        /// </summary>
         public readonly int? Timeout;
 
         [OutputConstructor]

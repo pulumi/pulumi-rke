@@ -15,17 +15,9 @@ public final class ClusterNetworkFlannelNetworkProviderArgs extends com.pulumi.r
 
     public static final ClusterNetworkFlannelNetworkProviderArgs Empty = new ClusterNetworkFlannelNetworkProviderArgs();
 
-    /**
-     * Flannel network interface (string)
-     * 
-     */
     @Import(name="iface")
     private @Nullable Output<String> iface;
 
-    /**
-     * @return Flannel network interface (string)
-     * 
-     */
     public Optional<Output<String>> iface() {
         return Optional.ofNullable(this.iface);
     }
@@ -54,23 +46,11 @@ public final class ClusterNetworkFlannelNetworkProviderArgs extends com.pulumi.r
             $ = new ClusterNetworkFlannelNetworkProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iface Flannel network interface (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder iface(@Nullable Output<String> iface) {
             $.iface = iface;
             return this;
         }
 
-        /**
-         * @param iface Flannel network interface (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder iface(String iface) {
             return iface(Output.of(iface));
         }
