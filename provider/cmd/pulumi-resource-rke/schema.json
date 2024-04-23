@@ -82,15 +82,15 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of additional hostnames and IPs to include in the api server PKI cert (list)\n"
+                    "description": "List of additional hostnames and IPs to include in the api server PKI cert\n"
                 },
                 "strategy": {
                     "type": "string",
-                    "description": "Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)\n"
+                    "description": "Authentication strategy that will be used in RKE k8s cluster\n"
                 },
                 "webhook": {
                     "$ref": "#/types/rke:index/ClusterAuthenticationWebhook:ClusterAuthenticationWebhook",
-                    "description": "Webhook configuration options (list maxitem: 1)\n"
+                    "description": "Webhook configuration options\n"
                 }
             },
             "type": "object",
@@ -107,11 +107,11 @@
             "properties": {
                 "cacheTimeout": {
                     "type": "string",
-                    "description": "Controls how long to cache authentication decisions (string)\n"
+                    "description": "Controls how long to cache authentication decisions\n"
                 },
                 "configFile": {
                     "type": "string",
-                    "description": "Multiline string that represent a custom webhook config file (string)\n"
+                    "description": "Multiline string that represent a custom webhook config file\n"
                 }
             },
             "type": "object"
@@ -119,15 +119,14 @@
         "rke:index/ClusterAuthorization:ClusterAuthorization": {
             "properties": {
                 "mode": {
-                    "type": "string",
-                    "description": "RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)\n"
+                    "type": "string"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Network provider options (map)\n"
+                    "description": "Authorization mode options\n"
                 }
             },
             "type": "object"
@@ -136,15 +135,15 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "description": "Address of Bastion Host\n"
                 },
                 "ignoreProxyEnvVars": {
                     "type": "boolean",
-                    "description": "Ignore proxy env vars at Bastion Host? Default: `false` (bool)\n"
+                    "description": "Ignore proxy env vars at Bastion Host?\n"
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "description": "SSH Port of Bastion Host\n"
                 },
                 "sshAgentAuth": {
                     "type": "boolean",
@@ -152,7 +151,7 @@
                 },
                 "sshCert": {
                     "type": "string",
-                    "description": "SSH Certificate (string)\n",
+                    "description": "SSH Certificate Key\n",
                     "secret": true
                 },
                 "sshCertPath": {
@@ -161,7 +160,7 @@
                 },
                 "sshKey": {
                     "type": "string",
-                    "description": "SSH Private Key (string)\n",
+                    "description": "SSH Private Key\n",
                     "secret": true
                 },
                 "sshKeyPath": {
@@ -170,7 +169,7 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n"
+                    "description": "SSH User to Bastion Host\n"
                 }
             },
             "type": "object",
@@ -218,7 +217,6 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "keyEnvName": {
@@ -228,15 +226,13 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
+                    "type": "string"
                 },
                 "ouName": {
                     "type": "string"
                 },
                 "path": {
-                    "type": "string",
-                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -264,52 +260,46 @@
             "properties": {
                 "awsCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudConfig:ClusterCloudProviderAwsCloudConfig",
-                    "description": "Use aws_cloud_provider instead\n",
                     "deprecationMessage": "Use aws_cloud_provider instead"
                 },
                 "awsCloudProvider": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudProvider:ClusterCloudProviderAwsCloudProvider",
-                    "description": "AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)\n"
+                    "description": "AWS Cloud Provider config\n"
                 },
                 "azureCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAzureCloudConfig:ClusterCloudProviderAzureCloudConfig",
-                    "description": "Use azure_cloud_provider instead\n",
                     "deprecationMessage": "Use azure_cloud_provider instead"
                 },
                 "azureCloudProvider": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderAzureCloudProvider:ClusterCloudProviderAzureCloudProvider",
-                    "description": "Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)\n"
+                    "description": "Azure Cloud Provider config\n"
                 },
                 "customCloudConfig": {
                     "type": "string",
-                    "description": "Use custom_cloud_provider instead\n",
                     "deprecationMessage": "Use custom_cloud_provider instead"
                 },
                 "customCloudProvider": {
                     "type": "string",
-                    "description": "Custom Cloud Provider config (string)\n"
+                    "description": "Custom Cloud Provider config\n"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
+                    "type": "string"
                 },
                 "openstackCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfig:ClusterCloudProviderOpenstackCloudConfig",
-                    "description": "Use openstack_cloud_provider instead\n",
                     "deprecationMessage": "Use openstack_cloud_provider instead"
                 },
                 "openstackCloudProvider": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProvider:ClusterCloudProviderOpenstackCloudProvider",
-                    "description": "Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)\n"
+                    "description": "Openstack Cloud Provider config\n"
                 },
                 "vsphereCloudConfig": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfig:ClusterCloudProviderVsphereCloudConfig",
-                    "description": "Use vsphere_cloud_provider instead\n",
                     "deprecationMessage": "Use vsphere_cloud_provider instead"
                 },
                 "vsphereCloudProvider": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProvider:ClusterCloudProviderVsphereCloudProvider",
-                    "description": "Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)\n"
+                    "description": "Vsphere Cloud Provider config\n"
                 }
             },
             "type": "object",
@@ -320,15 +310,13 @@
         "rke:index/ClusterCloudProviderAwsCloudConfig:ClusterCloudProviderAwsCloudConfig": {
             "properties": {
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudConfigGlobal:ClusterCloudProviderAwsCloudConfigGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudConfigGlobal:ClusterCloudProviderAwsCloudConfigGlobal"
                 },
                 "serviceOverrides": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudConfigServiceOverride:ClusterCloudProviderAwsCloudConfigServiceOverride"
-                    },
-                    "description": "(list)\n"
+                    }
                 }
             },
             "type": "object"
@@ -337,43 +325,43 @@
             "properties": {
                 "disableSecurityGroupIngress": {
                     "type": "boolean",
-                    "description": "Disables the automatic ingress creation. Default `false` (bool)\n"
+                    "description": "Disables the automatic ingress creation\n"
                 },
                 "disableStrictZoneCheck": {
                     "type": "boolean",
-                    "description": "Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)\n"
+                    "description": "Setting this to true will disable the check and provide a warning that the check was skipped\n"
                 },
                 "elbSecurityGroup": {
                     "type": "string",
-                    "description": "Use these ELB security groups instead create new (string)\n"
+                    "description": "Use these ELB security groups instead create new\n"
                 },
                 "kubernetesClusterId": {
                     "type": "string",
-                    "description": "The cluster id we'll use to identify our cluster resources (string)\n"
+                    "description": "The cluster id we'll use to identify our cluster resources\n"
                 },
                 "kubernetesClusterTag": {
                     "type": "string",
-                    "description": "Legacy cluster id we'll use to identify our cluster resources (string)\n"
+                    "description": "Legacy cluster id we'll use to identify our cluster resources\n"
                 },
                 "roleArn": {
                     "type": "string",
-                    "description": "IAM role to assume when interaction with AWS APIs (string)\n"
+                    "description": "IAM role to assume when interaction with AWS APIs\n"
                 },
                 "routeTableId": {
                     "type": "string",
-                    "description": "Enables using a specific RouteTable (string)\n"
+                    "description": "Enables using a specific RouteTable\n"
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Enables using a specific subnet to use for ELB's\n"
                 },
                 "vpc": {
                     "type": "string",
-                    "description": "The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)\n"
+                    "description": "The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided\n"
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The AWS zone (string)\n"
+                    "description": "The AWS zone\n"
                 }
             },
             "type": "object"
@@ -382,32 +370,25 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "TLS key for etcd service (string)\n",
                     "deprecationMessage": "Use service instead"
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "service": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingMethod": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingName": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingRegion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "url": {
-                    "type": "string",
-                    "description": "Registry URL (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -426,15 +407,13 @@
         "rke:index/ClusterCloudProviderAwsCloudProvider:ClusterCloudProviderAwsCloudProvider": {
             "properties": {
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudProviderGlobal:ClusterCloudProviderAwsCloudProviderGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudProviderGlobal:ClusterCloudProviderAwsCloudProviderGlobal"
                 },
                 "serviceOverrides": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/rke:index/ClusterCloudProviderAwsCloudProviderServiceOverride:ClusterCloudProviderAwsCloudProviderServiceOverride"
-                    },
-                    "description": "(list)\n"
+                    }
                 }
             },
             "type": "object"
@@ -443,43 +422,43 @@
             "properties": {
                 "disableSecurityGroupIngress": {
                     "type": "boolean",
-                    "description": "Disables the automatic ingress creation. Default `false` (bool)\n"
+                    "description": "Disables the automatic ingress creation\n"
                 },
                 "disableStrictZoneCheck": {
                     "type": "boolean",
-                    "description": "Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)\n"
+                    "description": "Setting this to true will disable the check and provide a warning that the check was skipped\n"
                 },
                 "elbSecurityGroup": {
                     "type": "string",
-                    "description": "Use these ELB security groups instead create new (string)\n"
+                    "description": "Use these ELB security groups instead create new\n"
                 },
                 "kubernetesClusterId": {
                     "type": "string",
-                    "description": "The cluster id we'll use to identify our cluster resources (string)\n"
+                    "description": "The cluster id we'll use to identify our cluster resources\n"
                 },
                 "kubernetesClusterTag": {
                     "type": "string",
-                    "description": "Legacy cluster id we'll use to identify our cluster resources (string)\n"
+                    "description": "Legacy cluster id we'll use to identify our cluster resources\n"
                 },
                 "roleArn": {
                     "type": "string",
-                    "description": "IAM role to assume when interaction with AWS APIs (string)\n"
+                    "description": "IAM role to assume when interaction with AWS APIs\n"
                 },
                 "routeTableId": {
                     "type": "string",
-                    "description": "Enables using a specific RouteTable (string)\n"
+                    "description": "Enables using a specific RouteTable\n"
                 },
                 "subnetId": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "Enables using a specific subnet to use for ELB's\n"
                 },
                 "vpc": {
                     "type": "string",
-                    "description": "The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)\n"
+                    "description": "The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided\n"
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The AWS zone (string)\n"
+                    "description": "The AWS zone\n"
                 }
             },
             "type": "object"
@@ -488,32 +467,25 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "TLS key for etcd service (string)\n",
                     "deprecationMessage": "Use service instead"
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "service": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingMethod": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingName": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "signingRegion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "url": {
-                    "type": "string",
-                    "description": "Registry URL (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -533,58 +505,57 @@
             "properties": {
                 "aadClientCertPassword": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "aadClientCertPath": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs\n"
                 },
                 "aadClientId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ClientID for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "aadClientSecret": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13\n"
                 },
                 "cloudProviderBackoff": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Enable exponential backoff to manage resource request retries\n"
                 },
                 "cloudProviderBackoffDuration": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff duration\n"
                 },
                 "cloudProviderBackoffExponent": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff exponent\n"
                 },
                 "cloudProviderBackoffJitter": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff jitter\n"
                 },
                 "cloudProviderBackoffRetries": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff retry limit\n"
                 },
                 "cloudProviderRateLimit": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Enable rate limiting\n"
                 },
                 "cloudProviderRateLimitBucket": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "cloudProviderRateLimitQps": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Rate limit QPS\n"
                 },
                 "loadBalancerSku": {
                     "type": "string",
@@ -592,65 +563,65 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The location of the resource group that the cluster is deployed in\n"
                 },
                 "maximumLoadBalancerRuleCount": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer\n"
                 },
                 "primaryAvailabilitySetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.\n"
                 },
                 "primaryScaleSetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.\n"
                 },
                 "resourceGroup": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the resource group that the cluster is deployed in\n"
                 },
                 "routeTableName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "(Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in\n"
                 },
                 "securityGroupName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the security group attached to the cluster's subnet\n"
                 },
                 "subnetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the Subnet that the cluster is deployed in\n"
                 },
                 "subscriptionId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ID of the Azure Subscription that the cluster is deployed in\n",
                     "secret": true
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "Required if `tenant_name` not provided. (string)\n",
+                    "description": "The AAD Tenant ID for the Subscription that the cluster is deployed in\n",
                     "secret": true
                 },
                 "useInstanceMetadata": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Use instance metadata service where possible\n"
                 },
                 "useManagedIdentityExtension": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Use managed service identity for the virtual machine to access Azure ARM APIs\n"
                 },
                 "vmType": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The type of azure nodes. If not set, it will be default to standard.\n"
                 },
                 "vnetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the VNet that the cluster is deployed in\n"
                 },
                 "vnetResourceGroup": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the resource group that the Vnet is deployed in\n"
                 }
             },
             "type": "object",
@@ -676,58 +647,57 @@
             "properties": {
                 "aadClientCertPassword": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "aadClientCertPath": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs\n"
                 },
                 "aadClientId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ClientID for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "aadClientSecret": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs\n",
                     "secret": true
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13\n"
                 },
                 "cloudProviderBackoff": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Enable exponential backoff to manage resource request retries\n"
                 },
                 "cloudProviderBackoffDuration": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff duration\n"
                 },
                 "cloudProviderBackoffExponent": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff exponent\n"
                 },
                 "cloudProviderBackoffJitter": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff jitter\n"
                 },
                 "cloudProviderBackoffRetries": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Backoff retry limit\n"
                 },
                 "cloudProviderRateLimit": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Enable rate limiting\n"
                 },
                 "cloudProviderRateLimitBucket": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "cloudProviderRateLimitQps": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Rate limit QPS\n"
                 },
                 "loadBalancerSku": {
                     "type": "string",
@@ -735,65 +705,65 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The location of the resource group that the cluster is deployed in\n"
                 },
                 "maximumLoadBalancerRuleCount": {
                     "type": "integer",
-                    "description": "(int)\n"
+                    "description": "Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer\n"
                 },
                 "primaryAvailabilitySetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.\n"
                 },
                 "primaryScaleSetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.\n"
                 },
                 "resourceGroup": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the resource group that the cluster is deployed in\n"
                 },
                 "routeTableName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "(Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in\n"
                 },
                 "securityGroupName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the security group attached to the cluster's subnet\n"
                 },
                 "subnetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the Subnet that the cluster is deployed in\n"
                 },
                 "subscriptionId": {
                     "type": "string",
-                    "description": "(string)\n",
+                    "description": "The ID of the Azure Subscription that the cluster is deployed in\n",
                     "secret": true
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "Required if `tenant_name` not provided. (string)\n",
+                    "description": "The AAD Tenant ID for the Subscription that the cluster is deployed in\n",
                     "secret": true
                 },
                 "useInstanceMetadata": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Use instance metadata service where possible\n"
                 },
                 "useManagedIdentityExtension": {
                     "type": "boolean",
-                    "description": "(bool)\n"
+                    "description": "Use managed service identity for the virtual machine to access Azure ARM APIs\n"
                 },
                 "vmType": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The type of azure nodes. If not set, it will be default to standard.\n"
                 },
                 "vnetName": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the VNet that the cluster is deployed in\n"
                 },
                 "vnetResourceGroup": {
                     "type": "string",
-                    "description": "(string)\n"
+                    "description": "The name of the resource group that the Vnet is deployed in\n"
                 }
             },
             "type": "object",
@@ -818,24 +788,19 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfig:ClusterCloudProviderOpenstackCloudConfig": {
             "properties": {
                 "blockStorage": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigBlockStorage:ClusterCloudProviderOpenstackCloudConfigBlockStorage",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigBlockStorage:ClusterCloudProviderOpenstackCloudConfigBlockStorage"
                 },
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigGlobal:ClusterCloudProviderOpenstackCloudConfigGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigGlobal:ClusterCloudProviderOpenstackCloudConfigGlobal"
                 },
                 "loadBalancer": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigLoadBalancer:ClusterCloudProviderOpenstackCloudConfigLoadBalancer",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigLoadBalancer:ClusterCloudProviderOpenstackCloudConfigLoadBalancer"
                 },
                 "metadata": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigMetadata:ClusterCloudProviderOpenstackCloudConfigMetadata",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigMetadata:ClusterCloudProviderOpenstackCloudConfigMetadata"
                 },
                 "route": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigRoute:ClusterCloudProviderOpenstackCloudConfigRoute",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudConfigRoute:ClusterCloudProviderOpenstackCloudConfigRoute"
                 }
             },
             "type": "object",
@@ -857,16 +822,13 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfigBlockStorage:ClusterCloudProviderOpenstackCloudConfigBlockStorage": {
             "properties": {
                 "bsVersion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "ignoreVolumeAz": {
-                    "type": "boolean",
-                    "description": "(string)\n"
+                    "type": "boolean"
                 },
                 "trustDevicePath": {
-                    "type": "boolean",
-                    "description": "(string)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -874,53 +836,42 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfigGlobal:ClusterCloudProviderOpenstackCloudConfigGlobal": {
             "properties": {
                 "authUrl": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "caFile": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "domainId": {
                     "type": "string",
-                    "description": "Required if `domain_name` not provided. (string)\n",
                     "secret": true
                 },
                 "domainName": {
-                    "type": "string",
-                    "description": "Required if `domain_id` not provided. (string)\n"
+                    "type": "string"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "tenantName": {
-                    "type": "string",
-                    "description": "Required if `tenant_id` not provided. (string)\n"
+                    "type": "string"
                 },
                 "trustId": {
                     "type": "string",
-                    "description": "(string)\n",
                     "secret": true
                 },
                 "userId": {
                     "type": "string",
-                    "description": "Required if `username` not provided. (string)\n",
                     "secret": true
                 },
                 "username": {
-                    "type": "string",
-                    "description": "Required if `user_id` not provided. (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -932,48 +883,37 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfigLoadBalancer:ClusterCloudProviderOpenstackCloudConfigLoadBalancer": {
             "properties": {
                 "createMonitor": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "floatingNetworkId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbMethod": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbProvider": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbVersion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "manageSecurityGroups": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "monitorDelay": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "monitorMaxRetries": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "monitorTimeout": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "subnetId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "useOctavia": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -981,12 +921,10 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfigMetadata:ClusterCloudProviderOpenstackCloudConfigMetadata": {
             "properties": {
                 "requestTimeout": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "searchOrder": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -994,8 +932,7 @@
         "rke:index/ClusterCloudProviderOpenstackCloudConfigRoute:ClusterCloudProviderOpenstackCloudConfigRoute": {
             "properties": {
                 "routerId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1003,24 +940,19 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProvider:ClusterCloudProviderOpenstackCloudProvider": {
             "properties": {
                 "blockStorage": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderBlockStorage:ClusterCloudProviderOpenstackCloudProviderBlockStorage",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderBlockStorage:ClusterCloudProviderOpenstackCloudProviderBlockStorage"
                 },
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderGlobal:ClusterCloudProviderOpenstackCloudProviderGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderGlobal:ClusterCloudProviderOpenstackCloudProviderGlobal"
                 },
                 "loadBalancer": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderLoadBalancer:ClusterCloudProviderOpenstackCloudProviderLoadBalancer",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderLoadBalancer:ClusterCloudProviderOpenstackCloudProviderLoadBalancer"
                 },
                 "metadata": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderMetadata:ClusterCloudProviderOpenstackCloudProviderMetadata",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderMetadata:ClusterCloudProviderOpenstackCloudProviderMetadata"
                 },
                 "route": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderRoute:ClusterCloudProviderOpenstackCloudProviderRoute",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderOpenstackCloudProviderRoute:ClusterCloudProviderOpenstackCloudProviderRoute"
                 }
             },
             "type": "object",
@@ -1042,16 +974,13 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProviderBlockStorage:ClusterCloudProviderOpenstackCloudProviderBlockStorage": {
             "properties": {
                 "bsVersion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "ignoreVolumeAz": {
-                    "type": "boolean",
-                    "description": "(string)\n"
+                    "type": "boolean"
                 },
                 "trustDevicePath": {
-                    "type": "boolean",
-                    "description": "(string)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -1059,53 +988,42 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProviderGlobal:ClusterCloudProviderOpenstackCloudProviderGlobal": {
             "properties": {
                 "authUrl": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "caFile": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "domainId": {
                     "type": "string",
-                    "description": "Required if `domain_name` not provided. (string)\n",
                     "secret": true
                 },
                 "domainName": {
-                    "type": "string",
-                    "description": "Required if `domain_id` not provided. (string)\n"
+                    "type": "string"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "Required if `tenant_name` not provided. (string)\n",
                     "secret": true
                 },
                 "tenantName": {
-                    "type": "string",
-                    "description": "Required if `tenant_id` not provided. (string)\n"
+                    "type": "string"
                 },
                 "trustId": {
                     "type": "string",
-                    "description": "(string)\n",
                     "secret": true
                 },
                 "userId": {
                     "type": "string",
-                    "description": "Required if `username` not provided. (string)\n",
                     "secret": true
                 },
                 "username": {
-                    "type": "string",
-                    "description": "Required if `user_id` not provided. (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1117,48 +1035,37 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProviderLoadBalancer:ClusterCloudProviderOpenstackCloudProviderLoadBalancer": {
             "properties": {
                 "createMonitor": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "floatingNetworkId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbMethod": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbProvider": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "lbVersion": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "manageSecurityGroups": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "monitorDelay": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "monitorMaxRetries": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "monitorTimeout": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "subnetId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "useOctavia": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -1166,12 +1073,10 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProviderMetadata:ClusterCloudProviderOpenstackCloudProviderMetadata": {
             "properties": {
                 "requestTimeout": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "searchOrder": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1179,8 +1084,7 @@
         "rke:index/ClusterCloudProviderOpenstackCloudProviderRoute:ClusterCloudProviderOpenstackCloudProviderRoute": {
             "properties": {
                 "routerId": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1188,12 +1092,10 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfig:ClusterCloudProviderVsphereCloudConfig": {
             "properties": {
                 "disk": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigDisk:ClusterCloudProviderVsphereCloudConfigDisk",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigDisk:ClusterCloudProviderVsphereCloudConfigDisk"
                 },
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigGlobal:ClusterCloudProviderVsphereCloudConfigGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigGlobal:ClusterCloudProviderVsphereCloudConfigGlobal"
                 },
                 "network": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigNetwork:ClusterCloudProviderVsphereCloudConfigNetwork",
@@ -1203,12 +1105,10 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigVirtualCenter:ClusterCloudProviderVsphereCloudConfigVirtualCenter"
-                    },
-                    "description": "(List)\n"
+                    }
                 },
                 "workspace": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigWorkspace:ClusterCloudProviderVsphereCloudConfigWorkspace",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudConfigWorkspace:ClusterCloudProviderVsphereCloudConfigWorkspace"
                 }
             },
             "type": "object",
@@ -1231,8 +1131,7 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfigDisk:ClusterCloudProviderVsphereCloudConfigDisk": {
             "properties": {
                 "scsiControllerType": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1240,50 +1139,39 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfigGlobal:ClusterCloudProviderVsphereCloudConfigGlobal": {
             "properties": {
                 "datacenter": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "datacenters": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "datastore": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "insecureFlag": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
-                    "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "type": "string"
                 },
                 "soapRoundtripCount": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
                     "secret": true
                 },
                 "vmName": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "vmUuid": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "workingDir": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1298,8 +1186,7 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfigNetwork:ClusterCloudProviderVsphereCloudConfigNetwork": {
             "properties": {
                 "publicNetwork": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1307,29 +1194,23 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfigVirtualCenter:ClusterCloudProviderVsphereCloudConfigVirtualCenter": {
             "properties": {
                 "datacenters": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
+                    "type": "string"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
-                    "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "type": "string"
                 },
                 "soapRoundtripCount": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -1344,24 +1225,19 @@
         "rke:index/ClusterCloudProviderVsphereCloudConfigWorkspace:ClusterCloudProviderVsphereCloudConfigWorkspace": {
             "properties": {
                 "datacenter": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "defaultDatastore": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "folder": {
-                    "type": "string",
-                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
+                    "type": "string"
                 },
                 "resourcepoolPath": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "server": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1373,12 +1249,10 @@
         "rke:index/ClusterCloudProviderVsphereCloudProvider:ClusterCloudProviderVsphereCloudProvider": {
             "properties": {
                 "disk": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderDisk:ClusterCloudProviderVsphereCloudProviderDisk",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderDisk:ClusterCloudProviderVsphereCloudProviderDisk"
                 },
                 "global": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderGlobal:ClusterCloudProviderVsphereCloudProviderGlobal",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderGlobal:ClusterCloudProviderVsphereCloudProviderGlobal"
                 },
                 "network": {
                     "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderNetwork:ClusterCloudProviderVsphereCloudProviderNetwork",
@@ -1388,12 +1262,10 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderVirtualCenter:ClusterCloudProviderVsphereCloudProviderVirtualCenter"
-                    },
-                    "description": "(List)\n"
+                    }
                 },
                 "workspace": {
-                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderWorkspace:ClusterCloudProviderVsphereCloudProviderWorkspace",
-                    "description": "(list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterCloudProviderVsphereCloudProviderWorkspace:ClusterCloudProviderVsphereCloudProviderWorkspace"
                 }
             },
             "type": "object",
@@ -1416,8 +1288,7 @@
         "rke:index/ClusterCloudProviderVsphereCloudProviderDisk:ClusterCloudProviderVsphereCloudProviderDisk": {
             "properties": {
                 "scsiControllerType": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1425,50 +1296,39 @@
         "rke:index/ClusterCloudProviderVsphereCloudProviderGlobal:ClusterCloudProviderVsphereCloudProviderGlobal": {
             "properties": {
                 "datacenter": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "datacenters": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "datastore": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "insecureFlag": {
-                    "type": "boolean",
-                    "description": "(bool)\n"
+                    "type": "boolean"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
-                    "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "type": "string"
                 },
                 "soapRoundtripCount": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
                     "secret": true
                 },
                 "vmName": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "vmUuid": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "workingDir": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1483,8 +1343,7 @@
         "rke:index/ClusterCloudProviderVsphereCloudProviderNetwork:ClusterCloudProviderVsphereCloudProviderNetwork": {
             "properties": {
                 "publicNetwork": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1492,29 +1351,23 @@
         "rke:index/ClusterCloudProviderVsphereCloudProviderVirtualCenter:ClusterCloudProviderVsphereCloudProviderVirtualCenter": {
             "properties": {
                 "datacenters": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of virtualcenter config for Vsphere Cloud Provider config (string)\n"
+                    "type": "string"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
                     "secret": true
                 },
                 "port": {
-                    "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "type": "string"
                 },
                 "soapRoundtripCount": {
-                    "type": "integer",
-                    "description": "(int)\n"
+                    "type": "integer"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
                     "secret": true
                 }
             },
@@ -1529,24 +1382,19 @@
         "rke:index/ClusterCloudProviderVsphereCloudProviderWorkspace:ClusterCloudProviderVsphereCloudProviderWorkspace": {
             "properties": {
                 "datacenter": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "defaultDatastore": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "folder": {
-                    "type": "string",
-                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
+                    "type": "string"
                 },
                 "resourcepoolPath": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 },
                 "server": {
-                    "type": "string",
-                    "description": "(string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1558,12 +1406,10 @@
         "rke:index/ClusterControlPlaneHost:ClusterControlPlaneHost": {
             "properties": {
                 "address": {
-                    "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "type": "string"
                 },
                 "nodeName": {
-                    "type": "string",
-                    "description": "Name of the host provisioned via docker machine (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1583,29 +1429,29 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Node selector key pair (map)\n"
+                    "description": "NodeSelector key pair\n"
                 },
                 "nodelocal": {
                     "$ref": "#/types/rke:index/ClusterDnsNodelocal:ClusterDnsNodelocal",
-                    "description": "Docker image for nodelocal (string)\n"
+                    "description": "Nodelocal dns\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "Monitoring provider (string)\n"
+                    "description": "DNS provider\n"
                 },
                 "reverseCidrs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Reverse CIDRs  (list)\n"
+                    "description": "ReverseCIDRs\n"
                 },
                 "upstreamNameservers": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Upstream nameservers  (list)\n"
+                    "description": "Upstream nameservers\n"
                 }
             },
             "type": "object"
@@ -1613,15 +1459,14 @@
         "rke:index/ClusterDnsNodelocal:ClusterDnsNodelocal": {
             "properties": {
                 "ipAddress": {
-                    "type": "string",
-                    "description": "Nodelocal dns ip address (string)\n"
+                    "type": "string"
                 },
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Node selector key pair (map)\n"
+                    "description": "Node selector key pair\n"
                 }
             },
             "type": "object"
@@ -1629,12 +1474,10 @@
         "rke:index/ClusterEtcdHost:ClusterEtcdHost": {
             "properties": {
                 "address": {
-                    "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "type": "string"
                 },
                 "nodeName": {
-                    "type": "string",
-                    "description": "Name of the host provisioned via docker machine (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1650,12 +1493,10 @@
         "rke:index/ClusterInactiveHost:ClusterInactiveHost": {
             "properties": {
                 "address": {
-                    "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "type": "string"
                 },
                 "nodeName": {
-                    "type": "string",
-                    "description": "Name of the host provisioned via docker machine (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1676,44 +1517,44 @@
                 },
                 "dnsPolicy": {
                     "type": "string",
-                    "description": "Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)\n"
+                    "description": "Ingress controller dns policy\n"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments for the ingress controller\n"
                 },
                 "httpPort": {
                     "type": "integer",
-                    "description": "Ingress controller http port (int)\n"
+                    "description": "Ingress controller http port\n"
                 },
                 "httpsPort": {
                     "type": "integer",
-                    "description": "Ingress controller https port (int)\n"
+                    "description": "Ingress controller https port\n"
                 },
                 "networkMode": {
                     "type": "string",
-                    "description": "Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)\n"
+                    "description": "Ingress controller network mode\n"
                 },
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Node selector key pair (map)\n"
+                    "description": "Node selector key pair\n"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Network provider options (map)\n"
+                    "description": "Ingress controller options\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "Monitoring provider (string)\n"
+                    "description": "Ingress controller provider\n"
                 }
             },
             "type": "object"
@@ -1725,18 +1566,18 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Node selector key pair (map)\n"
+                    "description": "Node selector key pair\n"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Network provider options (map)\n"
+                    "description": "Monitoring options\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "Monitoring provider (string)\n"
+                    "description": "Monitoring provider\n"
                 }
             },
             "type": "object",
@@ -1752,38 +1593,38 @@
             "properties": {
                 "aciNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkAciNetworkProvider:ClusterNetworkAciNetworkProvider",
-                    "description": "Aci network provider config (list maxitems:1)\n"
+                    "description": "Aci network provider config\n"
                 },
                 "calicoNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkCalicoNetworkProvider:ClusterNetworkCalicoNetworkProvider",
-                    "description": "Calico network provider config (list maxitems:1)\n"
+                    "description": "Calico network provider config\n"
                 },
                 "canalNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkCanalNetworkProvider:ClusterNetworkCanalNetworkProvider",
-                    "description": "Canal network provider config (list maxitems:1)\n"
+                    "description": "Canal network provider config\n"
                 },
                 "flannelNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkFlannelNetworkProvider:ClusterNetworkFlannelNetworkProvider",
-                    "description": "Flannel network provider config (list maxitems:1)\n"
+                    "description": "Flannel network provider config\n"
                 },
                 "mtu": {
                     "type": "integer",
-                    "description": "Network provider MTU. Default `0` (int)\n"
+                    "description": "Network provider MTU\n"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Network provider options (map)\n"
+                    "description": "Network provider options\n"
                 },
                 "plugin": {
                     "type": "string",
-                    "description": "Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)\n"
+                    "description": "Network provider plugin\n"
                 },
                 "weaveNetworkProvider": {
                     "$ref": "#/types/rke:index/ClusterNetworkWeaveNetworkProvider:ClusterNetworkWeaveNetworkProvider",
-                    "description": "Weave network provider config (list maxitems:1)\n"
+                    "description": "Weave network provider config\n"
                 }
             },
             "type": "object",
@@ -1798,108 +1639,85 @@
         "rke:index/ClusterNetworkAciNetworkProvider:ClusterNetworkAciNetworkProvider": {
             "properties": {
                 "aep": {
-                    "type": "string",
-                    "description": "Attachment entity profile name on aci (string)\n"
+                    "type": "string"
                 },
                 "apicHosts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Ip address for apic hosts (list)\n"
+                    }
                 },
                 "apicUserCrt": {
                     "type": "string",
-                    "description": "Base64 encoded certificate for aci apic user (string)\n",
                     "secret": true
                 },
                 "apicUserKey": {
                     "type": "string",
-                    "description": "Base64 encoded private key for aci apic user (string)\n",
                     "secret": true
                 },
                 "apicUserName": {
-                    "type": "string",
-                    "description": "User name for aci apic (string)\n"
+                    "type": "string"
                 },
                 "encapType": {
-                    "type": "string",
-                    "description": "One of the supported encap types for aci(vlan/vxlan) (string)\n"
+                    "type": "string"
                 },
                 "externDynamic": {
-                    "type": "string",
-                    "description": "Subnet to use for dynamic external IPs on aci (string)\n* `extern_static\"` - (Required) Subnet to use for static external IPs on aci (string)\n"
+                    "type": "string"
                 },
                 "externStatic": {
                     "type": "string"
                 },
                 "infraVlan": {
-                    "type": "string",
-                    "description": "Vlan for infra network on aci (string)\n"
+                    "type": "string"
                 },
                 "kubeApiVlan": {
-                    "type": "string",
-                    "description": "Vlan for node network on aci (string)\n"
+                    "type": "string"
                 },
                 "l3out": {
-                    "type": "string",
-                    "description": "L3Out on aci (string)\n"
+                    "type": "string"
                 },
                 "l3outExternalNetworks": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "L3out external networks on aci (list)\n"
+                    }
                 },
                 "mcastRangeEnd": {
-                    "type": "string",
-                    "description": "Mcast range end address for endpoint groups on aci (string)\n"
+                    "type": "string"
                 },
                 "mcastRangeStart": {
-                    "type": "string",
-                    "description": "Mcast range start address for endpoint groups on aci (string)\n"
+                    "type": "string"
                 },
                 "nodeSubnet": {
-                    "type": "string",
-                    "description": "Kubernetes node address subnet (string)\n"
+                    "type": "string"
                 },
                 "nodeSvcSubnet": {
-                    "type": "string",
-                    "description": "Subnet to use for service graph endpoints on aci (string)\n"
+                    "type": "string"
                 },
                 "serviceVlan": {
-                    "type": "string",
-                    "description": "Vlan for service graph nodes on aci (string)\n"
+                    "type": "string"
                 },
                 "snatPortRangeEnd": {
-                    "type": "string",
-                    "description": "Port end range for Source Network Address Translation on aci (string)\n"
+                    "type": "string"
                 },
                 "snatPortRangeStart": {
-                    "type": "string",
-                    "description": "Port start range for Source Network Address Translation on aci (string)\n"
+                    "type": "string"
                 },
                 "snatPortsPerNode": {
-                    "type": "string",
-                    "description": "Ports per node for Source Network Address Translation on aci (string)\n"
+                    "type": "string"
                 },
                 "systemId": {
-                    "type": "string",
-                    "description": "Unique suffix for all cluster related objects in aci (string)\n"
+                    "type": "string"
                 },
                 "token": {
                     "type": "string",
-                    "description": "UUID for this version of the input configuration (string)\n",
                     "secret": true
                 },
                 "vrfName": {
-                    "type": "string",
-                    "description": "VRF Name on aci (string)\n"
+                    "type": "string"
                 },
                 "vrfTenant": {
-                    "type": "string",
-                    "description": "Tenant for VRF on aci (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1946,8 +1764,7 @@
         "rke:index/ClusterNetworkCanalNetworkProvider:ClusterNetworkCanalNetworkProvider": {
             "properties": {
                 "iface": {
-                    "type": "string",
-                    "description": "Flannel network interface (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1962,8 +1779,7 @@
         "rke:index/ClusterNetworkFlannelNetworkProvider:ClusterNetworkFlannelNetworkProvider": {
             "properties": {
                 "iface": {
-                    "type": "string",
-                    "description": "Flannel network interface (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1978,8 +1794,7 @@
         "rke:index/ClusterNetworkWeaveNetworkProvider:ClusterNetworkWeaveNetworkProvider": {
             "properties": {
                 "password": {
-                    "type": "string",
-                    "description": "Registry password (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1991,41 +1806,41 @@
             "properties": {
                 "address": {
                     "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "description": "IP or FQDN that is fully resolvable and used for SSH communication\n"
                 },
                 "dockerSocket": {
                     "type": "string",
-                    "description": "Docker socket on the node that will be used in tunneling (string)\n"
+                    "description": "Docker socket on the node that will be used in tunneling\n"
                 },
                 "hostnameOverride": {
                     "type": "string",
-                    "description": "Hostname override for node (string)\n"
+                    "description": "Hostname override\n"
                 },
                 "internalAddress": {
                     "type": "string",
-                    "description": "Internal address that will be used for components communication (string)\n"
+                    "description": "Internal address that will be used for components communication\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Node labels (map)\n"
+                    "description": "Node Labels\n"
                 },
                 "nodeName": {
                     "type": "string",
-                    "description": "Name of the host provisioned via docker machine (string)\n"
+                    "description": "Name of the host provisioned via docker machine\n"
                 },
                 "port": {
                     "type": "string",
-                    "description": "Port used for SSH communication (string)\n"
+                    "description": "Port used for SSH communication\n"
                 },
                 "roles": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)\n"
+                    "description": "Node roles in k8s cluster [controlplane/worker/etcd])\n"
                 },
                 "rolesDeprecated": {
                     "type": "string",
@@ -2043,7 +1858,7 @@
                 },
                 "sshCert": {
                     "type": "string",
-                    "description": "SSH Certificate (string)\n",
+                    "description": "SSH Certificate\n",
                     "secret": true
                 },
                 "sshCertPath": {
@@ -2052,7 +1867,7 @@
                 },
                 "sshKey": {
                     "type": "string",
-                    "description": "SSH Private Key (string)\n",
+                    "description": "SSH Private Key\n",
                     "secret": true
                 },
                 "sshKeyPath": {
@@ -2064,11 +1879,11 @@
                     "items": {
                         "$ref": "#/types/rke:index/ClusterNodeTaint:ClusterNodeTaint"
                     },
-                    "description": "Node taints (list)\n"
+                    "description": "Node taints\n"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
+                    "description": "SSH user that will be used by RKE\n",
                     "secret": true
                 }
             },
@@ -2092,16 +1907,13 @@
         "rke:index/ClusterNodeTaint:ClusterNodeTaint": {
             "properties": {
                 "effect": {
-                    "type": "string",
-                    "description": "Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)\n"
+                    "type": "string"
                 },
                 "key": {
-                    "type": "string",
-                    "description": "TLS key for etcd service (string)\n"
+                    "type": "string"
                 },
                 "value": {
-                    "type": "string",
-                    "description": "Taint value (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2114,20 +1926,20 @@
             "properties": {
                 "isDefault": {
                     "type": "boolean",
-                    "description": "Set as default registry. Default `false` (bool)\n"
+                    "description": "Set as default registry\n"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Registry password (string)\n",
+                    "description": "Registry password\n",
                     "secret": true
                 },
                 "url": {
                     "type": "string",
-                    "description": "Registry URL (string)\n"
+                    "description": "Registry URL\n"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Registry user (string)\n",
+                    "description": "Registry user\n",
                     "secret": true
                 }
             },
@@ -2144,7 +1956,7 @@
                 },
                 "snapshotName": {
                     "type": "string",
-                    "description": "Snapshot name (string)\n"
+                    "description": "Snapshot name\n"
                 }
             },
             "type": "object"
@@ -2153,7 +1965,7 @@
             "properties": {
                 "caCertificates": {
                     "type": "boolean",
-                    "description": "Rotate CA Certificates. Default `false` (bool)\n"
+                    "description": "Rotate CA Certificates\n"
                 },
                 "services": {
                     "type": "array",
@@ -2168,152 +1980,116 @@
         "rke:index/ClusterRunningSystemImage:ClusterRunningSystemImage": {
             "properties": {
                 "aciCniDeployContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_cni_deploy_container (string)\n"
+                    "type": "string"
                 },
                 "aciControllerContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_controller_container (string)\n"
+                    "type": "string"
                 },
                 "aciHostContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_host_container (string)\n"
+                    "type": "string"
                 },
                 "aciMcastContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_mcast_container (string)\n"
+                    "type": "string"
                 },
                 "aciOpflexContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_opflex_container (string)\n"
+                    "type": "string"
                 },
                 "aciOvsContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_ovs_container (string)\n"
+                    "type": "string"
                 },
                 "alpine": {
-                    "type": "string",
-                    "description": "Docker image for alpine (string)\n"
+                    "type": "string"
                 },
                 "calicoCni": {
-                    "type": "string",
-                    "description": "Docker image for calico_cni (string)\n"
+                    "type": "string"
                 },
                 "calicoControllers": {
-                    "type": "string",
-                    "description": "Docker image for calico_controllers (string)\n"
+                    "type": "string"
                 },
                 "calicoCtl": {
-                    "type": "string",
-                    "description": "Docker image for calico_ctl (string)\n"
+                    "type": "string"
                 },
                 "calicoFlexVol": {
-                    "type": "string",
-                    "description": "Docker image for calico_flex_vol (string)\n"
+                    "type": "string"
                 },
                 "calicoNode": {
-                    "type": "string",
-                    "description": "Docker image for calico_node (string)\n"
+                    "type": "string"
                 },
                 "canalCni": {
-                    "type": "string",
-                    "description": "Docker image for canal_cni (string)\n"
+                    "type": "string"
                 },
                 "canalFlannel": {
-                    "type": "string",
-                    "description": "Docker image for canal_flannel (string)\n"
+                    "type": "string"
                 },
                 "canalFlexVol": {
-                    "type": "string",
-                    "description": "Docker image for canal_flex_vol (string)\n"
+                    "type": "string"
                 },
                 "canalNode": {
-                    "type": "string",
-                    "description": "Docker image for canal_node (string)\n"
+                    "type": "string"
                 },
                 "certDownloader": {
-                    "type": "string",
-                    "description": "Docker image for cert_downloader (string)\n"
+                    "type": "string"
                 },
                 "coredns": {
-                    "type": "string",
-                    "description": "Docker image for coredns (string)\n"
+                    "type": "string"
                 },
                 "corednsAutoscaler": {
-                    "type": "string",
-                    "description": "Docker image for coredns_autoscaler (string)\n"
+                    "type": "string"
                 },
                 "dnsmasq": {
-                    "type": "string",
-                    "description": "Docker image for dnsmasq (string)\n"
+                    "type": "string"
                 },
                 "etcd": {
-                    "type": "string",
-                    "description": "Docker image for etcd (string)\n"
+                    "type": "string"
                 },
                 "flannel": {
-                    "type": "string",
-                    "description": "Docker image for flannel (string)\n"
+                    "type": "string"
                 },
                 "flannelCni": {
-                    "type": "string",
-                    "description": "Docker image for flannel_cni (string)\n"
+                    "type": "string"
                 },
                 "ingress": {
                     "type": "string",
                     "description": "RKE k8s cluster ingress controller configuration (list maxitems:1)\n"
                 },
                 "ingressBackend": {
-                    "type": "string",
-                    "description": "Docker image for ingress_backend (string)\n"
+                    "type": "string"
                 },
                 "kubeDns": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns (string)\n"
+                    "type": "string"
                 },
                 "kubeDnsAutoscaler": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns_autoscaler (string)\n"
+                    "type": "string"
                 },
                 "kubeDnsSidecar": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns_sidecar (string)\n"
+                    "type": "string"
                 },
                 "kubernetes": {
-                    "type": "string",
-                    "description": "Docker image for kubernetes (string)\n"
+                    "type": "string"
                 },
                 "kubernetesServicesSidecar": {
-                    "type": "string",
-                    "description": "Docker image for kubernetes_services_sidecar (string)\n"
+                    "type": "string"
                 },
                 "metricsServer": {
-                    "type": "string",
-                    "description": "Docker image for metrics_server (string)\n"
+                    "type": "string"
                 },
                 "nginxProxy": {
-                    "type": "string",
-                    "description": "Docker image for nginx_proxy (string)\n"
+                    "type": "string"
                 },
                 "nodelocal": {
-                    "type": "string",
-                    "description": "Docker image for nodelocal (string)\n"
+                    "type": "string"
                 },
                 "podInfraContainer": {
-                    "type": "string",
-                    "description": "Docker image for pod_infra_container (string)\n"
+                    "type": "string"
                 },
                 "weaveCni": {
-                    "type": "string",
-                    "description": "Docker image for weave_cni (string)\n"
+                    "type": "string"
                 },
                 "weaveNode": {
-                    "type": "string",
-                    "description": "Docker image for weave_node (string)\n"
+                    "type": "string"
                 },
                 "windowsPodInfraContainer": {
-                    "type": "string",
-                    "description": "Docker image for windows_pod_infra_container (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -2321,28 +2097,22 @@
         "rke:index/ClusterServices:ClusterServices": {
             "properties": {
                 "etcd": {
-                    "$ref": "#/types/rke:index/ClusterServicesEtcd:ClusterServicesEtcd",
-                    "description": "Docker image for etcd (string)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesEtcd:ClusterServicesEtcd"
                 },
                 "kubeApi": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApi:ClusterServicesKubeApi",
-                    "description": "Kube API options for RKE services (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApi:ClusterServicesKubeApi"
                 },
                 "kubeController": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeController:ClusterServicesKubeController",
-                    "description": "Kube Controller options for RKE services (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeController:ClusterServicesKubeController"
                 },
                 "kubelet": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubelet:ClusterServicesKubelet",
-                    "description": "Kubelet options for RKE services (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubelet:ClusterServicesKubelet"
                 },
                 "kubeproxy": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeproxy:ClusterServicesKubeproxy",
-                    "description": "Kubeproxy options for RKE services (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeproxy:ClusterServicesKubeproxy"
                 },
                 "scheduler": {
-                    "$ref": "#/types/rke:index/ClusterServicesScheduler:ClusterServicesScheduler",
-                    "description": "Scheduler options for RKE services (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesScheduler:ClusterServicesScheduler"
                 }
             },
             "type": "object",
@@ -2362,79 +2132,64 @@
         "rke:index/ClusterServicesEtcd:ClusterServicesEtcd": {
             "properties": {
                 "backupConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfig:ClusterServicesEtcdBackupConfig",
-                    "description": "Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfig:ClusterServicesEtcdBackupConfig"
                 },
                 "caCert": {
                     "type": "string",
-                    "description": "TLS CA certificate for etcd service (string)\n",
                     "secret": true
                 },
                 "cert": {
                     "type": "string",
-                    "description": "TLS certificate for etcd service (string)\n",
                     "secret": true
                 },
                 "creation": {
-                    "type": "string",
-                    "description": "Creation option for etcd service (string)\n"
+                    "type": "string"
                 },
                 "externalUrls": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "External urls for etcd service (list)\n"
+                    }
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    }
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    }
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    }
                 },
                 "gid": {
-                    "type": "integer",
-                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)\n"
+                    "type": "integer"
                 },
                 "image": {
-                    "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "type": "string"
                 },
                 "key": {
                     "type": "string",
-                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "path": {
-                    "type": "string",
-                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
+                    "type": "string"
                 },
                 "retention": {
-                    "type": "string",
-                    "description": "Retention for etcd backup. Default `6` (int)\n"
+                    "type": "string"
                 },
                 "snapshot": {
-                    "type": "boolean",
-                    "description": "Snapshot option for etcd service. Default `true` (bool)\n"
+                    "type": "boolean"
                 },
                 "uid": {
-                    "type": "integer",
-                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)\n"
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2460,28 +2215,22 @@
         "rke:index/ClusterServicesEtcdBackupConfig:ClusterServicesEtcdBackupConfig": {
             "properties": {
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 },
                 "intervalHours": {
-                    "type": "integer",
-                    "description": "Interval hours for etcd backup. Default `12` (int)\n"
+                    "type": "integer"
                 },
                 "retention": {
-                    "type": "integer",
-                    "description": "Retention for etcd backup. Default `6` (int)\n"
+                    "type": "integer"
                 },
                 "s3BackupConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfigS3BackupConfig:ClusterServicesEtcdBackupConfigS3BackupConfig",
-                    "description": "S3 config options for etcd backup (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesEtcdBackupConfigS3BackupConfig:ClusterServicesEtcdBackupConfigS3BackupConfig"
                 },
                 "safeTimestamp": {
-                    "type": "boolean",
-                    "description": "Safe timestamp for etcd backup. Default: `false` (bool)\n"
+                    "type": "boolean"
                 },
                 "timeout": {
-                    "type": "integer",
-                    "description": "RKE node drain timeout (int)\n"
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -2490,32 +2239,25 @@
             "properties": {
                 "accessKey": {
                     "type": "string",
-                    "description": "Access key for S3 service (string)\n",
                     "secret": true
                 },
                 "bucketName": {
-                    "type": "string",
-                    "description": "Bucket name for S3 service (string)\n"
+                    "type": "string"
                 },
                 "customCa": {
-                    "type": "string",
-                    "description": "Base64 encoded custom CA for S3 service. Use filebase64(\u003cFILE\u003e) for encoding file. Available from Rancher v2.2.5 (string)\n"
+                    "type": "string"
                 },
                 "endpoint": {
-                    "type": "string",
-                    "description": "Endpoint for S3 service (string)\n"
+                    "type": "string"
                 },
                 "folder": {
-                    "type": "string",
-                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
+                    "type": "string"
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "secretKey": {
                     "type": "string",
-                    "description": "Secret key for S3 service (string)\n",
                     "secret": true
                 }
             },
@@ -2524,79 +2266,64 @@
         "rke:index/ClusterServicesEtcdDeprecated:ClusterServicesEtcdDeprecated": {
             "properties": {
                 "backupConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfig:ClusterServicesEtcdDeprecatedBackupConfig",
-                    "description": "Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfig:ClusterServicesEtcdDeprecatedBackupConfig"
                 },
                 "caCert": {
                     "type": "string",
-                    "description": "TLS CA certificate for etcd service (string)\n",
                     "secret": true
                 },
                 "cert": {
                     "type": "string",
-                    "description": "TLS certificate for etcd service (string)\n",
                     "secret": true
                 },
                 "creation": {
-                    "type": "string",
-                    "description": "Creation option for etcd service (string)\n"
+                    "type": "string"
                 },
                 "externalUrls": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "External urls for etcd service (list)\n"
+                    }
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    }
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    }
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    }
                 },
                 "gid": {
-                    "type": "integer",
-                    "description": "Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)\n"
+                    "type": "integer"
                 },
                 "image": {
-                    "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "type": "string"
                 },
                 "key": {
                     "type": "string",
-                    "description": "TLS key for etcd service (string)\n",
                     "secret": true
                 },
                 "path": {
-                    "type": "string",
-                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
+                    "type": "string"
                 },
                 "retention": {
-                    "type": "string",
-                    "description": "Retention for etcd backup. Default `6` (int)\n"
+                    "type": "string"
                 },
                 "snapshot": {
-                    "type": "boolean",
-                    "description": "Snapshot option for etcd service. Default `true` (bool)\n"
+                    "type": "boolean"
                 },
                 "uid": {
-                    "type": "integer",
-                    "description": "Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)\n"
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2622,28 +2349,22 @@
         "rke:index/ClusterServicesEtcdDeprecatedBackupConfig:ClusterServicesEtcdDeprecatedBackupConfig": {
             "properties": {
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 },
                 "intervalHours": {
-                    "type": "integer",
-                    "description": "Interval hours for etcd backup. Default `12` (int)\n"
+                    "type": "integer"
                 },
                 "retention": {
-                    "type": "integer",
-                    "description": "Retention for etcd backup. Default `6` (int)\n"
+                    "type": "integer"
                 },
                 "s3BackupConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig:ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig",
-                    "description": "S3 config options for etcd backup (list maxitems:1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig:ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig"
                 },
                 "safeTimestamp": {
-                    "type": "boolean",
-                    "description": "Safe timestamp for etcd backup. Default: `false` (bool)\n"
+                    "type": "boolean"
                 },
                 "timeout": {
-                    "type": "integer",
-                    "description": "RKE node drain timeout (int)\n"
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -2652,32 +2373,25 @@
             "properties": {
                 "accessKey": {
                     "type": "string",
-                    "description": "Access key for S3 service (string)\n",
                     "secret": true
                 },
                 "bucketName": {
-                    "type": "string",
-                    "description": "Bucket name for S3 service (string)\n"
+                    "type": "string"
                 },
                 "customCa": {
-                    "type": "string",
-                    "description": "Base64 encoded custom CA for S3 service. Use filebase64(\u003cFILE\u003e) for encoding file. Available from Rancher v2.2.5 (string)\n"
+                    "type": "string"
                 },
                 "endpoint": {
-                    "type": "string",
-                    "description": "Endpoint for S3 service (string)\n"
+                    "type": "string"
                 },
                 "folder": {
-                    "type": "string",
-                    "description": "Folder for S3 service. Available from Rancher v2.2.7 (string)\n"
+                    "type": "string"
                 },
                 "region": {
-                    "type": "string",
-                    "description": "Region for S3 service (string)\n"
+                    "type": "string"
                 },
                 "secretKey": {
                     "type": "string",
-                    "description": "Secret key for S3 service (string)\n",
                     "secret": true
                 }
             },
@@ -2687,40 +2401,37 @@
             "properties": {
                 "alwaysPullImages": {
                     "type": "boolean",
-                    "description": "Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)\n"
+                    "description": "Enable/Disable AlwaysPullImages admissions plugin\n"
                 },
                 "auditLog": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiAuditLog:ClusterServicesKubeApiAuditLog",
-                    "description": "K8s audit log configuration. (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiAuditLog:ClusterServicesKubeApiAuditLog"
                 },
                 "eventRateLimit": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiEventRateLimit:ClusterServicesKubeApiEventRateLimit",
-                    "description": "K8s event rate limit configuration. (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiEventRateLimit:ClusterServicesKubeApiEventRateLimit"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kube-api services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
-                    "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "type": "string"
                 },
                 "podSecurityConfiguration": {
                     "type": "string",
@@ -2728,19 +2439,18 @@
                 },
                 "podSecurityPolicy": {
                     "type": "boolean",
-                    "description": "Pod Security Policy option for kube API service (bool)\n"
+                    "description": "Enabled/Disable PodSecurityPolicy\n"
                 },
                 "secretsEncryptionConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiSecretsEncryptionConfig:ClusterServicesKubeApiSecretsEncryptionConfig",
-                    "description": "[Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiSecretsEncryptionConfig:ClusterServicesKubeApiSecretsEncryptionConfig"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
+                    "description": "Virtual IP range that will be used by Kubernetes services\n"
                 },
                 "serviceNodePortRange": {
                     "type": "string",
-                    "description": "Service Node Port Range option for kube API service (string)\n"
+                    "description": "Port range for services defined with NodePort type\n"
                 }
             },
             "type": "object",
@@ -2764,12 +2474,10 @@
         "rke:index/ClusterServicesKubeApiAuditLog:ClusterServicesKubeApiAuditLog": {
             "properties": {
                 "configuration": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiAuditLogConfiguration:ClusterServicesKubeApiAuditLogConfiguration",
-                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiAuditLogConfiguration:ClusterServicesKubeApiAuditLogConfiguration"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -2785,28 +2493,22 @@
         "rke:index/ClusterServicesKubeApiAuditLogConfiguration:ClusterServicesKubeApiAuditLogConfiguration": {
             "properties": {
                 "format": {
-                    "type": "string",
-                    "description": "Audit log format (string)\n"
+                    "type": "string"
                 },
                 "maxAge": {
-                    "type": "integer",
-                    "description": "Audit log max age (int)\n"
+                    "type": "integer"
                 },
                 "maxBackup": {
-                    "type": "integer",
-                    "description": "Audit log max backup. Default: `10` (int)\n"
+                    "type": "integer"
                 },
                 "maxSize": {
-                    "type": "integer",
-                    "description": "Audit log max size. Default: `100` (int)\n"
+                    "type": "integer"
                 },
                 "path": {
-                    "type": "string",
-                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
+                    "type": "string"
                 },
                 "policy": {
-                    "type": "string",
-                    "description": "Audit policy json encoded definition. `\"apiVersion\"` and `\"kind\":\"Policy\",\"rules\"` fields are required in the json. Ex. `jsonencode({\"apiVersion\":\"audit.k8s.io/v1\",\"kind\":\"Policy\",\"rules\":[{\"level\":\"RequestResponse\",\"resources\":[{\"group\":\"\",\"resources\":[\"pods\"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2827,40 +2529,37 @@
             "properties": {
                 "alwaysPullImages": {
                     "type": "boolean",
-                    "description": "Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)\n"
+                    "description": "Enable/Disable AlwaysPullImages admissions plugin\n"
                 },
                 "auditLog": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedAuditLog:ClusterServicesKubeApiDeprecatedAuditLog",
-                    "description": "K8s audit log configuration. (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedAuditLog:ClusterServicesKubeApiDeprecatedAuditLog"
                 },
                 "eventRateLimit": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedEventRateLimit:ClusterServicesKubeApiDeprecatedEventRateLimit",
-                    "description": "K8s event rate limit configuration. (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedEventRateLimit:ClusterServicesKubeApiDeprecatedEventRateLimit"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kube-api services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
-                    "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "type": "string"
                 },
                 "podSecurityConfiguration": {
                     "type": "string",
@@ -2868,19 +2567,18 @@
                 },
                 "podSecurityPolicy": {
                     "type": "boolean",
-                    "description": "Pod Security Policy option for kube API service (bool)\n"
+                    "description": "Enabled/Disable PodSecurityPolicy\n"
                 },
                 "secretsEncryptionConfig": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig:ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig",
-                    "description": "[Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig:ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
+                    "description": "Virtual IP range that will be used by Kubernetes services\n"
                 },
                 "serviceNodePortRange": {
                     "type": "string",
-                    "description": "Service Node Port Range option for kube API service (string)\n"
+                    "description": "Port range for services defined with NodePort type\n"
                 }
             },
             "type": "object",
@@ -2904,12 +2602,10 @@
         "rke:index/ClusterServicesKubeApiDeprecatedAuditLog:ClusterServicesKubeApiDeprecatedAuditLog": {
             "properties": {
                 "configuration": {
-                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedAuditLogConfiguration:ClusterServicesKubeApiDeprecatedAuditLogConfiguration",
-                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
+                    "$ref": "#/types/rke:index/ClusterServicesKubeApiDeprecatedAuditLogConfiguration:ClusterServicesKubeApiDeprecatedAuditLogConfiguration"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -2925,28 +2621,22 @@
         "rke:index/ClusterServicesKubeApiDeprecatedAuditLogConfiguration:ClusterServicesKubeApiDeprecatedAuditLogConfiguration": {
             "properties": {
                 "format": {
-                    "type": "string",
-                    "description": "Audit log format (string)\n"
+                    "type": "string"
                 },
                 "maxAge": {
-                    "type": "integer",
-                    "description": "Audit log max age (int)\n"
+                    "type": "integer"
                 },
                 "maxBackup": {
-                    "type": "integer",
-                    "description": "Audit log max backup. Default: `10` (int)\n"
+                    "type": "integer"
                 },
                 "maxSize": {
-                    "type": "integer",
-                    "description": "Audit log max size. Default: `100` (int)\n"
+                    "type": "integer"
                 },
                 "path": {
-                    "type": "string",
-                    "description": "Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)\n"
+                    "type": "string"
                 },
                 "policy": {
-                    "type": "string",
-                    "description": "Audit policy json encoded definition. `\"apiVersion\"` and `\"kind\":\"Policy\",\"rules\"` fields are required in the json. Ex. `jsonencode({\"apiVersion\":\"audit.k8s.io/v1\",\"kind\":\"Policy\",\"rules\":[{\"level\":\"RequestResponse\",\"resources\":[{\"group\":\"\",\"resources\":[\"pods\"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2966,12 +2656,10 @@
         "rke:index/ClusterServicesKubeApiDeprecatedEventRateLimit:ClusterServicesKubeApiDeprecatedEventRateLimit": {
             "properties": {
                 "configuration": {
-                    "type": "string",
-                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
+                    "type": "string"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -2987,12 +2675,10 @@
         "rke:index/ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig:ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig": {
             "properties": {
                 "customConfig": {
-                    "type": "string",
-                    "description": "Secrets encryption yaml encoded custom configuration. `\"apiVersion\"` and `\"kind\":\"EncryptionConfiguration\"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\\nkind: EncryptionConfiguration\\nresources:\\n- resources:\\n  - secrets\\n  providers:\\n  - aescbc:\\n      keys:\\n      - name: k-fw5hn\\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\\n    identity: {}\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)\n"
+                    "type": "string"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -3008,12 +2694,10 @@
         "rke:index/ClusterServicesKubeApiEventRateLimit:ClusterServicesKubeApiEventRateLimit": {
             "properties": {
                 "configuration": {
-                    "type": "string",
-                    "description": "Event rate limit yaml encoded configuration. `\"apiVersion\"` and `\"kind\":\"Configuration\"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\\nkind: Configuration\\nlimits:\\n- type: Server\\n  burst: 30000\\n  qps: 6000\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)\n"
+                    "type": "string"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -3029,12 +2713,10 @@
         "rke:index/ClusterServicesKubeApiSecretsEncryptionConfig:ClusterServicesKubeApiSecretsEncryptionConfig": {
             "properties": {
                 "customConfig": {
-                    "type": "string",
-                    "description": "Secrets encryption yaml encoded custom configuration. `\"apiVersion\"` and `\"kind\":\"EncryptionConfiguration\"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\\nkind: EncryptionConfiguration\\nresources:\\n- resources:\\n  - secrets\\n  providers:\\n  - aescbc:\\n      keys:\\n      - name: k-fw5hn\\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\\n    identity: {}\\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)\n"
+                    "type": "string"
                 },
                 "enabled": {
-                    "type": "boolean",
-                    "description": "Enable secrets encryption (bool)\n"
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -3051,36 +2733,36 @@
             "properties": {
                 "clusterCidr": {
                     "type": "string",
-                    "description": "Cluster CIDR option for kube controller service (string)\n"
+                    "description": "(Computed) RKE k8s cluster cidr (string)\n"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kube-controller service\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kube-controller service\n"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
+                    "description": "Virtual IP range that will be used by Kubernetes services\n"
                 }
             },
             "type": "object",
@@ -3101,36 +2783,36 @@
             "properties": {
                 "clusterCidr": {
                     "type": "string",
-                    "description": "Cluster CIDR option for kube controller service (string)\n"
+                    "description": "(Computed) RKE k8s cluster cidr (string)\n"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kube-controller service\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kube-controller service\n"
                 },
                 "serviceClusterIpRange": {
                     "type": "string",
-                    "description": "Service Cluster ip Range option for kube controller service (string)\n"
+                    "description": "Virtual IP range that will be used by Kubernetes services\n"
                 }
             },
             "type": "object",
@@ -3154,25 +2836,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kubeproxy services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the worker nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the worker nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kubeproxy service\n"
                 }
             },
             "type": "object",
@@ -3194,25 +2876,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the scheduler services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the scheduler service\n"
                 }
             },
             "type": "object",
@@ -3231,48 +2913,47 @@
             "properties": {
                 "clusterDnsServer": {
                     "type": "string",
-                    "description": "Cluster DNS Server option for kubelet service (string)\n"
+                    "description": "(Computed) RKE k8s cluster dns server (string)\n"
                 },
                 "clusterDomain": {
                     "type": "string",
-                    "description": "Cluster Domain option for kubelet service. Default `cluster.local` (string)\n"
+                    "description": "(Computed) RKE k8s cluster domain (string)\n"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kubelet services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the worker nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the nodes\n"
                 },
                 "failSwapOn": {
                     "type": "boolean",
-                    "description": "Enable or disable failing when swap on is not supported (bool)\n"
+                    "description": "Fail if swap is enabled\n"
                 },
                 "generateServingCertificate": {
-                    "type": "boolean",
-                    "description": "[Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)\n"
+                    "type": "boolean"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kubelet service\n"
                 },
                 "infraContainerImage": {
                     "type": "string",
-                    "description": "Infra container image for kubelet service (string)\n"
+                    "description": "The image whose network/ipc namespaces containers in each pod will use\n"
                 }
             },
             "type": "object",
@@ -3294,48 +2975,47 @@
             "properties": {
                 "clusterDnsServer": {
                     "type": "string",
-                    "description": "Cluster DNS Server option for kubelet service (string)\n"
+                    "description": "(Computed) RKE k8s cluster dns server (string)\n"
                 },
                 "clusterDomain": {
                     "type": "string",
-                    "description": "Cluster Domain option for kubelet service. Default `cluster.local` (string)\n"
+                    "description": "(Computed) RKE k8s cluster domain (string)\n"
                 },
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kubelet services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the worker nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the nodes\n"
                 },
                 "failSwapOn": {
                     "type": "boolean",
-                    "description": "Enable or disable failing when swap on is not supported (bool)\n"
+                    "description": "Fail if swap is enabled\n"
                 },
                 "generateServingCertificate": {
-                    "type": "boolean",
-                    "description": "[Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)\n"
+                    "type": "boolean"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kubelet service\n"
                 },
                 "infraContainerImage": {
                     "type": "string",
-                    "description": "Infra container image for kubelet service (string)\n"
+                    "description": "The image whose network/ipc namespaces containers in each pod will use\n"
                 }
             },
             "type": "object",
@@ -3360,25 +3040,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the kubeproxy services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the worker nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the worker nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the kubeproxy service\n"
                 }
             },
             "type": "object",
@@ -3400,25 +3080,25 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Extra arguments for scheduler service (map)\n"
+                    "description": "Extra arguments that are added to the scheduler services\n"
                 },
                 "extraBinds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra binds for scheduler service (list)\n"
+                    "description": "Extra binds added to the controlplane nodes\n"
                 },
                 "extraEnvs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Extra environment for scheduler service (list)\n"
+                    "description": "Extra env added to the controlplane nodes\n"
                 },
                 "image": {
                     "type": "string",
-                    "description": "Docker image for scheduler service (string)\n"
+                    "description": "Docker image of the scheduler service\n"
                 }
             },
             "type": "object",
@@ -3436,152 +3116,116 @@
         "rke:index/ClusterSystemImages:ClusterSystemImages": {
             "properties": {
                 "aciCniDeployContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_cni_deploy_container (string)\n"
+                    "type": "string"
                 },
                 "aciControllerContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_controller_container (string)\n"
+                    "type": "string"
                 },
                 "aciHostContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_host_container (string)\n"
+                    "type": "string"
                 },
                 "aciMcastContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_mcast_container (string)\n"
+                    "type": "string"
                 },
                 "aciOpflexContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_opflex_container (string)\n"
+                    "type": "string"
                 },
                 "aciOvsContainer": {
-                    "type": "string",
-                    "description": "Docker image for aci_ovs_container (string)\n"
+                    "type": "string"
                 },
                 "alpine": {
-                    "type": "string",
-                    "description": "Docker image for alpine (string)\n"
+                    "type": "string"
                 },
                 "calicoCni": {
-                    "type": "string",
-                    "description": "Docker image for calico_cni (string)\n"
+                    "type": "string"
                 },
                 "calicoControllers": {
-                    "type": "string",
-                    "description": "Docker image for calico_controllers (string)\n"
+                    "type": "string"
                 },
                 "calicoCtl": {
-                    "type": "string",
-                    "description": "Docker image for calico_ctl (string)\n"
+                    "type": "string"
                 },
                 "calicoFlexVol": {
-                    "type": "string",
-                    "description": "Docker image for calico_flex_vol (string)\n"
+                    "type": "string"
                 },
                 "calicoNode": {
-                    "type": "string",
-                    "description": "Docker image for calico_node (string)\n"
+                    "type": "string"
                 },
                 "canalCni": {
-                    "type": "string",
-                    "description": "Docker image for canal_cni (string)\n"
+                    "type": "string"
                 },
                 "canalFlannel": {
-                    "type": "string",
-                    "description": "Docker image for canal_flannel (string)\n"
+                    "type": "string"
                 },
                 "canalFlexVol": {
-                    "type": "string",
-                    "description": "Docker image for canal_flex_vol (string)\n"
+                    "type": "string"
                 },
                 "canalNode": {
-                    "type": "string",
-                    "description": "Docker image for canal_node (string)\n"
+                    "type": "string"
                 },
                 "certDownloader": {
-                    "type": "string",
-                    "description": "Docker image for cert_downloader (string)\n"
+                    "type": "string"
                 },
                 "coredns": {
-                    "type": "string",
-                    "description": "Docker image for coredns (string)\n"
+                    "type": "string"
                 },
                 "corednsAutoscaler": {
-                    "type": "string",
-                    "description": "Docker image for coredns_autoscaler (string)\n"
+                    "type": "string"
                 },
                 "dnsmasq": {
-                    "type": "string",
-                    "description": "Docker image for dnsmasq (string)\n"
+                    "type": "string"
                 },
                 "etcd": {
-                    "type": "string",
-                    "description": "Docker image for etcd (string)\n"
+                    "type": "string"
                 },
                 "flannel": {
-                    "type": "string",
-                    "description": "Docker image for flannel (string)\n"
+                    "type": "string"
                 },
                 "flannelCni": {
-                    "type": "string",
-                    "description": "Docker image for flannel_cni (string)\n"
+                    "type": "string"
                 },
                 "ingress": {
                     "type": "string",
                     "description": "RKE k8s cluster ingress controller configuration (list maxitems:1)\n"
                 },
                 "ingressBackend": {
-                    "type": "string",
-                    "description": "Docker image for ingress_backend (string)\n"
+                    "type": "string"
                 },
                 "kubeDns": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns (string)\n"
+                    "type": "string"
                 },
                 "kubeDnsAutoscaler": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns_autoscaler (string)\n"
+                    "type": "string"
                 },
                 "kubeDnsSidecar": {
-                    "type": "string",
-                    "description": "Docker image for kube_dns_sidecar (string)\n"
+                    "type": "string"
                 },
                 "kubernetes": {
-                    "type": "string",
-                    "description": "Docker image for kubernetes (string)\n"
+                    "type": "string"
                 },
                 "kubernetesServicesSidecar": {
-                    "type": "string",
-                    "description": "Docker image for kubernetes_services_sidecar (string)\n"
+                    "type": "string"
                 },
                 "metricsServer": {
-                    "type": "string",
-                    "description": "Docker image for metrics_server (string)\n"
+                    "type": "string"
                 },
                 "nginxProxy": {
-                    "type": "string",
-                    "description": "Docker image for nginx_proxy (string)\n"
+                    "type": "string"
                 },
                 "nodelocal": {
-                    "type": "string",
-                    "description": "Docker image for nodelocal (string)\n"
+                    "type": "string"
                 },
                 "podInfraContainer": {
-                    "type": "string",
-                    "description": "Docker image for pod_infra_container (string)\n"
+                    "type": "string"
                 },
                 "weaveCni": {
-                    "type": "string",
-                    "description": "Docker image for weave_cni (string)\n"
+                    "type": "string"
                 },
                 "weaveNode": {
-                    "type": "string",
-                    "description": "Docker image for weave_node (string)\n"
+                    "type": "string"
                 },
                 "windowsPodInfraContainer": {
-                    "type": "string",
-                    "description": "Docker image for windows_pod_infra_container (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -3589,20 +3233,16 @@
         "rke:index/ClusterUpgradeStrategy:ClusterUpgradeStrategy": {
             "properties": {
                 "drain": {
-                    "type": "boolean",
-                    "description": "RKE drain nodes (bool)\n"
+                    "type": "boolean"
                 },
                 "drainInput": {
-                    "$ref": "#/types/rke:index/ClusterUpgradeStrategyDrainInput:ClusterUpgradeStrategyDrainInput",
-                    "description": "RKE drain node input (list Maxitems: 1)\n"
+                    "$ref": "#/types/rke:index/ClusterUpgradeStrategyDrainInput:ClusterUpgradeStrategyDrainInput"
                 },
                 "maxUnavailableControlplane": {
-                    "type": "string",
-                    "description": "RKE max unavailable controlplane nodes (string)\n"
+                    "type": "string"
                 },
                 "maxUnavailableWorker": {
-                    "type": "string",
-                    "description": "RKE max unavailable worker nodes (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -3620,24 +3260,19 @@
         "rke:index/ClusterUpgradeStrategyDrainInput:ClusterUpgradeStrategyDrainInput": {
             "properties": {
                 "deleteLocalData": {
-                    "type": "boolean",
-                    "description": "Delete RKE node local data (bool)\n"
+                    "type": "boolean"
                 },
                 "force": {
-                    "type": "boolean",
-                    "description": "Force RKE node drain (bool)\n"
+                    "type": "boolean"
                 },
                 "gracePeriod": {
-                    "type": "integer",
-                    "description": "RKE node drain grace period (int)\n"
+                    "type": "integer"
                 },
                 "ignoreDaemonSets": {
-                    "type": "boolean",
-                    "description": "Ignore RKE daemon sets (bool)\n"
+                    "type": "boolean"
                 },
                 "timeout": {
-                    "type": "integer",
-                    "description": "RKE node drain timeout (int)\n"
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -3656,12 +3291,10 @@
         "rke:index/ClusterWorkerHost:ClusterWorkerHost": {
             "properties": {
                 "address": {
-                    "type": "string",
-                    "description": "Address ip for node (string)\n"
+                    "type": "string"
                 },
                 "nodeName": {
-                    "type": "string",
-                    "description": "Name of the host provisioned via docker machine (string)\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -3773,15 +3406,15 @@
                 },
                 "clusterCidr": {
                     "type": "string",
-                    "description": "Cluster CIDR option for kube controller service (string)\n"
+                    "description": "(Computed) RKE k8s cluster cidr (string)\n"
                 },
                 "clusterDnsServer": {
                     "type": "string",
-                    "description": "Cluster DNS Server option for kubelet service (string)\n"
+                    "description": "(Computed) RKE k8s cluster dns server (string)\n"
                 },
                 "clusterDomain": {
                     "type": "string",
-                    "description": "Cluster Domain option for kubelet service. Default `cluster.local` (string)\n"
+                    "description": "(Computed) RKE k8s cluster domain (string)\n"
                 },
                 "clusterName": {
                     "type": "string",
@@ -4273,15 +3906,15 @@
                     },
                     "clusterCidr": {
                         "type": "string",
-                        "description": "Cluster CIDR option for kube controller service (string)\n"
+                        "description": "(Computed) RKE k8s cluster cidr (string)\n"
                     },
                     "clusterDnsServer": {
                         "type": "string",
-                        "description": "Cluster DNS Server option for kubelet service (string)\n"
+                        "description": "(Computed) RKE k8s cluster dns server (string)\n"
                     },
                     "clusterDomain": {
                         "type": "string",
-                        "description": "Cluster Domain option for kubelet service. Default `cluster.local` (string)\n"
+                        "description": "(Computed) RKE k8s cluster domain (string)\n"
                     },
                     "clusterName": {
                         "type": "string",
