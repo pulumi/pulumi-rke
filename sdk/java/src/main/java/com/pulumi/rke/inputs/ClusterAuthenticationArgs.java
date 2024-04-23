@@ -18,14 +18,14 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
     public static final ClusterAuthenticationArgs Empty = new ClusterAuthenticationArgs();
 
     /**
-     * List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * List of additional hostnames and IPs to include in the api server PKI cert
      * 
      */
     @Import(name="sans")
     private @Nullable Output<List<String>> sans;
 
     /**
-     * @return List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * @return List of additional hostnames and IPs to include in the api server PKI cert
      * 
      */
     public Optional<Output<List<String>>> sans() {
@@ -33,14 +33,14 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * Authentication strategy that will be used in RKE k8s cluster
      * 
      */
     @Import(name="strategy")
     private @Nullable Output<String> strategy;
 
     /**
-     * @return Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * @return Authentication strategy that will be used in RKE k8s cluster
      * 
      */
     public Optional<Output<String>> strategy() {
@@ -48,14 +48,14 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Webhook configuration options (list maxitem: 1)
+     * Webhook configuration options
      * 
      */
     @Import(name="webhook")
     private @Nullable Output<ClusterAuthenticationWebhookArgs> webhook;
 
     /**
-     * @return Webhook configuration options (list maxitem: 1)
+     * @return Webhook configuration options
      * 
      */
     public Optional<Output<ClusterAuthenticationWebhookArgs>> webhook() {
@@ -89,7 +89,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sans List of additional hostnames and IPs to include in the api server PKI cert (list)
+         * @param sans List of additional hostnames and IPs to include in the api server PKI cert
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sans List of additional hostnames and IPs to include in the api server PKI cert (list)
+         * @param sans List of additional hostnames and IPs to include in the api server PKI cert
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sans List of additional hostnames and IPs to include in the api server PKI cert (list)
+         * @param sans List of additional hostnames and IPs to include in the api server PKI cert
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param strategy Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+         * @param strategy Authentication strategy that will be used in RKE k8s cluster
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param strategy Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+         * @param strategy Authentication strategy that will be used in RKE k8s cluster
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param webhook Webhook configuration options (list maxitem: 1)
+         * @param webhook Webhook configuration options
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ClusterAuthenticationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param webhook Webhook configuration options (list maxitem: 1)
+         * @param webhook Webhook configuration options
          * 
          * @return builder
          * 

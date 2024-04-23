@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _sans;
 
         /// <summary>
-        /// List of additional hostnames and IPs to include in the api server PKI cert (list)
+        /// List of additional hostnames and IPs to include in the api server PKI cert
         /// </summary>
         public InputList<string> Sans
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+        /// Authentication strategy that will be used in RKE k8s cluster
         /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }
 
         /// <summary>
-        /// Webhook configuration options (list maxitem: 1)
+        /// Webhook configuration options
         /// </summary>
         [Input("webhook")]
         public Input<Inputs.ClusterAuthenticationWebhookGetArgs>? Webhook { get; set; }

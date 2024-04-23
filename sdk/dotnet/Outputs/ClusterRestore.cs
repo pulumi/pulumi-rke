@@ -18,7 +18,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? Restore;
         /// <summary>
-        /// Snapshot name (string)
+        /// Snapshot name
         /// </summary>
         public readonly string? SnapshotName;
 

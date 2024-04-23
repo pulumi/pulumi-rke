@@ -12,33 +12,18 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderOpenstackCloudProviderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("blockStorage")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderBlockStorageGetArgs>? BlockStorage { get; set; }
 
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("global", required: true)]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderGlobalGetArgs> Global { get; set; } = null!;
 
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("loadBalancer")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancerGetArgs>? LoadBalancer { get; set; }
 
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("metadata")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderMetadataGetArgs>? Metadata { get; set; }
 
-        /// <summary>
-        /// (list maxitems:1)
-        /// </summary>
         [Input("route")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderRouteGetArgs>? Route { get; set; }
 

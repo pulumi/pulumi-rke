@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _nodeSelector;
 
         /// <summary>
-        /// Node selector key pair (map)
+        /// NodeSelector key pair
         /// </summary>
         public InputMap<object> NodeSelector
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns
         /// </summary>
         [Input("nodelocal")]
         public Input<Inputs.ClusterDnsNodelocalArgs>? Nodelocal { get; set; }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _reverseCidrs;
 
         /// <summary>
-        /// Reverse CIDRs  (list)
+        /// ReverseCIDRs
         /// </summary>
         public InputList<string> ReverseCidrs
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _upstreamNameservers;
 
         /// <summary>
-        /// Upstream nameservers  (list)
+        /// Upstream nameservers
         /// </summary>
         public InputList<string> UpstreamNameservers
         {

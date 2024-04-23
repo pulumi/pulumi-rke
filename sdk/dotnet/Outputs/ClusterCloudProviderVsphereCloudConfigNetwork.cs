@@ -13,9 +13,6 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderVsphereCloudConfigNetwork
     {
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? PublicNetwork;
 
         [OutputConstructor]

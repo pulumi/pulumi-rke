@@ -14,23 +14,23 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterDns
     {
         /// <summary>
-        /// Node selector key pair (map)
+        /// NodeSelector key pair
         /// </summary>
         public readonly ImmutableDictionary<string, object>? NodeSelector;
         /// <summary>
-        /// Docker image for nodelocal (string)
+        /// Nodelocal dns
         /// </summary>
         public readonly Outputs.ClusterDnsNodelocal? Nodelocal;
         /// <summary>
-        /// Monitoring provider (string)
+        /// DNS provider
         /// </summary>
         public readonly string? Provider;
         /// <summary>
-        /// Reverse CIDRs  (list)
+        /// ReverseCIDRs
         /// </summary>
         public readonly ImmutableArray<string> ReverseCidrs;
         /// <summary>
-        /// Upstream nameservers  (list)
+        /// Upstream nameservers
         /// </summary>
         public readonly ImmutableArray<string> UpstreamNameservers;
 

@@ -12,9 +12,6 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterDnsNodelocalGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nodelocal dns ip address (string)
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
@@ -22,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _nodeSelector;
 
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public InputMap<object> NodeSelector
         {

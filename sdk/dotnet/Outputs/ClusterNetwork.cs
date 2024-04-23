@@ -14,35 +14,35 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterNetwork
     {
         /// <summary>
-        /// Aci network provider config (list maxitems:1)
+        /// Aci network provider config
         /// </summary>
         public readonly Outputs.ClusterNetworkAciNetworkProvider? AciNetworkProvider;
         /// <summary>
-        /// Calico network provider config (list maxitems:1)
+        /// Calico network provider config
         /// </summary>
         public readonly Outputs.ClusterNetworkCalicoNetworkProvider? CalicoNetworkProvider;
         /// <summary>
-        /// Canal network provider config (list maxitems:1)
+        /// Canal network provider config
         /// </summary>
         public readonly Outputs.ClusterNetworkCanalNetworkProvider? CanalNetworkProvider;
         /// <summary>
-        /// Flannel network provider config (list maxitems:1)
+        /// Flannel network provider config
         /// </summary>
         public readonly Outputs.ClusterNetworkFlannelNetworkProvider? FlannelNetworkProvider;
         /// <summary>
-        /// Network provider MTU. Default `0` (int)
+        /// Network provider MTU
         /// </summary>
         public readonly int? Mtu;
         /// <summary>
-        /// Network provider options (map)
+        /// Network provider options
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Options;
         /// <summary>
-        /// Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+        /// Network provider plugin
         /// </summary>
         public readonly string? Plugin;
         /// <summary>
-        /// Weave network provider config (list maxitems:1)
+        /// Weave network provider config
         /// </summary>
         public readonly Outputs.ClusterNetworkWeaveNetworkProvider? WeaveNetworkProvider;
 

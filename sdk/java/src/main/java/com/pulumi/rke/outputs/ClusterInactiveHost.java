@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterInactiveHost {
-    /**
-     * @return Address ip for node (string)
-     * 
-     */
     private @Nullable String address;
-    /**
-     * @return Name of the host provisioned via docker machine (string)
-     * 
-     */
     private @Nullable String nodeName;
 
     private ClusterInactiveHost() {}
-    /**
-     * @return Address ip for node (string)
-     * 
-     */
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return Name of the host provisioned via docker machine (string)
-     * 
-     */
     public Optional<String> nodeName() {
         return Optional.ofNullable(this.nodeName);
     }

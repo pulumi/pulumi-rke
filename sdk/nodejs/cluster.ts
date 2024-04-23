@@ -101,15 +101,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly cloudProvider!: pulumi.Output<outputs.ClusterCloudProvider | undefined>;
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     public /*out*/ readonly clusterCidr!: pulumi.Output<string>;
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     public /*out*/ readonly clusterDnsServer!: pulumi.Output<string>;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     public /*out*/ readonly clusterDomain!: pulumi.Output<string>;
     /**
@@ -503,15 +503,15 @@ export interface ClusterState {
      */
     cloudProvider?: pulumi.Input<inputs.ClusterCloudProvider>;
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     clusterCidr?: pulumi.Input<string>;
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     clusterDnsServer?: pulumi.Input<string>;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     clusterDomain?: pulumi.Input<string>;
     /**

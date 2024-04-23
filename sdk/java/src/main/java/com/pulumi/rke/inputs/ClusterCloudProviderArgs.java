@@ -25,8 +25,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     public static final ClusterCloudProviderArgs Empty = new ClusterCloudProviderArgs();
 
     /**
-     * Use aws_cloud_provider instead
-     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -36,8 +34,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderAwsCloudConfigArgs> awsCloudConfig;
 
     /**
-     * @return Use aws_cloud_provider instead
-     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -48,14 +44,14 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * AWS Cloud Provider config
      * 
      */
     @Import(name="awsCloudProvider")
     private @Nullable Output<ClusterCloudProviderAwsCloudProviderArgs> awsCloudProvider;
 
     /**
-     * @return AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * @return AWS Cloud Provider config
      * 
      */
     public Optional<Output<ClusterCloudProviderAwsCloudProviderArgs>> awsCloudProvider() {
@@ -63,8 +59,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use azure_cloud_provider instead
-     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -74,8 +68,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderAzureCloudConfigArgs> azureCloudConfig;
 
     /**
-     * @return Use azure_cloud_provider instead
-     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -86,14 +78,14 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * Azure Cloud Provider config
      * 
      */
     @Import(name="azureCloudProvider")
     private @Nullable Output<ClusterCloudProviderAzureCloudProviderArgs> azureCloudProvider;
 
     /**
-     * @return Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * @return Azure Cloud Provider config
      * 
      */
     public Optional<Output<ClusterCloudProviderAzureCloudProviderArgs>> azureCloudProvider() {
@@ -101,8 +93,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use custom_cloud_provider instead
-     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -112,8 +102,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> customCloudConfig;
 
     /**
-     * @return Use custom_cloud_provider instead
-     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -124,38 +112,28 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Custom Cloud Provider config (string)
+     * Custom Cloud Provider config
      * 
      */
     @Import(name="customCloudProvider")
     private @Nullable Output<String> customCloudProvider;
 
     /**
-     * @return Custom Cloud Provider config (string)
+     * @return Custom Cloud Provider config
      * 
      */
     public Optional<Output<String>> customCloudProvider() {
         return Optional.ofNullable(this.customCloudProvider);
     }
 
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
     /**
-     * Use openstack_cloud_provider instead
-     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -165,8 +143,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigArgs> openstackCloudConfig;
 
     /**
-     * @return Use openstack_cloud_provider instead
-     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -177,14 +153,14 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * Openstack Cloud Provider config
      * 
      */
     @Import(name="openstackCloudProvider")
     private @Nullable Output<ClusterCloudProviderOpenstackCloudProviderArgs> openstackCloudProvider;
 
     /**
-     * @return Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * @return Openstack Cloud Provider config
      * 
      */
     public Optional<Output<ClusterCloudProviderOpenstackCloudProviderArgs>> openstackCloudProvider() {
@@ -192,8 +168,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use vsphere_cloud_provider instead
-     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 
@@ -203,8 +177,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<ClusterCloudProviderVsphereCloudConfigArgs> vsphereCloudConfig;
 
     /**
-     * @return Use vsphere_cloud_provider instead
-     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 
@@ -215,14 +187,14 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+     * Vsphere Cloud Provider config
      * 
      */
     @Import(name="vsphereCloudProvider")
     private @Nullable Output<ClusterCloudProviderVsphereCloudProviderArgs> vsphereCloudProvider;
 
     /**
-     * @return Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+     * @return Vsphere Cloud Provider config
      * 
      */
     public Optional<Output<ClusterCloudProviderVsphereCloudProviderArgs>> vsphereCloudProvider() {
@@ -264,8 +236,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudConfig Use aws_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -279,8 +249,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudConfig Use aws_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -293,7 +261,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudProvider AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+         * @param awsCloudProvider AWS Cloud Provider config
          * 
          * @return builder
          * 
@@ -304,7 +272,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsCloudProvider AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+         * @param awsCloudProvider AWS Cloud Provider config
          * 
          * @return builder
          * 
@@ -314,8 +282,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudConfig Use azure_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -329,8 +295,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudConfig Use azure_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -343,7 +307,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudProvider Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+         * @param azureCloudProvider Azure Cloud Provider config
          * 
          * @return builder
          * 
@@ -354,7 +318,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param azureCloudProvider Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+         * @param azureCloudProvider Azure Cloud Provider config
          * 
          * @return builder
          * 
@@ -364,8 +328,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudConfig Use custom_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -379,8 +341,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudConfig Use custom_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -393,7 +353,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudProvider Custom Cloud Provider config (string)
+         * @param customCloudProvider Custom Cloud Provider config
          * 
          * @return builder
          * 
@@ -404,7 +364,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param customCloudProvider Custom Cloud Provider config (string)
+         * @param customCloudProvider Custom Cloud Provider config
          * 
          * @return builder
          * 
@@ -413,30 +373,16 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
             return customCloudProvider(Output.of(customCloudProvider));
         }
 
-        /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param openstackCloudConfig Use openstack_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -450,8 +396,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param openstackCloudConfig Use openstack_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -464,7 +408,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param openstackCloudProvider Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+         * @param openstackCloudProvider Openstack Cloud Provider config
          * 
          * @return builder
          * 
@@ -475,7 +419,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param openstackCloudProvider Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+         * @param openstackCloudProvider Openstack Cloud Provider config
          * 
          * @return builder
          * 
@@ -485,8 +429,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudConfig Use vsphere_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -500,8 +442,6 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudConfig Use vsphere_cloud_provider instead
-         * 
          * @return builder
          * 
          * @deprecated
@@ -514,7 +454,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudProvider Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+         * @param vsphereCloudProvider Vsphere Cloud Provider config
          * 
          * @return builder
          * 
@@ -525,7 +465,7 @@ public final class ClusterCloudProviderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vsphereCloudProvider Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtual_center` configuration. (list maxitems:1)
+         * @param vsphereCloudProvider Vsphere Cloud Provider config
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     public static final ClusterServicesKubeControllerDeprecatedArgs Empty = new ClusterServicesKubeControllerDeprecatedArgs();
 
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      * 
      */
     @Import(name="clusterCidr")
     private @Nullable Output<String> clusterCidr;
 
     /**
-     * @return Cluster CIDR option for kube controller service (string)
+     * @return (Computed) RKE k8s cluster cidr (string)
      * 
      */
     public Optional<Output<String>> clusterCidr() {
@@ -34,14 +34,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     }
 
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-controller service
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kube-controller service
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -49,14 +49,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     }
 
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      * 
      */
     @Import(name="extraBinds")
     private @Nullable Output<List<String>> extraBinds;
 
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraBinds() {
@@ -64,14 +64,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     }
 
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      * 
      */
     @Import(name="extraEnvs")
     private @Nullable Output<List<String>> extraEnvs;
 
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraEnvs() {
@@ -79,14 +79,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     }
 
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kube-controller service
      * 
      */
     @Import(name="image")
     private @Nullable Output<String> image;
 
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kube-controller service
      * 
      */
     public Optional<Output<String>> image() {
@@ -94,14 +94,14 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
     }
 
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      * 
      */
     @Import(name="serviceClusterIpRange")
     private @Nullable Output<String> serviceClusterIpRange;
 
     /**
-     * @return Service Cluster ip Range option for kube controller service (string)
+     * @return Virtual IP range that will be used by Kubernetes services
      * 
      */
     public Optional<Output<String>> serviceClusterIpRange() {
@@ -138,7 +138,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param clusterCidr Cluster CIDR option for kube controller service (string)
+         * @param clusterCidr (Computed) RKE k8s cluster cidr (string)
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param clusterCidr Cluster CIDR option for kube controller service (string)
+         * @param clusterCidr (Computed) RKE k8s cluster cidr (string)
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kube-controller service
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kube-controller service
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the kube-controller service
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param image Docker image for scheduler service (string)
+         * @param image Docker image of the kube-controller service
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param serviceClusterIpRange Service Cluster ip Range option for kube controller service (string)
+         * @param serviceClusterIpRange Virtual IP range that will be used by Kubernetes services
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ClusterServicesKubeControllerDeprecatedArgs extends com.pulum
         }
 
         /**
-         * @param serviceClusterIpRange Service Cluster ip Range option for kube controller service (string)
+         * @param serviceClusterIpRange Virtual IP range that will be used by Kubernetes services
          * 
          * @return builder
          * 

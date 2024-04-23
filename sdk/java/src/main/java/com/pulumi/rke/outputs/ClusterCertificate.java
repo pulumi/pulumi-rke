@@ -22,23 +22,11 @@ public final class ClusterCertificate {
      * 
      */
     private @Nullable String id;
-    /**
-     * @return TLS key for etcd service (string)
-     * 
-     */
     private @Nullable String key;
     private @Nullable String keyEnvName;
     private @Nullable String keyPath;
-    /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     private @Nullable String name;
     private @Nullable String ouName;
-    /**
-     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     * 
-     */
     private @Nullable String path;
 
     private ClusterCertificate() {}
@@ -67,10 +55,6 @@ public final class ClusterCertificate {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return TLS key for etcd service (string)
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
@@ -80,20 +64,12 @@ public final class ClusterCertificate {
     public Optional<String> keyPath() {
         return Optional.ofNullable(this.keyPath);
     }
-    /**
-     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     public Optional<String> ouName() {
         return Optional.ofNullable(this.ouName);
     }
-    /**
-     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _nodeSelector;
 
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public InputMap<object> NodeSelector
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// Monitoring options
         /// </summary>
         public InputMap<object> Options
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// Monitoring provider
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }

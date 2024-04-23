@@ -12,36 +12,20 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderVsphereCloudProviderGlobalGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("datacenters")]
         public Input<string>? Datacenters { get; set; }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("datastore")]
         public Input<string>? Datastore { get; set; }
 
-        /// <summary>
-        /// (bool)
-        /// </summary>
         [Input("insecureFlag")]
         public Input<bool>? InsecureFlag { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// Registry password (string)
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -52,24 +36,14 @@ namespace Pulumi.Rke.Inputs
             }
         }
 
-        /// <summary>
-        /// Port used for SSH communication (string)
-        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
-        /// <summary>
-        /// (int)
-        /// </summary>
         [Input("soapRoundtripCount")]
         public Input<int>? SoapRoundtripCount { get; set; }
 
         [Input("user")]
         private Input<string>? _user;
-
-        /// <summary>
-        /// Registry user (string)
-        /// </summary>
         public Input<string>? User
         {
             get => _user;
@@ -80,21 +54,12 @@ namespace Pulumi.Rke.Inputs
             }
         }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("vmName")]
         public Input<string>? VmName { get; set; }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("vmUuid")]
         public Input<string>? VmUuid { get; set; }
 
-        /// <summary>
-        /// (string)
-        /// </summary>
         [Input("workingDir")]
         public Input<string>? WorkingDir { get; set; }
 

@@ -13,49 +13,16 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderOpenstackCloudProviderLoadBalancer
     {
-        /// <summary>
-        /// (bool)
-        /// </summary>
         public readonly bool? CreateMonitor;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? FloatingNetworkId;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? LbMethod;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? LbProvider;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? LbVersion;
-        /// <summary>
-        /// (bool)
-        /// </summary>
         public readonly bool? ManageSecurityGroups;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? MonitorDelay;
-        /// <summary>
-        /// (int)
-        /// </summary>
         public readonly int? MonitorMaxRetries;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? MonitorTimeout;
-        /// <summary>
-        /// (string)
-        /// </summary>
         public readonly string? SubnetId;
-        /// <summary>
-        /// (bool)
-        /// </summary>
         public readonly bool? UseOctavia;
 
         [OutputConstructor]

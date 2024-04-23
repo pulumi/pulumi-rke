@@ -18,14 +18,14 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
     public static final ClusterMonitoringArgs Empty = new ClusterMonitoringArgs();
 
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      * 
      */
     @Import(name="nodeSelector")
     private @Nullable Output<Map<String,Object>> nodeSelector;
 
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     public Optional<Output<Map<String,Object>>> nodeSelector() {
@@ -33,14 +33,14 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Network provider options (map)
+     * Monitoring options
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return Network provider options (map)
+     * @return Monitoring options
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -48,14 +48,14 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Monitoring provider (string)
+     * Monitoring provider
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return Monitoring provider (string)
+     * @return Monitoring provider
      * 
      */
     public Optional<Output<String>> provider() {
@@ -89,7 +89,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nodeSelector Node selector key pair (map)
+         * @param nodeSelector Node selector key pair
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Monitoring options
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Monitoring options
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider Monitoring provider
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provider Monitoring provider (string)
+         * @param provider Monitoring provider
          * 
          * @return builder
          * 

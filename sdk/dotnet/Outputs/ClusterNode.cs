@@ -14,35 +14,35 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterNode
     {
         /// <summary>
-        /// Address ip for node (string)
+        /// IP or FQDN that is fully resolvable and used for SSH communication
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// Docker socket on the node that will be used in tunneling (string)
+        /// Docker socket on the node that will be used in tunneling
         /// </summary>
         public readonly string? DockerSocket;
         /// <summary>
-        /// Hostname override for node (string)
+        /// Hostname override
         /// </summary>
         public readonly string? HostnameOverride;
         /// <summary>
-        /// Internal address that will be used for components communication (string)
+        /// Internal address that will be used for components communication
         /// </summary>
         public readonly string? InternalAddress;
         /// <summary>
-        /// Node labels (map)
+        /// Node Labels
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Labels;
         /// <summary>
-        /// Name of the host provisioned via docker machine (string)
+        /// Name of the host provisioned via docker machine
         /// </summary>
         public readonly string? NodeName;
         /// <summary>
-        /// Port used for SSH communication (string)
+        /// Port used for SSH communication
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+        /// Node roles in k8s cluster [controlplane/worker/etcd])
         /// </summary>
         public readonly ImmutableArray<string> Roles;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly bool? SshAgentAuth;
         /// <summary>
-        /// SSH Certificate (string)
+        /// SSH Certificate
         /// </summary>
         public readonly string? SshCert;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SshCertPath;
         /// <summary>
-        /// SSH Private Key (string)
+        /// SSH Private Key
         /// </summary>
         public readonly string? SshKey;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.Rke.Outputs
         /// </summary>
         public readonly string? SshKeyPath;
         /// <summary>
-        /// Node taints (list)
+        /// Node taints
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterNodeTaint> Taints;
         /// <summary>
-        /// Registry user (string)
+        /// SSH user that will be used by RKE
         /// </summary>
         public readonly string User;
 

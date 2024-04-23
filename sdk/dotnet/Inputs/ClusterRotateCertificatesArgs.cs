@@ -13,7 +13,7 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterRotateCertificatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Rotate CA Certificates. Default `false` (bool)
+        /// Rotate CA Certificates
         /// </summary>
         [Input("caCertificates")]
         public Input<bool>? CaCertificates { get; set; }
