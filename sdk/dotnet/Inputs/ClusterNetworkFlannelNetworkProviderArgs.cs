@@ -12,9 +12,6 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterNetworkFlannelNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flannel network interface (string)
-        /// </summary>
         [Input("iface")]
         public Input<string>? Iface { get; set; }
 

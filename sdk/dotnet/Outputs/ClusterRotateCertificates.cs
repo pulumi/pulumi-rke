@@ -14,7 +14,7 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterRotateCertificates
     {
         /// <summary>
-        /// Rotate CA Certificates. Default `false` (bool)
+        /// Rotate CA Certificates
         /// </summary>
         public readonly bool? CaCertificates;
         /// <summary>

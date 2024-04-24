@@ -14,19 +14,19 @@ namespace Pulumi.Rke.Outputs
     public sealed class ClusterServicesKubeSchedulerDeprecated
     {
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the scheduler services
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ExtraArgs;
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the controlplane nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraBinds;
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the controlplane nodes
         /// </summary>
         public readonly ImmutableArray<string> ExtraEnvs;
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image of the scheduler service
         /// </summary>
         public readonly string? Image;
 

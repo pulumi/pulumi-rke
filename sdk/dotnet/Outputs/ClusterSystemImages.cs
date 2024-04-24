@@ -13,153 +13,45 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterSystemImages
     {
-        /// <summary>
-        /// Docker image for aci_cni_deploy_container (string)
-        /// </summary>
         public readonly string? AciCniDeployContainer;
-        /// <summary>
-        /// Docker image for aci_controller_container (string)
-        /// </summary>
         public readonly string? AciControllerContainer;
-        /// <summary>
-        /// Docker image for aci_host_container (string)
-        /// </summary>
         public readonly string? AciHostContainer;
-        /// <summary>
-        /// Docker image for aci_mcast_container (string)
-        /// </summary>
         public readonly string? AciMcastContainer;
-        /// <summary>
-        /// Docker image for aci_opflex_container (string)
-        /// </summary>
         public readonly string? AciOpflexContainer;
-        /// <summary>
-        /// Docker image for aci_ovs_container (string)
-        /// </summary>
         public readonly string? AciOvsContainer;
-        /// <summary>
-        /// Docker image for alpine (string)
-        /// </summary>
         public readonly string? Alpine;
-        /// <summary>
-        /// Docker image for calico_cni (string)
-        /// </summary>
         public readonly string? CalicoCni;
-        /// <summary>
-        /// Docker image for calico_controllers (string)
-        /// </summary>
         public readonly string? CalicoControllers;
-        /// <summary>
-        /// Docker image for calico_ctl (string)
-        /// </summary>
         public readonly string? CalicoCtl;
-        /// <summary>
-        /// Docker image for calico_flex_vol (string)
-        /// </summary>
         public readonly string? CalicoFlexVol;
-        /// <summary>
-        /// Docker image for calico_node (string)
-        /// </summary>
         public readonly string? CalicoNode;
-        /// <summary>
-        /// Docker image for canal_cni (string)
-        /// </summary>
         public readonly string? CanalCni;
-        /// <summary>
-        /// Docker image for canal_flannel (string)
-        /// </summary>
         public readonly string? CanalFlannel;
-        /// <summary>
-        /// Docker image for canal_flex_vol (string)
-        /// </summary>
         public readonly string? CanalFlexVol;
-        /// <summary>
-        /// Docker image for canal_node (string)
-        /// </summary>
         public readonly string? CanalNode;
-        /// <summary>
-        /// Docker image for cert_downloader (string)
-        /// </summary>
         public readonly string? CertDownloader;
-        /// <summary>
-        /// Docker image for coredns (string)
-        /// </summary>
         public readonly string? Coredns;
-        /// <summary>
-        /// Docker image for coredns_autoscaler (string)
-        /// </summary>
         public readonly string? CorednsAutoscaler;
-        /// <summary>
-        /// Docker image for dnsmasq (string)
-        /// </summary>
         public readonly string? Dnsmasq;
-        /// <summary>
-        /// Docker image for etcd (string)
-        /// </summary>
         public readonly string? Etcd;
-        /// <summary>
-        /// Docker image for flannel (string)
-        /// </summary>
         public readonly string? Flannel;
-        /// <summary>
-        /// Docker image for flannel_cni (string)
-        /// </summary>
         public readonly string? FlannelCni;
         /// <summary>
         /// RKE k8s cluster ingress controller configuration (list maxitems:1)
         /// </summary>
         public readonly string? Ingress;
-        /// <summary>
-        /// Docker image for ingress_backend (string)
-        /// </summary>
         public readonly string? IngressBackend;
-        /// <summary>
-        /// Docker image for kube_dns (string)
-        /// </summary>
         public readonly string? KubeDns;
-        /// <summary>
-        /// Docker image for kube_dns_autoscaler (string)
-        /// </summary>
         public readonly string? KubeDnsAutoscaler;
-        /// <summary>
-        /// Docker image for kube_dns_sidecar (string)
-        /// </summary>
         public readonly string? KubeDnsSidecar;
-        /// <summary>
-        /// Docker image for kubernetes (string)
-        /// </summary>
         public readonly string? Kubernetes;
-        /// <summary>
-        /// Docker image for kubernetes_services_sidecar (string)
-        /// </summary>
         public readonly string? KubernetesServicesSidecar;
-        /// <summary>
-        /// Docker image for metrics_server (string)
-        /// </summary>
         public readonly string? MetricsServer;
-        /// <summary>
-        /// Docker image for nginx_proxy (string)
-        /// </summary>
         public readonly string? NginxProxy;
-        /// <summary>
-        /// Docker image for nodelocal (string)
-        /// </summary>
         public readonly string? Nodelocal;
-        /// <summary>
-        /// Docker image for pod_infra_container (string)
-        /// </summary>
         public readonly string? PodInfraContainer;
-        /// <summary>
-        /// Docker image for weave_cni (string)
-        /// </summary>
         public readonly string? WeaveCni;
-        /// <summary>
-        /// Docker image for weave_node (string)
-        /// </summary>
         public readonly string? WeaveNode;
-        /// <summary>
-        /// Docker image for windows_pod_infra_container (string)
-        /// </summary>
         public readonly string? WindowsPodInfraContainer;
 
         [OutputConstructor]

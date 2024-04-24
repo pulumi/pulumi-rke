@@ -19,7 +19,7 @@ namespace Pulumi.Rke.Inputs
         public Input<bool>? DefaultBackend { get; set; }
 
         /// <summary>
-        /// Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+        /// Ingress controller dns policy
         /// </summary>
         [Input("dnsPolicy")]
         public Input<string>? DnsPolicy { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments for the ingress controller
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -37,19 +37,19 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Ingress controller http port (int)
+        /// Ingress controller http port
         /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
         /// <summary>
-        /// Ingress controller https port (int)
+        /// Ingress controller https port
         /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+        /// Ingress controller network mode
         /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _nodeSelector;
 
         /// <summary>
-        /// Node selector key pair (map)
+        /// Node selector key pair
         /// </summary>
         public InputMap<object> NodeSelector
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// Ingress controller options
         /// </summary>
         public InputMap<object> Options
         {
@@ -79,7 +79,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Monitoring provider (string)
+        /// Ingress controller provider
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }

@@ -23,59 +23,43 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
     public static final ClusterServicesKubeApiArgs Empty = new ClusterServicesKubeApiArgs();
 
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * Enable/Disable AlwaysPullImages admissions plugin
      * 
      */
     @Import(name="alwaysPullImages")
     private @Nullable Output<Boolean> alwaysPullImages;
 
     /**
-     * @return Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * @return Enable/Disable AlwaysPullImages admissions plugin
      * 
      */
     public Optional<Output<Boolean>> alwaysPullImages() {
         return Optional.ofNullable(this.alwaysPullImages);
     }
 
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     * 
-     */
     @Import(name="auditLog")
     private @Nullable Output<ClusterServicesKubeApiAuditLogArgs> auditLog;
 
-    /**
-     * @return K8s audit log configuration. (list maxitem: 1)
-     * 
-     */
     public Optional<Output<ClusterServicesKubeApiAuditLogArgs>> auditLog() {
         return Optional.ofNullable(this.auditLog);
     }
 
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     * 
-     */
     @Import(name="eventRateLimit")
     private @Nullable Output<ClusterServicesKubeApiEventRateLimitArgs> eventRateLimit;
 
-    /**
-     * @return K8s event rate limit configuration. (list maxitem: 1)
-     * 
-     */
     public Optional<Output<ClusterServicesKubeApiEventRateLimitArgs>> eventRateLimit() {
         return Optional.ofNullable(this.eventRateLimit);
     }
 
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-api services
      * 
      */
     @Import(name="extraArgs")
     private @Nullable Output<Map<String,Object>> extraArgs;
 
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kube-api services
      * 
      */
     public Optional<Output<Map<String,Object>>> extraArgs() {
@@ -83,14 +67,14 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      * 
      */
     @Import(name="extraBinds")
     private @Nullable Output<List<String>> extraBinds;
 
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraBinds() {
@@ -98,31 +82,23 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      * 
      */
     @Import(name="extraEnvs")
     private @Nullable Output<List<String>> extraEnvs;
 
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     public Optional<Output<List<String>>> extraEnvs() {
         return Optional.ofNullable(this.extraEnvs);
     }
 
-    /**
-     * Docker image for scheduler service (string)
-     * 
-     */
     @Import(name="image")
     private @Nullable Output<String> image;
 
-    /**
-     * @return Docker image for scheduler service (string)
-     * 
-     */
     public Optional<Output<String>> image() {
         return Optional.ofNullable(this.image);
     }
@@ -143,44 +119,36 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Pod Security Policy option for kube API service (bool)
+     * Enabled/Disable PodSecurityPolicy
      * 
      */
     @Import(name="podSecurityPolicy")
     private @Nullable Output<Boolean> podSecurityPolicy;
 
     /**
-     * @return Pod Security Policy option for kube API service (bool)
+     * @return Enabled/Disable PodSecurityPolicy
      * 
      */
     public Optional<Output<Boolean>> podSecurityPolicy() {
         return Optional.ofNullable(this.podSecurityPolicy);
     }
 
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     * 
-     */
     @Import(name="secretsEncryptionConfig")
     private @Nullable Output<ClusterServicesKubeApiSecretsEncryptionConfigArgs> secretsEncryptionConfig;
 
-    /**
-     * @return [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     * 
-     */
     public Optional<Output<ClusterServicesKubeApiSecretsEncryptionConfigArgs>> secretsEncryptionConfig() {
         return Optional.ofNullable(this.secretsEncryptionConfig);
     }
 
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      * 
      */
     @Import(name="serviceClusterIpRange")
     private @Nullable Output<String> serviceClusterIpRange;
 
     /**
-     * @return Service Cluster ip Range option for kube controller service (string)
+     * @return Virtual IP range that will be used by Kubernetes services
      * 
      */
     public Optional<Output<String>> serviceClusterIpRange() {
@@ -188,14 +156,14 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Service Node Port Range option for kube API service (string)
+     * Port range for services defined with NodePort type
      * 
      */
     @Import(name="serviceNodePortRange")
     private @Nullable Output<String> serviceNodePortRange;
 
     /**
-     * @return Service Node Port Range option for kube API service (string)
+     * @return Port range for services defined with NodePort type
      * 
      */
     public Optional<Output<String>> serviceNodePortRange() {
@@ -238,7 +206,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param alwaysPullImages Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+         * @param alwaysPullImages Enable/Disable AlwaysPullImages admissions plugin
          * 
          * @return builder
          * 
@@ -249,7 +217,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param alwaysPullImages Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+         * @param alwaysPullImages Enable/Disable AlwaysPullImages admissions plugin
          * 
          * @return builder
          * 
@@ -258,50 +226,26 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
             return alwaysPullImages(Output.of(alwaysPullImages));
         }
 
-        /**
-         * @param auditLog K8s audit log configuration. (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLog(@Nullable Output<ClusterServicesKubeApiAuditLogArgs> auditLog) {
             $.auditLog = auditLog;
             return this;
         }
 
-        /**
-         * @param auditLog K8s audit log configuration. (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLog(ClusterServicesKubeApiAuditLogArgs auditLog) {
             return auditLog(Output.of(auditLog));
         }
 
-        /**
-         * @param eventRateLimit K8s event rate limit configuration. (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventRateLimit(@Nullable Output<ClusterServicesKubeApiEventRateLimitArgs> eventRateLimit) {
             $.eventRateLimit = eventRateLimit;
             return this;
         }
 
-        /**
-         * @param eventRateLimit K8s event rate limit configuration. (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventRateLimit(ClusterServicesKubeApiEventRateLimitArgs eventRateLimit) {
             return eventRateLimit(Output.of(eventRateLimit));
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kube-api services
          * 
          * @return builder
          * 
@@ -312,7 +256,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraArgs Extra arguments for scheduler service (map)
+         * @param extraArgs Extra arguments that are added to the kube-api services
          * 
          * @return builder
          * 
@@ -322,7 +266,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -333,7 +277,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -343,7 +287,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraBinds Extra binds for scheduler service (list)
+         * @param extraBinds Extra binds added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -353,7 +297,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -364,7 +308,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -374,7 +318,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extraEnvs Extra environment for scheduler service (list)
+         * @param extraEnvs Extra env added to the controlplane nodes
          * 
          * @return builder
          * 
@@ -383,23 +327,11 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
             return extraEnvs(List.of(extraEnvs));
         }
 
-        /**
-         * @param image Docker image for scheduler service (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(@Nullable Output<String> image) {
             $.image = image;
             return this;
         }
 
-        /**
-         * @param image Docker image for scheduler service (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
@@ -426,7 +358,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param podSecurityPolicy Pod Security Policy option for kube API service (bool)
+         * @param podSecurityPolicy Enabled/Disable PodSecurityPolicy
          * 
          * @return builder
          * 
@@ -437,7 +369,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param podSecurityPolicy Pod Security Policy option for kube API service (bool)
+         * @param podSecurityPolicy Enabled/Disable PodSecurityPolicy
          * 
          * @return builder
          * 
@@ -446,29 +378,17 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
             return podSecurityPolicy(Output.of(podSecurityPolicy));
         }
 
-        /**
-         * @param secretsEncryptionConfig [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretsEncryptionConfig(@Nullable Output<ClusterServicesKubeApiSecretsEncryptionConfigArgs> secretsEncryptionConfig) {
             $.secretsEncryptionConfig = secretsEncryptionConfig;
             return this;
         }
 
-        /**
-         * @param secretsEncryptionConfig [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretsEncryptionConfig(ClusterServicesKubeApiSecretsEncryptionConfigArgs secretsEncryptionConfig) {
             return secretsEncryptionConfig(Output.of(secretsEncryptionConfig));
         }
 
         /**
-         * @param serviceClusterIpRange Service Cluster ip Range option for kube controller service (string)
+         * @param serviceClusterIpRange Virtual IP range that will be used by Kubernetes services
          * 
          * @return builder
          * 
@@ -479,7 +399,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serviceClusterIpRange Service Cluster ip Range option for kube controller service (string)
+         * @param serviceClusterIpRange Virtual IP range that will be used by Kubernetes services
          * 
          * @return builder
          * 
@@ -489,7 +409,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serviceNodePortRange Service Node Port Range option for kube API service (string)
+         * @param serviceNodePortRange Port range for services defined with NodePort type
          * 
          * @return builder
          * 
@@ -500,7 +420,7 @@ public final class ClusterServicesKubeApiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serviceNodePortRange Service Node Port Range option for kube API service (string)
+         * @param serviceNodePortRange Port range for services defined with NodePort type
          * 
          * @return builder
          * 

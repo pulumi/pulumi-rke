@@ -24,14 +24,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     public static final ClusterNetworkArgs Empty = new ClusterNetworkArgs();
 
     /**
-     * Aci network provider config (list maxitems:1)
+     * Aci network provider config
      * 
      */
     @Import(name="aciNetworkProvider")
     private @Nullable Output<ClusterNetworkAciNetworkProviderArgs> aciNetworkProvider;
 
     /**
-     * @return Aci network provider config (list maxitems:1)
+     * @return Aci network provider config
      * 
      */
     public Optional<Output<ClusterNetworkAciNetworkProviderArgs>> aciNetworkProvider() {
@@ -39,14 +39,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Calico network provider config (list maxitems:1)
+     * Calico network provider config
      * 
      */
     @Import(name="calicoNetworkProvider")
     private @Nullable Output<ClusterNetworkCalicoNetworkProviderArgs> calicoNetworkProvider;
 
     /**
-     * @return Calico network provider config (list maxitems:1)
+     * @return Calico network provider config
      * 
      */
     public Optional<Output<ClusterNetworkCalicoNetworkProviderArgs>> calicoNetworkProvider() {
@@ -54,14 +54,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Canal network provider config (list maxitems:1)
+     * Canal network provider config
      * 
      */
     @Import(name="canalNetworkProvider")
     private @Nullable Output<ClusterNetworkCanalNetworkProviderArgs> canalNetworkProvider;
 
     /**
-     * @return Canal network provider config (list maxitems:1)
+     * @return Canal network provider config
      * 
      */
     public Optional<Output<ClusterNetworkCanalNetworkProviderArgs>> canalNetworkProvider() {
@@ -69,14 +69,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Flannel network provider config (list maxitems:1)
+     * Flannel network provider config
      * 
      */
     @Import(name="flannelNetworkProvider")
     private @Nullable Output<ClusterNetworkFlannelNetworkProviderArgs> flannelNetworkProvider;
 
     /**
-     * @return Flannel network provider config (list maxitems:1)
+     * @return Flannel network provider config
      * 
      */
     public Optional<Output<ClusterNetworkFlannelNetworkProviderArgs>> flannelNetworkProvider() {
@@ -84,14 +84,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Network provider MTU. Default `0` (int)
+     * Network provider MTU
      * 
      */
     @Import(name="mtu")
     private @Nullable Output<Integer> mtu;
 
     /**
-     * @return Network provider MTU. Default `0` (int)
+     * @return Network provider MTU
      * 
      */
     public Optional<Output<Integer>> mtu() {
@@ -99,14 +99,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Network provider options (map)
+     * Network provider options
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,Object>> options;
 
     /**
-     * @return Network provider options (map)
+     * @return Network provider options
      * 
      */
     public Optional<Output<Map<String,Object>>> options() {
@@ -114,14 +114,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * Network provider plugin
      * 
      */
     @Import(name="plugin")
     private @Nullable Output<String> plugin;
 
     /**
-     * @return Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * @return Network provider plugin
      * 
      */
     public Optional<Output<String>> plugin() {
@@ -129,14 +129,14 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Weave network provider config (list maxitems:1)
+     * Weave network provider config
      * 
      */
     @Import(name="weaveNetworkProvider")
     private @Nullable Output<ClusterNetworkWeaveNetworkProviderArgs> weaveNetworkProvider;
 
     /**
-     * @return Weave network provider config (list maxitems:1)
+     * @return Weave network provider config
      * 
      */
     public Optional<Output<ClusterNetworkWeaveNetworkProviderArgs>> weaveNetworkProvider() {
@@ -175,7 +175,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param aciNetworkProvider Aci network provider config (list maxitems:1)
+         * @param aciNetworkProvider Aci network provider config
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param aciNetworkProvider Aci network provider config (list maxitems:1)
+         * @param aciNetworkProvider Aci network provider config
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param calicoNetworkProvider Calico network provider config (list maxitems:1)
+         * @param calicoNetworkProvider Calico network provider config
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param calicoNetworkProvider Calico network provider config (list maxitems:1)
+         * @param calicoNetworkProvider Calico network provider config
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param canalNetworkProvider Canal network provider config (list maxitems:1)
+         * @param canalNetworkProvider Canal network provider config
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param canalNetworkProvider Canal network provider config (list maxitems:1)
+         * @param canalNetworkProvider Canal network provider config
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param flannelNetworkProvider Flannel network provider config (list maxitems:1)
+         * @param flannelNetworkProvider Flannel network provider config
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param flannelNetworkProvider Flannel network provider config (list maxitems:1)
+         * @param flannelNetworkProvider Flannel network provider config
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mtu Network provider MTU. Default `0` (int)
+         * @param mtu Network provider MTU
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mtu Network provider MTU. Default `0` (int)
+         * @param mtu Network provider MTU
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Network provider options
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Network provider options (map)
+         * @param options Network provider options
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param plugin Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+         * @param plugin Network provider plugin
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param plugin Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+         * @param plugin Network provider plugin
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weaveNetworkProvider Weave network provider config (list maxitems:1)
+         * @param weaveNetworkProvider Weave network provider config
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weaveNetworkProvider Weave network provider config (list maxitems:1)
+         * @param weaveNetworkProvider Weave network provider config
          * 
          * @return builder
          * 

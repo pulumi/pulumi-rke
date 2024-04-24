@@ -13,31 +13,31 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aci network provider config (list maxitems:1)
+        /// Aci network provider config
         /// </summary>
         [Input("aciNetworkProvider")]
         public Input<Inputs.ClusterNetworkAciNetworkProviderGetArgs>? AciNetworkProvider { get; set; }
 
         /// <summary>
-        /// Calico network provider config (list maxitems:1)
+        /// Calico network provider config
         /// </summary>
         [Input("calicoNetworkProvider")]
         public Input<Inputs.ClusterNetworkCalicoNetworkProviderGetArgs>? CalicoNetworkProvider { get; set; }
 
         /// <summary>
-        /// Canal network provider config (list maxitems:1)
+        /// Canal network provider config
         /// </summary>
         [Input("canalNetworkProvider")]
         public Input<Inputs.ClusterNetworkCanalNetworkProviderGetArgs>? CanalNetworkProvider { get; set; }
 
         /// <summary>
-        /// Flannel network provider config (list maxitems:1)
+        /// Flannel network provider config
         /// </summary>
         [Input("flannelNetworkProvider")]
         public Input<Inputs.ClusterNetworkFlannelNetworkProviderGetArgs>? FlannelNetworkProvider { get; set; }
 
         /// <summary>
-        /// Network provider MTU. Default `0` (int)
+        /// Network provider MTU
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _options;
 
         /// <summary>
-        /// Network provider options (map)
+        /// Network provider options
         /// </summary>
         public InputMap<object> Options
         {
@@ -55,13 +55,13 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+        /// Network provider plugin
         /// </summary>
         [Input("plugin")]
         public Input<string>? Plugin { get; set; }
 
         /// <summary>
-        /// Weave network provider config (list maxitems:1)
+        /// Weave network provider config
         /// </summary>
         [Input("weaveNetworkProvider")]
         public Input<Inputs.ClusterNetworkWeaveNetworkProviderGetArgs>? WeaveNetworkProvider { get; set; }

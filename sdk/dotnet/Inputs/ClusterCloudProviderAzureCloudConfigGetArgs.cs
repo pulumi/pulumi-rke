@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _aadClientCertPassword;
 
         /// <summary>
-        /// (string)
+        /// The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public Input<string>? AadClientCertPassword
         {
@@ -29,7 +29,7 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// (string)
+        /// The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         [Input("aadClientCertPath")]
         public Input<string>? AadClientCertPath { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _aadClientId;
 
         /// <summary>
-        /// (string)
+        /// The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public Input<string>? AadClientId
         {
@@ -54,7 +54,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _aadClientSecret;
 
         /// <summary>
-        /// (string)
+        /// The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
         /// </summary>
         public Input<string>? AadClientSecret
         {
@@ -67,55 +67,52 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// (string)
+        /// The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
         /// </summary>
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }
 
         /// <summary>
-        /// (bool)
+        /// Enable exponential backoff to manage resource request retries
         /// </summary>
         [Input("cloudProviderBackoff")]
         public Input<bool>? CloudProviderBackoff { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Backoff duration
         /// </summary>
         [Input("cloudProviderBackoffDuration")]
         public Input<int>? CloudProviderBackoffDuration { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Backoff exponent
         /// </summary>
         [Input("cloudProviderBackoffExponent")]
         public Input<int>? CloudProviderBackoffExponent { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Backoff jitter
         /// </summary>
         [Input("cloudProviderBackoffJitter")]
         public Input<int>? CloudProviderBackoffJitter { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Backoff retry limit
         /// </summary>
         [Input("cloudProviderBackoffRetries")]
         public Input<int>? CloudProviderBackoffRetries { get; set; }
 
         /// <summary>
-        /// (bool)
+        /// Enable rate limiting
         /// </summary>
         [Input("cloudProviderRateLimit")]
         public Input<bool>? CloudProviderRateLimit { get; set; }
 
-        /// <summary>
-        /// (int)
-        /// </summary>
         [Input("cloudProviderRateLimitBucket")]
         public Input<int>? CloudProviderRateLimitBucket { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Rate limit QPS
         /// </summary>
         [Input("cloudProviderRateLimitQps")]
         public Input<int>? CloudProviderRateLimitQps { get; set; }
@@ -127,49 +124,49 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The location of the resource group that the cluster is deployed in
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// (int)
+        /// Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
         /// </summary>
         [Input("maximumLoadBalancerRuleCount")]
         public Input<int>? MaximumLoadBalancerRuleCount { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
         /// </summary>
         [Input("primaryAvailabilitySetName")]
         public Input<string>? PrimaryAvailabilitySetName { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
         /// </summary>
         [Input("primaryScaleSetName")]
         public Input<string>? PrimaryScaleSetName { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the resource group that the cluster is deployed in
         /// </summary>
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }
 
         /// <summary>
-        /// (string)
+        /// (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
         /// </summary>
         [Input("routeTableName")]
         public Input<string>? RouteTableName { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the security group attached to the cluster's subnet
         /// </summary>
         [Input("securityGroupName")]
         public Input<string>? SecurityGroupName { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the Subnet that the cluster is deployed in
         /// </summary>
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }
@@ -178,7 +175,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _subscriptionId;
 
         /// <summary>
-        /// (string)
+        /// The ID of the Azure Subscription that the cluster is deployed in
         /// </summary>
         public Input<string>? SubscriptionId
         {
@@ -194,7 +191,7 @@ namespace Pulumi.Rke.Inputs
         private Input<string>? _tenantId;
 
         /// <summary>
-        /// Required if `tenant_name` not provided. (string)
+        /// The AAD Tenant ID for the Subscription that the cluster is deployed in
         /// </summary>
         public Input<string>? TenantId
         {
@@ -207,31 +204,31 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// (bool)
+        /// Use instance metadata service where possible
         /// </summary>
         [Input("useInstanceMetadata")]
         public Input<bool>? UseInstanceMetadata { get; set; }
 
         /// <summary>
-        /// (bool)
+        /// Use managed service identity for the virtual machine to access Azure ARM APIs
         /// </summary>
         [Input("useManagedIdentityExtension")]
         public Input<bool>? UseManagedIdentityExtension { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The type of azure nodes. If not set, it will be default to standard.
         /// </summary>
         [Input("vmType")]
         public Input<string>? VmType { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the VNet that the cluster is deployed in
         /// </summary>
         [Input("vnetName")]
         public Input<string>? VnetName { get; set; }
 
         /// <summary>
-        /// (string)
+        /// The name of the resource group that the Vnet is deployed in
         /// </summary>
         [Input("vnetResourceGroup")]
         public Input<string>? VnetResourceGroup { get; set; }

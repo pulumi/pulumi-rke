@@ -18,14 +18,14 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
     public static final ClusterRotateCertificatesArgs Empty = new ClusterRotateCertificatesArgs();
 
     /**
-     * Rotate CA Certificates. Default `false` (bool)
+     * Rotate CA Certificates
      * 
      */
     @Import(name="caCertificates")
     private @Nullable Output<Boolean> caCertificates;
 
     /**
-     * @return Rotate CA Certificates. Default `false` (bool)
+     * @return Rotate CA Certificates
      * 
      */
     public Optional<Output<Boolean>> caCertificates() {
@@ -73,7 +73,7 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param caCertificates Rotate CA Certificates. Default `false` (bool)
+         * @param caCertificates Rotate CA Certificates
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ClusterRotateCertificatesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param caCertificates Rotate CA Certificates. Default `false` (bool)
+         * @param caCertificates Rotate CA Certificates
          * 
          * @return builder
          * 

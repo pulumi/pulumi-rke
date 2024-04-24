@@ -7,52 +7,49 @@ import * as outputs from "../types/output";
 
 export interface ClusterAuthentication {
     /**
-     * List of additional hostnames and IPs to include in the api server PKI cert (list)
+     * List of additional hostnames and IPs to include in the api server PKI cert
      */
     sans: string[];
     /**
-     * Authentication strategy that will be used in RKE k8s cluster. Default: `x509` (string)
+     * Authentication strategy that will be used in RKE k8s cluster
      */
     strategy?: string;
     /**
-     * Webhook configuration options (list maxitem: 1)
+     * Webhook configuration options
      */
     webhook: outputs.ClusterAuthenticationWebhook;
 }
 
 export interface ClusterAuthenticationWebhook {
     /**
-     * Controls how long to cache authentication decisions (string)
+     * Controls how long to cache authentication decisions
      */
     cacheTimeout?: string;
     /**
-     * Multiline string that represent a custom webhook config file (string)
+     * Multiline string that represent a custom webhook config file
      */
     configFile?: string;
 }
 
 export interface ClusterAuthorization {
-    /**
-     * RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
-     */
     mode?: string;
     /**
-     * Network provider options (map)
+     * Authorization mode options
      */
     options?: {[key: string]: any};
 }
 
 export interface ClusterBastionHost {
     /**
-     * Address ip for node (string)
+     * Address of Bastion Host
      */
     address: string;
     /**
-     * Ignore proxy env vars at Bastion Host? Default: `false` (bool)
+     * Ignore proxy env vars at Bastion Host?
      */
     ignoreProxyEnvVars?: boolean;
     /**
-     * Port used for SSH communication (string)
+     * SSH Port of Bastion Host
      */
     port?: string;
     /**
@@ -60,7 +57,7 @@ export interface ClusterBastionHost {
      */
     sshAgentAuth: boolean;
     /**
-     * SSH Certificate (string)
+     * SSH Certificate Key
      */
     sshCert?: string;
     /**
@@ -68,7 +65,7 @@ export interface ClusterBastionHost {
      */
     sshCertPath: string;
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      */
     sshKey?: string;
     /**
@@ -76,7 +73,7 @@ export interface ClusterBastionHost {
      */
     sshKeyPath: string;
     /**
-     * Registry user (string)
+     * SSH User to Bastion Host
      */
     user: string;
 }
@@ -92,305 +89,228 @@ export interface ClusterCertificate {
      * (Computed) The ID of the resource (string)
      */
     id: string;
-    /**
-     * TLS key for etcd service (string)
-     */
     key: string;
     keyEnvName: string;
     keyPath: string;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: string;
     ouName: string;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path: string;
 }
 
 export interface ClusterCloudProvider {
     /**
-     * Use awsCloudProvider instead
-     *
      * @deprecated Use awsCloudProvider instead
      */
     awsCloudConfig?: outputs.ClusterCloudProviderAwsCloudConfig;
     /**
-     * AWS Cloud Provider config [rke-aws-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/aws/) (list maxitems:1)
+     * AWS Cloud Provider config
      */
     awsCloudProvider?: outputs.ClusterCloudProviderAwsCloudProvider;
     /**
-     * Use azureCloudProvider instead
-     *
      * @deprecated Use azureCloudProvider instead
      */
     azureCloudConfig?: outputs.ClusterCloudProviderAzureCloudConfig;
     /**
-     * Azure Cloud Provider config [rke-azure-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/azure/) (list maxitems:1)
+     * Azure Cloud Provider config
      */
     azureCloudProvider?: outputs.ClusterCloudProviderAzureCloudProvider;
     /**
-     * Use customCloudProvider instead
-     *
      * @deprecated Use customCloudProvider instead
      */
     customCloudConfig?: string;
     /**
-     * Custom Cloud Provider config (string)
+     * Custom Cloud Provider config
      */
     customCloudProvider?: string;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: string;
     /**
-     * Use openstackCloudProvider instead
-     *
      * @deprecated Use openstackCloudProvider instead
      */
     openstackCloudConfig?: outputs.ClusterCloudProviderOpenstackCloudConfig;
     /**
-     * Openstack Cloud Provider config [rke-openstack-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/openstack/) (list maxitems:1)
+     * Openstack Cloud Provider config
      */
     openstackCloudProvider?: outputs.ClusterCloudProviderOpenstackCloudProvider;
     /**
-     * Use vsphereCloudProvider instead
-     *
      * @deprecated Use vsphereCloudProvider instead
      */
     vsphereCloudConfig?: outputs.ClusterCloudProviderVsphereCloudConfig;
     /**
-     * Vsphere Cloud Provider config [rke-vsphere-cloud-provider](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/vsphere/) Extra argument `name` is required on `virtualCenter` configuration. (list maxitems:1)
+     * Vsphere Cloud Provider config
      */
     vsphereCloudProvider?: outputs.ClusterCloudProviderVsphereCloudProvider;
 }
 
 export interface ClusterCloudProviderAwsCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     global?: outputs.ClusterCloudProviderAwsCloudConfigGlobal;
-    /**
-     * (list)
-     */
     serviceOverrides?: outputs.ClusterCloudProviderAwsCloudConfigServiceOverride[];
 }
 
 export interface ClusterCloudProviderAwsCloudConfigGlobal {
     /**
-     * Disables the automatic ingress creation. Default `false` (bool)
+     * Disables the automatic ingress creation
      */
     disableSecurityGroupIngress?: boolean;
     /**
-     * Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * Setting this to true will disable the check and provide a warning that the check was skipped
      */
     disableStrictZoneCheck?: boolean;
     /**
-     * Use these ELB security groups instead create new (string)
+     * Use these ELB security groups instead create new
      */
     elbSecurityGroup?: string;
     /**
-     * The cluster id we'll use to identify our cluster resources (string)
+     * The cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterId?: string;
     /**
-     * Legacy cluster id we'll use to identify our cluster resources (string)
+     * Legacy cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterTag?: string;
     /**
-     * IAM role to assume when interaction with AWS APIs (string)
+     * IAM role to assume when interaction with AWS APIs
      */
     roleArn?: string;
     /**
-     * Enables using a specific RouteTable (string)
+     * Enables using a specific RouteTable
      */
     routeTableId?: string;
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB's
      */
     subnetId?: string;
     /**
-     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      */
     vpc?: string;
     /**
-     * The AWS zone (string)
+     * The AWS zone
      */
     zone?: string;
 }
 
 export interface ClusterCloudProviderAwsCloudConfigServiceOverride {
     /**
-     * TLS key for etcd service (string)
-     *
      * @deprecated Use service instead
      */
     key?: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * (string)
-     */
     service: string;
-    /**
-     * (string)
-     */
     signingMethod: string;
-    /**
-     * (string)
-     */
     signingName?: string;
-    /**
-     * (string)
-     */
     signingRegion?: string;
-    /**
-     * Registry URL (string)
-     */
     url?: string;
 }
 
 export interface ClusterCloudProviderAwsCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     global?: outputs.ClusterCloudProviderAwsCloudProviderGlobal;
-    /**
-     * (list)
-     */
     serviceOverrides?: outputs.ClusterCloudProviderAwsCloudProviderServiceOverride[];
 }
 
 export interface ClusterCloudProviderAwsCloudProviderGlobal {
     /**
-     * Disables the automatic ingress creation. Default `false` (bool)
+     * Disables the automatic ingress creation
      */
     disableSecurityGroupIngress?: boolean;
     /**
-     * Setting this to true will disable the check and provide a warning that the check was skipped. Default `false` (bool)
+     * Setting this to true will disable the check and provide a warning that the check was skipped
      */
     disableStrictZoneCheck?: boolean;
     /**
-     * Use these ELB security groups instead create new (string)
+     * Use these ELB security groups instead create new
      */
     elbSecurityGroup?: string;
     /**
-     * The cluster id we'll use to identify our cluster resources (string)
+     * The cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterId?: string;
     /**
-     * Legacy cluster id we'll use to identify our cluster resources (string)
+     * Legacy cluster id we'll use to identify our cluster resources
      */
     kubernetesClusterTag?: string;
     /**
-     * IAM role to assume when interaction with AWS APIs (string)
+     * IAM role to assume when interaction with AWS APIs
      */
     roleArn?: string;
     /**
-     * Enables using a specific RouteTable (string)
+     * Enables using a specific RouteTable
      */
     routeTableId?: string;
     /**
-     * (string)
+     * Enables using a specific subnet to use for ELB's
      */
     subnetId?: string;
     /**
-     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided (string)
+     * The AWS VPC flag enables the possibility to run the master components on a different aws account, on a different cloud provider or on-premises. If the flag is set also the KubernetesClusterTag must be provided
      */
     vpc?: string;
     /**
-     * The AWS zone (string)
+     * The AWS zone
      */
     zone?: string;
 }
 
 export interface ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
-     * TLS key for etcd service (string)
-     *
      * @deprecated Use service instead
      */
     key?: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * (string)
-     */
     service: string;
-    /**
-     * (string)
-     */
     signingMethod: string;
-    /**
-     * (string)
-     */
     signingName?: string;
-    /**
-     * (string)
-     */
     signingRegion?: string;
-    /**
-     * Registry URL (string)
-     */
     url?: string;
 }
 
 export interface ClusterCloudProviderAzureCloudConfig {
     /**
-     * (string)
+     * The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPassword?: string;
     /**
-     * (string)
+     * The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPath?: string;
     /**
-     * (string)
+     * The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientId: string;
     /**
-     * (string)
+     * The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientSecret: string;
     /**
-     * (string)
+     * The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      */
     cloud?: string;
     /**
-     * (bool)
+     * Enable exponential backoff to manage resource request retries
      */
     cloudProviderBackoff?: boolean;
     /**
-     * (int)
+     * Backoff duration
      */
     cloudProviderBackoffDuration?: number;
     /**
-     * (int)
+     * Backoff exponent
      */
     cloudProviderBackoffExponent?: number;
     /**
-     * (int)
+     * Backoff jitter
      */
     cloudProviderBackoffJitter?: number;
     /**
-     * (int)
+     * Backoff retry limit
      */
     cloudProviderBackoffRetries?: number;
     /**
-     * (bool)
+     * Enable rate limiting
      */
     cloudProviderRateLimit?: boolean;
-    /**
-     * (int)
-     */
     cloudProviderRateLimitBucket: number;
     /**
-     * (int)
+     * Rate limit QPS
      */
     cloudProviderRateLimitQps?: number;
     /**
@@ -398,118 +318,115 @@ export interface ClusterCloudProviderAzureCloudConfig {
      */
     loadBalancerSku?: string;
     /**
-     * (string)
+     * The location of the resource group that the cluster is deployed in
      */
     location?: string;
     /**
-     * (int)
+     * Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      */
     maximumLoadBalancerRuleCount?: number;
     /**
-     * (string)
+     * The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      */
     primaryAvailabilitySetName?: string;
     /**
-     * (string)
+     * The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      */
     primaryScaleSetName?: string;
     /**
-     * (string)
+     * The name of the resource group that the cluster is deployed in
      */
     resourceGroup?: string;
     /**
-     * (string)
+     * (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      */
     routeTableName?: string;
     /**
-     * (string)
+     * The name of the security group attached to the cluster's subnet
      */
     securityGroupName?: string;
     /**
-     * (string)
+     * The name of the Subnet that the cluster is deployed in
      */
     subnetName?: string;
     /**
-     * (string)
+     * The ID of the Azure Subscription that the cluster is deployed in
      */
     subscriptionId: string;
     /**
-     * Required if `tenantName` not provided. (string)
+     * The AAD Tenant ID for the Subscription that the cluster is deployed in
      */
     tenantId: string;
     /**
-     * (bool)
+     * Use instance metadata service where possible
      */
     useInstanceMetadata?: boolean;
     /**
-     * (bool)
+     * Use managed service identity for the virtual machine to access Azure ARM APIs
      */
     useManagedIdentityExtension?: boolean;
     /**
-     * (string)
+     * The type of azure nodes. If not set, it will be default to standard.
      */
     vmType?: string;
     /**
-     * (string)
+     * The name of the VNet that the cluster is deployed in
      */
     vnetName?: string;
     /**
-     * (string)
+     * The name of the resource group that the Vnet is deployed in
      */
     vnetResourceGroup?: string;
 }
 
 export interface ClusterCloudProviderAzureCloudProvider {
     /**
-     * (string)
+     * The password of the client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPassword?: string;
     /**
-     * (string)
+     * The path of a client certificate for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientCertPath?: string;
     /**
-     * (string)
+     * The ClientID for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientId: string;
     /**
-     * (string)
+     * The ClientSecret for an AAD application with RBAC access to talk to Azure RM APIs
      */
     aadClientSecret: string;
     /**
-     * (string)
+     * The cloud environment identifier. Takes values from https://github.com/Azure/go-autorest/blob/ec5f4903f77ed9927ac95b19ab8e44ada64c1356/autorest/azure/environments.go#L13
      */
     cloud?: string;
     /**
-     * (bool)
+     * Enable exponential backoff to manage resource request retries
      */
     cloudProviderBackoff?: boolean;
     /**
-     * (int)
+     * Backoff duration
      */
     cloudProviderBackoffDuration?: number;
     /**
-     * (int)
+     * Backoff exponent
      */
     cloudProviderBackoffExponent?: number;
     /**
-     * (int)
+     * Backoff jitter
      */
     cloudProviderBackoffJitter?: number;
     /**
-     * (int)
+     * Backoff retry limit
      */
     cloudProviderBackoffRetries?: number;
     /**
-     * (bool)
+     * Enable rate limiting
      */
     cloudProviderRateLimit?: boolean;
-    /**
-     * (int)
-     */
     cloudProviderRateLimitBucket: number;
     /**
-     * (int)
+     * Rate limit QPS
      */
     cloudProviderRateLimitQps?: number;
     /**
@@ -517,699 +434,312 @@ export interface ClusterCloudProviderAzureCloudProvider {
      */
     loadBalancerSku?: string;
     /**
-     * (string)
+     * The location of the resource group that the cluster is deployed in
      */
     location?: string;
     /**
-     * (int)
+     * Maximum allowed LoadBalancer Rule Count is the limit enforced by Azure Load balancer
      */
     maximumLoadBalancerRuleCount?: number;
     /**
-     * (string)
+     * The name of the availability set that should be used as the load balancer backendIf this is set, the Azure cloudprovider will only add nodes from that availability set to the loadbalancer backend pool. If this is not set, and multiple agent pools (availability sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (availability sets), you MUST set this field.
      */
     primaryAvailabilitySetName?: string;
     /**
-     * (string)
+     * The name of the scale set that should be used as the load balancer backend.If this is set, the Azure cloudprovider will only add nodes from that scale set to the loadbalancer backend pool. If this is not set, and multiple agent pools (scale sets) are used, thenthe cloudprovider will try to add all nodes to a single backend pool which is forbidden.In other words, if you use multiple agent pools (scale sets), you MUST set this field.
      */
     primaryScaleSetName?: string;
     /**
-     * (string)
+     * The name of the resource group that the cluster is deployed in
      */
     resourceGroup?: string;
     /**
-     * (string)
+     * (Optional in 1.6) The name of the route table attached to the subnet that the cluster is deployed in
      */
     routeTableName?: string;
     /**
-     * (string)
+     * The name of the security group attached to the cluster's subnet
      */
     securityGroupName?: string;
     /**
-     * (string)
+     * The name of the Subnet that the cluster is deployed in
      */
     subnetName?: string;
     /**
-     * (string)
+     * The ID of the Azure Subscription that the cluster is deployed in
      */
     subscriptionId: string;
     /**
-     * Required if `tenantName` not provided. (string)
+     * The AAD Tenant ID for the Subscription that the cluster is deployed in
      */
     tenantId: string;
     /**
-     * (bool)
+     * Use instance metadata service where possible
      */
     useInstanceMetadata?: boolean;
     /**
-     * (bool)
+     * Use managed service identity for the virtual machine to access Azure ARM APIs
      */
     useManagedIdentityExtension?: boolean;
     /**
-     * (string)
+     * The type of azure nodes. If not set, it will be default to standard.
      */
     vmType?: string;
     /**
-     * (string)
+     * The name of the VNet that the cluster is deployed in
      */
     vnetName?: string;
     /**
-     * (string)
+     * The name of the resource group that the Vnet is deployed in
      */
     vnetResourceGroup?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     blockStorage: outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage;
-    /**
-     * (list maxitems:1)
-     */
     global: outputs.ClusterCloudProviderOpenstackCloudConfigGlobal;
-    /**
-     * (list maxitems:1)
-     */
     loadBalancer: outputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer;
-    /**
-     * (list maxitems:1)
-     */
     metadata: outputs.ClusterCloudProviderOpenstackCloudConfigMetadata;
-    /**
-     * (list maxitems:1)
-     */
     route: outputs.ClusterCloudProviderOpenstackCloudConfigRoute;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigBlockStorage {
-    /**
-     * (string)
-     */
     bsVersion?: string;
-    /**
-     * (string)
-     */
     ignoreVolumeAz?: boolean;
-    /**
-     * (string)
-     */
     trustDevicePath?: boolean;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigGlobal {
-    /**
-     * (string)
-     */
     authUrl: string;
-    /**
-     * (string)
-     */
     caFile?: string;
-    /**
-     * Required if `domainName` not provided. (string)
-     */
     domainId?: string;
-    /**
-     * Required if `domainId` not provided. (string)
-     */
     domainName?: string;
-    /**
-     * Registry password (string)
-     */
     password: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * Required if `tenantName` not provided. (string)
-     */
     tenantId?: string;
-    /**
-     * Required if `tenantId` not provided. (string)
-     */
     tenantName?: string;
-    /**
-     * (string)
-     */
     trustId?: string;
-    /**
-     * Required if `username` not provided. (string)
-     */
     userId?: string;
-    /**
-     * Required if `userId` not provided. (string)
-     */
     username?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigLoadBalancer {
-    /**
-     * (bool)
-     */
     createMonitor?: boolean;
-    /**
-     * (string)
-     */
     floatingNetworkId?: string;
-    /**
-     * (string)
-     */
     lbMethod?: string;
-    /**
-     * (string)
-     */
     lbProvider?: string;
-    /**
-     * (string)
-     */
     lbVersion?: string;
-    /**
-     * (bool)
-     */
     manageSecurityGroups?: boolean;
-    /**
-     * (string)
-     */
     monitorDelay?: string;
-    /**
-     * (int)
-     */
     monitorMaxRetries?: number;
-    /**
-     * (string)
-     */
     monitorTimeout?: string;
-    /**
-     * (string)
-     */
     subnetId?: string;
-    /**
-     * (bool)
-     */
     useOctavia?: boolean;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigMetadata {
-    /**
-     * (int)
-     */
     requestTimeout?: number;
-    /**
-     * (string)
-     */
     searchOrder?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudConfigRoute {
-    /**
-     * (string)
-     */
     routerId?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     blockStorage: outputs.ClusterCloudProviderOpenstackCloudProviderBlockStorage;
-    /**
-     * (list maxitems:1)
-     */
     global: outputs.ClusterCloudProviderOpenstackCloudProviderGlobal;
-    /**
-     * (list maxitems:1)
-     */
     loadBalancer: outputs.ClusterCloudProviderOpenstackCloudProviderLoadBalancer;
-    /**
-     * (list maxitems:1)
-     */
     metadata: outputs.ClusterCloudProviderOpenstackCloudProviderMetadata;
-    /**
-     * (list maxitems:1)
-     */
     route: outputs.ClusterCloudProviderOpenstackCloudProviderRoute;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderBlockStorage {
-    /**
-     * (string)
-     */
     bsVersion?: string;
-    /**
-     * (string)
-     */
     ignoreVolumeAz?: boolean;
-    /**
-     * (string)
-     */
     trustDevicePath?: boolean;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderGlobal {
-    /**
-     * (string)
-     */
     authUrl: string;
-    /**
-     * (string)
-     */
     caFile?: string;
-    /**
-     * Required if `domainName` not provided. (string)
-     */
     domainId?: string;
-    /**
-     * Required if `domainId` not provided. (string)
-     */
     domainName?: string;
-    /**
-     * Registry password (string)
-     */
     password: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * Required if `tenantName` not provided. (string)
-     */
     tenantId?: string;
-    /**
-     * Required if `tenantId` not provided. (string)
-     */
     tenantName?: string;
-    /**
-     * (string)
-     */
     trustId?: string;
-    /**
-     * Required if `username` not provided. (string)
-     */
     userId?: string;
-    /**
-     * Required if `userId` not provided. (string)
-     */
     username?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
-    /**
-     * (bool)
-     */
     createMonitor?: boolean;
-    /**
-     * (string)
-     */
     floatingNetworkId?: string;
-    /**
-     * (string)
-     */
     lbMethod?: string;
-    /**
-     * (string)
-     */
     lbProvider?: string;
-    /**
-     * (string)
-     */
     lbVersion?: string;
-    /**
-     * (bool)
-     */
     manageSecurityGroups?: boolean;
-    /**
-     * (string)
-     */
     monitorDelay?: string;
-    /**
-     * (int)
-     */
     monitorMaxRetries?: number;
-    /**
-     * (string)
-     */
     monitorTimeout?: string;
-    /**
-     * (string)
-     */
     subnetId?: string;
-    /**
-     * (bool)
-     */
     useOctavia?: boolean;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderMetadata {
-    /**
-     * (int)
-     */
     requestTimeout?: number;
-    /**
-     * (string)
-     */
     searchOrder?: string;
 }
 
 export interface ClusterCloudProviderOpenstackCloudProviderRoute {
-    /**
-     * (string)
-     */
     routerId?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfig {
-    /**
-     * (list maxitems:1)
-     */
     disk: outputs.ClusterCloudProviderVsphereCloudConfigDisk;
-    /**
-     * (list maxitems:1)
-     */
     global: outputs.ClusterCloudProviderVsphereCloudConfigGlobal;
     /**
      * RKE k8s cluster network configuration (list maxitems:1)
      */
     network: outputs.ClusterCloudProviderVsphereCloudConfigNetwork;
-    /**
-     * (List)
-     */
     virtualCenters: outputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter[];
-    /**
-     * (list maxitems:1)
-     */
     workspace: outputs.ClusterCloudProviderVsphereCloudConfigWorkspace;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigDisk {
-    /**
-     * (string)
-     */
     scsiControllerType?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigGlobal {
-    /**
-     * (string)
-     */
     datacenter?: string;
-    /**
-     * (string)
-     */
     datacenters: string;
-    /**
-     * (string)
-     */
     datastore?: string;
-    /**
-     * (bool)
-     */
     insecureFlag?: boolean;
-    /**
-     * Registry password (string)
-     */
     password?: string;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: string;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: number;
-    /**
-     * Registry user (string)
-     */
     user?: string;
-    /**
-     * (string)
-     */
     vmName?: string;
-    /**
-     * (string)
-     */
     vmUuid?: string;
-    /**
-     * (string)
-     */
     workingDir?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigNetwork {
-    /**
-     * (string)
-     */
     publicNetwork?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigVirtualCenter {
-    /**
-     * (string)
-     */
     datacenters: string;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: string;
-    /**
-     * Registry password (string)
-     */
     password: string;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: string;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: number;
-    /**
-     * Registry user (string)
-     */
     user: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudConfigWorkspace {
-    /**
-     * (string)
-     */
     datacenter: string;
-    /**
-     * (string)
-     */
     defaultDatastore?: string;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: string;
-    /**
-     * (string)
-     */
     resourcepoolPath?: string;
-    /**
-     * (string)
-     */
     server: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudProvider {
-    /**
-     * (list maxitems:1)
-     */
     disk: outputs.ClusterCloudProviderVsphereCloudProviderDisk;
-    /**
-     * (list maxitems:1)
-     */
     global: outputs.ClusterCloudProviderVsphereCloudProviderGlobal;
     /**
      * RKE k8s cluster network configuration (list maxitems:1)
      */
     network: outputs.ClusterCloudProviderVsphereCloudProviderNetwork;
-    /**
-     * (List)
-     */
     virtualCenters: outputs.ClusterCloudProviderVsphereCloudProviderVirtualCenter[];
-    /**
-     * (list maxitems:1)
-     */
     workspace: outputs.ClusterCloudProviderVsphereCloudProviderWorkspace;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderDisk {
-    /**
-     * (string)
-     */
     scsiControllerType?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderGlobal {
-    /**
-     * (string)
-     */
     datacenter?: string;
-    /**
-     * (string)
-     */
     datacenters: string;
-    /**
-     * (string)
-     */
     datastore?: string;
-    /**
-     * (bool)
-     */
     insecureFlag?: boolean;
-    /**
-     * Registry password (string)
-     */
     password?: string;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: string;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: number;
-    /**
-     * Registry user (string)
-     */
     user?: string;
-    /**
-     * (string)
-     */
     vmName?: string;
-    /**
-     * (string)
-     */
     vmUuid?: string;
-    /**
-     * (string)
-     */
     workingDir?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderNetwork {
-    /**
-     * (string)
-     */
     publicNetwork?: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderVirtualCenter {
-    /**
-     * (string)
-     */
     datacenters: string;
-    /**
-     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
-     */
     name: string;
-    /**
-     * Registry password (string)
-     */
     password: string;
-    /**
-     * Port used for SSH communication (string)
-     */
     port?: string;
-    /**
-     * (int)
-     */
     soapRoundtripCount?: number;
-    /**
-     * Registry user (string)
-     */
     user: string;
 }
 
 export interface ClusterCloudProviderVsphereCloudProviderWorkspace {
-    /**
-     * (string)
-     */
     datacenter: string;
-    /**
-     * (string)
-     */
     defaultDatastore?: string;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: string;
-    /**
-     * (string)
-     */
     resourcepoolPath?: string;
-    /**
-     * (string)
-     */
     server: string;
 }
 
 export interface ClusterControlPlaneHost {
-    /**
-     * Address ip for node (string)
-     */
     address: string;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName: string;
 }
 
 export interface ClusterDns {
     /**
-     * Node selector key pair (map)
+     * NodeSelector key pair
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * Docker image for nodelocal (string)
+     * Nodelocal dns
      */
     nodelocal?: outputs.ClusterDnsNodelocal;
     /**
-     * Monitoring provider (string)
+     * DNS provider
      */
     provider?: string;
     /**
-     * Reverse CIDRs  (list)
+     * ReverseCIDRs
      */
     reverseCidrs?: string[];
     /**
-     * Upstream nameservers  (list)
+     * Upstream nameservers
      */
     upstreamNameservers?: string[];
 }
 
 export interface ClusterDnsNodelocal {
-    /**
-     * Nodelocal dns ip address (string)
-     */
     ipAddress?: string;
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: {[key: string]: any};
 }
 
 export interface ClusterEtcdHost {
-    /**
-     * Address ip for node (string)
-     */
     address: string;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName: string;
 }
 
 export interface ClusterInactiveHost {
-    /**
-     * Address ip for node (string)
-     */
     address: string;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName: string;
 }
 
@@ -1219,183 +749,113 @@ export interface ClusterIngress {
      */
     defaultBackend?: boolean;
     /**
-     * Ingress controller DNS policy. `ClusterFirstWithHostNet`, `ClusterFirst`, `Default`, and `None` are supported. [K8S dns Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) (string)
+     * Ingress controller dns policy
      */
     dnsPolicy?: string;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments for the ingress controller
      */
     extraArgs?: {[key: string]: any};
     /**
-     * Ingress controller http port (int)
+     * Ingress controller http port
      */
     httpPort?: number;
     /**
-     * Ingress controller https port (int)
+     * Ingress controller https port
      */
     httpsPort?: number;
     /**
-     * Networt mode for the ingress controller. `hostNetwork`, `hostPort` and `none` are supported (string)
+     * Ingress controller network mode
      */
     networkMode?: string;
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * Network provider options (map)
+     * Ingress controller options
      */
     options?: {[key: string]: any};
     /**
-     * Monitoring provider (string)
+     * Ingress controller provider
      */
     provider?: string;
 }
 
 export interface ClusterMonitoring {
     /**
-     * Node selector key pair (map)
+     * Node selector key pair
      */
     nodeSelector?: {[key: string]: any};
     /**
-     * Network provider options (map)
+     * Monitoring options
      */
     options?: {[key: string]: any};
     /**
-     * Monitoring provider (string)
+     * Monitoring provider
      */
     provider: string;
 }
 
 export interface ClusterNetwork {
     /**
-     * Aci network provider config (list maxitems:1)
+     * Aci network provider config
      */
     aciNetworkProvider?: outputs.ClusterNetworkAciNetworkProvider;
     /**
-     * Calico network provider config (list maxitems:1)
+     * Calico network provider config
      */
     calicoNetworkProvider?: outputs.ClusterNetworkCalicoNetworkProvider;
     /**
-     * Canal network provider config (list maxitems:1)
+     * Canal network provider config
      */
     canalNetworkProvider?: outputs.ClusterNetworkCanalNetworkProvider;
     /**
-     * Flannel network provider config (list maxitems:1)
+     * Flannel network provider config
      */
     flannelNetworkProvider?: outputs.ClusterNetworkFlannelNetworkProvider;
     /**
-     * Network provider MTU. Default `0` (int)
+     * Network provider MTU
      */
     mtu?: number;
     /**
-     * Network provider options (map)
+     * Network provider options
      */
     options: {[key: string]: any};
     /**
-     * Network provider plugin. `calico`, `canal` (default), `flannel`, `none` and `weave` are supported. (string)
+     * Network provider plugin
      */
     plugin?: string;
     /**
-     * Weave network provider config (list maxitems:1)
+     * Weave network provider config
      */
     weaveNetworkProvider?: outputs.ClusterNetworkWeaveNetworkProvider;
 }
 
 export interface ClusterNetworkAciNetworkProvider {
-    /**
-     * Attachment entity profile name on aci (string)
-     */
     aep: string;
-    /**
-     * Ip address for apic hosts (list)
-     */
     apicHosts: string[];
-    /**
-     * Base64 encoded certificate for aci apic user (string)
-     */
     apicUserCrt: string;
-    /**
-     * Base64 encoded private key for aci apic user (string)
-     */
     apicUserKey: string;
-    /**
-     * User name for aci apic (string)
-     */
     apicUserName: string;
-    /**
-     * One of the supported encap types for aci(vlan/vxlan) (string)
-     */
     encapType: string;
-    /**
-     * Subnet to use for dynamic external IPs on aci (string)
-     * * `externStatic"` - (Required) Subnet to use for static external IPs on aci (string)
-     */
     externDynamic: string;
     externStatic: string;
-    /**
-     * Vlan for infra network on aci (string)
-     */
     infraVlan: string;
-    /**
-     * Vlan for node network on aci (string)
-     */
     kubeApiVlan: string;
-    /**
-     * L3Out on aci (string)
-     */
     l3out: string;
-    /**
-     * L3out external networks on aci (list)
-     */
     l3outExternalNetworks: string[];
-    /**
-     * Mcast range end address for endpoint groups on aci (string)
-     */
     mcastRangeEnd: string;
-    /**
-     * Mcast range start address for endpoint groups on aci (string)
-     */
     mcastRangeStart: string;
-    /**
-     * Kubernetes node address subnet (string)
-     */
     nodeSubnet: string;
-    /**
-     * Subnet to use for service graph endpoints on aci (string)
-     */
     nodeSvcSubnet: string;
-    /**
-     * Vlan for service graph nodes on aci (string)
-     */
     serviceVlan: string;
-    /**
-     * Port end range for Source Network Address Translation on aci (string)
-     */
     snatPortRangeEnd?: string;
-    /**
-     * Port start range for Source Network Address Translation on aci (string)
-     */
     snatPortRangeStart?: string;
-    /**
-     * Ports per node for Source Network Address Translation on aci (string)
-     */
     snatPortsPerNode?: string;
-    /**
-     * Unique suffix for all cluster related objects in aci (string)
-     */
     systemId: string;
-    /**
-     * UUID for this version of the input configuration (string)
-     */
     token: string;
-    /**
-     * VRF Name on aci (string)
-     */
     vrfName: string;
-    /**
-     * Tenant for VRF on aci (string)
-     */
     vrfTenant: string;
 }
 
@@ -1407,57 +867,48 @@ export interface ClusterNetworkCalicoNetworkProvider {
 }
 
 export interface ClusterNetworkCanalNetworkProvider {
-    /**
-     * Flannel network interface (string)
-     */
     iface: string;
 }
 
 export interface ClusterNetworkFlannelNetworkProvider {
-    /**
-     * Flannel network interface (string)
-     */
     iface: string;
 }
 
 export interface ClusterNetworkWeaveNetworkProvider {
-    /**
-     * Registry password (string)
-     */
     password: string;
 }
 
 export interface ClusterNode {
     /**
-     * Address ip for node (string)
+     * IP or FQDN that is fully resolvable and used for SSH communication
      */
     address: string;
     /**
-     * Docker socket on the node that will be used in tunneling (string)
+     * Docker socket on the node that will be used in tunneling
      */
     dockerSocket?: string;
     /**
-     * Hostname override for node (string)
+     * Hostname override
      */
     hostnameOverride?: string;
     /**
-     * Internal address that will be used for components communication (string)
+     * Internal address that will be used for components communication
      */
     internalAddress?: string;
     /**
-     * Node labels (map)
+     * Node Labels
      */
     labels?: {[key: string]: any};
     /**
-     * Name of the host provisioned via docker machine (string)
+     * Name of the host provisioned via docker machine
      */
     nodeName?: string;
     /**
-     * Port used for SSH communication (string)
+     * Port used for SSH communication
      */
     port?: string;
     /**
-     * Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * Node roles in k8s cluster [controlplane/worker/etcd])
      */
     roles: string[];
     /**
@@ -1471,7 +922,7 @@ export interface ClusterNode {
      */
     sshAgentAuth: boolean;
     /**
-     * SSH Certificate (string)
+     * SSH Certificate
      */
     sshCert?: string;
     /**
@@ -1479,7 +930,7 @@ export interface ClusterNode {
      */
     sshCertPath?: string;
     /**
-     * SSH Private Key (string)
+     * SSH Private Key
      */
     sshKey?: string;
     /**
@@ -1487,45 +938,36 @@ export interface ClusterNode {
      */
     sshKeyPath?: string;
     /**
-     * Node taints (list)
+     * Node taints
      */
     taints?: outputs.ClusterNodeTaint[];
     /**
-     * Registry user (string)
+     * SSH user that will be used by RKE
      */
     user: string;
 }
 
 export interface ClusterNodeTaint {
-    /**
-     * Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
-     */
     effect?: string;
-    /**
-     * TLS key for etcd service (string)
-     */
     key: string;
-    /**
-     * Taint value (string)
-     */
     value: string;
 }
 
 export interface ClusterPrivateRegistry {
     /**
-     * Set as default registry. Default `false` (bool)
+     * Set as default registry
      */
     isDefault?: boolean;
     /**
-     * Registry password (string)
+     * Registry password
      */
     password?: string;
     /**
-     * Registry URL (string)
+     * Registry URL
      */
     url: string;
     /**
-     * Registry user (string)
+     * Registry user
      */
     user?: string;
 }
@@ -1536,14 +978,14 @@ export interface ClusterRestore {
      */
     restore?: boolean;
     /**
-     * Snapshot name (string)
+     * Snapshot name
      */
     snapshotName?: string;
 }
 
 export interface ClusterRotateCertificates {
     /**
-     * Rotate CA Certificates. Default `false` (bool)
+     * Rotate CA Certificates
      */
     caCertificates?: boolean;
     /**
@@ -1553,1056 +995,519 @@ export interface ClusterRotateCertificates {
 }
 
 export interface ClusterRunningSystemImage {
-    /**
-     * Docker image for aciCniDeployContainer (string)
-     */
     aciCniDeployContainer?: string;
-    /**
-     * Docker image for aciControllerContainer (string)
-     */
     aciControllerContainer?: string;
-    /**
-     * Docker image for aciHostContainer (string)
-     */
     aciHostContainer?: string;
-    /**
-     * Docker image for aciMcastContainer (string)
-     */
     aciMcastContainer?: string;
-    /**
-     * Docker image for aciOpflexContainer (string)
-     */
     aciOpflexContainer?: string;
-    /**
-     * Docker image for aciOvsContainer (string)
-     */
     aciOvsContainer?: string;
-    /**
-     * Docker image for alpine (string)
-     */
     alpine?: string;
-    /**
-     * Docker image for calicoCni (string)
-     */
     calicoCni?: string;
-    /**
-     * Docker image for calicoControllers (string)
-     */
     calicoControllers?: string;
-    /**
-     * Docker image for calicoCtl (string)
-     */
     calicoCtl?: string;
-    /**
-     * Docker image for calicoFlexVol (string)
-     */
     calicoFlexVol?: string;
-    /**
-     * Docker image for calicoNode (string)
-     */
     calicoNode?: string;
-    /**
-     * Docker image for canalCni (string)
-     */
     canalCni?: string;
-    /**
-     * Docker image for canalFlannel (string)
-     */
     canalFlannel?: string;
-    /**
-     * Docker image for canalFlexVol (string)
-     */
     canalFlexVol?: string;
-    /**
-     * Docker image for canalNode (string)
-     */
     canalNode?: string;
-    /**
-     * Docker image for certDownloader (string)
-     */
     certDownloader?: string;
-    /**
-     * Docker image for coredns (string)
-     */
     coredns?: string;
-    /**
-     * Docker image for corednsAutoscaler (string)
-     */
     corednsAutoscaler?: string;
-    /**
-     * Docker image for dnsmasq (string)
-     */
     dnsmasq?: string;
-    /**
-     * Docker image for etcd (string)
-     */
     etcd?: string;
-    /**
-     * Docker image for flannel (string)
-     */
     flannel?: string;
-    /**
-     * Docker image for flannelCni (string)
-     */
     flannelCni?: string;
     /**
      * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: string;
-    /**
-     * Docker image for ingressBackend (string)
-     */
     ingressBackend?: string;
-    /**
-     * Docker image for kubeDns (string)
-     */
     kubeDns?: string;
-    /**
-     * Docker image for kubeDnsAutoscaler (string)
-     */
     kubeDnsAutoscaler?: string;
-    /**
-     * Docker image for kubeDnsSidecar (string)
-     */
     kubeDnsSidecar?: string;
-    /**
-     * Docker image for kubernetes (string)
-     */
     kubernetes?: string;
-    /**
-     * Docker image for kubernetesServicesSidecar (string)
-     */
     kubernetesServicesSidecar?: string;
-    /**
-     * Docker image for metricsServer (string)
-     */
     metricsServer?: string;
-    /**
-     * Docker image for nginxProxy (string)
-     */
     nginxProxy?: string;
-    /**
-     * Docker image for nodelocal (string)
-     */
     nodelocal?: string;
-    /**
-     * Docker image for podInfraContainer (string)
-     */
     podInfraContainer?: string;
-    /**
-     * Docker image for weaveCni (string)
-     */
     weaveCni?: string;
-    /**
-     * Docker image for weaveNode (string)
-     */
     weaveNode?: string;
-    /**
-     * Docker image for windowsPodInfraContainer (string)
-     */
     windowsPodInfraContainer?: string;
 }
 
 export interface ClusterServices {
-    /**
-     * Docker image for etcd (string)
-     */
     etcd: outputs.ClusterServicesEtcd;
-    /**
-     * Kube API options for RKE services (list maxitems:1)
-     */
     kubeApi: outputs.ClusterServicesKubeApi;
-    /**
-     * Kube Controller options for RKE services (list maxitems:1)
-     */
     kubeController: outputs.ClusterServicesKubeController;
-    /**
-     * Kubelet options for RKE services (list maxitems:1)
-     */
     kubelet: outputs.ClusterServicesKubelet;
-    /**
-     * Kubeproxy options for RKE services (list maxitems:1)
-     */
     kubeproxy: outputs.ClusterServicesKubeproxy;
-    /**
-     * Scheduler options for RKE services (list maxitems:1)
-     */
     scheduler: outputs.ClusterServicesScheduler;
 }
 
 export interface ClusterServicesEtcd {
-    /**
-     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
-     */
     backupConfig: outputs.ClusterServicesEtcdBackupConfig;
-    /**
-     * TLS CA certificate for etcd service (string)
-     */
     caCert: string;
-    /**
-     * TLS certificate for etcd service (string)
-     */
     cert: string;
-    /**
-     * Creation option for etcd service (string)
-     */
     creation: string;
-    /**
-     * External urls for etcd service (list)
-     */
     externalUrls: string[];
-    /**
-     * Extra arguments for scheduler service (map)
-     */
     extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
     extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
     extraEnvs: string[];
-    /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     gid?: number;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image: string;
-    /**
-     * TLS key for etcd service (string)
-     */
     key: string;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path: string;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention: string;
-    /**
-     * Snapshot option for etcd service. Default `true` (bool)
-     */
     snapshot?: boolean;
-    /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     uid?: number;
 }
 
 export interface ClusterServicesEtcdBackupConfig {
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: boolean;
-    /**
-     * Interval hours for etcd backup. Default `12` (int)
-     */
     intervalHours?: number;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: number;
-    /**
-     * S3 config options for etcd backup (list maxitems:1)
-     */
     s3BackupConfig?: outputs.ClusterServicesEtcdBackupConfigS3BackupConfig;
-    /**
-     * Safe timestamp for etcd backup. Default: `false` (bool)
-     */
     safeTimestamp?: boolean;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout?: number;
 }
 
 export interface ClusterServicesEtcdBackupConfigS3BackupConfig {
-    /**
-     * Access key for S3 service (string)
-     */
     accessKey?: string;
-    /**
-     * Bucket name for S3 service (string)
-     */
     bucketName?: string;
-    /**
-     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-     */
     customCa?: string;
-    /**
-     * Endpoint for S3 service (string)
-     */
     endpoint?: string;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * Secret key for S3 service (string)
-     */
     secretKey?: string;
 }
 
 export interface ClusterServicesEtcdDeprecated {
-    /**
-     * Backup options for etcd service. For Rancher v2.2.x and above (list maxitems:1)
-     */
     backupConfig: outputs.ClusterServicesEtcdDeprecatedBackupConfig;
-    /**
-     * TLS CA certificate for etcd service (string)
-     */
     caCert: string;
-    /**
-     * TLS certificate for etcd service (string)
-     */
     cert: string;
-    /**
-     * Creation option for etcd service (string)
-     */
     creation: string;
-    /**
-     * External urls for etcd service (list)
-     */
     externalUrls: string[];
-    /**
-     * Extra arguments for scheduler service (map)
-     */
     extraArgs: {[key: string]: any};
-    /**
-     * Extra binds for scheduler service (list)
-     */
     extraBinds: string[];
-    /**
-     * Extra environment for scheduler service (list)
-     */
     extraEnvs: string[];
-    /**
-     * Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     gid?: number;
-    /**
-     * Docker image for scheduler service (string)
-     */
     image: string;
-    /**
-     * TLS key for etcd service (string)
-     */
     key: string;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path: string;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention: string;
-    /**
-     * Snapshot option for etcd service. Default `true` (bool)
-     */
     snapshot?: boolean;
-    /**
-     * Etcd service UID. Default: `0`. For Rancher v2.3.x and above (int)
-     */
     uid?: number;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfig {
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled?: boolean;
-    /**
-     * Interval hours for etcd backup. Default `12` (int)
-     */
     intervalHours?: number;
-    /**
-     * Retention for etcd backup. Default `6` (int)
-     */
     retention?: number;
-    /**
-     * S3 config options for etcd backup (list maxitems:1)
-     */
     s3BackupConfig?: outputs.ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig;
-    /**
-     * Safe timestamp for etcd backup. Default: `false` (bool)
-     */
     safeTimestamp?: boolean;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout?: number;
 }
 
 export interface ClusterServicesEtcdDeprecatedBackupConfigS3BackupConfig {
-    /**
-     * Access key for S3 service (string)
-     */
     accessKey?: string;
-    /**
-     * Bucket name for S3 service (string)
-     */
     bucketName?: string;
-    /**
-     * Base64 encoded custom CA for S3 service. Use filebase64(<FILE>) for encoding file. Available from Rancher v2.2.5 (string)
-     */
     customCa?: string;
-    /**
-     * Endpoint for S3 service (string)
-     */
     endpoint?: string;
-    /**
-     * Folder for S3 service. Available from Rancher v2.2.7 (string)
-     */
     folder?: string;
-    /**
-     * Region for S3 service (string)
-     */
     region?: string;
-    /**
-     * Secret key for S3 service (string)
-     */
     secretKey?: string;
 }
 
 export interface ClusterServicesKubeApi {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * Enable/Disable AlwaysPullImages admissions plugin
      */
     alwaysPullImages: boolean;
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     */
     auditLog: outputs.ClusterServicesKubeApiAuditLog;
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     */
     eventRateLimit?: outputs.ClusterServicesKubeApiEventRateLimit;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-api services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
     image: string;
     /**
      * Built-in PodSecurityPolicy (privileged or restricted)
      */
     podSecurityConfiguration: string;
     /**
-     * Pod Security Policy option for kube API service (bool)
+     * Enabled/Disable PodSecurityPolicy
      */
     podSecurityPolicy: boolean;
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     */
     secretsEncryptionConfig?: outputs.ClusterServicesKubeApiSecretsEncryptionConfig;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange: string;
     /**
-     * Service Node Port Range option for kube API service (string)
+     * Port range for services defined with NodePort type
      */
     serviceNodePortRange: string;
 }
 
 export interface ClusterServicesKubeApiAuditLog {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration: outputs.ClusterServicesKubeApiAuditLogConfiguration;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiAuditLogConfiguration {
-    /**
-     * Audit log format (string)
-     */
     format: string;
-    /**
-     * Audit log max age (int)
-     */
     maxAge: number;
-    /**
-     * Audit log max backup. Default: `10` (int)
-     */
     maxBackup: number;
-    /**
-     * Audit log max size. Default: `100` (int)
-     */
     maxSize: number;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path: string;
-    /**
-     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-     */
     policy: string;
 }
 
 export interface ClusterServicesKubeApiDeprecated {
     /**
-     * Enable [AlwaysPullImages](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#alwayspullimages) Admission controller plugin. [Rancher docs](https://rancher.com/docs/rke/latest/en/config-options/services/#kubernetes-api-server-options) (bool)
+     * Enable/Disable AlwaysPullImages admissions plugin
      */
     alwaysPullImages: boolean;
-    /**
-     * K8s audit log configuration. (list maxitem: 1)
-     */
     auditLog: outputs.ClusterServicesKubeApiDeprecatedAuditLog;
-    /**
-     * K8s event rate limit configuration. (list maxitem: 1)
-     */
     eventRateLimit?: outputs.ClusterServicesKubeApiDeprecatedEventRateLimit;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-api services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
-    /**
-     * Docker image for scheduler service (string)
-     */
     image: string;
     /**
      * Built-in PodSecurityPolicy (privileged or restricted)
      */
     podSecurityConfiguration: string;
     /**
-     * Pod Security Policy option for kube API service (bool)
+     * Enabled/Disable PodSecurityPolicy
      */
     podSecurityPolicy: boolean;
-    /**
-     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
-     */
     secretsEncryptionConfig?: outputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange: string;
     /**
-     * Service Node Port Range option for kube API service (string)
+     * Port range for services defined with NodePort type
      */
     serviceNodePortRange: string;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLog {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration: outputs.ClusterServicesKubeApiDeprecatedAuditLogConfiguration;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
-    /**
-     * Audit log format (string)
-     */
     format: string;
-    /**
-     * Audit log max age (int)
-     */
     maxAge: number;
-    /**
-     * Audit log max backup. Default: `10` (int)
-     */
     maxBackup: number;
-    /**
-     * Audit log max size. Default: `100` (int)
-     */
     maxSize: number;
-    /**
-     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
-     */
     path: string;
-    /**
-     * Audit policy json encoded definition. `"apiVersion"` and `"kind":"Policy","rules"` fields are required in the json. Ex. `jsonencode({"apiVersion":"audit.k8s.io/v1","kind":"Policy","rules":[{"level":"RequestResponse","resources":[{"group":"","resources":["pods"]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
-     */
     policy: string;
 }
 
 export interface ClusterServicesKubeApiDeprecatedEventRateLimit {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration: string;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig {
-    /**
-     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
-     */
     customConfig: string;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiEventRateLimit {
-    /**
-     * Event rate limit yaml encoded configuration. `"apiVersion"` and `"kind":"Configuration"` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
-     */
     configuration: string;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeApiSecretsEncryptionConfig {
-    /**
-     * Secrets encryption yaml encoded custom configuration. `"apiVersion"` and `"kind":"EncryptionConfiguration"` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
-     */
     customConfig: string;
-    /**
-     * Enable secrets encryption (bool)
-     */
     enabled: boolean;
 }
 
 export interface ClusterServicesKubeController {
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     clusterCidr: string;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-controller service
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kube-controller service
      */
     image: string;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange: string;
 }
 
 export interface ClusterServicesKubeControllerDeprecated {
     /**
-     * Cluster CIDR option for kube controller service (string)
+     * (Computed) RKE k8s cluster cidr (string)
      */
     clusterCidr: string;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kube-controller service
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kube-controller service
      */
     image: string;
     /**
-     * Service Cluster ip Range option for kube controller service (string)
+     * Virtual IP range that will be used by Kubernetes services
      */
     serviceClusterIpRange: string;
 }
 
 export interface ClusterServicesKubeProxyDeprecated {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubeproxy services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the worker nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubeproxy service
      */
     image: string;
 }
 
 export interface ClusterServicesKubeSchedulerDeprecated {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the scheduler services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the scheduler service
      */
     image: string;
 }
 
 export interface ClusterServicesKubelet {
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     clusterDnsServer: string;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     clusterDomain?: string;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubelet services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the nodes
      */
     extraEnvs: string[];
     /**
-     * Enable or disable failing when swap on is not supported (bool)
+     * Fail if swap is enabled
      */
     failSwapOn: boolean;
-    /**
-     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     */
     generateServingCertificate?: boolean;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubelet service
      */
     image: string;
     /**
-     * Infra container image for kubelet service (string)
+     * The image whose network/ipc namespaces containers in each pod will use
      */
     infraContainerImage: string;
 }
 
 export interface ClusterServicesKubeletDeprecated {
     /**
-     * Cluster DNS Server option for kubelet service (string)
+     * (Computed) RKE k8s cluster dns server (string)
      */
     clusterDnsServer: string;
     /**
-     * Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * (Computed) RKE k8s cluster domain (string)
      */
     clusterDomain?: string;
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubelet services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the nodes
      */
     extraEnvs: string[];
     /**
-     * Enable or disable failing when swap on is not supported (bool)
+     * Fail if swap is enabled
      */
     failSwapOn: boolean;
-    /**
-     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     */
     generateServingCertificate?: boolean;
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubelet service
      */
     image: string;
     /**
-     * Infra container image for kubelet service (string)
+     * The image whose network/ipc namespaces containers in each pod will use
      */
     infraContainerImage: string;
 }
 
 export interface ClusterServicesKubeproxy {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the kubeproxy services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the worker nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the worker nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the kubeproxy service
      */
     image: string;
 }
 
 export interface ClusterServicesScheduler {
     /**
-     * Extra arguments for scheduler service (map)
+     * Extra arguments that are added to the scheduler services
      */
     extraArgs: {[key: string]: any};
     /**
-     * Extra binds for scheduler service (list)
+     * Extra binds added to the controlplane nodes
      */
     extraBinds: string[];
     /**
-     * Extra environment for scheduler service (list)
+     * Extra env added to the controlplane nodes
      */
     extraEnvs: string[];
     /**
-     * Docker image for scheduler service (string)
+     * Docker image of the scheduler service
      */
     image: string;
 }
 
 export interface ClusterSystemImages {
-    /**
-     * Docker image for aciCniDeployContainer (string)
-     */
     aciCniDeployContainer?: string;
-    /**
-     * Docker image for aciControllerContainer (string)
-     */
     aciControllerContainer?: string;
-    /**
-     * Docker image for aciHostContainer (string)
-     */
     aciHostContainer?: string;
-    /**
-     * Docker image for aciMcastContainer (string)
-     */
     aciMcastContainer?: string;
-    /**
-     * Docker image for aciOpflexContainer (string)
-     */
     aciOpflexContainer?: string;
-    /**
-     * Docker image for aciOvsContainer (string)
-     */
     aciOvsContainer?: string;
-    /**
-     * Docker image for alpine (string)
-     */
     alpine?: string;
-    /**
-     * Docker image for calicoCni (string)
-     */
     calicoCni?: string;
-    /**
-     * Docker image for calicoControllers (string)
-     */
     calicoControllers?: string;
-    /**
-     * Docker image for calicoCtl (string)
-     */
     calicoCtl?: string;
-    /**
-     * Docker image for calicoFlexVol (string)
-     */
     calicoFlexVol?: string;
-    /**
-     * Docker image for calicoNode (string)
-     */
     calicoNode?: string;
-    /**
-     * Docker image for canalCni (string)
-     */
     canalCni?: string;
-    /**
-     * Docker image for canalFlannel (string)
-     */
     canalFlannel?: string;
-    /**
-     * Docker image for canalFlexVol (string)
-     */
     canalFlexVol?: string;
-    /**
-     * Docker image for canalNode (string)
-     */
     canalNode?: string;
-    /**
-     * Docker image for certDownloader (string)
-     */
     certDownloader?: string;
-    /**
-     * Docker image for coredns (string)
-     */
     coredns?: string;
-    /**
-     * Docker image for corednsAutoscaler (string)
-     */
     corednsAutoscaler?: string;
-    /**
-     * Docker image for dnsmasq (string)
-     */
     dnsmasq?: string;
-    /**
-     * Docker image for etcd (string)
-     */
     etcd?: string;
-    /**
-     * Docker image for flannel (string)
-     */
     flannel?: string;
-    /**
-     * Docker image for flannelCni (string)
-     */
     flannelCni?: string;
     /**
      * RKE k8s cluster ingress controller configuration (list maxitems:1)
      */
     ingress?: string;
-    /**
-     * Docker image for ingressBackend (string)
-     */
     ingressBackend?: string;
-    /**
-     * Docker image for kubeDns (string)
-     */
     kubeDns?: string;
-    /**
-     * Docker image for kubeDnsAutoscaler (string)
-     */
     kubeDnsAutoscaler?: string;
-    /**
-     * Docker image for kubeDnsSidecar (string)
-     */
     kubeDnsSidecar?: string;
-    /**
-     * Docker image for kubernetes (string)
-     */
     kubernetes?: string;
-    /**
-     * Docker image for kubernetesServicesSidecar (string)
-     */
     kubernetesServicesSidecar?: string;
-    /**
-     * Docker image for metricsServer (string)
-     */
     metricsServer?: string;
-    /**
-     * Docker image for nginxProxy (string)
-     */
     nginxProxy?: string;
-    /**
-     * Docker image for nodelocal (string)
-     */
     nodelocal?: string;
-    /**
-     * Docker image for podInfraContainer (string)
-     */
     podInfraContainer?: string;
-    /**
-     * Docker image for weaveCni (string)
-     */
     weaveCni?: string;
-    /**
-     * Docker image for weaveNode (string)
-     */
     weaveNode?: string;
-    /**
-     * Docker image for windowsPodInfraContainer (string)
-     */
     windowsPodInfraContainer?: string;
 }
 
 export interface ClusterUpgradeStrategy {
-    /**
-     * RKE drain nodes (bool)
-     */
     drain: boolean;
-    /**
-     * RKE drain node input (list Maxitems: 1)
-     */
     drainInput: outputs.ClusterUpgradeStrategyDrainInput;
-    /**
-     * RKE max unavailable controlplane nodes (string)
-     */
     maxUnavailableControlplane: string;
-    /**
-     * RKE max unavailable worker nodes (string)
-     */
     maxUnavailableWorker: string;
 }
 
 export interface ClusterUpgradeStrategyDrainInput {
-    /**
-     * Delete RKE node local data (bool)
-     */
     deleteLocalData: boolean;
-    /**
-     * Force RKE node drain (bool)
-     */
     force: boolean;
-    /**
-     * RKE node drain grace period (int)
-     */
     gracePeriod: number;
-    /**
-     * Ignore RKE daemon sets (bool)
-     */
     ignoreDaemonSets: boolean;
-    /**
-     * RKE node drain timeout (int)
-     */
     timeout: number;
 }
 
 export interface ClusterWorkerHost {
-    /**
-     * Address ip for node (string)
-     */
     address: string;
-    /**
-     * Name of the host provisioned via docker machine (string)
-     */
     nodeName: string;
 }
 

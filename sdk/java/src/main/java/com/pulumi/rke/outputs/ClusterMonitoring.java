@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterMonitoring {
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     private @Nullable Map<String,Object> nodeSelector;
     /**
-     * @return Network provider options (map)
+     * @return Monitoring options
      * 
      */
     private @Nullable Map<String,Object> options;
     /**
-     * @return Monitoring provider (string)
+     * @return Monitoring provider
      * 
      */
     private @Nullable String provider;
 
     private ClusterMonitoring() {}
     /**
-     * @return Node selector key pair (map)
+     * @return Node selector key pair
      * 
      */
     public Map<String,Object> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
-     * @return Network provider options (map)
+     * @return Monitoring options
      * 
      */
     public Map<String,Object> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return Monitoring provider (string)
+     * @return Monitoring provider
      * 
      */
     public Optional<String> provider() {

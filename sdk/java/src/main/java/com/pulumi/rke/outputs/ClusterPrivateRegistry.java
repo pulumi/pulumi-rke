@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterPrivateRegistry {
     /**
-     * @return Set as default registry. Default `false` (bool)
+     * @return Set as default registry
      * 
      */
     private @Nullable Boolean isDefault;
     /**
-     * @return Registry password (string)
+     * @return Registry password
      * 
      */
     private @Nullable String password;
     /**
-     * @return Registry URL (string)
+     * @return Registry URL
      * 
      */
     private String url;
     /**
-     * @return Registry user (string)
+     * @return Registry user
      * 
      */
     private @Nullable String user;
 
     private ClusterPrivateRegistry() {}
     /**
-     * @return Set as default registry. Default `false` (bool)
+     * @return Set as default registry
      * 
      */
     public Optional<Boolean> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
     /**
-     * @return Registry password (string)
+     * @return Registry password
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return Registry URL (string)
+     * @return Registry URL
      * 
      */
     public String url() {
         return this.url;
     }
     /**
-     * @return Registry user (string)
+     * @return Registry user
      * 
      */
     public Optional<String> user() {

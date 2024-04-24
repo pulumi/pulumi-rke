@@ -17,167 +17,79 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobalArgs extends co
 
     public static final ClusterCloudProviderVsphereCloudProviderGlobalArgs Empty = new ClusterCloudProviderVsphereCloudProviderGlobalArgs();
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="datacenters")
     private @Nullable Output<String> datacenters;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> datacenters() {
         return Optional.ofNullable(this.datacenters);
     }
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="datastore")
     private @Nullable Output<String> datastore;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> datastore() {
         return Optional.ofNullable(this.datastore);
     }
 
-    /**
-     * (bool)
-     * 
-     */
     @Import(name="insecureFlag")
     private @Nullable Output<Boolean> insecureFlag;
 
-    /**
-     * @return (bool)
-     * 
-     */
     public Optional<Output<Boolean>> insecureFlag() {
         return Optional.ofNullable(this.insecureFlag);
     }
 
-    /**
-     * Registry password (string)
-     * 
-     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
-    /**
-     * @return Registry password (string)
-     * 
-     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
-    /**
-     * Port used for SSH communication (string)
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<String> port;
 
-    /**
-     * @return Port used for SSH communication (string)
-     * 
-     */
     public Optional<Output<String>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * (int)
-     * 
-     */
     @Import(name="soapRoundtripCount")
     private @Nullable Output<Integer> soapRoundtripCount;
 
-    /**
-     * @return (int)
-     * 
-     */
     public Optional<Output<Integer>> soapRoundtripCount() {
         return Optional.ofNullable(this.soapRoundtripCount);
     }
 
-    /**
-     * Registry user (string)
-     * 
-     */
     @Import(name="user")
     private @Nullable Output<String> user;
 
-    /**
-     * @return Registry user (string)
-     * 
-     */
     public Optional<Output<String>> user() {
         return Optional.ofNullable(this.user);
     }
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="vmName")
     private @Nullable Output<String> vmName;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> vmName() {
         return Optional.ofNullable(this.vmName);
     }
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="vmUuid")
     private @Nullable Output<String> vmUuid;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> vmUuid() {
         return Optional.ofNullable(this.vmUuid);
     }
 
-    /**
-     * (string)
-     * 
-     */
     @Import(name="workingDir")
     private @Nullable Output<String> workingDir;
 
-    /**
-     * @return (string)
-     * 
-     */
     public Optional<Output<String>> workingDir() {
         return Optional.ofNullable(this.workingDir);
     }
@@ -216,233 +128,101 @@ public final class ClusterCloudProviderVsphereCloudProviderGlobalArgs extends co
             $ = new ClusterCloudProviderVsphereCloudProviderGlobalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param datacenter (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datacenter(@Nullable Output<String> datacenter) {
             $.datacenter = datacenter;
             return this;
         }
 
-        /**
-         * @param datacenter (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datacenter(String datacenter) {
             return datacenter(Output.of(datacenter));
         }
 
-        /**
-         * @param datacenters (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datacenters(@Nullable Output<String> datacenters) {
             $.datacenters = datacenters;
             return this;
         }
 
-        /**
-         * @param datacenters (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datacenters(String datacenters) {
             return datacenters(Output.of(datacenters));
         }
 
-        /**
-         * @param datastore (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datastore(@Nullable Output<String> datastore) {
             $.datastore = datastore;
             return this;
         }
 
-        /**
-         * @param datastore (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder datastore(String datastore) {
             return datastore(Output.of(datastore));
         }
 
-        /**
-         * @param insecureFlag (bool)
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureFlag(@Nullable Output<Boolean> insecureFlag) {
             $.insecureFlag = insecureFlag;
             return this;
         }
 
-        /**
-         * @param insecureFlag (bool)
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureFlag(Boolean insecureFlag) {
             return insecureFlag(Output.of(insecureFlag));
         }
 
-        /**
-         * @param password Registry password (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Registry password (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param port Port used for SSH communication (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<String> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port Port used for SSH communication (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(String port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param soapRoundtripCount (int)
-         * 
-         * @return builder
-         * 
-         */
         public Builder soapRoundtripCount(@Nullable Output<Integer> soapRoundtripCount) {
             $.soapRoundtripCount = soapRoundtripCount;
             return this;
         }
 
-        /**
-         * @param soapRoundtripCount (int)
-         * 
-         * @return builder
-         * 
-         */
         public Builder soapRoundtripCount(Integer soapRoundtripCount) {
             return soapRoundtripCount(Output.of(soapRoundtripCount));
         }
 
-        /**
-         * @param user Registry user (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(@Nullable Output<String> user) {
             $.user = user;
             return this;
         }
 
-        /**
-         * @param user Registry user (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(String user) {
             return user(Output.of(user));
         }
 
-        /**
-         * @param vmName (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder vmName(@Nullable Output<String> vmName) {
             $.vmName = vmName;
             return this;
         }
 
-        /**
-         * @param vmName (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder vmName(String vmName) {
             return vmName(Output.of(vmName));
         }
 
-        /**
-         * @param vmUuid (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder vmUuid(@Nullable Output<String> vmUuid) {
             $.vmUuid = vmUuid;
             return this;
         }
 
-        /**
-         * @param vmUuid (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder vmUuid(String vmUuid) {
             return vmUuid(Output.of(vmUuid));
         }
 
-        /**
-         * @param workingDir (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder workingDir(@Nullable Output<String> workingDir) {
             $.workingDir = workingDir;
             return this;
         }
 
-        /**
-         * @param workingDir (string)
-         * 
-         * @return builder
-         * 
-         */
         public Builder workingDir(String workingDir) {
             return workingDir(Output.of(workingDir));
         }

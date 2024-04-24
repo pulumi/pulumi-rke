@@ -16,110 +16,102 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServicesKubeletDeprecated {
     /**
-     * @return Cluster DNS Server option for kubelet service (string)
+     * @return (Computed) RKE k8s cluster dns server (string)
      * 
      */
     private @Nullable String clusterDnsServer;
     /**
-     * @return Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * @return (Computed) RKE k8s cluster domain (string)
      * 
      */
     private @Nullable String clusterDomain;
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kubelet services
      * 
      */
     private @Nullable Map<String,Object> extraArgs;
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the worker nodes
      * 
      */
     private @Nullable List<String> extraBinds;
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the nodes
      * 
      */
     private @Nullable List<String> extraEnvs;
     /**
-     * @return Enable or disable failing when swap on is not supported (bool)
+     * @return Fail if swap is enabled
      * 
      */
     private @Nullable Boolean failSwapOn;
-    /**
-     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     * 
-     */
     private @Nullable Boolean generateServingCertificate;
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kubelet service
      * 
      */
     private @Nullable String image;
     /**
-     * @return Infra container image for kubelet service (string)
+     * @return The image whose network/ipc namespaces containers in each pod will use
      * 
      */
     private @Nullable String infraContainerImage;
 
     private ClusterServicesKubeletDeprecated() {}
     /**
-     * @return Cluster DNS Server option for kubelet service (string)
+     * @return (Computed) RKE k8s cluster dns server (string)
      * 
      */
     public Optional<String> clusterDnsServer() {
         return Optional.ofNullable(this.clusterDnsServer);
     }
     /**
-     * @return Cluster Domain option for kubelet service. Default `cluster.local` (string)
+     * @return (Computed) RKE k8s cluster domain (string)
      * 
      */
     public Optional<String> clusterDomain() {
         return Optional.ofNullable(this.clusterDomain);
     }
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the kubelet services
      * 
      */
     public Map<String,Object> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the worker nodes
      * 
      */
     public List<String> extraBinds() {
         return this.extraBinds == null ? List.of() : this.extraBinds;
     }
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the nodes
      * 
      */
     public List<String> extraEnvs() {
         return this.extraEnvs == null ? List.of() : this.extraEnvs;
     }
     /**
-     * @return Enable or disable failing when swap on is not supported (bool)
+     * @return Fail if swap is enabled
      * 
      */
     public Optional<Boolean> failSwapOn() {
         return Optional.ofNullable(this.failSwapOn);
     }
-    /**
-     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-     * 
-     */
     public Optional<Boolean> generateServingCertificate() {
         return Optional.ofNullable(this.generateServingCertificate);
     }
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the kubelet service
      * 
      */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
     /**
-     * @return Infra container image for kubelet service (string)
+     * @return The image whose network/ipc namespaces containers in each pod will use
      * 
      */
     public Optional<String> infraContainerImage() {

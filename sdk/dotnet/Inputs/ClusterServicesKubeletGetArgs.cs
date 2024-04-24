@@ -13,13 +13,13 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterServicesKubeletGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster DNS Server option for kubelet service (string)
+        /// (Computed) RKE k8s cluster dns server (string)
         /// </summary>
         [Input("clusterDnsServer")]
         public Input<string>? ClusterDnsServer { get; set; }
 
         /// <summary>
-        /// Cluster Domain option for kubelet service. Default `cluster.local` (string)
+        /// (Computed) RKE k8s cluster domain (string)
         /// </summary>
         [Input("clusterDomain")]
         public Input<string>? ClusterDomain { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Rke.Inputs
         private InputMap<object>? _extraArgs;
 
         /// <summary>
-        /// Extra arguments for scheduler service (map)
+        /// Extra arguments that are added to the kubelet services
         /// </summary>
         public InputMap<object> ExtraArgs
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraBinds;
 
         /// <summary>
-        /// Extra binds for scheduler service (list)
+        /// Extra binds added to the worker nodes
         /// </summary>
         public InputList<string> ExtraBinds
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Rke.Inputs
         private InputList<string>? _extraEnvs;
 
         /// <summary>
-        /// Extra environment for scheduler service (list)
+        /// Extra env added to the nodes
         /// </summary>
         public InputList<string> ExtraEnvs
         {
@@ -61,25 +61,22 @@ namespace Pulumi.Rke.Inputs
         }
 
         /// <summary>
-        /// Enable or disable failing when swap on is not supported (bool)
+        /// Fail if swap is enabled
         /// </summary>
         [Input("failSwapOn")]
         public Input<bool>? FailSwapOn { get; set; }
 
-        /// <summary>
-        /// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
-        /// </summary>
         [Input("generateServingCertificate")]
         public Input<bool>? GenerateServingCertificate { get; set; }
 
         /// <summary>
-        /// Docker image for scheduler service (string)
+        /// Docker image of the kubelet service
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
         /// <summary>
-        /// Infra container image for kubelet service (string)
+        /// The image whose network/ipc namespaces containers in each pod will use
         /// </summary>
         [Input("infraContainerImage")]
         public Input<string>? InfraContainerImage { get; set; }

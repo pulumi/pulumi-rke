@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterServicesKubeSchedulerDeprecated {
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the scheduler services
      * 
      */
     private @Nullable Map<String,Object> extraArgs;
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     private @Nullable List<String> extraBinds;
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     private @Nullable List<String> extraEnvs;
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the scheduler service
      * 
      */
     private @Nullable String image;
 
     private ClusterServicesKubeSchedulerDeprecated() {}
     /**
-     * @return Extra arguments for scheduler service (map)
+     * @return Extra arguments that are added to the scheduler services
      * 
      */
     public Map<String,Object> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
-     * @return Extra binds for scheduler service (list)
+     * @return Extra binds added to the controlplane nodes
      * 
      */
     public List<String> extraBinds() {
         return this.extraBinds == null ? List.of() : this.extraBinds;
     }
     /**
-     * @return Extra environment for scheduler service (list)
+     * @return Extra env added to the controlplane nodes
      * 
      */
     public List<String> extraEnvs() {
         return this.extraEnvs == null ? List.of() : this.extraEnvs;
     }
     /**
-     * @return Docker image for scheduler service (string)
+     * @return Docker image of the scheduler service
      * 
      */
     public Optional<String> image() {

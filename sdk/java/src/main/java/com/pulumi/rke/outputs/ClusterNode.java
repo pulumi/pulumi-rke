@@ -18,42 +18,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNode {
     /**
-     * @return Address ip for node (string)
+     * @return IP or FQDN that is fully resolvable and used for SSH communication
      * 
      */
     private String address;
     /**
-     * @return Docker socket on the node that will be used in tunneling (string)
+     * @return Docker socket on the node that will be used in tunneling
      * 
      */
     private @Nullable String dockerSocket;
     /**
-     * @return Hostname override for node (string)
+     * @return Hostname override
      * 
      */
     private @Nullable String hostnameOverride;
     /**
-     * @return Internal address that will be used for components communication (string)
+     * @return Internal address that will be used for components communication
      * 
      */
     private @Nullable String internalAddress;
     /**
-     * @return Node labels (map)
+     * @return Node Labels
      * 
      */
     private @Nullable Map<String,Object> labels;
     /**
-     * @return Name of the host provisioned via docker machine (string)
+     * @return Name of the host provisioned via docker machine
      * 
      */
     private @Nullable String nodeName;
     /**
-     * @return Port used for SSH communication (string)
+     * @return Port used for SSH communication
      * 
      */
     private @Nullable String port;
     /**
-     * @return Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * @return Node roles in k8s cluster [controlplane/worker/etcd])
      * 
      */
     private List<String> roles;
@@ -72,7 +72,7 @@ public final class ClusterNode {
      */
     private @Nullable Boolean sshAgentAuth;
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate
      * 
      */
     private @Nullable String sshCert;
@@ -82,7 +82,7 @@ public final class ClusterNode {
      */
     private @Nullable String sshCertPath;
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     private @Nullable String sshKey;
@@ -92,68 +92,68 @@ public final class ClusterNode {
      */
     private @Nullable String sshKeyPath;
     /**
-     * @return Node taints (list)
+     * @return Node taints
      * 
      */
     private @Nullable List<ClusterNodeTaint> taints;
     /**
-     * @return Registry user (string)
+     * @return SSH user that will be used by RKE
      * 
      */
     private String user;
 
     private ClusterNode() {}
     /**
-     * @return Address ip for node (string)
+     * @return IP or FQDN that is fully resolvable and used for SSH communication
      * 
      */
     public String address() {
         return this.address;
     }
     /**
-     * @return Docker socket on the node that will be used in tunneling (string)
+     * @return Docker socket on the node that will be used in tunneling
      * 
      */
     public Optional<String> dockerSocket() {
         return Optional.ofNullable(this.dockerSocket);
     }
     /**
-     * @return Hostname override for node (string)
+     * @return Hostname override
      * 
      */
     public Optional<String> hostnameOverride() {
         return Optional.ofNullable(this.hostnameOverride);
     }
     /**
-     * @return Internal address that will be used for components communication (string)
+     * @return Internal address that will be used for components communication
      * 
      */
     public Optional<String> internalAddress() {
         return Optional.ofNullable(this.internalAddress);
     }
     /**
-     * @return Node labels (map)
+     * @return Node Labels
      * 
      */
     public Map<String,Object> labels() {
         return this.labels == null ? Map.of() : this.labels;
     }
     /**
-     * @return Name of the host provisioned via docker machine (string)
+     * @return Name of the host provisioned via docker machine
      * 
      */
     public Optional<String> nodeName() {
         return Optional.ofNullable(this.nodeName);
     }
     /**
-     * @return Port used for SSH communication (string)
+     * @return Port used for SSH communication
      * 
      */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Node roles in k8s cluster. `controlplane`, `etcd` and `worker` are supported. (list)
+     * @return Node roles in k8s cluster [controlplane/worker/etcd])
      * 
      */
     public List<String> roles() {
@@ -178,7 +178,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshAgentAuth);
     }
     /**
-     * @return SSH Certificate (string)
+     * @return SSH Certificate
      * 
      */
     public Optional<String> sshCert() {
@@ -192,7 +192,7 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshCertPath);
     }
     /**
-     * @return SSH Private Key (string)
+     * @return SSH Private Key
      * 
      */
     public Optional<String> sshKey() {
@@ -206,14 +206,14 @@ public final class ClusterNode {
         return Optional.ofNullable(this.sshKeyPath);
     }
     /**
-     * @return Node taints (list)
+     * @return Node taints
      * 
      */
     public List<ClusterNodeTaint> taints() {
         return this.taints == null ? List.of() : this.taints;
     }
     /**
-     * @return Registry user (string)
+     * @return SSH user that will be used by RKE
      * 
      */
     public String user() {
