@@ -22,12 +22,14 @@
                 "index": "index",
                 "rke": "Rke"
             },
-            "compatibility": "tfbridge20"
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
         },
         "go": {
             "importBasePath": "github.com/pulumi/pulumi-rke/sdk/v3/go/rke",
             "generateResourceContainerTypes": true,
-            "generateExtraInputTypes": true
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
         },
         "nodejs": {
             "packageDescription": "A Pulumi package for creating and managing rke cloud resources.",
@@ -40,7 +42,8 @@
                 "@types/node": "^10.0.0"
             },
             "compatibility": "tfbridge20",
-            "disableUnionOutputTypes": true
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
         },
         "python": {
             "requires": {
@@ -48,6 +51,7 @@
             },
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/rancher/terraform-provider-rke)\n\u003e distributed under [MIT](https://mit-license.org/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-rke` repo](https://github.com/pulumi/pulumi-rke/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-rke` repo](https://github.com/rancher/terraform-provider-rke/issues).",
             "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
             "pyproject": {
                 "enabled": true
             }
