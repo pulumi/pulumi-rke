@@ -588,10 +588,8 @@ class ClusterCloudProvider(dict):
 
     @property
     @pulumi.getter(name="awsCloudConfig")
+    @_utilities.deprecated("""Use aws_cloud_provider instead""")
     def aws_cloud_config(self) -> Optional['outputs.ClusterCloudProviderAwsCloudConfig']:
-        warnings.warn("""Use aws_cloud_provider instead""", DeprecationWarning)
-        pulumi.log.warn("""aws_cloud_config is deprecated: Use aws_cloud_provider instead""")
-
         return pulumi.get(self, "aws_cloud_config")
 
     @property
@@ -604,10 +602,8 @@ class ClusterCloudProvider(dict):
 
     @property
     @pulumi.getter(name="azureCloudConfig")
+    @_utilities.deprecated("""Use azure_cloud_provider instead""")
     def azure_cloud_config(self) -> Optional['outputs.ClusterCloudProviderAzureCloudConfig']:
-        warnings.warn("""Use azure_cloud_provider instead""", DeprecationWarning)
-        pulumi.log.warn("""azure_cloud_config is deprecated: Use azure_cloud_provider instead""")
-
         return pulumi.get(self, "azure_cloud_config")
 
     @property
@@ -620,10 +616,8 @@ class ClusterCloudProvider(dict):
 
     @property
     @pulumi.getter(name="customCloudConfig")
+    @_utilities.deprecated("""Use custom_cloud_provider instead""")
     def custom_cloud_config(self) -> Optional[str]:
-        warnings.warn("""Use custom_cloud_provider instead""", DeprecationWarning)
-        pulumi.log.warn("""custom_cloud_config is deprecated: Use custom_cloud_provider instead""")
-
         return pulumi.get(self, "custom_cloud_config")
 
     @property
@@ -636,10 +630,8 @@ class ClusterCloudProvider(dict):
 
     @property
     @pulumi.getter(name="openstackCloudConfig")
+    @_utilities.deprecated("""Use openstack_cloud_provider instead""")
     def openstack_cloud_config(self) -> Optional['outputs.ClusterCloudProviderOpenstackCloudConfig']:
-        warnings.warn("""Use openstack_cloud_provider instead""", DeprecationWarning)
-        pulumi.log.warn("""openstack_cloud_config is deprecated: Use openstack_cloud_provider instead""")
-
         return pulumi.get(self, "openstack_cloud_config")
 
     @property
@@ -652,10 +644,8 @@ class ClusterCloudProvider(dict):
 
     @property
     @pulumi.getter(name="vsphereCloudConfig")
+    @_utilities.deprecated("""Use vsphere_cloud_provider instead""")
     def vsphere_cloud_config(self) -> Optional['outputs.ClusterCloudProviderVsphereCloudConfig']:
-        warnings.warn("""Use vsphere_cloud_provider instead""", DeprecationWarning)
-        pulumi.log.warn("""vsphere_cloud_config is deprecated: Use vsphere_cloud_provider instead""")
-
         return pulumi.get(self, "vsphere_cloud_config")
 
     @property
@@ -917,10 +907,8 @@ class ClusterCloudProviderAwsCloudConfigServiceOverride(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use service instead""")
     def key(self) -> Optional[str]:
-        warnings.warn("""Use service instead""", DeprecationWarning)
-        pulumi.log.warn("""key is deprecated: Use service instead""")
-
         return pulumi.get(self, "key")
 
     @property
@@ -1199,10 +1187,8 @@ class ClusterCloudProviderAwsCloudProviderServiceOverride(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use service instead""")
     def key(self) -> Optional[str]:
-        warnings.warn("""Use service instead""", DeprecationWarning)
-        pulumi.log.warn("""key is deprecated: Use service instead""")
-
         return pulumi.get(self, "key")
 
     @property
@@ -4748,13 +4734,11 @@ class ClusterNode(dict):
 
     @property
     @pulumi.getter(name="rolesDeprecated")
+    @_utilities.deprecated("""Use role instead""")
     def roles_deprecated(self) -> Optional[str]:
         """
         Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
         """
-        warnings.warn("""Use role instead""", DeprecationWarning)
-        pulumi.log.warn("""roles_deprecated is deprecated: Use role instead""")
-
         return pulumi.get(self, "roles_deprecated")
 
     @property

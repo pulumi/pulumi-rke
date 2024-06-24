@@ -498,10 +498,8 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="nodesConfs")
+    @_utilities.deprecated("""Use cluster_yaml instead""")
     def nodes_confs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
-        pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
-
         return pulumi.get(self, "nodes_confs")
 
     @nodes_confs.setter
@@ -570,13 +568,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesEtcdDeprecated")
+    @_utilities.deprecated("""Use services.etcd instead""")
     def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
         """
         Use services.etcd instead (list maxitems:1)
         """
-        warnings.warn("""Use services.etcd instead""", DeprecationWarning)
-        pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
-
         return pulumi.get(self, "services_etcd_deprecated")
 
     @services_etcd_deprecated.setter
@@ -585,13 +581,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesKubeApiDeprecated")
+    @_utilities.deprecated("""Use services.kube_api instead""")
     def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
         """
         Use services.kube_api instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
-
         return pulumi.get(self, "services_kube_api_deprecated")
 
     @services_kube_api_deprecated.setter
@@ -600,13 +594,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesKubeControllerDeprecated")
+    @_utilities.deprecated("""Use services.kube_controller instead""")
     def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
         """
         Use services.kube_controller instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
-
         return pulumi.get(self, "services_kube_controller_deprecated")
 
     @services_kube_controller_deprecated.setter
@@ -615,13 +607,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesKubeProxyDeprecated")
+    @_utilities.deprecated("""Use services.kubeproxy instead""")
     def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
         """
         Use services.kubeproxy instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
-
         return pulumi.get(self, "services_kube_proxy_deprecated")
 
     @services_kube_proxy_deprecated.setter
@@ -630,13 +620,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
+    @_utilities.deprecated("""Use services.scheduler instead""")
     def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
         """
         Use services.scheduler instead (list maxitems:1)
         """
-        warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
-
         return pulumi.get(self, "services_kube_scheduler_deprecated")
 
     @services_kube_scheduler_deprecated.setter
@@ -645,13 +633,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="servicesKubeletDeprecated")
+    @_utilities.deprecated("""Use services.kubelet instead""")
     def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
         """
         Use services.kubelet instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
-
         return pulumi.get(self, "services_kubelet_deprecated")
 
     @services_kubelet_deprecated.setter
@@ -1375,13 +1361,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="internalKubeConfigYaml")
+    @_utilities.deprecated("""Use kube_config_yaml instead""")
     def internal_kube_config_yaml(self) -> Optional[pulumi.Input[str]]:
         """
         (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
         """
-        warnings.warn("""Use kube_config_yaml instead""", DeprecationWarning)
-        pulumi.log.warn("""internal_kube_config_yaml is deprecated: Use kube_config_yaml instead""")
-
         return pulumi.get(self, "internal_kube_config_yaml")
 
     @internal_kube_config_yaml.setter
@@ -1462,10 +1446,8 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="nodesConfs")
+    @_utilities.deprecated("""Use cluster_yaml instead""")
     def nodes_confs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
-        pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
-
         return pulumi.get(self, "nodes_confs")
 
     @nodes_confs.setter
@@ -1570,13 +1552,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesEtcdDeprecated")
+    @_utilities.deprecated("""Use services.etcd instead""")
     def services_etcd_deprecated(self) -> Optional[pulumi.Input['ClusterServicesEtcdDeprecatedArgs']]:
         """
         Use services.etcd instead (list maxitems:1)
         """
-        warnings.warn("""Use services.etcd instead""", DeprecationWarning)
-        pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
-
         return pulumi.get(self, "services_etcd_deprecated")
 
     @services_etcd_deprecated.setter
@@ -1585,13 +1565,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesKubeApiDeprecated")
+    @_utilities.deprecated("""Use services.kube_api instead""")
     def services_kube_api_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedArgs']]:
         """
         Use services.kube_api instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
-
         return pulumi.get(self, "services_kube_api_deprecated")
 
     @services_kube_api_deprecated.setter
@@ -1600,13 +1578,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesKubeControllerDeprecated")
+    @_utilities.deprecated("""Use services.kube_controller instead""")
     def services_kube_controller_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeControllerDeprecatedArgs']]:
         """
         Use services.kube_controller instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
-
         return pulumi.get(self, "services_kube_controller_deprecated")
 
     @services_kube_controller_deprecated.setter
@@ -1615,13 +1591,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesKubeProxyDeprecated")
+    @_utilities.deprecated("""Use services.kubeproxy instead""")
     def services_kube_proxy_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeProxyDeprecatedArgs']]:
         """
         Use services.kubeproxy instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
-
         return pulumi.get(self, "services_kube_proxy_deprecated")
 
     @services_kube_proxy_deprecated.setter
@@ -1630,13 +1604,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
+    @_utilities.deprecated("""Use services.scheduler instead""")
     def services_kube_scheduler_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeSchedulerDeprecatedArgs']]:
         """
         Use services.scheduler instead (list maxitems:1)
         """
-        warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
-
         return pulumi.get(self, "services_kube_scheduler_deprecated")
 
     @services_kube_scheduler_deprecated.setter
@@ -1645,13 +1617,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="servicesKubeletDeprecated")
+    @_utilities.deprecated("""Use services.kubelet instead""")
     def services_kubelet_deprecated(self) -> Optional[pulumi.Input['ClusterServicesKubeletDeprecatedArgs']]:
         """
         Use services.kubelet instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
-
         return pulumi.get(self, "services_kubelet_deprecated")
 
     @services_kubelet_deprecated.setter
@@ -2450,13 +2420,11 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalKubeConfigYaml")
+    @_utilities.deprecated("""Use kube_config_yaml instead""")
     def internal_kube_config_yaml(self) -> pulumi.Output[str]:
         """
         (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
         """
-        warnings.warn("""Use kube_config_yaml instead""", DeprecationWarning)
-        pulumi.log.warn("""internal_kube_config_yaml is deprecated: Use kube_config_yaml instead""")
-
         return pulumi.get(self, "internal_kube_config_yaml")
 
     @property
@@ -2509,10 +2477,8 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodesConfs")
+    @_utilities.deprecated("""Use cluster_yaml instead""")
     def nodes_confs(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        warnings.warn("""Use cluster_yaml instead""", DeprecationWarning)
-        pulumi.log.warn("""nodes_confs is deprecated: Use cluster_yaml instead""")
-
         return pulumi.get(self, "nodes_confs")
 
     @property
@@ -2581,68 +2547,56 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicesEtcdDeprecated")
+    @_utilities.deprecated("""Use services.etcd instead""")
     def services_etcd_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesEtcdDeprecated']]:
         """
         Use services.etcd instead (list maxitems:1)
         """
-        warnings.warn("""Use services.etcd instead""", DeprecationWarning)
-        pulumi.log.warn("""services_etcd_deprecated is deprecated: Use services.etcd instead""")
-
         return pulumi.get(self, "services_etcd_deprecated")
 
     @property
     @pulumi.getter(name="servicesKubeApiDeprecated")
+    @_utilities.deprecated("""Use services.kube_api instead""")
     def services_kube_api_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeApiDeprecated']]:
         """
         Use services.kube_api instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_api instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_api_deprecated is deprecated: Use services.kube_api instead""")
-
         return pulumi.get(self, "services_kube_api_deprecated")
 
     @property
     @pulumi.getter(name="servicesKubeControllerDeprecated")
+    @_utilities.deprecated("""Use services.kube_controller instead""")
     def services_kube_controller_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeControllerDeprecated']]:
         """
         Use services.kube_controller instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kube_controller instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_controller_deprecated is deprecated: Use services.kube_controller instead""")
-
         return pulumi.get(self, "services_kube_controller_deprecated")
 
     @property
     @pulumi.getter(name="servicesKubeProxyDeprecated")
+    @_utilities.deprecated("""Use services.kubeproxy instead""")
     def services_kube_proxy_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeProxyDeprecated']]:
         """
         Use services.kubeproxy instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubeproxy instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_proxy_deprecated is deprecated: Use services.kubeproxy instead""")
-
         return pulumi.get(self, "services_kube_proxy_deprecated")
 
     @property
     @pulumi.getter(name="servicesKubeSchedulerDeprecated")
+    @_utilities.deprecated("""Use services.scheduler instead""")
     def services_kube_scheduler_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeSchedulerDeprecated']]:
         """
         Use services.scheduler instead (list maxitems:1)
         """
-        warnings.warn("""Use services.scheduler instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kube_scheduler_deprecated is deprecated: Use services.scheduler instead""")
-
         return pulumi.get(self, "services_kube_scheduler_deprecated")
 
     @property
     @pulumi.getter(name="servicesKubeletDeprecated")
+    @_utilities.deprecated("""Use services.kubelet instead""")
     def services_kubelet_deprecated(self) -> pulumi.Output[Optional['outputs.ClusterServicesKubeletDeprecated']]:
         """
         Use services.kubelet instead (list maxitems:1)
         """
-        warnings.warn("""Use services.kubelet instead""", DeprecationWarning)
-        pulumi.log.warn("""services_kubelet_deprecated is deprecated: Use services.kubelet instead""")
-
         return pulumi.get(self, "services_kubelet_deprecated")
 
     @property
