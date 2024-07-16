@@ -17,20 +17,44 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderVsphereCloudProvider {
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderVsphereCloudProviderDisk disk;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderVsphereCloudProviderGlobal global;
     /**
      * @return RKE k8s cluster network configuration (list maxitems:1)
      * 
      */
     private @Nullable ClusterCloudProviderVsphereCloudProviderNetwork network;
+    /**
+     * @return (List)
+     * 
+     */
     private List<ClusterCloudProviderVsphereCloudProviderVirtualCenter> virtualCenters;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private ClusterCloudProviderVsphereCloudProviderWorkspace workspace;
 
     private ClusterCloudProviderVsphereCloudProvider() {}
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderVsphereCloudProviderDisk> disk() {
         return Optional.ofNullable(this.disk);
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderVsphereCloudProviderGlobal> global() {
         return Optional.ofNullable(this.global);
     }
@@ -41,9 +65,17 @@ public final class ClusterCloudProviderVsphereCloudProvider {
     public Optional<ClusterCloudProviderVsphereCloudProviderNetwork> network() {
         return Optional.ofNullable(this.network);
     }
+    /**
+     * @return (List)
+     * 
+     */
     public List<ClusterCloudProviderVsphereCloudProviderVirtualCenter> virtualCenters() {
         return this.virtualCenters;
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public ClusterCloudProviderVsphereCloudProviderWorkspace workspace() {
         return this.workspace;
     }

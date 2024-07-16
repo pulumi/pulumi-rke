@@ -183,9 +183,17 @@ public final class ClusterCloudProviderAzureCloudConfigArgs extends com.pulumi.r
         return Optional.ofNullable(this.cloudProviderRateLimit);
     }
 
+    /**
+     * (int)
+     * 
+     */
     @Import(name="cloudProviderRateLimitBucket")
     private @Nullable Output<Integer> cloudProviderRateLimitBucket;
 
+    /**
+     * @return (int)
+     * 
+     */
     public Optional<Output<Integer>> cloudProviderRateLimitBucket() {
         return Optional.ofNullable(this.cloudProviderRateLimitBucket);
     }
@@ -728,11 +736,23 @@ public final class ClusterCloudProviderAzureCloudConfigArgs extends com.pulumi.r
             return cloudProviderRateLimit(Output.of(cloudProviderRateLimit));
         }
 
+        /**
+         * @param cloudProviderRateLimitBucket (int)
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudProviderRateLimitBucket(@Nullable Output<Integer> cloudProviderRateLimitBucket) {
             $.cloudProviderRateLimitBucket = cloudProviderRateLimitBucket;
             return this;
         }
 
+        /**
+         * @param cloudProviderRateLimitBucket (int)
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudProviderRateLimitBucket(Integer cloudProviderRateLimitBucket) {
             return cloudProviderRateLimitBucket(Output.of(cloudProviderRateLimitBucket));
         }

@@ -13,49 +13,137 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderVsphereCloudProviderGlobal {
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String datacenter;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String datacenters;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String datastore;
+    /**
+     * @return (bool)
+     * 
+     */
     private @Nullable Boolean insecureFlag;
+    /**
+     * @return Registry password (string)
+     * 
+     */
     private @Nullable String password;
+    /**
+     * @return Port used for SSH communication (string)
+     * 
+     */
     private @Nullable String port;
+    /**
+     * @return (int)
+     * 
+     */
     private @Nullable Integer soapRoundtripCount;
+    /**
+     * @return Registry user (string)
+     * 
+     */
     private @Nullable String user;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String vmName;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String vmUuid;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String workingDir;
 
     private ClusterCloudProviderVsphereCloudProviderGlobal() {}
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> datacenters() {
         return Optional.ofNullable(this.datacenters);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> datastore() {
         return Optional.ofNullable(this.datastore);
     }
+    /**
+     * @return (bool)
+     * 
+     */
     public Optional<Boolean> insecureFlag() {
         return Optional.ofNullable(this.insecureFlag);
     }
+    /**
+     * @return Registry password (string)
+     * 
+     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
+    /**
+     * @return Port used for SSH communication (string)
+     * 
+     */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return (int)
+     * 
+     */
     public Optional<Integer> soapRoundtripCount() {
         return Optional.ofNullable(this.soapRoundtripCount);
     }
+    /**
+     * @return Registry user (string)
+     * 
+     */
     public Optional<String> user() {
         return Optional.ofNullable(this.user);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> vmName() {
         return Optional.ofNullable(this.vmName);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> vmUuid() {
         return Optional.ofNullable(this.vmUuid);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> workingDir() {
         return Optional.ofNullable(this.workingDir);
     }

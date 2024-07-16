@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProvider {
     /**
+     * @return Use aws_cloud_provider instead
+     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -33,6 +35,8 @@ public final class ClusterCloudProvider {
      */
     private @Nullable ClusterCloudProviderAwsCloudProvider awsCloudProvider;
     /**
+     * @return Use azure_cloud_provider instead
+     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -45,6 +49,8 @@ public final class ClusterCloudProvider {
      */
     private @Nullable ClusterCloudProviderAzureCloudProvider azureCloudProvider;
     /**
+     * @return Use custom_cloud_provider instead
+     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -56,8 +62,14 @@ public final class ClusterCloudProvider {
      * 
      */
     private @Nullable String customCloudProvider;
+    /**
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * 
+     */
     private String name;
     /**
+     * @return Use openstack_cloud_provider instead
+     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -70,6 +82,8 @@ public final class ClusterCloudProvider {
      */
     private @Nullable ClusterCloudProviderOpenstackCloudProvider openstackCloudProvider;
     /**
+     * @return Use vsphere_cloud_provider instead
+     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 
@@ -84,6 +98,8 @@ public final class ClusterCloudProvider {
 
     private ClusterCloudProvider() {}
     /**
+     * @return Use aws_cloud_provider instead
+     * 
      * @deprecated
      * Use aws_cloud_provider instead
      * 
@@ -100,6 +116,8 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.awsCloudProvider);
     }
     /**
+     * @return Use azure_cloud_provider instead
+     * 
      * @deprecated
      * Use azure_cloud_provider instead
      * 
@@ -116,6 +134,8 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.azureCloudProvider);
     }
     /**
+     * @return Use custom_cloud_provider instead
+     * 
      * @deprecated
      * Use custom_cloud_provider instead
      * 
@@ -131,10 +151,16 @@ public final class ClusterCloudProvider {
     public Optional<String> customCloudProvider() {
         return Optional.ofNullable(this.customCloudProvider);
     }
+    /**
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * 
+     */
     public String name() {
         return this.name;
     }
     /**
+     * @return Use openstack_cloud_provider instead
+     * 
      * @deprecated
      * Use openstack_cloud_provider instead
      * 
@@ -151,6 +177,8 @@ public final class ClusterCloudProvider {
         return Optional.ofNullable(this.openstackCloudProvider);
     }
     /**
+     * @return Use vsphere_cloud_provider instead
+     * 
      * @deprecated
      * Use vsphere_cloud_provider instead
      * 

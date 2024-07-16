@@ -13,10 +13,25 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterUpgradeStrategyDrainInput
     {
+        /// <summary>
+        /// Delete RKE node local data (bool)
+        /// </summary>
         public readonly bool? DeleteLocalData;
+        /// <summary>
+        /// Force RKE node drain (bool)
+        /// </summary>
         public readonly bool? Force;
+        /// <summary>
+        /// RKE node drain grace period (int)
+        /// </summary>
         public readonly int? GracePeriod;
+        /// <summary>
+        /// Ignore RKE daemon sets (bool)
+        /// </summary>
         public readonly bool? IgnoreDaemonSets;
+        /// <summary>
+        /// RKE node drain timeout (int)
+        /// </summary>
         public readonly int? Timeout;
 
         [OutputConstructor]

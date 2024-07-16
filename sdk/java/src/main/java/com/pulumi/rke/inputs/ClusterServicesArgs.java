@@ -20,44 +20,92 @@ public final class ClusterServicesArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ClusterServicesArgs Empty = new ClusterServicesArgs();
 
+    /**
+     * Docker image for etcd (string)
+     * 
+     */
     @Import(name="etcd")
     private @Nullable Output<ClusterServicesEtcdArgs> etcd;
 
+    /**
+     * @return Docker image for etcd (string)
+     * 
+     */
     public Optional<Output<ClusterServicesEtcdArgs>> etcd() {
         return Optional.ofNullable(this.etcd);
     }
 
+    /**
+     * Kube API options for RKE services (list maxitems:1)
+     * 
+     */
     @Import(name="kubeApi")
     private @Nullable Output<ClusterServicesKubeApiArgs> kubeApi;
 
+    /**
+     * @return Kube API options for RKE services (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeApiArgs>> kubeApi() {
         return Optional.ofNullable(this.kubeApi);
     }
 
+    /**
+     * Kube Controller options for RKE services (list maxitems:1)
+     * 
+     */
     @Import(name="kubeController")
     private @Nullable Output<ClusterServicesKubeControllerArgs> kubeController;
 
+    /**
+     * @return Kube Controller options for RKE services (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeControllerArgs>> kubeController() {
         return Optional.ofNullable(this.kubeController);
     }
 
+    /**
+     * Kubelet options for RKE services (list maxitems:1)
+     * 
+     */
     @Import(name="kubelet")
     private @Nullable Output<ClusterServicesKubeletArgs> kubelet;
 
+    /**
+     * @return Kubelet options for RKE services (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeletArgs>> kubelet() {
         return Optional.ofNullable(this.kubelet);
     }
 
+    /**
+     * Kubeproxy options for RKE services (list maxitems:1)
+     * 
+     */
     @Import(name="kubeproxy")
     private @Nullable Output<ClusterServicesKubeproxyArgs> kubeproxy;
 
+    /**
+     * @return Kubeproxy options for RKE services (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeproxyArgs>> kubeproxy() {
         return Optional.ofNullable(this.kubeproxy);
     }
 
+    /**
+     * Scheduler options for RKE services (list maxitems:1)
+     * 
+     */
     @Import(name="scheduler")
     private @Nullable Output<ClusterServicesSchedulerArgs> scheduler;
 
+    /**
+     * @return Scheduler options for RKE services (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterServicesSchedulerArgs>> scheduler() {
         return Optional.ofNullable(this.scheduler);
     }
@@ -91,56 +139,128 @@ public final class ClusterServicesArgs extends com.pulumi.resources.ResourceArgs
             $ = new ClusterServicesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param etcd Docker image for etcd (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder etcd(@Nullable Output<ClusterServicesEtcdArgs> etcd) {
             $.etcd = etcd;
             return this;
         }
 
+        /**
+         * @param etcd Docker image for etcd (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder etcd(ClusterServicesEtcdArgs etcd) {
             return etcd(Output.of(etcd));
         }
 
+        /**
+         * @param kubeApi Kube API options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeApi(@Nullable Output<ClusterServicesKubeApiArgs> kubeApi) {
             $.kubeApi = kubeApi;
             return this;
         }
 
+        /**
+         * @param kubeApi Kube API options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeApi(ClusterServicesKubeApiArgs kubeApi) {
             return kubeApi(Output.of(kubeApi));
         }
 
+        /**
+         * @param kubeController Kube Controller options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeController(@Nullable Output<ClusterServicesKubeControllerArgs> kubeController) {
             $.kubeController = kubeController;
             return this;
         }
 
+        /**
+         * @param kubeController Kube Controller options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeController(ClusterServicesKubeControllerArgs kubeController) {
             return kubeController(Output.of(kubeController));
         }
 
+        /**
+         * @param kubelet Kubelet options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubelet(@Nullable Output<ClusterServicesKubeletArgs> kubelet) {
             $.kubelet = kubelet;
             return this;
         }
 
+        /**
+         * @param kubelet Kubelet options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubelet(ClusterServicesKubeletArgs kubelet) {
             return kubelet(Output.of(kubelet));
         }
 
+        /**
+         * @param kubeproxy Kubeproxy options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeproxy(@Nullable Output<ClusterServicesKubeproxyArgs> kubeproxy) {
             $.kubeproxy = kubeproxy;
             return this;
         }
 
+        /**
+         * @param kubeproxy Kubeproxy options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeproxy(ClusterServicesKubeproxyArgs kubeproxy) {
             return kubeproxy(Output.of(kubeproxy));
         }
 
+        /**
+         * @param scheduler Scheduler options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduler(@Nullable Output<ClusterServicesSchedulerArgs> scheduler) {
             $.scheduler = scheduler;
             return this;
         }
 
+        /**
+         * @param scheduler Scheduler options for RKE services (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduler(ClusterServicesSchedulerArgs scheduler) {
             return scheduler(Output.of(scheduler));
         }

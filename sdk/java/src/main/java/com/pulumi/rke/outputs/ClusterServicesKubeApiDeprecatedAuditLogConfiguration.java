@@ -12,29 +12,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterServicesKubeApiDeprecatedAuditLogConfiguration {
+    /**
+     * @return Audit log format (string)
+     * 
+     */
     private @Nullable String format;
+    /**
+     * @return Audit log max age (int)
+     * 
+     */
     private @Nullable Integer maxAge;
+    /**
+     * @return Audit log max backup. Default: `10` (int)
+     * 
+     */
     private @Nullable Integer maxBackup;
+    /**
+     * @return Audit log max size. Default: `100` (int)
+     * 
+     */
     private @Nullable Integer maxSize;
+    /**
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * 
+     */
     private @Nullable String path;
+    /**
+     * @return Audit policy json encoded definition. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Policy&#34;,&#34;rules&#34;` fields are required in the json. Ex. `jsonencode({&#34;apiVersion&#34;:&#34;audit.k8s.io/v1&#34;,&#34;kind&#34;:&#34;Policy&#34;,&#34;rules&#34;:[{&#34;level&#34;:&#34;RequestResponse&#34;,&#34;resources&#34;:[{&#34;group&#34;:&#34;&#34;,&#34;resources&#34;:[&#34;pods&#34;]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+     * 
+     */
     private @Nullable String policy;
 
     private ClusterServicesKubeApiDeprecatedAuditLogConfiguration() {}
+    /**
+     * @return Audit log format (string)
+     * 
+     */
     public Optional<String> format() {
         return Optional.ofNullable(this.format);
     }
+    /**
+     * @return Audit log max age (int)
+     * 
+     */
     public Optional<Integer> maxAge() {
         return Optional.ofNullable(this.maxAge);
     }
+    /**
+     * @return Audit log max backup. Default: `10` (int)
+     * 
+     */
     public Optional<Integer> maxBackup() {
         return Optional.ofNullable(this.maxBackup);
     }
+    /**
+     * @return Audit log max size. Default: `100` (int)
+     * 
+     */
     public Optional<Integer> maxSize() {
         return Optional.ofNullable(this.maxSize);
     }
+    /**
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * 
+     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
+    /**
+     * @return Audit policy json encoded definition. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Policy&#34;,&#34;rules&#34;` fields are required in the json. Ex. `jsonencode({&#34;apiVersion&#34;:&#34;audit.k8s.io/v1&#34;,&#34;kind&#34;:&#34;Policy&#34;,&#34;rules&#34;:[{&#34;level&#34;:&#34;RequestResponse&#34;,&#34;resources&#34;:[{&#34;group&#34;:&#34;&#34;,&#34;resources&#34;:[&#34;pods&#34;]}]}]})` [More info](https://rancher.com/docs/rke/latest/en/config-options/audit-log/) (string)
+     * 
+     */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }

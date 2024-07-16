@@ -13,6 +13,9 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderOpenstackCloudProviderRoute
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? RouterId;
 
         [OutputConstructor]

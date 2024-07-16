@@ -17,9 +17,17 @@ public final class ClusterAuthorizationArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterAuthorizationArgs Empty = new ClusterAuthorizationArgs();
 
+    /**
+     * RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+     * 
+     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
+    /**
+     * @return RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+     * 
+     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
@@ -64,11 +72,23 @@ public final class ClusterAuthorizationArgs extends com.pulumi.resources.Resourc
             $ = new ClusterAuthorizationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param mode RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
+        /**
+         * @param mode RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

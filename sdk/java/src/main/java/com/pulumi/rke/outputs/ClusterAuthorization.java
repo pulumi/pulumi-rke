@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterAuthorization {
+    /**
+     * @return RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+     * 
+     */
     private @Nullable String mode;
     /**
      * @return Authorization mode options
@@ -21,6 +25,10 @@ public final class ClusterAuthorization {
     private @Nullable Map<String,Object> options;
 
     private ClusterAuthorization() {}
+    /**
+     * @return RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+     * 
+     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }

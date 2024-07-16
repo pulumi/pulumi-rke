@@ -17,16 +17,32 @@ public final class ClusterCloudProviderAwsCloudProviderArgs extends com.pulumi.r
 
     public static final ClusterCloudProviderAwsCloudProviderArgs Empty = new ClusterCloudProviderAwsCloudProviderArgs();
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="global")
     private @Nullable Output<ClusterCloudProviderAwsCloudProviderGlobalArgs> global;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderAwsCloudProviderGlobalArgs>> global() {
         return Optional.ofNullable(this.global);
     }
 
+    /**
+     * (list)
+     * 
+     */
     @Import(name="serviceOverrides")
     private @Nullable Output<List<ClusterCloudProviderAwsCloudProviderServiceOverrideArgs>> serviceOverrides;
 
+    /**
+     * @return (list)
+     * 
+     */
     public Optional<Output<List<ClusterCloudProviderAwsCloudProviderServiceOverrideArgs>>> serviceOverrides() {
         return Optional.ofNullable(this.serviceOverrides);
     }
@@ -56,24 +72,54 @@ public final class ClusterCloudProviderAwsCloudProviderArgs extends com.pulumi.r
             $ = new ClusterCloudProviderAwsCloudProviderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(@Nullable Output<ClusterCloudProviderAwsCloudProviderGlobalArgs> global) {
             $.global = global;
             return this;
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(ClusterCloudProviderAwsCloudProviderGlobalArgs global) {
             return global(Output.of(global));
         }
 
+        /**
+         * @param serviceOverrides (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceOverrides(@Nullable Output<List<ClusterCloudProviderAwsCloudProviderServiceOverrideArgs>> serviceOverrides) {
             $.serviceOverrides = serviceOverrides;
             return this;
         }
 
+        /**
+         * @param serviceOverrides (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceOverrides(List<ClusterCloudProviderAwsCloudProviderServiceOverrideArgs> serviceOverrides) {
             return serviceOverrides(Output.of(serviceOverrides));
         }
 
+        /**
+         * @param serviceOverrides (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceOverrides(ClusterCloudProviderAwsCloudProviderServiceOverrideArgs... serviceOverrides) {
             return serviceOverrides(List.of(serviceOverrides));
         }

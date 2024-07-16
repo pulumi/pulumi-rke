@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterServicesKubeApiEventRateLimit {
+    /**
+     * @return Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     * 
+     */
     private @Nullable String configuration;
+    /**
+     * @return Enable secrets encryption (bool)
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private ClusterServicesKubeApiEventRateLimit() {}
+    /**
+     * @return Event rate limit yaml encoded configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;Configuration&#34;` fields are required in the yaml. Ex. `apiVersion: eventratelimit.admission.k8s.io/v1alpha1\nkind: Configuration\nlimits:\n- type: Server\n  burst: 30000\n  qps: 6000\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/rate-limiting/) (string)
+     * 
+     */
     public Optional<String> configuration() {
         return Optional.ofNullable(this.configuration);
     }
+    /**
+     * @return Enable secrets encryption (bool)
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

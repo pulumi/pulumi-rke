@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderVsphereCloudProviderNetwork {
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String publicNetwork;
 
     private ClusterCloudProviderVsphereCloudProviderNetwork() {}
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> publicNetwork() {
         return Optional.ofNullable(this.publicNetwork);
     }

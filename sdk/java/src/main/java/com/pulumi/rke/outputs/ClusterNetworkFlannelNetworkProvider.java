@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterNetworkFlannelNetworkProvider {
+    /**
+     * @return Flannel network interface (string)
+     * 
+     */
     private @Nullable String iface;
 
     private ClusterNetworkFlannelNetworkProvider() {}
+    /**
+     * @return Flannel network interface (string)
+     * 
+     */
     public Optional<String> iface() {
         return Optional.ofNullable(this.iface);
     }

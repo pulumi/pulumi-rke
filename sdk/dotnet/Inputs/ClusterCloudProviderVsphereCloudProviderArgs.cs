@@ -12,9 +12,15 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderVsphereCloudProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         [Input("disk")]
         public Input<Inputs.ClusterCloudProviderVsphereCloudProviderDiskArgs>? Disk { get; set; }
 
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         [Input("global")]
         public Input<Inputs.ClusterCloudProviderVsphereCloudProviderGlobalArgs>? Global { get; set; }
 
@@ -26,12 +32,19 @@ namespace Pulumi.Rke.Inputs
 
         [Input("virtualCenters", required: true)]
         private InputList<Inputs.ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs>? _virtualCenters;
+
+        /// <summary>
+        /// (List)
+        /// </summary>
         public InputList<Inputs.ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs> VirtualCenters
         {
             get => _virtualCenters ?? (_virtualCenters = new InputList<Inputs.ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs>());
             set => _virtualCenters = value;
         }
 
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         [Input("workspace", required: true)]
         public Input<Inputs.ClusterCloudProviderVsphereCloudProviderWorkspaceArgs> Workspace { get; set; } = null!;
 
