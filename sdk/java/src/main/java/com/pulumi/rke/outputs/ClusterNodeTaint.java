@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterNodeTaint {
+    /**
+     * @return Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+     * 
+     */
     private @Nullable String effect;
+    /**
+     * @return TLS key for etcd service (string)
+     * 
+     */
     private String key;
+    /**
+     * @return Taint value (string)
+     * 
+     */
     private String value;
 
     private ClusterNodeTaint() {}
+    /**
+     * @return Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+     * 
+     */
     public Optional<String> effect() {
         return Optional.ofNullable(this.effect);
     }
+    /**
+     * @return TLS key for etcd service (string)
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Taint value (string)
+     * 
+     */
     public String value() {
         return this.value;
     }

@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderOpenstackCloudConfigRouteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         [Input("routerId")]
         public Input<string>? RouterId { get; set; }
 

@@ -23,7 +23,15 @@ public final class ClusterServicesKubeApiDeprecated {
      * 
      */
     private @Nullable Boolean alwaysPullImages;
+    /**
+     * @return K8s audit log configuration. (list maxitem: 1)
+     * 
+     */
     private @Nullable ClusterServicesKubeApiDeprecatedAuditLog auditLog;
+    /**
+     * @return K8s event rate limit configuration. (list maxitem: 1)
+     * 
+     */
     private @Nullable ClusterServicesKubeApiDeprecatedEventRateLimit eventRateLimit;
     /**
      * @return Extra arguments that are added to the kube-api services
@@ -40,6 +48,10 @@ public final class ClusterServicesKubeApiDeprecated {
      * 
      */
     private @Nullable List<String> extraEnvs;
+    /**
+     * @return Docker image for scheduler service (string)
+     * 
+     */
     private @Nullable String image;
     /**
      * @return Built-in PodSecurityPolicy (privileged or restricted)
@@ -51,6 +63,10 @@ public final class ClusterServicesKubeApiDeprecated {
      * 
      */
     private @Nullable Boolean podSecurityPolicy;
+    /**
+     * @return [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+     * 
+     */
     private @Nullable ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig secretsEncryptionConfig;
     /**
      * @return Virtual IP range that will be used by Kubernetes services
@@ -71,9 +87,17 @@ public final class ClusterServicesKubeApiDeprecated {
     public Optional<Boolean> alwaysPullImages() {
         return Optional.ofNullable(this.alwaysPullImages);
     }
+    /**
+     * @return K8s audit log configuration. (list maxitem: 1)
+     * 
+     */
     public Optional<ClusterServicesKubeApiDeprecatedAuditLog> auditLog() {
         return Optional.ofNullable(this.auditLog);
     }
+    /**
+     * @return K8s event rate limit configuration. (list maxitem: 1)
+     * 
+     */
     public Optional<ClusterServicesKubeApiDeprecatedEventRateLimit> eventRateLimit() {
         return Optional.ofNullable(this.eventRateLimit);
     }
@@ -98,6 +122,10 @@ public final class ClusterServicesKubeApiDeprecated {
     public List<String> extraEnvs() {
         return this.extraEnvs == null ? List.of() : this.extraEnvs;
     }
+    /**
+     * @return Docker image for scheduler service (string)
+     * 
+     */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
@@ -115,6 +143,10 @@ public final class ClusterServicesKubeApiDeprecated {
     public Optional<Boolean> podSecurityPolicy() {
         return Optional.ofNullable(this.podSecurityPolicy);
     }
+    /**
+     * @return [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+     * 
+     */
     public Optional<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfig> secretsEncryptionConfig() {
         return Optional.ofNullable(this.secretsEncryptionConfig);
     }

@@ -20,37 +20,77 @@ public final class ClusterCloudProviderOpenstackCloudConfigArgs extends com.pulu
 
     public static final ClusterCloudProviderOpenstackCloudConfigArgs Empty = new ClusterCloudProviderOpenstackCloudConfigArgs();
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="blockStorage")
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs> blockStorage;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs>> blockStorage() {
         return Optional.ofNullable(this.blockStorage);
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="global", required=true)
     private Output<ClusterCloudProviderOpenstackCloudConfigGlobalArgs> global;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Output<ClusterCloudProviderOpenstackCloudConfigGlobalArgs> global() {
         return this.global;
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="loadBalancer")
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs> loadBalancer;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="metadata")
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigMetadataArgs> metadata;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderOpenstackCloudConfigMetadataArgs>> metadata() {
         return Optional.ofNullable(this.metadata);
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="route")
     private @Nullable Output<ClusterCloudProviderOpenstackCloudConfigRouteArgs> route;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderOpenstackCloudConfigRouteArgs>> route() {
         return Optional.ofNullable(this.route);
     }
@@ -83,47 +123,107 @@ public final class ClusterCloudProviderOpenstackCloudConfigArgs extends com.pulu
             $ = new ClusterCloudProviderOpenstackCloudConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param blockStorage (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockStorage(@Nullable Output<ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs> blockStorage) {
             $.blockStorage = blockStorage;
             return this;
         }
 
+        /**
+         * @param blockStorage (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockStorage(ClusterCloudProviderOpenstackCloudConfigBlockStorageArgs blockStorage) {
             return blockStorage(Output.of(blockStorage));
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(Output<ClusterCloudProviderOpenstackCloudConfigGlobalArgs> global) {
             $.global = global;
             return this;
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(ClusterCloudProviderOpenstackCloudConfigGlobalArgs global) {
             return global(Output.of(global));
         }
 
+        /**
+         * @param loadBalancer (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancer(@Nullable Output<ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
+        /**
+         * @param loadBalancer (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancer(ClusterCloudProviderOpenstackCloudConfigLoadBalancerArgs loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }
 
+        /**
+         * @param metadata (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadata(@Nullable Output<ClusterCloudProviderOpenstackCloudConfigMetadataArgs> metadata) {
             $.metadata = metadata;
             return this;
         }
 
+        /**
+         * @param metadata (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadata(ClusterCloudProviderOpenstackCloudConfigMetadataArgs metadata) {
             return metadata(Output.of(metadata));
         }
 
+        /**
+         * @param route (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder route(@Nullable Output<ClusterCloudProviderOpenstackCloudConfigRouteArgs> route) {
             $.route = route;
             return this;
         }
 
+        /**
+         * @param route (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder route(ClusterCloudProviderOpenstackCloudConfigRouteArgs route) {
             return route(Output.of(route));
         }

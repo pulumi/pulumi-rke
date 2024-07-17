@@ -18,9 +18,15 @@ namespace Pulumi.Rke.Inputs
         [Input("alwaysPullImages")]
         public Input<bool>? AlwaysPullImages { get; set; }
 
+        /// <summary>
+        /// K8s audit log configuration. (list maxitem: 1)
+        /// </summary>
         [Input("auditLog")]
         public Input<Inputs.ClusterServicesKubeApiAuditLogArgs>? AuditLog { get; set; }
 
+        /// <summary>
+        /// K8s event rate limit configuration. (list maxitem: 1)
+        /// </summary>
         [Input("eventRateLimit")]
         public Input<Inputs.ClusterServicesKubeApiEventRateLimitArgs>? EventRateLimit { get; set; }
 
@@ -60,6 +66,9 @@ namespace Pulumi.Rke.Inputs
             set => _extraEnvs = value;
         }
 
+        /// <summary>
+        /// Docker image for scheduler service (string)
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
@@ -75,6 +84,9 @@ namespace Pulumi.Rke.Inputs
         [Input("podSecurityPolicy")]
         public Input<bool>? PodSecurityPolicy { get; set; }
 
+        /// <summary>
+        /// [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+        /// </summary>
         [Input("secretsEncryptionConfig")]
         public Input<Inputs.ClusterServicesKubeApiSecretsEncryptionConfigArgs>? SecretsEncryptionConfig { get; set; }
 

@@ -13,9 +13,21 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterUpgradeStrategy
     {
+        /// <summary>
+        /// RKE drain nodes (bool)
+        /// </summary>
         public readonly bool? Drain;
+        /// <summary>
+        /// RKE drain node input (list Maxitems: 1)
+        /// </summary>
         public readonly Outputs.ClusterUpgradeStrategyDrainInput? DrainInput;
+        /// <summary>
+        /// RKE max unavailable controlplane nodes (string)
+        /// </summary>
         public readonly string? MaxUnavailableControlplane;
+        /// <summary>
+        /// RKE max unavailable worker nodes (string)
+        /// </summary>
         public readonly string? MaxUnavailableWorker;
 
         [OutputConstructor]

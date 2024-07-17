@@ -13,10 +13,25 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderVsphereCloudConfigWorkspace
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string Datacenter;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? DefaultDatastore;
+        /// <summary>
+        /// Folder for S3 service. Available from Rancher v2.2.7 (string)
+        /// </summary>
         public readonly string? Folder;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? ResourcepoolPath;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string Server;
 
         [OutputConstructor]

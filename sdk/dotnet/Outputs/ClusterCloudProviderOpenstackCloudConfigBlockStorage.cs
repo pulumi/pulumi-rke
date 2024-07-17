@@ -13,8 +13,17 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderOpenstackCloudConfigBlockStorage
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? BsVersion;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly bool? IgnoreVolumeAz;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly bool? TrustDevicePath;
 
         [OutputConstructor]

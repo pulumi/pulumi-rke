@@ -17,30 +17,62 @@ public final class ClusterUpgradeStrategyArgs extends com.pulumi.resources.Resou
 
     public static final ClusterUpgradeStrategyArgs Empty = new ClusterUpgradeStrategyArgs();
 
+    /**
+     * RKE drain nodes (bool)
+     * 
+     */
     @Import(name="drain")
     private @Nullable Output<Boolean> drain;
 
+    /**
+     * @return RKE drain nodes (bool)
+     * 
+     */
     public Optional<Output<Boolean>> drain() {
         return Optional.ofNullable(this.drain);
     }
 
+    /**
+     * RKE drain node input (list Maxitems: 1)
+     * 
+     */
     @Import(name="drainInput")
     private @Nullable Output<ClusterUpgradeStrategyDrainInputArgs> drainInput;
 
+    /**
+     * @return RKE drain node input (list Maxitems: 1)
+     * 
+     */
     public Optional<Output<ClusterUpgradeStrategyDrainInputArgs>> drainInput() {
         return Optional.ofNullable(this.drainInput);
     }
 
+    /**
+     * RKE max unavailable controlplane nodes (string)
+     * 
+     */
     @Import(name="maxUnavailableControlplane")
     private @Nullable Output<String> maxUnavailableControlplane;
 
+    /**
+     * @return RKE max unavailable controlplane nodes (string)
+     * 
+     */
     public Optional<Output<String>> maxUnavailableControlplane() {
         return Optional.ofNullable(this.maxUnavailableControlplane);
     }
 
+    /**
+     * RKE max unavailable worker nodes (string)
+     * 
+     */
     @Import(name="maxUnavailableWorker")
     private @Nullable Output<String> maxUnavailableWorker;
 
+    /**
+     * @return RKE max unavailable worker nodes (string)
+     * 
+     */
     public Optional<Output<String>> maxUnavailableWorker() {
         return Optional.ofNullable(this.maxUnavailableWorker);
     }
@@ -72,38 +104,86 @@ public final class ClusterUpgradeStrategyArgs extends com.pulumi.resources.Resou
             $ = new ClusterUpgradeStrategyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param drain RKE drain nodes (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder drain(@Nullable Output<Boolean> drain) {
             $.drain = drain;
             return this;
         }
 
+        /**
+         * @param drain RKE drain nodes (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder drain(Boolean drain) {
             return drain(Output.of(drain));
         }
 
+        /**
+         * @param drainInput RKE drain node input (list Maxitems: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder drainInput(@Nullable Output<ClusterUpgradeStrategyDrainInputArgs> drainInput) {
             $.drainInput = drainInput;
             return this;
         }
 
+        /**
+         * @param drainInput RKE drain node input (list Maxitems: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder drainInput(ClusterUpgradeStrategyDrainInputArgs drainInput) {
             return drainInput(Output.of(drainInput));
         }
 
+        /**
+         * @param maxUnavailableControlplane RKE max unavailable controlplane nodes (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailableControlplane(@Nullable Output<String> maxUnavailableControlplane) {
             $.maxUnavailableControlplane = maxUnavailableControlplane;
             return this;
         }
 
+        /**
+         * @param maxUnavailableControlplane RKE max unavailable controlplane nodes (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailableControlplane(String maxUnavailableControlplane) {
             return maxUnavailableControlplane(Output.of(maxUnavailableControlplane));
         }
 
+        /**
+         * @param maxUnavailableWorker RKE max unavailable worker nodes (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailableWorker(@Nullable Output<String> maxUnavailableWorker) {
             $.maxUnavailableWorker = maxUnavailableWorker;
             return this;
         }
 
+        /**
+         * @param maxUnavailableWorker RKE max unavailable worker nodes (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailableWorker(String maxUnavailableWorker) {
             return maxUnavailableWorker(Output.of(maxUnavailableWorker));
         }

@@ -13,21 +13,49 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCloudProviderAwsCloudProviderServiceOverride {
     /**
+     * @return TLS key for etcd service (string)
+     * 
      * @deprecated
      * Use service instead
      * 
      */
     @Deprecated /* Use service instead */
     private @Nullable String key;
+    /**
+     * @return Region for S3 service (string)
+     * 
+     */
     private @Nullable String region;
+    /**
+     * @return (string)
+     * 
+     */
     private String service;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String signingMethod;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String signingName;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String signingRegion;
+    /**
+     * @return Registry URL (string)
+     * 
+     */
     private @Nullable String url;
 
     private ClusterCloudProviderAwsCloudProviderServiceOverride() {}
     /**
+     * @return TLS key for etcd service (string)
+     * 
      * @deprecated
      * Use service instead
      * 
@@ -36,21 +64,45 @@ public final class ClusterCloudProviderAwsCloudProviderServiceOverride {
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return Region for S3 service (string)
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public String service() {
         return this.service;
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> signingMethod() {
         return Optional.ofNullable(this.signingMethod);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> signingName() {
         return Optional.ofNullable(this.signingName);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> signingRegion() {
         return Optional.ofNullable(this.signingRegion);
     }
+    /**
+     * @return Registry URL (string)
+     * 
+     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }

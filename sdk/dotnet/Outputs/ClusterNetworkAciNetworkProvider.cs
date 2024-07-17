@@ -13,29 +13,99 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterNetworkAciNetworkProvider
     {
+        /// <summary>
+        /// Attachment entity profile name on aci (string)
+        /// </summary>
         public readonly string Aep;
+        /// <summary>
+        /// Ip address for apic hosts (list)
+        /// </summary>
         public readonly ImmutableArray<string> ApicHosts;
+        /// <summary>
+        /// Base64 encoded certificate for aci apic user (string)
+        /// </summary>
         public readonly string ApicUserCrt;
+        /// <summary>
+        /// Base64 encoded private key for aci apic user (string)
+        /// </summary>
         public readonly string ApicUserKey;
+        /// <summary>
+        /// User name for aci apic (string)
+        /// </summary>
         public readonly string ApicUserName;
+        /// <summary>
+        /// One of the supported encap types for aci(vlan/vxlan) (string)
+        /// </summary>
         public readonly string EncapType;
+        /// <summary>
+        /// Subnet to use for dynamic external IPs on aci (string)
+        /// * `extern_static"` - (Required) Subnet to use for static external IPs on aci (string)
+        /// </summary>
         public readonly string ExternDynamic;
         public readonly string ExternStatic;
+        /// <summary>
+        /// Vlan for infra network on aci (string)
+        /// </summary>
         public readonly string InfraVlan;
+        /// <summary>
+        /// Vlan for node network on aci (string)
+        /// </summary>
         public readonly string KubeApiVlan;
+        /// <summary>
+        /// L3Out on aci (string)
+        /// </summary>
         public readonly string L3out;
+        /// <summary>
+        /// L3out external networks on aci (list)
+        /// </summary>
         public readonly ImmutableArray<string> L3outExternalNetworks;
+        /// <summary>
+        /// Mcast range end address for endpoint groups on aci (string)
+        /// </summary>
         public readonly string McastRangeEnd;
+        /// <summary>
+        /// Mcast range start address for endpoint groups on aci (string)
+        /// </summary>
         public readonly string McastRangeStart;
+        /// <summary>
+        /// Kubernetes node address subnet (string)
+        /// </summary>
         public readonly string NodeSubnet;
+        /// <summary>
+        /// Subnet to use for service graph endpoints on aci (string)
+        /// </summary>
         public readonly string NodeSvcSubnet;
+        /// <summary>
+        /// Vlan for service graph nodes on aci (string)
+        /// </summary>
         public readonly string ServiceVlan;
+        /// <summary>
+        /// Port end range for Source Network Address Translation on aci (string)
+        /// </summary>
         public readonly string? SnatPortRangeEnd;
+        /// <summary>
+        /// Port start range for Source Network Address Translation on aci (string)
+        /// </summary>
         public readonly string? SnatPortRangeStart;
+        /// <summary>
+        /// Ports per node for Source Network Address Translation on aci (string)
+        /// </summary>
         public readonly string? SnatPortsPerNode;
+        /// <summary>
+        /// Unique suffix for all cluster related objects in aci (string)
+        /// </summary>
         public readonly string SystemId;
+        /// <summary>
+        /// UUID for this version of the input configuration (string)
+        /// </summary>
         public readonly string Token;
+        /// <summary>
+        /// VRF Name on aci (string)
+        /// </summary>
         public readonly string VrfName;
+        /// <summary>
+        /// Tenant for VRF on aci (string)
+        /// </summary>
         public readonly string VrfTenant;
 
         [OutputConstructor]

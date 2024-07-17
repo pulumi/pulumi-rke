@@ -13,6 +13,9 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterAuthorization
     {
+        /// <summary>
+        /// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+        /// </summary>
         public readonly string? Mode;
         /// <summary>
         /// Authorization mode options

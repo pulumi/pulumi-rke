@@ -109,9 +109,17 @@ public final class ClusterServicesKubeletDeprecatedArgs extends com.pulumi.resou
         return Optional.ofNullable(this.failSwapOn);
     }
 
+    /**
+     * [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     * 
+     */
     @Import(name="generateServingCertificate")
     private @Nullable Output<Boolean> generateServingCertificate;
 
+    /**
+     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     * 
+     */
     public Optional<Output<Boolean>> generateServingCertificate() {
         return Optional.ofNullable(this.generateServingCertificate);
     }
@@ -324,11 +332,23 @@ public final class ClusterServicesKubeletDeprecatedArgs extends com.pulumi.resou
             return failSwapOn(Output.of(failSwapOn));
         }
 
+        /**
+         * @param generateServingCertificate [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder generateServingCertificate(@Nullable Output<Boolean> generateServingCertificate) {
             $.generateServingCertificate = generateServingCertificate;
             return this;
         }
 
+        /**
+         * @param generateServingCertificate [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder generateServingCertificate(Boolean generateServingCertificate) {
             return generateServingCertificate(Output.of(generateServingCertificate));
         }

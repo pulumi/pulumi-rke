@@ -13,27 +13,45 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProvider
     {
+        /// <summary>
+        /// Use aws_cloud_provider instead
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudConfig? AwsCloudConfig;
         /// <summary>
         /// AWS Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAwsCloudProvider? AwsCloudProvider;
+        /// <summary>
+        /// Use azure_cloud_provider instead
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudConfig? AzureCloudConfig;
         /// <summary>
         /// Azure Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderAzureCloudProvider? AzureCloudProvider;
+        /// <summary>
+        /// Use custom_cloud_provider instead
+        /// </summary>
         public readonly string? CustomCloudConfig;
         /// <summary>
         /// Custom Cloud Provider config
         /// </summary>
         public readonly string? CustomCloudProvider;
+        /// <summary>
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Use openstack_cloud_provider instead
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfig? OpenstackCloudConfig;
         /// <summary>
         /// Openstack Cloud Provider config
         /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudProvider? OpenstackCloudProvider;
+        /// <summary>
+        /// Use vsphere_cloud_provider instead
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfig? VsphereCloudConfig;
         /// <summary>
         /// Vsphere Cloud Provider config

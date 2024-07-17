@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterUpgradeStrategyDrainInput {
+    /**
+     * @return Delete RKE node local data (bool)
+     * 
+     */
     private @Nullable Boolean deleteLocalData;
+    /**
+     * @return Force RKE node drain (bool)
+     * 
+     */
     private @Nullable Boolean force;
+    /**
+     * @return RKE node drain grace period (int)
+     * 
+     */
     private @Nullable Integer gracePeriod;
+    /**
+     * @return Ignore RKE daemon sets (bool)
+     * 
+     */
     private @Nullable Boolean ignoreDaemonSets;
+    /**
+     * @return RKE node drain timeout (int)
+     * 
+     */
     private @Nullable Integer timeout;
 
     private ClusterUpgradeStrategyDrainInput() {}
+    /**
+     * @return Delete RKE node local data (bool)
+     * 
+     */
     public Optional<Boolean> deleteLocalData() {
         return Optional.ofNullable(this.deleteLocalData);
     }
+    /**
+     * @return Force RKE node drain (bool)
+     * 
+     */
     public Optional<Boolean> force() {
         return Optional.ofNullable(this.force);
     }
+    /**
+     * @return RKE node drain grace period (int)
+     * 
+     */
     public Optional<Integer> gracePeriod() {
         return Optional.ofNullable(this.gracePeriod);
     }
+    /**
+     * @return Ignore RKE daemon sets (bool)
+     * 
+     */
     public Optional<Boolean> ignoreDaemonSets() {
         return Optional.ofNullable(this.ignoreDaemonSets);
     }
+    /**
+     * @return RKE node drain timeout (int)
+     * 
+     */
     public Optional<Integer> timeout() {
         return Optional.ofNullable(this.timeout);
     }

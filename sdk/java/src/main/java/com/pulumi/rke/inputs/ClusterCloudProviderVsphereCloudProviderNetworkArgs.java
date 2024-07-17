@@ -15,9 +15,17 @@ public final class ClusterCloudProviderVsphereCloudProviderNetworkArgs extends c
 
     public static final ClusterCloudProviderVsphereCloudProviderNetworkArgs Empty = new ClusterCloudProviderVsphereCloudProviderNetworkArgs();
 
+    /**
+     * (string)
+     * 
+     */
     @Import(name="publicNetwork")
     private @Nullable Output<String> publicNetwork;
 
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<Output<String>> publicNetwork() {
         return Optional.ofNullable(this.publicNetwork);
     }
@@ -46,11 +54,23 @@ public final class ClusterCloudProviderVsphereCloudProviderNetworkArgs extends c
             $ = new ClusterCloudProviderVsphereCloudProviderNetworkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param publicNetwork (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetwork(@Nullable Output<String> publicNetwork) {
             $.publicNetwork = publicNetwork;
             return this;
         }
 
+        /**
+         * @param publicNetwork (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetwork(String publicNetwork) {
             return publicNetwork(Output.of(publicNetwork));
         }

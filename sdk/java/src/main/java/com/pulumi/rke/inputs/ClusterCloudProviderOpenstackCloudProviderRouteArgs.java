@@ -15,9 +15,17 @@ public final class ClusterCloudProviderOpenstackCloudProviderRouteArgs extends c
 
     public static final ClusterCloudProviderOpenstackCloudProviderRouteArgs Empty = new ClusterCloudProviderOpenstackCloudProviderRouteArgs();
 
+    /**
+     * (string)
+     * 
+     */
     @Import(name="routerId")
     private @Nullable Output<String> routerId;
 
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<Output<String>> routerId() {
         return Optional.ofNullable(this.routerId);
     }
@@ -46,11 +54,23 @@ public final class ClusterCloudProviderOpenstackCloudProviderRouteArgs extends c
             $ = new ClusterCloudProviderOpenstackCloudProviderRouteArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param routerId (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder routerId(@Nullable Output<String> routerId) {
             $.routerId = routerId;
             return this;
         }
 
+        /**
+         * @param routerId (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder routerId(String routerId) {
             return routerId(Output.of(routerId));
         }

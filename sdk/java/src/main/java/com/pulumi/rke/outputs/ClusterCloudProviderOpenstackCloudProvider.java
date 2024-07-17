@@ -16,25 +16,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderOpenstackCloudProvider {
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderOpenstackCloudProviderBlockStorage blockStorage;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private ClusterCloudProviderOpenstackCloudProviderGlobal global;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderOpenstackCloudProviderLoadBalancer loadBalancer;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderOpenstackCloudProviderMetadata metadata;
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     private @Nullable ClusterCloudProviderOpenstackCloudProviderRoute route;
 
     private ClusterCloudProviderOpenstackCloudProvider() {}
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderOpenstackCloudProviderBlockStorage> blockStorage() {
         return Optional.ofNullable(this.blockStorage);
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public ClusterCloudProviderOpenstackCloudProviderGlobal global() {
         return this.global;
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderOpenstackCloudProviderLoadBalancer> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderOpenstackCloudProviderMetadata> metadata() {
         return Optional.ofNullable(this.metadata);
     }
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<ClusterCloudProviderOpenstackCloudProviderRoute> route() {
         return Optional.ofNullable(this.route);
     }

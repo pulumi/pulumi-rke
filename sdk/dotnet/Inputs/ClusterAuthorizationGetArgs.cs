@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterAuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
+        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 

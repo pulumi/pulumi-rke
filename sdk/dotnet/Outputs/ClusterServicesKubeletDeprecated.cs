@@ -37,6 +37,9 @@ namespace Pulumi.Rke.Outputs
         /// Fail if swap is enabled
         /// </summary>
         public readonly bool? FailSwapOn;
+        /// <summary>
+        /// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+        /// </summary>
         public readonly bool? GenerateServingCertificate;
         /// <summary>
         /// Docker image of the kubelet service

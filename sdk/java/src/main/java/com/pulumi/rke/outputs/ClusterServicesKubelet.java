@@ -45,6 +45,10 @@ public final class ClusterServicesKubelet {
      * 
      */
     private @Nullable Boolean failSwapOn;
+    /**
+     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     * 
+     */
     private @Nullable Boolean generateServingCertificate;
     /**
      * @return Docker image of the kubelet service
@@ -100,6 +104,10 @@ public final class ClusterServicesKubelet {
     public Optional<Boolean> failSwapOn() {
         return Optional.ofNullable(this.failSwapOn);
     }
+    /**
+     * @return [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+     * 
+     */
     public Optional<Boolean> generateServingCertificate() {
         return Optional.ofNullable(this.generateServingCertificate);
     }

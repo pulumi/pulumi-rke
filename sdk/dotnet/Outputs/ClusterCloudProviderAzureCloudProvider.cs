@@ -57,6 +57,9 @@ namespace Pulumi.Rke.Outputs
         /// Enable rate limiting
         /// </summary>
         public readonly bool? CloudProviderRateLimit;
+        /// <summary>
+        /// (int)
+        /// </summary>
         public readonly int? CloudProviderRateLimitBucket;
         /// <summary>
         /// Rate limit QPS

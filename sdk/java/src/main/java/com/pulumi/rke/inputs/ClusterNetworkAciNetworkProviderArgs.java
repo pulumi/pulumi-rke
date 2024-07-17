@@ -17,51 +17,109 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
 
     public static final ClusterNetworkAciNetworkProviderArgs Empty = new ClusterNetworkAciNetworkProviderArgs();
 
+    /**
+     * Attachment entity profile name on aci (string)
+     * 
+     */
     @Import(name="aep", required=true)
     private Output<String> aep;
 
+    /**
+     * @return Attachment entity profile name on aci (string)
+     * 
+     */
     public Output<String> aep() {
         return this.aep;
     }
 
+    /**
+     * Ip address for apic hosts (list)
+     * 
+     */
     @Import(name="apicHosts", required=true)
     private Output<List<String>> apicHosts;
 
+    /**
+     * @return Ip address for apic hosts (list)
+     * 
+     */
     public Output<List<String>> apicHosts() {
         return this.apicHosts;
     }
 
+    /**
+     * Base64 encoded certificate for aci apic user (string)
+     * 
+     */
     @Import(name="apicUserCrt", required=true)
     private Output<String> apicUserCrt;
 
+    /**
+     * @return Base64 encoded certificate for aci apic user (string)
+     * 
+     */
     public Output<String> apicUserCrt() {
         return this.apicUserCrt;
     }
 
+    /**
+     * Base64 encoded private key for aci apic user (string)
+     * 
+     */
     @Import(name="apicUserKey", required=true)
     private Output<String> apicUserKey;
 
+    /**
+     * @return Base64 encoded private key for aci apic user (string)
+     * 
+     */
     public Output<String> apicUserKey() {
         return this.apicUserKey;
     }
 
+    /**
+     * User name for aci apic (string)
+     * 
+     */
     @Import(name="apicUserName", required=true)
     private Output<String> apicUserName;
 
+    /**
+     * @return User name for aci apic (string)
+     * 
+     */
     public Output<String> apicUserName() {
         return this.apicUserName;
     }
 
+    /**
+     * One of the supported encap types for aci(vlan/vxlan) (string)
+     * 
+     */
     @Import(name="encapType", required=true)
     private Output<String> encapType;
 
+    /**
+     * @return One of the supported encap types for aci(vlan/vxlan) (string)
+     * 
+     */
     public Output<String> encapType() {
         return this.encapType;
     }
 
+    /**
+     * Subnet to use for dynamic external IPs on aci (string)
+     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
+     * 
+     */
     @Import(name="externDynamic", required=true)
     private Output<String> externDynamic;
 
+    /**
+     * @return Subnet to use for dynamic external IPs on aci (string)
+     * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
+     * 
+     */
     public Output<String> externDynamic() {
         return this.externDynamic;
     }
@@ -73,114 +131,242 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
         return this.externStatic;
     }
 
+    /**
+     * Vlan for infra network on aci (string)
+     * 
+     */
     @Import(name="infraVlan", required=true)
     private Output<String> infraVlan;
 
+    /**
+     * @return Vlan for infra network on aci (string)
+     * 
+     */
     public Output<String> infraVlan() {
         return this.infraVlan;
     }
 
+    /**
+     * Vlan for node network on aci (string)
+     * 
+     */
     @Import(name="kubeApiVlan", required=true)
     private Output<String> kubeApiVlan;
 
+    /**
+     * @return Vlan for node network on aci (string)
+     * 
+     */
     public Output<String> kubeApiVlan() {
         return this.kubeApiVlan;
     }
 
+    /**
+     * L3Out on aci (string)
+     * 
+     */
     @Import(name="l3out", required=true)
     private Output<String> l3out;
 
+    /**
+     * @return L3Out on aci (string)
+     * 
+     */
     public Output<String> l3out() {
         return this.l3out;
     }
 
+    /**
+     * L3out external networks on aci (list)
+     * 
+     */
     @Import(name="l3outExternalNetworks", required=true)
     private Output<List<String>> l3outExternalNetworks;
 
+    /**
+     * @return L3out external networks on aci (list)
+     * 
+     */
     public Output<List<String>> l3outExternalNetworks() {
         return this.l3outExternalNetworks;
     }
 
+    /**
+     * Mcast range end address for endpoint groups on aci (string)
+     * 
+     */
     @Import(name="mcastRangeEnd", required=true)
     private Output<String> mcastRangeEnd;
 
+    /**
+     * @return Mcast range end address for endpoint groups on aci (string)
+     * 
+     */
     public Output<String> mcastRangeEnd() {
         return this.mcastRangeEnd;
     }
 
+    /**
+     * Mcast range start address for endpoint groups on aci (string)
+     * 
+     */
     @Import(name="mcastRangeStart", required=true)
     private Output<String> mcastRangeStart;
 
+    /**
+     * @return Mcast range start address for endpoint groups on aci (string)
+     * 
+     */
     public Output<String> mcastRangeStart() {
         return this.mcastRangeStart;
     }
 
+    /**
+     * Kubernetes node address subnet (string)
+     * 
+     */
     @Import(name="nodeSubnet", required=true)
     private Output<String> nodeSubnet;
 
+    /**
+     * @return Kubernetes node address subnet (string)
+     * 
+     */
     public Output<String> nodeSubnet() {
         return this.nodeSubnet;
     }
 
+    /**
+     * Subnet to use for service graph endpoints on aci (string)
+     * 
+     */
     @Import(name="nodeSvcSubnet", required=true)
     private Output<String> nodeSvcSubnet;
 
+    /**
+     * @return Subnet to use for service graph endpoints on aci (string)
+     * 
+     */
     public Output<String> nodeSvcSubnet() {
         return this.nodeSvcSubnet;
     }
 
+    /**
+     * Vlan for service graph nodes on aci (string)
+     * 
+     */
     @Import(name="serviceVlan", required=true)
     private Output<String> serviceVlan;
 
+    /**
+     * @return Vlan for service graph nodes on aci (string)
+     * 
+     */
     public Output<String> serviceVlan() {
         return this.serviceVlan;
     }
 
+    /**
+     * Port end range for Source Network Address Translation on aci (string)
+     * 
+     */
     @Import(name="snatPortRangeEnd")
     private @Nullable Output<String> snatPortRangeEnd;
 
+    /**
+     * @return Port end range for Source Network Address Translation on aci (string)
+     * 
+     */
     public Optional<Output<String>> snatPortRangeEnd() {
         return Optional.ofNullable(this.snatPortRangeEnd);
     }
 
+    /**
+     * Port start range for Source Network Address Translation on aci (string)
+     * 
+     */
     @Import(name="snatPortRangeStart")
     private @Nullable Output<String> snatPortRangeStart;
 
+    /**
+     * @return Port start range for Source Network Address Translation on aci (string)
+     * 
+     */
     public Optional<Output<String>> snatPortRangeStart() {
         return Optional.ofNullable(this.snatPortRangeStart);
     }
 
+    /**
+     * Ports per node for Source Network Address Translation on aci (string)
+     * 
+     */
     @Import(name="snatPortsPerNode")
     private @Nullable Output<String> snatPortsPerNode;
 
+    /**
+     * @return Ports per node for Source Network Address Translation on aci (string)
+     * 
+     */
     public Optional<Output<String>> snatPortsPerNode() {
         return Optional.ofNullable(this.snatPortsPerNode);
     }
 
+    /**
+     * Unique suffix for all cluster related objects in aci (string)
+     * 
+     */
     @Import(name="systemId", required=true)
     private Output<String> systemId;
 
+    /**
+     * @return Unique suffix for all cluster related objects in aci (string)
+     * 
+     */
     public Output<String> systemId() {
         return this.systemId;
     }
 
+    /**
+     * UUID for this version of the input configuration (string)
+     * 
+     */
     @Import(name="token", required=true)
     private Output<String> token;
 
+    /**
+     * @return UUID for this version of the input configuration (string)
+     * 
+     */
     public Output<String> token() {
         return this.token;
     }
 
+    /**
+     * VRF Name on aci (string)
+     * 
+     */
     @Import(name="vrfName", required=true)
     private Output<String> vrfName;
 
+    /**
+     * @return VRF Name on aci (string)
+     * 
+     */
     public Output<String> vrfName() {
         return this.vrfName;
     }
 
+    /**
+     * Tenant for VRF on aci (string)
+     * 
+     */
     @Import(name="vrfTenant", required=true)
     private Output<String> vrfTenant;
 
+    /**
+     * @return Tenant for VRF on aci (string)
+     * 
+     */
     public Output<String> vrfTenant() {
         return this.vrfTenant;
     }
@@ -232,69 +418,161 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
             $ = new ClusterNetworkAciNetworkProviderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aep Attachment entity profile name on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder aep(Output<String> aep) {
             $.aep = aep;
             return this;
         }
 
+        /**
+         * @param aep Attachment entity profile name on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder aep(String aep) {
             return aep(Output.of(aep));
         }
 
+        /**
+         * @param apicHosts Ip address for apic hosts (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicHosts(Output<List<String>> apicHosts) {
             $.apicHosts = apicHosts;
             return this;
         }
 
+        /**
+         * @param apicHosts Ip address for apic hosts (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicHosts(List<String> apicHosts) {
             return apicHosts(Output.of(apicHosts));
         }
 
+        /**
+         * @param apicHosts Ip address for apic hosts (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicHosts(String... apicHosts) {
             return apicHosts(List.of(apicHosts));
         }
 
+        /**
+         * @param apicUserCrt Base64 encoded certificate for aci apic user (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserCrt(Output<String> apicUserCrt) {
             $.apicUserCrt = apicUserCrt;
             return this;
         }
 
+        /**
+         * @param apicUserCrt Base64 encoded certificate for aci apic user (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserCrt(String apicUserCrt) {
             return apicUserCrt(Output.of(apicUserCrt));
         }
 
+        /**
+         * @param apicUserKey Base64 encoded private key for aci apic user (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserKey(Output<String> apicUserKey) {
             $.apicUserKey = apicUserKey;
             return this;
         }
 
+        /**
+         * @param apicUserKey Base64 encoded private key for aci apic user (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserKey(String apicUserKey) {
             return apicUserKey(Output.of(apicUserKey));
         }
 
+        /**
+         * @param apicUserName User name for aci apic (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserName(Output<String> apicUserName) {
             $.apicUserName = apicUserName;
             return this;
         }
 
+        /**
+         * @param apicUserName User name for aci apic (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder apicUserName(String apicUserName) {
             return apicUserName(Output.of(apicUserName));
         }
 
+        /**
+         * @param encapType One of the supported encap types for aci(vlan/vxlan) (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder encapType(Output<String> encapType) {
             $.encapType = encapType;
             return this;
         }
 
+        /**
+         * @param encapType One of the supported encap types for aci(vlan/vxlan) (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder encapType(String encapType) {
             return encapType(Output.of(encapType));
         }
 
+        /**
+         * @param externDynamic Subnet to use for dynamic external IPs on aci (string)
+         * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder externDynamic(Output<String> externDynamic) {
             $.externDynamic = externDynamic;
             return this;
         }
 
+        /**
+         * @param externDynamic Subnet to use for dynamic external IPs on aci (string)
+         * * `extern_static&#34;` - (Required) Subnet to use for static external IPs on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder externDynamic(String externDynamic) {
             return externDynamic(Output.of(externDynamic));
         }
@@ -308,150 +586,348 @@ public final class ClusterNetworkAciNetworkProviderArgs extends com.pulumi.resou
             return externStatic(Output.of(externStatic));
         }
 
+        /**
+         * @param infraVlan Vlan for infra network on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder infraVlan(Output<String> infraVlan) {
             $.infraVlan = infraVlan;
             return this;
         }
 
+        /**
+         * @param infraVlan Vlan for infra network on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder infraVlan(String infraVlan) {
             return infraVlan(Output.of(infraVlan));
         }
 
+        /**
+         * @param kubeApiVlan Vlan for node network on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeApiVlan(Output<String> kubeApiVlan) {
             $.kubeApiVlan = kubeApiVlan;
             return this;
         }
 
+        /**
+         * @param kubeApiVlan Vlan for node network on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubeApiVlan(String kubeApiVlan) {
             return kubeApiVlan(Output.of(kubeApiVlan));
         }
 
+        /**
+         * @param l3out L3Out on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder l3out(Output<String> l3out) {
             $.l3out = l3out;
             return this;
         }
 
+        /**
+         * @param l3out L3Out on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder l3out(String l3out) {
             return l3out(Output.of(l3out));
         }
 
+        /**
+         * @param l3outExternalNetworks L3out external networks on aci (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder l3outExternalNetworks(Output<List<String>> l3outExternalNetworks) {
             $.l3outExternalNetworks = l3outExternalNetworks;
             return this;
         }
 
+        /**
+         * @param l3outExternalNetworks L3out external networks on aci (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder l3outExternalNetworks(List<String> l3outExternalNetworks) {
             return l3outExternalNetworks(Output.of(l3outExternalNetworks));
         }
 
+        /**
+         * @param l3outExternalNetworks L3out external networks on aci (list)
+         * 
+         * @return builder
+         * 
+         */
         public Builder l3outExternalNetworks(String... l3outExternalNetworks) {
             return l3outExternalNetworks(List.of(l3outExternalNetworks));
         }
 
+        /**
+         * @param mcastRangeEnd Mcast range end address for endpoint groups on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mcastRangeEnd(Output<String> mcastRangeEnd) {
             $.mcastRangeEnd = mcastRangeEnd;
             return this;
         }
 
+        /**
+         * @param mcastRangeEnd Mcast range end address for endpoint groups on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mcastRangeEnd(String mcastRangeEnd) {
             return mcastRangeEnd(Output.of(mcastRangeEnd));
         }
 
+        /**
+         * @param mcastRangeStart Mcast range start address for endpoint groups on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mcastRangeStart(Output<String> mcastRangeStart) {
             $.mcastRangeStart = mcastRangeStart;
             return this;
         }
 
+        /**
+         * @param mcastRangeStart Mcast range start address for endpoint groups on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder mcastRangeStart(String mcastRangeStart) {
             return mcastRangeStart(Output.of(mcastRangeStart));
         }
 
+        /**
+         * @param nodeSubnet Kubernetes node address subnet (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeSubnet(Output<String> nodeSubnet) {
             $.nodeSubnet = nodeSubnet;
             return this;
         }
 
+        /**
+         * @param nodeSubnet Kubernetes node address subnet (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeSubnet(String nodeSubnet) {
             return nodeSubnet(Output.of(nodeSubnet));
         }
 
+        /**
+         * @param nodeSvcSubnet Subnet to use for service graph endpoints on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeSvcSubnet(Output<String> nodeSvcSubnet) {
             $.nodeSvcSubnet = nodeSvcSubnet;
             return this;
         }
 
+        /**
+         * @param nodeSvcSubnet Subnet to use for service graph endpoints on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeSvcSubnet(String nodeSvcSubnet) {
             return nodeSvcSubnet(Output.of(nodeSvcSubnet));
         }
 
+        /**
+         * @param serviceVlan Vlan for service graph nodes on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceVlan(Output<String> serviceVlan) {
             $.serviceVlan = serviceVlan;
             return this;
         }
 
+        /**
+         * @param serviceVlan Vlan for service graph nodes on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceVlan(String serviceVlan) {
             return serviceVlan(Output.of(serviceVlan));
         }
 
+        /**
+         * @param snatPortRangeEnd Port end range for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortRangeEnd(@Nullable Output<String> snatPortRangeEnd) {
             $.snatPortRangeEnd = snatPortRangeEnd;
             return this;
         }
 
+        /**
+         * @param snatPortRangeEnd Port end range for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortRangeEnd(String snatPortRangeEnd) {
             return snatPortRangeEnd(Output.of(snatPortRangeEnd));
         }
 
+        /**
+         * @param snatPortRangeStart Port start range for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortRangeStart(@Nullable Output<String> snatPortRangeStart) {
             $.snatPortRangeStart = snatPortRangeStart;
             return this;
         }
 
+        /**
+         * @param snatPortRangeStart Port start range for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortRangeStart(String snatPortRangeStart) {
             return snatPortRangeStart(Output.of(snatPortRangeStart));
         }
 
+        /**
+         * @param snatPortsPerNode Ports per node for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortsPerNode(@Nullable Output<String> snatPortsPerNode) {
             $.snatPortsPerNode = snatPortsPerNode;
             return this;
         }
 
+        /**
+         * @param snatPortsPerNode Ports per node for Source Network Address Translation on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder snatPortsPerNode(String snatPortsPerNode) {
             return snatPortsPerNode(Output.of(snatPortsPerNode));
         }
 
+        /**
+         * @param systemId Unique suffix for all cluster related objects in aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder systemId(Output<String> systemId) {
             $.systemId = systemId;
             return this;
         }
 
+        /**
+         * @param systemId Unique suffix for all cluster related objects in aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder systemId(String systemId) {
             return systemId(Output.of(systemId));
         }
 
+        /**
+         * @param token UUID for this version of the input configuration (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(Output<String> token) {
             $.token = token;
             return this;
         }
 
+        /**
+         * @param token UUID for this version of the input configuration (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(String token) {
             return token(Output.of(token));
         }
 
+        /**
+         * @param vrfName VRF Name on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder vrfName(Output<String> vrfName) {
             $.vrfName = vrfName;
             return this;
         }
 
+        /**
+         * @param vrfName VRF Name on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder vrfName(String vrfName) {
             return vrfName(Output.of(vrfName));
         }
 
+        /**
+         * @param vrfTenant Tenant for VRF on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder vrfTenant(Output<String> vrfTenant) {
             $.vrfTenant = vrfTenant;
             return this;
         }
 
+        /**
+         * @param vrfTenant Tenant for VRF on aci (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder vrfTenant(String vrfTenant) {
             return vrfTenant(Output.of(vrfTenant));
         }

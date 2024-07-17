@@ -108,6 +108,9 @@ namespace Pulumi.Rke.Inputs
         [Input("cloudProviderRateLimit")]
         public Input<bool>? CloudProviderRateLimit { get; set; }
 
+        /// <summary>
+        /// (int)
+        /// </summary>
         [Input("cloudProviderRateLimitBucket")]
         public Input<int>? CloudProviderRateLimitBucket { get; set; }
 

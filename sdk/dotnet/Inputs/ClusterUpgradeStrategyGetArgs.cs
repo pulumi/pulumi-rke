@@ -12,15 +12,27 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterUpgradeStrategyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// RKE drain nodes (bool)
+        /// </summary>
         [Input("drain")]
         public Input<bool>? Drain { get; set; }
 
+        /// <summary>
+        /// RKE drain node input (list Maxitems: 1)
+        /// </summary>
         [Input("drainInput")]
         public Input<Inputs.ClusterUpgradeStrategyDrainInputGetArgs>? DrainInput { get; set; }
 
+        /// <summary>
+        /// RKE max unavailable controlplane nodes (string)
+        /// </summary>
         [Input("maxUnavailableControlplane")]
         public Input<string>? MaxUnavailableControlplane { get; set; }
 
+        /// <summary>
+        /// RKE max unavailable worker nodes (string)
+        /// </summary>
         [Input("maxUnavailableWorker")]
         public Input<string>? MaxUnavailableWorker { get; set; }
 

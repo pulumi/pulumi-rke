@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use aws_cloud_provider instead
+        /// </summary>
         [Input("awsCloudConfig")]
         public Input<Inputs.ClusterCloudProviderAwsCloudConfigGetArgs>? AwsCloudConfig { get; set; }
 
@@ -21,6 +24,9 @@ namespace Pulumi.Rke.Inputs
         [Input("awsCloudProvider")]
         public Input<Inputs.ClusterCloudProviderAwsCloudProviderGetArgs>? AwsCloudProvider { get; set; }
 
+        /// <summary>
+        /// Use azure_cloud_provider instead
+        /// </summary>
         [Input("azureCloudConfig")]
         public Input<Inputs.ClusterCloudProviderAzureCloudConfigGetArgs>? AzureCloudConfig { get; set; }
 
@@ -30,6 +36,9 @@ namespace Pulumi.Rke.Inputs
         [Input("azureCloudProvider")]
         public Input<Inputs.ClusterCloudProviderAzureCloudProviderGetArgs>? AzureCloudProvider { get; set; }
 
+        /// <summary>
+        /// Use custom_cloud_provider instead
+        /// </summary>
         [Input("customCloudConfig")]
         public Input<string>? CustomCloudConfig { get; set; }
 
@@ -39,9 +48,15 @@ namespace Pulumi.Rke.Inputs
         [Input("customCloudProvider")]
         public Input<string>? CustomCloudProvider { get; set; }
 
+        /// <summary>
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Use openstack_cloud_provider instead
+        /// </summary>
         [Input("openstackCloudConfig")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudConfigGetArgs>? OpenstackCloudConfig { get; set; }
 
@@ -51,6 +66,9 @@ namespace Pulumi.Rke.Inputs
         [Input("openstackCloudProvider")]
         public Input<Inputs.ClusterCloudProviderOpenstackCloudProviderGetArgs>? OpenstackCloudProvider { get; set; }
 
+        /// <summary>
+        /// Use vsphere_cloud_provider instead
+        /// </summary>
         [Input("vsphereCloudConfig")]
         public Input<Inputs.ClusterCloudProviderVsphereCloudConfigGetArgs>? VsphereCloudConfig { get; set; }
 

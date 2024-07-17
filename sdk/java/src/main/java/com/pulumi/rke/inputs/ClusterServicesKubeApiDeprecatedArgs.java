@@ -37,16 +37,32 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
         return Optional.ofNullable(this.alwaysPullImages);
     }
 
+    /**
+     * K8s audit log configuration. (list maxitem: 1)
+     * 
+     */
     @Import(name="auditLog")
     private @Nullable Output<ClusterServicesKubeApiDeprecatedAuditLogArgs> auditLog;
 
+    /**
+     * @return K8s audit log configuration. (list maxitem: 1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeApiDeprecatedAuditLogArgs>> auditLog() {
         return Optional.ofNullable(this.auditLog);
     }
 
+    /**
+     * K8s event rate limit configuration. (list maxitem: 1)
+     * 
+     */
     @Import(name="eventRateLimit")
     private @Nullable Output<ClusterServicesKubeApiDeprecatedEventRateLimitArgs> eventRateLimit;
 
+    /**
+     * @return K8s event rate limit configuration. (list maxitem: 1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeApiDeprecatedEventRateLimitArgs>> eventRateLimit() {
         return Optional.ofNullable(this.eventRateLimit);
     }
@@ -96,9 +112,17 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
         return Optional.ofNullable(this.extraEnvs);
     }
 
+    /**
+     * Docker image for scheduler service (string)
+     * 
+     */
     @Import(name="image")
     private @Nullable Output<String> image;
 
+    /**
+     * @return Docker image for scheduler service (string)
+     * 
+     */
     public Optional<Output<String>> image() {
         return Optional.ofNullable(this.image);
     }
@@ -133,9 +157,17 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
         return Optional.ofNullable(this.podSecurityPolicy);
     }
 
+    /**
+     * [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+     * 
+     */
     @Import(name="secretsEncryptionConfig")
     private @Nullable Output<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs> secretsEncryptionConfig;
 
+    /**
+     * @return [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+     * 
+     */
     public Optional<Output<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs>> secretsEncryptionConfig() {
         return Optional.ofNullable(this.secretsEncryptionConfig);
     }
@@ -226,20 +258,44 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
             return alwaysPullImages(Output.of(alwaysPullImages));
         }
 
+        /**
+         * @param auditLog K8s audit log configuration. (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditLog(@Nullable Output<ClusterServicesKubeApiDeprecatedAuditLogArgs> auditLog) {
             $.auditLog = auditLog;
             return this;
         }
 
+        /**
+         * @param auditLog K8s audit log configuration. (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditLog(ClusterServicesKubeApiDeprecatedAuditLogArgs auditLog) {
             return auditLog(Output.of(auditLog));
         }
 
+        /**
+         * @param eventRateLimit K8s event rate limit configuration. (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventRateLimit(@Nullable Output<ClusterServicesKubeApiDeprecatedEventRateLimitArgs> eventRateLimit) {
             $.eventRateLimit = eventRateLimit;
             return this;
         }
 
+        /**
+         * @param eventRateLimit K8s event rate limit configuration. (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventRateLimit(ClusterServicesKubeApiDeprecatedEventRateLimitArgs eventRateLimit) {
             return eventRateLimit(Output.of(eventRateLimit));
         }
@@ -327,11 +383,23 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
             return extraEnvs(List.of(extraEnvs));
         }
 
+        /**
+         * @param image Docker image for scheduler service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(@Nullable Output<String> image) {
             $.image = image;
             return this;
         }
 
+        /**
+         * @param image Docker image for scheduler service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
@@ -378,11 +446,23 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
             return podSecurityPolicy(Output.of(podSecurityPolicy));
         }
 
+        /**
+         * @param secretsEncryptionConfig [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsEncryptionConfig(@Nullable Output<ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs> secretsEncryptionConfig) {
             $.secretsEncryptionConfig = secretsEncryptionConfig;
             return this;
         }
 
+        /**
+         * @param secretsEncryptionConfig [Encrypt k8s secret data configration](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/). (list maxitem: 1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsEncryptionConfig(ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs secretsEncryptionConfig) {
             return secretsEncryptionConfig(Output.of(secretsEncryptionConfig));
         }

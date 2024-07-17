@@ -12,14 +12,24 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderVsphereCloudProviderVirtualCenterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         [Input("datacenters", required: true)]
         public Input<string> Datacenters { get; set; } = null!;
 
+        /// <summary>
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Registry password (string)
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -30,14 +40,24 @@ namespace Pulumi.Rke.Inputs
             }
         }
 
+        /// <summary>
+        /// Port used for SSH communication (string)
+        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        /// <summary>
+        /// (int)
+        /// </summary>
         [Input("soapRoundtripCount")]
         public Input<int>? SoapRoundtripCount { get; set; }
 
         [Input("user", required: true)]
         private Input<string>? _user;
+
+        /// <summary>
+        /// Registry user (string)
+        /// </summary>
         public Input<string>? User
         {
             get => _user;

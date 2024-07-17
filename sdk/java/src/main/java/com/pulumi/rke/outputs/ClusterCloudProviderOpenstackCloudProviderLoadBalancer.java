@@ -13,49 +13,137 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderOpenstackCloudProviderLoadBalancer {
+    /**
+     * @return (bool)
+     * 
+     */
     private @Nullable Boolean createMonitor;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String floatingNetworkId;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String lbMethod;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String lbProvider;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String lbVersion;
+    /**
+     * @return (bool)
+     * 
+     */
     private @Nullable Boolean manageSecurityGroups;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String monitorDelay;
+    /**
+     * @return (int)
+     * 
+     */
     private @Nullable Integer monitorMaxRetries;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String monitorTimeout;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String subnetId;
+    /**
+     * @return (bool)
+     * 
+     */
     private @Nullable Boolean useOctavia;
 
     private ClusterCloudProviderOpenstackCloudProviderLoadBalancer() {}
+    /**
+     * @return (bool)
+     * 
+     */
     public Optional<Boolean> createMonitor() {
         return Optional.ofNullable(this.createMonitor);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> floatingNetworkId() {
         return Optional.ofNullable(this.floatingNetworkId);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> lbMethod() {
         return Optional.ofNullable(this.lbMethod);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> lbProvider() {
         return Optional.ofNullable(this.lbProvider);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> lbVersion() {
         return Optional.ofNullable(this.lbVersion);
     }
+    /**
+     * @return (bool)
+     * 
+     */
     public Optional<Boolean> manageSecurityGroups() {
         return Optional.ofNullable(this.manageSecurityGroups);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> monitorDelay() {
         return Optional.ofNullable(this.monitorDelay);
     }
+    /**
+     * @return (int)
+     * 
+     */
     public Optional<Integer> monitorMaxRetries() {
         return Optional.ofNullable(this.monitorMaxRetries);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> monitorTimeout() {
         return Optional.ofNullable(this.monitorTimeout);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
+    /**
+     * @return (bool)
+     * 
+     */
     public Optional<Boolean> useOctavia() {
         return Optional.ofNullable(this.useOctavia);
     }
