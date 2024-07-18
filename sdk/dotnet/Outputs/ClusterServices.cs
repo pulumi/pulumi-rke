@@ -13,11 +13,29 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterServices
     {
+        /// <summary>
+        /// Docker image for etcd (string)
+        /// </summary>
         public readonly Outputs.ClusterServicesEtcd? Etcd;
+        /// <summary>
+        /// Kube API options for RKE services (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterServicesKubeApi? KubeApi;
+        /// <summary>
+        /// Kube Controller options for RKE services (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterServicesKubeController? KubeController;
+        /// <summary>
+        /// Kubelet options for RKE services (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterServicesKubelet? Kubelet;
+        /// <summary>
+        /// Kubeproxy options for RKE services (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterServicesKubeproxy? Kubeproxy;
+        /// <summary>
+        /// Scheduler options for RKE services (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterServicesScheduler? Scheduler;
 
         [OutputConstructor]

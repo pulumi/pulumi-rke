@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderVsphereCloudProviderWorkspace {
+    /**
+     * @return (string)
+     * 
+     */
     private String datacenter;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String defaultDatastore;
+    /**
+     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * 
+     */
     private @Nullable String folder;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String resourcepoolPath;
+    /**
+     * @return (string)
+     * 
+     */
     private String server;
 
     private ClusterCloudProviderVsphereCloudProviderWorkspace() {}
+    /**
+     * @return (string)
+     * 
+     */
     public String datacenter() {
         return this.datacenter;
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> defaultDatastore() {
         return Optional.ofNullable(this.defaultDatastore);
     }
+    /**
+     * @return Folder for S3 service. Available from Rancher v2.2.7 (string)
+     * 
+     */
     public Optional<String> folder() {
         return Optional.ofNullable(this.folder);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> resourcepoolPath() {
         return Optional.ofNullable(this.resourcepoolPath);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public String server() {
         return this.server;
     }

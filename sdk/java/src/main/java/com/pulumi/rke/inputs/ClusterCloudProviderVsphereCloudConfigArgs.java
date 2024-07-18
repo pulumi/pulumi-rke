@@ -21,16 +21,32 @@ public final class ClusterCloudProviderVsphereCloudConfigArgs extends com.pulumi
 
     public static final ClusterCloudProviderVsphereCloudConfigArgs Empty = new ClusterCloudProviderVsphereCloudConfigArgs();
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="disk")
     private @Nullable Output<ClusterCloudProviderVsphereCloudConfigDiskArgs> disk;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderVsphereCloudConfigDiskArgs>> disk() {
         return Optional.ofNullable(this.disk);
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="global")
     private @Nullable Output<ClusterCloudProviderVsphereCloudConfigGlobalArgs> global;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Optional<Output<ClusterCloudProviderVsphereCloudConfigGlobalArgs>> global() {
         return Optional.ofNullable(this.global);
     }
@@ -50,16 +66,32 @@ public final class ClusterCloudProviderVsphereCloudConfigArgs extends com.pulumi
         return Optional.ofNullable(this.network);
     }
 
+    /**
+     * (List)
+     * 
+     */
     @Import(name="virtualCenters", required=true)
     private Output<List<ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs>> virtualCenters;
 
+    /**
+     * @return (List)
+     * 
+     */
     public Output<List<ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs>> virtualCenters() {
         return this.virtualCenters;
     }
 
+    /**
+     * (list maxitems:1)
+     * 
+     */
     @Import(name="workspace", required=true)
     private Output<ClusterCloudProviderVsphereCloudConfigWorkspaceArgs> workspace;
 
+    /**
+     * @return (list maxitems:1)
+     * 
+     */
     public Output<ClusterCloudProviderVsphereCloudConfigWorkspaceArgs> workspace() {
         return this.workspace;
     }
@@ -92,20 +124,44 @@ public final class ClusterCloudProviderVsphereCloudConfigArgs extends com.pulumi
             $ = new ClusterCloudProviderVsphereCloudConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param disk (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder disk(@Nullable Output<ClusterCloudProviderVsphereCloudConfigDiskArgs> disk) {
             $.disk = disk;
             return this;
         }
 
+        /**
+         * @param disk (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder disk(ClusterCloudProviderVsphereCloudConfigDiskArgs disk) {
             return disk(Output.of(disk));
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(@Nullable Output<ClusterCloudProviderVsphereCloudConfigGlobalArgs> global) {
             $.global = global;
             return this;
         }
 
+        /**
+         * @param global (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder global(ClusterCloudProviderVsphereCloudConfigGlobalArgs global) {
             return global(Output.of(global));
         }
@@ -131,24 +187,54 @@ public final class ClusterCloudProviderVsphereCloudConfigArgs extends com.pulumi
             return network(Output.of(network));
         }
 
+        /**
+         * @param virtualCenters (List)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualCenters(Output<List<ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs>> virtualCenters) {
             $.virtualCenters = virtualCenters;
             return this;
         }
 
+        /**
+         * @param virtualCenters (List)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualCenters(List<ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs> virtualCenters) {
             return virtualCenters(Output.of(virtualCenters));
         }
 
+        /**
+         * @param virtualCenters (List)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualCenters(ClusterCloudProviderVsphereCloudConfigVirtualCenterArgs... virtualCenters) {
             return virtualCenters(List.of(virtualCenters));
         }
 
+        /**
+         * @param workspace (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspace(Output<ClusterCloudProviderVsphereCloudConfigWorkspaceArgs> workspace) {
             $.workspace = workspace;
             return this;
         }
 
+        /**
+         * @param workspace (list maxitems:1)
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspace(ClusterCloudProviderVsphereCloudConfigWorkspaceArgs workspace) {
             return workspace(Output.of(workspace));
         }

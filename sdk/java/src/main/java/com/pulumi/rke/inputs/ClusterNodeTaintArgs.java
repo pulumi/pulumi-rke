@@ -16,23 +16,47 @@ public final class ClusterNodeTaintArgs extends com.pulumi.resources.ResourceArg
 
     public static final ClusterNodeTaintArgs Empty = new ClusterNodeTaintArgs();
 
+    /**
+     * Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+     * 
+     */
     @Import(name="effect")
     private @Nullable Output<String> effect;
 
+    /**
+     * @return Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+     * 
+     */
     public Optional<Output<String>> effect() {
         return Optional.ofNullable(this.effect);
     }
 
+    /**
+     * TLS key for etcd service (string)
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return TLS key for etcd service (string)
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Taint value (string)
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Taint value (string)
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -63,29 +87,65 @@ public final class ClusterNodeTaintArgs extends com.pulumi.resources.ResourceArg
             $ = new ClusterNodeTaintArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param effect Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder effect(@Nullable Output<String> effect) {
             $.effect = effect;
             return this;
         }
 
+        /**
+         * @param effect Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder effect(String effect) {
             return effect(Output.of(effect));
         }
 
+        /**
+         * @param key TLS key for etcd service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key TLS key for etcd service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value Taint value (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Taint value (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

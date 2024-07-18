@@ -13,10 +13,25 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderOpenstackCloudConfig
     {
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfigBlockStorage? BlockStorage;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfigGlobal Global;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfigLoadBalancer? LoadBalancer;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfigMetadata? Metadata;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderOpenstackCloudConfigRoute? Route;
 
         [OutputConstructor]

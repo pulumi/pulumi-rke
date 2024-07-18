@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterCloudProviderVsphereCloudProviderDiskGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         [Input("scsiControllerType")]
         public Input<string>? ScsiControllerType { get; set; }
 

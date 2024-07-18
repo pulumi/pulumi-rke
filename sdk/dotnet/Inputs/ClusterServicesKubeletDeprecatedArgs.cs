@@ -66,6 +66,9 @@ namespace Pulumi.Rke.Inputs
         [Input("failSwapOn")]
         public Input<bool>? FailSwapOn { get; set; }
 
+        /// <summary>
+        /// [Generate a certificate signed by the kube-ca](https://rancher.com/docs/rke/latest/en/config-options/services/#kubelet-serving-certificate-requirements). Default `false` (bool)
+        /// </summary>
         [Input("generateServingCertificate")]
         public Input<bool>? GenerateServingCertificate { get; set; }
 

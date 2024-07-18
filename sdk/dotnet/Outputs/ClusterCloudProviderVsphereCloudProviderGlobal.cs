@@ -13,16 +13,49 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderVsphereCloudProviderGlobal
     {
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? Datacenter;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? Datacenters;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? Datastore;
+        /// <summary>
+        /// (bool)
+        /// </summary>
         public readonly bool? InsecureFlag;
+        /// <summary>
+        /// Registry password (string)
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// Port used for SSH communication (string)
+        /// </summary>
         public readonly string? Port;
+        /// <summary>
+        /// (int)
+        /// </summary>
         public readonly int? SoapRoundtripCount;
+        /// <summary>
+        /// Registry user (string)
+        /// </summary>
         public readonly string? User;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? VmName;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? VmUuid;
+        /// <summary>
+        /// (string)
+        /// </summary>
         public readonly string? WorkingDir;
 
         [OutputConstructor]

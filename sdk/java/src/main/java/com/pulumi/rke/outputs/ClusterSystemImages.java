@@ -11,115 +11,351 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterSystemImages {
+    /**
+     * @return Docker image for aci_cni_deploy_container (string)
+     * 
+     */
     private @Nullable String aciCniDeployContainer;
+    /**
+     * @return Docker image for aci_controller_container (string)
+     * 
+     */
     private @Nullable String aciControllerContainer;
+    /**
+     * @return Docker image for aci_host_container (string)
+     * 
+     */
     private @Nullable String aciHostContainer;
+    /**
+     * @return Docker image for aci_mcast_container (string)
+     * 
+     */
     private @Nullable String aciMcastContainer;
+    /**
+     * @return Docker image for aci_opflex_container (string)
+     * 
+     */
     private @Nullable String aciOpflexContainer;
+    /**
+     * @return Docker image for aci_ovs_container (string)
+     * 
+     */
     private @Nullable String aciOvsContainer;
+    /**
+     * @return Docker image for alpine (string)
+     * 
+     */
     private @Nullable String alpine;
+    /**
+     * @return Docker image for calico_cni (string)
+     * 
+     */
     private @Nullable String calicoCni;
+    /**
+     * @return Docker image for calico_controllers (string)
+     * 
+     */
     private @Nullable String calicoControllers;
+    /**
+     * @return Docker image for calico_ctl (string)
+     * 
+     */
     private @Nullable String calicoCtl;
+    /**
+     * @return Docker image for calico_flex_vol (string)
+     * 
+     */
     private @Nullable String calicoFlexVol;
+    /**
+     * @return Docker image for calico_node (string)
+     * 
+     */
     private @Nullable String calicoNode;
+    /**
+     * @return Docker image for canal_cni (string)
+     * 
+     */
     private @Nullable String canalCni;
+    /**
+     * @return Docker image for canal_flannel (string)
+     * 
+     */
     private @Nullable String canalFlannel;
+    /**
+     * @return Docker image for canal_flex_vol (string)
+     * 
+     */
     private @Nullable String canalFlexVol;
+    /**
+     * @return Docker image for canal_node (string)
+     * 
+     */
     private @Nullable String canalNode;
+    /**
+     * @return Docker image for cert_downloader (string)
+     * 
+     */
     private @Nullable String certDownloader;
+    /**
+     * @return Docker image for coredns (string)
+     * 
+     */
     private @Nullable String coredns;
+    /**
+     * @return Docker image for coredns_autoscaler (string)
+     * 
+     */
     private @Nullable String corednsAutoscaler;
+    /**
+     * @return Docker image for dnsmasq (string)
+     * 
+     */
     private @Nullable String dnsmasq;
+    /**
+     * @return Docker image for etcd (string)
+     * 
+     */
     private @Nullable String etcd;
+    /**
+     * @return Docker image for flannel (string)
+     * 
+     */
     private @Nullable String flannel;
+    /**
+     * @return Docker image for flannel_cni (string)
+     * 
+     */
     private @Nullable String flannelCni;
     /**
      * @return RKE k8s cluster ingress controller configuration (list maxitems:1)
      * 
      */
     private @Nullable String ingress;
+    /**
+     * @return Docker image for ingress_backend (string)
+     * 
+     */
     private @Nullable String ingressBackend;
+    /**
+     * @return Docker image for kube_dns (string)
+     * 
+     */
     private @Nullable String kubeDns;
+    /**
+     * @return Docker image for kube_dns_autoscaler (string)
+     * 
+     */
     private @Nullable String kubeDnsAutoscaler;
+    /**
+     * @return Docker image for kube_dns_sidecar (string)
+     * 
+     */
     private @Nullable String kubeDnsSidecar;
+    /**
+     * @return Docker image for kubernetes (string)
+     * 
+     */
     private @Nullable String kubernetes;
+    /**
+     * @return Docker image for kubernetes_services_sidecar (string)
+     * 
+     */
     private @Nullable String kubernetesServicesSidecar;
+    /**
+     * @return Docker image for metrics_server (string)
+     * 
+     */
     private @Nullable String metricsServer;
+    /**
+     * @return Docker image for nginx_proxy (string)
+     * 
+     */
     private @Nullable String nginxProxy;
+    /**
+     * @return Docker image for nodelocal (string)
+     * 
+     */
     private @Nullable String nodelocal;
+    /**
+     * @return Docker image for pod_infra_container (string)
+     * 
+     */
     private @Nullable String podInfraContainer;
+    /**
+     * @return Docker image for weave_cni (string)
+     * 
+     */
     private @Nullable String weaveCni;
+    /**
+     * @return Docker image for weave_node (string)
+     * 
+     */
     private @Nullable String weaveNode;
+    /**
+     * @return Docker image for windows_pod_infra_container (string)
+     * 
+     */
     private @Nullable String windowsPodInfraContainer;
 
     private ClusterSystemImages() {}
+    /**
+     * @return Docker image for aci_cni_deploy_container (string)
+     * 
+     */
     public Optional<String> aciCniDeployContainer() {
         return Optional.ofNullable(this.aciCniDeployContainer);
     }
+    /**
+     * @return Docker image for aci_controller_container (string)
+     * 
+     */
     public Optional<String> aciControllerContainer() {
         return Optional.ofNullable(this.aciControllerContainer);
     }
+    /**
+     * @return Docker image for aci_host_container (string)
+     * 
+     */
     public Optional<String> aciHostContainer() {
         return Optional.ofNullable(this.aciHostContainer);
     }
+    /**
+     * @return Docker image for aci_mcast_container (string)
+     * 
+     */
     public Optional<String> aciMcastContainer() {
         return Optional.ofNullable(this.aciMcastContainer);
     }
+    /**
+     * @return Docker image for aci_opflex_container (string)
+     * 
+     */
     public Optional<String> aciOpflexContainer() {
         return Optional.ofNullable(this.aciOpflexContainer);
     }
+    /**
+     * @return Docker image for aci_ovs_container (string)
+     * 
+     */
     public Optional<String> aciOvsContainer() {
         return Optional.ofNullable(this.aciOvsContainer);
     }
+    /**
+     * @return Docker image for alpine (string)
+     * 
+     */
     public Optional<String> alpine() {
         return Optional.ofNullable(this.alpine);
     }
+    /**
+     * @return Docker image for calico_cni (string)
+     * 
+     */
     public Optional<String> calicoCni() {
         return Optional.ofNullable(this.calicoCni);
     }
+    /**
+     * @return Docker image for calico_controllers (string)
+     * 
+     */
     public Optional<String> calicoControllers() {
         return Optional.ofNullable(this.calicoControllers);
     }
+    /**
+     * @return Docker image for calico_ctl (string)
+     * 
+     */
     public Optional<String> calicoCtl() {
         return Optional.ofNullable(this.calicoCtl);
     }
+    /**
+     * @return Docker image for calico_flex_vol (string)
+     * 
+     */
     public Optional<String> calicoFlexVol() {
         return Optional.ofNullable(this.calicoFlexVol);
     }
+    /**
+     * @return Docker image for calico_node (string)
+     * 
+     */
     public Optional<String> calicoNode() {
         return Optional.ofNullable(this.calicoNode);
     }
+    /**
+     * @return Docker image for canal_cni (string)
+     * 
+     */
     public Optional<String> canalCni() {
         return Optional.ofNullable(this.canalCni);
     }
+    /**
+     * @return Docker image for canal_flannel (string)
+     * 
+     */
     public Optional<String> canalFlannel() {
         return Optional.ofNullable(this.canalFlannel);
     }
+    /**
+     * @return Docker image for canal_flex_vol (string)
+     * 
+     */
     public Optional<String> canalFlexVol() {
         return Optional.ofNullable(this.canalFlexVol);
     }
+    /**
+     * @return Docker image for canal_node (string)
+     * 
+     */
     public Optional<String> canalNode() {
         return Optional.ofNullable(this.canalNode);
     }
+    /**
+     * @return Docker image for cert_downloader (string)
+     * 
+     */
     public Optional<String> certDownloader() {
         return Optional.ofNullable(this.certDownloader);
     }
+    /**
+     * @return Docker image for coredns (string)
+     * 
+     */
     public Optional<String> coredns() {
         return Optional.ofNullable(this.coredns);
     }
+    /**
+     * @return Docker image for coredns_autoscaler (string)
+     * 
+     */
     public Optional<String> corednsAutoscaler() {
         return Optional.ofNullable(this.corednsAutoscaler);
     }
+    /**
+     * @return Docker image for dnsmasq (string)
+     * 
+     */
     public Optional<String> dnsmasq() {
         return Optional.ofNullable(this.dnsmasq);
     }
+    /**
+     * @return Docker image for etcd (string)
+     * 
+     */
     public Optional<String> etcd() {
         return Optional.ofNullable(this.etcd);
     }
+    /**
+     * @return Docker image for flannel (string)
+     * 
+     */
     public Optional<String> flannel() {
         return Optional.ofNullable(this.flannel);
     }
+    /**
+     * @return Docker image for flannel_cni (string)
+     * 
+     */
     public Optional<String> flannelCni() {
         return Optional.ofNullable(this.flannelCni);
     }
@@ -130,42 +366,94 @@ public final class ClusterSystemImages {
     public Optional<String> ingress() {
         return Optional.ofNullable(this.ingress);
     }
+    /**
+     * @return Docker image for ingress_backend (string)
+     * 
+     */
     public Optional<String> ingressBackend() {
         return Optional.ofNullable(this.ingressBackend);
     }
+    /**
+     * @return Docker image for kube_dns (string)
+     * 
+     */
     public Optional<String> kubeDns() {
         return Optional.ofNullable(this.kubeDns);
     }
+    /**
+     * @return Docker image for kube_dns_autoscaler (string)
+     * 
+     */
     public Optional<String> kubeDnsAutoscaler() {
         return Optional.ofNullable(this.kubeDnsAutoscaler);
     }
+    /**
+     * @return Docker image for kube_dns_sidecar (string)
+     * 
+     */
     public Optional<String> kubeDnsSidecar() {
         return Optional.ofNullable(this.kubeDnsSidecar);
     }
+    /**
+     * @return Docker image for kubernetes (string)
+     * 
+     */
     public Optional<String> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
     }
+    /**
+     * @return Docker image for kubernetes_services_sidecar (string)
+     * 
+     */
     public Optional<String> kubernetesServicesSidecar() {
         return Optional.ofNullable(this.kubernetesServicesSidecar);
     }
+    /**
+     * @return Docker image for metrics_server (string)
+     * 
+     */
     public Optional<String> metricsServer() {
         return Optional.ofNullable(this.metricsServer);
     }
+    /**
+     * @return Docker image for nginx_proxy (string)
+     * 
+     */
     public Optional<String> nginxProxy() {
         return Optional.ofNullable(this.nginxProxy);
     }
+    /**
+     * @return Docker image for nodelocal (string)
+     * 
+     */
     public Optional<String> nodelocal() {
         return Optional.ofNullable(this.nodelocal);
     }
+    /**
+     * @return Docker image for pod_infra_container (string)
+     * 
+     */
     public Optional<String> podInfraContainer() {
         return Optional.ofNullable(this.podInfraContainer);
     }
+    /**
+     * @return Docker image for weave_cni (string)
+     * 
+     */
     public Optional<String> weaveCni() {
         return Optional.ofNullable(this.weaveCni);
     }
+    /**
+     * @return Docker image for weave_node (string)
+     * 
+     */
     public Optional<String> weaveNode() {
         return Optional.ofNullable(this.weaveNode);
     }
+    /**
+     * @return Docker image for windows_pod_infra_container (string)
+     * 
+     */
     public Optional<String> windowsPodInfraContainer() {
         return Optional.ofNullable(this.windowsPodInfraContainer);
     }

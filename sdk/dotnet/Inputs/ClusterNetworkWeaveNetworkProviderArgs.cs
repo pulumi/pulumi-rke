@@ -12,6 +12,9 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterNetworkWeaveNetworkProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Registry password (string)
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 

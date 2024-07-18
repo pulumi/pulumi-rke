@@ -56,6 +56,10 @@ namespace Pulumi.Rke.Inputs
 
         [Input("key")]
         private Input<string>? _key;
+
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
         public Input<string>? Key
         {
             get => _key;
@@ -72,12 +76,18 @@ namespace Pulumi.Rke.Inputs
         [Input("keyPath")]
         public Input<string>? KeyPath { get; set; }
 
+        /// <summary>
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("ouName")]
         public Input<string>? OuName { get; set; }
 
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

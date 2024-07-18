@@ -13,8 +13,17 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterNodeTaint
     {
+        /// <summary>
+        /// Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+        /// </summary>
         public readonly string? Effect;
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Taint value (string)
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

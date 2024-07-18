@@ -13,6 +13,9 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterNetworkCanalNetworkProvider
     {
+        /// <summary>
+        /// Flannel network interface (string)
+        /// </summary>
         public readonly string? Iface;
 
         [OutputConstructor]

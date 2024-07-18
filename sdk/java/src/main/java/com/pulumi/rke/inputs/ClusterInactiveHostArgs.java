@@ -15,16 +15,32 @@ public final class ClusterInactiveHostArgs extends com.pulumi.resources.Resource
 
     public static final ClusterInactiveHostArgs Empty = new ClusterInactiveHostArgs();
 
+    /**
+     * Address ip for node (string)
+     * 
+     */
     @Import(name="address")
     private @Nullable Output<String> address;
 
+    /**
+     * @return Address ip for node (string)
+     * 
+     */
     public Optional<Output<String>> address() {
         return Optional.ofNullable(this.address);
     }
 
+    /**
+     * Name of the host provisioned via docker machine (string)
+     * 
+     */
     @Import(name="nodeName")
     private @Nullable Output<String> nodeName;
 
+    /**
+     * @return Name of the host provisioned via docker machine (string)
+     * 
+     */
     public Optional<Output<String>> nodeName() {
         return Optional.ofNullable(this.nodeName);
     }
@@ -54,20 +70,44 @@ public final class ClusterInactiveHostArgs extends com.pulumi.resources.Resource
             $ = new ClusterInactiveHostArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param address Address ip for node (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder address(@Nullable Output<String> address) {
             $.address = address;
             return this;
         }
 
+        /**
+         * @param address Address ip for node (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
+        /**
+         * @param nodeName Name of the host provisioned via docker machine (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeName(@Nullable Output<String> nodeName) {
             $.nodeName = nodeName;
             return this;
         }
 
+        /**
+         * @param nodeName Name of the host provisioned via docker machine (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeName(String nodeName) {
             return nodeName(Output.of(nodeName));
         }

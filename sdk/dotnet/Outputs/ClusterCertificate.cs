@@ -23,11 +23,20 @@ namespace Pulumi.Rke.Outputs
         /// (Computed) The ID of the resource (string)
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
         public readonly string? Key;
         public readonly string? KeyEnvName;
         public readonly string? KeyPath;
+        /// <summary>
+        /// Name of virtualcenter config for Vsphere Cloud Provider config (string)
+        /// </summary>
         public readonly string? Name;
         public readonly string? OuName;
+        /// <summary>
+        /// Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

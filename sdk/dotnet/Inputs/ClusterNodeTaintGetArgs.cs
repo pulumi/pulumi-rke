@@ -12,12 +12,21 @@ namespace Pulumi.Rke.Inputs
 
     public sealed class ClusterNodeTaintGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Taint effect. `NoExecute`, `NoSchedule` (default) and `PreferNoSchedule` are supported (string)
+        /// </summary>
         [Input("effect")]
         public Input<string>? Effect { get; set; }
 
+        /// <summary>
+        /// TLS key for etcd service (string)
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Taint value (string)
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

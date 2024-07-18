@@ -16,16 +16,32 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs e
 
     public static final ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs Empty = new ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs();
 
+    /**
+     * Secrets encryption yaml encoded custom configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;EncryptionConfiguration&#34;` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+     * 
+     */
     @Import(name="customConfig")
     private @Nullable Output<String> customConfig;
 
+    /**
+     * @return Secrets encryption yaml encoded custom configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;EncryptionConfiguration&#34;` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+     * 
+     */
     public Optional<Output<String>> customConfig() {
         return Optional.ofNullable(this.customConfig);
     }
 
+    /**
+     * Enable secrets encryption (bool)
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Enable secrets encryption (bool)
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -55,20 +71,44 @@ public final class ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs e
             $ = new ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customConfig Secrets encryption yaml encoded custom configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;EncryptionConfiguration&#34;` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder customConfig(@Nullable Output<String> customConfig) {
             $.customConfig = customConfig;
             return this;
         }
 
+        /**
+         * @param customConfig Secrets encryption yaml encoded custom configuration. `&#34;apiVersion&#34;` and `&#34;kind&#34;:&#34;EncryptionConfiguration&#34;` fields are required in the yaml. Ex. `apiVersion: apiserver.config.k8s.io/v1\nkind: EncryptionConfiguration\nresources:\n- resources:\n  - secrets\n  providers:\n  - aescbc:\n      keys:\n      - name: k-fw5hn\n        secret: RTczRjFDODMwQzAyMDVBREU4NDJBMUZFNDhCNzM5N0I=\n    identity: {}\n` [More info](https://rancher.com/docs/rke/latest/en/config-options/secrets-encryption/) (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder customConfig(String customConfig) {
             return customConfig(Output.of(customConfig));
         }
 
+        /**
+         * @param enabled Enable secrets encryption (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Enable secrets encryption (bool)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

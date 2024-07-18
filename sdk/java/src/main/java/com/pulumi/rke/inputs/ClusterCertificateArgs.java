@@ -72,9 +72,17 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * TLS key for etcd service (string)
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return TLS key for etcd service (string)
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
@@ -93,9 +101,17 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.keyPath);
     }
 
+    /**
+     * Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of virtualcenter config for Vsphere Cloud Provider config (string)
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -107,9 +123,17 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.ouName);
     }
 
+    /**
+     * Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * 
+     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
+    /**
+     * @return Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+     * 
+     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -225,11 +249,23 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
             return id(Output.of(id));
         }
 
+        /**
+         * @param key TLS key for etcd service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key TLS key for etcd service (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -252,11 +288,23 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
             return keyPath(Output.of(keyPath));
         }
 
+        /**
+         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of virtualcenter config for Vsphere Cloud Provider config (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -270,11 +318,23 @@ public final class ClusterCertificateArgs extends com.pulumi.resources.ResourceA
             return ouName(Output.of(ouName));
         }
 
+        /**
+         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Audit log path. Default: `/var/log/kube-audit/audit-log.json` (string)
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

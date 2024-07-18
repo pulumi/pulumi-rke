@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCloudProviderOpenstackCloudProviderBlockStorage {
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable String bsVersion;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable Boolean ignoreVolumeAz;
+    /**
+     * @return (string)
+     * 
+     */
     private @Nullable Boolean trustDevicePath;
 
     private ClusterCloudProviderOpenstackCloudProviderBlockStorage() {}
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<String> bsVersion() {
         return Optional.ofNullable(this.bsVersion);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<Boolean> ignoreVolumeAz() {
         return Optional.ofNullable(this.ignoreVolumeAz);
     }
+    /**
+     * @return (string)
+     * 
+     */
     public Optional<Boolean> trustDevicePath() {
         return Optional.ofNullable(this.trustDevicePath);
     }

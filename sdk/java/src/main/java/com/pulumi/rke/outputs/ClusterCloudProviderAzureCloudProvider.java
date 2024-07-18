@@ -69,6 +69,10 @@ public final class ClusterCloudProviderAzureCloudProvider {
      * 
      */
     private @Nullable Boolean cloudProviderRateLimit;
+    /**
+     * @return (int)
+     * 
+     */
     private @Nullable Integer cloudProviderRateLimitBucket;
     /**
      * @return Rate limit QPS
@@ -234,6 +238,10 @@ public final class ClusterCloudProviderAzureCloudProvider {
     public Optional<Boolean> cloudProviderRateLimit() {
         return Optional.ofNullable(this.cloudProviderRateLimit);
     }
+    /**
+     * @return (int)
+     * 
+     */
     public Optional<Integer> cloudProviderRateLimitBucket() {
         return Optional.ofNullable(this.cloudProviderRateLimitBucket);
     }

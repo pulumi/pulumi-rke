@@ -13,13 +13,25 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterCloudProviderVsphereCloudConfig
     {
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfigDisk? Disk;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfigGlobal? Global;
         /// <summary>
         /// RKE k8s cluster network configuration (list maxitems:1)
         /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfigNetwork? Network;
+        /// <summary>
+        /// (List)
+        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCloudProviderVsphereCloudConfigVirtualCenter> VirtualCenters;
+        /// <summary>
+        /// (list maxitems:1)
+        /// </summary>
         public readonly Outputs.ClusterCloudProviderVsphereCloudConfigWorkspace Workspace;
 
         [OutputConstructor]

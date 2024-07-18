@@ -13,7 +13,13 @@ namespace Pulumi.Rke.Outputs
     [OutputType]
     public sealed class ClusterControlPlaneHost
     {
+        /// <summary>
+        /// Address ip for node (string)
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// Name of the host provisioned via docker machine (string)
+        /// </summary>
         public readonly string? NodeName;
 
         [OutputConstructor]
