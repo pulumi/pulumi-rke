@@ -1721,11 +1721,11 @@ class Cluster(pulumi.CustomResource):
                  addon_job_timeout: Optional[pulumi.Input[int]] = None,
                  addons: Optional[pulumi.Input[str]] = None,
                  addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']]] = None,
-                 authorization: Optional[pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']]] = None,
-                 bastion_host: Optional[pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['ClusterAuthenticationArgs', 'ClusterAuthenticationArgsDict']]] = None,
+                 authorization: Optional[pulumi.Input[Union['ClusterAuthorizationArgs', 'ClusterAuthorizationArgsDict']]] = None,
+                 bastion_host: Optional[pulumi.Input[Union['ClusterBastionHostArgs', 'ClusterBastionHostArgsDict']]] = None,
                  cert_dir: Optional[pulumi.Input[str]] = None,
-                 cloud_provider: Optional[pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']]] = None,
+                 cloud_provider: Optional[pulumi.Input[Union['ClusterCloudProviderArgs', 'ClusterCloudProviderArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_yaml: Optional[pulumi.Input[str]] = None,
                  custom_certs: Optional[pulumi.Input[bool]] = None,
@@ -1734,32 +1734,32 @@ class Cluster(pulumi.CustomResource):
                  dind_dns_server: Optional[pulumi.Input[str]] = None,
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
-                 dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+                 dns: Optional[pulumi.Input[Union['ClusterDnsArgs', 'ClusterDnsArgsDict']]] = None,
                  enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
-                 ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
+                 ingress: Optional[pulumi.Input[Union['ClusterIngressArgs', 'ClusterIngressArgsDict']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['ClusterNetworkArgs']]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+                 monitoring: Optional[pulumi.Input[Union['ClusterMonitoringArgs', 'ClusterMonitoringArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['ClusterNetworkArgs', 'ClusterNetworkArgsDict']]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]]] = None,
                  nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  prefix_path: Optional[pulumi.Input[str]] = None,
-                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]]] = None,
-                 restore: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreArgs']]] = None,
-                 rotate_certificates: Optional[pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']]] = None,
-                 services: Optional[pulumi.Input[pulumi.InputType['ClusterServicesArgs']]] = None,
-                 services_etcd_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']]] = None,
-                 services_kube_api_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']]] = None,
-                 services_kube_controller_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']]] = None,
-                 services_kube_proxy_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']]] = None,
-                 services_kube_scheduler_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']]] = None,
-                 services_kubelet_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']]] = None,
+                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPrivateRegistryArgs', 'ClusterPrivateRegistryArgsDict']]]]] = None,
+                 restore: Optional[pulumi.Input[Union['ClusterRestoreArgs', 'ClusterRestoreArgsDict']]] = None,
+                 rotate_certificates: Optional[pulumi.Input[Union['ClusterRotateCertificatesArgs', 'ClusterRotateCertificatesArgsDict']]] = None,
+                 services: Optional[pulumi.Input[Union['ClusterServicesArgs', 'ClusterServicesArgsDict']]] = None,
+                 services_etcd_deprecated: Optional[pulumi.Input[Union['ClusterServicesEtcdDeprecatedArgs', 'ClusterServicesEtcdDeprecatedArgsDict']]] = None,
+                 services_kube_api_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeApiDeprecatedArgs', 'ClusterServicesKubeApiDeprecatedArgsDict']]] = None,
+                 services_kube_controller_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeControllerDeprecatedArgs', 'ClusterServicesKubeControllerDeprecatedArgsDict']]] = None,
+                 services_kube_proxy_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeProxyDeprecatedArgs', 'ClusterServicesKubeProxyDeprecatedArgsDict']]] = None,
+                 services_kube_scheduler_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeSchedulerDeprecatedArgs', 'ClusterServicesKubeSchedulerDeprecatedArgsDict']]] = None,
+                 services_kubelet_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeletDeprecatedArgs', 'ClusterServicesKubeletDeprecatedArgsDict']]] = None,
                  ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
                  ssh_cert_path: Optional[pulumi.Input[str]] = None,
                  ssh_key_path: Optional[pulumi.Input[str]] = None,
-                 system_images: Optional[pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']]] = None,
+                 system_images: Optional[pulumi.Input[Union['ClusterSystemImagesArgs', 'ClusterSystemImagesArgsDict']]] = None,
                  update_only: Optional[pulumi.Input[bool]] = None,
-                 upgrade_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']]] = None,
+                 upgrade_strategy: Optional[pulumi.Input[Union['ClusterUpgradeStrategyArgs', 'ClusterUpgradeStrategyArgsDict']]] = None,
                  __props__=None):
         """
         ## Import
@@ -1780,11 +1780,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] addon_job_timeout: RKE k8s cluster addon deployment timeout in seconds for status check (int)
         :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
-        :param pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterAuthenticationArgs', 'ClusterAuthenticationArgsDict']] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterAuthorizationArgs', 'ClusterAuthorizationArgsDict']] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterBastionHostArgs', 'ClusterBastionHostArgsDict']] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
         :param pulumi.Input[str] cert_dir: Specify a certificate dir path (string)
-        :param pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
+        :param pulumi.Input[Union['ClusterCloudProviderArgs', 'ClusterCloudProviderArgsDict']] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
         :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
         :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
@@ -1793,31 +1793,31 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] dind_dns_server: DinD RKE cluster dns (string)
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
-        :param pulumi.Input[pulumi.InputType['ClusterDnsArgs']] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[Union['ClusterDnsArgs', 'ClusterDnsArgsDict']] dns: RKE k8s cluster DNS Config (list maxitems:1)
         :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
-        :param pulumi.Input[pulumi.InputType['ClusterIngressArgs']] ingress: RKE k8s cluster ingress controller configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterIngressArgs', 'ClusterIngressArgsDict']] ingress: RKE k8s cluster ingress controller configuration (list maxitems:1)
         :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
-        :param pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterNetworkArgs']] network: RKE k8s cluster network configuration (list maxitems:1)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: RKE k8s cluster nodes (list)
+        :param pulumi.Input[Union['ClusterMonitoringArgs', 'ClusterMonitoringArgsDict']] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
+        :param pulumi.Input[Union['ClusterNetworkArgs', 'ClusterNetworkArgsDict']] network: RKE k8s cluster network configuration (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]] nodes: RKE k8s cluster nodes (list)
         :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]] private_registries: RKE k8s cluster private docker registries (list)
-        :param pulumi.Input[pulumi.InputType['ClusterRestoreArgs']] restore: RKE k8s cluster restore configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesArgs']] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterPrivateRegistryArgs', 'ClusterPrivateRegistryArgsDict']]]] private_registries: RKE k8s cluster private docker registries (list)
+        :param pulumi.Input[Union['ClusterRestoreArgs', 'ClusterRestoreArgsDict']] restore: RKE k8s cluster restore configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterRotateCertificatesArgs', 'ClusterRotateCertificatesArgsDict']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesArgs', 'ClusterServicesArgsDict']] services: RKE k8s cluster services (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesEtcdDeprecatedArgs', 'ClusterServicesEtcdDeprecatedArgsDict']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeApiDeprecatedArgs', 'ClusterServicesKubeApiDeprecatedArgsDict']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeControllerDeprecatedArgs', 'ClusterServicesKubeControllerDeprecatedArgsDict']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeProxyDeprecatedArgs', 'ClusterServicesKubeProxyDeprecatedArgsDict']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeSchedulerDeprecatedArgs', 'ClusterServicesKubeSchedulerDeprecatedArgsDict']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeletDeprecatedArgs', 'ClusterServicesKubeletDeprecatedArgsDict']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
-        :param pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']] system_images: RKE k8s cluster system images list (list maxitems:1)
+        :param pulumi.Input[Union['ClusterSystemImagesArgs', 'ClusterSystemImagesArgsDict']] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
-        :param pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
+        :param pulumi.Input[Union['ClusterUpgradeStrategyArgs', 'ClusterUpgradeStrategyArgsDict']] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
         """
         ...
     @overload
@@ -1857,11 +1857,11 @@ class Cluster(pulumi.CustomResource):
                  addon_job_timeout: Optional[pulumi.Input[int]] = None,
                  addons: Optional[pulumi.Input[str]] = None,
                  addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']]] = None,
-                 authorization: Optional[pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']]] = None,
-                 bastion_host: Optional[pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['ClusterAuthenticationArgs', 'ClusterAuthenticationArgsDict']]] = None,
+                 authorization: Optional[pulumi.Input[Union['ClusterAuthorizationArgs', 'ClusterAuthorizationArgsDict']]] = None,
+                 bastion_host: Optional[pulumi.Input[Union['ClusterBastionHostArgs', 'ClusterBastionHostArgsDict']]] = None,
                  cert_dir: Optional[pulumi.Input[str]] = None,
-                 cloud_provider: Optional[pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']]] = None,
+                 cloud_provider: Optional[pulumi.Input[Union['ClusterCloudProviderArgs', 'ClusterCloudProviderArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_yaml: Optional[pulumi.Input[str]] = None,
                  custom_certs: Optional[pulumi.Input[bool]] = None,
@@ -1870,32 +1870,32 @@ class Cluster(pulumi.CustomResource):
                  dind_dns_server: Optional[pulumi.Input[str]] = None,
                  dind_storage_driver: Optional[pulumi.Input[str]] = None,
                  disable_port_check: Optional[pulumi.Input[bool]] = None,
-                 dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+                 dns: Optional[pulumi.Input[Union['ClusterDnsArgs', 'ClusterDnsArgsDict']]] = None,
                  enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
                  ignore_docker_version: Optional[pulumi.Input[bool]] = None,
-                 ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
+                 ingress: Optional[pulumi.Input[Union['ClusterIngressArgs', 'ClusterIngressArgsDict']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['ClusterNetworkArgs']]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+                 monitoring: Optional[pulumi.Input[Union['ClusterMonitoringArgs', 'ClusterMonitoringArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['ClusterNetworkArgs', 'ClusterNetworkArgsDict']]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]]] = None,
                  nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  prefix_path: Optional[pulumi.Input[str]] = None,
-                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]]] = None,
-                 restore: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreArgs']]] = None,
-                 rotate_certificates: Optional[pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']]] = None,
-                 services: Optional[pulumi.Input[pulumi.InputType['ClusterServicesArgs']]] = None,
-                 services_etcd_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']]] = None,
-                 services_kube_api_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']]] = None,
-                 services_kube_controller_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']]] = None,
-                 services_kube_proxy_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']]] = None,
-                 services_kube_scheduler_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']]] = None,
-                 services_kubelet_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']]] = None,
+                 private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPrivateRegistryArgs', 'ClusterPrivateRegistryArgsDict']]]]] = None,
+                 restore: Optional[pulumi.Input[Union['ClusterRestoreArgs', 'ClusterRestoreArgsDict']]] = None,
+                 rotate_certificates: Optional[pulumi.Input[Union['ClusterRotateCertificatesArgs', 'ClusterRotateCertificatesArgsDict']]] = None,
+                 services: Optional[pulumi.Input[Union['ClusterServicesArgs', 'ClusterServicesArgsDict']]] = None,
+                 services_etcd_deprecated: Optional[pulumi.Input[Union['ClusterServicesEtcdDeprecatedArgs', 'ClusterServicesEtcdDeprecatedArgsDict']]] = None,
+                 services_kube_api_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeApiDeprecatedArgs', 'ClusterServicesKubeApiDeprecatedArgsDict']]] = None,
+                 services_kube_controller_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeControllerDeprecatedArgs', 'ClusterServicesKubeControllerDeprecatedArgsDict']]] = None,
+                 services_kube_proxy_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeProxyDeprecatedArgs', 'ClusterServicesKubeProxyDeprecatedArgsDict']]] = None,
+                 services_kube_scheduler_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeSchedulerDeprecatedArgs', 'ClusterServicesKubeSchedulerDeprecatedArgsDict']]] = None,
+                 services_kubelet_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeletDeprecatedArgs', 'ClusterServicesKubeletDeprecatedArgsDict']]] = None,
                  ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
                  ssh_cert_path: Optional[pulumi.Input[str]] = None,
                  ssh_key_path: Optional[pulumi.Input[str]] = None,
-                 system_images: Optional[pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']]] = None,
+                 system_images: Optional[pulumi.Input[Union['ClusterSystemImagesArgs', 'ClusterSystemImagesArgsDict']]] = None,
                  update_only: Optional[pulumi.Input[bool]] = None,
-                 upgrade_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']]] = None,
+                 upgrade_strategy: Optional[pulumi.Input[Union['ClusterUpgradeStrategyArgs', 'ClusterUpgradeStrategyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1981,62 +1981,62 @@ class Cluster(pulumi.CustomResource):
             addons: Optional[pulumi.Input[str]] = None,
             addons_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             api_server_url: Optional[pulumi.Input[str]] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']]] = None,
-            authorization: Optional[pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']]] = None,
-            bastion_host: Optional[pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']]] = None,
+            authentication: Optional[pulumi.Input[Union['ClusterAuthenticationArgs', 'ClusterAuthenticationArgsDict']]] = None,
+            authorization: Optional[pulumi.Input[Union['ClusterAuthorizationArgs', 'ClusterAuthorizationArgsDict']]] = None,
+            bastion_host: Optional[pulumi.Input[Union['ClusterBastionHostArgs', 'ClusterBastionHostArgsDict']]] = None,
             ca_crt: Optional[pulumi.Input[str]] = None,
             cert_dir: Optional[pulumi.Input[str]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateArgs']]]]] = None,
+            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateArgs', 'ClusterCertificateArgsDict']]]]] = None,
             client_cert: Optional[pulumi.Input[str]] = None,
             client_key: Optional[pulumi.Input[str]] = None,
-            cloud_provider: Optional[pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']]] = None,
+            cloud_provider: Optional[pulumi.Input[Union['ClusterCloudProviderArgs', 'ClusterCloudProviderArgsDict']]] = None,
             cluster_cidr: Optional[pulumi.Input[str]] = None,
             cluster_dns_server: Optional[pulumi.Input[str]] = None,
             cluster_domain: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             cluster_yaml: Optional[pulumi.Input[str]] = None,
-            control_plane_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterControlPlaneHostArgs']]]]] = None,
+            control_plane_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterControlPlaneHostArgs', 'ClusterControlPlaneHostArgsDict']]]]] = None,
             custom_certs: Optional[pulumi.Input[bool]] = None,
             delay_on_creation: Optional[pulumi.Input[int]] = None,
             dind: Optional[pulumi.Input[bool]] = None,
             dind_dns_server: Optional[pulumi.Input[str]] = None,
             dind_storage_driver: Optional[pulumi.Input[str]] = None,
             disable_port_check: Optional[pulumi.Input[bool]] = None,
-            dns: Optional[pulumi.Input[pulumi.InputType['ClusterDnsArgs']]] = None,
+            dns: Optional[pulumi.Input[Union['ClusterDnsArgs', 'ClusterDnsArgsDict']]] = None,
             enable_cri_dockerd: Optional[pulumi.Input[bool]] = None,
-            etcd_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEtcdHostArgs']]]]] = None,
+            etcd_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEtcdHostArgs', 'ClusterEtcdHostArgsDict']]]]] = None,
             ignore_docker_version: Optional[pulumi.Input[bool]] = None,
-            inactive_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterInactiveHostArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[pulumi.InputType['ClusterIngressArgs']]] = None,
+            inactive_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInactiveHostArgs', 'ClusterInactiveHostArgsDict']]]]] = None,
+            ingress: Optional[pulumi.Input[Union['ClusterIngressArgs', 'ClusterIngressArgsDict']]] = None,
             internal_kube_config_yaml: Optional[pulumi.Input[str]] = None,
             kube_admin_user: Optional[pulumi.Input[str]] = None,
             kube_config_yaml: Optional[pulumi.Input[str]] = None,
             kubernetes_version: Optional[pulumi.Input[str]] = None,
-            monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['ClusterNetworkArgs']]] = None,
-            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+            monitoring: Optional[pulumi.Input[Union['ClusterMonitoringArgs', 'ClusterMonitoringArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['ClusterNetworkArgs', 'ClusterNetworkArgsDict']]] = None,
+            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]]] = None,
             nodes_confs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             prefix_path: Optional[pulumi.Input[str]] = None,
-            private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]]] = None,
-            restore: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreArgs']]] = None,
+            private_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPrivateRegistryArgs', 'ClusterPrivateRegistryArgsDict']]]]] = None,
+            restore: Optional[pulumi.Input[Union['ClusterRestoreArgs', 'ClusterRestoreArgsDict']]] = None,
             rke_cluster_yaml: Optional[pulumi.Input[str]] = None,
             rke_state: Optional[pulumi.Input[str]] = None,
-            rotate_certificates: Optional[pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']]] = None,
-            running_system_images: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRunningSystemImageArgs']]]]] = None,
-            services: Optional[pulumi.Input[pulumi.InputType['ClusterServicesArgs']]] = None,
-            services_etcd_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']]] = None,
-            services_kube_api_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']]] = None,
-            services_kube_controller_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']]] = None,
-            services_kube_proxy_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']]] = None,
-            services_kube_scheduler_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']]] = None,
-            services_kubelet_deprecated: Optional[pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']]] = None,
+            rotate_certificates: Optional[pulumi.Input[Union['ClusterRotateCertificatesArgs', 'ClusterRotateCertificatesArgsDict']]] = None,
+            running_system_images: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRunningSystemImageArgs', 'ClusterRunningSystemImageArgsDict']]]]] = None,
+            services: Optional[pulumi.Input[Union['ClusterServicesArgs', 'ClusterServicesArgsDict']]] = None,
+            services_etcd_deprecated: Optional[pulumi.Input[Union['ClusterServicesEtcdDeprecatedArgs', 'ClusterServicesEtcdDeprecatedArgsDict']]] = None,
+            services_kube_api_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeApiDeprecatedArgs', 'ClusterServicesKubeApiDeprecatedArgsDict']]] = None,
+            services_kube_controller_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeControllerDeprecatedArgs', 'ClusterServicesKubeControllerDeprecatedArgsDict']]] = None,
+            services_kube_proxy_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeProxyDeprecatedArgs', 'ClusterServicesKubeProxyDeprecatedArgsDict']]] = None,
+            services_kube_scheduler_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeSchedulerDeprecatedArgs', 'ClusterServicesKubeSchedulerDeprecatedArgsDict']]] = None,
+            services_kubelet_deprecated: Optional[pulumi.Input[Union['ClusterServicesKubeletDeprecatedArgs', 'ClusterServicesKubeletDeprecatedArgsDict']]] = None,
             ssh_agent_auth: Optional[pulumi.Input[bool]] = None,
             ssh_cert_path: Optional[pulumi.Input[str]] = None,
             ssh_key_path: Optional[pulumi.Input[str]] = None,
-            system_images: Optional[pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']]] = None,
+            system_images: Optional[pulumi.Input[Union['ClusterSystemImagesArgs', 'ClusterSystemImagesArgsDict']]] = None,
             update_only: Optional[pulumi.Input[bool]] = None,
-            upgrade_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']]] = None,
-            worker_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterWorkerHostArgs']]]]] = None) -> 'Cluster':
+            upgrade_strategy: Optional[pulumi.Input[Union['ClusterUpgradeStrategyArgs', 'ClusterUpgradeStrategyArgsDict']]] = None,
+            worker_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterWorkerHostArgs', 'ClusterWorkerHostArgsDict']]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -2048,61 +2048,61 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] addons: RKE k8s cluster user addons YAML manifest to be deployed (string)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addons_includes: RKE k8s cluster user addons YAML manifest urls or paths to be deployed (list)
         :param pulumi.Input[str] api_server_url: (Computed) RKE k8s cluster api server url (string)
-        :param pulumi.Input[pulumi.InputType['ClusterAuthenticationArgs']] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterAuthorizationArgs']] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterBastionHostArgs']] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterAuthenticationArgs', 'ClusterAuthenticationArgsDict']] authentication: RKE k8s cluster authentication configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterAuthorizationArgs', 'ClusterAuthorizationArgsDict']] authorization: RKE k8s cluster authorization mode configuration (list maxitems:1)
+        :param pulumi.Input[Union['ClusterBastionHostArgs', 'ClusterBastionHostArgsDict']] bastion_host: RKE k8s cluster bastion Host configuration (list maxitems:1)
         :param pulumi.Input[str] ca_crt: (Computed/Sensitive) RKE k8s cluster CA certificate (string)
         :param pulumi.Input[str] cert_dir: Specify a certificate dir path (string)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateArgs']]]] certificates: (Computed/Sensitive) RKE k8s cluster certificates (string)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateArgs', 'ClusterCertificateArgsDict']]]] certificates: (Computed/Sensitive) RKE k8s cluster certificates (string)
         :param pulumi.Input[str] client_cert: (Computed/Sensitive) RKE k8s cluster client certificate (string)
         :param pulumi.Input[str] client_key: (Computed/Sensitive) RKE k8s cluster client key (string)
-        :param pulumi.Input[pulumi.InputType['ClusterCloudProviderArgs']] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
+        :param pulumi.Input[Union['ClusterCloudProviderArgs', 'ClusterCloudProviderArgsDict']] cloud_provider: RKE k8s cluster cloud provider configuration [rke-cloud-providers](https://rancher.com/docs/rke/latest/en/config-options/cloud-providers/) (list maxitems:1)
         :param pulumi.Input[str] cluster_cidr: (Computed) RKE k8s cluster cidr (string)
         :param pulumi.Input[str] cluster_dns_server: (Computed) RKE k8s cluster dns server (string)
         :param pulumi.Input[str] cluster_domain: (Computed) RKE k8s cluster domain (string)
         :param pulumi.Input[str] cluster_name: RKE k8s cluster name used in the kube config (string)
         :param pulumi.Input[str] cluster_yaml: RKE k8s cluster config yaml encoded. Provider arguments take precedence over this one (string)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterControlPlaneHostArgs']]]] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterControlPlaneHostArgs', 'ClusterControlPlaneHostArgsDict']]]] control_plane_hosts: (Computed) RKE k8s cluster control plane nodes (list)
         :param pulumi.Input[bool] custom_certs: Use custom certificates from a cert dir (string)
         :param pulumi.Input[int] delay_on_creation: RKE k8s cluster delay on creation (int)
         :param pulumi.Input[bool] dind: Deploy RKE cluster on a dind environment. Default: `false` (bool)
         :param pulumi.Input[str] dind_dns_server: DinD RKE cluster dns (string)
         :param pulumi.Input[str] dind_storage_driver: DinD RKE cluster storage driver (string)
         :param pulumi.Input[bool] disable_port_check: Enable/Disable RKE k8s cluster port checking. Default `false` (bool)
-        :param pulumi.Input[pulumi.InputType['ClusterDnsArgs']] dns: RKE k8s cluster DNS Config (list maxitems:1)
+        :param pulumi.Input[Union['ClusterDnsArgs', 'ClusterDnsArgsDict']] dns: RKE k8s cluster DNS Config (list maxitems:1)
         :param pulumi.Input[bool] enable_cri_dockerd: Enable/Disable CRI dockerd for kubelet; set it to true starting from Kubernetes version 1.24 or later. Default `false` (bool)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEtcdHostArgs']]]] etcd_hosts: (Computed) RKE k8s cluster etcd nodes (list)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEtcdHostArgs', 'ClusterEtcdHostArgsDict']]]] etcd_hosts: (Computed) RKE k8s cluster etcd nodes (list)
         :param pulumi.Input[bool] ignore_docker_version: Enable/Disable RKE k8s cluster strict docker version checking. Default `false` (bool)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterInactiveHostArgs']]]] inactive_hosts: (Computed) RKE k8s cluster inactive nodes (list)
-        :param pulumi.Input[pulumi.InputType['ClusterIngressArgs']] ingress: RKE k8s cluster ingress controller configuration (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInactiveHostArgs', 'ClusterInactiveHostArgsDict']]]] inactive_hosts: (Computed) RKE k8s cluster inactive nodes (list)
+        :param pulumi.Input[Union['ClusterIngressArgs', 'ClusterIngressArgsDict']] ingress: RKE k8s cluster ingress controller configuration (list maxitems:1)
         :param pulumi.Input[str] internal_kube_config_yaml: (Computed/Sensitive) RKE k8s cluster internal kube config yaml (string)
         :param pulumi.Input[str] kube_admin_user: (Computed) RKE k8s cluster admin user (string)
         :param pulumi.Input[str] kube_config_yaml: (Computed/Sensitive) RKE k8s cluster kube config yaml (string)
         :param pulumi.Input[str] kubernetes_version: K8s version to deploy. If kubernetes image is specified, image version takes precedence. Default: `rke default` (string)
-        :param pulumi.Input[pulumi.InputType['ClusterMonitoringArgs']] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterNetworkArgs']] network: RKE k8s cluster network configuration (list maxitems:1)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: RKE k8s cluster nodes (list)
+        :param pulumi.Input[Union['ClusterMonitoringArgs', 'ClusterMonitoringArgsDict']] monitoring: RKE k8s cluster monitoring Config (list maxitems:1)
+        :param pulumi.Input[Union['ClusterNetworkArgs', 'ClusterNetworkArgsDict']] network: RKE k8s cluster network configuration (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]] nodes: RKE k8s cluster nodes (list)
         :param pulumi.Input[str] prefix_path: RKE k8s directory path (string)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPrivateRegistryArgs']]]] private_registries: RKE k8s cluster private docker registries (list)
-        :param pulumi.Input[pulumi.InputType['ClusterRestoreArgs']] restore: RKE k8s cluster restore configuration (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterPrivateRegistryArgs', 'ClusterPrivateRegistryArgsDict']]]] private_registries: RKE k8s cluster private docker registries (list)
+        :param pulumi.Input[Union['ClusterRestoreArgs', 'ClusterRestoreArgsDict']] restore: RKE k8s cluster restore configuration (list maxitems:1)
         :param pulumi.Input[str] rke_cluster_yaml: (Computed/Sensitive) RKE k8s cluster config yaml (string)
         :param pulumi.Input[str] rke_state: (Computed/Sensitive) RKE k8s cluster state (string)
-        :param pulumi.Input[pulumi.InputType['ClusterRotateCertificatesArgs']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRunningSystemImageArgs']]]] running_system_images: (Computed) RKE k8s cluster running system images list (list)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesArgs']] services: RKE k8s cluster services (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesEtcdDeprecatedArgs']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeApiDeprecatedArgs']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeControllerDeprecatedArgs']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeProxyDeprecatedArgs']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeSchedulerDeprecatedArgs']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
-        :param pulumi.Input[pulumi.InputType['ClusterServicesKubeletDeprecatedArgs']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterRotateCertificatesArgs', 'ClusterRotateCertificatesArgsDict']] rotate_certificates: RKE k8s cluster rotate certificates configuration (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterRunningSystemImageArgs', 'ClusterRunningSystemImageArgsDict']]]] running_system_images: (Computed) RKE k8s cluster running system images list (list)
+        :param pulumi.Input[Union['ClusterServicesArgs', 'ClusterServicesArgsDict']] services: RKE k8s cluster services (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesEtcdDeprecatedArgs', 'ClusterServicesEtcdDeprecatedArgsDict']] services_etcd_deprecated: Use services.etcd instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeApiDeprecatedArgs', 'ClusterServicesKubeApiDeprecatedArgsDict']] services_kube_api_deprecated: Use services.kube_api instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeControllerDeprecatedArgs', 'ClusterServicesKubeControllerDeprecatedArgsDict']] services_kube_controller_deprecated: Use services.kube_controller instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeProxyDeprecatedArgs', 'ClusterServicesKubeProxyDeprecatedArgsDict']] services_kube_proxy_deprecated: Use services.kubeproxy instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeSchedulerDeprecatedArgs', 'ClusterServicesKubeSchedulerDeprecatedArgsDict']] services_kube_scheduler_deprecated: Use services.scheduler instead (list maxitems:1)
+        :param pulumi.Input[Union['ClusterServicesKubeletDeprecatedArgs', 'ClusterServicesKubeletDeprecatedArgsDict']] services_kubelet_deprecated: Use services.kubelet instead (list maxitems:1)
         :param pulumi.Input[bool] ssh_agent_auth: SSH Agent Auth enable (bool)
         :param pulumi.Input[str] ssh_cert_path: SSH Certificate Path (string)
         :param pulumi.Input[str] ssh_key_path: SSH Private Key Path (string)
-        :param pulumi.Input[pulumi.InputType['ClusterSystemImagesArgs']] system_images: RKE k8s cluster system images list (list maxitems:1)
+        :param pulumi.Input[Union['ClusterSystemImagesArgs', 'ClusterSystemImagesArgsDict']] system_images: RKE k8s cluster system images list (list maxitems:1)
         :param pulumi.Input[bool] update_only: Skip idempotent deployment of control and etcd plane. Default `false` (bool)
-        :param pulumi.Input[pulumi.InputType['ClusterUpgradeStrategyArgs']] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterWorkerHostArgs']]]] worker_hosts: (Computed) RKE k8s cluster worker nodes (list)
+        :param pulumi.Input[Union['ClusterUpgradeStrategyArgs', 'ClusterUpgradeStrategyArgsDict']] upgrade_strategy: RKE k8s cluster upgrade strategy (list maxitems:1)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterWorkerHostArgs', 'ClusterWorkerHostArgsDict']]]] worker_hosts: (Computed) RKE k8s cluster worker nodes (list)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
