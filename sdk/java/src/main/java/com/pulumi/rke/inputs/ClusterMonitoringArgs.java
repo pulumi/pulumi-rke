@@ -5,7 +5,6 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,13 +21,13 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="nodeSelector")
-    private @Nullable Output<Map<String,Object>> nodeSelector;
+    private @Nullable Output<Map<String,String>> nodeSelector;
 
     /**
      * @return Node selector key pair
      * 
      */
-    public Optional<Output<Map<String,Object>>> nodeSelector() {
+    public Optional<Output<Map<String,String>>> nodeSelector() {
         return Optional.ofNullable(this.nodeSelector);
     }
 
@@ -37,13 +36,13 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="options")
-    private @Nullable Output<Map<String,Object>> options;
+    private @Nullable Output<Map<String,String>> options;
 
     /**
      * @return Monitoring options
      * 
      */
-    public Optional<Output<Map<String,Object>>> options() {
+    public Optional<Output<Map<String,String>>> options() {
         return Optional.ofNullable(this.options);
     }
 
@@ -94,7 +93,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder nodeSelector(@Nullable Output<Map<String,Object>> nodeSelector) {
+        public Builder nodeSelector(@Nullable Output<Map<String,String>> nodeSelector) {
             $.nodeSelector = nodeSelector;
             return this;
         }
@@ -105,7 +104,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder nodeSelector(Map<String,Object> nodeSelector) {
+        public Builder nodeSelector(Map<String,String> nodeSelector) {
             return nodeSelector(Output.of(nodeSelector));
         }
 
@@ -115,7 +114,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder options(@Nullable Output<Map<String,Object>> options) {
+        public Builder options(@Nullable Output<Map<String,String>> options) {
             $.options = options;
             return this;
         }
@@ -126,7 +125,7 @@ public final class ClusterMonitoringArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder options(Map<String,Object> options) {
+        public Builder options(Map<String,String> options) {
             return options(Output.of(options));
         }
 

@@ -43,14 +43,14 @@ namespace Pulumi.Rke.Inputs
         public Input<int>? Mtu { get; set; }
 
         [Input("options")]
-        private InputMap<object>? _options;
+        private InputMap<string>? _options;
 
         /// <summary>
         /// Network provider options
         /// </summary>
-        public InputMap<object> Options
+        public InputMap<string> Options
         {
-            get => _options ?? (_options = new InputMap<object>());
+            get => _options ?? (_options = new InputMap<string>());
             set => _options = value;
         }
 

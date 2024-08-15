@@ -19,14 +19,14 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? Mode { get; set; }
 
         [Input("options")]
-        private InputMap<object>? _options;
+        private InputMap<string>? _options;
 
         /// <summary>
         /// Authorization mode options
         /// </summary>
-        public InputMap<object> Options
+        public InputMap<string> Options
         {
-            get => _options ?? (_options = new InputMap<object>());
+            get => _options ?? (_options = new InputMap<string>());
             set => _options = value;
         }
 

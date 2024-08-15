@@ -5,7 +5,6 @@ package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +28,7 @@ public final class ClusterServicesKubelet {
      * @return Extra arguments that are added to the kubelet services
      * 
      */
-    private @Nullable Map<String,Object> extraArgs;
+    private @Nullable Map<String,String> extraArgs;
     /**
      * @return Extra binds added to the worker nodes
      * 
@@ -80,7 +79,7 @@ public final class ClusterServicesKubelet {
      * @return Extra arguments that are added to the kubelet services
      * 
      */
-    public Map<String,Object> extraArgs() {
+    public Map<String,String> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
@@ -137,7 +136,7 @@ public final class ClusterServicesKubelet {
     public static final class Builder {
         private @Nullable String clusterDnsServer;
         private @Nullable String clusterDomain;
-        private @Nullable Map<String,Object> extraArgs;
+        private @Nullable Map<String,String> extraArgs;
         private @Nullable List<String> extraBinds;
         private @Nullable List<String> extraEnvs;
         private @Nullable Boolean failSwapOn;
@@ -171,7 +170,7 @@ public final class ClusterServicesKubelet {
             return this;
         }
         @CustomType.Setter
-        public Builder extraArgs(@Nullable Map<String,Object> extraArgs) {
+        public Builder extraArgs(@Nullable Map<String,String> extraArgs) {
 
             this.extraArgs = extraArgs;
             return this;

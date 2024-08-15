@@ -9,7 +9,6 @@ import com.pulumi.rke.inputs.ClusterServicesKubeApiDeprecatedAuditLogArgs;
 import com.pulumi.rke.inputs.ClusterServicesKubeApiDeprecatedEventRateLimitArgs;
 import com.pulumi.rke.inputs.ClusterServicesKubeApiDeprecatedSecretsEncryptionConfigArgs;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,13 +71,13 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
      * 
      */
     @Import(name="extraArgs")
-    private @Nullable Output<Map<String,Object>> extraArgs;
+    private @Nullable Output<Map<String,String>> extraArgs;
 
     /**
      * @return Extra arguments that are added to the kube-api services
      * 
      */
-    public Optional<Output<Map<String,Object>>> extraArgs() {
+    public Optional<Output<Map<String,String>>> extraArgs() {
         return Optional.ofNullable(this.extraArgs);
     }
 
@@ -306,7 +305,7 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder extraArgs(@Nullable Output<Map<String,Object>> extraArgs) {
+        public Builder extraArgs(@Nullable Output<Map<String,String>> extraArgs) {
             $.extraArgs = extraArgs;
             return this;
         }
@@ -317,7 +316,7 @@ public final class ClusterServicesKubeApiDeprecatedArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder extraArgs(Map<String,Object> extraArgs) {
+        public Builder extraArgs(Map<String,String> extraArgs) {
             return extraArgs(Output.of(extraArgs));
         }
 

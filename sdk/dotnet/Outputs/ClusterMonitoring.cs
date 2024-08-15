@@ -16,11 +16,11 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Node selector key pair
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NodeSelector;
+        public readonly ImmutableDictionary<string, string>? NodeSelector;
         /// <summary>
         /// Monitoring options
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
         /// Monitoring provider
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.Rke.Outputs
 
         [OutputConstructor]
         private ClusterMonitoring(
-            ImmutableDictionary<string, object>? nodeSelector,
+            ImmutableDictionary<string, string>? nodeSelector,
 
-            ImmutableDictionary<string, object>? options,
+            ImmutableDictionary<string, string>? options,
 
             string? provider)
         {

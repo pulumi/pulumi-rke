@@ -6,7 +6,6 @@ package com.pulumi.rke.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -29,7 +28,7 @@ public final class ClusterIngress {
      * @return Extra arguments for the ingress controller
      * 
      */
-    private @Nullable Map<String,Object> extraArgs;
+    private @Nullable Map<String,String> extraArgs;
     /**
      * @return Ingress controller http port
      * 
@@ -49,12 +48,12 @@ public final class ClusterIngress {
      * @return Node selector key pair
      * 
      */
-    private @Nullable Map<String,Object> nodeSelector;
+    private @Nullable Map<String,String> nodeSelector;
     /**
      * @return Ingress controller options
      * 
      */
-    private @Nullable Map<String,Object> options;
+    private @Nullable Map<String,String> options;
     /**
      * @return Ingress controller provider
      * 
@@ -80,7 +79,7 @@ public final class ClusterIngress {
      * @return Extra arguments for the ingress controller
      * 
      */
-    public Map<String,Object> extraArgs() {
+    public Map<String,String> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
@@ -108,14 +107,14 @@ public final class ClusterIngress {
      * @return Node selector key pair
      * 
      */
-    public Map<String,Object> nodeSelector() {
+    public Map<String,String> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
      * @return Ingress controller options
      * 
      */
-    public Map<String,Object> options() {
+    public Map<String,String> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
@@ -137,12 +136,12 @@ public final class ClusterIngress {
     public static final class Builder {
         private @Nullable Boolean defaultBackend;
         private @Nullable String dnsPolicy;
-        private @Nullable Map<String,Object> extraArgs;
+        private @Nullable Map<String,String> extraArgs;
         private @Nullable Integer httpPort;
         private @Nullable Integer httpsPort;
         private @Nullable String networkMode;
-        private @Nullable Map<String,Object> nodeSelector;
-        private @Nullable Map<String,Object> options;
+        private @Nullable Map<String,String> nodeSelector;
+        private @Nullable Map<String,String> options;
         private @Nullable String provider;
         public Builder() {}
         public Builder(ClusterIngress defaults) {
@@ -171,7 +170,7 @@ public final class ClusterIngress {
             return this;
         }
         @CustomType.Setter
-        public Builder extraArgs(@Nullable Map<String,Object> extraArgs) {
+        public Builder extraArgs(@Nullable Map<String,String> extraArgs) {
 
             this.extraArgs = extraArgs;
             return this;
@@ -195,13 +194,13 @@ public final class ClusterIngress {
             return this;
         }
         @CustomType.Setter
-        public Builder nodeSelector(@Nullable Map<String,Object> nodeSelector) {
+        public Builder nodeSelector(@Nullable Map<String,String> nodeSelector) {
 
             this.nodeSelector = nodeSelector;
             return this;
         }
         @CustomType.Setter
-        public Builder options(@Nullable Map<String,Object> options) {
+        public Builder options(@Nullable Map<String,String> options) {
 
             this.options = options;
             return this;
