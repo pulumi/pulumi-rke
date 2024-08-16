@@ -20,13 +20,13 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Node selector key pair
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NodeSelector;
+        public readonly ImmutableDictionary<string, string>? NodeSelector;
 
         [OutputConstructor]
         private ClusterDnsNodelocal(
             string? ipAddress,
 
-            ImmutableDictionary<string, object>? nodeSelector)
+            ImmutableDictionary<string, string>? nodeSelector)
         {
             IpAddress = ipAddress;
             NodeSelector = nodeSelector;

@@ -196,10 +196,10 @@ class ClusterAuthenticationWebhookArgs:
 class ClusterAuthorizationArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] mode: RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
-        :param pulumi.Input[Mapping[str, Any]] options: Authorization mode options
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: Authorization mode options
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -220,14 +220,14 @@ class ClusterAuthorizationArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Authorization mode options
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
 
@@ -4523,13 +4523,13 @@ class ClusterControlPlaneHostArgs:
 @pulumi.input_type
 class ClusterDnsArgs:
     def __init__(__self__, *,
-                 node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  nodelocal: Optional[pulumi.Input['ClusterDnsNodelocalArgs']] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  reverse_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  upstream_nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] node_selector: NodeSelector key pair
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: NodeSelector key pair
         :param pulumi.Input['ClusterDnsNodelocalArgs'] nodelocal: Nodelocal dns
         :param pulumi.Input[str] provider: DNS provider
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reverse_cidrs: ReverseCIDRs
@@ -4548,14 +4548,14 @@ class ClusterDnsArgs:
 
     @property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         NodeSelector key pair
         """
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_selector", value)
 
     @property
@@ -4611,10 +4611,10 @@ class ClusterDnsArgs:
 class ClusterDnsNodelocalArgs:
     def __init__(__self__, *,
                  ip_address: Optional[pulumi.Input[str]] = None,
-                 node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] ip_address: Nodelocal dns ip address (string)
-        :param pulumi.Input[Mapping[str, Any]] node_selector: Node selector key pair
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: Node selector key pair
         """
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
@@ -4635,14 +4635,14 @@ class ClusterDnsNodelocalArgs:
 
     @property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Node selector key pair
         """
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_selector", value)
 
 
@@ -4729,22 +4729,22 @@ class ClusterIngressArgs:
     def __init__(__self__, *,
                  default_backend: Optional[pulumi.Input[bool]] = None,
                  dns_policy: Optional[pulumi.Input[str]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
-                 node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  provider: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] default_backend: Ingress Default Backend
         :param pulumi.Input[str] dns_policy: Ingress controller dns policy
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments for the ingress controller
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments for the ingress controller
         :param pulumi.Input[int] http_port: Ingress controller http port
         :param pulumi.Input[int] https_port: Ingress controller https port
         :param pulumi.Input[str] network_mode: Ingress controller network mode
-        :param pulumi.Input[Mapping[str, Any]] node_selector: Node selector key pair
-        :param pulumi.Input[Mapping[str, Any]] options: Ingress controller options
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: Node selector key pair
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: Ingress controller options
         :param pulumi.Input[str] provider: Ingress controller provider
         """
         if default_backend is not None:
@@ -4792,14 +4792,14 @@ class ClusterIngressArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments for the ingress controller
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -4840,26 +4840,26 @@ class ClusterIngressArgs:
 
     @property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Node selector key pair
         """
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_selector", value)
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Ingress controller options
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -4878,12 +4878,12 @@ class ClusterIngressArgs:
 @pulumi.input_type
 class ClusterMonitoringArgs:
     def __init__(__self__, *,
-                 node_selector: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  provider: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] node_selector: Node selector key pair
-        :param pulumi.Input[Mapping[str, Any]] options: Monitoring options
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: Node selector key pair
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: Monitoring options
         :param pulumi.Input[str] provider: Monitoring provider
         """
         if node_selector is not None:
@@ -4895,26 +4895,26 @@ class ClusterMonitoringArgs:
 
     @property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Node selector key pair
         """
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_selector", value)
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Monitoring options
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -4938,7 +4938,7 @@ class ClusterNetworkArgs:
                  canal_network_provider: Optional[pulumi.Input['ClusterNetworkCanalNetworkProviderArgs']] = None,
                  flannel_network_provider: Optional[pulumi.Input['ClusterNetworkFlannelNetworkProviderArgs']] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  plugin: Optional[pulumi.Input[str]] = None,
                  weave_network_provider: Optional[pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs']] = None):
         """
@@ -4947,7 +4947,7 @@ class ClusterNetworkArgs:
         :param pulumi.Input['ClusterNetworkCanalNetworkProviderArgs'] canal_network_provider: Canal network provider config
         :param pulumi.Input['ClusterNetworkFlannelNetworkProviderArgs'] flannel_network_provider: Flannel network provider config
         :param pulumi.Input[int] mtu: Network provider MTU
-        :param pulumi.Input[Mapping[str, Any]] options: Network provider options
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: Network provider options
         :param pulumi.Input[str] plugin: Network provider plugin
         :param pulumi.Input['ClusterNetworkWeaveNetworkProviderArgs'] weave_network_provider: Weave network provider config
         """
@@ -5030,14 +5030,14 @@ class ClusterNetworkArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Network provider options
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -5533,7 +5533,7 @@ class ClusterNodeArgs:
                  docker_socket: Optional[pulumi.Input[str]] = None,
                  hostname_override: Optional[pulumi.Input[str]] = None,
                  internal_address: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  roles_deprecated: Optional[pulumi.Input[str]] = None,
@@ -5550,7 +5550,7 @@ class ClusterNodeArgs:
         :param pulumi.Input[str] docker_socket: Docker socket on the node that will be used in tunneling
         :param pulumi.Input[str] hostname_override: Hostname override
         :param pulumi.Input[str] internal_address: Internal address that will be used for components communication
-        :param pulumi.Input[Mapping[str, Any]] labels: Node Labels
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Node Labels
         :param pulumi.Input[str] node_name: Name of the host provisioned via docker machine
         :param pulumi.Input[str] port: Port used for SSH communication
         :param pulumi.Input[str] roles_deprecated: Node role in kubernetes cluster [controlplane/worker/etcd], specified by a comma-separated string
@@ -5668,14 +5668,14 @@ class ClusterNodeArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Node Labels
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -6699,7 +6699,7 @@ class ClusterServicesEtcdArgs:
                  cert: Optional[pulumi.Input[str]] = None,
                  creation: Optional[pulumi.Input[str]] = None,
                  external_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gid: Optional[pulumi.Input[int]] = None,
@@ -6715,7 +6715,7 @@ class ClusterServicesEtcdArgs:
         :param pulumi.Input[str] cert: TLS certificate for etcd service (string)
         :param pulumi.Input[str] creation: Creation option for etcd service (string)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_urls: External urls for etcd service (list)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments for scheduler service (map)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments for scheduler service (map)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds for scheduler service (list)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[int] gid: Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
@@ -6819,14 +6819,14 @@ class ClusterServicesEtcdArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments for scheduler service (map)
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -7168,7 +7168,7 @@ class ClusterServicesEtcdDeprecatedArgs:
                  cert: Optional[pulumi.Input[str]] = None,
                  creation: Optional[pulumi.Input[str]] = None,
                  external_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gid: Optional[pulumi.Input[int]] = None,
@@ -7184,7 +7184,7 @@ class ClusterServicesEtcdDeprecatedArgs:
         :param pulumi.Input[str] cert: TLS certificate for etcd service (string)
         :param pulumi.Input[str] creation: Creation option for etcd service (string)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_urls: External urls for etcd service (list)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments for scheduler service (map)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments for scheduler service (map)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds for scheduler service (list)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra environment for scheduler service (list)
         :param pulumi.Input[int] gid: Etcd service GID. Default: `0`. For Rancher v2.3.x and above (int)
@@ -7288,14 +7288,14 @@ class ClusterServicesEtcdDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments for scheduler service (map)
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -7635,7 +7635,7 @@ class ClusterServicesKubeApiArgs:
                  always_pull_images: Optional[pulumi.Input[bool]] = None,
                  audit_log: Optional[pulumi.Input['ClusterServicesKubeApiAuditLogArgs']] = None,
                  event_rate_limit: Optional[pulumi.Input['ClusterServicesKubeApiEventRateLimitArgs']] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
@@ -7648,7 +7648,7 @@ class ClusterServicesKubeApiArgs:
         :param pulumi.Input[bool] always_pull_images: Enable/Disable AlwaysPullImages admissions plugin
         :param pulumi.Input['ClusterServicesKubeApiAuditLogArgs'] audit_log: K8s audit log configuration. (list maxitem: 1)
         :param pulumi.Input['ClusterServicesKubeApiEventRateLimitArgs'] event_rate_limit: K8s event rate limit configuration. (list maxitem: 1)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kube-api services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kube-api services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
@@ -7721,14 +7721,14 @@ class ClusterServicesKubeApiArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kube-api services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -7976,7 +7976,7 @@ class ClusterServicesKubeApiDeprecatedArgs:
                  always_pull_images: Optional[pulumi.Input[bool]] = None,
                  audit_log: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedAuditLogArgs']] = None,
                  event_rate_limit: Optional[pulumi.Input['ClusterServicesKubeApiDeprecatedEventRateLimitArgs']] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
@@ -7989,7 +7989,7 @@ class ClusterServicesKubeApiDeprecatedArgs:
         :param pulumi.Input[bool] always_pull_images: Enable/Disable AlwaysPullImages admissions plugin
         :param pulumi.Input['ClusterServicesKubeApiDeprecatedAuditLogArgs'] audit_log: K8s audit log configuration. (list maxitem: 1)
         :param pulumi.Input['ClusterServicesKubeApiDeprecatedEventRateLimitArgs'] event_rate_limit: K8s event rate limit configuration. (list maxitem: 1)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kube-api services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kube-api services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image for scheduler service (string)
@@ -8062,14 +8062,14 @@ class ClusterServicesKubeApiDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kube-api services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8471,14 +8471,14 @@ class ClusterServicesKubeApiSecretsEncryptionConfigArgs:
 class ClusterServicesKubeControllerArgs:
     def __init__(__self__, *,
                  cluster_cidr: Optional[pulumi.Input[str]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  service_cluster_ip_range: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_cidr: (Computed) RKE k8s cluster cidr (string)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kube-controller service
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kube-controller service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image of the kube-controller service
@@ -8511,14 +8511,14 @@ class ClusterServicesKubeControllerArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kube-controller service
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8574,14 +8574,14 @@ class ClusterServicesKubeControllerArgs:
 class ClusterServicesKubeControllerDeprecatedArgs:
     def __init__(__self__, *,
                  cluster_cidr: Optional[pulumi.Input[str]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  service_cluster_ip_range: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_cidr: (Computed) RKE k8s cluster cidr (string)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kube-controller service
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kube-controller service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image of the kube-controller service
@@ -8614,14 +8614,14 @@ class ClusterServicesKubeControllerDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kube-controller service
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8676,12 +8676,12 @@ class ClusterServicesKubeControllerDeprecatedArgs:
 @pulumi.input_type
 class ClusterServicesKubeProxyDeprecatedArgs:
     def __init__(__self__, *,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kubeproxy services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kubeproxy services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the worker nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the worker nodes
         :param pulumi.Input[str] image: Docker image of the kubeproxy service
@@ -8697,14 +8697,14 @@ class ClusterServicesKubeProxyDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kubeproxy services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8747,12 +8747,12 @@ class ClusterServicesKubeProxyDeprecatedArgs:
 @pulumi.input_type
 class ClusterServicesKubeSchedulerDeprecatedArgs:
     def __init__(__self__, *,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the scheduler services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the scheduler services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image of the scheduler service
@@ -8768,14 +8768,14 @@ class ClusterServicesKubeSchedulerDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the scheduler services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8820,7 +8820,7 @@ class ClusterServicesKubeletArgs:
     def __init__(__self__, *,
                  cluster_dns_server: Optional[pulumi.Input[str]] = None,
                  cluster_domain: Optional[pulumi.Input[str]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fail_swap_on: Optional[pulumi.Input[bool]] = None,
@@ -8830,7 +8830,7 @@ class ClusterServicesKubeletArgs:
         """
         :param pulumi.Input[str] cluster_dns_server: (Computed) RKE k8s cluster dns server (string)
         :param pulumi.Input[str] cluster_domain: (Computed) RKE k8s cluster domain (string)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kubelet services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kubelet services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the worker nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the nodes
         :param pulumi.Input[bool] fail_swap_on: Fail if swap is enabled
@@ -8883,14 +8883,14 @@ class ClusterServicesKubeletArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kubelet services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -8971,7 +8971,7 @@ class ClusterServicesKubeletDeprecatedArgs:
     def __init__(__self__, *,
                  cluster_dns_server: Optional[pulumi.Input[str]] = None,
                  cluster_domain: Optional[pulumi.Input[str]] = None,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fail_swap_on: Optional[pulumi.Input[bool]] = None,
@@ -8981,7 +8981,7 @@ class ClusterServicesKubeletDeprecatedArgs:
         """
         :param pulumi.Input[str] cluster_dns_server: (Computed) RKE k8s cluster dns server (string)
         :param pulumi.Input[str] cluster_domain: (Computed) RKE k8s cluster domain (string)
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kubelet services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kubelet services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the worker nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the nodes
         :param pulumi.Input[bool] fail_swap_on: Fail if swap is enabled
@@ -9034,14 +9034,14 @@ class ClusterServicesKubeletDeprecatedArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kubelet services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -9120,12 +9120,12 @@ class ClusterServicesKubeletDeprecatedArgs:
 @pulumi.input_type
 class ClusterServicesKubeproxyArgs:
     def __init__(__self__, *,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the kubeproxy services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the kubeproxy services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the worker nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the worker nodes
         :param pulumi.Input[str] image: Docker image of the kubeproxy service
@@ -9141,14 +9141,14 @@ class ClusterServicesKubeproxyArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the kubeproxy services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property
@@ -9191,12 +9191,12 @@ class ClusterServicesKubeproxyArgs:
 @pulumi.input_type
 class ClusterServicesSchedulerArgs:
     def __init__(__self__, *,
-                 extra_args: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extra_args: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_binds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extra_envs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] extra_args: Extra arguments that are added to the scheduler services
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_args: Extra arguments that are added to the scheduler services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_binds: Extra binds added to the controlplane nodes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_envs: Extra env added to the controlplane nodes
         :param pulumi.Input[str] image: Docker image of the scheduler service
@@ -9212,14 +9212,14 @@ class ClusterServicesSchedulerArgs:
 
     @property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extra_args(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Extra arguments that are added to the scheduler services
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extra_args(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @property

@@ -20,13 +20,13 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Authorization mode options
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
 
         [OutputConstructor]
         private ClusterAuthorization(
             string? mode,
 
-            ImmutableDictionary<string, object>? options)
+            ImmutableDictionary<string, string>? options)
         {
             Mode = mode;
             Options = options;

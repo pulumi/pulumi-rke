@@ -13,26 +13,26 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterMonitoringArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
-        private InputMap<object>? _nodeSelector;
+        private InputMap<string>? _nodeSelector;
 
         /// <summary>
         /// Node selector key pair
         /// </summary>
-        public InputMap<object> NodeSelector
+        public InputMap<string> NodeSelector
         {
-            get => _nodeSelector ?? (_nodeSelector = new InputMap<object>());
+            get => _nodeSelector ?? (_nodeSelector = new InputMap<string>());
             set => _nodeSelector = value;
         }
 
         [Input("options")]
-        private InputMap<object>? _options;
+        private InputMap<string>? _options;
 
         /// <summary>
         /// Monitoring options
         /// </summary>
-        public InputMap<object> Options
+        public InputMap<string> Options
         {
-            get => _options ?? (_options = new InputMap<object>());
+            get => _options ?? (_options = new InputMap<string>());
             set => _options = value;
         }
 

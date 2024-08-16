@@ -5,7 +5,6 @@ package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.rke.outputs.ClusterDnsNodelocal;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,7 @@ public final class ClusterDns {
      * @return NodeSelector key pair
      * 
      */
-    private @Nullable Map<String,Object> nodeSelector;
+    private @Nullable Map<String,String> nodeSelector;
     /**
      * @return Nodelocal dns
      * 
@@ -46,7 +45,7 @@ public final class ClusterDns {
      * @return NodeSelector key pair
      * 
      */
-    public Map<String,Object> nodeSelector() {
+    public Map<String,String> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
@@ -87,7 +86,7 @@ public final class ClusterDns {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Map<String,Object> nodeSelector;
+        private @Nullable Map<String,String> nodeSelector;
         private @Nullable ClusterDnsNodelocal nodelocal;
         private @Nullable String provider;
         private @Nullable List<String> reverseCidrs;
@@ -103,7 +102,7 @@ public final class ClusterDns {
         }
 
         @CustomType.Setter
-        public Builder nodeSelector(@Nullable Map<String,Object> nodeSelector) {
+        public Builder nodeSelector(@Nullable Map<String,String> nodeSelector) {
 
             this.nodeSelector = nodeSelector;
             return this;

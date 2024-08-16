@@ -16,7 +16,7 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// NodeSelector key pair
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NodeSelector;
+        public readonly ImmutableDictionary<string, string>? NodeSelector;
         /// <summary>
         /// Nodelocal dns
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Rke.Outputs
 
         [OutputConstructor]
         private ClusterDns(
-            ImmutableDictionary<string, object>? nodeSelector,
+            ImmutableDictionary<string, string>? nodeSelector,
 
             Outputs.ClusterDnsNodelocal? nodelocal,
 

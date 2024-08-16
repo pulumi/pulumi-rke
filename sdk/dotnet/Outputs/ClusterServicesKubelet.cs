@@ -24,7 +24,7 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Extra arguments that are added to the kubelet services
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtraArgs;
+        public readonly ImmutableDictionary<string, string>? ExtraArgs;
         /// <summary>
         /// Extra binds added to the worker nodes
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Rke.Outputs
 
             string? clusterDomain,
 
-            ImmutableDictionary<string, object>? extraArgs,
+            ImmutableDictionary<string, string>? extraArgs,
 
             ImmutableArray<string> extraBinds,
 

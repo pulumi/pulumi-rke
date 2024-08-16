@@ -10,7 +10,6 @@ import com.pulumi.rke.outputs.ClusterNetworkCanalNetworkProvider;
 import com.pulumi.rke.outputs.ClusterNetworkFlannelNetworkProvider;
 import com.pulumi.rke.outputs.ClusterNetworkWeaveNetworkProvider;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -48,7 +47,7 @@ public final class ClusterNetwork {
      * @return Network provider options
      * 
      */
-    private @Nullable Map<String,Object> options;
+    private @Nullable Map<String,String> options;
     /**
      * @return Network provider plugin
      * 
@@ -100,7 +99,7 @@ public final class ClusterNetwork {
      * @return Network provider options
      * 
      */
-    public Map<String,Object> options() {
+    public Map<String,String> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
@@ -132,7 +131,7 @@ public final class ClusterNetwork {
         private @Nullable ClusterNetworkCanalNetworkProvider canalNetworkProvider;
         private @Nullable ClusterNetworkFlannelNetworkProvider flannelNetworkProvider;
         private @Nullable Integer mtu;
-        private @Nullable Map<String,Object> options;
+        private @Nullable Map<String,String> options;
         private @Nullable String plugin;
         private @Nullable ClusterNetworkWeaveNetworkProvider weaveNetworkProvider;
         public Builder() {}
@@ -179,7 +178,7 @@ public final class ClusterNetwork {
             return this;
         }
         @CustomType.Setter
-        public Builder options(@Nullable Map<String,Object> options) {
+        public Builder options(@Nullable Map<String,String> options) {
 
             this.options = options;
             return this;

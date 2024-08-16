@@ -129,7 +129,7 @@
                 "options": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Authorization mode options\n"
                 }
@@ -1585,7 +1585,7 @@
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "NodeSelector key pair\n"
                 },
@@ -1623,7 +1623,7 @@
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Node selector key pair\n"
                 }
@@ -1685,7 +1685,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments for the ingress controller\n"
                 },
@@ -1704,14 +1704,14 @@
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Node selector key pair\n"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Ingress controller options\n"
                 },
@@ -1727,14 +1727,14 @@
                 "nodeSelector": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Node selector key pair\n"
                 },
                 "options": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Monitoring options\n"
                 },
@@ -1777,7 +1777,7 @@
                 "options": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Network provider options\n"
                 },
@@ -2012,7 +2012,7 @@
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Node Labels\n"
                 },
@@ -2393,7 +2393,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments for scheduler service (map)\n"
                 },
@@ -2555,7 +2555,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments for scheduler service (map)\n"
                 },
@@ -2704,7 +2704,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kube-api services\n"
                 },
@@ -2844,7 +2844,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kube-api services\n"
                 },
@@ -3060,7 +3060,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kube-controller service\n"
                 },
@@ -3110,7 +3110,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kube-controller service\n"
                 },
@@ -3156,7 +3156,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kubeproxy services\n"
                 },
@@ -3196,7 +3196,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the scheduler services\n"
                 },
@@ -3244,7 +3244,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kubelet services\n"
                 },
@@ -3307,7 +3307,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kubelet services\n"
                 },
@@ -3362,7 +3362,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the kubeproxy services\n"
                 },
@@ -3402,7 +3402,7 @@
                 "extraArgs": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "string"
                     },
                     "description": "Extra arguments that are added to the scheduler services\n"
                 },

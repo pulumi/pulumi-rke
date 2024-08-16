@@ -4,7 +4,6 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,12 +16,12 @@ public final class ClusterMonitoring {
      * @return Node selector key pair
      * 
      */
-    private @Nullable Map<String,Object> nodeSelector;
+    private @Nullable Map<String,String> nodeSelector;
     /**
      * @return Monitoring options
      * 
      */
-    private @Nullable Map<String,Object> options;
+    private @Nullable Map<String,String> options;
     /**
      * @return Monitoring provider
      * 
@@ -34,14 +33,14 @@ public final class ClusterMonitoring {
      * @return Node selector key pair
      * 
      */
-    public Map<String,Object> nodeSelector() {
+    public Map<String,String> nodeSelector() {
         return this.nodeSelector == null ? Map.of() : this.nodeSelector;
     }
     /**
      * @return Monitoring options
      * 
      */
-    public Map<String,Object> options() {
+    public Map<String,String> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
@@ -61,8 +60,8 @@ public final class ClusterMonitoring {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Map<String,Object> nodeSelector;
-        private @Nullable Map<String,Object> options;
+        private @Nullable Map<String,String> nodeSelector;
+        private @Nullable Map<String,String> options;
         private @Nullable String provider;
         public Builder() {}
         public Builder(ClusterMonitoring defaults) {
@@ -73,13 +72,13 @@ public final class ClusterMonitoring {
         }
 
         @CustomType.Setter
-        public Builder nodeSelector(@Nullable Map<String,Object> nodeSelector) {
+        public Builder nodeSelector(@Nullable Map<String,String> nodeSelector) {
 
             this.nodeSelector = nodeSelector;
             return this;
         }
         @CustomType.Setter
-        public Builder options(@Nullable Map<String,Object> options) {
+        public Builder options(@Nullable Map<String,String> options) {
 
             this.options = options;
             return this;

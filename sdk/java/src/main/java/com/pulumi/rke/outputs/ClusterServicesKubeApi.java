@@ -8,7 +8,6 @@ import com.pulumi.rke.outputs.ClusterServicesKubeApiAuditLog;
 import com.pulumi.rke.outputs.ClusterServicesKubeApiEventRateLimit;
 import com.pulumi.rke.outputs.ClusterServicesKubeApiSecretsEncryptionConfig;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +36,7 @@ public final class ClusterServicesKubeApi {
      * @return Extra arguments that are added to the kube-api services
      * 
      */
-    private @Nullable Map<String,Object> extraArgs;
+    private @Nullable Map<String,String> extraArgs;
     /**
      * @return Extra binds added to the controlplane nodes
      * 
@@ -105,7 +104,7 @@ public final class ClusterServicesKubeApi {
      * @return Extra arguments that are added to the kube-api services
      * 
      */
-    public Map<String,Object> extraArgs() {
+    public Map<String,String> extraArgs() {
         return this.extraArgs == null ? Map.of() : this.extraArgs;
     }
     /**
@@ -177,7 +176,7 @@ public final class ClusterServicesKubeApi {
         private @Nullable Boolean alwaysPullImages;
         private @Nullable ClusterServicesKubeApiAuditLog auditLog;
         private @Nullable ClusterServicesKubeApiEventRateLimit eventRateLimit;
-        private @Nullable Map<String,Object> extraArgs;
+        private @Nullable Map<String,String> extraArgs;
         private @Nullable List<String> extraBinds;
         private @Nullable List<String> extraEnvs;
         private @Nullable String image;
@@ -222,7 +221,7 @@ public final class ClusterServicesKubeApi {
             return this;
         }
         @CustomType.Setter
-        public Builder extraArgs(@Nullable Map<String,Object> extraArgs) {
+        public Builder extraArgs(@Nullable Map<String,String> extraArgs) {
 
             this.extraArgs = extraArgs;
             return this;

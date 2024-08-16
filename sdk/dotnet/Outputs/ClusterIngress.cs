@@ -24,7 +24,7 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Extra arguments for the ingress controller
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtraArgs;
+        public readonly ImmutableDictionary<string, string>? ExtraArgs;
         /// <summary>
         /// Ingress controller http port
         /// </summary>
@@ -40,11 +40,11 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Node selector key pair
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NodeSelector;
+        public readonly ImmutableDictionary<string, string>? NodeSelector;
         /// <summary>
         /// Ingress controller options
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
         /// Ingress controller provider
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Rke.Outputs
 
             string? dnsPolicy,
 
-            ImmutableDictionary<string, object>? extraArgs,
+            ImmutableDictionary<string, string>? extraArgs,
 
             int? httpPort,
 
@@ -64,9 +64,9 @@ namespace Pulumi.Rke.Outputs
 
             string? networkMode,
 
-            ImmutableDictionary<string, object>? nodeSelector,
+            ImmutableDictionary<string, string>? nodeSelector,
 
-            ImmutableDictionary<string, object>? options,
+            ImmutableDictionary<string, string>? options,
 
             string? provider)
         {

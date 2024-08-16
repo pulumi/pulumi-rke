@@ -11,7 +11,6 @@ import com.pulumi.rke.inputs.ClusterNetworkCanalNetworkProviderArgs;
 import com.pulumi.rke.inputs.ClusterNetworkFlannelNetworkProviderArgs;
 import com.pulumi.rke.inputs.ClusterNetworkWeaveNetworkProviderArgs;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -103,13 +102,13 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="options")
-    private @Nullable Output<Map<String,Object>> options;
+    private @Nullable Output<Map<String,String>> options;
 
     /**
      * @return Network provider options
      * 
      */
-    public Optional<Output<Map<String,Object>>> options() {
+    public Optional<Output<Map<String,String>>> options() {
         return Optional.ofNullable(this.options);
     }
 
@@ -285,7 +284,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder options(@Nullable Output<Map<String,Object>> options) {
+        public Builder options(@Nullable Output<Map<String,String>> options) {
             $.options = options;
             return this;
         }
@@ -296,7 +295,7 @@ public final class ClusterNetworkArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder options(Map<String,Object> options) {
+        public Builder options(Map<String,String> options) {
             return options(Output.of(options));
         }
 

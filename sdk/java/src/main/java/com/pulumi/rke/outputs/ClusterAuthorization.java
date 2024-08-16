@@ -4,7 +4,6 @@
 package com.pulumi.rke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public final class ClusterAuthorization {
      * @return Authorization mode options
      * 
      */
-    private @Nullable Map<String,Object> options;
+    private @Nullable Map<String,String> options;
 
     private ClusterAuthorization() {}
     /**
@@ -36,7 +35,7 @@ public final class ClusterAuthorization {
      * @return Authorization mode options
      * 
      */
-    public Map<String,Object> options() {
+    public Map<String,String> options() {
         return this.options == null ? Map.of() : this.options;
     }
 
@@ -50,7 +49,7 @@ public final class ClusterAuthorization {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String mode;
-        private @Nullable Map<String,Object> options;
+        private @Nullable Map<String,String> options;
         public Builder() {}
         public Builder(ClusterAuthorization defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,7 +64,7 @@ public final class ClusterAuthorization {
             return this;
         }
         @CustomType.Setter
-        public Builder options(@Nullable Map<String,Object> options) {
+        public Builder options(@Nullable Map<String,String> options) {
 
             this.options = options;
             return this;
