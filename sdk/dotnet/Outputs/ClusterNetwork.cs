@@ -36,7 +36,7 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Network provider options
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
         /// Network provider plugin
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Rke.Outputs
 
             int? mtu,
 
-            ImmutableDictionary<string, object>? options,
+            ImmutableDictionary<string, string>? options,
 
             string? plugin,
 

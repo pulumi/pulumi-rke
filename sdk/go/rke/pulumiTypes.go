@@ -348,7 +348,7 @@ type ClusterAuthorization struct {
 	// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 	Mode *string `pulumi:"mode"`
 	// Authorization mode options
-	Options map[string]interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 }
 
 // ClusterAuthorizationInput is an input type that accepts ClusterAuthorizationArgs and ClusterAuthorizationOutput values.
@@ -366,7 +366,7 @@ type ClusterAuthorizationArgs struct {
 	// RKE mode for authorization. `rbac` and `none` modes are available. Default `rbac` (string)
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Authorization mode options
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 }
 
 func (ClusterAuthorizationArgs) ElementType() reflect.Type {
@@ -452,8 +452,8 @@ func (o ClusterAuthorizationOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Authorization mode options
-func (o ClusterAuthorizationOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterAuthorization) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ClusterAuthorizationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterAuthorization) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 type ClusterAuthorizationPtrOutput struct{ *pulumi.OutputState }
@@ -491,13 +491,13 @@ func (o ClusterAuthorizationPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Authorization mode options
-func (o ClusterAuthorizationPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterAuthorization) map[string]interface{} {
+func (o ClusterAuthorizationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterAuthorization) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ClusterBastionHost struct {
@@ -9078,7 +9078,7 @@ func (o ClusterControlPlaneHostArrayOutput) Index(i pulumi.IntInput) ClusterCont
 
 type ClusterDns struct {
 	// NodeSelector key pair
-	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
 	// Nodelocal dns
 	Nodelocal *ClusterDnsNodelocal `pulumi:"nodelocal"`
 	// DNS provider
@@ -9102,7 +9102,7 @@ type ClusterDnsInput interface {
 
 type ClusterDnsArgs struct {
 	// NodeSelector key pair
-	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+	NodeSelector pulumi.StringMapInput `pulumi:"nodeSelector"`
 	// Nodelocal dns
 	Nodelocal ClusterDnsNodelocalPtrInput `pulumi:"nodelocal"`
 	// DNS provider
@@ -9191,8 +9191,8 @@ func (o ClusterDnsOutput) ToClusterDnsPtrOutputWithContext(ctx context.Context) 
 }
 
 // NodeSelector key pair
-func (o ClusterDnsOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterDns) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+func (o ClusterDnsOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterDns) map[string]string { return v.NodeSelector }).(pulumi.StringMapOutput)
 }
 
 // Nodelocal dns
@@ -9240,13 +9240,13 @@ func (o ClusterDnsPtrOutput) Elem() ClusterDnsOutput {
 }
 
 // NodeSelector key pair
-func (o ClusterDnsPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterDns) map[string]interface{} {
+func (o ClusterDnsPtrOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterDns) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.NodeSelector
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Nodelocal dns
@@ -9293,7 +9293,7 @@ type ClusterDnsNodelocal struct {
 	// Nodelocal dns ip address (string)
 	IpAddress *string `pulumi:"ipAddress"`
 	// Node selector key pair
-	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
 }
 
 // ClusterDnsNodelocalInput is an input type that accepts ClusterDnsNodelocalArgs and ClusterDnsNodelocalOutput values.
@@ -9311,7 +9311,7 @@ type ClusterDnsNodelocalArgs struct {
 	// Nodelocal dns ip address (string)
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Node selector key pair
-	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+	NodeSelector pulumi.StringMapInput `pulumi:"nodeSelector"`
 }
 
 func (ClusterDnsNodelocalArgs) ElementType() reflect.Type {
@@ -9397,8 +9397,8 @@ func (o ClusterDnsNodelocalOutput) IpAddress() pulumi.StringPtrOutput {
 }
 
 // Node selector key pair
-func (o ClusterDnsNodelocalOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterDnsNodelocal) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+func (o ClusterDnsNodelocalOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterDnsNodelocal) map[string]string { return v.NodeSelector }).(pulumi.StringMapOutput)
 }
 
 type ClusterDnsNodelocalPtrOutput struct{ *pulumi.OutputState }
@@ -9436,13 +9436,13 @@ func (o ClusterDnsNodelocalPtrOutput) IpAddress() pulumi.StringPtrOutput {
 }
 
 // Node selector key pair
-func (o ClusterDnsNodelocalPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterDnsNodelocal) map[string]interface{} {
+func (o ClusterDnsNodelocalPtrOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterDnsNodelocal) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.NodeSelector
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ClusterEtcdHost struct {
@@ -9663,7 +9663,7 @@ type ClusterIngress struct {
 	// Ingress controller dns policy
 	DnsPolicy *string `pulumi:"dnsPolicy"`
 	// Extra arguments for the ingress controller
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Ingress controller http port
 	HttpPort *int `pulumi:"httpPort"`
 	// Ingress controller https port
@@ -9671,9 +9671,9 @@ type ClusterIngress struct {
 	// Ingress controller network mode
 	NetworkMode *string `pulumi:"networkMode"`
 	// Node selector key pair
-	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
 	// Ingress controller options
-	Options map[string]interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// Ingress controller provider
 	Provider *string `pulumi:"provider"`
 }
@@ -9695,7 +9695,7 @@ type ClusterIngressArgs struct {
 	// Ingress controller dns policy
 	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
 	// Extra arguments for the ingress controller
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Ingress controller http port
 	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
 	// Ingress controller https port
@@ -9703,9 +9703,9 @@ type ClusterIngressArgs struct {
 	// Ingress controller network mode
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Node selector key pair
-	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+	NodeSelector pulumi.StringMapInput `pulumi:"nodeSelector"`
 	// Ingress controller options
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	// Ingress controller provider
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
@@ -9798,8 +9798,8 @@ func (o ClusterIngressOutput) DnsPolicy() pulumi.StringPtrOutput {
 }
 
 // Extra arguments for the ingress controller
-func (o ClusterIngressOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterIngressOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterIngress) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Ingress controller http port
@@ -9818,13 +9818,13 @@ func (o ClusterIngressOutput) NetworkMode() pulumi.StringPtrOutput {
 }
 
 // Node selector key pair
-func (o ClusterIngressOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+func (o ClusterIngressOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterIngress) map[string]string { return v.NodeSelector }).(pulumi.StringMapOutput)
 }
 
 // Ingress controller options
-func (o ClusterIngressOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterIngress) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ClusterIngressOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterIngress) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 // Ingress controller provider
@@ -9877,13 +9877,13 @@ func (o ClusterIngressPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
 }
 
 // Extra arguments for the ingress controller
-func (o ClusterIngressPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterIngress) map[string]interface{} {
+func (o ClusterIngressPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterIngress) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Ingress controller http port
@@ -9917,23 +9917,23 @@ func (o ClusterIngressPtrOutput) NetworkMode() pulumi.StringPtrOutput {
 }
 
 // Node selector key pair
-func (o ClusterIngressPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterIngress) map[string]interface{} {
+func (o ClusterIngressPtrOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterIngress) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.NodeSelector
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Ingress controller options
-func (o ClusterIngressPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterIngress) map[string]interface{} {
+func (o ClusterIngressPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterIngress) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Ingress controller provider
@@ -9948,9 +9948,9 @@ func (o ClusterIngressPtrOutput) Provider() pulumi.StringPtrOutput {
 
 type ClusterMonitoring struct {
 	// Node selector key pair
-	NodeSelector map[string]interface{} `pulumi:"nodeSelector"`
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
 	// Monitoring options
-	Options map[string]interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// Monitoring provider
 	Provider *string `pulumi:"provider"`
 }
@@ -9968,9 +9968,9 @@ type ClusterMonitoringInput interface {
 
 type ClusterMonitoringArgs struct {
 	// Node selector key pair
-	NodeSelector pulumi.MapInput `pulumi:"nodeSelector"`
+	NodeSelector pulumi.StringMapInput `pulumi:"nodeSelector"`
 	// Monitoring options
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	// Monitoring provider
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
@@ -10053,13 +10053,13 @@ func (o ClusterMonitoringOutput) ToClusterMonitoringPtrOutputWithContext(ctx con
 }
 
 // Node selector key pair
-func (o ClusterMonitoringOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.NodeSelector }).(pulumi.MapOutput)
+func (o ClusterMonitoringOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterMonitoring) map[string]string { return v.NodeSelector }).(pulumi.StringMapOutput)
 }
 
 // Monitoring options
-func (o ClusterMonitoringOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterMonitoring) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ClusterMonitoringOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterMonitoring) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 // Monitoring provider
@@ -10092,23 +10092,23 @@ func (o ClusterMonitoringPtrOutput) Elem() ClusterMonitoringOutput {
 }
 
 // Node selector key pair
-func (o ClusterMonitoringPtrOutput) NodeSelector() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterMonitoring) map[string]interface{} {
+func (o ClusterMonitoringPtrOutput) NodeSelector() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterMonitoring) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.NodeSelector
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Monitoring options
-func (o ClusterMonitoringPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterMonitoring) map[string]interface{} {
+func (o ClusterMonitoringPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterMonitoring) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Monitoring provider
@@ -10133,7 +10133,7 @@ type ClusterNetwork struct {
 	// Network provider MTU
 	Mtu *int `pulumi:"mtu"`
 	// Network provider options
-	Options map[string]interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// Network provider plugin
 	Plugin *string `pulumi:"plugin"`
 	// Weave network provider config
@@ -10163,7 +10163,7 @@ type ClusterNetworkArgs struct {
 	// Network provider MTU
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 	// Network provider options
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	// Network provider plugin
 	Plugin pulumi.StringPtrInput `pulumi:"plugin"`
 	// Weave network provider config
@@ -10273,8 +10273,8 @@ func (o ClusterNetworkOutput) Mtu() pulumi.IntPtrOutput {
 }
 
 // Network provider options
-func (o ClusterNetworkOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterNetwork) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ClusterNetworkOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterNetwork) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 // Network provider plugin
@@ -10362,13 +10362,13 @@ func (o ClusterNetworkPtrOutput) Mtu() pulumi.IntPtrOutput {
 }
 
 // Network provider options
-func (o ClusterNetworkPtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterNetwork) map[string]interface{} {
+func (o ClusterNetworkPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterNetwork) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Network provider plugin
@@ -11523,7 +11523,7 @@ type ClusterNode struct {
 	// Internal address that will be used for components communication
 	InternalAddress *string `pulumi:"internalAddress"`
 	// Node Labels
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// Name of the host provisioned via docker machine
 	NodeName *string `pulumi:"nodeName"`
 	// Port used for SSH communication
@@ -11571,7 +11571,7 @@ type ClusterNodeArgs struct {
 	// Internal address that will be used for components communication
 	InternalAddress pulumi.StringPtrInput `pulumi:"internalAddress"`
 	// Node Labels
-	Labels pulumi.MapInput `pulumi:"labels"`
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the host provisioned via docker machine
 	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
 	// Port used for SSH communication
@@ -11670,8 +11670,8 @@ func (o ClusterNodeOutput) InternalAddress() pulumi.StringPtrOutput {
 }
 
 // Node Labels
-func (o ClusterNodeOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterNode) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o ClusterNodeOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterNode) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // Name of the host provisioned via docker machine
@@ -12967,7 +12967,7 @@ type ClusterServicesEtcd struct {
 	// External urls for etcd service (list)
 	ExternalUrls []string `pulumi:"externalUrls"`
 	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds for scheduler service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
@@ -13011,7 +13011,7 @@ type ClusterServicesEtcdArgs struct {
 	// External urls for etcd service (list)
 	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
 	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds for scheduler service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
@@ -13135,8 +13135,8 @@ func (o ClusterServicesEtcdOutput) ExternalUrls() pulumi.StringArrayOutput {
 }
 
 // Extra arguments for scheduler service (map)
-func (o ClusterServicesEtcdOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesEtcd) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesEtcdOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesEtcd) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds for scheduler service (list)
@@ -13259,13 +13259,13 @@ func (o ClusterServicesEtcdPtrOutput) ExternalUrls() pulumi.StringArrayOutput {
 }
 
 // Extra arguments for scheduler service (map)
-func (o ClusterServicesEtcdPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesEtcd) map[string]interface{} {
+func (o ClusterServicesEtcdPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesEtcd) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds for scheduler service (list)
@@ -13855,7 +13855,7 @@ type ClusterServicesEtcdDeprecated struct {
 	// External urls for etcd service (list)
 	ExternalUrls []string `pulumi:"externalUrls"`
 	// Extra arguments for scheduler service (map)
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds for scheduler service (list)
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
@@ -13899,7 +13899,7 @@ type ClusterServicesEtcdDeprecatedArgs struct {
 	// External urls for etcd service (list)
 	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
 	// Extra arguments for scheduler service (map)
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds for scheduler service (list)
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra environment for scheduler service (list)
@@ -14025,8 +14025,8 @@ func (o ClusterServicesEtcdDeprecatedOutput) ExternalUrls() pulumi.StringArrayOu
 }
 
 // Extra arguments for scheduler service (map)
-func (o ClusterServicesEtcdDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesEtcdDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesEtcdDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds for scheduler service (list)
@@ -14149,13 +14149,13 @@ func (o ClusterServicesEtcdDeprecatedPtrOutput) ExternalUrls() pulumi.StringArra
 }
 
 // Extra arguments for scheduler service (map)
-func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) map[string]interface{} {
+func (o ClusterServicesEtcdDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesEtcdDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds for scheduler service (list)
@@ -14741,7 +14741,7 @@ type ClusterServicesKubeApi struct {
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit *ClusterServicesKubeApiEventRateLimit `pulumi:"eventRateLimit"`
 	// Extra arguments that are added to the kube-api services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -14779,7 +14779,7 @@ type ClusterServicesKubeApiArgs struct {
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit ClusterServicesKubeApiEventRateLimitPtrInput `pulumi:"eventRateLimit"`
 	// Extra arguments that are added to the kube-api services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -14891,8 +14891,8 @@ func (o ClusterServicesKubeApiOutput) EventRateLimit() ClusterServicesKubeApiEve
 }
 
 // Extra arguments that are added to the kube-api services
-func (o ClusterServicesKubeApiOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApi) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeApiOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApi) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -14992,13 +14992,13 @@ func (o ClusterServicesKubeApiPtrOutput) EventRateLimit() ClusterServicesKubeApi
 }
 
 // Extra arguments that are added to the kube-api services
-func (o ClusterServicesKubeApiPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApi) map[string]interface{} {
+func (o ClusterServicesKubeApiPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApi) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -15479,7 +15479,7 @@ type ClusterServicesKubeApiDeprecated struct {
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit *ClusterServicesKubeApiDeprecatedEventRateLimit `pulumi:"eventRateLimit"`
 	// Extra arguments that are added to the kube-api services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -15517,7 +15517,7 @@ type ClusterServicesKubeApiDeprecatedArgs struct {
 	// K8s event rate limit configuration. (list maxitem: 1)
 	EventRateLimit ClusterServicesKubeApiDeprecatedEventRateLimitPtrInput `pulumi:"eventRateLimit"`
 	// Extra arguments that are added to the kube-api services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -15631,8 +15631,8 @@ func (o ClusterServicesKubeApiDeprecatedOutput) EventRateLimit() ClusterServices
 }
 
 // Extra arguments that are added to the kube-api services
-func (o ClusterServicesKubeApiDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeApiDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeApiDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -15732,13 +15732,13 @@ func (o ClusterServicesKubeApiDeprecatedPtrOutput) EventRateLimit() ClusterServi
 }
 
 // Extra arguments that are added to the kube-api services
-func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) map[string]interface{} {
+func (o ClusterServicesKubeApiDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeApiDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -16839,7 +16839,7 @@ type ClusterServicesKubeController struct {
 	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr *string `pulumi:"clusterCidr"`
 	// Extra arguments that are added to the kube-controller service
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -16865,7 +16865,7 @@ type ClusterServicesKubeControllerArgs struct {
 	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
 	// Extra arguments that are added to the kube-controller service
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -16959,8 +16959,8 @@ func (o ClusterServicesKubeControllerOutput) ClusterCidr() pulumi.StringPtrOutpu
 }
 
 // Extra arguments that are added to the kube-controller service
-func (o ClusterServicesKubeControllerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeController) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeControllerOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeController) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17018,13 +17018,13 @@ func (o ClusterServicesKubeControllerPtrOutput) ClusterCidr() pulumi.StringPtrOu
 }
 
 // Extra arguments that are added to the kube-controller service
-func (o ClusterServicesKubeControllerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeController) map[string]interface{} {
+func (o ClusterServicesKubeControllerPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeController) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17071,7 +17071,7 @@ type ClusterServicesKubeControllerDeprecated struct {
 	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr *string `pulumi:"clusterCidr"`
 	// Extra arguments that are added to the kube-controller service
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -17097,7 +17097,7 @@ type ClusterServicesKubeControllerDeprecatedArgs struct {
 	// (Computed) RKE k8s cluster cidr (string)
 	ClusterCidr pulumi.StringPtrInput `pulumi:"clusterCidr"`
 	// Extra arguments that are added to the kube-controller service
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -17191,8 +17191,8 @@ func (o ClusterServicesKubeControllerDeprecatedOutput) ClusterCidr() pulumi.Stri
 }
 
 // Extra arguments that are added to the kube-controller service
-func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeControllerDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeControllerDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17250,13 +17250,13 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ClusterCidr() pulumi.S
 }
 
 // Extra arguments that are added to the kube-controller service
-func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) map[string]interface{} {
+func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeControllerDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17301,7 +17301,7 @@ func (o ClusterServicesKubeControllerDeprecatedPtrOutput) ServiceClusterIpRange(
 
 type ClusterServicesKubeProxyDeprecated struct {
 	// Extra arguments that are added to the kubeproxy services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the worker nodes
@@ -17323,7 +17323,7 @@ type ClusterServicesKubeProxyDeprecatedInput interface {
 
 type ClusterServicesKubeProxyDeprecatedArgs struct {
 	// Extra arguments that are added to the kubeproxy services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the worker nodes
@@ -17410,8 +17410,8 @@ func (o ClusterServicesKubeProxyDeprecatedOutput) ToClusterServicesKubeProxyDepr
 }
 
 // Extra arguments that are added to the kubeproxy services
-func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeProxyDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeProxyDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -17454,13 +17454,13 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Elem() ClusterServicesKubeP
 }
 
 // Extra arguments that are added to the kubeproxy services
-func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) map[string]interface{} {
+func (o ClusterServicesKubeProxyDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeProxyDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -17495,7 +17495,7 @@ func (o ClusterServicesKubeProxyDeprecatedPtrOutput) Image() pulumi.StringPtrOut
 
 type ClusterServicesKubeSchedulerDeprecated struct {
 	// Extra arguments that are added to the scheduler services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -17517,7 +17517,7 @@ type ClusterServicesKubeSchedulerDeprecatedInput interface {
 
 type ClusterServicesKubeSchedulerDeprecatedArgs struct {
 	// Extra arguments that are added to the scheduler services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -17604,8 +17604,8 @@ func (o ClusterServicesKubeSchedulerDeprecatedOutput) ToClusterServicesKubeSched
 }
 
 // Extra arguments that are added to the scheduler services
-func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeSchedulerDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeSchedulerDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17648,13 +17648,13 @@ func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) Elem() ClusterServicesK
 }
 
 // Extra arguments that are added to the scheduler services
-func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) map[string]interface{} {
+func (o ClusterServicesKubeSchedulerDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeSchedulerDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -17693,7 +17693,7 @@ type ClusterServicesKubelet struct {
 	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain *string `pulumi:"clusterDomain"`
 	// Extra arguments that are added to the kubelet services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the nodes
@@ -17725,7 +17725,7 @@ type ClusterServicesKubeletArgs struct {
 	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
 	// Extra arguments that are added to the kubelet services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the nodes
@@ -17828,8 +17828,8 @@ func (o ClusterServicesKubeletOutput) ClusterDomain() pulumi.StringPtrOutput {
 }
 
 // Extra arguments that are added to the kubelet services
-func (o ClusterServicesKubeletOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubelet) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeletOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubelet) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -17907,13 +17907,13 @@ func (o ClusterServicesKubeletPtrOutput) ClusterDomain() pulumi.StringPtrOutput 
 }
 
 // Extra arguments that are added to the kubelet services
-func (o ClusterServicesKubeletPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubelet) map[string]interface{} {
+func (o ClusterServicesKubeletPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubelet) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -17982,7 +17982,7 @@ type ClusterServicesKubeletDeprecated struct {
 	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain *string `pulumi:"clusterDomain"`
 	// Extra arguments that are added to the kubelet services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the nodes
@@ -18014,7 +18014,7 @@ type ClusterServicesKubeletDeprecatedArgs struct {
 	// (Computed) RKE k8s cluster domain (string)
 	ClusterDomain pulumi.StringPtrInput `pulumi:"clusterDomain"`
 	// Extra arguments that are added to the kubelet services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the nodes
@@ -18117,8 +18117,8 @@ func (o ClusterServicesKubeletDeprecatedOutput) ClusterDomain() pulumi.StringPtr
 }
 
 // Extra arguments that are added to the kubelet services
-func (o ClusterServicesKubeletDeprecatedOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeletDeprecatedOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeletDeprecated) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -18196,13 +18196,13 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) ClusterDomain() pulumi.String
 }
 
 // Extra arguments that are added to the kubelet services
-func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) map[string]interface{} {
+func (o ClusterServicesKubeletDeprecatedPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeletDeprecated) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -18267,7 +18267,7 @@ func (o ClusterServicesKubeletDeprecatedPtrOutput) InfraContainerImage() pulumi.
 
 type ClusterServicesKubeproxy struct {
 	// Extra arguments that are added to the kubeproxy services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the worker nodes
@@ -18289,7 +18289,7 @@ type ClusterServicesKubeproxyInput interface {
 
 type ClusterServicesKubeproxyArgs struct {
 	// Extra arguments that are added to the kubeproxy services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the worker nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the worker nodes
@@ -18376,8 +18376,8 @@ func (o ClusterServicesKubeproxyOutput) ToClusterServicesKubeproxyPtrOutputWithC
 }
 
 // Extra arguments that are added to the kubeproxy services
-func (o ClusterServicesKubeproxyOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesKubeproxy) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesKubeproxyOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesKubeproxy) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -18420,13 +18420,13 @@ func (o ClusterServicesKubeproxyPtrOutput) Elem() ClusterServicesKubeproxyOutput
 }
 
 // Extra arguments that are added to the kubeproxy services
-func (o ClusterServicesKubeproxyPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesKubeproxy) map[string]interface{} {
+func (o ClusterServicesKubeproxyPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesKubeproxy) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the worker nodes
@@ -18461,7 +18461,7 @@ func (o ClusterServicesKubeproxyPtrOutput) Image() pulumi.StringPtrOutput {
 
 type ClusterServicesScheduler struct {
 	// Extra arguments that are added to the scheduler services
-	ExtraArgs map[string]interface{} `pulumi:"extraArgs"`
+	ExtraArgs map[string]string `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds []string `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -18483,7 +18483,7 @@ type ClusterServicesSchedulerInput interface {
 
 type ClusterServicesSchedulerArgs struct {
 	// Extra arguments that are added to the scheduler services
-	ExtraArgs pulumi.MapInput `pulumi:"extraArgs"`
+	ExtraArgs pulumi.StringMapInput `pulumi:"extraArgs"`
 	// Extra binds added to the controlplane nodes
 	ExtraBinds pulumi.StringArrayInput `pulumi:"extraBinds"`
 	// Extra env added to the controlplane nodes
@@ -18570,8 +18570,8 @@ func (o ClusterServicesSchedulerOutput) ToClusterServicesSchedulerPtrOutputWithC
 }
 
 // Extra arguments that are added to the scheduler services
-func (o ClusterServicesSchedulerOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterServicesScheduler) map[string]interface{} { return v.ExtraArgs }).(pulumi.MapOutput)
+func (o ClusterServicesSchedulerOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterServicesScheduler) map[string]string { return v.ExtraArgs }).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes
@@ -18614,13 +18614,13 @@ func (o ClusterServicesSchedulerPtrOutput) Elem() ClusterServicesSchedulerOutput
 }
 
 // Extra arguments that are added to the scheduler services
-func (o ClusterServicesSchedulerPtrOutput) ExtraArgs() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterServicesScheduler) map[string]interface{} {
+func (o ClusterServicesSchedulerPtrOutput) ExtraArgs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterServicesScheduler) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ExtraArgs
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Extra binds added to the controlplane nodes

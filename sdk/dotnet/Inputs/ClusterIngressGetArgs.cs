@@ -25,14 +25,14 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? DnsPolicy { get; set; }
 
         [Input("extraArgs")]
-        private InputMap<object>? _extraArgs;
+        private InputMap<string>? _extraArgs;
 
         /// <summary>
         /// Extra arguments for the ingress controller
         /// </summary>
-        public InputMap<object> ExtraArgs
+        public InputMap<string> ExtraArgs
         {
-            get => _extraArgs ?? (_extraArgs = new InputMap<object>());
+            get => _extraArgs ?? (_extraArgs = new InputMap<string>());
             set => _extraArgs = value;
         }
 
@@ -55,26 +55,26 @@ namespace Pulumi.Rke.Inputs
         public Input<string>? NetworkMode { get; set; }
 
         [Input("nodeSelector")]
-        private InputMap<object>? _nodeSelector;
+        private InputMap<string>? _nodeSelector;
 
         /// <summary>
         /// Node selector key pair
         /// </summary>
-        public InputMap<object> NodeSelector
+        public InputMap<string> NodeSelector
         {
-            get => _nodeSelector ?? (_nodeSelector = new InputMap<object>());
+            get => _nodeSelector ?? (_nodeSelector = new InputMap<string>());
             set => _nodeSelector = value;
         }
 
         [Input("options")]
-        private InputMap<object>? _options;
+        private InputMap<string>? _options;
 
         /// <summary>
         /// Ingress controller options
         /// </summary>
-        public InputMap<object> Options
+        public InputMap<string> Options
         {
-            get => _options ?? (_options = new InputMap<object>());
+            get => _options ?? (_options = new InputMap<string>());
             set => _options = value;
         }
 

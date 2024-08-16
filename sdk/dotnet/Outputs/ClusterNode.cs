@@ -32,7 +32,7 @@ namespace Pulumi.Rke.Outputs
         /// <summary>
         /// Node Labels
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Labels;
+        public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
         /// Name of the host provisioned via docker machine
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.Rke.Outputs
 
             string? internalAddress,
 
-            ImmutableDictionary<string, object>? labels,
+            ImmutableDictionary<string, string>? labels,
 
             string? nodeName,
 

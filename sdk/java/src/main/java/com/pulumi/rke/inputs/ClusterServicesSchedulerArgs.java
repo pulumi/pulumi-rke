@@ -5,7 +5,6 @@ package com.pulumi.rke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -23,13 +22,13 @@ public final class ClusterServicesSchedulerArgs extends com.pulumi.resources.Res
      * 
      */
     @Import(name="extraArgs")
-    private @Nullable Output<Map<String,Object>> extraArgs;
+    private @Nullable Output<Map<String,String>> extraArgs;
 
     /**
      * @return Extra arguments that are added to the scheduler services
      * 
      */
-    public Optional<Output<Map<String,Object>>> extraArgs() {
+    public Optional<Output<Map<String,String>>> extraArgs() {
         return Optional.ofNullable(this.extraArgs);
     }
 
@@ -111,7 +110,7 @@ public final class ClusterServicesSchedulerArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder extraArgs(@Nullable Output<Map<String,Object>> extraArgs) {
+        public Builder extraArgs(@Nullable Output<Map<String,String>> extraArgs) {
             $.extraArgs = extraArgs;
             return this;
         }
@@ -122,7 +121,7 @@ public final class ClusterServicesSchedulerArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder extraArgs(Map<String,Object> extraArgs) {
+        public Builder extraArgs(Map<String,String> extraArgs) {
             return extraArgs(Output.of(extraArgs));
         }
 

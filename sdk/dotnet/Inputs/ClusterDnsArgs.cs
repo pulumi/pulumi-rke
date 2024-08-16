@@ -13,14 +13,14 @@ namespace Pulumi.Rke.Inputs
     public sealed class ClusterDnsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
-        private InputMap<object>? _nodeSelector;
+        private InputMap<string>? _nodeSelector;
 
         /// <summary>
         /// NodeSelector key pair
         /// </summary>
-        public InputMap<object> NodeSelector
+        public InputMap<string> NodeSelector
         {
-            get => _nodeSelector ?? (_nodeSelector = new InputMap<object>());
+            get => _nodeSelector ?? (_nodeSelector = new InputMap<string>());
             set => _nodeSelector = value;
         }
 

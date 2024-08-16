@@ -39,7 +39,7 @@ export interface ClusterAuthorization {
     /**
      * Authorization mode options
      */
-    options?: {[key: string]: any};
+    options?: {[key: string]: string};
 }
 
 export interface ClusterBastionHost {
@@ -1161,7 +1161,7 @@ export interface ClusterDns {
     /**
      * NodeSelector key pair
      */
-    nodeSelector?: {[key: string]: any};
+    nodeSelector?: {[key: string]: string};
     /**
      * Nodelocal dns
      */
@@ -1188,7 +1188,7 @@ export interface ClusterDnsNodelocal {
     /**
      * Node selector key pair
      */
-    nodeSelector?: {[key: string]: any};
+    nodeSelector?: {[key: string]: string};
 }
 
 export interface ClusterEtcdHost {
@@ -1225,7 +1225,7 @@ export interface ClusterIngress {
     /**
      * Extra arguments for the ingress controller
      */
-    extraArgs?: {[key: string]: any};
+    extraArgs?: {[key: string]: string};
     /**
      * Ingress controller http port
      */
@@ -1241,11 +1241,11 @@ export interface ClusterIngress {
     /**
      * Node selector key pair
      */
-    nodeSelector?: {[key: string]: any};
+    nodeSelector?: {[key: string]: string};
     /**
      * Ingress controller options
      */
-    options?: {[key: string]: any};
+    options?: {[key: string]: string};
     /**
      * Ingress controller provider
      */
@@ -1256,11 +1256,11 @@ export interface ClusterMonitoring {
     /**
      * Node selector key pair
      */
-    nodeSelector?: {[key: string]: any};
+    nodeSelector?: {[key: string]: string};
     /**
      * Monitoring options
      */
-    options?: {[key: string]: any};
+    options?: {[key: string]: string};
     /**
      * Monitoring provider
      */
@@ -1291,7 +1291,7 @@ export interface ClusterNetwork {
     /**
      * Network provider options
      */
-    options: {[key: string]: any};
+    options: {[key: string]: string};
     /**
      * Network provider plugin
      */
@@ -1447,7 +1447,7 @@ export interface ClusterNode {
     /**
      * Node Labels
      */
-    labels?: {[key: string]: any};
+    labels?: {[key: string]: string};
     /**
      * Name of the host provisioned via docker machine
      */
@@ -1754,7 +1754,7 @@ export interface ClusterServicesEtcd {
     /**
      * Extra arguments for scheduler service (map)
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds for scheduler service (list)
      */
@@ -1875,7 +1875,7 @@ export interface ClusterServicesEtcdDeprecated {
     /**
      * Extra arguments for scheduler service (map)
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds for scheduler service (list)
      */
@@ -1988,7 +1988,7 @@ export interface ClusterServicesKubeApi {
     /**
      * Extra arguments that are added to the kube-api services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */
@@ -2077,7 +2077,7 @@ export interface ClusterServicesKubeApiDeprecated {
     /**
      * Extra arguments that are added to the kube-api services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */
@@ -2202,7 +2202,7 @@ export interface ClusterServicesKubeController {
     /**
      * Extra arguments that are added to the kube-controller service
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */
@@ -2229,7 +2229,7 @@ export interface ClusterServicesKubeControllerDeprecated {
     /**
      * Extra arguments that are added to the kube-controller service
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */
@@ -2252,7 +2252,7 @@ export interface ClusterServicesKubeProxyDeprecated {
     /**
      * Extra arguments that are added to the kubeproxy services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the worker nodes
      */
@@ -2271,7 +2271,7 @@ export interface ClusterServicesKubeSchedulerDeprecated {
     /**
      * Extra arguments that are added to the scheduler services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */
@@ -2298,7 +2298,7 @@ export interface ClusterServicesKubelet {
     /**
      * Extra arguments that are added to the kubelet services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the worker nodes
      */
@@ -2337,7 +2337,7 @@ export interface ClusterServicesKubeletDeprecated {
     /**
      * Extra arguments that are added to the kubelet services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the worker nodes
      */
@@ -2368,7 +2368,7 @@ export interface ClusterServicesKubeproxy {
     /**
      * Extra arguments that are added to the kubeproxy services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the worker nodes
      */
@@ -2387,7 +2387,7 @@ export interface ClusterServicesScheduler {
     /**
      * Extra arguments that are added to the scheduler services
      */
-    extraArgs: {[key: string]: any};
+    extraArgs: {[key: string]: string};
     /**
      * Extra binds added to the controlplane nodes
      */

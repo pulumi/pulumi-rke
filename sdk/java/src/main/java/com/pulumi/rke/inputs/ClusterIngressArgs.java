@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -54,13 +53,13 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="extraArgs")
-    private @Nullable Output<Map<String,Object>> extraArgs;
+    private @Nullable Output<Map<String,String>> extraArgs;
 
     /**
      * @return Extra arguments for the ingress controller
      * 
      */
-    public Optional<Output<Map<String,Object>>> extraArgs() {
+    public Optional<Output<Map<String,String>>> extraArgs() {
         return Optional.ofNullable(this.extraArgs);
     }
 
@@ -114,13 +113,13 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="nodeSelector")
-    private @Nullable Output<Map<String,Object>> nodeSelector;
+    private @Nullable Output<Map<String,String>> nodeSelector;
 
     /**
      * @return Node selector key pair
      * 
      */
-    public Optional<Output<Map<String,Object>>> nodeSelector() {
+    public Optional<Output<Map<String,String>>> nodeSelector() {
         return Optional.ofNullable(this.nodeSelector);
     }
 
@@ -129,13 +128,13 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="options")
-    private @Nullable Output<Map<String,Object>> options;
+    private @Nullable Output<Map<String,String>> options;
 
     /**
      * @return Ingress controller options
      * 
      */
-    public Optional<Output<Map<String,Object>>> options() {
+    public Optional<Output<Map<String,String>>> options() {
         return Optional.ofNullable(this.options);
     }
 
@@ -234,7 +233,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder extraArgs(@Nullable Output<Map<String,Object>> extraArgs) {
+        public Builder extraArgs(@Nullable Output<Map<String,String>> extraArgs) {
             $.extraArgs = extraArgs;
             return this;
         }
@@ -245,7 +244,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder extraArgs(Map<String,Object> extraArgs) {
+        public Builder extraArgs(Map<String,String> extraArgs) {
             return extraArgs(Output.of(extraArgs));
         }
 
@@ -318,7 +317,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder nodeSelector(@Nullable Output<Map<String,Object>> nodeSelector) {
+        public Builder nodeSelector(@Nullable Output<Map<String,String>> nodeSelector) {
             $.nodeSelector = nodeSelector;
             return this;
         }
@@ -329,7 +328,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder nodeSelector(Map<String,Object> nodeSelector) {
+        public Builder nodeSelector(Map<String,String> nodeSelector) {
             return nodeSelector(Output.of(nodeSelector));
         }
 
@@ -339,7 +338,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder options(@Nullable Output<Map<String,Object>> options) {
+        public Builder options(@Nullable Output<Map<String,String>> options) {
             $.options = options;
             return this;
         }
@@ -350,7 +349,7 @@ public final class ClusterIngressArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder options(Map<String,Object> options) {
+        public Builder options(Map<String,String> options) {
             return options(Output.of(options));
         }
 
