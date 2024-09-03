@@ -1,10 +1,12 @@
 module github.com/pulumi/pulumi-rke/provider/v3
 
-go 1.21.12
+go 1.22
+
+toolchain go1.22.6
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
-	github.com/pulumi/pulumi/sdk/v3 v3.129.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.2-0.20240903112845-b57b829e4fb3
+	github.com/pulumi/pulumi/sdk/v3 v3.130.0
 	github.com/rancher/terraform-provider-rke v1.5.0
 )
 
@@ -212,7 +214,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.14.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.129.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.130.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rancher/lasso v0.0.0-20240123150939-7055397d6dfa // indirect
@@ -253,6 +255,7 @@ require (
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/xlab/treeprint v1.2.0 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
+	github.com/yuin/goldmark-meta v1.1.0 // indirect
 	github.com/zclconf/go-cty v1.14.2 // indirect
 	github.com/zclconf/go-cty-yaml v1.0.2 // indirect
 	go.etcd.io/etcd/api/v3 v3.5.9 // indirect
