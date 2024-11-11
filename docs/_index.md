@@ -1,12 +1,12 @@
 ---
 # *** WARNING: This file was auto-generated. Do not edit by hand unless you're certain you know what you are doing! ***
-title: Rke Provider
-meta_desc: Provides an overview on how to configure the Pulumi Rke provider.
+title: Rancher Kubernetes Engine (Rke) Provider
+meta_desc: Provides an overview on how to configure the Pulumi Rancher Kubernetes Engine (Rke) provider.
 layout: package
 ---
 ## Installation
 
-The rke provider is available as a package in all Pulumi languages:
+The Rancher Kubernetes Engine (RKE) provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/rke`](https://www.npmjs.com/package/@pulumi/rke)
 * Python: [`pulumi-rke`](https://pypi.org/project/pulumi-rke/)
