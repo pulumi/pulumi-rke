@@ -8,49 +8,15 @@
 
 # Rancher RKE provider
 
-The RKE provider is used to interact with Rancher Kubernetes Engine kubernetes clusters. To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/).
+>[!NOTE] As of v3.6.0, this provider is DEPRECATED and will no longer be maintained by Pulumi.
+> We recommend using the [Local Provider](https://www.pulumi.com/blog/any-terraform-provider/) version of this package,
+> which can be generated from the rke Terraform provider as follows:
+> `pulumi package add terraform-provider registry.opentofu.org/rancher/rke <version>`
+> and follow the instructions.
 
-## Installing
+## Migration
 
-This package is available in many languages in the standard packaging formats.
-
-### Node.js (Java/TypeScript)
-
-To use from JavaScript or TypeScript in Node.js, install using either `npm`:
-
-    $ npm install @pulumi/rke
-
-or `yarn`:
-
-    $ yarn add @pulumi/rke
-
-### Python
-
-To use from Python, install using `pip`:
-
-    $ pip install pulumi_rke
-
-### Go
-
-To use from Go, use `go get` to grab the latest version of the library
-
-    $ go get github.com/pulumi/pulumi-rke/sdk/v3
-
-### .NET
-
-To use from .NET, install using `dotnet add package`:
-
-    $ dotnet add package Pulumi.Rke
-
-## Configuration
-
-The following configuration points are available:
-
-- `rke:debug` - (Optional) Enable RKE debug logs. It can also be sourced from the `RKE_DEBUG` 
-  environment variable. Default `false` (bool)
-- `rke:logFile` - (Optional) Save RKE logs to a file. It can also be sourced from the `RKE_LOG_FILE` 
-  environment variable (string)
+TODO
 
 ## Reference
 
