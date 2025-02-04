@@ -10,13 +10,16 @@
 
 >[!NOTE] As of v3.6.0, this provider is DEPRECATED and will no longer be maintained by Pulumi.
 > We recommend using the [Local Provider](https://www.pulumi.com/blog/any-terraform-provider/) version of this package,
-> which can be generated from the rke Terraform provider as follows:
+> which can be generated from the RKE Terraform provider as follows:
 > `pulumi package add terraform-provider registry.opentofu.org/rancher/rke <version>`
 > and follow the instructions.
 
 ## Migration
 
-TODO
+The currently equivalent upstream version to pulumi-rke@v3.6.0 is search.opentofu.org/provider/rancher/rke v1.7.0.
+We recommend that you migrate between these versions of each provider.
+To perform the migration of existing rke resources, we recommend running `pulumi import` in a fresh stack 
+which uses the local provider package.
 
 ## Reference
 
